@@ -14,6 +14,18 @@ export const data: RoadmapItem[][] = [
               votes: 0,
               type: LinkType.FREE,
             },
+            {
+              url: "https://www.youtube.com/watch?v=IOfxZFgUjt8",
+              label: "HTML Básico Parte 1 - Dev Lucas Lopes",
+              votes: 0,
+              type: LinkType.FREE,
+            },
+            {
+              url: "https://www.youtube.com/watch?v=jU7gyfsQx9Y",
+              label: "HTML Básico Parte 2 - Dev Lucas Lopes",
+              votes: 0,
+              type: LinkType.FREE,
+            },
           ],
         },
         { label: "Formulários e Validações", links: [] },
@@ -24,7 +36,7 @@ export const data: RoadmapItem[][] = [
     {
       label: "CSS",
       children: [
-        { label: "O básico", links: [{url: "https://www.youtube.com/watch?v=5PS6ku8NzIE&list=PLirko8T4cEmx5eBb1-9j6T6Gl4aBtZ_5x", label: 'Pare de Chutar o CSS - Marco Bruno', votes: 0, type: LinkType.FREE }] },
+        { label: "O básico", links: [{url: "https://www.youtube.com/watch?v=5PS6ku8NzIE&list=PLirko8T4cEmx5eBb1-9j6T6Gl4aBtZ_5x", label: 'Pare de Chutar o CSS - Marco Bruno', votes: 0, type: LinkType.FREE }, {url: 'https://www.youtube.com/watch?v=hSfSw4kJHxY&t=3s', label: 'Primeiros Passos CSS - Dev Lucas Lopes', votes:0, type: LinkType.FREE}] },
         { label: "Fazendo Layouts", links: [] },
         { label: "Design Responsivo e Media Queries", links: [] },
       ],
@@ -135,7 +147,7 @@ export const data: RoadmapItem[][] = [
     {
       label: "Angular",
       children: [
-        { label: "O Básico", links: [{url: "https://www.youtube.com/playlist?list=PLGxZ4Rq3BOBoSRcKWEdQACbUCNWLczg2G", label: "Curso de Angular - Loiane Groner", votes: 0, type: LinkType.FREE}]}
+        { label: "O Básico", links: [{url: "https://www.youtube.com/playlist?list=PLGxZ4Rq3BOBoSRcKWEdQACbUCNWLczg2G", label: "Curso de Angular - Loiane Groner", votes: 0, type: LinkType.FREE}]},
         { label: "RxJS", links: [] },
         { label: "NgRx", links: [] },
       ],
