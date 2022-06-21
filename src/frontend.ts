@@ -24,7 +24,7 @@ export const data: RoadmapItem[][] = [
     {
       label: "CSS",
       children: [
-        { label: "O básico", links: [] },
+        { label: "O básico", links: [{url: "https://www.youtube.com/watch?v=5PS6ku8NzIE&list=PLirko8T4cEmx5eBb1-9j6T6Gl4aBtZ_5x", label: 'Pare de Chutar o CSS - Marco Bruno', votes: 0, type: LinkType.FREE }] },
         { label: "Fazendo Layouts", links: [] },
         { label: "Design Responsivo e Media Queries", links: [] },
       ],
@@ -32,7 +32,7 @@ export const data: RoadmapItem[][] = [
     {
       label: "Javascript",
       children: [
-        { label: "Sintaxe e o Básico", links: [] },
+        { label: "Sintaxe e o Básico", links: [{url: 'https://www.youtube.com/watch?v=bXim6-jCflk&list=PLz_pSrQW_5xJexe74z50HXLCkYDKfks8S', label: 'Desafios Javascript - Fabio Bergmann', votes: 0, type: LinkType.FREE}] },
         { label: "Manipulação de DOM", links: [] },
         { label: "Fetch API / Ajax (XHR)", links: [] },
         { label: "ES6+ e JS Modular", links: [] },
@@ -128,13 +128,14 @@ export const data: RoadmapItem[][] = [
     {
       label: "React",
       children: [
-        { label: "O Básico", links: [] },
+        { label: "O Básico", links: [{url: 'https://www.youtube.com/watch?v=aUDgoPsrPNg&list=PLirko8T4cEmzWZVn_ZKQbfDOuCnSZJ4va', label: 'Javascript para React - Marco Bruno', votes: 0, type: LinkType.FREE}] },
         { label: "Redux", links: [] },
       ],
     },
     {
       label: "Angular",
       children: [
+        { label: "O Básico", links: [{url: "https://www.youtube.com/playlist?list=PLGxZ4Rq3BOBoSRcKWEdQACbUCNWLczg2G", label: "Curso de Angular - Loiane Groner", votes: 0, type: LinkType.FREE}]}
         { label: "RxJS", links: [] },
         { label: "NgRx", links: [] },
       ],
@@ -174,7 +175,7 @@ export const data: RoadmapItem[][] = [
       children: [
         { label: "Bootstrap", links: [] },
         { label: "Bulma", links: [] },
-        { label: "Tailwind CSS", links: [] },
+        { label: "Tailwind CSS", links: [{url: 'https://www.youtube.com/watch?v=1eLaBow7Zbo&list=PLcoYAcR89n-r1m-tMfV4qndrRWpT_rb9u', label: 'Curso Gratuito Tailwind CSS - Tiago Matos', votes: 0, type: LinkType.FREE}] },
         { label: "Chakra UI", links: [] },
         { label: "Material UI", links: [] },
         { label: "Radix UI", links: [] },
@@ -198,7 +199,7 @@ export const data: RoadmapItem[][] = [
     {
       label: "Type Checkers",
       children: [
-        { label: "Typescript", links: [] },
+        { label: "Typescript", links: [{url: "https://www.youtube.com/playlist?list=PLlAbYrWSYTiPanrzauGa7vMuve7_vnXG_", label: 'Mini Curso de Typescript - Willian Justen', votes: 0, type: LinkType.FREE}] },
         { label: "Flow", links: [] }
       ],
     }
@@ -243,7 +244,7 @@ export const data: RoadmapItem[][] = [
     {
       label: "Geradores de Sites Estáticos",
       children: [
-        { label: "Next.js", links: [] },
+        { label: "Next.js", links: [{url: 'https://www.youtube.com/playlist?list=PLkFMdTTdI9c3m6R-JinONx3ha3CsBy2hB', label: 'Next.js - Lucas Nhimi', votes: 0, type: LinkType.FREE}] },
         { label: "GatsbyJS", links: [] },
         { label: "Nuxt.js", links: [] },
         { label: "Vuepress", links: [] },
