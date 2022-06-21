@@ -57,7 +57,24 @@ export const data: RoadmapItem[][] = [
             },
           ],
         },
-        { label: "Acessibilidade", links: [] },
+        {
+          label: "Acessibilidade",
+          links: [
+            {
+              url: "https://www.youtube.com/watch?v=ZfUwFCCCDh0",
+              label:
+                "HTML e Acessibilidade. 6 erros comuns que até devs mais experientes podem cometer - Ser Frontend",
+              votes: 0,
+              type: LinkType.FREE,
+            },
+            {
+              url: "https://www.youtube.com/watch?v=pOmdL9LzDJg",
+              label: "Acessibilidade em páginas web - Matheus Castiglioni",
+              votes: 0,
+              type: LinkType.FREE,
+            },
+          ],
+        },
       ],
     },
     {
