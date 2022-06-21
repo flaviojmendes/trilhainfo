@@ -28,6 +28,7 @@ import {
 } from "@chakra-ui/react";
 import { CheckIcon, ChevronUpIcon, InfoIcon } from "@chakra-ui/icons";
 import { RoadmapItem } from "./entity/RoadmapItem";
+import { FaGithubSquare } from "react-icons/fa";
 
 function App() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -40,13 +41,19 @@ function App() {
 
   return (
     <>
-      <div className="container mx-auto my-10">
+      <div className="container flex mx-auto mt-2">
+        <Link isExternal className="mr-0 ml-auto flex" textDecoration={'none'} href="https://github.com/flaviojmendes/trilhadev">
+          <FaGithubSquare className="w-10 h-10 c-red" />
+          <span className="my-auto text-xl ml-2 c-red">Github</span>
+        </Link>
+      </div>
+      <div className="container mx-auto mt-0 mb-10">
         <h1 className="text-center font-bold text-3xl">
           <span className="c-brown">0</span>
           <span className="c-brown">1</span>
           <span className="c-yellow">0</span>
           <span className="c-yellow">1</span>
-          <span className="c-blue">0</span>
+         <span className="c-blue">0</span>
           <span className="c-red">Trilha</span>
           <span className="c-brown">0</span>
           <span className="c-brown">1</span>
@@ -59,11 +66,10 @@ function App() {
           <span className="c-yellow">1</span>
           <span className="c-blue">0</span>
           <span className="c-blue">1</span>
-          <span className="c-blue">0</span>
+          <span className="c-blue">1</span>
           <span className="c-brown">0</span>
-          <span className="c-brown">1</span>
-          <span className="c-red">Dev</span>
-          <span className="c-yellow">0</span>
+          <span className="c-brown">0</span>
+          <span className="c-red">Info</span>
           <span className="c-yellow">1</span>
           <span className="c-blue">0</span>
           <span className="c-blue">0</span>
@@ -108,8 +114,9 @@ function App() {
 
                           <InfoIcon m="auto" mr="2" color={"#494443"} />
                         </Flex>
-                        {index < level.length-1 &&
-                        <div className="bd-red border-2 border-dashed h-1 my-auto w-[50px]"></div>}
+                        {index < level.length - 1 && (
+                          <div className="bd-red border-2 border-dashed h-1 my-auto w-[50px]"></div>
+                        )}
                       </>
                     );
                   })}
