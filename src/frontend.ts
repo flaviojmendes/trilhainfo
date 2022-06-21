@@ -28,15 +28,58 @@ export const data: RoadmapItem[][] = [
             },
           ],
         },
-        { label: "Formulários e Validações", links: [] },
-        { label: "Convenções e Melhores Práticas", links: [] },
+        {
+          label: "Formulários e Validações",
+          links: [
+            {
+              url: "https://www.youtube.com/watch?v=uvzFT-TCVFM",
+              label: "Validação de campos em formulários HTML - Edicursos",
+              votes: 0,
+              type: LinkType.FREE,
+            },
+            {
+              url: "https://www.youtube.com/watch?v=wwqOJ2o84S4",
+              label: "Formulários com HTML e CSS - Rafaella Ballerini",
+              votes: 0,
+              type: LinkType.FREE,
+            },
+          ],
+        },
+        {
+          label: "Convenções e Melhores Práticas",
+          links: [
+            {
+              url: "https://www.youtube.com/watch?v=TBplwrsUj4s",
+              label:
+                "Boas práticas para escrever um HTML profissional - Mayk Brito",
+              votes: 0,
+              type: LinkType.FREE,
+            },
+          ],
+        },
         { label: "Acessibilidade", links: [] },
       ],
     },
     {
       label: "CSS",
       children: [
-        { label: "O básico", links: [{url: "https://www.youtube.com/watch?v=5PS6ku8NzIE&list=PLirko8T4cEmx5eBb1-9j6T6Gl4aBtZ_5x", label: 'Pare de Chutar o CSS - Marco Bruno', votes: 0, type: LinkType.FREE }, {url: 'https://www.youtube.com/watch?v=hSfSw4kJHxY&t=3s', label: 'Primeiros Passos CSS - Dev Lucas Lopes', votes:0, type: LinkType.FREE}] },
+        {
+          label: "O básico",
+          links: [
+            {
+              url: "https://www.youtube.com/watch?v=5PS6ku8NzIE&list=PLirko8T4cEmx5eBb1-9j6T6Gl4aBtZ_5x",
+              label: "Pare de Chutar o CSS - Marco Bruno",
+              votes: 0,
+              type: LinkType.FREE,
+            },
+            {
+              url: "https://www.youtube.com/watch?v=hSfSw4kJHxY&t=3s",
+              label: "Primeiros Passos CSS - Dev Lucas Lopes",
+              votes: 0,
+              type: LinkType.FREE,
+            },
+          ],
+        },
         { label: "Fazendo Layouts", links: [] },
         { label: "Design Responsivo e Media Queries", links: [] },
       ],
@@ -44,7 +87,17 @@ export const data: RoadmapItem[][] = [
     {
       label: "Javascript",
       children: [
-        { label: "Sintaxe e o Básico", links: [{url: 'https://www.youtube.com/watch?v=bXim6-jCflk&list=PLz_pSrQW_5xJexe74z50HXLCkYDKfks8S', label: 'Desafios Javascript - Fabio Bergmann', votes: 0, type: LinkType.FREE}] },
+        {
+          label: "Sintaxe e o Básico",
+          links: [
+            {
+              url: "https://www.youtube.com/watch?v=bXim6-jCflk&list=PLz_pSrQW_5xJexe74z50HXLCkYDKfks8S",
+              label: "Desafios Javascript - Fabio Bergmann",
+              votes: 0,
+              type: LinkType.FREE,
+            },
+          ],
+        },
         { label: "Manipulação de DOM", links: [] },
         { label: "Fetch API / Ajax (XHR)", links: [] },
         { label: "ES6+ e JS Modular", links: [] },
@@ -140,14 +193,34 @@ export const data: RoadmapItem[][] = [
     {
       label: "React",
       children: [
-        { label: "O Básico", links: [{url: 'https://www.youtube.com/watch?v=aUDgoPsrPNg&list=PLirko8T4cEmzWZVn_ZKQbfDOuCnSZJ4va', label: 'Javascript para React - Marco Bruno', votes: 0, type: LinkType.FREE}] },
+        {
+          label: "O Básico",
+          links: [
+            {
+              url: "https://www.youtube.com/watch?v=aUDgoPsrPNg&list=PLirko8T4cEmzWZVn_ZKQbfDOuCnSZJ4va",
+              label: "Javascript para React - Marco Bruno",
+              votes: 0,
+              type: LinkType.FREE,
+            },
+          ],
+        },
         { label: "Redux", links: [] },
       ],
     },
     {
       label: "Angular",
       children: [
-        { label: "O Básico", links: [{url: "https://www.youtube.com/playlist?list=PLGxZ4Rq3BOBoSRcKWEdQACbUCNWLczg2G", label: "Curso de Angular - Loiane Groner", votes: 0, type: LinkType.FREE}]},
+        {
+          label: "O Básico",
+          links: [
+            {
+              url: "https://www.youtube.com/playlist?list=PLGxZ4Rq3BOBoSRcKWEdQACbUCNWLczg2G",
+              label: "Curso de Angular - Loiane Groner",
+              votes: 0,
+              type: LinkType.FREE,
+            },
+          ],
+        },
         { label: "RxJS", links: [] },
         { label: "NgRx", links: [] },
       ],
@@ -167,7 +240,7 @@ export const data: RoadmapItem[][] = [
         { label: "Styled JSX", links: [] },
         { label: "Emotion", links: [] },
       ],
-    }
+    },
   ],
 
   [
@@ -178,7 +251,7 @@ export const data: RoadmapItem[][] = [
         { label: "Custom Elements", links: [] },
         { label: "Shadow DOM", links: [] },
       ],
-    }
+    },
   ],
 
   [
@@ -187,12 +260,22 @@ export const data: RoadmapItem[][] = [
       children: [
         { label: "Bootstrap", links: [] },
         { label: "Bulma", links: [] },
-        { label: "Tailwind CSS", links: [{url: 'https://www.youtube.com/watch?v=1eLaBow7Zbo&list=PLcoYAcR89n-r1m-tMfV4qndrRWpT_rb9u', label: 'Curso Gratuito Tailwind CSS - Tiago Matos', votes: 0, type: LinkType.FREE}] },
+        {
+          label: "Tailwind CSS",
+          links: [
+            {
+              url: "https://www.youtube.com/watch?v=1eLaBow7Zbo&list=PLcoYAcR89n-r1m-tMfV4qndrRWpT_rb9u",
+              label: "Curso Gratuito Tailwind CSS - Tiago Matos",
+              votes: 0,
+              type: LinkType.FREE,
+            },
+          ],
+        },
         { label: "Chakra UI", links: [] },
         { label: "Material UI", links: [] },
         { label: "Radix UI", links: [] },
       ],
-    }
+    },
   ],
 
   [
@@ -204,17 +287,27 @@ export const data: RoadmapItem[][] = [
         { label: "Cypress", links: [] },
         { label: "Enzyme", links: [] },
       ],
-    }
+    },
   ],
 
   [
     {
       label: "Type Checkers",
       children: [
-        { label: "Typescript", links: [{url: "https://www.youtube.com/playlist?list=PLlAbYrWSYTiPanrzauGa7vMuve7_vnXG_", label: 'Mini Curso de Typescript - Willian Justen', votes: 0, type: LinkType.FREE}] },
-        { label: "Flow", links: [] }
+        {
+          label: "Typescript",
+          links: [
+            {
+              url: "https://www.youtube.com/playlist?list=PLlAbYrWSYTiPanrzauGa7vMuve7_vnXG_",
+              label: "Mini Curso de Typescript - Willian Justen",
+              votes: 0,
+              type: LinkType.FREE,
+            },
+          ],
+        },
+        { label: "Flow", links: [] },
       ],
-    }
+    },
   ],
 
   [
@@ -228,9 +321,9 @@ export const data: RoadmapItem[][] = [
         { label: "Notificações", links: [] },
         { label: "Orientação", links: [] },
         { label: "Pagamentos", links: [] },
-        { label: "Credenciais", links: [] }
+        { label: "Credenciais", links: [] },
       ],
-    }
+    },
   ],
   [
     {
@@ -241,7 +334,7 @@ export const data: RoadmapItem[][] = [
         { label: "Angular - Universal", links: [] },
         { label: "Vue.js - Nuxt.js", links: [] },
       ],
-    }
+    },
   ],
   [
     {
@@ -250,13 +343,23 @@ export const data: RoadmapItem[][] = [
         { label: "Apollo", links: [] },
         { label: "Relay Modern", links: [] },
       ],
-    }
+    },
   ],
   [
     {
       label: "Geradores de Sites Estáticos",
       children: [
-        { label: "Next.js", links: [{url: 'https://www.youtube.com/playlist?list=PLkFMdTTdI9c3m6R-JinONx3ha3CsBy2hB', label: 'Next.js - Lucas Nhimi', votes: 0, type: LinkType.FREE}] },
+        {
+          label: "Next.js",
+          links: [
+            {
+              url: "https://www.youtube.com/playlist?list=PLkFMdTTdI9c3m6R-JinONx3ha3CsBy2hB",
+              label: "Next.js - Lucas Nhimi",
+              votes: 0,
+              type: LinkType.FREE,
+            },
+          ],
+        },
         { label: "GatsbyJS", links: [] },
         { label: "Nuxt.js", links: [] },
         { label: "Vuepress", links: [] },
@@ -265,7 +368,7 @@ export const data: RoadmapItem[][] = [
         { label: "Gridsome", links: [] },
         { label: "Eleventy", links: [] },
       ],
-    }
+    },
   ],
   [
     {
@@ -276,22 +379,18 @@ export const data: RoadmapItem[][] = [
         { label: "Flutter", links: [] },
         { label: "Ionic", links: [] },
       ],
-    }
+    },
   ],
   [
     {
       label: "Aplicações Desktop",
-      children: [
-        { label: "Electron", links: [] },
-      ],
-    }
+      children: [{ label: "Electron", links: [] }],
+    },
   ],
   [
     {
       label: "Web Assembly",
-      children: [
-        { label: "O básico", links: [] },
-      ],
-    }
+      children: [{ label: "O básico", links: [] }],
+    },
   ],
 ];
