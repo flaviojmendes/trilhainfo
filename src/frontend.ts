@@ -105,6 +105,10 @@ export const data: RoadmapItem[][] = [
               url: "https://www.youtube.com/watch?v=3rrX9w0HhZc",
               label: "O que é Web Design Responsivo? - Chief of Design",
             },
+            {
+              url: "https://www.youtube.com/watch?v=H91DhKPjhPk",
+              label: "Responsividade na Prática - Mayk Brito",
+            },
           ],
         },
       ],
@@ -123,13 +127,49 @@ export const data: RoadmapItem[][] = [
             },
           ],
         },
-        { label: "Manipulação de DOM", links: [] },
-        { label: "Fetch API / Ajax (XHR)", links: [] },
+        {
+          label: "Manipulação de DOM",
+          links: [
+            {
+              url: "https://www.youtube.com/watch?v=xoYFoBtev8A",
+              label: "Manipulando o DOM na prática - Dogcode",
+            },
+            {
+              url: "https://www.youtube.com/watch?v=aVB67Y31E4A",
+              label: "Manipulando a DOM com Vanilla JS - CodarMe",
+            },
+            {
+              url: "https://www.youtube.com/watch?v=UftSB4DaRU4",
+              label:
+                "Manipulação de DOM com JavaScript, do zero, na prática - Mayk Brito",
+            },
+          ],
+        },
+        {
+          label: "Fetch API / Ajax (XHR)",
+          links: [
+            {
+              url: "https://www.youtube.com/watch?v=mmCuNbChZ9I",
+              label: "Como consumir de uma API usando a Fetch API - Huriel",
+            },
+            {
+              url: "https://www.youtube.com/watch?v=qIGYM4S8x50",
+              label:
+                "Aprenda Fetch Api de Javascript - Matheus Battisti (Hora de Codar)",
+            },
+          ],
+        },
         { label: "ES6+ e JS Modular", links: [] },
         {
           label:
             "Conceitos de Hoisting, Event Bubbling, Escopo, Prototype, Shadow DOM, strict",
-          links: [],
+          links: [
+            {
+              url: "https://www.youtube.com/watch?v=RtfBx90R070&list=PLlAbYrWSYTiPQ1BE8klOtheBC0mtL3hEi",
+              label:
+                "Mini-curso JS Moderno (ES6) - Willian Justen",
+            },
+          ],
         },
       ],
     },
