@@ -41,7 +41,7 @@ function App() {
 
   return (
     <>
-      <div className="container flex mx-auto mt-2">
+      <div className="container p-2 flex mx-auto mt-2">
         <Link isExternal className="mr-0 ml-auto flex" textDecoration={'none'} href="https://github.com/flaviojmendes/trilhadev">
           <FaGithubSquare className="w-10 h-10 c-red" />
           <span className="my-auto text-xl ml-2 c-red">Github</span>
