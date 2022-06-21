@@ -166,8 +166,7 @@ export const data: RoadmapItem[][] = [
           links: [
             {
               url: "https://www.youtube.com/watch?v=RtfBx90R070&list=PLlAbYrWSYTiPQ1BE8klOtheBC0mtL3hEi",
-              label:
-                "Mini-curso JS Moderno (ES6) - Willian Justen",
+              label: "Mini-curso JS Moderno (ES6) - Willian Justen",
             },
           ],
         },
@@ -205,9 +204,26 @@ export const data: RoadmapItem[][] = [
       label: "Segurança",
       children: [
         { label: "HTTPS", links: [] },
-        { label: "CORS", links: [] },
+        {
+          label: "CORS",
+          links: [
+            {
+              url: "https://www.youtube.com/watch?v=GZV-FUdeVwE",
+              label:
+                "Cross-Origin Resource Sharing em 6 minutos - Codigo Fonte TV",
+            },
+          ],
+        },
         { label: "Content Security Policy", links: [] },
-        { label: "OWASP", links: [] },
+        {
+          label: "OWASP",
+          links: [
+            {
+              url: "https://www.youtube.com/watch?v=wC_epzVm780",
+              label: "Série OWASP Top 10 - Cássio B. Pereira",
+            },
+          ],
+        },
       ],
     },
   ],
@@ -215,8 +231,24 @@ export const data: RoadmapItem[][] = [
     {
       label: "Gerenciadores de Pacote",
       children: [
-        { label: "npm", links: [] },
-        { label: "yarn", links: [] },
+        {
+          label: "npm",
+          links: [
+            {
+              url: "https://www.youtube.com/watch?v=tFqsmNrWW0M",
+              label: "Introdução ao NPM - Fellyph Cintra ",
+            },
+          ],
+        },
+        {
+          label: "yarn",
+          links: [
+            {
+              url: "https://www.youtube.com/watch?v=3BPfDo4arHc",
+              label: "Yarn - DevPleno",
+            },
+          ],
+        },
       ],
     },
   ],
@@ -224,7 +256,16 @@ export const data: RoadmapItem[][] = [
     {
       label: "Pre Processadores CSS",
       children: [
-        { label: "Sass", links: [] },
+        {
+          label: "Sass",
+          links: [
+            {
+              url: "https://www.youtube.com/watch?v=Wo5t3uUV8n4",
+              label:
+                "Aprenda Sass em 1 hora - Matheus Battisti (Hora de Codar)",
+            },
+          ],
+        },
         { label: "PostCSS", links: [] },
         { label: "Less", links: [] },
       ],
