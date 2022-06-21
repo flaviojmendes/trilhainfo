@@ -47,7 +47,7 @@ function App() {
           <span className="my-auto text-xl ml-2 c-red">Github</span>
         </Link>
       </div>
-      <div className="container mx-auto mt-0 mb-10">
+      <div className="container p-1 mx-auto mt-0 mb-10">
         <h1 className="text-center font-bold text-3xl">
           <span className="c-brown">0</span>
           <span className="c-brown">1</span>
