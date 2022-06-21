@@ -98,7 +98,15 @@ export const data: RoadmapItem[][] = [
           ],
         },
         { label: "Fazendo Layouts", links: [] },
-        { label: "Design Responsivo e Media Queries", links: [] },
+        {
+          label: "Design Responsivo e Media Queries",
+          links: [
+            {
+              url: "https://www.youtube.com/watch?v=3rrX9w0HhZc",
+              label: "O que é Web Design Responsivo? - Chief of Design",
+            },
+          ],
+        },
       ],
     },
     {

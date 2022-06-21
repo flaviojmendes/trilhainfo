@@ -6,8 +6,8 @@ export interface RoadmapItem {
 
 export interface Link {
     url: string;
-    type: string;
-    votes: number;
+    type?: string;
+    votes?: number;
     label: string;
 }
 

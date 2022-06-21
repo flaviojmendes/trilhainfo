@@ -155,7 +155,7 @@ function App() {
                         {child.links?.map((link, index) => {
                           return (
                             <>
-                              <Flex>
+                              <Flex className="my-2">
                                 <Link href={link.url} isExternal>
                                   {link.label}
                                 </Link>
@@ -164,9 +164,11 @@ function App() {
                                   cursor={"pointer"}
                                   colorScheme="green"
                                   p={1}
+                                  rounded={"md"}
+                                  className="h-7"
                                 >
                                   <CheckIcon mr={2} />
-                                  <span>{link.votes}</span>
+                                  <span>{link.votes ? link.votes : '0'}</span>
                                 </Badge>
                               </Flex>
                             </>
