@@ -496,7 +496,16 @@ export const data: RoadmapItem[][] = [
   [
     {
       label: "Web Assembly",
-      children: [{ label: "O básico", links: [] }],
+      children: [{ label: "O básico", links: [
+        {
+          url: "https://developer.mozilla.org/pt-BR/docs/WebAssembly",
+          label: "O que é WebAssembly? - Mozilla",
+          votes: 0,
+          type: LinkType.FREE,
+        },
+      ],
+     },
+    ],
     },
   ],
 ];
