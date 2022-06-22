@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import { data } from "./frontend";
 import {
@@ -13,7 +12,6 @@ import {
   Button,
   Center,
   Flex,
-  Icon,
   Link,
   Modal,
   ModalBody,
@@ -26,7 +24,7 @@ import {
   Stack,
   useDisclosure,
 } from "@chakra-ui/react";
-import { CheckIcon, ChevronUpIcon, InfoIcon } from "@chakra-ui/icons";
+import { CheckIcon, InfoIcon } from "@chakra-ui/icons";
 import { RoadmapItem } from "./entity/RoadmapItem";
 import { FaGithubSquare } from "react-icons/fa";
 
@@ -53,7 +51,7 @@ function App() {
           <span className="c-brown">1</span>
           <span className="c-yellow">0</span>
           <span className="c-yellow">1</span>
-         <span className="c-blue">0</span>
+          <span className="c-blue">0</span>
           <span className="c-red">Trilha</span>
           <span className="c-brown">0</span>
           <span className="c-brown">1</span>
@@ -91,7 +89,7 @@ function App() {
           Frontend
         </h2>
 
-        <div className="">
+        <div>
           {data.map((level, index, data) => {
             return (
               <Stack spacing={0}>
@@ -138,7 +136,7 @@ function App() {
           <ModalHeader>{activeItem?.label}</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <Accordion>
+            <Accordion allowToggle>
               {activeItem?.children?.map((child, index) => {
                 return (
                   <>
