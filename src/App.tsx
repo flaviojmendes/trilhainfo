@@ -70,7 +70,7 @@ function App() {
 
       <Modal size={"xl"} isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
-        <ModalContent>
+        <ModalContent  className="bd-handwritten">
           <ModalHeader>{activeItem?.label}</ModalHeader>
           <ModalCloseButton />
           <ModalBody>

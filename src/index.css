@@ -38,9 +38,9 @@ body {
 }
 
 .bd-handwritten {
-  border:solid 3px #d56a47;
-  border-top-left-radius: 255px 15px;
-  border-top-right-radius: 15px 225px;
-  border-bottom-right-radius: 225px 15px;
-  border-bottom-left-radius: 15px 255px;
+  border:solid 3px #d56a47 !important;
+  border-top-left-radius: 255px 15px !important;
+  border-top-right-radius: 15px 225px !important;
+  border-bottom-right-radius: 225px 15px !important;
+  border-bottom-left-radius: 15px 255px !important;
 }
