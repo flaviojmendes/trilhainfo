@@ -398,7 +398,7 @@ export const data: RoadmapItem[][] = [
             },
           ],
         },
-        { label: "Chakra UI", links: [] },
+        { label: "Chakra UI", links: [{url: "https://www.youtube.com/watch?v=RjZOUCIwo4M", label: "Configurando Chakra UI no React! - Huriel"}] },
         { label: "Material UI", links: [] },
         { label: "Radix UI", links: [] },
       ],
