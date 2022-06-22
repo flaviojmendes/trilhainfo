@@ -333,7 +333,18 @@ export const data: RoadmapItem[][] = [
     },
     {
       label: "Vue.js",
-      children: [{ label: "VueX", links: [] }],
+      children: [
+        {
+          label: "O Básico",
+          links: [
+            {
+              url: "https://vuejs.org/guide/introduction.html",
+              label: "Documentação",
+            },
+          ],
+        },
+        { label: "VueX", links: [] },
+      ],
     },
   ],
 
