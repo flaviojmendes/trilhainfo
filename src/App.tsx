@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import logo from "./logo.svg";
 import "./App.css";
+import Logo from './components/Logo/Logo'
 import { data } from "./frontend";
 import {
   Accordion,
@@ -48,34 +49,7 @@ function App() {
         </Link>
       </div>
       <div className="container p-1 mx-auto mt-0 mb-10">
-        <h1 className="text-center font-bold text-3xl">
-          <span className="c-brown">0</span>
-          <span className="c-brown">1</span>
-          <span className="c-yellow">0</span>
-          <span className="c-yellow">1</span>
-         <span className="c-blue">0</span>
-          <span className="c-red">Trilha</span>
-          <span className="c-brown">0</span>
-          <span className="c-brown">1</span>
-          <span className="c-blue">0</span>
-          <span className="c-blue">0</span>
-          <span className="c-yellow">1</span>
-        </h1>
-        <h1 className="text-center font-bold text-3xl">
-          <span className="c-yellow">1</span>
-          <span className="c-yellow">1</span>
-          <span className="c-blue">0</span>
-          <span className="c-blue">1</span>
-          <span className="c-blue">1</span>
-          <span className="c-brown">0</span>
-          <span className="c-brown">0</span>
-          <span className="c-red">Info</span>
-          <span className="c-yellow">1</span>
-          <span className="c-blue">0</span>
-          <span className="c-blue">0</span>
-          <span className="c-yellow">1</span>
-          <span className="c-yellow">1</span>
-        </h1>
+        <Logo />
 
         <p className="mt-4 text-center font-semibold c-brown">
           Não sabe por onde começar a estudar? Que tal dar uma olhada por aqui?
