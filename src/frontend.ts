@@ -343,6 +343,16 @@ export const data: RoadmapItem[][] = [
             },
           ],
         },
+        {
+          label: "Cursos",
+          links: [
+            {
+              url: "https://treinamento.vuejsbrasil.org/",
+              label:
+                "Curso completo e gratuito de Vue 3 do iniciante ao avançado",
+            },
+          ],
+        },
         { label: "VueX", links: [] },
       ],
     },
