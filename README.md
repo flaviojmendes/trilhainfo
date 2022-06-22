@@ -11,3 +11,10 @@ Atualmente estou pedindo contribuições para o Roadmap de Frontend. Basta manda
 Se você está se perguntando, nossa mas que projeto bagunçado, tudo em um arquivo só, não tem Backend, etc e tal. Você acertou! 🙈
 
 A ideia é inicialmente engajar a comunidade e então podemos ir evoluindo o portal à medida em que vamos tendo a necessidade. 😀
+
+
+## Quem já contribuiu:
+
+<a href = "https://github.com/flaviojmendes/trilhainfo/graphs/contributors">
+  <img src = "https://contrib.rocks/image?repo=flaviojmendes/trilhainfo"/>
+</a>
