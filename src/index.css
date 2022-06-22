@@ -2,10 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;300;400;500;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;300;400;500;600&display=swap");
 
 h1 {
-  font-family: 'Roboto Mono', monospace;
+  font-family: "Roboto Mono", monospace;
 }
 
 body {
@@ -13,26 +13,34 @@ body {
 }
 
 .c-blue {
-  color: #59C0E4;
+  color: #59c0e4;
 }
 
 .c-dark-brown {
   color: #494443;
 }
 .c-brown {
-  color: #E0CFCA;
+  color: #e9dad5;
 }
 .c-yellow {
-  color: #EABC54;
+  color: #eabc54;
 }
 .c-red {
-  color: #EE8561;
+  color: #ee8561;
 }
 
 .bg-brown {
-  background-color: #E0CFCA;
+  background-color: #e9dad5;
 }
 
 .bd-red {
-  border-color: #EE8561;
+  border-color: #ee8561;
+}
+
+.bd-handwritten {
+  border:solid 3px #d56a47;
+  border-top-left-radius: 255px 15px;
+  border-top-right-radius: 15px 225px;
+  border-bottom-right-radius: 225px 15px;
+  border-bottom-left-radius: 15px 255px;
 }

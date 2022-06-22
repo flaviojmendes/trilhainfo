@@ -327,8 +327,8 @@ export const data: RoadmapItem[][] = [
             },
           ],
         },
-        { label: "RxJS", links: [] },
-        { label: "NgRx", links: [] },
+        { label: "RxJS", links: [{url: "https://www.youtube.com/watch?v=DBHpS2CqGZs", label: "Programação Reativa com RxJS Parte 1 - Cod3r Cursos"}] },
+        { label: "NgRx", links: [{url: "https://www.youtube.com/watch?v=KXliXSjxC6k", label: "Programação Reativa com RxJS Parte 2 - Cod3r Cursos"}] },
       ],
     },
     {

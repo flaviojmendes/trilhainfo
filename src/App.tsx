@@ -28,22 +28,18 @@ import {
 import { CheckIcon, InfoIcon } from "@chakra-ui/icons";
 import { RoadmapItem } from "./entity/RoadmapItem";
 import { FaGithubSquare } from "react-icons/fa";
+import Level from "./components/Level/Level";
 
 function App() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [activeItem, setActiveItem] = React.useState<RoadmapItem>();
 
-  function triggerItemSelection(item: RoadmapItem) {
-    setActiveItem(item);
-    onOpen();
-  }
-
   return (
     <>
       <div className="container p-2 flex mx-auto mt-2">
         <Link isExternal className="mr-0 ml-auto flex" textDecoration={'none'} href="https://github.com/flaviojmendes/trilhadev">
-          <FaGithubSquare className="w-10 h-10 c-red" />
-          <span className="my-auto text-xl ml-2 c-red">Github</span>
+          <FaGithubSquare className="w-8 h-8 c-red" />
+          <span className="my-auto text-lg ml-1 c-red">Github</span>
         </Link>
       </div>
       <div className="container p-1 mx-auto mt-0 mb-10">
@@ -66,39 +62,7 @@ function App() {
         <div>
           {data.map((level, index, data) => {
             return (
-              <Stack spacing={0}>
-                <div className="flex place-content-center">
-                  {level.map((item, index, level) => {
-                    return (
-                      <>
-                        <Flex
-                          onClick={() => {
-                            triggerItemSelection(item);
-                          }}
-                          rounded={"xl"}
-                          className="mx-0 my-0 bg-brown p-2 w-48 text-center cursor-pointer"
-                        >
-                          <Spacer />
-                          <span className="m-auto c-dark-brown font-semibold">
-                            {item.label}
-                          </span>
-                          <Spacer />
-
-                          <InfoIcon m="auto" mr="2" color={"#494443"} />
-                        </Flex>
-                        {index < level.length - 1 && (
-                          <div className="bd-red border-2 border-dashed h-1 my-auto w-[50px]"></div>
-                        )}
-                      </>
-                    );
-                  })}
-                </div>
-                {index < data.length - 1 && (
-                  <Center mt={0}>
-                    <div className="bd-red border-2 w-1 my-0 h-[30px]"></div>
-                  </Center>
-                )}
-              </Stack>
+              <Level level={level} index={index} levelsQty={data.length} onOpen={onOpen} setActiveItem={setActiveItem}/>
             );
           })}
         </div>
