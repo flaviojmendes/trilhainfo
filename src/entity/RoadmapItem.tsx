@@ -1,5 +1,6 @@
 export interface RoadmapItem {
     label: string;
+    description?: string;
     children?: RoadmapItem[];
     links?: Link[];
 }

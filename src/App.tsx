@@ -74,6 +74,7 @@ function App() {
           <ModalHeader>{activeItem?.label}</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
+            <p className="mb-4">{activeItem?.description}</p>
             <Accordion allowToggle>
               {activeItem?.children?.map((child, index) => {
                 return (

@@ -4,6 +4,8 @@ export const data: RoadmapItem[][] = [
   [
     {
       label: "HTML",
+      description:
+        "HTML significa HyperText Markup Language. Ele é usado no frontend e fornece a estrutura da página da Web que você pode estilizar usando CSS e tornar interativa usando JavaScript.",
       children: [
         {
           label: "O básico",
@@ -79,6 +81,8 @@ export const data: RoadmapItem[][] = [
     },
     {
       label: "CSS",
+      description:
+        "CSS ou Cascading Style Sheets é a linguagem usada para estilizar o frontend de qualquer site. CSS é uma tecnologia fundamental da World Wide Web, juntamente com HTML e JavaScript.",
       children: [
         {
           label: "O básico",
@@ -115,6 +119,8 @@ export const data: RoadmapItem[][] = [
     },
     {
       label: "Javascript",
+      description:
+        "JavaScript permite adicionar interatividade às suas páginas. Exemplos comuns que você pode ter visto nos sites são controles deslizantes, interações de clique, pop-ups e assim por diante.",
       children: [
         {
           label: "Sintaxe e o Básico",
@@ -176,6 +182,8 @@ export const data: RoadmapItem[][] = [
   [
     {
       label: "Controle de Versão",
+      description:
+        "Os sistemas de controle de versão permitem rastrear alterações em sua base de código/arquivos ao longo do tempo. Eles permitem que você volte para alguma versão anterior da base de código sem problemas. Além disso, eles ajudam na colaboração com pessoas que trabalham no mesmo código – se você já colaborou com outras pessoas em um projeto, você já deve conhecer a frustração de copiar e mesclar as alterações de outra pessoa em sua base de código; sistemas de controle de versão permitem que você se livre desse problema.",
       children: [
         {
           label: "Conceitos de Git",
@@ -202,6 +210,8 @@ export const data: RoadmapItem[][] = [
   [
     {
       label: "Segurança",
+      description:
+        "A segurança da Web refere-se às medidas de proteção tomadas pelos desenvolvedores para proteger os aplicativos da Web de ameaças que podem afetar os negócios.",
       children: [
         { label: "HTTPS", links: [] },
         {
@@ -230,6 +240,8 @@ export const data: RoadmapItem[][] = [
   [
     {
       label: "Gerenciadores de Pacote",
+      description:
+        "Os gerenciadores de pacotes permitem que você gerencie as dependências (código externo escrito por você ou outra pessoa) que seu projeto precisa para funcionar corretamente.",
       children: [
         {
           label: "npm",
@@ -254,7 +266,9 @@ export const data: RoadmapItem[][] = [
   ],
   [
     {
-      label: "Pre Processadores CSS",
+      label: "Pré Processadores CSS",
+      description:
+        "Os pré-processadores de CSS são linguagens de script que estendem os recursos padrão do CSS. Eles nos permitem usar lógica em nosso código CSS, como variáveis, aninhamento, herança, mixins, funções e operações matemáticas.",
       children: [
         {
           label: "Sass",
@@ -288,6 +302,8 @@ export const data: RoadmapItem[][] = [
     },
     {
       label: "Formatadores e Linters",
+      description:
+        "Um linter é uma ferramenta usada para analisar código e descobrir bugs, erros de sintaxe, inconsistências estilísticas e construções suspeitas. Os linters populares para JavaScript incluem ESLint, JSLint e JSHint.",
       children: [
         { label: "Prettier", links: [] },
         { label: "ESLint", links: [] },
@@ -298,6 +314,8 @@ export const data: RoadmapItem[][] = [
   [
     {
       label: "React",
+      description:
+        "React é a biblioteca JavaScript front-end mais popular para construir interfaces de usuário. O React também pode renderizar no servidor usando Node e aplicativos móveis de energia usando React Native.",
       children: [
         {
           label: "O Básico",
@@ -315,6 +333,8 @@ export const data: RoadmapItem[][] = [
     },
     {
       label: "Angular",
+      description:
+        "Angular é uma estrutura de desenvolvimento front-end baseada em componentes construída em TypeScript que inclui uma coleção de bibliotecas bem integradas que incluem recursos como roteamento, gerenciamento de formulários, comunicação cliente-servidor e muito mais.",
       children: [
         {
           label: "O Básico",
@@ -327,12 +347,26 @@ export const data: RoadmapItem[][] = [
             },
           ],
         },
-        { label: "RxJS", links: [{url: "https://www.youtube.com/watch?v=DBHpS2CqGZs", label: "Programação Reativa com RxJS Parte 1 - Cod3r Cursos"}] },
-        { label: "NgRx", links: [{url: "https://www.youtube.com/watch?v=KXliXSjxC6k", label: "Programação Reativa com RxJS Parte 2 - Cod3r Cursos"}] },
+        {
+          label: "RxJS",
+          links: [
+            {
+              url: "https://www.youtube.com/watch?v=DBHpS2CqGZs",
+              label: "Programação Reativa com RxJS Parte 1 - Cod3r Cursos",
+            },
+            {
+              url: "https://www.youtube.com/watch?v=KXliXSjxC6k",
+              label: "Programação Reativa com RxJS Parte 2 - Cod3r Cursos",
+            },
+          ],
+        },
+        { label: "NgRx", links: [] },
       ],
     },
     {
       label: "Vue.js",
+      description:
+        "Vue.js é uma estrutura JavaScript de código aberto para criar interfaces de usuário e aplicativos de página única. É focado principalmente no desenvolvimento front-end.",
       children: [
         {
           label: "O Básico",
@@ -384,6 +418,8 @@ export const data: RoadmapItem[][] = [
   [
     {
       label: "Frameworks CSS",
+      description:
+        "Uma estrutura CSS fornece ao usuário uma folha de estilo CSS totalmente funcional, permitindo que eles criem uma página da Web simplesmente codificando o HTML com classes, estrutura e IDs apropriados. As classes para recursos populares do site, como rodapé, controle deslizante, barra de navegação, menu de hambúrguer, layouts baseados em colunas e assim por diante, já estão incluídas na estrutura.",
       children: [
         { label: "Bootstrap", links: [] },
         { label: "Bulma", links: [] },
@@ -398,7 +434,15 @@ export const data: RoadmapItem[][] = [
             },
           ],
         },
-        { label: "Chakra UI", links: [{url: "https://www.youtube.com/watch?v=RjZOUCIwo4M", label: "Configurando Chakra UI no React! - Huriel"}] },
+        {
+          label: "Chakra UI",
+          links: [
+            {
+              url: "https://www.youtube.com/watch?v=RjZOUCIwo4M",
+              label: "Configurando Chakra UI no React! - Huriel",
+            },
+          ],
+        },
         { label: "Material UI", links: [] },
         { label: "Radix UI", links: [] },
       ],
@@ -408,6 +452,8 @@ export const data: RoadmapItem[][] = [
   [
     {
       label: "Testes",
+      description:
+        "Antes de entregar seu aplicativo aos usuários, você precisa ter certeza de que seu aplicativo atende aos requisitos para os quais foi projetado e que ele não faz coisas estranhas e não intencionais (chamadas de 'bugs'). Para conseguir isso, 'testamos' nossos aplicativos de diferentes maneiras.",
       children: [
         { label: "Jest", links: [] },
         { label: "react-testing-library", links: [] },
@@ -440,6 +486,8 @@ export const data: RoadmapItem[][] = [
   [
     {
       label: "PWA (Progressive Web Apps)",
+      description:
+        "Progressive Web Apps (PWAs) são sites que são progressivamente aprimorados para funcionar como aplicativos nativos instalados em plataformas de suporte, enquanto funcionam como sites normais em outros navegadores.",
       children: [
         { label: "Storage", links: [] },
         { label: "Web Sockets", links: [] },
@@ -466,6 +514,8 @@ export const data: RoadmapItem[][] = [
   [
     {
       label: "GraphQL",
+      description:
+        "GraphQL é uma linguagem de consulta para APIs e um tempo de execução para atender a essas consultas com seus dados existentes. O GraphQL fornece uma descrição completa e compreensível dos dados em sua API, oferece aos clientes o poder de solicitar exatamente o que eles precisam e nada mais, facilita a evolução de APIs ao longo do tempo e permite ferramentas de desenvolvedor poderosas.",
       children: [
         { label: "Apollo", links: [] },
         { label: "Relay Modern", links: [] },
@@ -475,6 +525,8 @@ export const data: RoadmapItem[][] = [
   [
     {
       label: "Geradores de Sites Estáticos",
+      description:
+        "Um gerador de site estático é uma ferramenta que gera um site HTML estático completo com base em dados brutos e um conjunto de modelos. Essencialmente, um gerador de site estático automatiza a tarefa de codificar páginas HTML individuais e deixa essas páginas prontas para servir aos usuários com antecedência. Como essas páginas HTML são pré-criadas, elas podem ser carregadas muito rapidamente nos navegadores dos usuários.",
       children: [
         {
           label: "Next.js",
@@ -517,16 +569,21 @@ export const data: RoadmapItem[][] = [
   [
     {
       label: "Web Assembly",
-      children: [{ label: "O básico", links: [
+      description:
+        "WebAssembly é um novo tipo de código que pode ser executado em navegadores da Web modernos — é uma linguagem de baixo nível semelhante a assembly com um formato binário compacto que é executado com desempenho quase nativo e fornece linguagens como C/C++, C# e Rust com um destino de compilação para que possam ser executados na web. Ele também foi projetado para ser executado ao lado do JavaScript, permitindo que ambos trabalhem juntos.",
+      children: [
         {
-          url: "https://developer.mozilla.org/pt-BR/docs/WebAssembly",
-          label: "O que é WebAssembly? - Mozilla",
-          votes: 0,
-          type: LinkType.FREE,
+          label: "O básico",
+          links: [
+            {
+              url: "https://developer.mozilla.org/pt-BR/docs/WebAssembly",
+              label: "O que é WebAssembly? - Mozilla",
+              votes: 0,
+              type: LinkType.FREE,
+            },
+          ],
         },
       ],
-     },
-    ],
     },
   ],
 ];
