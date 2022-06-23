@@ -56,7 +56,7 @@ function App() {
         <p className="mb-4 text-center font-semibold c-brown">
           Lendo de cima pra baixo, cada "caixa" é um assunto a ser estudado.
           Clicando, você verá em mais detalhes o que estudar com links de
-          conteúdos gratuitos produzidos por pesoas que dominam a área e te
+          conteúdos gratuitos produzidos por pessoas que dominam a área e te
           ajudarão nessa jornada!
         </p>
 
@@ -100,28 +100,30 @@ function App() {
                       </AccordionButton>
                     </h2>
                     <AccordionPanel pb={4}>
-                      {child.links?.map((link, index) => {
-                        return (
-                          <>
-                            <Flex className="my-2">
-                              <Link href={link.url} isExternal>
-                                {link.label}
-                              </Link>
-                              <Spacer />
-                              <Badge
-                                cursor={"pointer"}
-                                colorScheme="green"
-                                p={1}
-                                rounded={"md"}
-                                className="h-7"
-                              >
-                                <CheckIcon mr={2} />
-                                <span>{link.votes ? link.votes : "0"}</span>
-                              </Badge>
-                            </Flex>
-                          </>
-                        );
-                      })}
+                      {child.links?.length
+                        ? child.links?.map((link, index) => {
+                            return (
+                              <>
+                                <Flex className="my-2">
+                                  <Link href={link.url} isExternal>
+                                    {link.label}
+                                  </Link>
+                                  <Spacer />
+                                  <Badge
+                                    cursor={"pointer"}
+                                    colorScheme="green"
+                                    p={1}
+                                    rounded={"md"}
+                                    className="h-7"
+                                  >
+                                    <CheckIcon mr={2} />
+                                    <span>{link.votes ? link.votes : "0"}</span>
+                                  </Badge>
+                                </Flex>
+                              </>
+                            );
+                          })
+                        : "Ainda não possuimos conteúdo."}
                     </AccordionPanel>
                   </AccordionItem>
                 );
