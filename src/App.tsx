@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
-import Logo from './components/Logo/Logo'
+import Logo from "./components/Logo/Logo";
 import { data } from "./frontend";
 import {
   Accordion,
@@ -37,7 +37,12 @@ function App() {
   return (
     <>
       <div className="container p-2 flex mx-auto mt-2">
-        <Link isExternal className="mr-0 ml-auto flex" textDecoration={'none'} href="https://github.com/flaviojmendes/trilhadev">
+        <Link
+          isExternal
+          className="mr-0 ml-auto flex"
+          textDecoration={"none"}
+          href="https://github.com/flaviojmendes/trilhadev"
+        >
           <FaGithubSquare className="w-8 h-8 c-red" />
           <span className="my-auto text-lg ml-1 c-red">Github</span>
         </Link>
@@ -62,7 +67,14 @@ function App() {
         <div>
           {data.map((level, index, data) => {
             return (
-              <Level level={level} index={index} levelsQty={data.length} onOpen={onOpen} setActiveItem={setActiveItem}/>
+              <Level
+                key={index}
+                level={level}
+                index={index}
+                levelsQty={data.length}
+                onOpen={onOpen}
+                setActiveItem={setActiveItem}
+              />
             );
           })}
         </div>
@@ -70,7 +82,7 @@ function App() {
 
       <Modal size={"xl"} isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
-        <ModalContent  className="bd-handwritten">
+        <ModalContent className="bd-handwritten">
           <ModalHeader>{activeItem?.label}</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
@@ -78,42 +90,40 @@ function App() {
             <Accordion allowToggle>
               {activeItem?.children?.map((child, index) => {
                 return (
-                  <>
-                    <AccordionItem>
-                      <h2 className="font-semibold">
-                        <AccordionButton>
-                          <Box flex="1" textAlign="left">
-                            {child.label}
-                          </Box>
-                          <AccordionIcon />
-                        </AccordionButton>
-                      </h2>
-                      <AccordionPanel pb={4}>
-                        {child.links?.map((link, index) => {
-                          return (
-                            <>
-                              <Flex className="my-2">
-                                <Link href={link.url} isExternal>
-                                  {link.label}
-                                </Link>
-                                <Spacer />
-                                <Badge
-                                  cursor={"pointer"}
-                                  colorScheme="green"
-                                  p={1}
-                                  rounded={"md"}
-                                  className="h-7"
-                                >
-                                  <CheckIcon mr={2} />
-                                  <span>{link.votes ? link.votes : '0'}</span>
-                                </Badge>
-                              </Flex>
-                            </>
-                          );
-                        })}
-                      </AccordionPanel>
-                    </AccordionItem>
-                  </>
+                  <AccordionItem key={child.label}>
+                    <h2 className="font-semibold">
+                      <AccordionButton>
+                        <Box flex="1" textAlign="left">
+                          {child.label}
+                        </Box>
+                        <AccordionIcon />
+                      </AccordionButton>
+                    </h2>
+                    <AccordionPanel pb={4}>
+                      {child.links?.map((link, index) => {
+                        return (
+                          <>
+                            <Flex className="my-2">
+                              <Link href={link.url} isExternal>
+                                {link.label}
+                              </Link>
+                              <Spacer />
+                              <Badge
+                                cursor={"pointer"}
+                                colorScheme="green"
+                                p={1}
+                                rounded={"md"}
+                                className="h-7"
+                              >
+                                <CheckIcon mr={2} />
+                                <span>{link.votes ? link.votes : "0"}</span>
+                              </Badge>
+                            </Flex>
+                          </>
+                        );
+                      })}
+                    </AccordionPanel>
+                  </AccordionItem>
                 );
               })}
             </Accordion>

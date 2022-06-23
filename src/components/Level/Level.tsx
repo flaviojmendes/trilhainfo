@@ -22,7 +22,7 @@ export default function Level(props: Props) {
           {props.level.map((item, index, level) => {
             return (
               <>
-                <Flex
+                <Flex key={item.label}
                   onClick={() => {
                     triggerItemSelection(item);
                   }}

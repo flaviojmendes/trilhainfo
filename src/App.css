@@ -1,1 +1,47 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;300;400;500;600&family=Schoolbell&display=swap');
+
+
+h1 {
+  font-family: "Roboto Mono", monospace;
+}
+
+body {
+  background-color: #494443 !important;
+}
+
+.c-blue {
+  color: #59c0e4;
+}
+
+.c-dark-brown {
+  color: #494443;
+}
+.c-brown {
+  color: #e9dad5;
+}
+.c-yellow {
+  color: #eabc54;
+}
+.c-red {
+  color: #ee8561;
+}
+
+.bg-brown {
+  background-color: #e9dad5;
+}
+
+.bd-red {
+  border-color: #ee8561;
+}
+
+.bd-handwritten {
+  border:solid 3px #d56a47 !important;
+  border-top-left-radius: 255px 15px !important;
+  border-top-right-radius: 15px 255px !important;
+  border-bottom-right-radius: 225px 15px !important;
+  border-bottom-left-radius:15px 255px !important;
+}
+
+.txt-handwritten {
+  font-family: 'Schoolbell', cursive;
+}
