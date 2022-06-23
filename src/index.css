@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;300;400;500;600&display=swap");
+
 
 h1 {
   font-family: "Roboto Mono", monospace;
@@ -40,7 +40,11 @@ body {
 .bd-handwritten {
   border:solid 3px #d56a47 !important;
   border-top-left-radius: 255px 15px !important;
-  border-top-right-radius: 15px 225px !important;
+  border-top-right-radius: 15px 4225px !important;
   border-bottom-right-radius: 225px 15px !important;
   border-bottom-left-radius: 15px 255px !important;
+}
+
+.txt-handwritten {
+  font-family: 'Schoolbell', cursive;
 }

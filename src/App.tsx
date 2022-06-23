@@ -55,7 +55,7 @@ function App() {
           ajudarão nessa jornada!
         </p>
 
-        <h2 className="text-center font-bold text-3xl c-yellow mb-10">
+        <h2 className="text-center font-bold text-3xl c-yellow mb-1 txt-handwritten">
           Frontend
         </h2>
 

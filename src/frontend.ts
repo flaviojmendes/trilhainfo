@@ -1,3 +1,4 @@
+import { m } from "framer-motion";
 import { LinkType, RoadmapItem } from "./entity/RoadmapItem";
 
 export const data: RoadmapItem[][] = [
@@ -101,7 +102,40 @@ export const data: RoadmapItem[][] = [
             },
           ],
         },
-        { label: "Fazendo Layouts", links: [] },
+        {
+          label: "Fazendo Layouts",
+          links: [
+            {
+              url: "https://www.youtube.com/watch?v=z1Hp72GVHJk&list=PLx4x_zx8csUhDWtEa-AtDAgSSmLObBVaz",
+              label: "CSS Flexbox - CFBCursos",
+            },
+            {
+              url: "https://www.youtube.com/watch?v=P9TrFDNwor4",
+              label: "Tutorial de Flexbox - Matheus Battisti",
+            },
+            {
+              url: "https://www.youtube.com/watch?v=8VapN6x897U",
+              label: "Aprenda CSS Grid em 30 minutos - Matheus Battisti",
+            },
+            {
+              url: "https://www.youtube.com/watch?v=E1tR7sYMEN0",
+              label: "Pare de chutar e aprenda float e sua trupe - Marco Bruno",
+            },
+            {
+              url: "https://www.youtube.com/watch?v=5PS6ku8NzIE",
+              label: "Pare de chutar e aprenda displat: inline - Marco Bruno",
+            },
+            {
+              url: "https://www.youtube.com/watch?v=HWfhwokS_qg",
+              label: "Pare de chutar e aprenda displat: block - Marco Bruno",
+            },
+            {
+              url: "https://www.youtube.com/watch?v=Yj9-N9BEVeM",
+              label:
+                "Pare de chutar e aprenda displat: inline-block - Marco Bruno",
+            },
+          ],
+        },
         {
           label: "Design Responsivo e Media Queries",
           links: [
@@ -280,8 +314,24 @@ export const data: RoadmapItem[][] = [
             },
           ],
         },
-        { label: "PostCSS", links: [] },
-        { label: "Less", links: [] },
+        {
+          label: "PostCSS",
+          links: [
+            {
+              url: "https://blog.umbler.com/br/introducao-ao-postcss/",
+              label: "Introdução ao PostCSS - Umbler Blog",
+            },
+          ],
+        },
+        {
+          label: "Less",
+          links: [
+            {
+              url: "http://lesscss.loopinfinito.com.br",
+              label: "LessCSS - Loop Infinito",
+            },
+          ],
+        },
       ],
     },
   ],
@@ -328,7 +378,20 @@ export const data: RoadmapItem[][] = [
             },
           ],
         },
-        { label: "Redux", links: [] },
+        {
+          label: "Redux",
+          links: [
+            {
+              url: "https://www.youtube.com/watch?v=Bg0xlUYAp0c",
+              label: "Aprenda Redux em 5 minutos - Flipix",
+            },
+            {
+              url: "https://www.youtube.com/watch?v=1xbFstDfUXs",
+              label:
+                "Você acha Redux Difícil por causa disso - Programador a Bordo",
+            },
+          ],
+        },
       ],
     },
     {
@@ -360,7 +423,15 @@ export const data: RoadmapItem[][] = [
             },
           ],
         },
-        { label: "NgRx", links: [] },
+        {
+          label: "NgRx",
+          links: [
+            {
+              url: "https://www.youtube.com/watch?v=yCac7PRG6R4",
+              label: "NgRx com Angular - HypeIT Brasil",
+            },
+          ],
+        },
       ],
     },
     {
@@ -396,7 +467,16 @@ export const data: RoadmapItem[][] = [
     {
       label: "CSS Moderno",
       children: [
-        { label: "Styled Components", links: [] },
+        {
+          label: "Styled Components",
+          links: [
+            {
+              url: "https://www.youtube.com/watch?v=QdfjWRc4ySA",
+              label:
+                "Styled Components, por onde começar? - Mario Souto Dev Soutinho",
+            },
+          ],
+        },
         { label: "Módulos CSS", links: [] },
         { label: "Styled JSX", links: [] },
         { label: "Emotion", links: [] },
@@ -503,6 +583,8 @@ export const data: RoadmapItem[][] = [
   [
     {
       label: "SSR (Renderização no Servidor)",
+      description:
+        "SSR é a sigla para Server Side Rendering, ou Renderização do Lado do Servidor. O SSR vem para solucionar um pouco dos problemas das aplicações SPAs, tentando manter suas principais vantagens.",
       children: [
         { label: "React - Next.js", links: [] },
         { label: "React - After.js", links: [] },

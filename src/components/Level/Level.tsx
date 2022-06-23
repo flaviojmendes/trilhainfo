@@ -29,12 +29,12 @@ export default function Level(props: Props) {
                   className="mx-0 my-0 bg-brown p-2 w-48 text-center cursor-pointer bd-handwritten"
                 >
                   <Spacer />
-                  <span className="m-auto c-dark-brown font-semibold">
+                  <span className="m-auto c-dark-brown font-semibold txt-handwritten">
                     {item.label}
                   </span>
                   <Spacer />
 
-                  <InfoIcon m="auto" mr="2" color={"#494443"} />
+                  <InfoIcon m="auto" mx="1" color={"#494443"} />
                 </Flex>
                 {index < level.length - 1 && (
                   <div className="bd-red border-2 border-dashed h-1 my-auto w-[50px]"></div>
