@@ -26,7 +26,7 @@ export default function Level(props: Props) {
                   onClick={() => {
                     triggerItemSelection(item);
                   }}
-                  className="mx-0 my-0 bg-brown p-2 w-48 text-center cursor-pointer bd-handwritten"
+                  className="mx-0 my-0 bg-brown p-2 w-48 text-center cursor-pointer bd-handwritten hover:bg-white"
                 >
                   <Spacer />
                   <span className="m-auto c-dark-brown font-semibold">
