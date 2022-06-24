@@ -1,3 +1,9 @@
+export interface Level {
+    label?: string;
+    description?: string;
+    items: RoadmapItem[];
+}
+
 export interface RoadmapItem {
     label: string;
     description?: string;

@@ -19,7 +19,7 @@ export default function MainLayout({ children }: Props) {
           <span className="my-auto text-lg ml-1 c-red">Github</span>
         </ChakraLink>
       </div>
-      <div className="container p-1 mx-auto mt-0 mb-10">
+      <div className="container py-1 px-2 mx-auto mt-0 mb-10">
         <Logo />
 
         {children}

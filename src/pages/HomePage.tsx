@@ -9,7 +9,7 @@ export default function HomePage() {
     <>
       <MainLayout>
         <h2 className="text-center my-6 txt-handwritten text-3xl c-yellow">
-          Escolha seu destino:
+          Tudo o que você precisa saber para ser:
         </h2>
 
         <div className="flex flex-wrap items-stretch md:space-x-10 space-y-10 md:space-y-0 justify-center">

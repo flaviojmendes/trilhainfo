@@ -34,6 +34,15 @@ body {
   border-color: #ee8561;
 }
 
+.bg-yellow {
+  background-color: #f7e3b2;
+}
+
+.bg-blue {
+  background-color: #a8ddf0;
+}
+
+
 .bd-handwritten {
   border:solid 3px #d56a47 !important;
   border-top-left-radius: 255px 15px !important;
