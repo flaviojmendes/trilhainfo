@@ -323,7 +323,17 @@ export const data: Level[] = [
         label: "Go",
         description:
           "Go é uma linguagem de programação de código aberto suportada pelo Google. Go pode ser usado para escrever serviços em nuvem, ferramentas CLI, usadas para desenvolvimento de API e muito mais.",
-        children: [],
+        children: [
+          {
+            label: "Go",
+            links: [
+              {
+                label: "Aprenda Go",
+                url: "https://www.youtube.com/watch?v=WiGU_ZB-u0w&list=PLCKpcjBB_VlBsxJ9IseNxFllf-UFEXOdg",
+              },
+            ],
+          },
+        ],
       },
       {
         label: "Rust",
