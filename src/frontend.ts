@@ -587,6 +587,12 @@ export const data: Level[] = [
                 votes: 0,
                 type: LinkType.FREE,
               },
+              {
+                url: "https://www.youtube.com/playlist?list=PLb2HQ45KP0Wsk-p_0c6ImqBAEFEY-LU9H",
+                label: "TypeScript - Zero to Hero - Glaucia Lemos",
+                votes: 0,
+                type: LinkType.FREE,
+              },
             ],
           },
           { label: "Flow", links: [] },
