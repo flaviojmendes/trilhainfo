@@ -33,7 +33,7 @@ export default function LevelItem(props: Props) {
               <p className="text-center mb-3">{props.level.description}</p>
             </>
           )}
-          <div className={"flex place-content-center " + (props.level.items.length >= 4 ? " flex-wrap" : "")}>
+          <div className={"flex place-content-center " + (props.level.items.length >= 4 ? " flex-wrap space-x-2" : "")}>
             {props.level.items.map((item, index, level) => {
               return (
                 <>
@@ -42,7 +42,7 @@ export default function LevelItem(props: Props) {
                     onClick={() => {
                       triggerItemSelection(item);
                     }}
-                    className={"flex mx-0 my-0 bg-brown p-2 w-48 text-center cursor-pointer bd-handwritten hover:bg-white" + (level.length >= 4 ? " mb-3" : "")}
+                    className={"flex mx-0 my-0 bg-brown p-2 w-fit text-center cursor-pointer bd-handwritten hover:bg-white" + (level.length >= 4 ? " mb-3" : "")}
                   >
                     <Spacer />
                     <span className="m-auto c-dark-brown font-semibold txt-handwritten">
@@ -54,9 +54,6 @@ export default function LevelItem(props: Props) {
                   </div>
                   {index < level.length - 1 && level.length < 4 && (
                     <div className="bd-red border-2 border-dashed h-1 my-auto w-[50px]"></div>
-                  )}
-                  {index < level.length - 1 && level.length >= 4 && (
-                    <div className="w-[50px]"></div>
                   )}
                 </>
               );
