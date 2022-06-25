@@ -22,7 +22,7 @@ import {
 } from "@chakra-ui/react";
 
 import React from "react";
-import { RoadmapItem } from "../../entity/RoadmapItem";
+import { Level, RoadmapItem } from "../../entity/RoadmapItem";
 import LevelItem from "../Level/LevelItem";
 
 
