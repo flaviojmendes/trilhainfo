@@ -225,13 +225,49 @@ export const data: Level[] = [
         description:
           "Sistema Operacional é um programa que gerencia os recursos de um computador, principalmente a alocação desses recursos entre outros programas. Os recursos típicos incluem a unidade central de processamento (CPU), memória do computador, armazenamento de arquivos, dispositivos de entrada/saída (E/S) e conexões de rede.",
         children: [
-          { label: "Uso do Terminal", links: [] },
+          {
+            label: "Uso do Terminal",
+            links: [
+              {
+                label: "Aprenda os comandos básicos do Linux - Diolinux",
+                url: "https://www.youtube.com/watch?v=JEhVB4VHsTI",
+              },
+              {
+                label: "Linux Week - Linux Tips",
+                url: "https://www.youtube.com/watch?v=zGE4UxYndrk&list=PLf-O3X2-mxDnl7LhhjhEgbo2etWKkJ0GV",
+              },
+            ],
+          },
           { label: "Como funcionam SO's", links: [] },
           { label: "Gerenciamento de Processos", links: [] },
-          { label: "Threads e Concorrência", links: [] },
-          { label: "Gerenciamento de Memória", links: [] },
+          {
+            label: "Threads e Concorrência",
+            links: [
+              {
+                label: "Concorrência e Paralelismo - Fabio Akita",
+                url: "https://www.youtube.com/watch?v=cx1ULv4wYxM",
+              },
+            ],
+          },
+          {
+            label: "Gerenciamento de Memória",
+            links: [
+              {
+                label: "Gerenciamento de Memória - Fabio Akita",
+                url: "https://www.youtube.com/watch?v=9AK_1gqEfkQ",
+              },
+            ],
+          },
           { label: "Básicos POSIX", links: [] },
-          { label: "Conceitos Básicos de Rede", links: [] },
+          {
+            label: "Conceitos Básicos de Rede",
+            links: [
+              {
+                label: "Redes de Computadores - Curso em Video",
+                url: "https://www.cursoemvideo.com/curso/redes-de-computadores/",
+              },
+            ],
+          },
         ],
       },
     ],
@@ -251,13 +287,37 @@ export const data: Level[] = [
         label: "Python",
         description:
           "Python é uma linguagem de programação bem conhecida que é uma linguagem fortemente tipada e uma linguagem tipada dinamicamente. Sendo uma linguagem interpretada, o código é executado assim que é escrito e a sintaxe do Python permite escrever código de forma programática funcional, procedural ou orientada a objetos.",
-        children: [],
+        children: [
+          {
+            label: "Python",
+            links: [
+              {
+                label: "Python Week - Linux Tips e Bruno Rocha",
+                url: "https://www.youtube.com/watch?v=spIRwXEF3XY&list=PLf-O3X2-mxDlfAv8IOfic1sHArdwrrkgh&index=2",
+              },
+              {
+                label: "Selenium com Python - Dunossauro",
+                url: "https://www.youtube.com/watch?v=PHHXksljGNA&list=PLOQgLBuj2-3LqnMYKZZgzeC7CKCPF375B",
+              },
+            ],
+          },
+        ],
       },
       {
         label: "Java",
         description:
           "Java é uma linguagem de uso geral, usada principalmente para aplicativos baseados na Internet. Foi criado em 1995 por James Gosling na Sun Microsystems e é uma das opções mais populares para quem desenvolve back-end.",
-        children: [],
+        children: [
+          {
+            label: "Java",
+            links: [
+              {
+                label: "Java Básico",
+                url: "https://www.cursoemvideo.com/curso/java-basico/",
+              },
+            ],
+          },
+        ],
       },
       {
         label: "Go",
@@ -281,7 +341,17 @@ export const data: Level[] = [
         label: "PHP",
         description:
           "PHP é uma linguagem de script de servidor e uma ferramenta poderosa para criar páginas da Web dinâmicas e interativas. Ele foi originalmente criado pelo programador dinamarquês-canadense Rasmus Lerdorf em 1994. A implementação de referência do PHP é agora produzida pelo The PHP Group.",
-        children: [],
+        children: [
+          {
+            label: "PHP",
+            links: [
+              {
+                label: "PHP Básico - Curso em Video",
+                url: "https://www.cursoemvideo.com/curso/php-basico/",
+              },
+            ],
+          },
+        ],
       },
       {
         label: "C#",
@@ -329,8 +399,24 @@ export const data: Level[] = [
         description:
           "Um banco de dados relacional é um tipo de banco de dados que armazena e fornece acesso a pontos de dados relacionados entre si. Os bancos de dados relacionais armazenam dados em uma série de tabelas. As interconexões entre as tabelas são especificadas como chaves estrangeiras. Uma chave estrangeira é uma referência exclusiva de uma linha em uma tabela relacional para outra linha em uma tabela, que pode ser a mesma tabela, mas geralmente é uma tabela diferente.",
         children: [
-          { label: "PostgreSQL", links: [] },
-          { label: "MySQL", links: [] },
+          {
+            label: "PostgreSQL",
+            links: [
+              {
+                label: "PostgreSQL - Boson Treinamentos",
+                url: "https://www.youtube.com/watch?v=Z_SPrzlT4Fc&list=PLucm8g_ezqNoAkYKXN_zWupyH6hQCAwxY",
+              },
+            ],
+          },
+          {
+            label: "MySQL",
+            links: [
+              {
+                label: "Mysql - Curso em Video",
+                url: "https://www.cursoemvideo.com/curso/mysql/",
+              },
+            ],
+          },
           { label: "MariaDB", links: [] },
           { label: "MS SQL", links: [] },
           { label: "Oracle", links: [] },
@@ -475,7 +561,15 @@ export const data: Level[] = [
         description: "",
         children: [
           { label: "Design Patterns", links: [] },
-          { label: "Domain Driven Design", links: [] },
+          {
+            label: "Domain Driven Design",
+            links: [
+              {
+                label: "Tech em 10 Minutos DDD - Road to Agility",
+                url: "https://www.youtube.com/watch?v=wmg3xB0aUv8",
+              },
+            ],
+          },
           { label: "Test Driven Development", links: [] },
           { label: "SOLID", links: [] },
           { label: "KISS", links: [] },
@@ -532,7 +626,15 @@ export const data: Level[] = [
         description:
           "Contêineres e máquinas virtuais são as duas abordagens mais populares para configurar uma infraestrutura de software para sua organização.",
         children: [
-          { label: "Docker", links: [] },
+          {
+            label: "Docker",
+            links: [
+              {
+                label: "Descomplicando o Docker - Linux Tips",
+                url: "https://www.youtube.com/watch?v=Wm99C_f7Kxw&list=PLf-O3X2-mxDn1VpyU2q3fuI6YYeIWp5rR",
+              },
+            ],
+          },
           { label: "rkt", links: [] },
           { label: "LXC", links: [] },
         ],
