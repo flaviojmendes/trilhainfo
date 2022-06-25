@@ -636,7 +636,15 @@ export const data: Level[] = [
         description:
           "GraphQL é uma linguagem de consulta para APIs e um tempo de execução para atender a essas consultas com seus dados existentes. O GraphQL fornece uma descrição completa e compreensível dos dados em sua API, oferece aos clientes o poder de solicitar exatamente o que eles precisam e nada mais, facilita a evolução de APIs ao longo do tempo e permite ferramentas de desenvolvedor poderosas.",
         children: [
-          { label: "Apollo", links: [] },
+          {
+            label: "Apollo",
+            links: [
+              {
+                label: "Pra que serve, conceitos e Hello World - Mateus Silva",
+                url: "https://www.youtube.com/watch?v=7RoHxSGVAdU&list=PLPXWI3llyMiK9uw7tfljM2hnQl2qu6CeT",
+              },
+            ],
+          },
           { label: "Relay Modern", links: [] },
         ],
       },
@@ -660,8 +668,24 @@ export const data: Level[] = [
               },
             ],
           },
-          { label: "GatsbyJS", links: [] },
-          { label: "Nuxt.js", links: [] },
+          {
+            label: "GatsbyJS",
+            links: [
+              {
+                label: "GatsbyJS - Thiago Franchin",
+                url: "https://www.youtube.com/watch?v=3b2PinXRqYU&list=PLN9uKzK0o3GR3ky2Q6zc2v0Dlej3oOBtT&index=1",
+              },
+            ],
+          },
+          {
+            label: "Nuxt.js",
+            links: [
+              {
+                label: "Curso Gratuito de Nuxt.js 2 - Tiago Matos",
+                url: "https://www.youtube.com/watch?v=jw6tRUGkpmo&list=PLcoYAcR89n-oU266D5Dy6DT-H8npny_qJ&index=1",
+              },
+            ],
+          },
           { label: "Vuepress", links: [] },
           { label: "Jekyll", links: [] },
           { label: "Hugo", links: [] },
@@ -676,9 +700,33 @@ export const data: Level[] = [
       {
         label: "Aplicações Mobile",
         children: [
-          { label: "React Native", links: [] },
+          {
+            label: "React Native",
+            links: [
+              {
+                label: "Primeiros passos no React Native - One Bit Code",
+                url: "https://www.youtube.com/watch?v=Y8tP1jbRYHY&list=PLdDT8if5attEd4sRnZBIkNihR-_tE612_&index=1",
+              },
+              {
+                label: "Aprenda React Native - Canal Geek Dev",
+                url: "https://www.youtube.com/watch?v=DmUUsTC2YkA&list=PL8fIRnD1uUSnRqz3E2caAWDqbtIFXmNtW",
+              },
+            ],
+          },
           { label: "NativeScript", links: [] },
-          { label: "Flutter", links: [] },
+          {
+            label: "Flutter",
+            links: [
+              {
+                label: "Curso de Flutter - Flutterando",
+                url: "https://www.youtube.com/watch?v=XeUiJJN0vsE&list=PLlBnICoI-g-d-J57QIz6Tx5xtUDGQdBFB",
+              },
+              {
+                label: "Curso Flutter para Iniciantes - Rodrigo Rahman",
+                url: "https://www.youtube.com/watch?v=qt20g3zuVbA&list=PLEXr-WZRgPjwk2v5wYi70WN--pCGvN-9u",
+              },
+            ],
+          },
           { label: "Ionic", links: [] },
         ],
       },

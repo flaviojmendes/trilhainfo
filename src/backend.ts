@@ -586,10 +586,27 @@ export const data: Level[] = [
         description: "",
         children: [
           { label: "Monolitos", links: [] },
-          { label: "Microsserviços", links: [] },
+          {
+            label: "Microsserviços",
+            links: [
+              {
+                label:
+                  "Microsserviços, o mínimo que você precisa saber - Otavio Lemos",
+                url: "https://www.youtube.com/watch?v=eN8dFfTrEtQ",
+              },
+            ],
+          },
           { label: "SOA", links: [] },
           { label: "CQRS e Event Sourcing", links: [] },
-          { label: "Serverless", links: [] },
+          {
+            label: "Serverless",
+            links: [
+              {
+                url: "https://www.youtube.com/watch?v=ktH_HhQDgLY",
+                label: "Primeiros Passos - Tiago Boeing",
+              },
+            ],
+          },
         ],
       },
     ],
@@ -613,7 +630,15 @@ export const data: Level[] = [
         description:
           "Os intermediários de mensagens são uma tecnologia de comunicação entre aplicativos para ajudar a criar um mecanismo de integração comum para dar suporte a arquiteturas de nuvem híbrida, sem servidor, baseadas em microsserviços e nativas da nuvem. Dois dos corretores de mensagens mais famosos são RabbitMQ e Apache Kafka",
         children: [
-          { label: "RabbitMQ", links: [] },
+          {
+            label: "RabbitMQ",
+            links: [
+              {
+                label: "Primeiros Passos - Otavio Lemos",
+                url: "https://www.youtube.com/watch?v=ZHj44_0a1yA",
+              },
+            ],
+          },
           { label: "Kafka", links: [] },
         ],
       },
@@ -648,7 +673,15 @@ export const data: Level[] = [
         description:
           "GraphQL é uma linguagem de consulta para APIs e um tempo de execução para atender a essas consultas com seus dados existentes. O GraphQL fornece uma descrição completa e compreensível dos dados em sua API, oferece aos clientes o poder de solicitar exatamente o que eles precisam e nada mais, facilita a evolução de APIs ao longo do tempo e permite ferramentas de desenvolvedor poderosas.",
         children: [
-          { label: "Apollo", links: [] },
+          {
+            label: "Apollo",
+            links: [
+              {
+                label: "Pra que serve, conceitos e Hello World - Mateus Silva",
+                url: "https://www.youtube.com/watch?v=7RoHxSGVAdU&list=PLPXWI3llyMiK9uw7tfljM2hnQl2qu6CeT",
+              },
+            ],
+          },
           { label: "Relay Modern", links: [] },
         ],
       },
