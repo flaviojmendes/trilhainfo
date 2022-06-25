@@ -33,16 +33,16 @@ export default function LevelItem(props: Props) {
               <p className="text-center mb-3">{props.level.description}</p>
             </>
           )}
-          <div className={"flex place-content-center "}>
+          <div className={"flex place-content-center " + (props.level.items.length > 5 ? " flex-wrap" : "")}>
             {props.level.items.map((item, index, level) => {
               return (
                 <>
-                  <Flex
+                  <div
                     key={item.label}
                     onClick={() => {
                       triggerItemSelection(item);
                     }}
-                    className="mx-0 my-0 bg-brown p-2 w-48 text-center cursor-pointer bd-handwritten hover:bg-white"
+                    className={"flex mx-0 my-0 bg-brown p-2 w-48 text-center cursor-pointer bd-handwritten hover:bg-white" + (level.length > 5 ? " mb-3" : "")}
                   >
                     <Spacer />
                     <span className="m-auto c-dark-brown font-semibold txt-handwritten">
@@ -51,9 +51,12 @@ export default function LevelItem(props: Props) {
                     <Spacer />
 
                     <InfoIcon m="auto" mx="1" color={"#494443"} />
-                  </Flex>
-                  {index < level.length - 1 && (
+                  </div>
+                  {index < level.length - 1 && level.length <= 5 && (
                     <div className="bd-red border-2 border-dashed h-1 my-auto w-[50px]"></div>
+                  )}
+                  {index < level.length - 1 && level.length > 5 && (
+                    <div className="w-[50px]"></div>
                   )}
                 </>
               );

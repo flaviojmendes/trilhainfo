@@ -21,14 +21,13 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 
-import { data } from "../../frontend";
 import React from "react";
 import { RoadmapItem } from "../../entity/RoadmapItem";
 import LevelItem from "../Level/LevelItem";
 
 
 type Props = {
-    data: RoadmapItem[][];
+    data: Level[];
     title: string;
 }
 
@@ -43,7 +42,7 @@ export default function Roadmap(props: Props) {
       </h2>
 
       <div>
-        {data.map((level, index, data) => {
+        {props.data.map((level, index, data) => {
           return (
             <LevelItem
               key={index}
