@@ -616,6 +616,14 @@ export const data: Level[] = [
           },
           { label: "SOA", links: [] },
           { label: "CQRS e Event Sourcing", links: [] },
+          { label: "Orientação a eventos", 
+            links: [
+              {
+                url: "https://www.youtube.com/watch?v=MaPWf_mt1uA",
+                label: "Arquitetura Orientada a Eventos com Java, Spring Boot e Kafka",
+              },
+            ] 
+          },
           {
             label: "Serverless",
             links: [
