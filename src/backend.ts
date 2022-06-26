@@ -239,7 +239,15 @@ export const data: Level[] = [
             ],
           },
           { label: "Como funcionam SO's", links: [] },
-          { label: "Gerenciamento de Processos", links: [] },
+          { label: "Gerenciamento de Processos", links: [
+              {
+                url: "https://www.youtube.com/watch?v=Rl6HhDvW984&list=PLxI8Can9yAHeK7GUEGxMsqoPRmJKwI9Jw",
+                label: "Sistemas Operacionais - UNIVESP",
+                votes: 0,
+                type: LinkType.FREE,
+              }
+            ] 
+          },
           {
             label: "Threads e Concorrência",
             links: [
