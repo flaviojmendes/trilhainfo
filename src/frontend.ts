@@ -682,7 +682,17 @@ export const data: Level[] = [
       {
         label: "Aplicações Mobile",
         children: [
-          { label: "React Native", links: [] },
+          { 
+            label: "React Native", 
+            links: [
+              {
+                url: "https://www.youtube.com/playlist?list=PLdDT8if5attEd4sRnZBIkNihR-_tE612_",
+                label: "Curso React Native - One Bit Code",
+                votes: 0,
+                type: LinkType.FREE,
+              },
+            ] 
+          },
           { label: "NativeScript", links: [] },
           { label: "Flutter", links: [] },
           { label: "Ionic", links: [] },
