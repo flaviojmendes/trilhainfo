@@ -479,7 +479,16 @@ export const data: Level[] = [
               },
             ],
           },
-          { label: "VueX", links: [] },
+          { label: "VueX",
+            links: [
+              {
+                url: "https://www.youtube.com/watch?v=qq8yJmXys6U",
+                label: "Gerenciando estado com Vuex -  Matheus Castiglioni",
+                votes: 0,
+                type: LinkType.FREE,
+              }
+            ] 
+          },
         ],
       },
     ],
