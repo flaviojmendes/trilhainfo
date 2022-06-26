@@ -535,14 +535,30 @@ export const data: Level[] = [
     ],
   },
 
-  {
+   {
     items: [
       {
         label: "Web Components",
         children: [
           { label: "Templates HTML", links: [] },
-          { label: "Custom Elements", links: [] },
-          { label: "Shadow DOM", links: [] },
+          { label: "Custom Elements", links: [
+            {
+              url: "https://www.youtube.com/watch?v=fZZAt0Sbz5k",
+              label: "Vamos construir um WEB Component e aprender Shadow DOM  - Mayk Brito",
+              votes: 0,
+              type: LinkType.FREE,
+            }
+          ] },
+          {
+            label: "Shadow DOM", links: [
+              {
+                url: "https://www.youtube.com/watch?v=PMm-VRXz8I8",
+                label: "Web Components e Seus Três PRINCIPAIS CONCEITOS: DOM, Shadow DOM e Virtual DOM - Leonardo Leitão",
+                votes: 0,
+                type: LinkType.FREE,
+              }
+            ]
+          },
         ],
       },
     ],
