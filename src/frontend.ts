@@ -154,6 +154,17 @@ export const data: Level[] = [
               },
             ],
           },
+          {
+            label: "Animações",
+            links: [
+              {
+                url: "https://www.youtube.com/watch?v=eTELLTacg-8",
+                label: "Minicurso Animações CSS - dpw",
+                votes: 0,
+                type: LinkType.FREE,
+              }
+            ]
+          }
         ],
       },
       {
