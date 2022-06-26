@@ -368,12 +368,20 @@ export const data: Level[] = [
       },
       {
         label: "Module Bundlers",
+        description: "Module Bundlers são ferramentas utilizadas para empacotar todas as dependências e módulos de um projeto em um novo arquivo capaz de ser processado pelo navegador.",
         children: [
           { label: "Webpack", links: [] },
           { label: "esbuild", links: [] },
           { label: "Rollup", links: [] },
           { label: "Parcel", links: [] },
-          { label: "Vite", links: [] },
+          { label: "Vite", links: [
+            {
+                url: "https://vitejs.dev/guide/",
+                label: "Documentação Oficial",
+                votes: 0,
+                type: LinkType.FREE
+            }
+          ] },
         ],
       },
       {
