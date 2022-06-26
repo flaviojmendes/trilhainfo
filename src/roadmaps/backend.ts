@@ -238,9 +238,8 @@ export const data: Level[] = [
               },
             ],
           },
-          { label: "Como funcionam SO's", links: [] },
-          { label: "Gerenciamento de Processos", links: [
-              {
+          { label: "Como funcionam SO's", links: [
+            {
                 url: "https://www.youtube.com/watch?v=Rl6HhDvW984&list=PLxI8Can9yAHeK7GUEGxMsqoPRmJKwI9Jw",
                 label: "Sistemas Operacionais - UNIVESP",
                 votes: 0,
@@ -248,6 +247,7 @@ export const data: Level[] = [
               }
             ] 
           },
+          { label: "Gerenciamento de Processos", links: [] },
           {
             label: "Threads e Concorrência",
             links: [
