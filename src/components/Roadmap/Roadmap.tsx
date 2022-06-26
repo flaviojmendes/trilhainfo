@@ -67,6 +67,7 @@ export default function Roadmap(props: Props) {
               {activeItem?.children?.map((child, index) => {
                 return (
                   <AccordionItem key={child.label}>
+                    
                     <h2 className="font-semibold">
                       <AccordionButton>
                         <Box flex="1" textAlign="left">

@@ -1,4 +1,4 @@
-import { FaGithubSquare } from "react-icons/fa";
+import { FaGithubSquare, FaNewspaper } from "react-icons/fa";
 import Logo from "../Logo/Logo";
 import { chakra, Link as ChakraLink, useDisclosure } from "@chakra-ui/react";
 
@@ -10,7 +10,8 @@ export default function MainLayout({ children }: Props) {
   return (
     <>
       <div className="flex flex-col h-screen">
-        <div className="container p-2 flex mx-auto mt-2">
+        <div className="container p-2 flex space-x-4 mx-auto">
+        <div className="flex-grow"></div> 
           <ChakraLink
             isExternal
             className="mr-0 ml-auto flex"
@@ -19,6 +20,16 @@ export default function MainLayout({ children }: Props) {
           >
             <FaGithubSquare className="w-8 h-8 c-red" />
             <span className="my-auto text-lg ml-1 c-red">Github</span>
+          </ChakraLink>
+         
+          <ChakraLink
+            isExternal
+            className="mr-0 ml-auto flex"
+            textDecoration={"none"}
+            href="https://www.getrevue.co/profile/flaviojmendes"
+          >
+            <FaNewspaper className="w-8 h-8 c-blue" />
+            <span className="my-auto text-lg ml-1 c-blue">Assine a Newsletter</span>
           </ChakraLink>
         </div>
         <div className="container flex-grow py-1 px-2 mx-auto mt-0 mb-10">

@@ -1,8 +1,8 @@
 import { useParams } from "react-router-dom";
 import MainLayout from "../components/layouts/MainLayout";
 import Roadmap from "../components/Roadmap/Roadmap";
-import { data as frontendData } from "../frontend";
-import { data as backendData } from "../backend";
+import { data as frontendData } from "../roadmaps/frontend";
+import { data as backendData } from "../roadmaps/backend";
 import E404Page from "./E404Page";
 
 export default function RoadmapPage() {

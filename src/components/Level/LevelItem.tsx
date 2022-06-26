@@ -21,7 +21,7 @@ export default function LevelItem(props: Props) {
         <div
           className={
             props.level.label
-              ? " border-2 bd-red border-dotted pb-5 bg-yellow"
+              ? " border-2 bd-red border-dotted pb-5 bg-yellow lg:w-2/3 self-center p-4"
               : ""
           }
         >
