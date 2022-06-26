@@ -238,9 +238,8 @@ export const data: Level[] = [
               },
             ],
           },
-          { label: "Como funcionam SO's", links: [] },
-          { label: "Gerenciamento de Processos", links: [
-              {
+          { label: "Como funcionam SO's", links: [
+            {
                 url: "https://www.youtube.com/watch?v=Rl6HhDvW984&list=PLxI8Can9yAHeK7GUEGxMsqoPRmJKwI9Jw",
                 label: "Sistemas Operacionais - UNIVESP",
                 votes: 0,
@@ -248,6 +247,7 @@ export const data: Level[] = [
               }
             ] 
           },
+          { label: "Gerenciamento de Processos", links: [] },
           {
             label: "Threads e Concorrência",
             links: [
@@ -616,6 +616,14 @@ export const data: Level[] = [
           },
           { label: "SOA", links: [] },
           { label: "CQRS e Event Sourcing", links: [] },
+          { label: "Orientação a eventos", 
+            links: [
+              {
+                url: "https://www.youtube.com/watch?v=MaPWf_mt1uA",
+                label: "Arquitetura Orientada a Eventos com Java, Spring Boot e Kafka",
+              },
+            ] 
+          },
           {
             label: "Serverless",
             links: [
