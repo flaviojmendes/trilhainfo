@@ -601,7 +601,15 @@ export const data: Level[] = [
               },
             ],
           },
-          { label: "Material UI", links: [] },
+          {
+            label: "Material UI",
+            links: [
+              {
+                url: "https://www.youtube.com/watch?v=uJhqvzK7cWw",
+                label: "Conhecendo Material UI no Reactjs - OmniLabs"
+              }
+            ]
+          },
           { label: "Radix UI", links: [] },
         ],
       },
