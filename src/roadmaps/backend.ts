@@ -387,7 +387,77 @@ export const data: Level[] = [
         label: "C#",
         description:
           "C# (pronuncia-se 'C sharp') é uma linguagem de programação de uso geral feita pela Microsoft. Ele é usado para executar diferentes tarefas e pode ser usado para criar aplicativos da web, jogos, aplicativos móveis, etc.",
-        children: [],
+        children: [
+          {
+            label: "C# Básico",
+            links: [
+              {
+                label: "Conceitos sobre CLR",
+                url: "https://www.youtube.com/watch?v=gQdZq_SRvE8",
+                type: LinkType.FREE,
+                votes: 0,
+              },
+              {
+                label: "Download .NET",
+                url: "https://dotnet.microsoft.com/en-us/download",
+                type: LinkType.FREE,
+                votes: 0,
+              },
+              {
+                label: "Criando um projeto usando CLI",
+                url: "https://www.youtube.com/watch?v=fvPGTLtP9wg",
+                type: LinkType.FREE,
+                votes: 0,
+              },  
+              {
+                label: "Como baixar e instalar o Visual Studio 2022",
+                url: "https://www.youtube.com/watch?v=_HgVooVuGOE",
+                type: LinkType.FREE,
+                votes: 0,
+              },     
+              {
+                label: "Lógica de Programação e Algoritmos com C#",
+                url: "https://www.youtube.com/watch?v=8KOnXlz_-9w&list=PLTyvdsF_vFzLvyKcXNqe785Pk9EVObRgR&index=1",
+                type: LinkType.FREE,
+                votes: 0,
+              },             
+              {
+                label: "Criando uma aplicação ASP.NET do Zero (Visual Studio)",
+                url: "https://www.youtube.com/watch?v=-v0sfER0po8",
+                type: LinkType.FREE,
+                votes: 0,
+              },             
+            ],
+          },
+          {
+            label: "C# Intermediário",
+            links: [
+              {
+                label: "Orientação a Objetos com C#",
+                url: "https://www.youtube.com/watch?v=wI6zLJJhnNw&list=PLWXw8Gu52TRKlAqSfkdhSTPtAfAcYko5E",
+                type: LinkType.FREE,
+                votes: 0,
+              },
+              {
+                label: "Introdução a consultas LINQ e expressões Lambda no C#",
+                url: "https://www.youtube.com/watch?v=-yxrPTlvpz4",
+                type: LinkType.FREE,
+                votes: 0,
+              },
+            ],
+          },
+          {
+            label: "C# Avançado",
+            links: [
+              {
+                label: "Criando uma API usando ASP.NET Core 5, EF Core 5 e MySql",
+                url: "https://www.youtube.com/watch?v=L1bJUKZV0b0",
+                type: LinkType.FREE,
+                votes: 0,
+              },             
+            ],
+          },
+        ],
       },
     ],
   },
