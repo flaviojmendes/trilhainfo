@@ -20,7 +20,7 @@ export default function MainLayout({ children }: Props) {
             href="https://github.com/flaviojmendes/trilhadev"
           >
             <FaGithubSquare className="w-8 h-8 c-red" />
-            <span className="my-auto text-lg ml-1 c-red">Github</span>
+            <span className="my-auto text-lg ml-1 c-red hidden md:block">Github</span>
           </ChakraLink>
 
           <ChakraLink
@@ -30,7 +30,7 @@ export default function MainLayout({ children }: Props) {
             href="https://www.getrevue.co/profile/flaviojmendes"
           >
             <FaNewspaper className="w-8 h-8 c-blue" />
-            <span className="my-auto text-lg ml-1 c-blue">
+            <span className="my-auto text-lg ml-1 c-blue hidden md:block">
               Assine a Newsletter
             </span>
           </ChakraLink>

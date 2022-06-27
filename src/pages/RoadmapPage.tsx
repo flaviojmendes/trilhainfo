@@ -12,7 +12,7 @@ export default function RoadmapPage() {
   const roadmaps: any = {
     frontend: { file: frontendData, title: "Frontend" },
     backend: { file: backendData, title: "Backend" },
-    community: { file: communityData, title: "Community" },
+    community: { file: communityData, title: "Comunidade" },
   };
 
   return (
