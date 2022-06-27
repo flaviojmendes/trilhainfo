@@ -238,14 +238,16 @@ export const data: Level[] = [
               },
             ],
           },
-          { label: "Como funcionam SO's", links: [
-            {
+          {
+            label: "Como funcionam SO's",
+            links: [
+              {
                 url: "https://www.youtube.com/watch?v=Rl6HhDvW984&list=PLxI8Can9yAHeK7GUEGxMsqoPRmJKwI9Jw",
                 label: "Sistemas Operacionais - UNIVESP",
                 votes: 0,
                 type: LinkType.FREE,
-              }
-            ] 
+              },
+            ],
           },
           { label: "Gerenciamento de Processos", links: [] },
           {
@@ -347,7 +349,12 @@ export const data: Level[] = [
         label: "Rust",
         description:
           "Rust é uma linguagem de programação de sistemas moderna com foco em segurança, velocidade e simultaneidade. Ele atinge esses objetivos sendo seguro para a memória sem usar o garbage collector.",
-        links: [],
+        links: [
+          {
+            label: "Aprenda com quem não sabe - Fernando Daciuk",
+            url: "https://www.youtube.com/watch?v=mWh49ZpmQwk&list=PLr4c053wuXU-igL9KSptwKK5XdyGX13FB",
+          },
+        ],
       },
       {
         label: "Ruby",
@@ -616,13 +623,15 @@ export const data: Level[] = [
           },
           { label: "SOA", links: [] },
           { label: "CQRS e Event Sourcing", links: [] },
-          { label: "Orientação a eventos", 
+          {
+            label: "Orientação a eventos",
             links: [
               {
                 url: "https://www.youtube.com/watch?v=MaPWf_mt1uA",
-                label: "Arquitetura Orientada a Eventos com Java, Spring Boot e Kafka",
+                label:
+                  "Arquitetura Orientada a Eventos com Java, Spring Boot e Kafka",
               },
-            ] 
+            ],
           },
           {
             label: "Serverless",
