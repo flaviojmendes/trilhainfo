@@ -834,6 +834,23 @@ export const data: Level[] = [
               },
             ],
           },
+          {
+            label: "Blazor",
+            links: [
+              {
+                url: "https://dotnet.microsoft.com/en-us/learn/aspnet/blazor-tutorial/intro",
+                label: "Primeiro projeto usando Blazor",
+                votes: 0,
+                type: LinkType.FREE,
+              },
+              {
+                url: "https://www.youtube.com/watch?v=6YgtFfzheHY&list=PLJ4k1IC8GhW2v0nCR7K-tZeoHwqfPZs5t",
+                label: "Minicurso Blazor",
+                votes: 0,
+                type: LinkType.FREE,
+              },
+            ],
+          },
         ],
       },
     ],
