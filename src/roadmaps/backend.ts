@@ -423,7 +423,23 @@ export const data: Level[] = [
               },
             ],
           },
-    
+          {
+            label: "C# Intermediário",
+            links: [
+              {
+                label: "Orientação a Objetos com C#",
+                url: "https://www.youtube.com/watch?v=wI6zLJJhnNw&list=PLWXw8Gu52TRKlAqSfkdhSTPtAfAcYko5E",
+                type: LinkType.FREE,
+                votes: 0,
+              },
+              {
+                label: "Introdução a consultas LINQ e expressões Lambda no C#",
+                url: "https://www.youtube.com/watch?v=-yxrPTlvpz4",
+                type: LinkType.FREE,
+                votes: 0,
+              },
+            ],
+          },          
         ],
       },
     ],
