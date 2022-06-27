@@ -387,7 +387,44 @@ export const data: Level[] = [
         label: "C#",
         description:
           "C# (pronuncia-se 'C sharp') é uma linguagem de programação de uso geral feita pela Microsoft. Ele é usado para executar diferentes tarefas e pode ser usado para criar aplicativos da web, jogos, aplicativos móveis, etc.",
-        children: [],
+        children: [
+          {
+            label: "C# Básico",
+            links: [
+              {
+                label: "Conceitos sobre CLR",
+                url: "https://www.youtube.com/watch?v=gQdZq_SRvE8",
+                type: LinkType.FREE,
+                votes: 0,
+              },
+              {
+                label: "Download .NET",
+                url: "https://dotnet.microsoft.com/en-us/download",
+                type: LinkType.FREE,
+                votes: 0,
+              },
+              {
+                label: "Criando um projeto usando CLI",
+                url: "https://www.youtube.com/watch?v=fvPGTLtP9wg",
+                type: LinkType.FREE,
+                votes: 0,
+              },  
+              {
+                label: "Como baixar e instalar o Visual Studio 2022",
+                url: "https://www.youtube.com/watch?v=_HgVooVuGOE",
+                type: LinkType.FREE,
+                votes: 0,
+              },                  
+              {
+                label: "ASP.Net MVC - C# - Criando uma aplicação do Zero (Visual Studio)",
+                url: "https://www.youtube.com/watch?v=-v0sfER0po8",
+                type: LinkType.FREE,
+                votes: 0,
+              },
+            ],
+          },
+    
+        ],
       },
     ],
   },
