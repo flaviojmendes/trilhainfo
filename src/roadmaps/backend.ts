@@ -349,10 +349,15 @@ export const data: Level[] = [
         label: "Rust",
         description:
           "Rust é uma linguagem de programação de sistemas moderna com foco em segurança, velocidade e simultaneidade. Ele atinge esses objetivos sendo seguro para a memória sem usar o garbage collector.",
-        links: [
+        children: [
           {
-            label: "Aprenda com quem não sabe - Fernando Daciuk",
-            url: "https://www.youtube.com/watch?v=mWh49ZpmQwk&list=PLr4c053wuXU-igL9KSptwKK5XdyGX13FB",
+            label: "Rust",
+            links: [
+              {
+                label: "Aprenda com quem não sabe - Fernando Daciuk",
+                url: "https://www.youtube.com/watch?v=mWh49ZpmQwk&list=PLr4c053wuXU-igL9KSptwKK5XdyGX13FB",
+              },
+            ],
           },
         ],
       },
