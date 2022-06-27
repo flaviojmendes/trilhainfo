@@ -3,12 +3,17 @@ import MainLayout from "../components/layouts/MainLayout";
 import Roadmap from "../components/Roadmap/Roadmap";
 import { data as frontendData } from "../roadmaps/frontend";
 import { data as backendData } from "../roadmaps/backend";
+import { data as communityData } from "../roadmaps/community";
 import E404Page from "./E404Page";
 
 export default function RoadmapPage() {
   const { name } = useParams<string>();
 
-  const roadmaps: any = { frontend: { file: frontendData, title: "Frontend" }, backend: { file: backendData, title: "Backend"} };
+  const roadmaps: any = {
+    frontend: { file: frontendData, title: "Frontend" },
+    backend: { file: backendData, title: "Backend" },
+    community: { file: communityData, title: "Community" },
+  };
 
   return (
     <>
