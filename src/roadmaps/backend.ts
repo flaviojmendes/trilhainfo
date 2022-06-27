@@ -445,7 +445,18 @@ export const data: Level[] = [
                 votes: 0,
               },
             ],
-          },    
+          },
+          {
+            label: "C# Avançado",
+            links: [
+              {
+                label: "Criando uma API usando ASP.NET Core 5, EF Core 5 e MySql",
+                url: "https://www.youtube.com/watch?v=L1bJUKZV0b0",
+                type: LinkType.FREE,
+                votes: 0,
+              },             
+            ],
+          },
         ],
       },
     ],
