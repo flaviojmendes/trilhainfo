@@ -465,6 +465,128 @@ export const data: Level[] = [
       },
     ],
   },
+
+
+  {
+    label: "Escolha um Framework",
+    description:
+      "Escolhendo a melhor ferramenta.",
+    items: [
+      {
+        label: "Django",
+        description:
+          "......",
+        children: [],
+      },
+      {
+        label: "Laravel",
+        description:
+          "................",
+        children: [
+          {
+            label: "Laravel",
+            links: [
+              
+            ],
+          },
+        ],
+      },
+      {
+        label: "Spring",
+        description:
+          ".....",
+        children: [
+          {
+            label: "Spring",
+            links: [
+              {
+                label: "Spring",
+                url: "",
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+  {
+    items: [
+      {
+        label: "Controle de Versão",
+        description:
+          "Os sistemas de controle de versão permitem rastrear alterações em sua base de código/arquivos ao longo do tempo. Eles permitem que você volte para alguma versão anterior da base de código sem problemas. Além disso, eles ajudam na colaboração com pessoas que trabalham no mesmo código – se você já colaborou com outras pessoas em um projeto, você já deve conhecer a frustração de copiar e mesclar as alterações de outra pessoa em sua base de código; sistemas de controle de versão permitem que você se livre desse problema.",
+        children: [
+          {
+            label: "Conceitos de Git",
+            links: [
+              {
+                url: "https://www.youtube.com/watch?v=IBClN6VpJDw&list=PLlAbYrWSYTiPA2iEiQ2PF_A9j__C4hi0A",
+                label: "Git e Github para Iniciantes - Willian Justen",
+                type: LinkType.FREE,
+                votes: 0,
+              },
+            ],
+          },
+          {
+            label: "Serviçoes de Hospedagem de Git",
+            children: [
+              { label: "Github", links: [] },
+              { label: "Gitlab", links: [] },
+              { label: "Bitbucket", links: [] },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+  {
+    label: "Bancos de Dados",
+    items: [
+      {
+        label: "Relacionais",
+        description:
+          "Um banco de dados relacional é um tipo de banco de dados que armazena e fornece acesso a pontos de dados relacionados entre si. Os bancos de dados relacionais armazenam dados em uma série de tabelas. As interconexões entre as tabelas são especificadas como chaves estrangeiras. Uma chave estrangeira é uma referência exclusiva de uma linha em uma tabela relacional para outra linha em uma tabela, que pode ser a mesma tabela, mas geralmente é uma tabela diferente.",
+        children: [
+          {
+            label: "PostgreSQL",
+            links: [
+              {
+                label: "PostgreSQL - Boson Treinamentos",
+                url: "https://www.youtube.com/watch?v=Z_SPrzlT4Fc&list=PLucm8g_ezqNoAkYKXN_zWupyH6hQCAwxY",
+              },
+            ],
+          },
+          {
+            label: "MySQL",
+            links: [
+              {
+                label: "Mysql - Curso em Video",
+                url: "https://www.cursoemvideo.com/curso/mysql/",
+              },
+            ],
+          },
+          { label: "MariaDB", links: [] },
+          { label: "MS SQL", links: [] },
+          { label: "Oracle", links: [] },
+        ],
+      },
+      {
+        label: "NoSQL",
+        description:
+          "Os bancos de dados NoSQL oferecem armazenamento e recuperação de dados modelados de forma diferente dos bancos de dados relacionais 'tradicionais'. Os bancos de dados NoSQL normalmente se concentram mais em dimensionamento horizontal, consistência eventual, velocidade e flexibilidade e são usados comumente para aplicativos de big data e streaming em tempo real. O NoSQL é frequentemente descrito como um sistema BASE (basicamente disponível, estado suave, consistência eventual) em oposição ao SQL/relacional que normalmente se concentra em ACID (atomicidade, consistência, isolamento, durabilidade). Estruturas de dados NoSQL comuns incluem par chave-valor, coluna larga, gráfico e documento.",
+        children: [
+          { label: "MongoDB", links: [] },
+          { label: "Cassandra", links: [] },
+          { label: "InfluxDB", links: [] },
+          { label: "Firebase", links: [] },
+        ],
+      },
+    ],
+  },
+
+
+
+
   {
     items: [
       {
