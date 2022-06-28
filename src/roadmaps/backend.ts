@@ -453,6 +453,17 @@ export const data: Level[] = [
             ],
           },
           {
+            label: "C# Frameworks",
+            links: [
+              {
+                label: "Criando projeto Windows Forms com Entityframework ORM",
+                url: "https://www.youtube.com/watch?v=Zy_tFVgvkOM",
+                type: LinkType.FREE,
+                votes: 0,
+              }       
+            ],
+          },
+          {
             label: "C# Avançado",
             links: [
               {
