@@ -439,6 +439,12 @@ export const data: Level[] = [
                 votes: 0,
               },
               {
+                label: "CRUD camada DAL - C# Asp.Net com Bootstrap",
+                url: "https://www.youtube.com/watch?v=s5_83He6HmI&list=PLb2HQ45KP0WuY6bCj-kCSa2LvvnaThRQ_&index=1",
+                type: LinkType.FREE,
+                votes: 0,
+              },
+              {
                 label: "Introdução a consultas LINQ e expressões Lambda no C#",
                 url: "https://www.youtube.com/watch?v=-yxrPTlvpz4",
                 type: LinkType.FREE,
