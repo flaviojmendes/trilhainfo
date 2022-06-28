@@ -505,8 +505,32 @@ export const data: Level[] = [
               },
             ],
           },
-          { label: "VueX",
+          {
+            label: "Pinia",
             links: [
+              {
+                url: "https://pinia.vuejs.org",
+                label: "Documentação oficial",
+                votes: 0,
+                type: LinkType.FREE,
+              },
+              {
+                url: "https://www.youtube.com/watch?v=qq8yJmXys6U",
+                label: "Gerenciando estado com Vuex -  Matheus Castiglioni",
+                votes: 0,
+                type: LinkType.FREE,
+              }
+            ] 
+          },
+          {
+            label: "VueX",
+            links: [
+              {
+                url: "https://vuex.vuejs.org",
+                label: "Documentação oficial",
+                votes: 0,
+                type: LinkType.FREE,
+              },
               {
                 url: "https://www.youtube.com/watch?v=qq8yJmXys6U",
                 label: "Gerenciando estado com Vuex -  Matheus Castiglioni",
