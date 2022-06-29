@@ -488,6 +488,7 @@ export const data: Level[] = [
                 url: "https://www.youtube.com/watch?v=s5_83He6HmI&list=PLb2HQ45KP0WuY6bCj-kCSa2LvvnaThRQ_&index=1",
                 type: LinkType.FREE,
                 votes: 0,
+                contentType: LinkContentType.WATCH
               },
               {
                 label: "Introdução a consultas LINQ e expressões Lambda no C#",
@@ -506,6 +507,7 @@ export const data: Level[] = [
                 url: "https://www.youtube.com/watch?v=Zy_tFVgvkOM",
                 type: LinkType.FREE,
                 votes: 0,
+                contentType: LinkContentType.WATCH
               }       
             ],
           },

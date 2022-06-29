@@ -464,6 +464,7 @@ export const data: Level[] = [
               {
                 url: "https://www.youtube.com/watch?v=Jxe79XZ9u-Y&list=PL8YNlUoOZkkaCJENGzHFXrRwwjuwEh6nC",
                 label: "Aprenda os React Hooks! - Huriel",
+                contentType: LinkContentType.WATCH
               },
             ],
           },

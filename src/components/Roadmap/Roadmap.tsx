@@ -150,25 +150,25 @@ export default function Roadmap(props: Props) {
                               <>
                                 <Flex className="my-2">
                                   <Link href={link.url} isExternal>
-                                    <Badge
-                                      colorScheme={getColorFromContentType(
-                                        link.contentType
-                                      )}
-                                      p={1}
-                                      rounded={"md"}
-                                      className="h-5"
-                                      fontSize="0.6em"
-                                      mr="1"
-                                    >
-                                      <span>
-                                        {link.contentType
-                                          ? link.contentType
-                                          : null}
-                                      </span>
-                                    </Badge>
                                     {link.label}
                                   </Link>
                                   <Spacer />
+                                  <Badge
+                                    colorScheme={getColorFromContentType(
+                                      link.contentType
+                                    )}
+                                    p={1}
+                                    rounded={"md"}
+                                    className="h-5"
+                                    fontSize="0.6em"
+                                    mr="1"
+                                  >
+                                    <span>
+                                      {link.contentType
+                                        ? link.contentType
+                                        : null}
+                                    </span>
+                                  </Badge>
                                 </Flex>
                               </>
                             );
