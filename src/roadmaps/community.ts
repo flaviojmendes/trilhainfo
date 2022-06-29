@@ -1,21 +1,21 @@
-import { Level, LinkType, LinkContentType, RoadmapItem } from "../entity/RoadmapItem";
+import { Level, LinkType, LinkContentType } from "../entity/RoadmapItem";
 
 export const data: Level[] = [
   {
-    label: "Participe de diversas comunidades de desenvolvedores!",
+    label: "Participe de diversas comunidades Devs!",
     description:
-      "Conectar-se com outros devs vai acelerar sua jornada do aprendizado, seja para tirar/responder dúvidas ou conversar com pessoas mais e menos experiêntes que você.",
+      "Conectar-se com devs vai acelerar sua jornada do aprendizado, seja para tirar/responder dúvidas ou conversar com pessoas mais e menos experiêntes que você.",
     items: [
       {
         label: "Discord",
         description:
-          "Discord é uma ferramente de comunidades incrível que facilita a comunicação e aprendizado de diversas pessoas, e é onde muitos desenvolvedores utilizam de canais de texto e voz para trocarem informações e experiência. Escolha uma ( ou todas ) comunidades para entrar e conectar-se com diversos devs:",
+          "Discord é uma ferramenta de comunidades incrível que facilita a comunicação e aprendizado de diversas pessoas ( em múltiplas vertentes ), onde devs utilizam de canais de texto e voz para trocarem informações e experiência. Escolha uma ( ou todas ) comunidades para entrar, conectar-se e trocar ideias :",
         children: [
           {
             label: "Comunidades",
             links: [
               {
-                url: "https://discord.gg/EFdpWdnE",
+                url: "https://discord.gg/FP5UaAG",
                 label: "CollabCode",
                 votes: 0,
                 type: LinkType.FREE,
@@ -74,7 +74,7 @@ export const data: Level[] = [
       {
         label: "Bolha Dev",
         description:
-          "Se curte usar twitter e quer ter a sua timeline cheio de devs com opniões fortes, notícias e dúvidas sobre tech/desenvolvimento, siga essas pessoas e hashtags:",
+          "Se curte usar twitter e quer ter a sua timeline cheia de devs com opiniões fortes, notícias e dúvidas sobre tech/desenvolvimento, siga essas pessoas e hashtags:",
         children: [
           {
             label: "Twitter",
@@ -129,7 +129,7 @@ export const data: Level[] = [
       {
         label: "Vídeo e Lives",
         description:
-          "Se curte usar twitter e quer ter a sua timeline cheio de devs com opniões fortes, notícias e dúvidas sobre tech/desenvolvimento, siga essas pessoas e hashtags:",
+          "Canais de Youtubes e Lives na Twitch sobre notícias, carreira e dúvidas sobre tech/desenvolvimento:",
         children: [
           {
             label: "Youtube",
@@ -192,7 +192,7 @@ export const data: Level[] = [
       {
         label: "Desafios para Praticar",
         description:
-          "Se curte usar twitter e quer ter a sua timeline cheio de devs com opniões fortes, notícias e dúvidas sobre tech/desenvolvimento, siga essas pessoas e hashtags:",
+          "Se a 'prática leva a perfeição', aqui vão alguns code challenges, sites para praticar e também UX/UI de aplicações para testar seu frontend",
         children: [
           {
             label: "Aprenda/Pratique Javascript",
