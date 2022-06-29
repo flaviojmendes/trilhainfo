@@ -273,12 +273,30 @@ export const data: Level[] = [
                 votes: 0,
                 contentType: LinkContentType.WATCH
               },
+              {
+                url: "https://www.youtube.com/watch?v=6Czd1Yetaac&t=269s",
+                label: "Entendendo GIT - Fábio Akita",
+                type: LinkType.FREE,
+                votes: 0,
+                contentType: LinkContentType.WATCH
+              },
             ],
           },
           {
             label: "Serviçoes de Hospedagem de Git",
             children: [
-              { label: "Github", links: [] },
+              {
+                label: "Github",
+                links: [
+                  {
+                    url: "https://www.youtube.com/watch?v=kB5e-gTAl_s",
+                    label: "Curso de Git e Github COMPLETO 2021 [Iniciantes] + Desafios + Muita Prática - Dev Aprender",
+                    type: LinkType.FREE,
+                    votes: 0,
+                    contentType: LinkContentType.WATCH
+                  },
+                ]
+              },
               { label: "Gitlab", links: [] },
               { label: "Bitbucket", links: [] },
             ],
@@ -849,19 +867,24 @@ export const data: Level[] = [
       {
         label: "Aplicações Mobile",
         children: [
+          { 
+            label: "React Native", 
+            links: [
+              {
+                url: "https://www.youtube.com/playlist?list=PLdDT8if5attEd4sRnZBIkNihR-_tE612_",
+                label: "Curso React Native - One Bit Code",
+                votes: 0,
+                type: LinkType.FREE,
+                contentType: LinkContentType.WATCH
+              },
+            ] 
+          },
           {
             label: "React Native",
             links: [
               {
                 label: "Primeiros passos no React Native - One Bit Code",
                 url: "https://www.youtube.com/watch?v=Y8tP1jbRYHY&list=PLdDT8if5attEd4sRnZBIkNihR-_tE612_&index=1",
-                contentType: LinkContentType.WATCH
-              },
-              {
-                url: "https://www.youtube.com/playlist?list=PLdDT8if5attEd4sRnZBIkNihR-_tE612_",
-                label: "Curso React Native - One Bit Code",
-                votes: 0,
-                type: LinkType.FREE,
                 contentType: LinkContentType.WATCH
               },
               {
