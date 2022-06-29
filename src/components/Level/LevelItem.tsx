@@ -56,7 +56,7 @@ export default function LevelItem(props: Props) {
                       triggerItemSelection(item);
                     }}
                     className={
-                      "flex mx-0 my-0 p-2 w-fit text-center cursor-pointer bd-handwritten hover:bg-white" +
+                      "flex mx-0 my-0 p-1 md:p-2  w-fit text-center cursor-pointer bd-handwritten hover:bg-white" +
                       (level.length >= 4 ? " mb-3" : "") +
                       (isAllContentRead ? " bg-light-orange" : " bg-brown")
                     }
