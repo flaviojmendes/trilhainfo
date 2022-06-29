@@ -6,6 +6,8 @@ Se você chegou até esse repo é porque está querendo saber mais sobre como co
 
 Atualmente estou pedindo contribuições para o Roadmap de Frontend. Basta mandar um Pull Request para editar o [JSON](https://github.com/flaviojmendes/trilhainfo/tree/main/src/roadmaps) que contém todas a informações.
 
+![Preview](/src/preview.png)
+
 ## Disclaimer
 
 A ideia é inicialmente engajar a comunidade e então podemos ir evoluindo o portal à medida em que vamos tendo a necessidade. 😀
