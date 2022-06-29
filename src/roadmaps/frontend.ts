@@ -1,4 +1,4 @@
-import { Level, LinkType, RoadmapItem } from "../entity/RoadmapItem";
+import { Level, LinkType, LinkContentType ,RoadmapItem } from "../entity/RoadmapItem";
 
 export const data: Level[] = [
   {
@@ -19,18 +19,21 @@ export const data: Level[] = [
                 label: "Marco Bruno HTML e CSS Feliz",
                 votes: 0,
                 type: LinkType.FREE,
+                contentType: LinkContentType.WATCH
               },
               {
                 url: "https://www.youtube.com/watch?v=IOfxZFgUjt8",
                 label: "HTML Básico Parte 1 - Dev Lucas Lopes",
                 votes: 0,
                 type: LinkType.FREE,
+                contentType: LinkContentType.WATCH
               },
               {
                 url: "https://www.youtube.com/watch?v=jU7gyfsQx9Y",
                 label: "HTML Básico Parte 2 - Dev Lucas Lopes",
                 votes: 0,
                 type: LinkType.FREE,
+                contentType: LinkContentType.WATCH
               },
             ],
           },
@@ -42,12 +45,14 @@ export const data: Level[] = [
                 label: "Validação de campos em formulários HTML - Edicursos",
                 votes: 0,
                 type: LinkType.FREE,
+                contentType: LinkContentType.WATCH
               },
               {
                 url: "https://www.youtube.com/watch?v=wwqOJ2o84S4",
                 label: "Formulários com HTML e CSS - Rafaella Ballerini",
                 votes: 0,
                 type: LinkType.FREE,
+                contentType: LinkContentType.WATCH
               },
             ],
           },
@@ -60,6 +65,7 @@ export const data: Level[] = [
                   "Boas práticas para escrever um HTML profissional - Mayk Brito",
                 votes: 0,
                 type: LinkType.FREE,
+                contentType: LinkContentType.WATCH
               },
             ],
           },
@@ -72,12 +78,14 @@ export const data: Level[] = [
                   "HTML e Acessibilidade. 6 erros comuns que até devs mais experientes podem cometer - Ser Frontend",
                 votes: 0,
                 type: LinkType.FREE,
+                contentType: LinkContentType.WATCH
               },
               {
                 url: "https://www.youtube.com/watch?v=pOmdL9LzDJg",
                 label: "Acessibilidade em páginas web - Matheus Castiglioni",
                 votes: 0,
                 type: LinkType.FREE,
+                contentType: LinkContentType.WATCH
               },
             ],
           },
@@ -96,12 +104,14 @@ export const data: Level[] = [
                 label: "Pare de Chutar o CSS - Marco Bruno",
                 votes: 0,
                 type: LinkType.FREE,
+                contentType: LinkContentType.WATCH
               },
               {
                 url: "https://www.youtube.com/watch?v=hSfSw4kJHxY&t=3s",
                 label: "Primeiros Passos CSS - Dev Lucas Lopes",
                 votes: 0,
                 type: LinkType.FREE,
+                contentType: LinkContentType.WATCH
               },
             ],
           },
@@ -111,32 +121,39 @@ export const data: Level[] = [
               {
                 url: "https://www.youtube.com/watch?v=z1Hp72GVHJk&list=PLx4x_zx8csUhDWtEa-AtDAgSSmLObBVaz",
                 label: "CSS Flexbox - CFBCursos",
+                contentType: LinkContentType.WATCH
               },
               {
                 url: "https://www.youtube.com/watch?v=P9TrFDNwor4",
                 label: "Tutorial de Flexbox - Matheus Battisti",
+                contentType: LinkContentType.WATCH
               },
               {
                 url: "https://www.youtube.com/watch?v=8VapN6x897U",
                 label: "Aprenda CSS Grid em 30 minutos - Matheus Battisti",
+                contentType: LinkContentType.WATCH
               },
               {
                 url: "https://www.youtube.com/watch?v=E1tR7sYMEN0",
                 label:
                   "Pare de chutar e aprenda float e sua trupe - Marco Bruno",
+                  contentType: LinkContentType.WATCH
               },
               {
                 url: "https://www.youtube.com/watch?v=5PS6ku8NzIE",
                 label: "Pare de chutar e aprenda displat: inline - Marco Bruno",
+                contentType: LinkContentType.WATCH
               },
               {
                 url: "https://www.youtube.com/watch?v=HWfhwokS_qg",
                 label: "Pare de chutar e aprenda displat: block - Marco Bruno",
+                contentType: LinkContentType.WATCH
               },
               {
                 url: "https://www.youtube.com/watch?v=Yj9-N9BEVeM",
                 label:
                   "Pare de chutar e aprenda displat: inline-block - Marco Bruno",
+                  contentType: LinkContentType.WATCH
               },
             ],
           },
@@ -146,10 +163,12 @@ export const data: Level[] = [
               {
                 url: "https://www.youtube.com/watch?v=3rrX9w0HhZc",
                 label: "O que é Web Design Responsivo? - Chief of Design",
+                contentType: LinkContentType.WATCH
               },
               {
                 url: "https://www.youtube.com/watch?v=H91DhKPjhPk",
                 label: "Responsividade na Prática - Mayk Brito",
+                contentType: LinkContentType.WATCH
               },
             ],
           },
@@ -161,6 +180,7 @@ export const data: Level[] = [
                 label: "Minicurso Animações CSS - dpw",
                 votes: 0,
                 type: LinkType.FREE,
+                contentType: LinkContentType.WATCH
               }
             ]
           }
@@ -179,6 +199,7 @@ export const data: Level[] = [
                 label: "Desafios Javascript - Fabio Bergmann",
                 votes: 0,
                 type: LinkType.FREE,
+                contentType: LinkContentType.WATCH
               },
             ],
           },
@@ -188,15 +209,18 @@ export const data: Level[] = [
               {
                 url: "https://www.youtube.com/watch?v=xoYFoBtev8A",
                 label: "Manipulando o DOM na prática - Dogcode",
+                contentType: LinkContentType.WATCH
               },
               {
                 url: "https://www.youtube.com/watch?v=aVB67Y31E4A",
                 label: "Manipulando a DOM com Vanilla JS - CodarMe",
+                contentType: LinkContentType.WATCH
               },
               {
                 url: "https://www.youtube.com/watch?v=UftSB4DaRU4",
                 label:
                   "Manipulação de DOM com JavaScript, do zero, na prática - Mayk Brito",
+                  contentType: LinkContentType.WATCH
               },
             ],
           },
@@ -206,11 +230,13 @@ export const data: Level[] = [
               {
                 url: "https://www.youtube.com/watch?v=mmCuNbChZ9I",
                 label: "Como consumir de uma API usando a Fetch API - Huriel",
+                contentType: LinkContentType.WATCH
               },
               {
                 url: "https://www.youtube.com/watch?v=qIGYM4S8x50",
                 label:
                   "Aprenda Fetch Api de Javascript - Matheus Battisti (Hora de Codar)",
+                  contentType: LinkContentType.WATCH
               },
             ],
           },
@@ -222,6 +248,7 @@ export const data: Level[] = [
               {
                 url: "https://www.youtube.com/watch?v=RtfBx90R070&list=PLlAbYrWSYTiPQ1BE8klOtheBC0mtL3hEi",
                 label: "Mini-curso JS Moderno (ES6) - Willian Justen",
+                contentType: LinkContentType.WATCH
               },
             ],
           },
@@ -244,6 +271,7 @@ export const data: Level[] = [
                 label: "Git e Github para Iniciantes - Willian Justen",
                 type: LinkType.FREE,
                 votes: 0,
+                contentType: LinkContentType.WATCH
               },
             ],
           },
@@ -274,6 +302,7 @@ export const data: Level[] = [
                 url: "https://www.youtube.com/watch?v=GZV-FUdeVwE",
                 label:
                   "Cross-Origin Resource Sharing em 6 minutos - Codigo Fonte TV",
+                  contentType: LinkContentType.WATCH
               },
             ],
           },
@@ -283,6 +312,7 @@ export const data: Level[] = [
               {
                 url: "https://www.youtube.com/watch?v=Kc2yuSdoxnQ&t=1s",
                 label: "Helmet - Node.js & MongoDB Tips 04",
+                contentType: LinkContentType.WATCH
               },
             ]
           },
@@ -292,6 +322,7 @@ export const data: Level[] = [
               {
                 url: "https://www.youtube.com/watch?v=wC_epzVm780",
                 label: "Série OWASP Top 10 - Cássio B. Pereira",
+                contentType: LinkContentType.WATCH
               },
             ],
           },
@@ -312,6 +343,7 @@ export const data: Level[] = [
               {
                 url: "https://www.youtube.com/watch?v=tFqsmNrWW0M",
                 label: "Introdução ao NPM - Fellyph Cintra ",
+                contentType: LinkContentType.WATCH
               },
             ],
           },
@@ -321,6 +353,7 @@ export const data: Level[] = [
               {
                 url: "https://www.youtube.com/watch?v=3BPfDo4arHc",
                 label: "Yarn - DevPleno",
+                contentType: LinkContentType.WATCH
               },
             ],
           },
@@ -342,6 +375,7 @@ export const data: Level[] = [
                 url: "https://www.youtube.com/watch?v=Wo5t3uUV8n4",
                 label:
                   "Aprenda Sass em 1 hora - Matheus Battisti (Hora de Codar)",
+                  contentType: LinkContentType.WATCH
               },
             ],
           },
@@ -351,6 +385,7 @@ export const data: Level[] = [
               {
                 url: "https://blog.umbler.com/br/introducao-ao-postcss/",
                 label: "Introdução ao PostCSS - Umbler Blog",
+                contentType: LinkContentType.READ
               },
             ],
           },
@@ -360,6 +395,7 @@ export const data: Level[] = [
               {
                 url: "http://lesscss.loopinfinito.com.br",
                 label: "LessCSS - Loop Infinito",
+                contentType: LinkContentType.READ
               },
             ],
           },
@@ -387,7 +423,8 @@ export const data: Level[] = [
                 url: "https://vitejs.dev/guide/",
                 label: "Documentação Oficial",
                 votes: 0,
-                type: LinkType.FREE
+                type: LinkType.FREE,
+                contentType: LinkContentType.READ
             }
           ] },
         ],
@@ -422,10 +459,12 @@ export const data: Level[] = [
                 label: "Javascript para React - Marco Bruno",
                 votes: 0,
                 type: LinkType.FREE,
+                contentType: LinkContentType.WATCH
               },
               {
                 url: "https://www.youtube.com/watch?v=Jxe79XZ9u-Y&list=PL8YNlUoOZkkaCJENGzHFXrRwwjuwEh6nC",
                 label: "Aprenda os React Hooks! - Huriel",
+                contentType: LinkContentType.WATCH
               },
             ],
           },
@@ -435,11 +474,13 @@ export const data: Level[] = [
               {
                 url: "https://www.youtube.com/watch?v=Bg0xlUYAp0c",
                 label: "Aprenda Redux em 5 minutos - Flipix",
+                contentType: LinkContentType.WATCH
               },
               {
                 url: "https://www.youtube.com/watch?v=1xbFstDfUXs",
                 label:
                   "Você acha Redux Difícil por causa disso - Programador a Bordo",
+                  contentType: LinkContentType.WATCH
               },
             ],
           },
@@ -458,6 +499,7 @@ export const data: Level[] = [
                 label: "Curso de Angular - Loiane Groner",
                 votes: 0,
                 type: LinkType.FREE,
+                contentType: LinkContentType.WATCH
               },
             ],
           },
@@ -467,10 +509,12 @@ export const data: Level[] = [
               {
                 url: "https://www.youtube.com/watch?v=DBHpS2CqGZs",
                 label: "Programação Reativa com RxJS Parte 1 - Cod3r Cursos",
+                contentType: LinkContentType.WATCH
               },
               {
                 url: "https://www.youtube.com/watch?v=KXliXSjxC6k",
                 label: "Programação Reativa com RxJS Parte 2 - Cod3r Cursos",
+                contentType: LinkContentType.WATCH
               },
             ],
           },
@@ -480,6 +524,7 @@ export const data: Level[] = [
               {
                 url: "https://www.youtube.com/watch?v=yCac7PRG6R4",
                 label: "NgRx com Angular - HypeIT Brasil",
+                contentType: LinkContentType.WATCH
               },
             ],
           },
@@ -496,6 +541,7 @@ export const data: Level[] = [
               {
                 url: "https://vuejs.org/guide/introduction.html",
                 label: "Documentação",
+                contentType: LinkContentType.READ
               },
             ],
           },
@@ -506,6 +552,7 @@ export const data: Level[] = [
                 url: "https://treinamento.vuejsbrasil.org/",
                 label:
                   "Curso completo e gratuito de Vue 3 do iniciante ao avançado",
+                  contentType: LinkContentType.VISIT
               },
             ],
           },
@@ -517,6 +564,7 @@ export const data: Level[] = [
                 label: "Documentação oficial",
                 votes: 0,
                 type: LinkType.FREE,
+                contentType: LinkContentType.READ
               }
             ]
           },
@@ -528,12 +576,14 @@ export const data: Level[] = [
                 label: "Documentação oficial",
                 votes: 0,
                 type: LinkType.FREE,
+                contentType: LinkContentType.READ
               },
               {
                 url: "https://www.youtube.com/watch?v=qq8yJmXys6U",
                 label: "Gerenciando estado com Vuex -  Matheus Castiglioni",
                 votes: 0,
                 type: LinkType.FREE,
+                contentType: LinkContentType.WATCH
               }
             ] 
           },
@@ -554,6 +604,7 @@ export const data: Level[] = [
                 url: "https://www.youtube.com/watch?v=QdfjWRc4ySA",
                 label:
                   "Styled Components, por onde começar? - Mario Souto Dev Soutinho",
+                  contentType: LinkContentType.WATCH
               },
             ],
           },
@@ -577,6 +628,7 @@ export const data: Level[] = [
               label: "Vamos construir um WEB Component e aprender Shadow DOM  - Mayk Brito",
               votes: 0,
               type: LinkType.FREE,
+              contentType: LinkContentType.WATCH
             }
           ] },
           {
@@ -586,6 +638,7 @@ export const data: Level[] = [
                 label: "Web Components e Seus Três PRINCIPAIS CONCEITOS: DOM, Shadow DOM e Virtual DOM - Leonardo Leitão",
                 votes: 0,
                 type: LinkType.FREE,
+                contentType: LinkContentType.WATCH
               }
             ]
           },
@@ -611,6 +664,7 @@ export const data: Level[] = [
                 label: "Curso Gratuito Tailwind CSS - Tiago Matos",
                 votes: 0,
                 type: LinkType.FREE,
+                contentType: LinkContentType.WATCH
               },
             ],
           },
@@ -620,6 +674,7 @@ export const data: Level[] = [
               {
                 url: "https://www.youtube.com/watch?v=RjZOUCIwo4M",
                 label: "Configurando Chakra UI no React! - Huriel",
+                contentType: LinkContentType.WATCH
               },
             ],
           },
@@ -628,7 +683,8 @@ export const data: Level[] = [
             links: [
               {
                 url: "https://www.youtube.com/watch?v=uJhqvzK7cWw",
-                label: "Conhecendo Material UI no Reactjs - OmniLabs"
+                label: "Conhecendo Material UI no Reactjs - OmniLabs",
+                contentType: LinkContentType.WATCH
               }
             ]
           },
@@ -667,12 +723,14 @@ export const data: Level[] = [
                 label: "Mini Curso de Typescript - Willian Justen",
                 votes: 0,
                 type: LinkType.FREE,
+                contentType: LinkContentType.WATCH
               },
               {
                 url: "https://www.youtube.com/playlist?list=PLb2HQ45KP0Wsk-p_0c6ImqBAEFEY-LU9H",
                 label: "TypeScript - Zero to Hero - Glaucia Lemos",
                 votes: 0,
                 type: LinkType.FREE,
+                contentType: LinkContentType.WATCH
               },
             ],
           },
@@ -729,6 +787,7 @@ export const data: Level[] = [
               {
                 label: "Pra que serve, conceitos e Hello World - Mateus Silva",
                 url: "https://www.youtube.com/watch?v=7RoHxSGVAdU&list=PLPXWI3llyMiK9uw7tfljM2hnQl2qu6CeT",
+                contentType: LinkContentType.WATCH
               },
             ],
           },
@@ -752,6 +811,7 @@ export const data: Level[] = [
                 label: "Next.js - Lucas Nhimi",
                 votes: 0,
                 type: LinkType.FREE,
+                contentType: LinkContentType.WATCH
               },
             ],
           },
@@ -761,6 +821,7 @@ export const data: Level[] = [
               {
                 label: "GatsbyJS - Thiago Franchin",
                 url: "https://www.youtube.com/watch?v=3b2PinXRqYU&list=PLN9uKzK0o3GR3ky2Q6zc2v0Dlej3oOBtT&index=1",
+                contentType: LinkContentType.WATCH
               },
             ],
           },
@@ -770,6 +831,7 @@ export const data: Level[] = [
               {
                 label: "Curso Gratuito de Nuxt.js 2 - Tiago Matos",
                 url: "https://www.youtube.com/watch?v=jw6tRUGkpmo&list=PLcoYAcR89n-oU266D5Dy6DT-H8npny_qJ&index=1",
+                contentType: LinkContentType.WATCH
               },
             ],
           },
@@ -795,6 +857,7 @@ export const data: Level[] = [
                 label: "Curso React Native - One Bit Code",
                 votes: 0,
                 type: LinkType.FREE,
+                contentType: LinkContentType.WATCH
               },
             ] 
           },
@@ -804,10 +867,12 @@ export const data: Level[] = [
               {
                 label: "Primeiros passos no React Native - One Bit Code",
                 url: "https://www.youtube.com/watch?v=Y8tP1jbRYHY&list=PLdDT8if5attEd4sRnZBIkNihR-_tE612_&index=1",
+                contentType: LinkContentType.WATCH
               },
               {
                 label: "Aprenda React Native - Canal Geek Dev",
                 url: "https://www.youtube.com/watch?v=DmUUsTC2YkA&list=PL8fIRnD1uUSnRqz3E2caAWDqbtIFXmNtW",
+                contentType: LinkContentType.WATCH
               },
             ],
           },
@@ -818,10 +883,12 @@ export const data: Level[] = [
               {
                 label: "Curso de Flutter - Flutterando",
                 url: "https://www.youtube.com/watch?v=XeUiJJN0vsE&list=PLlBnICoI-g-d-J57QIz6Tx5xtUDGQdBFB",
+                contentType: LinkContentType.WATCH
               },
               {
                 label: "Curso Flutter para Iniciantes - Rodrigo Rahman",
                 url: "https://www.youtube.com/watch?v=qt20g3zuVbA&list=PLEXr-WZRgPjwk2v5wYi70WN--pCGvN-9u",
+                contentType: LinkContentType.WATCH
               },
             ],
           },
@@ -853,6 +920,7 @@ export const data: Level[] = [
                 label: "O que é WebAssembly? - Mozilla",
                 votes: 0,
                 type: LinkType.FREE,
+                contentType: LinkContentType.READ
               },
             ],
           },
@@ -864,12 +932,14 @@ export const data: Level[] = [
                 label: "Primeiro projeto usando Blazor",
                 votes: 0,
                 type: LinkType.FREE,
+                contentType: LinkContentType.VISIT
               },
               {
                 url: "https://www.youtube.com/watch?v=6YgtFfzheHY&list=PLJ4k1IC8GhW2v0nCR7K-tZeoHwqfPZs5t",
                 label: "Minicurso Blazor",
                 votes: 0,
                 type: LinkType.FREE,
+                contentType: LinkContentType.WATCH
               },
             ],
           },

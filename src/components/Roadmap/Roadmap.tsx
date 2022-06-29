@@ -25,13 +25,27 @@ import {
 
 import React, { useEffect } from "react";
 import { useLocalStorage } from "react-use";
-import { Level, RoadmapItem } from "../../entity/RoadmapItem";
+import { Level, LinkContentType, RoadmapItem } from "../../entity/RoadmapItem";
 import LevelItem from "../Level/LevelItem";
 
 type Props = {
   data: Level[];
   title: string;
 };
+
+function getColorFromContentType(contentType: LinkContentType) {
+  switch (contentType) {
+    case LinkContentType.LISTEN:
+      return "blue";
+    case LinkContentType.READ:
+      return "yellow";
+    case LinkContentType.VISIT:
+      return "purple";
+    case LinkContentType.WATCH:
+    default:
+      return "orange";
+  }
+}
 
 export default function Roadmap(props: Props) {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -140,14 +154,20 @@ export default function Roadmap(props: Props) {
                                   </Link>
                                   <Spacer />
                                   <Badge
-                                    cursor={"pointer"}
-                                    colorScheme="green"
+                                    colorScheme={getColorFromContentType(
+                                      link.contentType
+                                    )}
                                     p={1}
                                     rounded={"md"}
-                                    className="h-7"
+                                    className="h-5"
+                                    fontSize="0.6em"
+                                    mr="1"
                                   >
-                                    <CheckIcon mr={2} />
-                                    <span>{link.votes ? link.votes : "0"}</span>
+                                    <span>
+                                      {link.contentType
+                                        ? link.contentType
+                                        : null}
+                                    </span>
                                   </Badge>
                                 </Flex>
                               </>

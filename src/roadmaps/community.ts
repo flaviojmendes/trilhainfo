@@ -1,4 +1,4 @@
-import { Level, LinkType, RoadmapItem } from "../entity/RoadmapItem";
+import { Level, LinkType, LinkContentType, RoadmapItem } from "../entity/RoadmapItem";
 
 export const data: Level[] = [
   {
@@ -19,42 +19,49 @@ export const data: Level[] = [
                 label: "CollabCode",
                 votes: 0,
                 type: LinkType.FREE,
+                contentType: LinkContentType.VISIT
               },
               {
                 url: "https://discord.gg/wNCWTVuxyz",
                 label: "Codelândia",
                 votes: 0,
                 type: LinkType.FREE,
+                contentType: LinkContentType.VISIT
               },
               {
                 url: "https://discord.gg/MSr8SJfR4H",
                 label: "Codify Community",
                 votes: 0,
                 type: LinkType.FREE,
+                contentType: LinkContentType.VISIT
               },
               {
                 url: "https://discord.gg/wagxzStdcR",
                 label: "Ballerini",
                 votes: 0,
                 type: LinkType.FREE,
+                contentType: LinkContentType.VISIT
               },
               {
                 url: "https://discord.gg/he4rt",
                 label: "He4rt Developers",
                 votes: 0,
                 type: LinkType.FREE,
+                contentType: LinkContentType.VISIT
               },
               {
                 url: "http://bitly.com/montano-server",
                 label: "Montano",
                 votes: 0,
                 type: LinkType.FREE,
+                contentType: LinkContentType.VISIT
               },
               {
                 url: "https://discord.gg/uYFJ5VJ",
                 label: "Rocketseat",
                 votes: 0,
                 type: LinkType.FREE,
+                contentType: LinkContentType.VISIT
               },
             ],
           },
@@ -76,37 +83,44 @@ export const data: Level[] = [
                 url: "https://twitter.com/flaviojmendes",
                 label: "@flaviojmendes",
                 votes: 0,
+                contentType: LinkContentType.VISIT
               },
               {
                 url: "https://twitter.com/marcobrunodev",
                 label: "@marcobrunodev",
                 votes: 0,
+                contentType: LinkContentType.VISIT
               },
               {
                 url: "https://twitter.com/AkitaOnRails",
                 label: "@AkitaOnRails",
                 votes: 0,
+                contentType: LinkContentType.VISIT
               },
               {
                 url: "https://twitter.com/sseraphini",
                 label: "@sseraphini",
                 votes: 0,
+                contentType: LinkContentType.VISIT
               },
               {
                 url: "https://twitter.com/BolhaTech",
                 label: "#BolhaTech",
                 votes: 0,
+                contentType: LinkContentType.VISIT
               },
               {
                 url: "https://twitter.com/danielhe4rt",
                 label: "@danielhe4rt",
                 votes: 0,
+                contentType: LinkContentType.VISIT
               },
 
               {
                 url: "https://twitter.com/paulo_caelum",
                 label: "@paulo_caelum",
                 votes: 0,
+                contentType: LinkContentType.VISIT
               },
             ],
           },
@@ -124,26 +138,31 @@ export const data: Level[] = [
                 url: "https://www.youtube.com/c/MarcoBrunoDev",
                 label: "marcobrunodev",
                 votes: 0,
+                contentType: LinkContentType.VISIT
               },
               {
                 url: "https://www.youtube.com/c/FabioAkita1990",
                 label: "Fabio Akita",
                 votes: 0,
+                contentType: LinkContentType.VISIT
               },
               {
                 url: "https://www.youtube.com/c/Programadorbr",
                 label: "Programador BR",
                 votes: 0,
+                contentType: LinkContentType.VISIT
               },
               {
                 url: "https://www.youtube.com/c/FilipeDeschamps",
                 label: "FilipeDeschamps",
                 votes: 0,
+                contentType: LinkContentType.VISIT
               },
               {
                 url: "https://www.youtube.com/c/codigofontetv",
                 label: "Código Fonte TV",
                 votes: 0,
+                contentType: LinkContentType.VISIT
               },
             ],
           },
@@ -154,11 +173,13 @@ export const data: Level[] = [
                 url: "https://www.twitch.tv/marcobrunodev",
                 label: "marcobrunodev",
                 votes: 0,
+                contentType: LinkContentType.VISIT
               },
               {
                 url: "twitch.tv/flaviojmendes",
                 label: "flaviojmendes",
                 votes: 0,
+                contentType: LinkContentType.VISIT
               },
             ],
           },
@@ -180,6 +201,7 @@ export const data: Level[] = [
                 url: "https://learnjavascript.online/app.html",
                 label: "Learn Javascript",
                 votes: 0,
+                contentType: LinkContentType.VISIT
               },
             ],
           },
@@ -190,16 +212,19 @@ export const data: Level[] = [
                 url: "https://www.figma.com/file/Yb9IBH56g7T1hdIyZ3BMNO/Desafios---Codelândia?node-id=0%3A1",
                 label: "Desafios Codelândia ( Frontend )",
                 votes: 0,
+                contentType: LinkContentType.VISIT
               },
               {
                 url: "https://www.hackerrank.com/",
                 label: "Hackerrank",
                 votes: 0,
+                contentType: LinkContentType.VISIT
               },
               {
                 url: "https://www.beecrowd.com.br/",
                 label: "Beecrowd",
                 votes: 0,
+                contentType: LinkContentType.VISIT
               },
             ],
           },
