@@ -15,7 +15,7 @@ export const data: Level[] = [
             label: "Comunidades",
             links: [
               {
-                url: "https://discord.gg/EFdpWdnE",
+                url: "https://discord.gg/FP5UaAG",
                 label: "CollabCode",
                 votes: 0,
                 type: LinkType.FREE,
