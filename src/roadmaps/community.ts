@@ -2,9 +2,9 @@ import { Level, LinkType, LinkContentType } from "../entity/RoadmapItem";
 
 export const data: Level[] = [
   {
-    label: "Participe de diversas comunidades de desenvolvedores!",
+    label: "Participe de diversas comunidades Devs!",
     description:
-      "Conectar-se com outros devs vai acelerar sua jornada do aprendizado, seja para tirar/responder dúvidas ou conversar com pessoas mais e menos experiêntes que você.",
+      "Conectar-se com devs vai acelerar sua jornada do aprendizado, seja para tirar/responder dúvidas ou conversar com pessoas mais e menos experiêntes que você.",
     items: [
       {
         label: "Discord",
@@ -74,7 +74,7 @@ export const data: Level[] = [
       {
         label: "Bolha Dev",
         description:
-          "Se curte usar twitter e quer ter a sua timeline cheio de devs com opniões fortes, notícias e dúvidas sobre tech/desenvolvimento, siga essas pessoas e hashtags:",
+          "Se curte usar twitter e quer ter a sua timeline cheia de devs com opiniões fortes, notícias e dúvidas sobre tech/desenvolvimento, siga essas pessoas e hashtags:",
         children: [
           {
             label: "Twitter",
