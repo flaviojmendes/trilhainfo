@@ -849,24 +849,19 @@ export const data: Level[] = [
       {
         label: "Aplicações Mobile",
         children: [
-          { 
-            label: "React Native", 
-            links: [
-              {
-                url: "https://www.youtube.com/playlist?list=PLdDT8if5attEd4sRnZBIkNihR-_tE612_",
-                label: "Curso React Native - One Bit Code",
-                votes: 0,
-                type: LinkType.FREE,
-                contentType: LinkContentType.WATCH
-              },
-            ] 
-          },
           {
             label: "React Native",
             links: [
               {
                 label: "Primeiros passos no React Native - One Bit Code",
                 url: "https://www.youtube.com/watch?v=Y8tP1jbRYHY&list=PLdDT8if5attEd4sRnZBIkNihR-_tE612_&index=1",
+                contentType: LinkContentType.WATCH
+              },
+              {
+                url: "https://www.youtube.com/playlist?list=PLdDT8if5attEd4sRnZBIkNihR-_tE612_",
+                label: "Curso React Native - One Bit Code",
+                votes: 0,
+                type: LinkType.FREE,
                 contentType: LinkContentType.WATCH
               },
               {
