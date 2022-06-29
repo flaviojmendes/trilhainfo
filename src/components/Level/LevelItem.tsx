@@ -53,7 +53,7 @@ export default function LevelItem(props: Props) {
                     <InfoIcon m="auto" mx="1" color={"#494443"} />
                   </div>
                   {index < level.length - 1 && level.length < 4 && (
-                    <div className="bd-red border-2 border-dashed h-1 my-auto w-[50px]"></div>
+                    <div className="bd-red border-2 border-dashed h-1 my-auto min-w-[20px] max-w-[50px] flex-grow"></div>
                   )}
                 </>
               );
