@@ -9,7 +9,7 @@ export const data: Level[] = [
       {
         label: "Discord",
         description:
-          "Discord é uma ferramente de comunidades incrível que facilita a comunicação e aprendizado de diversas pessoas, e é onde muitos desenvolvedores utilizam de canais de texto e voz para trocarem informações e experiência. Escolha uma ( ou todas ) comunidades para entrar e conectar-se com diversos devs:",
+          "Discord é uma ferramenta de comunidades incrível que facilita a comunicação e aprendizado de diversas pessoas ( em múltiplas vertentes ), onde devs utilizam de canais de texto e voz para trocarem informações e experiência. Escolha uma ( ou todas ) comunidades para entrar, conectar-se e trocar ideias :",
         children: [
           {
             label: "Comunidades",
