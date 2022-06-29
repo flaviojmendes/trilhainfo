@@ -1,4 +1,4 @@
-# Trilha Dev
+# Trilha Info
 
 Olá 👋
 
