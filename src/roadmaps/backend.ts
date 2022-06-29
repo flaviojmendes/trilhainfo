@@ -1,4 +1,4 @@
-import { Level, LinkType, RoadmapItem } from "../entity/RoadmapItem";
+import { Level, LinkType, LinkContentType, RoadmapItem } from "../entity/RoadmapItem";
 
 export const data: Level[] = [
   {
@@ -19,18 +19,21 @@ export const data: Level[] = [
                 label: "Marco Bruno HTML e CSS Feliz",
                 votes: 0,
                 type: LinkType.FREE,
+                contentType: LinkContentType.WATCH
               },
               {
                 url: "https://www.youtube.com/watch?v=IOfxZFgUjt8",
                 label: "HTML Básico Parte 1 - Dev Lucas Lopes",
                 votes: 0,
                 type: LinkType.FREE,
+                contentType: LinkContentType.WATCH
               },
               {
                 url: "https://www.youtube.com/watch?v=jU7gyfsQx9Y",
                 label: "HTML Básico Parte 2 - Dev Lucas Lopes",
                 votes: 0,
                 type: LinkType.FREE,
+                contentType: LinkContentType.WATCH
               },
             ],
           },
@@ -42,12 +45,14 @@ export const data: Level[] = [
                 label: "Validação de campos em formulários HTML - Edicursos",
                 votes: 0,
                 type: LinkType.FREE,
+                contentType: LinkContentType.WATCH
               },
               {
                 url: "https://www.youtube.com/watch?v=wwqOJ2o84S4",
                 label: "Formulários com HTML e CSS - Rafaella Ballerini",
                 votes: 0,
                 type: LinkType.FREE,
+                contentType: LinkContentType.WATCH
               },
             ],
           },
@@ -60,6 +65,7 @@ export const data: Level[] = [
                   "Boas práticas para escrever um HTML profissional - Mayk Brito",
                 votes: 0,
                 type: LinkType.FREE,
+                contentType: LinkContentType.WATCH
               },
             ],
           },
@@ -72,12 +78,14 @@ export const data: Level[] = [
                   "HTML e Acessibilidade. 6 erros comuns que até devs mais experientes podem cometer - Ser Frontend",
                 votes: 0,
                 type: LinkType.FREE,
+                contentType: LinkContentType.WATCH
               },
               {
                 url: "https://www.youtube.com/watch?v=pOmdL9LzDJg",
                 label: "Acessibilidade em páginas web - Matheus Castiglioni",
                 votes: 0,
                 type: LinkType.FREE,
+                contentType: LinkContentType.WATCH
               },
             ],
           },
@@ -96,12 +104,14 @@ export const data: Level[] = [
                 label: "Pare de Chutar o CSS - Marco Bruno",
                 votes: 0,
                 type: LinkType.FREE,
+                contentType: LinkContentType.WATCH
               },
               {
                 url: "https://www.youtube.com/watch?v=hSfSw4kJHxY&t=3s",
                 label: "Primeiros Passos CSS - Dev Lucas Lopes",
                 votes: 0,
                 type: LinkType.FREE,
+                contentType: LinkContentType.WATCH
               },
             ],
           },
@@ -111,32 +121,39 @@ export const data: Level[] = [
               {
                 url: "https://www.youtube.com/watch?v=z1Hp72GVHJk&list=PLx4x_zx8csUhDWtEa-AtDAgSSmLObBVaz",
                 label: "CSS Flexbox - CFBCursos",
+                contentType: LinkContentType.WATCH
               },
               {
                 url: "https://www.youtube.com/watch?v=P9TrFDNwor4",
                 label: "Tutorial de Flexbox - Matheus Battisti",
+                contentType: LinkContentType.WATCH
               },
               {
                 url: "https://www.youtube.com/watch?v=8VapN6x897U",
                 label: "Aprenda CSS Grid em 30 minutos - Matheus Battisti",
+                contentType: LinkContentType.WATCH
               },
               {
                 url: "https://www.youtube.com/watch?v=E1tR7sYMEN0",
                 label:
                   "Pare de chutar e aprenda float e sua trupe - Marco Bruno",
+                  contentType: LinkContentType.WATCH
               },
               {
                 url: "https://www.youtube.com/watch?v=5PS6ku8NzIE",
                 label: "Pare de chutar e aprenda displat: inline - Marco Bruno",
+                contentType: LinkContentType.WATCH
               },
               {
                 url: "https://www.youtube.com/watch?v=HWfhwokS_qg",
                 label: "Pare de chutar e aprenda displat: block - Marco Bruno",
+                contentType: LinkContentType.WATCH
               },
               {
                 url: "https://www.youtube.com/watch?v=Yj9-N9BEVeM",
                 label:
                   "Pare de chutar e aprenda displat: inline-block - Marco Bruno",
+                  contentType: LinkContentType.WATCH
               },
             ],
           },
@@ -146,10 +163,12 @@ export const data: Level[] = [
               {
                 url: "https://www.youtube.com/watch?v=3rrX9w0HhZc",
                 label: "O que é Web Design Responsivo? - Chief of Design",
+                contentType: LinkContentType.WATCH
               },
               {
                 url: "https://www.youtube.com/watch?v=H91DhKPjhPk",
                 label: "Responsividade na Prática - Mayk Brito",
+                contentType: LinkContentType.WATCH
               },
             ],
           },
@@ -168,6 +187,7 @@ export const data: Level[] = [
                 label: "Desafios Javascript - Fabio Bergmann",
                 votes: 0,
                 type: LinkType.FREE,
+                contentType: LinkContentType.WATCH
               },
             ],
           },
@@ -177,15 +197,18 @@ export const data: Level[] = [
               {
                 url: "https://www.youtube.com/watch?v=xoYFoBtev8A",
                 label: "Manipulando o DOM na prática - Dogcode",
+                contentType: LinkContentType.WATCH
               },
               {
                 url: "https://www.youtube.com/watch?v=aVB67Y31E4A",
                 label: "Manipulando a DOM com Vanilla JS - CodarMe",
+                contentType: LinkContentType.WATCH
               },
               {
                 url: "https://www.youtube.com/watch?v=UftSB4DaRU4",
                 label:
                   "Manipulação de DOM com JavaScript, do zero, na prática - Mayk Brito",
+                  contentType: LinkContentType.WATCH
               },
             ],
           },
@@ -195,11 +218,13 @@ export const data: Level[] = [
               {
                 url: "https://www.youtube.com/watch?v=mmCuNbChZ9I",
                 label: "Como consumir de uma API usando a Fetch API - Huriel",
+                contentType: LinkContentType.WATCH
               },
               {
                 url: "https://www.youtube.com/watch?v=qIGYM4S8x50",
                 label:
                   "Aprenda Fetch Api de Javascript - Matheus Battisti (Hora de Codar)",
+                  contentType: LinkContentType.WATCH
               },
             ],
           },
@@ -211,6 +236,7 @@ export const data: Level[] = [
               {
                 url: "https://www.youtube.com/watch?v=RtfBx90R070&list=PLlAbYrWSYTiPQ1BE8klOtheBC0mtL3hEi",
                 label: "Mini-curso JS Moderno (ES6) - Willian Justen",
+                contentType: LinkContentType.WATCH
               },
             ],
           },
@@ -231,10 +257,12 @@ export const data: Level[] = [
               {
                 label: "Aprenda os comandos básicos do Linux - Diolinux",
                 url: "https://www.youtube.com/watch?v=JEhVB4VHsTI",
+                contentType: LinkContentType.WATCH
               },
               {
                 label: "Linux Week - Linux Tips",
                 url: "https://www.youtube.com/watch?v=zGE4UxYndrk&list=PLf-O3X2-mxDnl7LhhjhEgbo2etWKkJ0GV",
+                contentType: LinkContentType.WATCH
               },
             ],
           },
@@ -246,6 +274,7 @@ export const data: Level[] = [
                 label: "Sistemas Operacionais - UNIVESP",
                 votes: 0,
                 type: LinkType.FREE,
+                contentType: LinkContentType.WATCH
               },
             ],
           },
@@ -256,6 +285,7 @@ export const data: Level[] = [
               {
                 label: "Concorrência e Paralelismo - Fabio Akita",
                 url: "https://www.youtube.com/watch?v=cx1ULv4wYxM",
+                contentType: LinkContentType.WATCH
               },
             ],
           },
@@ -265,6 +295,7 @@ export const data: Level[] = [
               {
                 label: "Gerenciamento de Memória - Fabio Akita",
                 url: "https://www.youtube.com/watch?v=9AK_1gqEfkQ",
+                contentType: LinkContentType.WATCH
               },
             ],
           },
@@ -275,6 +306,7 @@ export const data: Level[] = [
               {
                 label: "Redes de Computadores - Curso em Video",
                 url: "https://www.cursoemvideo.com/curso/redes-de-computadores/",
+                contentType: LinkContentType.VISIT
               },
             ],
           },
@@ -304,10 +336,12 @@ export const data: Level[] = [
               {
                 label: "Python Week - Linux Tips e Bruno Rocha",
                 url: "https://www.youtube.com/watch?v=spIRwXEF3XY&list=PLf-O3X2-mxDlfAv8IOfic1sHArdwrrkgh&index=2",
+                contentType: LinkContentType.WATCH
               },
               {
                 label: "Selenium com Python - Dunossauro",
                 url: "https://www.youtube.com/watch?v=PHHXksljGNA&list=PLOQgLBuj2-3LqnMYKZZgzeC7CKCPF375B",
+                contentType: LinkContentType.WATCH
               },
             ],
           },
@@ -324,6 +358,7 @@ export const data: Level[] = [
               {
                 label: "Java Básico",
                 url: "https://www.cursoemvideo.com/curso/java-basico/",
+                contentType: LinkContentType.VISIT
               },
             ],
           },
@@ -340,6 +375,7 @@ export const data: Level[] = [
               {
                 label: "Aprenda Go",
                 url: "https://www.youtube.com/watch?v=WiGU_ZB-u0w&list=PLCKpcjBB_VlBsxJ9IseNxFllf-UFEXOdg",
+                contentType: LinkContentType.WATCH
               },
             ],
           },
@@ -356,6 +392,7 @@ export const data: Level[] = [
               {
                 label: "Aprenda com quem não sabe - Fernando Daciuk",
                 url: "https://www.youtube.com/watch?v=mWh49ZpmQwk&list=PLr4c053wuXU-igL9KSptwKK5XdyGX13FB",
+                contentType: LinkContentType.WATCH
               },
             ],
           },
@@ -378,6 +415,7 @@ export const data: Level[] = [
               {
                 label: "PHP Básico - Curso em Video",
                 url: "https://www.cursoemvideo.com/curso/php-basico/",
+                contentType: LinkContentType.VISIT
               },
             ],
           },
@@ -396,36 +434,42 @@ export const data: Level[] = [
                 url: "https://www.youtube.com/watch?v=gQdZq_SRvE8",
                 type: LinkType.FREE,
                 votes: 0,
+                contentType: LinkContentType.WATCH
               },
               {
                 label: "Download .NET",
                 url: "https://dotnet.microsoft.com/en-us/download",
                 type: LinkType.FREE,
                 votes: 0,
+                contentType: LinkContentType.WATCH
               },
               {
                 label: "Criando um projeto usando CLI",
                 url: "https://www.youtube.com/watch?v=fvPGTLtP9wg",
                 type: LinkType.FREE,
                 votes: 0,
+                contentType: LinkContentType.WATCH
               },  
               {
                 label: "Como baixar e instalar o Visual Studio 2022",
                 url: "https://www.youtube.com/watch?v=_HgVooVuGOE",
                 type: LinkType.FREE,
                 votes: 0,
+                contentType: LinkContentType.WATCH
               },     
               {
                 label: "Lógica de Programação e Algoritmos com C#",
                 url: "https://www.youtube.com/watch?v=8KOnXlz_-9w&list=PLTyvdsF_vFzLvyKcXNqe785Pk9EVObRgR&index=1",
                 type: LinkType.FREE,
                 votes: 0,
+                contentType: LinkContentType.WATCH
               },             
               {
                 label: "Criando uma aplicação ASP.NET do Zero (Visual Studio)",
                 url: "https://www.youtube.com/watch?v=-v0sfER0po8",
                 type: LinkType.FREE,
                 votes: 0,
+                contentType: LinkContentType.WATCH
               },             
             ],
           },
@@ -437,6 +481,7 @@ export const data: Level[] = [
                 url: "https://www.youtube.com/watch?v=wI6zLJJhnNw&list=PLWXw8Gu52TRKlAqSfkdhSTPtAfAcYko5E",
                 type: LinkType.FREE,
                 votes: 0,
+                contentType: LinkContentType.WATCH
               },
               {
                 label: "CRUD camada DAL - C# Asp.Net com Bootstrap",
@@ -449,6 +494,7 @@ export const data: Level[] = [
                 url: "https://www.youtube.com/watch?v=-yxrPTlvpz4",
                 type: LinkType.FREE,
                 votes: 0,
+                contentType: LinkContentType.WATCH
               },
             ],
           },
@@ -471,6 +517,7 @@ export const data: Level[] = [
                 url: "https://www.youtube.com/watch?v=L1bJUKZV0b0",
                 type: LinkType.FREE,
                 votes: 0,
+                contentType: LinkContentType.WATCH
               },             
             ],
           },
@@ -493,6 +540,7 @@ export const data: Level[] = [
                 label: "Git e Github para Iniciantes - Willian Justen",
                 type: LinkType.FREE,
                 votes: 0,
+                contentType: LinkContentType.WATCH
               },
             ],
           },
@@ -522,6 +570,7 @@ export const data: Level[] = [
               {
                 label: "PostgreSQL - Boson Treinamentos",
                 url: "https://www.youtube.com/watch?v=Z_SPrzlT4Fc&list=PLucm8g_ezqNoAkYKXN_zWupyH6hQCAwxY",
+                contentType: LinkContentType.WATCH
               },
             ],
           },
@@ -531,6 +580,7 @@ export const data: Level[] = [
               {
                 label: "Mysql - Curso em Video",
                 url: "https://www.cursoemvideo.com/curso/mysql/",
+                contentType: LinkContentType.VISIT
               },
             ],
           },
@@ -627,6 +677,7 @@ export const data: Level[] = [
                 url: "https://www.youtube.com/watch?v=GZV-FUdeVwE",
                 label:
                   "Cross-Origin Resource Sharing em 6 minutos - Codigo Fonte TV",
+                  contentType: LinkContentType.WATCH
               },
             ],
           },
@@ -637,6 +688,7 @@ export const data: Level[] = [
               {
                 url: "https://www.youtube.com/watch?v=wC_epzVm780",
                 label: "Série OWASP Top 10 - Cássio B. Pereira",
+                contentType: LinkContentType.WATCH
               },
             ],
           },
@@ -684,6 +736,7 @@ export const data: Level[] = [
               {
                 label: "Tech em 10 Minutos DDD - Road to Agility",
                 url: "https://www.youtube.com/watch?v=wmg3xB0aUv8",
+                contentType: LinkContentType.WATCH
               },
             ],
           },
@@ -710,6 +763,7 @@ export const data: Level[] = [
                 label:
                   "Microsserviços, o mínimo que você precisa saber - Otavio Lemos",
                 url: "https://www.youtube.com/watch?v=eN8dFfTrEtQ",
+                contentType: LinkContentType.WATCH
               },
             ],
           },
@@ -722,6 +776,7 @@ export const data: Level[] = [
                 url: "https://www.youtube.com/watch?v=MaPWf_mt1uA",
                 label:
                   "Arquitetura Orientada a Eventos com Java, Spring Boot e Kafka",
+                  contentType: LinkContentType.WATCH
               },
             ],
           },
@@ -731,6 +786,7 @@ export const data: Level[] = [
               {
                 url: "https://www.youtube.com/watch?v=ktH_HhQDgLY",
                 label: "Primeiros Passos - Tiago Boeing",
+                contentType: LinkContentType.WATCH
               },
             ],
           },
@@ -763,6 +819,7 @@ export const data: Level[] = [
               {
                 label: "Primeiros Passos - Otavio Lemos",
                 url: "https://www.youtube.com/watch?v=ZHj44_0a1yA",
+                contentType: LinkContentType.WATCH
               },
             ],
           },
@@ -784,6 +841,7 @@ export const data: Level[] = [
               {
                 label: "Descomplicando o Docker - Linux Tips",
                 url: "https://www.youtube.com/watch?v=Wm99C_f7Kxw&list=PLf-O3X2-mxDn1VpyU2q3fuI6YYeIWp5rR",
+                contentType: LinkContentType.WATCH
               },
             ],
           },
@@ -806,6 +864,7 @@ export const data: Level[] = [
               {
                 label: "Pra que serve, conceitos e Hello World - Mateus Silva",
                 url: "https://www.youtube.com/watch?v=7RoHxSGVAdU&list=PLPXWI3llyMiK9uw7tfljM2hnQl2qu6CeT",
+                contentType: LinkContentType.WATCH
               },
             ],
           },
