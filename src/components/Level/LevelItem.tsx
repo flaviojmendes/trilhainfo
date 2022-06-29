@@ -64,7 +64,7 @@ export default function LevelItem(props: Props) {
                     <Spacer />
                     {isAllContentRead ? (
                       <span>
-                        <CheckIcon m="auto" mx="1" color={"#00D26A"} />
+                        <CheckIcon m="auto" mx="1" color={"#228B22"} />
                       </span>
                     ) : (
                       ""
