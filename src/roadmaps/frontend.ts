@@ -423,6 +423,10 @@ export const data: Level[] = [
                 votes: 0,
                 type: LinkType.FREE,
               },
+              {
+                url: "https://www.youtube.com/watch?v=Jxe79XZ9u-Y&list=PL8YNlUoOZkkaCJENGzHFXrRwwjuwEh6nC",
+                label: "Aprenda os React Hooks! - Huriel",
+              },
             ],
           },
           {
@@ -505,8 +509,26 @@ export const data: Level[] = [
               },
             ],
           },
-          { label: "VueX",
+          {
+            label: "Pinia",
             links: [
+              {
+                url: "https://pinia.vuejs.org",
+                label: "Documentação oficial",
+                votes: 0,
+                type: LinkType.FREE,
+              }
+            ]
+          },
+          {
+            label: "VueX",
+            links: [
+              {
+                url: "https://vuex.vuejs.org",
+                label: "Documentação oficial",
+                votes: 0,
+                type: LinkType.FREE,
+              },
               {
                 url: "https://www.youtube.com/watch?v=qq8yJmXys6U",
                 label: "Gerenciando estado com Vuex -  Matheus Castiglioni",
@@ -829,6 +851,23 @@ export const data: Level[] = [
               {
                 url: "https://developer.mozilla.org/pt-BR/docs/WebAssembly",
                 label: "O que é WebAssembly? - Mozilla",
+                votes: 0,
+                type: LinkType.FREE,
+              },
+            ],
+          },
+          {
+            label: "Blazor",
+            links: [
+              {
+                url: "https://dotnet.microsoft.com/en-us/learn/aspnet/blazor-tutorial/intro",
+                label: "Primeiro projeto usando Blazor",
+                votes: 0,
+                type: LinkType.FREE,
+              },
+              {
+                url: "https://www.youtube.com/watch?v=6YgtFfzheHY&list=PLJ4k1IC8GhW2v0nCR7K-tZeoHwqfPZs5t",
+                label: "Minicurso Blazor",
                 votes: 0,
                 type: LinkType.FREE,
               },

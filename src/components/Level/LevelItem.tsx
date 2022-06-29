@@ -1,4 +1,4 @@
-import { InfoIcon } from "@chakra-ui/icons";
+import { InfoIcon, CheckIcon } from "@chakra-ui/icons";
 import { Center, Flex, Spacer, Stack } from "@chakra-ui/react";
 import { Level, RoadmapItem } from "../../entity/RoadmapItem";
 
@@ -8,6 +8,7 @@ type Props = {
   levelsQty: number;
   setActiveItem: (item: RoadmapItem) => void;
   onOpen: () => void;
+  isAllContentRead: (label: string, contentLength: number) => boolean;
 };
 
 export default function LevelItem(props: Props) {
@@ -15,6 +16,7 @@ export default function LevelItem(props: Props) {
     props.setActiveItem(item);
     props.onOpen();
   }
+
   return (
     <>
       <Stack spacing={0}>
@@ -33,8 +35,19 @@ export default function LevelItem(props: Props) {
               <p className="text-center mb-3">{props.level.description}</p>
             </>
           )}
-          <div className={"flex place-content-center " + (props.level.items.length >= 4 ? " flex-wrap space-x-2" : "")}>
+          <div
+            className={
+              "flex place-content-center " +
+              (props.level.items.length >= 4 ? " flex-wrap space-x-2" : "")
+            }
+          >
             {props.level.items.map((item, index, level) => {
+              const quantity = item.children?.length || -1;
+              const isAllContentRead = props.isAllContentRead(
+                item.label,
+                quantity
+              );
+
               return (
                 <>
                   <div
@@ -42,10 +55,25 @@ export default function LevelItem(props: Props) {
                     onClick={() => {
                       triggerItemSelection(item);
                     }}
-                    className={"flex mx-0 my-0 bg-brown p-2 w-fit text-center cursor-pointer bd-handwritten hover:bg-white" + (level.length >= 4 ? " mb-3" : "")}
+                    className={
+                      "flex mx-0 my-0 p-2 w-fit text-center cursor-pointer bd-handwritten hover:bg-white" +
+                      (level.length >= 4 ? " mb-3" : "") +
+                      (isAllContentRead ? " bg-light-orange" : " bg-brown")
+                    }
                   >
                     <Spacer />
-                    <span className="m-auto c-dark-brown font-semibold txt-handwritten">
+                    {isAllContentRead ? (
+                      <span>
+                        <CheckIcon m="auto" mx="1" color={"#00D26A"} />
+                      </span>
+                    ) : (
+                      ""
+                    )}
+                    <span
+                      className={
+                        "m-auto c-dark-brown font-semibold txt-handwritten"
+                      }
+                    >
                       {item.label}
                     </span>
                     <Spacer />

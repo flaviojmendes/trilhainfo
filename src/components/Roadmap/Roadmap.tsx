@@ -51,7 +51,7 @@ export default function Roadmap(props: Props) {
 
   function saveRead(label: string, checked: boolean) {
     let selected = selectedItems;
-    if(!selected) {
+    if (!selected) {
       selected = {};
     }
     selected[label] = checked;
@@ -66,12 +66,22 @@ export default function Roadmap(props: Props) {
     return false;
   }
 
+  function isAllContentRead(label: string, contentLength: number) {
+    if (selectedItems) {
+      const contentRead = Object.keys(selectedItems).filter(
+        (key) => key.includes("-" + label) && selectedItems[key] === true
+      );
+      return contentRead.length === contentLength;
+    }
+
+    return false;
+  }
+
   return (
     <>
       <h2 className="text-center font-bold text-3xl c-yellow my-6 txt-handwritten c-dark-brown">
         {props.title}
       </h2>
-
       <div>
         {props.data.map((level, index, data) => {
           return (
@@ -79,6 +89,7 @@ export default function Roadmap(props: Props) {
               key={index}
               level={level}
               index={index}
+              isAllContentRead={isAllContentRead}
               levelsQty={data.length}
               onOpen={onOpen}
               setActiveItem={setActiveItem}
@@ -96,6 +107,8 @@ export default function Roadmap(props: Props) {
             <p className="mb-4">{activeItem?.description}</p>
             <Accordion allowToggle>
               {activeItem?.children?.map((child, index) => {
+                const key = child.label + "-" + activeItem.label;
+
                 return (
                   <AccordionItem key={child.label}>
                     <h2 className="font-semibold">
@@ -105,14 +118,9 @@ export default function Roadmap(props: Props) {
                             <Checkbox
                               className="my-auto mr-2"
                               size={"lg"}
-                              isChecked={isRead(
-                                child.label + "-" + activeItem.label
-                              )}
+                              isChecked={isRead(key)}
                               onChange={(e) => {
-                                saveRead(
-                                  child.label + "-" + activeItem.label,
-                                  e.target.checked
-                                );
+                                saveRead(key, e.target.checked);
                               }}
                             ></Checkbox>
                           </CheckboxGroup>
