@@ -394,6 +394,11 @@ export const data: Level[] = [
                 url: "https://www.youtube.com/watch?v=mWh49ZpmQwk&list=PLr4c053wuXU-igL9KSptwKK5XdyGX13FB",
                 contentType: LinkContentType.WATCH
               },
+              {
+                label: "A Linguagem de Programação Rust - Bruno Rocha",
+                url: "https://www.youtube.com/watch?v=K5Zt804f9tg&list=PLjSf4DcGBdiHC1rf9rXR9orU3wvGjgtpm",
+                contentType: LinkContentType.WATCH
+              },
             ],
           },
         ],
