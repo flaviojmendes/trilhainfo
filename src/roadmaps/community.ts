@@ -129,7 +129,7 @@ export const data: Level[] = [
       {
         label: "Vídeo e Lives",
         description:
-          "Se curte usar twitter e quer ter a sua timeline cheio de devs com opniões fortes, notícias e dúvidas sobre tech/desenvolvimento, siga essas pessoas e hashtags:",
+          "Canais de Youtubes e Lives na Twitch sobre notícias, carreira e dúvidas sobre tech/desenvolvimento:",
         children: [
           {
             label: "Youtube",
@@ -192,7 +192,7 @@ export const data: Level[] = [
       {
         label: "Desafios para Praticar",
         description:
-          "Se curte usar twitter e quer ter a sua timeline cheio de devs com opniões fortes, notícias e dúvidas sobre tech/desenvolvimento, siga essas pessoas e hashtags:",
+          "Se a 'prática leva a perfeição', aqui vão alguns code challenges, sites para praticar e também UX/UI de aplicações para testar seu frontend",
         children: [
           {
             label: "Aprenda/Pratique Javascript",
