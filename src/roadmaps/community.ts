@@ -4,7 +4,7 @@ export const data: Level[] = [
   {
     label: "Participe de diversas comunidades Devs!",
     description:
-      "Conectar-se com devs vai acelerar sua jornada do aprendizado, seja para tirar/responder dúvidas ou conversar com pessoas mais e menos experiêntes que você.",
+      "Conectar-se com devs vai acelerar sua jornada do aprendizado, seja para tirar/responder dúvidas ou conversar com pessoas mais e menos experientes que você.",
     items: [
       {
         label: "Discord",
@@ -15,8 +15,8 @@ export const data: Level[] = [
             label: "Comunidades",
             links: [
               {
-                url: "https://discord.gg/FP5UaAG",
-                label: "CollabCode",
+                url: "https://discord.gg/wagxzStdcR",
+                label: "Ballerini",
                 votes: 0,
                 type: LinkType.FREE,
                 contentType: LinkContentType.VISIT
@@ -29,19 +29,19 @@ export const data: Level[] = [
                 contentType: LinkContentType.VISIT
               },
               {
-                url: "https://discord.gg/MSr8SJfR4H",
-                label: "Codify Community",
+                url: "https://discord.gg/FP5UaAG",
+                label: "CollabCode",
                 votes: 0,
                 type: LinkType.FREE,
                 contentType: LinkContentType.VISIT
               },
               {
-                url: "https://discord.gg/wagxzStdcR",
-                label: "Ballerini",
+                url: "https://discord.gg/MSr8SJfR4H",
+                label: "Codify Community",
                 votes: 0,
                 type: LinkType.FREE,
                 contentType: LinkContentType.VISIT
-              },
+              },             
               {
                 url: "https://discord.gg/he4rt",
                 label: "He4rt Developers",
@@ -80,26 +80,8 @@ export const data: Level[] = [
             label: "Twitter",
             links: [
               {
-                url: "https://twitter.com/flaviojmendes",
-                label: "@flaviojmendes",
-                votes: 0,
-                contentType: LinkContentType.VISIT
-              },
-              {
-                url: "https://twitter.com/marcobrunodev",
-                label: "@marcobrunodev",
-                votes: 0,
-                contentType: LinkContentType.VISIT
-              },
-              {
                 url: "https://twitter.com/AkitaOnRails",
                 label: "@AkitaOnRails",
-                votes: 0,
-                contentType: LinkContentType.VISIT
-              },
-              {
-                url: "https://twitter.com/sseraphini",
-                label: "@sseraphini",
                 votes: 0,
                 contentType: LinkContentType.VISIT
               },
@@ -115,10 +97,27 @@ export const data: Level[] = [
                 votes: 0,
                 contentType: LinkContentType.VISIT
               },
-
+              {
+                url: "https://twitter.com/flaviojmendes",
+                label: "@flaviojmendes",
+                votes: 0,
+                contentType: LinkContentType.VISIT
+              },
+              {
+                url: "https://twitter.com/marcobrunodev",
+                label: "@marcobrunodev",
+                votes: 0,
+                contentType: LinkContentType.VISIT
+              },
               {
                 url: "https://twitter.com/paulo_caelum",
                 label: "@paulo_caelum",
+                votes: 0,
+                contentType: LinkContentType.VISIT
+              },
+              {
+                url: "https://twitter.com/sseraphini",
+                label: "@sseraphini",
                 votes: 0,
                 contentType: LinkContentType.VISIT
               },
@@ -135,8 +134,8 @@ export const data: Level[] = [
             label: "Youtube",
             links: [
               {
-                url: "https://www.youtube.com/c/MarcoBrunoDev",
-                label: "marcobrunodev",
+                url: "https://www.youtube.com/c/codigofontetv",
+                label: "Código Fonte TV",
                 votes: 0,
                 contentType: LinkContentType.VISIT
               },
@@ -147,20 +146,20 @@ export const data: Level[] = [
                 contentType: LinkContentType.VISIT
               },
               {
-                url: "https://www.youtube.com/c/Programadorbr",
-                label: "Programador BR",
-                votes: 0,
-                contentType: LinkContentType.VISIT
-              },
-              {
                 url: "https://www.youtube.com/c/FilipeDeschamps",
                 label: "FilipeDeschamps",
                 votes: 0,
                 contentType: LinkContentType.VISIT
               },
               {
-                url: "https://www.youtube.com/c/codigofontetv",
-                label: "Código Fonte TV",
+                url: "https://www.youtube.com/c/MarcoBrunoDev",
+                label: "marcobrunodev",
+                votes: 0,
+                contentType: LinkContentType.VISIT
+              },
+              {
+                url: "https://www.youtube.com/c/Programadorbr",
+                label: "Programador BR",
                 votes: 0,
                 contentType: LinkContentType.VISIT
               },
@@ -170,14 +169,20 @@ export const data: Level[] = [
             label: "Twitch",
             links: [
               {
-                url: "https://www.twitch.tv/marcobrunodev",
-                label: "marcobrunodev",
+                url: "https://www.twitch.tv/danielhe4rt",
+                label: "danielhe4rt",
                 votes: 0,
                 contentType: LinkContentType.VISIT
               },
               {
-                url: "twitch.tv/flaviojmendes",
+                url: "https://twitch.tv/flaviojmendes",
                 label: "flaviojmendes",
+                votes: 0,
+                contentType: LinkContentType.VISIT
+              },
+              {
+                url: "https://www.twitch.tv/marcobrunodev",
+                label: "marcobrunodev",
                 votes: 0,
                 contentType: LinkContentType.VISIT
               },
@@ -209,20 +214,26 @@ export const data: Level[] = [
             label: "Code Challenges ( Desafios )",
             links: [
               {
+                url: "https://www.beecrowd.com.br/",
+                label: "Beecrowd",
+                votes: 0,
+                contentType: LinkContentType.VISIT
+              },
+              {
                 url: "https://www.figma.com/file/Yb9IBH56g7T1hdIyZ3BMNO/Desafios---Codelândia?node-id=0%3A1",
                 label: "Desafios Codelândia ( Frontend )",
                 votes: 0,
                 contentType: LinkContentType.VISIT
               },
               {
-                url: "https://www.hackerrank.com/",
-                label: "Hackerrank",
+                url: "https://www.frontendmentor.io/challenges",
+                label: "Frontend Mentor",
                 votes: 0,
                 contentType: LinkContentType.VISIT
               },
               {
-                url: "https://www.beecrowd.com.br/",
-                label: "Beecrowd",
+                url: "https://www.hackerrank.com/",
+                label: "Hackerrank",
                 votes: 0,
                 contentType: LinkContentType.VISIT
               },
