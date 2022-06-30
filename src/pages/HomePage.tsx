@@ -15,7 +15,7 @@ export default function HomePage() {
         <div className="flex flex-wrap items-stretch md:space-x-10 space-y-10 md:space-y-0 justify-center">
           {/* Frontend */}
           <Link
-            className="bd-handwritten bg-brown md:w-1/3 lg:w-1/4 w-full min-h-fit hover:bg-white py-3"
+            className="bd-handwritten bd-red bg-brown md:w-1/3 lg:w-1/4 w-full min-h-fit hover:bg-white py-3"
             to={"/roadmap/frontend"}
           >
             <h3 className="text-center text-3xl txt-handwritten mb-2 c-dark-brown">
@@ -31,7 +31,7 @@ export default function HomePage() {
 
           {/* Backend */}
           <Link
-            className="bd-handwritten bg-brown md:w-1/3 lg:w-1/4 w-full min-h-fit hover:bg-white py-3"
+            className="bd-handwritten bd-red bg-brown md:w-1/3 lg:w-1/4 w-full min-h-fit hover:bg-white py-3"
             to={"/roadmap/backend"}
           >
             <h3 className="text-center text-3xl txt-handwritten mb-2 c-dark-brown">
@@ -45,7 +45,7 @@ export default function HomePage() {
           </Link>
 
           {/* Devops */}
-          <div className="relative bd-handwritten bg-brown md:w-1/3 lg:w-1/4 w-full min-h-fit py-3">
+          <div className="relative bd-handwritten bd-red bg-brown md:w-1/3 lg:w-1/4 w-full min-h-fit py-3">
             <h3 className="text-center text-3xl txt-handwritten mb-2 c-dark-brown">
               Devops
             </h3>
@@ -58,7 +58,7 @@ export default function HomePage() {
               simplificado.
             </p>
 
-            <h2 className="absolute rounded-md top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  text-3xl text-center bg-black c-red font-bold rotate-45 mr-0 p-2">
+            <h2 className="absolute rounded-md top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  text-3xl text-center bg-black c-red font-bold rotate-45 mr-0 p-2 bg-light-orange">
               Em Breve
             </h2>
           </div>
