@@ -418,10 +418,17 @@ export const data: Level[] = [
             label: "PHP",
             links: [
               {
+                label: "PHP - Do jeito certo",
+                url: "http://br.phptherightway.com/",
+                type: LinkType.FREE,
+                votes: 0,
+                contentType: LinkContentType.READ
+              },
+              {
                 label: "PHP Básico - Curso em Video",
                 url: "https://www.cursoemvideo.com/curso/php-basico/",
                 contentType: LinkContentType.VISIT
-              },
+              }
             ],
           },
         ],
@@ -552,7 +559,7 @@ export const data: Level[] = [
             ],
           },
           {
-            label: "Serviçoes de Hospedagem de Git",
+            label: "Serviços de hospedagem para Git",
             children: [
               { label: "Github", links: [] },
               { label: "Gitlab", links: [] },
@@ -883,7 +890,7 @@ export const data: Level[] = [
   {
     items: [
       {
-        label: "Bancos de Dados em Grafos",
+        label: "Bancos de Dados em Gráficos",
         description:
           "Um banco de dados gráfico armazena nós e relacionamentos em vez de tabelas ou documentos. Os dados são armazenados da mesma forma que você esboça ideias em um quadro branco. Seus dados são armazenados sem restringi-los a um modelo pré-definido, permitindo uma maneira muito flexível de pensar sobre eles e usá-los.",
         children: [{ label: "Neo4j", links: [] }],

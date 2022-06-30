@@ -297,7 +297,7 @@ export const data: Level[] = [
             ],
           },
           {
-            label: "Serviçoes de Hospedagem de Git",
+            label: "Serviços de hospedagem para Git",
             children: [
               {
                 label: "Github",
@@ -885,28 +885,27 @@ export const data: Level[] = [
             label: "React Native", 
             links: [
               {
+                label: "Aprenda React Native - Canal Geek Dev",
+                url: "https://www.youtube.com/watch?v=DmUUsTC2YkA&list=PL8fIRnD1uUSnRqz3E2caAWDqbtIFXmNtW",
+                votes: 0,
+                type: LinkType.FREE,
+                contentType: LinkContentType.WATCH
+              },
+              {
                 url: "https://www.youtube.com/playlist?list=PLdDT8if5attEd4sRnZBIkNihR-_tE612_",
                 label: "Curso React Native - One Bit Code",
                 votes: 0,
                 type: LinkType.FREE,
                 contentType: LinkContentType.WATCH
               },
-            ] 
-          },
-          {
-            label: "React Native",
-            links: [
               {
                 label: "Primeiros passos no React Native - One Bit Code",
                 url: "https://www.youtube.com/watch?v=Y8tP1jbRYHY&list=PLdDT8if5attEd4sRnZBIkNihR-_tE612_&index=1",
+                votes: 0,
+                type: LinkType.FREE,
                 contentType: LinkContentType.WATCH
-              },
-              {
-                label: "Aprenda React Native - Canal Geek Dev",
-                url: "https://www.youtube.com/watch?v=DmUUsTC2YkA&list=PL8fIRnD1uUSnRqz3E2caAWDqbtIFXmNtW",
-                contentType: LinkContentType.WATCH
-              },
-            ],
+              }
+            ] 
           },
           { label: "NativeScript", links: [] },
           {
