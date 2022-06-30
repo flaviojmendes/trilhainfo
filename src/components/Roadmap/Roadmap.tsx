@@ -123,7 +123,7 @@ export default function Roadmap(props: Props) {
       <div className="flex">
         <button
           type="button"
-          className="border-2 p-1 rounded-md bg-yellow txt-handwritten bd-handwritten bd-yellow m-auto mr-1"
+          className="border-2 p-1 rounded-md bg-yellow txt-handwritten bd-handwritten bd-yellow m-auto mr-1 hover:shadow-md"
           onClick={handleDownloadImage}
         >
           Baixar meu Roadmap
