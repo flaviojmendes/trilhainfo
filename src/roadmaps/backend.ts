@@ -141,18 +141,18 @@ export const data: Level[] = [
               },
               {
                 url: "https://www.youtube.com/watch?v=5PS6ku8NzIE",
-                label: "Pare de chutar e aprenda displat: inline - Marco Bruno",
+                label: "Pare de chutar e aprenda display: inline - Marco Bruno",
                 contentType: LinkContentType.WATCH
               },
               {
                 url: "https://www.youtube.com/watch?v=HWfhwokS_qg",
-                label: "Pare de chutar e aprenda displat: block - Marco Bruno",
+                label: "Pare de chutar e aprenda display: block - Marco Bruno",
                 contentType: LinkContentType.WATCH
               },
               {
                 url: "https://www.youtube.com/watch?v=Yj9-N9BEVeM",
                 label:
-                  "Pare de chutar e aprenda displat: inline-block - Marco Bruno",
+                  "Pare de chutar e aprenda display: inline-block - Marco Bruno",
                   contentType: LinkContentType.WATCH
               },
             ],
