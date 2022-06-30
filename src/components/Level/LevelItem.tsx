@@ -1,6 +1,8 @@
 import { InfoIcon, CheckIcon } from "@chakra-ui/icons";
 import { Center, Flex, Spacer, Stack } from "@chakra-ui/react";
 import { Level, RoadmapItem } from "../../entity/RoadmapItem";
+import ReactGA from "react-ga4";
+
 
 type Props = {
   level: Level;
@@ -14,6 +16,9 @@ type Props = {
 export default function LevelItem(props: Props) {
   function triggerItemSelection(item: RoadmapItem) {
     props.setActiveItem(item);
+    ReactGA.event({
+      category: "item_open",
+      action: "open_" + item.label,});
     props.onOpen();
   }
 
