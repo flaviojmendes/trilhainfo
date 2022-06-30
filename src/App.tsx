@@ -8,7 +8,7 @@ import ReactGA from "react-ga4";
 function App() {
   
   ReactGA.initialize( 'G-GQDL3TBPEZ');
-  ReactGA.send("pageview", window.location.pathname + window.location.search);
+  ReactGA.send({hitType: "pageview", page: window.location.pathname + window.location.search);
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
