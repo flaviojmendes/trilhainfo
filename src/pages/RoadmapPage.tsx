@@ -6,6 +6,7 @@ import { data as reactData } from "../roadmaps/react";
 import { data as backendData } from "../roadmaps/backend";
 import { data as communityData } from "../roadmaps/community";
 import E404Page from "./E404Page";
+import useDocumentTitle from "../components/useDocumentTitle";
 
 export default function RoadmapPage() {
   const { name } = useParams<string>();
@@ -16,6 +17,8 @@ export default function RoadmapPage() {
     backend: { file: backendData, title: "Backend" },
     community: { file: communityData, title: "Comunidade" },
   };
+
+  useDocumentTitle("Trilha Info - " + roadmaps[name || ""].title);
 
   return (
     <>
