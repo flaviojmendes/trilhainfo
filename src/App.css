@@ -31,25 +31,31 @@ body {
 }
 
 .bd-red {
-  border-color: #ee8561;
+  border-color: #d56a47;
 }
 
 .bg-yellow {
-  background-color: #f7e3b2;
+  background-color: #f7e3b2 !important;
 }
 
 .bg-blue {
-  background-color: #a8ddf0;
+  background-color: #a8ddf0 !important;
 }
 
 
 .bd-handwritten {
-  border:solid 3px #d56a47 !important;
+  border-width:3px !important;
+  border-style: solid !important;
   border-top-left-radius: 255px 15px !important;
   border-top-right-radius: 15px 255px !important;
   border-bottom-right-radius: 225px 15px !important;
   border-bottom-left-radius:15px 255px !important;
 }
+
+.bd-yellow {
+  border-color: #eabc54;
+}
+
 
 .txt-handwritten {
   font-family: 'Schoolbell', cursive;
