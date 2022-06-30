@@ -119,6 +119,20 @@ export const data: Level[] = [
             label: "Fazendo Layouts",
             links: [
               {
+                url: "https://www.udemy.com/course/flexbox-guia-completo/",
+                label: "Curso completo Flexbox - Udemy",
+                votes: 0,
+                type: LinkType.FREE,
+                contentType: LinkContentType.WATCH
+              },
+              {
+                url: "https://www.udemy.com/course/css-grid-layout/",
+                label: "Curso completo CSS Grid - Udemy",
+                votes: 0,
+                type: LinkType.FREE,
+                contentType: LinkContentType.WATCH
+              },
+              {
                 url: "https://www.youtube.com/watch?v=z1Hp72GVHJk&list=PLx4x_zx8csUhDWtEa-AtDAgSSmLObBVaz",
                 label: "CSS Flexbox - CFBCursos",
                 contentType: LinkContentType.WATCH
