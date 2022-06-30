@@ -100,6 +100,20 @@ export const data: Level[] = [
             label: "O básico",
             links: [
               {
+                url: "https://www.udemy.com/course/flexbox-guia-completo/",
+                label: "Curso completo Flexbox - Udemy",
+                votes: 0,
+                type: LinkType.FREE,
+                contentType: LinkContentType.WATCH
+              },
+              {
+                url: "https://www.udemy.com/course/css-grid-layout/",
+                label: "Curso completo CSS Grid - Udemy",
+                votes: 0,
+                type: LinkType.FREE,
+                contentType: LinkContentType.WATCH
+              },
+              {
                 url: "https://www.youtube.com/watch?v=5PS6ku8NzIE&list=PLirko8T4cEmx5eBb1-9j6T6Gl4aBtZ_5x",
                 label: "Pare de Chutar o CSS - Marco Bruno",
                 votes: 0,
