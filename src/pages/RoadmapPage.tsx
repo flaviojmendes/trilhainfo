@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import MainLayout from "../components/layouts/MainLayout";
 import Roadmap from "../components/Roadmap/Roadmap";
 import { data as frontendData } from "../roadmaps/frontend";
+import { data as reactData } from "../roadmaps/react";
 import { data as backendData } from "../roadmaps/backend";
 import { data as communityData } from "../roadmaps/community";
 import E404Page from "./E404Page";
@@ -11,6 +12,7 @@ export default function RoadmapPage() {
 
   const roadmaps: any = {
     frontend: { file: frontendData, title: "Frontend" },
+    react: { file: reactData, title: "React" },
     backend: { file: backendData, title: "Backend" },
     community: { file: communityData, title: "Comunidade" },
   };
