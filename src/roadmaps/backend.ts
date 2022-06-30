@@ -383,7 +383,7 @@ export const data: Level[] = [
                 contentType: LinkContentType.WATCH,
               },
               {
-                label: "Go 101",
+                label: "Go 101 - Tiago Temporin",
                 url: "https://tiago-temporin.notion.site/Go-101-1fe9cef0ccc94ed3bed7f38e7dd5815d",
                 contentType: LinkContentType.VISIT,
               },
