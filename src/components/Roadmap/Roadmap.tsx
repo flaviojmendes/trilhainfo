@@ -94,6 +94,20 @@ export default function Roadmap(props: Props) {
     return false;
   }
 
+  function checkAllContent(label: string, check: boolean) {
+    props.data.forEach((level) => {
+      level.items.forEach((item) => {
+        if (item.label === label) {
+          item.children?.forEach((child) => {
+            saveRead(child.label + "-" + item.label, check);
+          });
+          
+        }
+      });
+    });
+     
+  }
+
   async function handleDownloadImage() {
     ReactGA.event({
       category: "download_roadmap",
@@ -141,6 +155,7 @@ export default function Roadmap(props: Props) {
                 level={level}
                 index={index}
                 isAllContentRead={isAllContentRead}
+                checkAllContent={checkAllContent}
                 levelsQty={data.length}
                 onOpen={onOpen}
                 setActiveItem={setActiveItem}

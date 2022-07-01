@@ -1,8 +1,8 @@
 import { InfoIcon, CheckIcon } from "@chakra-ui/icons";
+import { FaRegCircle } from "react-icons/fa";
 import { Center, Flex, Spacer, Stack } from "@chakra-ui/react";
 import { Level, RoadmapItem } from "../../entity/RoadmapItem";
 import ReactGA from "react-ga4";
-
 
 type Props = {
   level: Level;
@@ -11,6 +11,7 @@ type Props = {
   setActiveItem: (item: RoadmapItem) => void;
   onOpen: () => void;
   isAllContentRead: (label: string, contentLength: number) => boolean;
+  checkAllContent: (label: string, check: boolean) => void;
 };
 
 export default function LevelItem(props: Props) {
@@ -18,7 +19,8 @@ export default function LevelItem(props: Props) {
     props.setActiveItem(item);
     ReactGA.event({
       category: "item_open",
-      action: "open_" + item.label,});
+      action: "open_" + item.label,
+    });
     props.onOpen();
   }
 
@@ -56,10 +58,10 @@ export default function LevelItem(props: Props) {
               return (
                 <>
                   <div
-                    key={item.label}
                     onClick={() => {
                       triggerItemSelection(item);
                     }}
+                    key={item.label}
                     className={
                       "flex mx-0 my-0 p-1 md:p-2  w-fit text-center cursor-pointer bd-handwritten bd-red hover:bg-white  hover:shadow-md" +
                       (level.length >= 4 ? " mb-3" : "") +
@@ -69,10 +71,36 @@ export default function LevelItem(props: Props) {
                     <Spacer />
                     {isAllContentRead ? (
                       <span>
-                        <CheckIcon m="auto" mx="1" color={"#228B22"} />
+                        <CheckIcon
+                          m="auto"
+                          mx="1"
+                          color={"#228B22"}
+                          onClick={(e) => {
+                            props.checkAllContent(
+                              item.label,
+                              !props.isAllContentRead(
+                                item.label,
+                                item.children?.length || -1
+                              )
+                            );
+                            e.stopPropagation();
+                          }}
+                        />
                       </span>
                     ) : (
-                      ""
+                      <FaRegCircle
+                        className="m-auto mx-1 hover:text-light-orange hover: hover:fill-light-orange"
+                        onClick={(e) => {
+                          props.checkAllContent(
+                            item.label,
+                            !props.isAllContentRead(
+                              item.label,
+                              item.children?.length || -1
+                            )
+                          );
+                          e.stopPropagation();
+                        }}
+                      />
                     )}
                     <span
                       className={
@@ -81,9 +109,8 @@ export default function LevelItem(props: Props) {
                     >
                       {item.label}
                     </span>
-                    <Spacer />
 
-                    <InfoIcon m="auto" mx="1" color={"#494443"} />
+                    {/* <InfoIcon m="auto" mx="1" color={"#494443"} /> */}
                   </div>
                   {index < level.length - 1 && level.length < 4 && (
                     <div className="bd-red border-2 border-dashed h-1 my-auto min-w-[10px] max-w-[50px] flex-grow"></div>
