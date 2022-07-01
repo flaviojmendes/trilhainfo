@@ -254,7 +254,21 @@ export const data: Level[] = [
               },
             ],
           },
-          { label: "ES6+ e JS Modular", links: [] },
+          {
+            label: "ES6+ e JS Modular",
+            links: [
+              {
+                url: "https://www.youtube.com/watch?v=-Hc7V1R5bt0",
+                label: "Um guia para MÓDULOS JavaScript (ES6 Modules) - Flávio Coutinho",
+                contentType: LinkContentType.WATCH
+              },
+              {
+                url: "https://www.youtube.com/watch?v=ihWA4tri1Fc&list=PLDqnSpzNKDvnU__J6Seq2iAhCaRr7nhMP",
+                label: "Javascript ES6+ (playlist) - Angelo Luz",
+                contentType: LinkContentType.WATCH
+              },
+            ]
+          },
           {
             label:
               "Conceitos de Hoisting, Event Bubbling, Escopo, Prototype, Shadow DOM, strict",
