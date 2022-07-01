@@ -328,7 +328,7 @@ export const data: Level[] = [
         label: "Javascript",
         description:
           "JavaScript permite adicionar interatividade às suas páginas. Exemplos comuns que você pode ter visto nos sites são controles deslizantes, interações de clique, pop-ups e assim por diante. Além de ser usado no front-end em navegadores, existe o Node.js, que é um ambiente de tempo de execução JavaScript back-end de código aberto, multiplataforma e executado no mecanismo V8 e executa código JavaScript fora de um navegador da web.",
-        children: [],
+        children: [{ label: "O básico", links: [] }],
       },
       {
         label: "Python",
@@ -417,7 +417,7 @@ export const data: Level[] = [
         label: "Ruby",
         description:
           "Ruby é uma linguagem de programação interpretada de alto nível que combina Perl, Smalltalk, Eiffel, Ada e Lisp. Ruby foca na simplicidade e produtividade junto com uma sintaxe que lê e escreve naturalmente. Ruby suporta programação procedural, orientada a objetos e funcional e é tipada dinamicamente.",
-        children: [],
+        children: [{label: "O básico", links: []}],
       },
       {
         label: "PHP",
