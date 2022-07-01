@@ -417,7 +417,7 @@ export const data: Level[] = [
         label: "Ruby",
         description:
           "Ruby é uma linguagem de programação interpretada de alto nível que combina Perl, Smalltalk, Eiffel, Ada e Lisp. Ruby foca na simplicidade e produtividade junto com uma sintaxe que lê e escreve naturalmente. Ruby suporta programação procedural, orientada a objetos e funcional e é tipada dinamicamente.",
-        children: [{label: "O básico", links: []}],
+        children: [{ label: "O básico", links: [] }],
       },
       {
         label: "PHP",
@@ -565,7 +565,16 @@ export const data: Level[] = [
           {
             label: "Serviçoes de Hospedagem de Git",
             children: [
-              { label: "Github", links: [] },
+              {
+                label: "Github",
+                links: [
+                  {
+                    label: "Git e Github: Como subir meu primeiro projeto?",
+                    url: "https://www.youtube.com/watch?v=-6JwElEt49w",
+                    contentType: LinkContentType.WATCH,
+                  },
+                ],
+              },
               { label: "Gitlab", links: [] },
               { label: "Bitbucket", links: [] },
             ],
