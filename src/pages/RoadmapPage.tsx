@@ -7,6 +7,7 @@ import { data as backendData } from "../roadmaps/backend";
 import { data as communityData } from "../roadmaps/community";
 import E404Page from "./E404Page";
 import useDocumentTitle from "../components/useDocumentTitle";
+import { useRef } from "react";
 
 export default function RoadmapPage() {
   const { name } = useParams<string>();
