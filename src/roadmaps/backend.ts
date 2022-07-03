@@ -635,7 +635,21 @@ export const data: Level[] = [
         description:
           "Os bancos de dados NoSQL oferecem armazenamento e recuperação de dados modelados de forma diferente dos bancos de dados relacionais 'tradicionais'. Os bancos de dados NoSQL normalmente se concentram mais em dimensionamento horizontal, consistência eventual, velocidade e flexibilidade e são usados comumente para aplicativos de big data e streaming em tempo real. O NoSQL é frequentemente descrito como um sistema BASE (basicamente disponível, estado suave, consistência eventual) em oposição ao SQL/relacional que normalmente se concentra em ACID (atomicidade, consistência, isolamento, durabilidade). Estruturas de dados NoSQL comuns incluem par chave-valor, coluna larga, gráfico e documento.",
         children: [
-          { label: "MongoDB", links: [] },
+          {
+            label: "MongoDB",
+            links: [
+              {
+                label: "MongoDB para iniciantes - Nataniel Paiva",
+                url: "https://www.youtube.com/watch?v=u3sVM3viDtQ&list=PLxuFqIk29JL0DMM0Z-S9_XEHAexXvhYyb",
+                contentType: LinkContentType.WATCH,
+              },
+              {
+                label: "Introdução ao NoSQL: MongoDB - Ricardo Leme",
+                url: "https://www.youtube.com/watch?v=kedLyo95fGU&list=PLyqlZW5s3wkoMhARQKp3s4YtaeKucb0Xj",
+                contentType: LinkContentType.WATCH,
+              },
+            ] 
+          },
           { label: "Cassandra", links: [] },
           { label: "InfluxDB", links: [] },
           { label: "Firebase", links: [] },
