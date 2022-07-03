@@ -40,6 +40,13 @@ export const data: Level[] = [
                 type: LinkType.FREE,
                 contentType: LinkContentType.WATCH,
               },
+              {
+                url: "https://www.youtube.com/watch?v=Ejkb_YpuHWs&list=PLHz_AreHm4dkZ9-atkcmcBaMZdmLHft8n",
+                label: "Curso Completo de HTML e CSS - Gustavo Guanabara",
+                votes: 0,
+                type: LinkType.FREE,
+                contentType: LinkContentType.WATCH,
+              }
             ],
           },
           {
@@ -220,6 +227,13 @@ export const data: Level[] = [
                 type: LinkType.FREE,
                 contentType: LinkContentType.WATCH,
               },
+              {
+                url: "https://www.youtube.com/watch?v=BXqUH86F-kA&list=PLntvgXM11X6pi7mW0O4ZmfUI1xDSIbmTm",
+                label: "Curso Grátis de JavaScript Moderno - Gustavo Guanabara",
+                votes: 0,
+                type: LinkType.FREE,
+                contentType: LinkContentType.WATCH,
+              },
             ],
           },
           {
@@ -347,6 +361,16 @@ export const data: Level[] = [
         description:
           "A segurança da Web refere-se às medidas de proteção tomadas pelos desenvolvedores para proteger os aplicativos da Web de ameaças que podem afetar os negócios.",
         children: [
+          {
+            label: "O básico",
+            links: [
+              {
+                url: "https://www.youtube.com/watch?v=KvPtIl-Gz2E&list=PLHz_AreHm4dlaTyjolzCFC6IjLzO8O0XV",
+                label: "Curso Básico de Segurança da Informação - Gustavo Guanabara",
+                contentType: LinkContentType.WATCH,
+              }
+            ]
+          },
           { label: "HTTPS", links: [] },
           {
             label: "CORS",
@@ -527,6 +551,51 @@ export const data: Level[] = [
             ],
           },
           {
+            label: "React Hooks",
+            links: [
+              {
+                  url: "https://www.youtube.com/watch?v=Jxe79XZ9u-Y",
+                  label: "React Hook useState - Huriel",
+                  contentType: LinkContentType.WATCH,
+              },
+              {
+                  url: "https://www.youtube.com/watch?v=NPw6OvXh2xk",
+                  label: "React Hook useEffect - Huriel",
+                  contentType: LinkContentType.WATCH,
+              },
+              {
+                  url: "https://www.youtube.com/watch?v=0UVYtx_C87w&t=1405s",
+                  label: "React Hook useContext - Huriel",
+                  contentType: LinkContentType.WATCH,
+              },
+              {
+                  url: "https://www.youtube.com/watch?v=kzAMDNBiAzs",
+                  label: "React Hook useCallback - Huriel",
+                  contentType: LinkContentType.WATCH,
+              },
+              {
+                  url: "https://www.youtube.com/watch?v=eypNvly4s3Q",
+                  label: "React Hook useRef - Huriel",
+                  contentType: LinkContentType.WATCH,
+              },
+              {
+                  url: "https://www.youtube.com/watch?v=LdYZ-QI0ztM",
+                  label: "React Hook useMemo - Huriel",
+                  contentType: LinkContentType.WATCH,
+              },
+              {
+                  url: "https://www.youtube.com/watch?v=UCUL2JrjZ3c",
+                  label: "React Hook useReducer - Huriel",
+                  contentType: LinkContentType.WATCH,
+              },
+              {
+                  url: "https://www.youtube.com/watch?v=2cTAR3EkvQ8",
+                  label: "Hooks Personalizados - Huriel",
+                  contentType: LinkContentType.WATCH,
+              }
+            ]
+          },
+          {
             label: "Redux",
             links: [
               {
@@ -687,6 +756,14 @@ export const data: Level[] = [
                 url: "https://www.youtube.com/watch?v=fZZAt0Sbz5k",
                 label:
                   "Vamos construir um WEB Component e aprender Shadow DOM  - Mayk Brito",
+                votes: 0,
+                type: LinkType.FREE,
+                contentType: LinkContentType.WATCH,
+              },
+              {
+                url: "https://www.youtube.com/watch?v=hnOpu1Q6qEk&t=1670s",
+                label:
+                  "Criando Web Components com Stencil JS - Matheus Castiglioni",
                 votes: 0,
                 type: LinkType.FREE,
                 contentType: LinkContentType.WATCH,
@@ -864,6 +941,16 @@ export const data: Level[] = [
         description:
           "GraphQL é uma linguagem de consulta para APIs e um tempo de execução para atender a essas consultas com seus dados existentes. O GraphQL fornece uma descrição completa e compreensível dos dados em sua API, oferece aos clientes o poder de solicitar exatamente o que eles precisam e nada mais, facilita a evolução de APIs ao longo do tempo e permite ferramentas de desenvolvedor poderosas.",
         children: [
+          {
+            label: "Introdução",
+            links: [
+              {
+                label: "Curso Completo de GraphQL Básico - Washington Developer",
+                url: "https://www.youtube.com/watch?v=RyqLvFhPNy8&list=PLK5FPzMuRKlyeZYiJNA54j4lpfxHGlz0j&index=1",
+                contentType: LinkContentType.WATCH,
+              },
+            ]
+          },
           {
             label: "Apollo",
             links: [
