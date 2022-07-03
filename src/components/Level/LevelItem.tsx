@@ -70,7 +70,9 @@ export default function LevelItem(props: Props) {
                   >
                     <Spacer />
                     {isAllContentRead ? (
-                      <span>
+                      <span
+                        className="checking"
+                      >
                         <CheckIcon
                           m="auto"
                           mx="1"
@@ -89,7 +91,7 @@ export default function LevelItem(props: Props) {
                       </span>
                     ) : (
                       <FaRegCircle
-                        className="m-auto mx-1 hover:text-light-orange hover: hover:fill-light-orange"
+                        className="m-auto mx-1 hover:text-light-orange hover: hover:fill-light-orange checking"
                         onClick={(e) => {
                           props.checkAllContent(
                             item.label,
