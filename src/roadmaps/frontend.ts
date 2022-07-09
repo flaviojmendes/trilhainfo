@@ -516,7 +516,18 @@ export const data: Level[] = [
         description:
           "Um linter é uma ferramenta usada para analisar código e descobrir bugs, erros de sintaxe, inconsistências estilísticas e construções suspeitas. Os linters populares para JavaScript incluem ESLint, JSLint e JSHint.",
         children: [
-          { label: "Prettier", links: [] },
+          {
+            label: "Prettier",
+            links: [
+              {
+                link: "https://www.youtube.com/watch?v=uem6ChxImEQ",
+                label: "Como instalar o Prettier | CURSO DE HTML E CSS - Front Beginners",
+                votes: 0,
+                type: LinkType.FREE,
+                contentType: LinkContentType.WATCH,
+              }
+            ]
+          },
           { label: "ESLint", links: [] },
           { label: "StandardJS", links: [] },
         ],
