@@ -520,12 +520,12 @@ export const data: Level[] = [
             label: "Prettier",
             links: [
               {
-                link: "https://www.youtube.com/watch?v=uem6ChxImEQ",
+                url: "https://www.youtube.com/watch?v=uem6ChxImEQ",
                 label: "Como instalar o Prettier | CURSO DE HTML E CSS - Front Beginners",
                 votes: 0,
                 type: LinkType.FREE,
                 contentType: LinkContentType.WATCH,
-              }
+              },
             ]
           },
           { label: "ESLint", links: [] },
