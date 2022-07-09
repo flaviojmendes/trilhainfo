@@ -507,6 +507,13 @@ export const data: Level[] = [
                 type: LinkType.FREE,
                 contentType: LinkContentType.READ,
               },
+              {
+                url: "https://dev.to/lixeletto/vite-js-o-build-tool-que-vai-facilitar-a-sua-vida-15ho",
+                label: "Vite.js - O build tool que vai facilitar a sua vida - Camilo Micheletto",
+                votes: 0,
+                type: LinkType.FREE,
+                contentType: LinkContentType.READ,
+              }
             ],
           },
         ],
