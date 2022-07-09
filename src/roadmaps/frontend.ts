@@ -494,7 +494,16 @@ export const data: Level[] = [
           "Module Bundlers são ferramentas utilizadas para empacotar todas as dependências e módulos de um projeto em um novo arquivo capaz de ser processado pelo navegador.",
         children: [
           { label: "Webpack", links: [] },
-          { label: "esbuild", links: [] },
+          {
+            label: "esbuild",
+            links: [
+              {
+                url: "https://blog.logrocket.com/getting-started-esbuild/",
+                label: "Getting started with esbuild - LogRocket",
+                contentType: LinkContentType.READ,
+              },
+            ]
+          },
           { label: "Rollup", links: [] },
           { label: "Parcel", links: [] },
           {
