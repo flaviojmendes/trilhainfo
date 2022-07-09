@@ -493,7 +493,16 @@ export const data: Level[] = [
         description:
           "Module Bundlers são ferramentas utilizadas para empacotar todas as dependências e módulos de um projeto em um novo arquivo capaz de ser processado pelo navegador.",
         children: [
-          { label: "Webpack", links: [] },
+          {
+            label: "Webpack",
+            links: [
+              {
+                url: "https://www.youtube.com/watch?v=u0euWX6CeIg",
+                label: "Webpack - Aprenda de uma vez por todas - Gean Developer",
+                contentType: LinkContentType.WATCH,
+              },
+            ]
+          },
           { label: "esbuild", links: [] },
           { label: "Rollup", links: [] },
           { label: "Parcel", links: [] },
