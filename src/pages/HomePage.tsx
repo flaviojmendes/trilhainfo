@@ -51,8 +51,8 @@ export default function HomePage() {
             </h3>
             <p className="text-justify mx-5">
               Especialista em DevOps (Desenvolvimento e Operações, de maneira
-              simplificada) é a pessoa que atua na integração entre as equipes de
-              desenvolvimento de software, especialmente nas áreas de
+              simplificada) é a pessoa que atua na integração entre as equipes
+              de desenvolvimento de software, especialmente nas áreas de
               desenvolvimento e operações, integrando e monitorando suas
               atividades para buscar um desempenho mais otimizado e
               simplificado.
@@ -62,6 +62,17 @@ export default function HomePage() {
               Em Breve
             </h2>
           </div>
+        </div>
+        <div className="flex flex-col items-stretch justify-center">
+          <h2 className="text-center my-6 txt-handwritten text-3xl c-yellow">
+            Como usar o site?
+          </h2>
+          
+          <iframe
+            className="mx-auto w-200 h-150 md:w-[560px] md:h-[315px]"
+            src="https://www.youtube.com/embed/_aOAojQsyOU"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          ></iframe>
         </div>
       </MainLayout>
     </>
