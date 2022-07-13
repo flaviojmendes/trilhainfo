@@ -137,7 +137,7 @@ export const data: Level[] = [
           { label: "NetBSD", links: [] },
         ],
       },
-      { label: "Windows", children: [] },
+      { label: "Windows", children: [{ label: "O básico", links: [] }] },
     ],
   },
   {
@@ -236,14 +236,14 @@ export const data: Level[] = [
   {
     label: "Escolha alguma ferramenta de CI/CD",
     items: [
-      { label: "Gitlab CI", children: [] },
-      { label: "Github Actions", children: [] },
-      { label: "Jenkins", children: [] },
-      { label: "Circle CI", children: [] },
-      { label: "Travis CI", children: [] },
-      { label: "Bamboo", children: [] },
-      { label: "Azure DevOps", children: [] },
-      { label: "TeamCity", children: [] },
+      { label: "Gitlab CI", children: [{ label: "O básico", links: [] }] },
+      { label: "Github Actions", children: [{ label: "O básico", links: [] }] },
+      { label: "Jenkins", children: [{ label: "O básico", links: [] }] },
+      { label: "Circle CI", children: [{ label: "O básico", links: [] }] },
+      { label: "Travis CI", children: [{ label: "O básico", links: [] }] },
+      { label: "Bamboo", children: [{ label: "O básico", links: [] }] },
+      { label: "Azure DevOps", children: [{ label: "O básico", links: [] }] },
+      { label: "TeamCity", children: [{ label: "O básico", links: [] }] },
     ],
   },
   {
@@ -283,13 +283,13 @@ export const data: Level[] = [
   {
     label: "Escolha um provedor de Nuvem",
     items: [
-      { label: "AWS", children: [] },
-      { label: "Google Cloud", children: [] },
-      { label: "Azure", children: [] },
-      { label: "Heroku", children: [] },
-      { label: "Digital Ocean", children: [] },
-      { label: "Linode", children: [] },
-      { label: "Vultr", children: [] },
+      { label: "AWS", children: [{ label: "O básico", links: [] }] },
+      { label: "Google Cloud", children: [{ label: "O básico", links: [] }] },
+      { label: "Azure", children: [{ label: "O básico", links: [] }] },
+      { label: "Heroku", children: [{ label: "O básico", links: [] }] },
+      { label: "Digital Ocean", children: [{ label: "O básico", links: [] }] },
+      { label: "Linode", children: [{ label: "O básico", links: [] }] },
+      { label: "Vultr", children: [{ label: "O básico", links: [] }] },
     ],
   },
   {
