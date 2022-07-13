@@ -45,7 +45,10 @@ export default function HomePage() {
           </Link>
 
           {/* Devops */}
-          <div className="relative bd-handwritten bd-red bg-brown md:w-1/3 lg:w-1/4 w-full min-h-fit py-3">
+          <Link
+            className="bd-handwritten bd-red bg-brown md:w-1/3 lg:w-1/4 w-full min-h-fit hover:bg-white py-3"
+            to={"/roadmap/devops"}
+          >
             <h3 className="text-center text-3xl txt-handwritten mb-2 c-dark-brown">
               Devops
             </h3>
@@ -57,11 +60,8 @@ export default function HomePage() {
               atividades para buscar um desempenho mais otimizado e
               simplificado.
             </p>
+          </Link>
 
-            <h2 className="absolute rounded-md top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  text-3xl text-center bg-black c-red font-bold rotate-45 mr-0 p-2 bg-light-orange">
-              Em Breve
-            </h2>
-          </div>
         </div>
         <div className="flex flex-col items-stretch justify-center">
           <h2 className="text-center my-6 txt-handwritten text-3xl c-yellow">

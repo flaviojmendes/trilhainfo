@@ -145,14 +145,162 @@ export const data: Level[] = [
       {
         label: "Usando o Terminal",
         children: [
-          {label: "Bash Script", links:[]},
-          {label: "Ferramentas de Texto", links:[]},
-          {label: "Editores de Texto", links:[]},
-          {label: "Compilação", links:[]},
-          {label: "System Performance", links:[]},
-          {label: "Monitoramento de Processos", links:[]},
-          {label: "Rede", links:[]},
-          {label: "Outros", links:[]},
+          { label: "Bash Script", links: [] },
+          { label: "Ferramentas de Texto", links: [] },
+          { label: "Editores de Texto", links: [] },
+          { label: "Compilação", links: [] },
+          { label: "System Performance", links: [] },
+          { label: "Monitoramento de Processos", links: [] },
+          { label: "Rede", links: [] },
+          { label: "Outros", links: [] },
+        ],
+      },
+    ],
+  },
+  {
+    items: [
+      {
+        label: "Rede, Segurança e Protocolos",
+        children: [
+          { label: "HTTP", links: [] },
+          { label: "HTTPS", links: [] },
+          { label: "FTP", links: [] },
+          { label: "SSL/TLS", links: [] },
+          { label: "SSH", links: [] },
+          { label: "Port Forwarding", links: [] },
+          { label: "SMTP", links: [] },
+          { label: "IMAPS", links: [] },
+          { label: "POP3", links: [] },
+        ],
+      },
+    ],
+  },
+  {
+    label: "O que é, e como configurar:",
+    items: [
+      { label: "Proxy Reverso", children: [{ label: "O Básico", links: [] }] },
+      { label: "Caching Server", children: [{ label: "O Básico", links: [] }] },
+      { label: "Forward Proxy", children: [{ label: "O Básico", links: [] }] },
+      { label: "Load Balancer", children: [{ label: "O Básico", links: [] }] },
+      { label: "Firewall", children: [{ label: "O Básico", links: [] }] },
+      {
+        label: "Web Server",
+        children: [
+          { label: "Nginx", links: [] },
+          { label: "Apache", links: [] },
+          { label: "IIS", links: [] },
+          { label: "Tomcat", links: [] },
+          { label: "Caddy", links: [] },
+        ],
+      },
+    ],
+  },
+  {
+    label: "Infraestrutura como Código",
+    items: [
+      {
+        label: "Containers",
+        children: [
+          { label: "Docker", links: [] },
+          { label: "LXC", links: [] },
+        ],
+      },
+      {
+        label: "Gerenciamento de Configuração",
+        children: [
+          { label: "Ansible", links: [] },
+          { label: "Chef", links: [] },
+          { label: "Salt", links: [] },
+          { label: "Puppet", links: [] },
+        ],
+      },
+      {
+        label: "Orquestração de Containers",
+        children: [
+          { label: "Kubernetes", links: [] },
+          { label: "Mesos", links: [] },
+          { label: "Docker Swarm", links: [] },
+          { label: "Nomad", links: [] },
+        ],
+      },
+      {
+        label: "Provisionamento de Infraestrutura",
+        children: [
+          { label: "Terraform", links: [] },
+          { label: "CloudFormation", links: [] },
+          { label: "Pulumi", links: [] },
+        ],
+      },
+    ],
+  },
+  {
+    label: "Escolha alguma ferramenta de CI/CD",
+    items: [
+      { label: "Gitlab CI", children: [] },
+      { label: "Github Actions", children: [] },
+      { label: "Jenkins", children: [] },
+      { label: "Circle CI", children: [] },
+      { label: "Travis CI", children: [] },
+      { label: "Bamboo", children: [] },
+      { label: "Azure DevOps", children: [] },
+      { label: "TeamCity", children: [] },
+    ],
+  },
+  {
+    items: [
+      {
+        label: "Monitoramento de Infraestrutura",
+        children: [
+          { label: "Prometheus", links: [] },
+          { label: "Nagios", links: [] },
+          { label: "Grafana", links: [] },
+          { label: "Zabbix", links: [] },
+          { label: "Monit", links: [] },
+          { label: "Datadog", links: [] },
+        ],
+      },
+      {
+        label: "Monitoramento de Aplicação",
+        children: [
+          { label: "Jaeger", links: [] },
+          { label: "New Relic", links: [] },
+          { label: "AppDynamics", links: [] },
+          { label: "Instana", links: [] },
+          { label: "OpenTracing", links: [] },
+        ],
+      },
+      {
+        label: "Gerenciamento de Logs",
+        children: [
+          { label: "Elastic Stack", links: [] },
+          { label: "Graylog", links: [] },
+          { label: "Splunk", links: [] },
+          { label: "Papertrail", links: [] },
+        ],
+      },
+    ],
+  },
+  {
+    label: "Escolha um provedor de Nuvem",
+    items: [
+      { label: "AWS", children: [] },
+      { label: "Google Cloud", children: [] },
+      { label: "Azure", children: [] },
+      { label: "Heroku", children: [] },
+      { label: "Digital Ocean", children: [] },
+      { label: "Linode", children: [] },
+      { label: "Vultr", children: [] },
+    ],
+  },
+  {
+    items: [
+      {
+        label: "Design Patterns para Nuvem",
+        children: [
+          { label: "Disponibilidade", links: [] },
+          { label: "Gerenciamento de Dados", links: [] },
+          { label: "Design e Implementação", links: [] },
+          { label: "Gerenciamento e Monitoramento", links: [] },
         ],
       },
     ],
