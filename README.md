@@ -2,7 +2,7 @@
 
 Olá 👋
 
-Se você chegou até esse repo é porque está querendo saber mais sobre como contribuir com o Trilha Info. É bem simples!
+Se você chegou até esse repo é porque está querendo saber mais sobre como contribuir com o [Trilha Info](https://www.trilha.info/). É bem simples!
 
 Atualmente estou pedindo contribuições para o Roadmap de Frontend. Basta mandar um Pull Request para editar o [JSON](https://github.com/flaviojmendes/trilhainfo/tree/main/src/roadmaps) que contém todas a informações.
 
