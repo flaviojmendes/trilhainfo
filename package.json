@@ -3,25 +3,32 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host",
     "build": "tsc && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
+    "@auth0/auth0-react": "^1.10.2",
     "@chakra-ui/icons": "^2.0.2",
     "@chakra-ui/react": "^2.2.1",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
+    "axios": "^0.27.2",
     "framer-motion": "^6",
     "html2canvas": "^1.4.1",
+    "immutability-helper": "^3.1.1",
     "react": "^18.0.0",
+    "react-beforeunload": "^2.5.3",
     "react-dom": "^18.0.0",
     "react-ga": "^3.3.1",
     "react-ga4": "^1.4.1",
     "react-icons": "^4.4.0",
+    "react-loader-spinner": "^5.1.7-beta.1",
     "react-router-dom": "^6.3.0",
+    "react-router-navigation-prompt": "^1.9.6",
     "react-share": "^4.4.0",
-    "react-use": "^17.4.0"
+    "react-use": "^17.4.0",
+    "universal-cookie": "^4.0.4"
   },
   "devDependencies": {
     "@types/react": "^18.0.0",

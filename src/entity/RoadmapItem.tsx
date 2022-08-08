@@ -1,3 +1,24 @@
+
+export class RoadmapModel {
+    id?: string;
+    title?: string;
+    description?: string;
+    owner?: string;
+    levels: Level[] = [];
+
+    addLevel(level: Level) {
+        this.levels.push(level);
+    }
+
+    removeLevel(level: Level) {
+        this.levels = this.levels.filter(obj => {return obj !== level});
+    }
+
+    getLevels() {
+        return this.levels;
+    }
+}
+
 export interface Level {
     label?: string;
     description?: string;

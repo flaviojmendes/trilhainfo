@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { chakra, Link as ChakraLink, useDisclosure } from "@chakra-ui/react";
 import MainLayout from "../components/layouts/MainLayout";
+import UserArea from "../components/UserArea/UserArea";
 
 export default function HomePage() {
   const Link = chakra(NavLink);
@@ -63,6 +64,9 @@ export default function HomePage() {
           </Link>
 
         </div>
+
+        <UserArea/>
+
         <div className="flex flex-col items-stretch justify-center">
           <h2 className="text-center my-6 txt-handwritten text-3xl c-yellow">
             Como usar o site?

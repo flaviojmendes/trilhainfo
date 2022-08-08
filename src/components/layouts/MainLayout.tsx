@@ -1,13 +1,19 @@
 import { FaGithubSquare, FaNewspaper } from "react-icons/fa";
 import Logo from "../Logo/Logo";
-import { chakra, Link as ChakraLink, useDisclosure } from "@chakra-ui/react";
+import { chakra, Icon, Link as ChakraLink, useDisclosure } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
+import { FiLogOut } from "react-icons/fi";
+
 
 type Props = {
   children?: React.ReactNode;
 };
 
 export default function MainLayout({ children }: Props) {
+  const { loginWithRedirect, user, isAuthenticated, isLoading, logout } =
+    useAuth0();
+
   return (
     <>
       <div className="flex flex-col h-screen">
@@ -20,7 +26,9 @@ export default function MainLayout({ children }: Props) {
             href="https://github.com/flaviojmendes/trilhadev"
           >
             <FaGithubSquare className="w-8 h-8 c-red" />
-            <span className="my-auto text-lg ml-1 c-red hidden md:block">Github</span>
+            <span className="my-auto text-lg ml-1 c-red hidden md:block">
+              Github
+            </span>
           </ChakraLink>
 
           <ChakraLink
@@ -34,6 +42,27 @@ export default function MainLayout({ children }: Props) {
               Assine a Newsletter
             </span>
           </ChakraLink>
+          {isAuthenticated && (
+            <>
+              <div className="w-200 flex c-yellow">
+                <img
+                  className="rounded-full w-10"
+                  src={user?.picture}
+                  alt={user?.name}
+                />
+                <span className="m-auto ml-2">{user?.name}</span>
+              </div>
+              <button
+                onClick={() => logout({ returnTo: window.location.origin })}
+              >
+                <Icon as={FiLogOut} color="#ee8561" h='10' w='10' className="c-red"/>
+              </button>
+            </>
+          )}
+
+          {!isAuthenticated && (
+            <button onClick={() => loginWithRedirect()}>Log In</button>
+          )} 
         </div>
         <div className="container flex-grow py-1 px-2 mx-auto mt-0 mb-10">
           <Logo />

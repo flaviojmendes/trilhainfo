@@ -4,6 +4,9 @@ import "./App.css";
 import HomePage from "./pages/HomePage";
 import RoadmapPage from "./pages/RoadmapPage";
 import ReactGA from "react-ga4";
+import LoginPage from "./pages/LoginPage";
+import NewRoadmapPage from "./pages/NewRoadmap";
+import CustomRoadmapPage from "./pages/CustomRoadmapPage";
 
 function App() {
   
@@ -13,6 +16,10 @@ function App() {
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/roadmap/:name" element={<RoadmapPage />} />
+      <Route path="/roadmap/view/:roadmapId" element={<CustomRoadmapPage />} />
+      <Route path="/new-roadmap" element={<NewRoadmapPage />} />
+      <Route path="/edit-roadmap/:roadmapId" element={<NewRoadmapPage />} />
+      <Route path="/login" element={<LoginPage/>} />
     </Routes>
   );
 }
