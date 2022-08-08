@@ -1,5 +1,13 @@
 import { useAuth0 } from "@auth0/auth0-react";
-import { Button, Divider, Icon, Input, Text, Textarea } from "@chakra-ui/react";
+import {
+  Button,
+  Divider,
+  Icon,
+  Input,
+  Select,
+  Text,
+  Textarea,
+} from "@chakra-ui/react";
 import axios from "axios";
 
 import { ChangeEvent, SetStateAction, useEffect, useState } from "react";
@@ -197,7 +205,7 @@ export default function NewRoadmapPage() {
 
   // Link Functions
   function handleLinkChange(
-    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
     link: Link,
     levelIndex: number,
     itemIndex: number,
@@ -211,6 +219,8 @@ export default function NewRoadmapPage() {
       link.label = event.target.value;
     } else if (itemField === ItemField.URL) {
       link.url = event.target.value;
+    } else if (itemField === ItemField.TYPE) {
+      link.contentType = event.target.value;
     }
 
     roadmapTemp.getLevels()[levelIndex].items[itemIndex].children![
@@ -316,14 +326,10 @@ export default function NewRoadmapPage() {
                   </span>
                   <div
                     className="m-auto my-2 cursor-pointer w-fit"
-                    onClick={() =>
-                      handleRemoveLevel(level)
-                    }
+                    onClick={() => handleRemoveLevel(level)}
                   >
                     <DeleteIcon cursor={"pointer"} /> Remover Level
                   </div>
-
-                  
                 </div>
                 <div className="w-44 h-50 mx-auto text-center">
                   <Input
@@ -458,7 +464,7 @@ export default function NewRoadmapPage() {
                                     </div>
 
                                     <div className="flex flex-wrap md:space-x-2 mt-2">
-                                      <div className="w-full md:w-5/12">
+                                      <div className="w-full md:w-4/12">
                                         <Input
                                           className="font-black placeholder:text-dark-blue"
                                           border="2px"
@@ -479,7 +485,7 @@ export default function NewRoadmapPage() {
                                           size="sm"
                                         />
                                       </div>
-                                      <div className="w-full md:w-6/12">
+                                      <div className="w-full md:w-5/12">
                                         <Input
                                           className="font-black placeholder:text-dark-blue"
                                           border="2px"
@@ -499,6 +505,26 @@ export default function NewRoadmapPage() {
                                           placeholder="URL do Link"
                                           size="sm"
                                         />
+                                      </div>
+                                      <div className="w-full md:w-2/12">
+                                      <Select placeholder="Select option"
+                                        border="2px"
+                                        value={link.contentType}
+                                        borderColor={"#eabc54"}
+                                        onChange={(e) => handleLinkChange( e,
+                                          link,
+                                          levelIndex,
+                                          itemIndex,
+                                          sectionIndex,
+                                          linkIndex,
+                                          ItemField.TYPE)}
+                                        size="sm">
+                                          {Object.values(LinkContentType).map((type) => {return <option value={type}>
+                                            {type}
+                                          </option>})}
+                                          
+                                          
+                                        </Select>
                                       </div>
                                     </div>
                                   </>

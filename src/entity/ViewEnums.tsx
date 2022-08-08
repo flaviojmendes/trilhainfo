@@ -3,5 +3,6 @@
 export enum ItemField {
     LABEL,
     DESCRIPTION,
-    URL
+    URL,
+    TYPE
 }
