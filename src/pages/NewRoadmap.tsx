@@ -25,15 +25,21 @@ import { ItemField } from "../entity/ViewEnums";
 import { useNavigate, useParams } from "react-router-dom";
 import { Grid } from "react-loader-spinner";
 import { DeleteIcon } from "@chakra-ui/icons";
+import usePrompt from "../support/navigation";
 
 const cookies = new Cookies();
 
 export default function NewRoadmapPage() {
   const [roadmap, setRoadmap] = useState<RoadmapModel>(new RoadmapModel());
+  const [shouldBlock, setShouldBlock] = useState(false);
   const [loading, setLoading] = useState(true);
   const { user, isAuthenticated, getAccessTokenSilently } = useAuth0();
   const { roadmapId } = useParams();
   const navigate = useNavigate();
+
+
+
+  usePrompt('Tem certeza que deseja sair? Você pode perder dados não salvos.', shouldBlock)
 
   useEffect(() => {
     if (roadmapId) {
@@ -64,24 +70,28 @@ export default function NewRoadmapPage() {
     let roadmapTemp: RoadmapModel = Object.assign(new RoadmapModel(), roadmap);
     roadmapTemp.title = event.target.value || "";
     setRoadmap(roadmapTemp);
+    setShouldBlock(true);
   }
 
   function handleDescriptionChange(event: ChangeEvent<HTMLTextAreaElement>) {
     let roadmapTemp: RoadmapModel = Object.assign(new RoadmapModel(), roadmap);
     roadmapTemp.description = event.target.value || "";
     setRoadmap(roadmapTemp);
+    setShouldBlock(true);
   }
 
   function handleNewLevel() {
     let roadmapTemp: RoadmapModel = Object.assign(new RoadmapModel(), roadmap);
     roadmapTemp.addLevel({ items: [] });
     setRoadmap(roadmapTemp);
+    setShouldBlock(true);
   }
 
   function handleRemoveLevel(level: Level) {
     let roadmapTemp: RoadmapModel = Object.assign(new RoadmapModel(), roadmap);
     roadmapTemp?.removeLevel(level);
     setRoadmap(roadmapTemp);
+    setShouldBlock(true);
   }
 
   function handleLevelTitleChange(
@@ -94,6 +104,7 @@ export default function NewRoadmapPage() {
     level.label = event.target.value;
     roadmapTemp.getLevels()[index] = level;
     setRoadmap(roadmapTemp);
+    setShouldBlock(true);
   }
 
   function handleLevelDescriptionChange(
@@ -106,6 +117,7 @@ export default function NewRoadmapPage() {
     level.description = event.target.value;
     roadmapTemp.getLevels()[index] = level;
     setRoadmap(roadmapTemp);
+    setShouldBlock(true);
   }
 
   // Item Functions
@@ -126,6 +138,7 @@ export default function NewRoadmapPage() {
 
     roadmapTemp.getLevels()[levelIndex].items[itemIndex] = item;
     setRoadmap(roadmapTemp);
+    setShouldBlock(true);
   }
 
   function handleNewItem(level: Level, index: number) {
@@ -134,6 +147,7 @@ export default function NewRoadmapPage() {
     level.items.push({ label: "" });
     roadmapTemp.getLevels()[index] = level;
     setRoadmap(roadmapTemp);
+    setShouldBlock(true);
   }
 
   function handleRemoveItem(levelIndex: number, item: RoadmapItem) {
@@ -143,6 +157,7 @@ export default function NewRoadmapPage() {
     });
     roadmapTemp.levels[levelIndex].items = items;
     setRoadmap(roadmapTemp);
+    setShouldBlock(true);
   }
 
   // End Item Functions
@@ -168,6 +183,7 @@ export default function NewRoadmapPage() {
       sectionIndex
     ] = item;
     setRoadmap(roadmapTemp);
+    setShouldBlock(true);
   }
 
   function handleNewSection(
@@ -185,6 +201,7 @@ export default function NewRoadmapPage() {
 
     roadmapTemp.getLevels()[levelIndex] = level;
     setRoadmap(roadmapTemp);
+    setShouldBlock(true);
   }
 
   function handleRemoveSection(
@@ -200,6 +217,7 @@ export default function NewRoadmapPage() {
     });
     roadmapTemp.levels[levelIndex].items[itemIndex].children = items;
     setRoadmap(roadmapTemp);
+    setShouldBlock(true);
   }
   // End Section Functions
 
@@ -227,6 +245,7 @@ export default function NewRoadmapPage() {
       sectionIndex
     ].links![linkIndex] = link;
     setRoadmap(roadmapTemp);
+    setShouldBlock(true);
   }
 
   function handleNewLink(
@@ -249,6 +268,7 @@ export default function NewRoadmapPage() {
 
     roadmapTemp.getLevels()[levelIndex] = level;
     setRoadmap(roadmapTemp);
+    setShouldBlock(true);
   }
 
   function handleRemoveLink(
@@ -267,6 +287,7 @@ export default function NewRoadmapPage() {
       sectionIndex
     ].links = items;
     setRoadmap(roadmapTemp);
+    setShouldBlock(true);
   }
   // End Link Functions
 
@@ -279,6 +300,7 @@ export default function NewRoadmapPage() {
         Authorization: cookies.get("api_token"),
       },
     });
+    setShouldBlock(false);
     navigate("/");
   }
 
