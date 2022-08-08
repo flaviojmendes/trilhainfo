@@ -36,7 +36,7 @@ export interface Link {
     url: string;
     type?: string;
     votes?: number;
-    contentType: LinkContentType;
+    contentType: LinkContentType | string;
     label: string;
 }
 
