@@ -293,6 +293,7 @@ export default function NewRoadmapPage() {
 
   async function handleSaveRoadmap() {
     roadmap.owner = user?.nickname;
+    setShouldBlock(false);
     await axios.post(import.meta.env.VITE_API_URL + `/roadmap` || "", roadmap, {
       withCredentials: true,
       headers: {
@@ -300,7 +301,7 @@ export default function NewRoadmapPage() {
         Authorization: cookies.get("api_token"),
       },
     });
-    setShouldBlock(false);
+    
     navigate("/");
   }
 

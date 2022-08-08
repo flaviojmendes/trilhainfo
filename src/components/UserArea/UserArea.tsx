@@ -17,7 +17,7 @@ export default function UserArea() {
   const navigate = useNavigate();
   const [isLoadingRoadmaps, setLoadingRoadmaps] = useState(true);
   const [roadmaps, setRoadmaps] = useState<RoadmapModel[]>();
-  const toast = useToast()
+  const toast = useToast();
 
   function handleCreateNew() {
     navigate("/new-roadmap");
@@ -32,6 +32,7 @@ export default function UserArea() {
   }, [isLoading]);
 
   async function getRoadmaps() {
+    setLoadingRoadmaps(true);
     let response = await axios.get(
       import.meta.env.VITE_API_URL + `/roadmap/${user?.nickname}` || "",
       {
@@ -41,20 +42,40 @@ export default function UserArea() {
         },
       }
     );
-    
+
     setRoadmaps(response.data);
     setLoadingRoadmaps(false);
   }
 
+  async function handleDeleteRoadmap(roadmapId: string) {
+    const answer = window.confirm("Tem certeza que quer deletar?");
+    if (answer) {
+      setLoadingRoadmaps(true);
+      setRoadmaps([]);
+      let response = await axios.delete(
+        import.meta.env.VITE_API_URL + `/roadmap/${roadmapId}` || "",
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: cookies.get("api_token"),
+          },
+        }
+      );
+      getRoadmaps();
+    }
+  }
+
   function handleCopyToClipboard(roadmapId: string) {
-    navigator.clipboard.writeText(`https://beta.trilha.info/roadmap/view/${roadmapId}`)
+    navigator.clipboard.writeText(
+      `https://beta.trilha.info/roadmap/view/${roadmapId}`
+    );
     toast({
-      title: 'Feito!',
+      title: "Feito!",
       description: "O link para o seu Roadmap foi copiado!",
-      status: 'info',
+      status: "info",
       duration: 9000,
       isClosable: true,
-    })
+    });
   }
 
   return (
@@ -88,12 +109,12 @@ export default function UserArea() {
                     />
                     <IconButton
                       aria-label="Deletar Roadmap"
+                      onClick={() => handleDeleteRoadmap(roadmap.id)}
                       icon={<DeleteIcon />}
                     />
                     <IconButton
                       aria-label="Compartilhar Roadmap"
                       onClick={() => handleCopyToClipboard(roadmap.id!)}
-                      
                       icon={<Icon as={FiShare2} />}
                     />
                   </div>
