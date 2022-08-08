@@ -5,6 +5,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { FaShare } from "react-icons/fa";
 import { FiShare, FiShare2 } from "react-icons/fi";
+import { Grid } from "react-loader-spinner";
 import { Link, useNavigate } from "react-router-dom";
 import Cookies from "universal-cookie";
 import { RoadmapModel } from "../../entity/RoadmapItem";
@@ -14,6 +15,7 @@ const cookies = new Cookies();
 export default function UserArea() {
   const { isAuthenticated, user, isLoading } = useAuth0();
   const navigate = useNavigate();
+  const [isLoadingRoadmaps, setLoadingRoadmaps] = useState(true);
   const [roadmaps, setRoadmaps] = useState<RoadmapModel[]>();
 
   function handleCreateNew() {
@@ -38,8 +40,9 @@ export default function UserArea() {
         },
       }
     );
-
+    
     setRoadmaps(response.data);
+    setLoadingRoadmaps(false);
   }
 
   return (
@@ -73,16 +76,28 @@ export default function UserArea() {
                     />
                     <IconButton
                       aria-label="Deletar Roadmap"
+                      className="cursor-not-allowed"
                       icon={<DeleteIcon />}
                     />
                     <IconButton
                       aria-label="Compartilhar Roadmap"
+                      className="cursor-not-allowed"
                       icon={<Icon as={FiShare2} />}
                     />
                   </div>
                 </div>
               );
             })}
+            <Grid
+              height="80"
+              width="80"
+              color="#d56a47"
+              ariaLabel="grid-loading"
+              radius="12.5"
+              wrapperStyle={{}}
+              wrapperClass="opacity-100 "
+              visible={isLoadingRoadmaps}
+            />
           </div>
 
           <div className="flex">
