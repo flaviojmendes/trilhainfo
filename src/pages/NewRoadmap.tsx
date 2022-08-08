@@ -1,5 +1,5 @@
 import { useAuth0 } from "@auth0/auth0-react";
-import { Button, Icon, Input, Text, Textarea } from "@chakra-ui/react";
+import { Button, Divider, Icon, Input, Text, Textarea } from "@chakra-ui/react";
 import axios from "axios";
 
 import { ChangeEvent, SetStateAction, useEffect, useState } from "react";
@@ -16,6 +16,7 @@ import Cookies from "universal-cookie";
 import { ItemField } from "../entity/ViewEnums";
 import { useNavigate, useParams } from "react-router-dom";
 import { Grid } from "react-loader-spinner";
+import { DeleteIcon } from "@chakra-ui/icons";
 
 const cookies = new Cookies();
 
@@ -126,6 +127,16 @@ export default function NewRoadmapPage() {
     roadmapTemp.getLevels()[index] = level;
     setRoadmap(roadmapTemp);
   }
+
+  function handleRemoveItem(levelIndex: number, item: RoadmapItem) {
+    let roadmapTemp: RoadmapModel = Object.assign(new RoadmapModel(), roadmap);
+    let items = roadmapTemp.levels[levelIndex].items.filter((obj) => {
+      return obj !== item;
+    });
+    roadmapTemp.levels[levelIndex].items = items;
+    setRoadmap(roadmapTemp);
+  }
+
   // End Item Functions
 
   // Section Functions
@@ -165,6 +176,21 @@ export default function NewRoadmapPage() {
     level.items[itemIndex].children!.push({ label: "" });
 
     roadmapTemp.getLevels()[levelIndex] = level;
+    setRoadmap(roadmapTemp);
+  }
+
+  function handleRemoveSection(
+    levelIndex: number,
+    itemIndex: number,
+    section: RoadmapItem
+  ) {
+    let roadmapTemp: RoadmapModel = Object.assign(new RoadmapModel(), roadmap);
+    let items = roadmapTemp.levels[levelIndex].items[
+      itemIndex
+    ].children!.filter((obj) => {
+      return obj !== section;
+    });
+    roadmapTemp.levels[levelIndex].items[itemIndex].children = items;
     setRoadmap(roadmapTemp);
   }
   // End Section Functions
@@ -214,20 +240,35 @@ export default function NewRoadmapPage() {
     roadmapTemp.getLevels()[levelIndex] = level;
     setRoadmap(roadmapTemp);
   }
+
+  function handleRemoveLink(
+    levelIndex: number,
+    itemIndex: number,
+    sectionIndex: number,
+    link: Link
+  ) {
+    let roadmapTemp: RoadmapModel = Object.assign(new RoadmapModel(), roadmap);
+    let items = roadmapTemp.levels[levelIndex].items[itemIndex].children![
+      sectionIndex
+    ].links!.filter((obj) => {
+      return obj !== link;
+    });
+    roadmapTemp.levels[levelIndex].items[itemIndex].children![
+      sectionIndex
+    ].links = items;
+    setRoadmap(roadmapTemp);
+  }
   // End Link Functions
 
   async function handleSaveRoadmap() {
     roadmap.owner = user?.nickname;
-    await axios.post(
-      import.meta.env.VITE_API_URL + `/roadmap` || "",
-      roadmap,
-      {withCredentials: true,
-        headers: {
-          "Content-Type": "application/json",
-          'Authorization': cookies.get("api_token"),
-        },
-      }
-    );
+    await axios.post(import.meta.env.VITE_API_URL + `/roadmap` || "", roadmap, {
+      withCredentials: true,
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: cookies.get("api_token"),
+      },
+    });
     navigate("/");
   }
 
@@ -235,7 +276,7 @@ export default function NewRoadmapPage() {
     <>
       <MainLayout>
         <div className="flex flex-col space-y-4">
-          <div className="w-1/2 m-auto">
+          <div className="w-full md:w-1/2 m-auto">
             <span className="c-yellow">Título:</span>
             <Input
               className="c-red"
@@ -245,7 +286,7 @@ export default function NewRoadmapPage() {
               size="sm"
             />
           </div>
-          <div className="w-1/2 m-auto">
+          <div className="w-full md:w-1/2 m-auto">
             <span className="c-yellow">Descrição:</span>
             <Textarea
               className="c-red"
@@ -266,19 +307,23 @@ export default function NewRoadmapPage() {
                   "pb-5 lg:w-2/3 self-center p-4 " +
                   (level.label || level.description
                     ? "border-2 bd-red border-dotted bg-yellow"
-                    : "")
+                    : "bg-white bg-opacity-50")
                 }
               >
                 <div className="w-full flex justify-end">
                   <span className="grow text-sm">
                     (Título e Descrição são Opcionais)
                   </span>
-                  <Icon
-                    as={FaTrash}
-                    color="red"
-                    cursor={"pointer"}
-                    onClick={() => handleRemoveLevel(level)}
-                  ></Icon>
+                  <div
+                    className="m-auto my-2 cursor-pointer w-fit"
+                    onClick={() =>
+                      handleRemoveLevel(level)
+                    }
+                  >
+                    <DeleteIcon cursor={"pointer"} /> Remover Level
+                  </div>
+
+                  
                 </div>
                 <div className="w-44 h-50 mx-auto text-center">
                   <Input
@@ -310,8 +355,14 @@ export default function NewRoadmapPage() {
                     return (
                       <div
                         key={`item-${itemIndex}`}
-                        className="flex flex-col space-y-2 mx-0 my-0 p-1 md:p-3 w-full text-center bd-handwritten bd-red  hover:shadow-md bg-brown"
+                        className="flex flex-col space-y-2 mx-0 my-0 p-2 pt-3 md:p-3 w-full text-center bd-handwritten bd-red  hover:shadow-md bg-brown"
                       >
+                        <div
+                          className="m-auto my-2 cursor-pointer w-fit"
+                          onClick={() => handleRemoveItem(levelIndex, item)}
+                        >
+                          <DeleteIcon cursor={"pointer"} /> Remover Item
+                        </div>
                         <Input
                           className="font-black placeholder:text-dark-blue"
                           border="2px"
@@ -346,11 +397,25 @@ export default function NewRoadmapPage() {
                           placeholder="Descrição"
                           size="sm"
                         />
-                        <span>Seções</span>
+                        <span className="font-semibold">Seções</span>
                         {/* Sections */}
+
                         {item.children?.map((section, sectionIndex) => {
                           return (
                             <div>
+                              <div
+                                className="m-auto my-2 cursor-pointer w-fit"
+                                onClick={() =>
+                                  handleRemoveSection(
+                                    levelIndex,
+                                    itemIndex,
+                                    section
+                                  )
+                                }
+                              >
+                                <DeleteIcon cursor={"pointer"} /> Remover Seção
+                              </div>
+
                               <Input
                                 className="font-black placeholder:text-dark-blue"
                                 border="2px"
@@ -372,46 +437,71 @@ export default function NewRoadmapPage() {
                               {/* Links */}
                               {section.links?.map((link, linkIndex) => {
                                 return (
-                                  <div className="flex space-x-2 mt-2">
-                                    <Input
-                                      className="font-black placeholder:text-dark-blue"
-                                      border="2px"
-                                      borderColor={"#eabc54"}
-                                      value={link.label}
-                                      onChange={(e) =>
-                                        handleLinkChange(
-                                          e,
-                                          link,
+                                  <>
+                                    <Divider
+                                      borderColor={"yellow.500"}
+                                      mt="2"
+                                    />
+                                    <div
+                                      className="m-auto my-2 cursor-pointer w-fit"
+                                      onClick={() =>
+                                        handleRemoveLink(
                                           levelIndex,
                                           itemIndex,
                                           sectionIndex,
-                                          linkIndex,
-                                          ItemField.LABEL
+                                          link
                                         )
                                       }
-                                      placeholder="Título do Link"
-                                      size="sm"
-                                    />
-                                    <Input
-                                      className="font-black placeholder:text-dark-blue"
-                                      border="2px"
-                                      borderColor={"#eabc54"}
-                                      value={link.url}
-                                      onChange={(e) =>
-                                        handleLinkChange(
-                                          e,
-                                          link,
-                                          levelIndex,
-                                          itemIndex,
-                                          sectionIndex,
-                                          linkIndex,
-                                          ItemField.URL
-                                        )
-                                      }
-                                      placeholder="URL do Link"
-                                      size="sm"
-                                    />
-                                  </div>
+                                    >
+                                      <DeleteIcon cursor={"pointer"} /> Remover
+                                      Link
+                                    </div>
+
+                                    <div className="flex flex-wrap md:space-x-2 mt-2">
+                                      <div className="w-full md:w-5/12">
+                                        <Input
+                                          className="font-black placeholder:text-dark-blue"
+                                          border="2px"
+                                          borderColor={"#eabc54"}
+                                          value={link.label}
+                                          onChange={(e) =>
+                                            handleLinkChange(
+                                              e,
+                                              link,
+                                              levelIndex,
+                                              itemIndex,
+                                              sectionIndex,
+                                              linkIndex,
+                                              ItemField.LABEL
+                                            )
+                                          }
+                                          placeholder="Título do Link"
+                                          size="sm"
+                                        />
+                                      </div>
+                                      <div className="w-full md:w-6/12">
+                                        <Input
+                                          className="font-black placeholder:text-dark-blue"
+                                          border="2px"
+                                          borderColor={"#eabc54"}
+                                          value={link.url}
+                                          onChange={(e) =>
+                                            handleLinkChange(
+                                              e,
+                                              link,
+                                              levelIndex,
+                                              itemIndex,
+                                              sectionIndex,
+                                              linkIndex,
+                                              ItemField.URL
+                                            )
+                                          }
+                                          placeholder="URL do Link"
+                                          size="sm"
+                                        />
+                                      </div>
+                                    </div>
+                                  </>
                                 );
                               })}
                               <div className="w-full flex mt-8">

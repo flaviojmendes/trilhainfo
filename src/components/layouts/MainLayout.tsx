@@ -1,10 +1,15 @@
 import { FaGithubSquare, FaNewspaper } from "react-icons/fa";
 import Logo from "../Logo/Logo";
-import { chakra, Icon, Link as ChakraLink, useDisclosure } from "@chakra-ui/react";
+import {
+  chakra,
+  Icon,
+  Link as ChakraLink,
+  useDisclosure,
+} from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import { FiLogOut } from "react-icons/fi";
-
+import { ThreeDots } from "react-loader-spinner";
 
 type Props = {
   children?: React.ReactNode;
@@ -55,14 +60,31 @@ export default function MainLayout({ children }: Props) {
               <button
                 onClick={() => logout({ returnTo: window.location.origin })}
               >
-                <Icon as={FiLogOut} color="#ee8561" h='10' w='10' className="c-red"/>
+                <Icon
+                  as={FiLogOut}
+                  color="#ee8561"
+                  h="10"
+                  w="10"
+                  className="c-red"
+                />
               </button>
             </>
           )}
 
-          {!isAuthenticated && (
+          {!isAuthenticated && !isLoading && (
             <button onClick={() => loginWithRedirect()}>Log In</button>
-          )} 
+          )}
+          {isLoading && (
+            <ThreeDots
+              height="30"
+              width="30"
+              radius="9"
+              color="#d56a47"
+              ariaLabel="three-dots-loading"
+              wrapperStyle={{}}
+              visible={true}
+            />
+          )}
         </div>
         <div className="container flex-grow py-1 px-2 mx-auto mt-0 mb-10">
           <Logo />

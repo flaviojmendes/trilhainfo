@@ -7,12 +7,14 @@ import { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import Cookies from "universal-cookie";
 import { RoadmapModel } from "../entity/RoadmapItem";
+import { Grid } from "react-loader-spinner";
 
 const cookies = new Cookies();
 
 export default function CustomRoadmapPage() {
   const { roadmapId } = useParams();
-  const [roadmap, setRoadmap] = useState<RoadmapModel>()
+  const [isLoadingRoadmap, setLoadingRoadmap] = useState(true);
+  const [roadmap, setRoadmap] = useState<RoadmapModel>();
 
   useEffect(() => {
     getRoadmap();
@@ -28,7 +30,7 @@ export default function CustomRoadmapPage() {
         },
       }
     );
-
+    setLoadingRoadmap(false);
     setRoadmap(Object.assign(new RoadmapModel(), response.data));
   }
 
@@ -46,9 +48,21 @@ export default function CustomRoadmapPage() {
           conteúdos gratuitos produzidos por pessoas que dominam a área e te
           ajudarão nessa jornada!
         </p>
-
+        {isLoadingRoadmap && (<div className="w-full justify-center flex mt-32">
+          <Grid
+            height="80"
+            width="80"
+            color="#d56a47"
+            ariaLabel="grid-loading"
+            radius="12.5"
+            wrapperStyle={{}}
+            wrapperClass="opacity-100 "
+            visible={isLoadingRoadmap}
+          />
+          </div>
+        )}
         {roadmap && (
-          <Roadmap data={roadmap.getLevels()} title={roadmap.title || ''} />
+          <Roadmap data={roadmap.getLevels()} title={roadmap.title || ""} />
         )}
         {roadmap && <E404Page />}
       </MainLayout>

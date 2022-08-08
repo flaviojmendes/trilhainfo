@@ -1,8 +1,8 @@
 import { useAuth0 } from "@auth0/auth0-react";
 import { DeleteIcon, EditIcon, ViewIcon } from "@chakra-ui/icons";
-import { Button, Icon, IconButton } from "@chakra-ui/react";
+import { Button, Icon, IconButton, useToast } from "@chakra-ui/react";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { MouseEvent, useEffect, useState } from "react";
 import { FaShare } from "react-icons/fa";
 import { FiShare, FiShare2 } from "react-icons/fi";
 import { Grid } from "react-loader-spinner";
@@ -17,6 +17,7 @@ export default function UserArea() {
   const navigate = useNavigate();
   const [isLoadingRoadmaps, setLoadingRoadmaps] = useState(true);
   const [roadmaps, setRoadmaps] = useState<RoadmapModel[]>();
+  const toast = useToast()
 
   function handleCreateNew() {
     navigate("/new-roadmap");
@@ -43,6 +44,17 @@ export default function UserArea() {
     
     setRoadmaps(response.data);
     setLoadingRoadmaps(false);
+  }
+
+  function handleCopyToClipboard(roadmapId: string) {
+    navigator.clipboard.writeText(`https://beta.trilha.info/${roadmapId}`)
+    toast({
+      title: 'Feito!',
+      description: "O link para o seu Roadmap foi copiado!",
+      status: 'info',
+      duration: 9000,
+      isClosable: true,
+    })
   }
 
   return (
@@ -76,12 +88,12 @@ export default function UserArea() {
                     />
                     <IconButton
                       aria-label="Deletar Roadmap"
-                      className="cursor-not-allowed"
                       icon={<DeleteIcon />}
                     />
                     <IconButton
                       aria-label="Compartilhar Roadmap"
-                      className="cursor-not-allowed"
+                      onClick={() => handleCopyToClipboard(roadmap.id!)}
+                      
                       icon={<Icon as={FiShare2} />}
                     />
                   </div>
