@@ -320,7 +320,7 @@ export default function NewRoadmapPage() {
                     : "bg-white bg-opacity-50")
                 }
               >
-                <div className="w-full flex justify-end">
+                <div className="w-full flex flex-wrap justify-end">
                   <span className="grow text-sm">
                     (Título e Descrição são Opcionais)
                   </span>
@@ -328,7 +328,7 @@ export default function NewRoadmapPage() {
                     className="m-auto my-2 cursor-pointer w-fit"
                     onClick={() => handleRemoveLevel(level)}
                   >
-                    <DeleteIcon cursor={"pointer"} /> Remover Level
+                    <DeleteIcon cursor={"pointer"} /> <span className="text-sm">Remover Level</span>
                   </div>
                 </div>
                 <div className="w-44 h-50 mx-auto text-center">
