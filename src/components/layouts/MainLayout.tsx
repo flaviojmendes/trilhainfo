@@ -1,6 +1,7 @@
 import { FaGithubSquare, FaNewspaper } from "react-icons/fa";
 import Logo from "../Logo/Logo";
 import {
+  Button,
   chakra,
   Icon,
   Link as ChakraLink,
@@ -57,22 +58,15 @@ export default function MainLayout({ children }: Props) {
                 />
                 <span className="m-auto ml-2">{user?.name}</span>
               </div>
-              <button
-                onClick={() => logout({ returnTo: window.location.origin })}
-              >
-                <Icon
-                  as={FiLogOut}
-                  color="#ee8561"
-                  h="10"
-                  w="10"
-                  className="c-red"
-                />
-              </button>
+              <Button onClick={() => logout({ returnTo: window.location.origin })}>Logout</Button>
+
+              
+
             </>
           )}
 
           {!isAuthenticated && !isLoading && (
-            <button onClick={() => loginWithRedirect()}>Log In</button>
+            <Button onClick={() => loginWithRedirect()}>Log In</Button>
           )}
           {isLoading && (
             <ThreeDots
