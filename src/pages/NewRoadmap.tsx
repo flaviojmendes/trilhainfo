@@ -39,7 +39,7 @@ export default function NewRoadmapPage() {
 
   async function getRoadmap() {
     let response = await axios.get<RoadmapModel>(
-      import.meta.env.VITE_API_URL + `/roadmap/${roadmapId}` || "",
+      import.meta.env.VITE_PUBLIC_URL + `/roadmap/${roadmapId}` || "",
       {
         headers: {
           "Content-Type": "application/json",
@@ -221,7 +221,7 @@ export default function NewRoadmapPage() {
     await axios.post(
       import.meta.env.VITE_API_URL + `/roadmap` || "",
       roadmap,
-      {
+      {withCredentials: true,
         headers: {
           "Content-Type": "application/json",
           'Authorization': cookies.get("api_token"),
