@@ -338,7 +338,7 @@ export const data: Level[] = [
             ],
           },
           {
-            label: "Serviçoes de Hospedagem de Git",
+            label: "Serviços de Hospedagem de Git",
             children: [
               {
                 label: "Github",
