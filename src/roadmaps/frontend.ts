@@ -322,6 +322,13 @@ export const data: Level[] = [
                 contentType: LinkContentType.WATCH,
               },
               {
+                url: "https://www.youtube.com/playlist?list=PLlAbYrWSYTiNqugqFFWWsgONJsmc3eMpg",
+                label: "Git e Github na Vida Real - Willian Justen",
+                type: LinkType.FREE,
+                votes: 0,
+                contentType: LinkContentType.WATCH,
+              },
+              {
                 url: "https://www.youtube.com/watch?v=6Czd1Yetaac&t=269s",
                 label: "Entendendo GIT - Fábio Akita",
                 type: LinkType.FREE,
