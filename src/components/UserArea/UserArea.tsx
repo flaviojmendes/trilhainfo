@@ -13,7 +13,7 @@ import { RoadmapModel } from "../../entity/RoadmapItem";
 const cookies = new Cookies();
 
 export default function UserArea() {
-  const { isAuthenticated, user, isLoading } = useAuth0();
+  const { isAuthenticated, user, isLoading, logout } = useAuth0();
   const navigate = useNavigate();
   const [isLoadingRoadmaps, setLoadingRoadmaps] = useState(true);
   const [roadmaps, setRoadmaps] = useState<RoadmapModel[]>();
@@ -33,17 +33,21 @@ export default function UserArea() {
 
   async function getRoadmaps() {
     setLoadingRoadmaps(true);
-    let response = await axios.get(
-      import.meta.env.VITE_API_URL + `/roadmap/${user?.nickname}` || "",
-      {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: cookies.get("api_token"),
-        },
-      }
-    );
+    if (cookies.get("api_token")) {
+      let response = await axios.get(
+        import.meta.env.VITE_API_URL + `/roadmap/${user?.nickname}` || "",
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: cookies.get("api_token"),
+          },
+        }
+      );
 
-    setRoadmaps(response.data);
+      setRoadmaps(response.data);
+    } else {
+      logout();
+    }
     setLoadingRoadmaps(false);
   }
 
