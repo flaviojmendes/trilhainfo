@@ -1,10 +1,38 @@
 import { NavLink } from "react-router-dom";
-import { chakra, Link as ChakraLink, useDisclosure } from "@chakra-ui/react";
+import {
+  Button,
+  chakra,
+  Link as ChakraLink,
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  ModalOverlay,
+  useDisclosure,
+} from "@chakra-ui/react";
 import MainLayout from "../components/layouts/MainLayout";
 import UserArea from "../components/UserArea/UserArea";
+import { useEffect } from "react";
+import Cookies from "universal-cookie";
+
+const cookies = new Cookies();
 
 export default function HomePage() {
   const Link = chakra(NavLink);
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
+  useEffect(() => {
+    if (!cookies.get("new_release")) {
+      onOpen();
+    }
+  });
+
+  function handleModalClosed() {
+    cookies.set("new_release", true);
+    onClose();
+  }
 
   return (
     <>
@@ -62,22 +90,72 @@ export default function HomePage() {
               simplificado.
             </p>
           </Link>
-
         </div>
 
-        <UserArea/>
+        <UserArea />
 
         <div className="flex flex-col items-stretch justify-center">
           <h2 className="text-center my-6 txt-handwritten text-3xl c-yellow">
             Como usar o site?
           </h2>
-          
+
           <iframe
             className="mx-auto w-200 h-150 md:w-[560px] md:h-[315px]"
             src="https://www.youtube.com/embed/_aOAojQsyOU"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           ></iframe>
         </div>
+
+        <Modal isOpen={isOpen} onClose={handleModalClosed} size="5xl">
+          <ModalOverlay />
+          <ModalContent>
+            <ModalHeader>Aoba! 🎉</ModalHeader>
+            <ModalCloseButton />
+            <ModalBody px="12">
+              <p>
+                A nova versão da <strong>Trilha Info</strong> está no ar!
+              </p>
+              <p>
+                Agora você pode logar no Trilha Info com sua conta do Google e
+                criar seus próprios roadmaps através do editor.
+              </p>
+
+              <p>Para isso basta:</p>
+
+              <ol className="list-decimal">
+                <li>
+                  No canto superior, clique em{" "}
+                  <span className="font-bold">Log In</span>
+                </li>
+                <li>
+                  Se autentique pelo <span className="font-bold">Google</span>
+                </li>
+                <li>
+                  Abaixo dos Roadmaps da Trilha Info, clique no botão{" "}
+                  <span className="font-bold">+ Novo Roadmap</span>
+                </li>
+                <li>
+                  Siga esse
+                  <a
+                    className="font-bold c-red" target={'_blank'}
+                    href="https://trilha.info/roadmap/view/d86cd687-2e42-4e18-bf03-a6f878b58844"
+                  >
+                    {" "}
+                    guia
+                  </a>
+                  .
+                </li>
+                <li>Pronto! Crie e compartilhe nas suas redes sociais! 🎊</li>
+              </ol>
+            </ModalBody>
+
+            <ModalFooter>
+              <Button colorScheme="orange" mr={3} onClick={onClose}>
+                Fechar
+              </Button>
+            </ModalFooter>
+          </ModalContent>
+        </Modal>
       </MainLayout>
     </>
   );
