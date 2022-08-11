@@ -150,7 +150,7 @@ export default function HomePage() {
             </ModalBody>
 
             <ModalFooter>
-              <Button colorScheme="orange" mr={3} onClick={onClose}>
+              <Button colorScheme="orange" mr={3} onClick={handleModalClosed}>
                 Fechar
               </Button>
             </ModalFooter>
