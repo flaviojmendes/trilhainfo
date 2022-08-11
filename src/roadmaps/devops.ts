@@ -26,6 +26,16 @@ export const data: Level[] = [
             label: "Python",
             links: [
               {
+                label: "Curso Python - Curso em Video (Gustavo Guanabara)",
+                url: "https://www.youtube.com/watch?v=S9uPNppGsGo&list=PLvE-ZAFRgX8hnECDn1v9HNTI71veL3oW0",
+                contentType: LinkContentType.WATCH,
+              },
+              {
+                label: "Curso Python - Robert Silva",
+                url: "https://www.youtube.com/watch?v=md1vkPxwNNE&list=PLg7nVxv7fa6c9kHOFxJEBXnQMHa-_ATzk",
+                contentType: LinkContentType.WATCH,
+              },
+              {
                 label: "Python Week - Linux Tips e Bruno Rocha",
                 url: "https://www.youtube.com/watch?v=spIRwXEF3XY&list=PLf-O3X2-mxDlfAv8IOfic1sHArdwrrkgh&index=2",
                 contentType: LinkContentType.WATCH,
@@ -99,15 +109,47 @@ export const data: Level[] = [
   },
   {
     label: "Conceitos de Sistemas Operacionais",
-    description: "",
+    description: "Aqui você vai aprenser Conceitos referente a Sistema Operacionais, como Processos, Threads, Sockets, Rede",
     items: [
-      { label: "Gerenciamento de Processos", links: [] },
+      {
+        label: "Gerenciamento de Processos",
+        description:
+          "Aqui Você vai entender mais sobre o gerenciamento de processos no Sistema Operacional",
+          children: [
+            {
+              label: "Linux",
+              links: [
+                {
+                  label: "Gerenciamento de Processos - LinuxTips",
+                  url: "https://www.youtube.com/watch?v=-bEVlQv_O-8&list=PLf-O3X2-mxDlx6sRx2WB-xv3Q9YHJ23ZN",
+                  contentType: LinkContentType.WATCH,
+                }]
+          }]
+      },
       { label: "Threads e Concorrência", links: [] },
       { label: "Sockets", links: [] },
       { label: "Básico POSIX", links: [] },
       { label: "Conceitos de Rede", links: [] },
       { label: "initd (Gerenciamento de Inicialização)", links: [] },
-      { label: "systemd (Gerenciamento de Serviço)", links: [] },
+      {
+        label: "systemd (Gerenciamento de Serviço)",
+        description: "Systemd é um sistema gerenciador de serviços para Linux.",
+          children: [
+            {
+              label: "systemd (Gerenciamento de Serviço)",
+              links: [
+                {
+                  label: "O que é Systemd? - LinuxTips",
+                  url: "https://www.youtube.com/watch?v=1uGqXhhberk&t",
+                  contentType: LinkContentType.WATCH,
+                },
+                {
+                  label: "O que é Systemd? - Diolinux",
+                  url: "https://www.youtube.com/watch?v=7mXCxj4SWqU",
+                  contentType: LinkContentType.WATCH,
+                }]
+          }]
+      },
       { label: "I/O", links: [] },
       { label: "Virtualização", links: [] },
       { label: "Memória/Storage", links: [] },
@@ -145,7 +187,31 @@ export const data: Level[] = [
       {
         label: "Usando o Terminal",
         children: [
-          { label: "Bash Script", links: [] },
+          {
+            label: "Bash Script",
+            links: [
+                {
+                  label: "Curso Shell GNU - debxp (Blau Araujo)",
+                  url: "https://www.youtube.com/watch?v=Daasn9IjwMQ&list=PLXoSGejyuQGqJEEyo2fY3SA-QCKlF2rxO",
+                  contentType: LinkContentType.WATCH,
+                },
+                {
+                  label: "Além do Bash - debxp (Blau Araujo)",
+                  url: "https://www.youtube.com/watch?v=_W51nj5JTwk&list=PLXoSGejyuQGpen1lAlhngkpuldmot8DV0",
+                  contentType: LinkContentType.WATCH,
+                },
+                {
+                  label: "Curso Básico de Programação em Bash - debxp (Blau Araujo)",
+                  url: "https://www.youtube.com/watch?v=spIRwXEF3XY&list=PLf-O3X2-mxDlfAv8IOfic1sHArdwrrkgh&index",
+                  contentType: LinkContentType.WATCH,
+                }              ,
+                {
+                  label: "Shell Scripting - Boson Treinamentos",
+                  url: "https://www.youtube.com/watch?v=EOLPUc6oo-w&list=PLucm8g_ezqNrYgjXC8_CgbvHbvI7dDfhs",
+                  contentType: LinkContentType.WATCH,
+                }
+              ]
+          },
           { label: "Ferramentas de Texto", links: [] },
           { label: "Editores de Texto", links: [] },
           { label: "Compilação", links: [] },
@@ -201,14 +267,29 @@ export const data: Level[] = [
       {
         label: "Containers",
         children: [
-          { label: "Docker", links: [] },
+          { label: "Docker",
+            links: [
+              {
+                label: "Descomplicando Docker - LinuxTips",
+                url: "https://www.youtube.com/watch?v=qZevFPMtQho&list=PLf-O3X2-mxDn1VpyU2q3fuI6YYeIWp5rR",
+                contentType: LinkContentType.WATCH,
+              }]
+          },
           { label: "LXC", links: [] },
         ],
       },
       {
         label: "Gerenciamento de Configuração",
         children: [
-          { label: "Ansible", links: [] },
+          { 
+            label: "Ansible", 
+            links: [
+              {
+                label: "Curso Ansible -  Mário Santana",
+                url: "https://www.youtube.com/watch?v=Os0Uo5VXxNU&list=PLORF-y_edVoDQnky9u2OgyrfirE1dhutX",
+                contentType: LinkContentType.WATCH,
+              }]
+          },
           { label: "Chef", links: [] },
           { label: "Salt", links: [] },
           { label: "Puppet", links: [] },
@@ -226,7 +307,14 @@ export const data: Level[] = [
       {
         label: "Provisionamento de Infraestrutura",
         children: [
-          { label: "Terraform", links: [] },
+          { label: "Terraform",
+            links: [
+            {
+              label: "Curso de Terraform com AWS  - Cleber Gasparoto",
+              url: "https://www.youtube.com/watch?v=bIPF_hzmQGE&list=PLWQmZVQayUUIgSmOj3GPH2BJcn0hOzIaP",
+              contentType: LinkContentType.WATCH,
+            }]
+          },
           { label: "CloudFormation", links: [] },
           { label: "Pulumi", links: [] },
         ],
@@ -254,7 +342,14 @@ export const data: Level[] = [
           { label: "Prometheus", links: [] },
           { label: "Nagios", links: [] },
           { label: "Grafana", links: [] },
-          { label: "Zabbix", links: [] },
+          { label: "Zabbix",
+            links: [
+            {
+              label: "Treinamento base Zabbix 5.0  - Magno Monte Cerqueira",
+              url: "https://www.youtube.com/watch?v=vf5LidtostQ&list=PLCFBm2AvdHoCObUAfon9WL9E1q3C5-UKB",
+              contentType: LinkContentType.WATCH,
+            }]
+          },
           { label: "Monit", links: [] },
           { label: "Datadog", links: [] },
         ],
@@ -283,7 +378,19 @@ export const data: Level[] = [
   {
     label: "Escolha um provedor de Nuvem",
     items: [
-      { label: "AWS", children: [{ label: "O básico", links: [] }] },
+      { 
+        label: "AWS",
+        children: [
+          { 
+            label: "Certificação",
+            links: [{
+              label: "#BondeDaAWS - Treinamento preparatório para a certificação da AWS - LinuxTips",
+              url: "https://www.youtube.com/watch?v=VrQVDbgwFDs&t",
+              contentType: LinkContentType.WATCH,
+            }]
+          }
+        ]
+      },
       { label: "Google Cloud", children: [{ label: "O básico", links: [] }] },
       { label: "Azure", children: [{ label: "O básico", links: [] }] },
       { label: "Heroku", children: [{ label: "O básico", links: [] }] },

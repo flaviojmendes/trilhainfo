@@ -23,6 +23,7 @@ export default function MainLayout({ children }: Props) {
   return (
     <>
       <div className="flex flex-col h-screen">
+        <div className="bg-blue py-2 text-center text-xs">Quer ajudar a testar a versão beta? Clique <a className="c-red font-semibold" href="https://beta.trilha.info?utm_source=prod">aqui. 🥷</a></div>
         <div className="container p-2 flex space-x-4 mx-auto">
           <div className="flex-grow"></div>
           <ChakraLink
