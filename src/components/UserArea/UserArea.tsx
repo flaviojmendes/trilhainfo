@@ -113,7 +113,7 @@ export default function UserArea() {
                     />
                     <IconButton
                       aria-label="Deletar Roadmap"
-                      onClick={() => handleDeleteRoadmap(roadmap.id)}
+                      onClick={() => handleDeleteRoadmap(roadmap.id || '')}
                       icon={<DeleteIcon />}
                     />
                     <IconButton
