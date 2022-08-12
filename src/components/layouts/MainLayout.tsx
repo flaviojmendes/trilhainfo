@@ -23,67 +23,71 @@ export default function MainLayout({ children }: Props) {
   return (
     <>
       <div className="flex flex-col h-screen">
-        {/* <div className="bg-blue py-2 text-center text-xs">Quer ajudar a testar a versão beta? Clique <a className="c-red font-semibold" href="https://beta.trilha.info?utm_source=prod">aqui. 🥷</a></div> */}
-        <div className="container p-2 flex space-x-4 mx-auto">
-          <div className="flex-grow"></div>
-          <ChakraLink
-            isExternal
-            className="mr-0 ml-auto flex"
-            textDecoration={"none"}
-            href="https://github.com/flaviojmendes/trilhadev"
-          >
-            <FaGithubSquare className="w-8 h-8 c-red" />
-            <span className="my-auto text-lg ml-1 c-red hidden md:block">
-              Github
-            </span>
-          </ChakraLink>
+        <div className="w-screen p-2 flex flex-wrap space-x-4 space-y-2 mx-auto">
+          <div className="flex-grow">
+            {" "}
+            <Logo />
+          </div>
+          <div className="flex space-x-2">
+            <ChakraLink
+              isExternal
+              className="mr-0 ml-auto flex"
+              textDecoration={"none"}
+              href="https://github.com/flaviojmendes/trilhadev"
+            >
+              <FaGithubSquare className="m-auto w-8 h-8 text-yellow" />
+              <span className="my-auto text-lg ml-1 text-yellow hidden md:block">
+                Github
+              </span>
+            </ChakraLink>
+            <span className="text-yellow m-auto align-middle text-3xl">|</span>
+            <ChakraLink
+              isExternal
+              className="mr-0 ml-auto flex"
+              textDecoration={"none"}
+              href="https://www.getrevue.co/profile/flaviojmendes"
+            >
+              <FaNewspaper className="m-auto w-8 h-8 text-yellow" />
+              <span className="my-auto text-lg ml-1 text-yellow hidden md:block">
+                Assine a Newsletter
+              </span>
+            </ChakraLink>
+            <span className="text-yellow m-auto align-middle text-3xl">|</span>
+            {isAuthenticated && (
+              <>
+                <div className="w-200 flex text-yellow align-middle">
+                  <img
+                    className="m-auto rounded-full w-10 h-10"
+                    src={user?.picture}
+                    alt={user?.name}
+                  />
+                  <span className="m-auto ml-2">{user?.name}</span>
+                </div>
+                <Button margin={'auto'}
+                  onClick={() => logout({ returnTo: window.location.origin })}
+                >
+                  Logout
+                </Button>
+              </>
+            )}
 
-          <ChakraLink
-            isExternal
-            className="mr-0 ml-auto flex"
-            textDecoration={"none"}
-            href="https://www.getrevue.co/profile/flaviojmendes"
-          >
-            <FaNewspaper className="w-8 h-8 c-blue" />
-            <span className="my-auto text-lg ml-1 c-blue hidden md:block">
-              Assine a Newsletter
-            </span>
-          </ChakraLink>
-          {isAuthenticated && (
-            <>
-              <div className="w-200 flex c-yellow">
-                <img
-                  className="rounded-full w-10"
-                  src={user?.picture}
-                  alt={user?.name}
-                />
-                <span className="m-auto ml-2">{user?.name}</span>
-              </div>
-              <Button onClick={() => logout({ returnTo: window.location.origin })}>Logout</Button>
-
-              
-
-            </>
-          )}
-
-          {!isAuthenticated && !isLoading && (
-            <Button onClick={() => loginWithRedirect()}>Log In</Button>
-          )}
-          {isLoading && (
-            <ThreeDots
-              height="30"
-              width="30"
-              radius="9"
-              color="#d56a47"
-              ariaLabel="three-dots-loading"
-              wrapperStyle={{}}
-              visible={true}
-            />
-          )}
+            {!isAuthenticated && !isLoading && (
+              <Button margin={'auto'} onClick={() => loginWithRedirect()}>Log In</Button>
+            )}
+            {isLoading && (
+              <ThreeDots
+                height="30"
+                width="30"
+                radius="9"
+                color="#d56a47"
+                ariaLabel="three-dots-loading"
+                wrapperStyle={{}}
+                visible={true}
+              />
+            )}
+          </div>
         </div>
         <div className="container flex-grow py-1 px-2 mx-auto mt-0 mb-10">
-          <Logo />
-
           {children}
         </div>
         <footer className="text-center pb-4">

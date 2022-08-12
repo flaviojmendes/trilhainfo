@@ -71,7 +71,7 @@ export default function UserArea() {
 
   function handleCopyToClipboard(roadmapId: string) {
     navigator.clipboard.writeText(
-      `https://beta.trilha.info/roadmap/view/${roadmapId}`
+      `https://trilha.info/roadmap/view/${roadmapId}`
     );
     toast({
       title: "Feito!",
