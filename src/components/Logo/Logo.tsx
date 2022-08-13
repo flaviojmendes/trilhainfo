@@ -7,8 +7,8 @@ export default function Logo() {
   return (
     <>
       <Link to={"/"}>
-        <h1 className="text-center font-bold text-3xl">
-          <span className="c-brown">0</span>
+        <h1 className="text-center md:text-start site-logo font-bold text-3xl">
+          <span className="c-brown ">0</span>
           <span className="c-brown">1</span>
           <span className="c-yellow">0</span>
           <span className="c-yellow">1</span>
@@ -20,7 +20,7 @@ export default function Logo() {
           <span className="c-blue">0</span>
           <span className="c-yellow">1</span>
         </h1>
-        <h1 className="text-center font-bold text-3xl">
+        <h1 className="text-center md:text-start font-bold text-3xl">
           <span className="c-yellow">1</span>
           <span className="c-yellow">1</span>
           <span className="c-blue">0</span>

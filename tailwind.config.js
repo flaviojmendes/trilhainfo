@@ -6,6 +6,13 @@ module.exports = {
     colors: {
       'light-orange': '#F6BCA8',
       'white': '#FFFFFF',
+      'blue': '#59c0e4',
+      'dark-blue': '#1d6680',
+      'dark-brown': '#494443',
+      'yellow': "#eabc54",
+      'light-brown': '#e9dad5',
+      'dark-brown': '#2A2827',
+    
     },
   },
   plugins: [],

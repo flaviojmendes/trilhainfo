@@ -34,15 +34,15 @@ type Props = {
   title: string;
 };
 
-function getColorFromContentType(contentType: LinkContentType) {
+function getColorFromContentType(contentType: LinkContentType | string) {
   switch (contentType) {
-    case LinkContentType.LISTEN:
+    case LinkContentType.LISTEN || 'Ouça':
       return "blue";
-    case LinkContentType.READ:
+    case LinkContentType.READ || 'Leia':
       return "yellow";
-    case LinkContentType.VISIT:
+    case LinkContentType.VISIT || 'Visite':
       return "purple";
-    case LinkContentType.WATCH:
+    case LinkContentType.WATCH || 'Assista':
     default:
       return "orange";
   }

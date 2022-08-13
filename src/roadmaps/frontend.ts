@@ -322,6 +322,13 @@ export const data: Level[] = [
                 contentType: LinkContentType.WATCH,
               },
               {
+                url: "https://www.youtube.com/playlist?list=PLlAbYrWSYTiNqugqFFWWsgONJsmc3eMpg",
+                label: "Git e Github na Vida Real - Willian Justen",
+                type: LinkType.FREE,
+                votes: 0,
+                contentType: LinkContentType.WATCH,
+              },
+              {
                 url: "https://www.youtube.com/watch?v=6Czd1Yetaac&t=269s",
                 label: "Entendendo GIT - Fábio Akita",
                 type: LinkType.FREE,
@@ -331,7 +338,7 @@ export const data: Level[] = [
             ],
           },
           {
-            label: "Serviçoes de Hospedagem de Git",
+            label: "Serviços de Hospedagem de Git",
             children: [
               {
                 label: "Github",
@@ -504,6 +511,18 @@ export const data: Level[] = [
               },
             ]
           },
+
+          {
+            label: "Webpack",
+            links: [
+              {
+                url: "https://www.youtube.com/watch?v=u0euWX6CeIg",
+                label: "Webpack - Aprenda de uma vez por todas - Gean Developer",
+                contentType: LinkContentType.WATCH,
+              },
+            ]
+          },
+          { label: "esbuild", links: [] },
           { label: "Rollup", links: [] },
           { label: "Parcel", links: [] },
           {
@@ -516,6 +535,13 @@ export const data: Level[] = [
                 type: LinkType.FREE,
                 contentType: LinkContentType.READ,
               },
+              {
+                url: "https://dev.to/lixeletto/vite-js-o-build-tool-que-vai-facilitar-a-sua-vida-15ho",
+                label: "Vite.js - O build tool que vai facilitar a sua vida - Camilo Micheletto",
+                votes: 0,
+                type: LinkType.FREE,
+                contentType: LinkContentType.READ,
+              }
             ],
           },
         ],
@@ -525,7 +551,18 @@ export const data: Level[] = [
         description:
           "Um linter é uma ferramenta usada para analisar código e descobrir bugs, erros de sintaxe, inconsistências estilísticas e construções suspeitas. Os linters populares para JavaScript incluem ESLint, JSLint e JSHint.",
         children: [
-          { label: "Prettier", links: [] },
+          {
+            label: "Prettier",
+            links: [
+              {
+                url: "https://www.youtube.com/watch?v=uem6ChxImEQ",
+                label: "Como instalar o Prettier | CURSO DE HTML E CSS - Front Beginners",
+                votes: 0,
+                type: LinkType.FREE,
+                contentType: LinkContentType.WATCH,
+              },
+            ]
+          },
           { label: "ESLint", links: [] },
           { label: "StandardJS", links: [] },
         ],
