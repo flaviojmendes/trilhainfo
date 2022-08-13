@@ -41,7 +41,7 @@ export default function HomePage() {
           Tudo o que você precisa saber para ser:
         </h2>
 
-        <div className="flex flex-wrap items-stretch md:space-x-10 space-y-10 md:space-y-0 justify-center">
+        <div className="flex flex-wrap items-stretch md:space-x-10 space-y-10 md:space-y-0 justify-center px-2">
           {/* Frontend */}
           <Link
             className="bd-handwritten bd-red bg-brown md:w-1/3 lg:w-1/4 w-full min-h-fit hover:bg-white py-3"
