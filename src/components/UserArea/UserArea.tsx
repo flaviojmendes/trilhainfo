@@ -97,7 +97,7 @@ export default function UserArea() {
           <h2 className="text-center my-6 txt-handwritten text-3xl c-yellow">
             Meus Roadmaps
           </h2>
-          <div className="flex flex-wrap items-stretch py-8 md:space-x-10 space-y-10 md:space-y-0 justify-center">
+          <div className="flex flex-wrap items-stretch py-8 px-4 md:space-x-10 space-y-10 md:space-y-0 justify-center">
             {roadmaps?.map((roadmap, roadmapIndex) => {
               return (
                 <div
