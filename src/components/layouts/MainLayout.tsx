@@ -28,31 +28,28 @@ export default function MainLayout({ children }: Props) {
             {" "}
             <Logo />
           </div>
-          <div className="flex space-x-2">
-            <ChakraLink
-              isExternal
-              className="mr-0 ml-auto flex"
-              textDecoration={"none"}
+          <div className="flex">
+            <a
+              target={"_blank"}
+              className="flex border-r-2 border-r-yellow text-yellow hover:text-red pr-4 mr-4"
               href="https://github.com/flaviojmendes/trilhadev"
             >
-              <FaGithubSquare className="m-auto w-8 h-8 text-yellow" />
-              <span className="my-auto text-lg ml-1 text-yellow hidden md:block">
+              <FaGithubSquare className="m-auto w-8 h-8 " />
+              <span className="my-auto text-lg ml-1  hidden md:block">
                 Github
               </span>
-            </ChakraLink>
-            <span className="text-yellow m-auto align-middle text-3xl">|</span>
-            <ChakraLink
-              isExternal
-              className="mr-0 ml-auto flex"
-              textDecoration={"none"}
+            </a>
+            
+            <a
+              target={"_blank"}
+              className="flex border-r-2 border-r-yellow text-yellow hover:text-red pr-4 mr-4"
               href="https://www.getrevue.co/profile/flaviojmendes"
             >
-              <FaNewspaper className="m-auto w-8 h-8 text-yellow" />
-              <span className="my-auto text-lg ml-1 text-yellow hidden md:block">
+              <FaNewspaper className="m-auto w-8 h-8 " />
+              <span className="my-auto text-lg ml-1 hidden md:block">
                 Assine a Newsletter
               </span>
-            </ChakraLink>
-            <span className="text-yellow m-auto align-middle text-3xl">|</span>
+            </a>
             {isAuthenticated && (
               <>
                 <div className="w-200 flex text-yellow align-middle">
@@ -61,9 +58,10 @@ export default function MainLayout({ children }: Props) {
                     src={user?.picture}
                     alt={user?.name}
                   />
-                  <span className="m-auto ml-2">{user?.name}</span>
+                  <span className="m-auto mx-4">{user?.name}</span>
                 </div>
-                <Button margin={'auto'}
+                <Button
+                  margin={"auto"}
                   onClick={() => logout({ returnTo: window.location.origin })}
                 >
                   Logout
@@ -72,7 +70,9 @@ export default function MainLayout({ children }: Props) {
             )}
 
             {!isAuthenticated && !isLoading && (
-              <Button margin={'auto'} onClick={() => loginWithRedirect()}>Log In</Button>
+              <Button margin={"auto"} onClick={() => loginWithRedirect()}>
+                Log In
+              </Button>
             )}
             {isLoading && (
               <ThreeDots
@@ -91,7 +91,6 @@ export default function MainLayout({ children }: Props) {
           {children}
         </div>
         <footer className="text-center py-4 w-screen bg-dark-brown">
-          
           <span className="c-brown">Idealizado por </span>
           <ChakraLink
             isExternal

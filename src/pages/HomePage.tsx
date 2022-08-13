@@ -96,14 +96,43 @@ export default function HomePage() {
 
         <div className="flex flex-col items-stretch justify-center">
           <h2 className="text-center my-6 txt-handwritten text-3xl c-yellow">
-            Como usar o site?
+            Open Source
           </h2>
-
-          <iframe
-            className="mx-auto w-200 h-150 md:w-[560px] md:h-[315px]"
-            src="https://www.youtube.com/embed/_aOAojQsyOU"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          ></iframe>
+          <div className="container text-yellow mx-auto">
+            <p className="my-2">
+              A Trilha Info é um projeto{" "}
+              <span className="font-semibold text-red">
+                <a
+                  target={"_blank"}
+                  href="https://github.com/flaviojmendes/trilhainfo"
+                >
+                  Open Source
+                </a>
+              </span>{" "}
+              que nasceu em Junho/2022 com o objetivo de agregar e organizar
+              conteúdos gratuitos em português para pessoas que querem ingressar
+              na área de Tecnologia.
+            </p>
+            <p className="my-2">
+              A motivação em criar esse aplicativo é por acreditar que a
+              educação e o conhecimento deve ser democrático. Qualquer pessoa
+              deveria ter acesso aos assuntos que se interessa para que garanta
+              um futuro cada vez mais próspero.
+            </p>
+            <p className="my-2">
+              Portanto, se você também acredita nisso compartilhe para que o
+              conhecimento chegue cada vez mais longe.
+            </p>
+          </div>
+          <div className="w-screen mt-4 flex justify-center">
+            <iframe
+              src="https://ghbtns.com/github-btn.html?user=flaviojmendes&repo=trilhainfo&type=star&count=true&size=large&v=2"
+              scrolling="0"
+              width="170"
+              height="30"
+              title="Trilha Info"
+            ></iframe>
+          </div>
         </div>
 
         <Modal isOpen={isOpen} onClose={handleModalClosed} size="5xl">
@@ -137,7 +166,8 @@ export default function HomePage() {
                 <li>
                   Siga esse
                   <a
-                    className="font-bold c-red" target={'_blank'}
+                    className="font-bold c-red"
+                    target={"_blank"}
                     href="https://trilha.info/roadmap/view/d86cd687-2e42-4e18-bf03-a6f878b58844"
                   >
                     {" "}
