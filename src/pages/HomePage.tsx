@@ -98,7 +98,7 @@ export default function HomePage() {
           <h2 className="text-center my-6 txt-handwritten text-3xl c-yellow">
             Open Source
           </h2>
-          <div className="container text-yellow mx-auto">
+          <div className="container text-yellow mx-auto px-4 text-justify">
             <p className="my-2">
               A Trilha Info é um projeto{" "}
               <span className="font-semibold text-red">
@@ -113,13 +113,13 @@ export default function HomePage() {
               conteúdos gratuitos em português para pessoas que querem ingressar
               na área de Tecnologia.
             </p>
-            <p className="my-2">
+            <p className="my-8">
               A motivação em criar esse aplicativo é por acreditar que a
               educação e o conhecimento deve ser democrático. Qualquer pessoa
               deveria ter acesso aos assuntos que se interessa para que garanta
               um futuro cada vez mais próspero.
             </p>
-            <p className="my-2">
+            <p className="my-8">
               Portanto, se você também acredita nisso compartilhe para que o
               conhecimento chegue cada vez mais longe.
             </p>
