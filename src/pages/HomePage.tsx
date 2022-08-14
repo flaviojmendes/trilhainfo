@@ -115,7 +115,7 @@ export default function HomePage() {
             </p>
             <p className="my-8">
               A motivação em criar esse aplicativo é por acreditar que a
-              educação e o conhecimento deve ser democrático. Qualquer pessoa
+              educação e o conhecimento devem ser democráticos. Qualquer pessoa
               deveria ter acesso aos assuntos que se interessa para que garanta
               um futuro cada vez mais próspero.
             </p>
