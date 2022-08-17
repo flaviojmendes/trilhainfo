@@ -500,6 +500,14 @@ export const data: Level[] = [
                 votes: 0,
                 contentType: LinkContentType.WATCH,
               },
+              {
+                label: "Extension Methods no C# | por André Baltieri #balta",
+                url: "https://www.youtube.com/watch?v=xQhiv-bmt9o&list=PLHlHvK2lnJnc4l_Iag26RMpUtV2Yl_X_j&index=6",
+                type: LinkType.FREE,
+                votes: 0,
+                contentType: LinkContentType.WATCH,
+              },
+              
             ],
           },
           {
@@ -547,6 +555,13 @@ export const data: Level[] = [
                 label:
                   "Criando uma API usando ASP.NET Core 5, EF Core 5 e MySql",
                 url: "https://www.youtube.com/watch?v=L1bJUKZV0b0",
+                type: LinkType.FREE,
+                votes: 0,
+                contentType: LinkContentType.WATCH,
+              },
+              {
+                label: "Como fazer um App com ASP.NET (Completo com login, EF e SQLite) | por André Baltieri #balta",
+                url: "https://www.youtube.com/watch?v=NFQAj5bCgd8",
                 type: LinkType.FREE,
                 votes: 0,
                 contentType: LinkContentType.WATCH,
