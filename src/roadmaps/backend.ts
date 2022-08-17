@@ -401,6 +401,11 @@ export const data: Level[] = [
                 url: "https://tiago-temporin.notion.site/Go-101-1fe9cef0ccc94ed3bed7f38e7dd5815d",
                 contentType: LinkContentType.VISIT,
               },
+              {
+                label: "Aprenda Go - Ellen Korbes",
+                url: "https://www.youtube.com/c/AprendaGo/about",
+                contentType: LinkContentType.VISIT,
+              },
             ],
           },
         ],
@@ -665,9 +670,20 @@ export const data: Level[] = [
               },
             ] 
           },
-          { label: "Cassandra", links: [] },
+          { label: "Cassandra", 
+            links: [
+              {
+                label: "Apache Cassandra - Tutorial 1 - Introduction to Apache Cassandra", 
+                url: "https://www.youtube.com/watch?v=s1xc1HVsRk0&list=PLalrWAGybpB-L1PGA-NfFu2uiWHEsdscD", 
+                contentType: LinkContentType.WATCH
+              },] },
           { label: "InfluxDB", links: [] },
-          { label: "Firebase", links: [] },
+          { label: "Firebase", 
+            links: [ 
+              {  label: "Introdução ao Firebase - Aula 1 - Introdução", 
+                 url: "https://www.youtube.com/watch?v=uP_v6RhnP5U&list=PLHlHvK2lnJnccBL9grcoRxv8CsLa9Q_4q", 
+                 contentType: LinkContentType.WATCH
+          },] },
         ],
       },
     ],
@@ -686,7 +702,14 @@ export const data: Level[] = [
               "O problema de consulta N+1 acontece quando seu código executa N instruções de consulta adicionais para buscar os mesmos dados que poderiam ter sido recuperados ao executar a consulta primária.",
             links: [],
           },
-          { label: "Normalização", links: [] },
+          { label: "Normalização", 
+            links: [
+              {
+                label: "Banco de Dados - Normalização - Parte 1",
+                url: "https://www.youtube.com/watch?v=Mhd2bI5pJuo",
+                contentType: LinkContentType.WATCH
+              },
+            ] },
           { label: "Índices", links: [] },
           { label: "Replicação de Dados", links: [] },
           { label: "Sharding", links: [] },
@@ -725,7 +748,14 @@ export const data: Level[] = [
           "Um cache é uma camada de armazenamento físico de dados de alta velocidade que guarda um subconjunto de dados, geralmente temporário por natureza, para que futuras solicitações referentes a esses dados sejam atendidas de modo mais rápido do que é possível fazer ao acessar o local de armazenamento principal de dados. O armazenamento em cache permite reutilizar com eficiência dados recuperados ou computados anteriormente.",
         children: [
           { label: "CDN", links: [] },
-          { label: "Redis", links: [] },
+          { label: "Redis", 
+            links: [
+              {
+                label: "Redis #1 - Introducción de Redis | Jeison Peguero",
+                url: "https://www.youtube.com/watch?v=GU6N8Qk2dBE&list=PLwGP6T2wG3jbsuEYPqCswwlx4aU0qhgW1",
+                contentType: LinkContentType.WATCH
+              },
+            ] },
           { label: "Memcached", links: [] },
           { label: "Client Side", links: [] },
         ],
@@ -799,7 +829,18 @@ export const data: Level[] = [
         label: "Princípios de Design e Desenvolvimento",
         description: "",
         children: [
-          { label: "Design Patterns", links: [] },
+          { label: "Design Patterns", links: [
+            {
+              label: "Padrões de Projeto - Refatoring Guru",
+              url: "https://refactoring.guru/pt-br/design-patterns",
+              contentType: LinkContentType.WATCH,
+            },
+            {
+              label: "Repositório Padrões de Projeto com linguagem C#",
+              url: "https://github.com/JessicaNathany/design-patterns",
+              contentType: LinkContentType.WATCH,
+            },
+          ] },
           {
             label: "Domain Driven Design",
             links: [
@@ -846,6 +887,12 @@ export const data: Level[] = [
                 url: "https://www.youtube.com/watch?v=MaPWf_mt1uA",
                 label:
                   "Arquitetura Orientada a Eventos com Java, Spring Boot e Kafka",
+                contentType: LinkContentType.WATCH,
+              },
+              {
+                url: "https://www.youtube.com/watch?v=oUJbuFMyBDk&t=185s",
+                label:
+                  "Conceitos sobre Message Queue",
                 contentType: LinkContentType.WATCH,
               },
             ],
