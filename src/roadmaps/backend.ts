@@ -1055,7 +1055,15 @@ export const data: Level[] = [
         description:
           "Servidor web é um software responsável por aceitar pedidos em HTTP de clientes, geralmente os navegadores, e servi-los com respostas em HTTP, incluindo opcionalmente dados, que geralmente são páginas web, tais como documentos em HTML com objetos embutidos (imagens, etc) ou um computador que executa um programa que provê a funcionalidade descrita anteriormente",
         children: [
-          { label: "Nginx", links: [] },
+          { 
+            label: "Nginx",
+            links: [
+              {
+                label:"00 - Introducción a NGINX e Instalación [Debian/Fedora/CentOS/OpenSuse] [NGINX - Español]",
+                url: "https://www.youtube.com/watch?v=eyxpLa9hUS8&list=PLYAyQauAPx8kwPdi9v1d_FGdJ50_li_WE",
+                contentType: LinkContentType.WATCH
+              }
+            ] },
           { label: "Apache", links: [] },
           { label: "Caddy", links: [] },
           { label: "MS IIS", links: [] },
