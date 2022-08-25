@@ -381,6 +381,16 @@ export const data: Level[] = [
               },
             ],
           },
+          {
+            label: "Estrutura de Dados com Java - Loiane",
+            links: [
+              {
+                label: "Estrutura de Dados e Algoritmos com Java #01: Introdução",
+                url: "https://www.youtube.com/watch?v=N3K8PjFOhy4",
+                contentType: LinkContentType.VISIT,
+              },
+            ],
+          },
         ],
       },
       {
@@ -907,6 +917,16 @@ export const data: Level[] = [
               },
             ],
           },
+          {
+            label: "System Design",
+            links: [
+              {
+                url: "https://www.youtube.com/watch?v=SqcXvc3ZmRU",
+                label: "Basics Concepts about System Design",
+                contentType: LinkContentType.WATCH,
+              },
+            ],
+          },
         ],
       },
     ],
@@ -917,7 +937,16 @@ export const data: Level[] = [
       {
         label: "Engines de Busca",
         children: [
-          { label: "Elasticsearch", links: [] },
+          { 
+            label: "Elasticsearch", 
+            links: [
+              {
+                url: "https://www.youtube.com/c/EduardoNeves/videos",
+                label: "Canal Eduardo Neves Elasticsearch",
+                contentType: LinkContentType.WATCH,
+              },
+            ] 
+          },
           { label: "Solr", links: [] },
         ],
       },
@@ -996,8 +1025,17 @@ export const data: Level[] = [
         label: "Bancos de Dados em Grafos",
         description:
           "Um banco de dados gráfico armazena nós e relacionamentos em vez de tabelas ou documentos. Os dados são armazenados da mesma forma que você esboça ideias em um quadro branco. Seus dados são armazenados sem restringi-los a um modelo pré-definido, permitindo uma maneira muito flexível de pensar sobre eles e usá-los.",
-        children: [{ label: "Neo4j", links: [] }],
-      },
+        children: [
+          { 
+            label: "Neo4j", 
+            links: [
+              {
+                label:"Neo4j (Graph Database) Crash Course",
+                url:"https://www.youtube.com/watch?v=8jNPelugC2s",
+                contentType: LinkContentType.WATCH
+              }
+            ] }],
+       },
     ],
   },
   {
