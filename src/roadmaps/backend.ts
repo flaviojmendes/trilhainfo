@@ -381,6 +381,16 @@ export const data: Level[] = [
               },
             ],
           },
+          {
+            label: "Estrutura de Dados com Java - Loiane",
+            links: [
+              {
+                label: "Estrutura de Dados e Algoritmos com Java #01: Introdução",
+                url: "https://www.youtube.com/watch?v=N3K8PjFOhy4",
+                contentType: LinkContentType.VISIT,
+              },
+            ],
+          },
         ],
       },
       {
@@ -399,6 +409,11 @@ export const data: Level[] = [
               {
                 label: "Go 101 - Tiago Temporin",
                 url: "https://tiago-temporin.notion.site/Go-101-1fe9cef0ccc94ed3bed7f38e7dd5815d",
+                contentType: LinkContentType.VISIT,
+              },
+              {
+                label: "Aprenda Go - Ellen Korbes",
+                url: "https://www.youtube.com/c/AprendaGo/about",
                 contentType: LinkContentType.VISIT,
               },
             ],
@@ -500,6 +515,14 @@ export const data: Level[] = [
                 votes: 0,
                 contentType: LinkContentType.WATCH,
               },
+              {
+                label: "Extension Methods no C# | por André Baltieri #balta",
+                url: "https://www.youtube.com/watch?v=xQhiv-bmt9o&list=PLHlHvK2lnJnc4l_Iag26RMpUtV2Yl_X_j&index=6",
+                type: LinkType.FREE,
+                votes: 0,
+                contentType: LinkContentType.WATCH,
+              },
+              
             ],
           },
           {
@@ -547,6 +570,13 @@ export const data: Level[] = [
                 label:
                   "Criando uma API usando ASP.NET Core 5, EF Core 5 e MySql",
                 url: "https://www.youtube.com/watch?v=L1bJUKZV0b0",
+                type: LinkType.FREE,
+                votes: 0,
+                contentType: LinkContentType.WATCH,
+              },
+              {
+                label: "Como fazer um App com ASP.NET (Completo com login, EF e SQLite) | por André Baltieri #balta",
+                url: "https://www.youtube.com/watch?v=NFQAj5bCgd8",
                 type: LinkType.FREE,
                 votes: 0,
                 contentType: LinkContentType.WATCH,
@@ -650,9 +680,20 @@ export const data: Level[] = [
               },
             ] 
           },
-          { label: "Cassandra", links: [] },
+          { label: "Cassandra", 
+            links: [
+              {
+                label: "Apache Cassandra - Tutorial 1 - Introduction to Apache Cassandra", 
+                url: "https://www.youtube.com/watch?v=s1xc1HVsRk0&list=PLalrWAGybpB-L1PGA-NfFu2uiWHEsdscD", 
+                contentType: LinkContentType.WATCH
+              },] },
           { label: "InfluxDB", links: [] },
-          { label: "Firebase", links: [] },
+          { label: "Firebase", 
+            links: [ 
+              {  label: "Introdução ao Firebase - Aula 1 - Introdução", 
+                 url: "https://www.youtube.com/watch?v=uP_v6RhnP5U&list=PLHlHvK2lnJnccBL9grcoRxv8CsLa9Q_4q", 
+                 contentType: LinkContentType.WATCH
+          },] },
         ],
       },
     ],
@@ -671,7 +712,14 @@ export const data: Level[] = [
               "O problema de consulta N+1 acontece quando seu código executa N instruções de consulta adicionais para buscar os mesmos dados que poderiam ter sido recuperados ao executar a consulta primária.",
             links: [],
           },
-          { label: "Normalização", links: [] },
+          { label: "Normalização", 
+            links: [
+              {
+                label: "Banco de Dados - Normalização - Parte 1",
+                url: "https://www.youtube.com/watch?v=Mhd2bI5pJuo",
+                contentType: LinkContentType.WATCH
+              },
+            ] },
           { label: "Índices", links: [] },
           { label: "Replicação de Dados", links: [] },
           { label: "Sharding", links: [] },
@@ -710,7 +758,14 @@ export const data: Level[] = [
           "Um cache é uma camada de armazenamento físico de dados de alta velocidade que guarda um subconjunto de dados, geralmente temporário por natureza, para que futuras solicitações referentes a esses dados sejam atendidas de modo mais rápido do que é possível fazer ao acessar o local de armazenamento principal de dados. O armazenamento em cache permite reutilizar com eficiência dados recuperados ou computados anteriormente.",
         children: [
           { label: "CDN", links: [] },
-          { label: "Redis", links: [] },
+          { label: "Redis", 
+            links: [
+              {
+                label: "Redis #1 - Introducción de Redis | Jeison Peguero",
+                url: "https://www.youtube.com/watch?v=GU6N8Qk2dBE&list=PLwGP6T2wG3jbsuEYPqCswwlx4aU0qhgW1",
+                contentType: LinkContentType.WATCH
+              },
+            ] },
           { label: "Memcached", links: [] },
           { label: "Client Side", links: [] },
         ],
@@ -784,7 +839,18 @@ export const data: Level[] = [
         label: "Princípios de Design e Desenvolvimento",
         description: "",
         children: [
-          { label: "Design Patterns", links: [] },
+          { label: "Design Patterns", links: [
+            {
+              label: "Padrões de Projeto - Refatoring Guru",
+              url: "https://refactoring.guru/pt-br/design-patterns",
+              contentType: LinkContentType.WATCH,
+            },
+            {
+              label: "Repositório Padrões de Projeto com linguagem C#",
+              url: "https://github.com/JessicaNathany/design-patterns",
+              contentType: LinkContentType.WATCH,
+            },
+          ] },
           {
             label: "Domain Driven Design",
             links: [
@@ -833,6 +899,12 @@ export const data: Level[] = [
                   "Arquitetura Orientada a Eventos com Java, Spring Boot e Kafka",
                 contentType: LinkContentType.WATCH,
               },
+              {
+                url: "https://www.youtube.com/watch?v=oUJbuFMyBDk&t=185s",
+                label:
+                  "Conceitos sobre Message Queue",
+                contentType: LinkContentType.WATCH,
+              },
             ],
           },
           {
@@ -841,6 +913,16 @@ export const data: Level[] = [
               {
                 url: "https://www.youtube.com/watch?v=ktH_HhQDgLY",
                 label: "Primeiros Passos - Tiago Boeing",
+                contentType: LinkContentType.WATCH,
+              },
+            ],
+          },
+          {
+            label: "System Design",
+            links: [
+              {
+                url: "https://www.youtube.com/watch?v=SqcXvc3ZmRU",
+                label: "Basics Concepts about System Design",
                 contentType: LinkContentType.WATCH,
               },
             ],
@@ -855,7 +937,16 @@ export const data: Level[] = [
       {
         label: "Engines de Busca",
         children: [
-          { label: "Elasticsearch", links: [] },
+          { 
+            label: "Elasticsearch", 
+            links: [
+              {
+                url: "https://www.youtube.com/c/EduardoNeves/videos",
+                label: "Canal Eduardo Neves Elasticsearch",
+                contentType: LinkContentType.WATCH,
+              },
+            ] 
+          },
           { label: "Solr", links: [] },
         ],
       },
@@ -934,8 +1025,17 @@ export const data: Level[] = [
         label: "Bancos de Dados em Grafos",
         description:
           "Um banco de dados gráfico armazena nós e relacionamentos em vez de tabelas ou documentos. Os dados são armazenados da mesma forma que você esboça ideias em um quadro branco. Seus dados são armazenados sem restringi-los a um modelo pré-definido, permitindo uma maneira muito flexível de pensar sobre eles e usá-los.",
-        children: [{ label: "Neo4j", links: [] }],
-      },
+        children: [
+          { 
+            label: "Neo4j", 
+            links: [
+              {
+                label:"Neo4j (Graph Database) Crash Course",
+                url:"https://www.youtube.com/watch?v=8jNPelugC2s",
+                contentType: LinkContentType.WATCH
+              }
+            ] }],
+       },
     ],
   },
   {
@@ -955,7 +1055,15 @@ export const data: Level[] = [
         description:
           "Servidor web é um software responsável por aceitar pedidos em HTTP de clientes, geralmente os navegadores, e servi-los com respostas em HTTP, incluindo opcionalmente dados, que geralmente são páginas web, tais como documentos em HTML com objetos embutidos (imagens, etc) ou um computador que executa um programa que provê a funcionalidade descrita anteriormente",
         children: [
-          { label: "Nginx", links: [] },
+          { 
+            label: "Nginx",
+            links: [
+              {
+                label:"00 - Introducción a NGINX e Instalación [Debian/Fedora/CentOS/OpenSuse] [NGINX - Español]",
+                url: "https://www.youtube.com/watch?v=eyxpLa9hUS8&list=PLYAyQauAPx8kwPdi9v1d_FGdJ50_li_WE",
+                contentType: LinkContentType.WATCH
+              }
+            ] },
           { label: "Apache", links: [] },
           { label: "Caddy", links: [] },
           { label: "MS IIS", links: [] },
@@ -969,11 +1077,24 @@ export const data: Level[] = [
       {
         label: "Mitigação de Erros",
         children: [
-          { label: "Graceful Degradation", links: [] },
+          { label: "Graceful Degradation", 
+            links:[
+              {
+                label: "Graceful Degradation - Georgia Tech - Advanced Operating Systems", 
+                url: "https://www.youtube.com/watch?v=Tk7e0LMsAlI", 
+                contentType: LinkContentType.WATCH
+              },
+            ] },
           { label: "Throttling", links: [] },
           { label: "Backpressure", links: [] },
           { label: "Loadshifting", links: [] },
-          { label: "Circuit Breaker", links: [] },
+          { label: "Circuit Breaker", 
+            links: [
+              {
+                label:"Circuit Breaker: Não trabalhe com microsserviços sem saber disso", 
+                url: "https://www.youtube.com/watch?v=hxRn8y5KTzQ",
+                contentType: LinkContentType.WATCH,
+              },] },
         ],
       },
       {
@@ -988,6 +1109,65 @@ export const data: Level[] = [
       {
         label: "Observabilidade",
         children: [{ label: "O básico", links: [] }],
+      },
+    ],
+  },
+  {
+    items: [
+      {
+        label: "Cloud Computing",
+        description:
+          "Cloud computing, conhecida também como computação em nuvem, é a tecnologia que permite o uso remoto de recursos da computação por meio da conectividade da Internet.",
+        children: [
+          {
+            label: "AWS",
+            links: [
+              {
+                url: "https://www.youtube.com/watch?v=j6yImUbs4OA&list=PLOF5f9_x-OYUaqJar6EKRAonJNSHDFZUm",
+                label: "O que é AWS e como aprender mais com o Curso Gratuito Amazon Web Services na Prática - Aula 01 - #32",
+                type: LinkType.FREE,
+                votes: 0,
+                contentType: LinkContentType.WATCH,
+              },
+            ],
+          },
+          {
+            label: "Azure",
+            links: [
+              {
+                url: "https://www.youtube.com/watch?v=AITM8sTsu-o&list=PLwftZeDnOzt0quETXYfGjfi2AcpeGX-7i",
+                label: "Azure Fundamentals - Introdução ao Curso - Ray Carneiro",
+                type: LinkType.FREE,
+                votes: 0,
+                contentType: LinkContentType.WATCH,
+              },
+            ],
+          },
+          {
+            label: "Google Platfom",
+            links: [
+              {
+                url: "https://www.youtube.com/watch?v=4lZmhCaq13U",
+                label: "Google Cloud, por onde começar e por quê você deveria faze-lo",
+                type: LinkType.FREE,
+                votes: 0,
+                contentType: LinkContentType.WATCH,
+              },
+            ],
+          },
+          {
+            label: "Digital Ocean",
+            links: [
+              {
+                url: "https://www.youtube.com/watch?v=eu6DCSv95MQ&list=PLVKPmJRbmf2Rb2KwvGzRP1eBhQCWrRbhE",
+                label: "Curso Digital Ocean - Introdução ao Curso - Aula 01",
+                type: LinkType.FREE,
+                votes: 0,
+                contentType: LinkContentType.WATCH,
+              },
+            ],
+          },
+        ],
       },
     ],
   },
