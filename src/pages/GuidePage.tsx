@@ -9,6 +9,7 @@ import Cookies from "universal-cookie";
 import { RoadmapModel } from "../entity/RoadmapItem";
 import { Grid } from "react-loader-spinner";
 
+
 const cookies = new Cookies();
 
 export default function GuidePage() {
@@ -18,13 +19,16 @@ export default function GuidePage() {
    
   }, []);
 
+  function getImageUrl(name: string) {
+    return new URL(`../guides/${name}.jpg`, import.meta.url).href
+  }
 
   useDocumentTitle("Trilha Info - " + guide);
 
   return (
     <>
       <MainLayout>
-       <img className="m-auto w-10/12" src={`/guides/${guide}.jpg`}/>
+       <img className="m-auto w-10/12" src={getImageUrl(guide || '')}/>
       </MainLayout>
     </>
   );
