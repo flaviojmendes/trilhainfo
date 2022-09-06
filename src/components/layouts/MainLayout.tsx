@@ -23,7 +23,7 @@ export default function MainLayout({ children }: Props) {
   return (
     <>
       <div className="flex flex-col h-screen">
-        <div className="w-screen p-2 flex flex-wrap space-x-4 space-y-2 mx-auto bg-[#2A2827] shadow-md">
+        <div className="w-screen p-2 flex flex-wrap space-x-0 space-y-2 mx-auto bg-[#2A2827] shadow-md">
           <div className="flex-grow">
             {" "}
             <Logo />
@@ -50,6 +50,8 @@ export default function MainLayout({ children }: Props) {
                 Assine a Newsletter
               </span>
             </a>
+
+            
             {isAuthenticated && (
               <>
                 <div className="w-200 flex text-yellow align-middle">

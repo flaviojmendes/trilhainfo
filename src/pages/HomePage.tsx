@@ -16,6 +16,7 @@ import MainLayout from "../components/layouts/MainLayout";
 import UserArea from "../components/UserArea/UserArea";
 import { useEffect } from "react";
 import Cookies from "universal-cookie";
+import CheatSheets from "../components/CheatSheets/CheatSheets";
 
 const cookies = new Cookies();
 
@@ -92,6 +93,7 @@ export default function HomePage() {
           </Link>
         </div>
 
+        <CheatSheets />
         <UserArea />
 
         <div className="flex flex-col items-stretch justify-center">
