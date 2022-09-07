@@ -25,6 +25,7 @@ export default function CheatSheets() {
         
             <a className="text-red text-xl m-auto" href="/guide/bigO">{'-> Notação Big O <-'}</a>
             <a className="text-red text-xl m-auto" href="/guide/basicAuth">{'-> Autenticação Básica <-'}</a>
+            <a className="text-red text-xl m-auto" href="/guide/onboarding">{'-> Onboarding <-'}</a>
 
 
           </div>

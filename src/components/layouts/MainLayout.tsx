@@ -39,7 +39,6 @@ export default function MainLayout({ children }: Props) {
                 Github
               </span>
             </a>
-            
             <a
               target={"_blank"}
               className="flex border-r-2 border-r-yellow text-yellow hover:text-red pr-4 mr-4"
@@ -87,6 +86,7 @@ export default function MainLayout({ children }: Props) {
                 visible={true}
               />
             )}
+            
           </div>
         </div>
         <div className="w-screen flex-grow py-1 mx-auto mt-0 mb-10">
