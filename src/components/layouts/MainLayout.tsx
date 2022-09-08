@@ -1,4 +1,4 @@
-import { FaGithubSquare, FaNewspaper } from "react-icons/fa";
+import { FaDollarSign, FaGithubSquare, FaNewspaper } from "react-icons/fa";
 import Logo from "../Logo/Logo";
 import {
   Button,
