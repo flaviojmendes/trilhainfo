@@ -27,6 +27,8 @@ export default function CheatSheets() {
             <a className="text-red text-xl m-auto" href="/guide/basicAuth">{'-> Autenticação Básica <-'}</a>
             <a className="text-red text-xl m-auto" href="/guide/onboarding">{'-> Onboarding <-'}</a>
             <a className="text-red text-xl m-auto" href="/guide/sso">{'-> SSO (Single Sign On) <-'}</a>
+            <a className="text-red text-xl m-auto" href="/guide/star">{'-> Modelo STAR para Entrevistas <-'}</a>
+            <a className="text-red text-xl m-auto" href="/guide/slaSloSli">{'-> SLA, SLO, SLI? <-'}</a>
 
 
           </div>
