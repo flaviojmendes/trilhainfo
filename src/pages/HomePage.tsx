@@ -126,7 +126,7 @@ export default function HomePage() {
               conhecimento chegue cada vez mais longe.
             </p>
           </div>
-          <div className="w-screen mt-4 flex justify-center">
+          <div className="w-full mt-4 flex justify-center">
             <iframe
               src="https://ghbtns.com/github-btn.html?user=flaviojmendes&repo=trilhainfo&type=star&count=true&size=large&v=2"
               scrolling="0"

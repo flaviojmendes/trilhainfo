@@ -23,7 +23,7 @@ export default function MainLayout({ children }: Props) {
   return (
     <>
       <div className="flex flex-col h-screen">
-        <div className="w-screen p-2 flex flex-wrap space-x-0 space-y-2 mx-auto bg-[#2A2827] shadow-md">
+        <div className="w-full p-2 flex flex-wrap space-x-0 space-y-2 mx-auto bg-[#2A2827] shadow-md">
           <div className="flex-grow">
             {" "}
             <Logo />
@@ -89,10 +89,10 @@ export default function MainLayout({ children }: Props) {
             
           </div>
         </div>
-        <div className="w-screen flex-grow py-1 mx-auto mt-0 mb-10">
+        <div className="w-full flex-grow py-1 mx-auto mt-0 mb-10">
           {children}
         </div>
-        <footer className="text-center py-4 w-screen bg-dark-brown">
+        <footer className="text-center py-4 w-full bg-dark-brown">
           <span className="c-brown">Idealizado por </span>
           <ChakraLink
             isExternal
