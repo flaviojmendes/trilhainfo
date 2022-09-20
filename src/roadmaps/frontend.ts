@@ -933,10 +933,61 @@ export const data: Level[] = [
         description:
           "Antes de entregar seu aplicativo aos usuários, você precisa ter certeza de que seu aplicativo atende aos requisitos para os quais foi projetado e que ele não faz coisas estranhas e não intencionais (chamadas de 'bugs'). Para conseguir isso, 'testamos' nossos aplicativos de diferentes maneiras.",
         children: [
-          { label: "Jest", links: [] },
-          { label: "react-testing-library", links: [] },
-          { label: "Cypress", links: [] },
-          { label: "Enzyme", links: [] },
+          {
+            label: "Jest",
+            links: [
+              {
+                url: "https://jestjs.io/pt-BR/docs/getting-started",
+                label: "Documentação",
+                votes: 0,
+                type: LinkType.FREE,
+                contentType: LinkContentType.READ,
+              },
+            ],
+          },
+          {
+            label: "react-testing-library",
+            links: [
+              {
+                url: "https://testing-library.com/docs/react-testing-library/intro",
+                label: "Documentação",
+                votes: 0,
+                type: LinkType.FREE,
+                contentType: LinkContentType.READ,
+              },
+            ],
+          },
+          {
+            label: "Cypress",
+            links: [
+              {
+                url: "https://docs.cypress.io/guides/getting-started/installing-cypress",
+                label: "Documentação",
+                votes: 0,
+                type: LinkType.FREE,
+                contentType: LinkContentType.READ,
+              },
+              {
+                url: "https://www.youtube.com/playlist?list=PLnUo-Rbc3jjyx5BVnG8MB7vNd5ecu2yP1",
+                label: "Minicurso de Cypress - Agilizei",
+                votes: 0,
+                type: LinkType.FREE,
+                contentType: LinkContentType.WATCH,
+              },
+            ],
+          },
+          {
+            label: "Enzyme",
+            links: [
+              {
+                url: "https://enzymejs.github.io/enzyme/",
+                label: "Documentação",
+                votes: 0,
+                type: LinkType.FREE,
+                contentType: LinkContentType.READ,
+              },
+            ],
+          },
         ],
       },
     ],
