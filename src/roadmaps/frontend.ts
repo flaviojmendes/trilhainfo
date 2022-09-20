@@ -901,7 +901,26 @@ export const data: Level[] = [
               },
             ],
           },
-          { label: "Radix UI", links: [] },
+          {
+            label: "Radix UI",
+            links: [
+              {
+                url: "https://www.radix-ui.com/docs/primitives/overview/introduction",
+                label: "Documentação",
+                votes: 0,
+                type: LinkType.FREE,
+                contentType: LinkContentType.READ,
+              },
+              {
+                url: "https://www.youtube.com/playlist?list=PLnUo-Rbc3jjyx5BVnG8MB7vNd5ecu2yP1",
+                label:
+                  "Aulão de Stitches e Radix UI - dpw e Pedro Duarte (Radix UI Co-creator)",
+                votes: 0,
+                type: LinkType.FREE,
+                contentType: LinkContentType.WATCH,
+              },
+            ],
+          },
         ],
       },
     ],
