@@ -656,7 +656,13 @@ export const data: Level[] = [
             ],
           },
           { label: "MariaDB", links: [] },
-          { label: "MS SQL", links: [] },
+          { label: "MS SQL", links: [
+            {
+              label: "MS SQL 2014 - Curso de SQL com SQL Server (T-SQL) - Bóson Treinamentos",
+              url: "https://www.youtube.com/playlist?list=PLucm8g_ezqNqI5cW3alteV5olcMCcHYRK",
+              contentType: LinkContentType.VISIT,
+            },
+          ] },
           { label: "Oracle", links: [] },
         ],
       },
@@ -704,7 +710,14 @@ export const data: Level[] = [
         label: "Conceitos Importantes de Banco de Dados",
         children: [
           { label: "ORM's", links: [] },
-          { label: "ACID", links: [] },
+          { label: "ACID", links: [
+            {
+              label: "O que são as propriedades ACID em Bancos de Dados - Bóson Treinamentos",
+              url: "https://www.youtube.com/watch?v=fVRY554MHWc&ab_channel=B%C3%B3sonTreinamentos",
+              contentType: LinkContentType.WATCH              
+            }
+
+          ] },
           { label: "Transações", links: [] },
           {
             label: "N+1",
@@ -717,8 +730,13 @@ export const data: Level[] = [
               {
                 label: "Banco de Dados - Normalização - Parte 1",
                 url: "https://www.youtube.com/watch?v=Mhd2bI5pJuo",
-                contentType: LinkContentType.WATCH
+                contentType: LinkContentType.WATCH,
               },
+              {
+                label: "Curso de modelagem de dados - Bóson Treinamentos",
+                url: "https://www.youtube.com/playlist?list=PLucm8g_ezqNoNHU8tjVeHmRGBFnjDIlxD",
+                contentType: LinkContentType.WATCH,
+              }
             ] },
           { label: "Índices", links: [] },
           { label: "Replicação de Dados", links: [] },
