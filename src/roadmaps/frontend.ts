@@ -739,6 +739,13 @@ export const data: Level[] = [
                 type: LinkType.FREE,
                 contentType: LinkContentType.READ,
               },
+              {
+                url: "https://www.youtube.com/watch?v=4DFrzPTif2E",
+                label: "Gerenciando estado com Pinia - Pablo Codes",
+                votes: 0,
+                type: LinkType.FREE,
+                contentType: LinkContentType.WATCH,
+              },
             ],
           },
           {
