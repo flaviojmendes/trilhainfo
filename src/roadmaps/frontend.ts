@@ -912,7 +912,7 @@ export const data: Level[] = [
                 contentType: LinkContentType.READ,
               },
               {
-                url: "https://www.youtube.com/playlist?list=PLnUo-Rbc3jjyx5BVnG8MB7vNd5ecu2yP1",
+                url: "https://www.youtube.com/watch?v=c_hrvOaZRNo",
                 label:
                   "Aulão de Stitches e Radix UI - dpw e Pedro Duarte (Radix UI Co-creator)",
                 votes: 0,
