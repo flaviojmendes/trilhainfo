@@ -600,44 +600,44 @@ export const data: Level[] = [
             label: "React Hooks",
             links: [
               {
-                  url: "https://www.youtube.com/watch?v=Jxe79XZ9u-Y",
-                  label: "React Hook useState - Huriel",
-                  contentType: LinkContentType.WATCH,
+                url: "https://www.youtube.com/watch?v=Jxe79XZ9u-Y",
+                label: "React Hook useState - Huriel",
+                contentType: LinkContentType.WATCH,
               },
               {
-                  url: "https://www.youtube.com/watch?v=NPw6OvXh2xk",
-                  label: "React Hook useEffect - Huriel",
-                  contentType: LinkContentType.WATCH,
+                url: "https://www.youtube.com/watch?v=NPw6OvXh2xk",
+                label: "React Hook useEffect - Huriel",
+                contentType: LinkContentType.WATCH,
               },
               {
-                  url: "https://www.youtube.com/watch?v=0UVYtx_C87w&t=1405s",
-                  label: "React Hook useContext - Huriel",
-                  contentType: LinkContentType.WATCH,
+                url: "https://www.youtube.com/watch?v=0UVYtx_C87w&t=1405s",
+                label: "React Hook useContext - Huriel",
+                contentType: LinkContentType.WATCH,
               },
               {
-                  url: "https://www.youtube.com/watch?v=kzAMDNBiAzs",
-                  label: "React Hook useCallback - Huriel",
-                  contentType: LinkContentType.WATCH,
+                url: "https://www.youtube.com/watch?v=kzAMDNBiAzs",
+                label: "React Hook useCallback - Huriel",
+                contentType: LinkContentType.WATCH,
               },
               {
-                  url: "https://www.youtube.com/watch?v=eypNvly4s3Q",
-                  label: "React Hook useRef - Huriel",
-                  contentType: LinkContentType.WATCH,
+                url: "https://www.youtube.com/watch?v=eypNvly4s3Q",
+                label: "React Hook useRef - Huriel",
+                contentType: LinkContentType.WATCH,
               },
               {
-                  url: "https://www.youtube.com/watch?v=LdYZ-QI0ztM",
-                  label: "React Hook useMemo - Huriel",
-                  contentType: LinkContentType.WATCH,
+                url: "https://www.youtube.com/watch?v=LdYZ-QI0ztM",
+                label: "React Hook useMemo - Huriel",
+                contentType: LinkContentType.WATCH,
               },
               {
-                  url: "https://www.youtube.com/watch?v=UCUL2JrjZ3c",
-                  label: "React Hook useReducer - Huriel",
-                  contentType: LinkContentType.WATCH,
+                url: "https://www.youtube.com/watch?v=UCUL2JrjZ3c",
+                label: "React Hook useReducer - Huriel",
+                contentType: LinkContentType.WATCH,
               },
               {
-                  url: "https://www.youtube.com/watch?v=2cTAR3EkvQ8",
-                  label: "Hooks Personalizados - Huriel",
-                  contentType: LinkContentType.WATCH,
+                url: "https://www.youtube.com/watch?v=2cTAR3EkvQ8",
+                label: "Hooks Personalizados - Huriel",
+                contentType: LinkContentType.WATCH,
               }
             ]
           },
@@ -1152,11 +1152,6 @@ export const data: Level[] = [
                 type: LinkType.FREE,
                 contentType: LinkContentType.WATCH,
               },
-            ],
-          },
-          {
-            label: "React Native",
-            links: [
               {
                 label: "Primeiros passos no React Native - One Bit Code",
                 url: "https://www.youtube.com/watch?v=Y8tP1jbRYHY&list=PLdDT8if5attEd4sRnZBIkNihR-_tE612_&index=1",
@@ -1166,7 +1161,7 @@ export const data: Level[] = [
                 label: "Aprenda React Native - Canal Geek Dev",
                 url: "https://www.youtube.com/watch?v=DmUUsTC2YkA&list=PL8fIRnD1uUSnRqz3E2caAWDqbtIFXmNtW",
                 contentType: LinkContentType.WATCH,
-              },
+              }
             ],
           },
           { label: "NativeScript", links: [] },
