@@ -107,10 +107,8 @@ export default function MainLayout({ children }: Props) {
             <Link style={{ color: "#ee8561" }} to={"/roadmap/community"}>
               comunidade
             </Link>
-            . Esse app foi inspirado em <Link style={{ color: "#ee8561" }} to={"https://roadmap.sh"}>
-              roadmap.sh
-            </Link>
             .
+            
           </span>
         </footer>
       </div>

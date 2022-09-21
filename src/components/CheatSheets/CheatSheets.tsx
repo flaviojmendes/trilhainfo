@@ -23,14 +23,11 @@ export default function CheatSheets() {
           </h2>
           <div className="flex flex-col py-8  space-y-10 md:space-y-2 ">
         
-            <a className="text-red text-xl m-auto" href="/guide/bigO">{'-> Notação Big O <-'}</a>
             <a className="text-red text-xl m-auto" href="/guide/basicAuth">{'-> Autenticação Básica <-'}</a>
             <a className="text-red text-xl m-auto" href="/guide/onboarding">{'-> Onboarding <-'}</a>
             <a className="text-red text-xl m-auto" href="/guide/sso">{'-> SSO (Single Sign On) <-'}</a>
             <a className="text-red text-xl m-auto" href="/guide/star">{'-> Modelo STAR para Entrevistas <-'}</a>
-            <a className="text-red text-xl m-auto" href="/guide/slaSloSli">{'-> SLA, SLO, SLI? <-'}</a>
-            <a className="text-red text-xl m-auto" href="/guide/jsAsyncDefer">{'-> Javascript Async, Defer <-'}</a>
-
+           
 
           </div>
 
