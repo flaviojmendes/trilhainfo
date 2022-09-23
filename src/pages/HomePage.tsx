@@ -25,9 +25,9 @@ export default function HomePage() {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   useEffect(() => {
-    if (!cookies.get("new_release")) {
-      onOpen();
-    }
+    // if (!cookies.get("new_release")) {
+    //   onOpen();
+    // }
   });
 
   function handleModalClosed() {
