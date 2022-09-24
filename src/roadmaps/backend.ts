@@ -909,7 +909,17 @@ export const data: Level[] = [
             ],
           },
           { label: "Test Driven Development", links: [] },
-          { label: "SOLID", links: [] },
+          {
+            label: "SOLID",
+            links: [
+              {
+                label:
+                  "SOLID fica FÁCIL com Essas Ilustrações - Filipe Deschamps",
+                url: "https://youtu.be/6SfrO3D4dHM",
+                contentType: LinkContentType.WATCH,
+              },
+            ],
+          },
           { label: "KISS", links: [] },
           { label: "YAGNI", links: [] },
           { label: "DRY", links: [] },
