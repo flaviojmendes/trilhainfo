@@ -842,7 +842,16 @@ export const data: Level[] = [
             ],
           },
           { label: "Memcached", links: [] },
-          { label: "Client Side", links: [] },
+          {
+            label: "Client Side",
+            links: [
+              {
+                label: "Como usar Cache HTTP - Entenda melhor sobre performance na Web",
+                url: "https://www.youtube.com/watch?v=IrwIYywpvbM",
+                contentType: LinkContentType.WATCH,
+              },
+            ]
+          },
         ],
       },
     ],
