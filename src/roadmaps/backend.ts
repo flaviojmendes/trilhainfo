@@ -1133,7 +1133,18 @@ export const data: Level[] = [
         label: "Websockets",
         description:
           "Web sockets são definidos como uma comunicação bidirecional entre os servidores e os clientes, o que significa que ambas as partes se comunicam e trocam dados ao mesmo tempo. Este protocolo define uma comunicação full duplex desde o início. Os soquetes da Web dão um passo à frente ao trazer funcionalidades ricas da área de trabalho para os navegadores da Web.",
-        children: [{ label: "WebSockets", links: [] }],
+        children: [
+          {
+            label: "WebSockets",
+            links: [
+              {
+                label: "Comunicação em Tempo Real com WebSockets | Dias de Dev",
+                url: "https://www.youtube.com/watch?v=QkhbQoajdCw",
+                contentType: LinkContentType.WATCH,
+              },
+            ]
+          }
+        ],
       },
     ],
   },
