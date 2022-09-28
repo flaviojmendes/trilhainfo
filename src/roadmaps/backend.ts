@@ -939,7 +939,16 @@ export const data: Level[] = [
               },
             ],
           },
-          { label: "Test Driven Development", links: [] },
+          {
+            label: "Test Driven Development",
+            links: [
+              {
+                label: "O que é TDD - Test-Driven Development",
+                url: "https://www.youtube.com/watch?v=o_C_qxhPws4",
+                contentType: LinkContentType.WATCH,
+              }
+            ]
+          },
           {
             label: "SOLID",
             links: [
