@@ -877,6 +877,16 @@ export const data: Level[] = [
               },
             ],
           },
+          {
+            label: "Cookies",
+            links: [
+              {
+                url: "https://dias.dev/2022-09-27-cookies-e-seguranca/",
+                label: "Cookies e Segurança",
+                contentType: LinkContentType.READ,
+              },
+            ],
+          },
         ],
       },
     ],
