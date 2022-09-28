@@ -890,7 +890,16 @@ export const data: Level[] = [
           "Uma chave para construir um software que atenda aos requisitos sem defeitos é o teste. O teste de software ajuda quem está desenvolvendo a saber que estão criando o software certo. Quando os testes são executados como parte do processo de desenvolvimento (geralmente com ferramentas de integração contínua), eles criam confiança e evitam regressões no código.",
         children: [
           { label: "Testes de Integração", links: [] },
-          { label: "Testes Unitários", links: [] },
+          {
+            label: "Testes Unitários",
+            links: [
+              {
+                url: "https://www.youtube.com/watch?v=9e81T1B5MlI",
+                label: "O que são Testes de Unidade",
+                contentType: LinkContentType.WATCH,
+              },
+            ]
+          },
           { label: "Testes Funcionais", links: [] },
         ],
       },
