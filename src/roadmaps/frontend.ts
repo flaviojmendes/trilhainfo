@@ -600,6 +600,13 @@ export const data: Level[] = [
                 contentType: LinkContentType.WATCH,
               },
               {
+                url: "https://reactjs.org/docs/state-and-lifecycle.html",
+                label: "Aprenda State e Lifecycle - Marco Bruno",
+                votes: 0,
+                type: LinkType.FREE,
+                contentType: LinkContentType.READ,
+              },
+              {
                 url: "https://www.youtube.com/watch?v=Jxe79XZ9u-Y&list=PL8YNlUoOZkkaCJENGzHFXrRwwjuwEh6nC",
                 label: "Aprenda os React Hooks! - Huriel",
                 contentType: LinkContentType.WATCH,
