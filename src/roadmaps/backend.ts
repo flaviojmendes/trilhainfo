@@ -315,9 +315,9 @@ export const data: Level[] = [
               {
                 label: "Entendendo Armazenamento - Fabio Akita",
                 url: "https://www.youtube.com/playlist?list=PLdsnXVqbHDUcM0LTAxqrVrTy6Q7jQprjt",
-                contentType: LinkContentType.WATCH
-              }
-            ]
+                contentType: LinkContentType.WATCH,
+              },
+            ],
           },
           {
             label: "Gerenciamento de Memória",
@@ -341,8 +341,8 @@ export const data: Level[] = [
               {
                 label: "Introdução a Redes - Fabio Akita",
                 url: "https://www.youtube.com/playlist?list=PLdsnXVqbHDUcTGjNZuRYCVj3AZtdt6oG7",
-                contentType: LinkContentType.WATCH
-              }
+                contentType: LinkContentType.WATCH,
+              },
             ],
           },
         ],
@@ -363,12 +363,13 @@ export const data: Level[] = [
             label: "O básico",
             links: [
               {
-                label: "Curso Grátis de JavaScript e ECMAScript para Iniciantes - Curso em Vídeo",
+                label:
+                  "Curso Grátis de JavaScript e ECMAScript para Iniciantes - Curso em Vídeo",
                 url: "https://www.youtube.com/playlist?list=PLHz_AreHm4dlsK3Nr9GVvXCbpQyHQl1o1",
-                contentType: LinkContentType.WATCH
-              }
-            ]
-          }
+                contentType: LinkContentType.WATCH,
+              },
+            ],
+          },
         ],
       },
       {
@@ -638,10 +639,11 @@ export const data: Level[] = [
                 contentType: LinkContentType.WATCH,
               },
               {
-                label: "Curso de Git e GitHub: grátis, prático e sem usar comandos no terminal - Curso em Vídeo",
+                label:
+                  "Curso de Git e GitHub: grátis, prático e sem usar comandos no terminal - Curso em Vídeo",
                 url: "https://www.youtube.com/playlist?list=PLHz_AreHm4dm7ZULPAmadvNhH6vk9oNZA",
-                contentType: LinkContentType.WATCH
-              }
+                contentType: LinkContentType.WATCH,
+              },
             ],
           },
           {
@@ -846,11 +848,12 @@ export const data: Level[] = [
             label: "Client Side",
             links: [
               {
-                label: "Como usar Cache HTTP - Entenda melhor sobre performance na Web",
+                label:
+                  "Como usar Cache HTTP - Entenda melhor sobre performance na Web",
                 url: "https://www.youtube.com/watch?v=IrwIYywpvbM",
                 contentType: LinkContentType.WATCH,
               },
-            ]
+            ],
           },
         ],
       },
@@ -917,7 +920,7 @@ export const data: Level[] = [
                 label: "O que são Testes de Unidade",
                 contentType: LinkContentType.WATCH,
               },
-            ]
+            ],
           },
           { label: "Testes Funcionais", links: [] },
         ],
@@ -974,8 +977,8 @@ export const data: Level[] = [
                 label: "O que é TDD - Test-Driven Development",
                 url: "https://www.youtube.com/watch?v=o_C_qxhPws4",
                 contentType: LinkContentType.WATCH,
-              }
-            ]
+              },
+            ],
           },
           {
             label: "SOLID",
@@ -990,7 +993,16 @@ export const data: Level[] = [
           },
           { label: "KISS", links: [] },
           { label: "YAGNI", links: [] },
-          { label: "DRY", links: [] },
+          {
+            label: "DRY",
+            links: [
+              {
+                label: "Você sabe o que é DRY e WET? - Flávio Mendes",
+                url: "https://www.youtube.com/watch?v=UHvuCfpVDsg",
+                contentType: LinkContentType.WATCH,
+              },
+            ],
+          },
         ],
       },
     ],
@@ -1179,8 +1191,8 @@ export const data: Level[] = [
                 url: "https://www.youtube.com/watch?v=QkhbQoajdCw",
                 contentType: LinkContentType.WATCH,
               },
-            ]
-          }
+            ],
+          },
         ],
       },
     ],
