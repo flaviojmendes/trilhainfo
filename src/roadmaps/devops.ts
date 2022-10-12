@@ -164,6 +164,16 @@ export const data: Level[] = [
       {
         label: "Linux",
         children: [
+          {
+            label: "Arch",
+            links: [
+              {
+                label: "Documentação Oficial",
+                url: "https://wiki.archlinux.org/title/Main_page_(Portugu%C3%AAs)",
+                contentType: LinkContentType.READ,
+              },
+            ],
+          },
           { label: "Debian", links: [] },
           { label: "Fedora", links: [] },
           { label: "Ubuntu", links: [] },
@@ -281,8 +291,8 @@ export const data: Level[] = [
       {
         label: "Gerenciamento de Configuração",
         children: [
-          { 
-            label: "Ansible", 
+          {
+            label: "Ansible",
             links: [
               {
                 label: "Curso Ansible -  Mário Santana",
@@ -378,10 +388,10 @@ export const data: Level[] = [
   {
     label: "Escolha um provedor de Nuvem",
     items: [
-      { 
+      {
         label: "AWS",
         children: [
-          { 
+          {
             label: "Certificação",
             links: [{
               label: "#BondeDaAWS - Treinamento preparatório para a certificação da AWS - LinuxTips",
