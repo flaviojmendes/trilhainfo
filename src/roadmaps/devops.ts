@@ -263,7 +263,12 @@ export const data: Level[] = [
   {
     label: "O que é, e como configurar:",
     items: [
-      { label: "Proxy Reverso", children: [{ label: "O Básico", links: [] }] },
+      {
+        label: "Proxy Reverso",
+        children: [
+          { label: "Traefik", links: [] },
+        ]
+      },
       { label: "Caching Server", children: [{ label: "O Básico", links: [] }] },
       { label: "Forward Proxy", children: [{ label: "O Básico", links: [] }] },
       { label: "Load Balancer", children: [{ label: "O Básico", links: [] }] },
