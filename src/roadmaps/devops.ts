@@ -244,7 +244,12 @@ export const data: Level[] = [
   {
     label: "O que é, e como configurar:",
     items: [
-      { label: "Proxy Reverso", children: [{ label: "O Básico", links: [] }] },
+      {
+        label: "Proxy Reverso",
+        children: [
+          { label: "Traefik", links: [] },
+        ]
+      },
       { label: "Caching Server", children: [{ label: "O Básico", links: [] }] },
       { label: "Forward Proxy", children: [{ label: "O Básico", links: [] }] },
       { label: "Load Balancer", children: [{ label: "O Básico", links: [] }] },
@@ -281,8 +286,8 @@ export const data: Level[] = [
       {
         label: "Gerenciamento de Configuração",
         children: [
-          { 
-            label: "Ansible", 
+          {
+            label: "Ansible",
             links: [
               {
                 label: "Curso Ansible -  Mário Santana",
@@ -378,10 +383,10 @@ export const data: Level[] = [
   {
     label: "Escolha um provedor de Nuvem",
     items: [
-      { 
+      {
         label: "AWS",
         children: [
-          { 
+          {
             label: "Certificação",
             links: [{
               label: "#BondeDaAWS - Treinamento preparatório para a certificação da AWS - LinuxTips",
