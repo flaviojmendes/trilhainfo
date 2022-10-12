@@ -23,6 +23,7 @@ export default function MainLayout({ children }: Props) {
   return (
     <>
       <div className="flex flex-col h-screen">
+      <div className="bg-blue py-2 text-center text-xs">Ajudar a atualizar Trilha Info é uma excelente oportunidade para você participar da <a className="c-red font-semibold" target="_blank" href="https://hacktoberfest.com">Hacktoberfest. 👾</a></div>
         <div className="w-full p-2 flex flex-wrap space-x-0 space-y-2 mx-auto bg-[#2A2827] shadow-md">
           <div className="flex-grow">
             {" "}
