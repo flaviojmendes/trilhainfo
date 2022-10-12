@@ -164,9 +164,28 @@ export const data: Level[] = [
       {
         label: "Linux",
         children: [
+          {
+            label: "Arch",
+            links: [
+              {
+                label: "Documentação Oficial",
+                url: "https://wiki.archlinux.org/title/Main_page_(Portugu%C3%AAs)",
+                contentType: LinkContentType.READ,
+              },
+            ],
+          },
           { label: "Debian", links: [] },
           { label: "Fedora", links: [] },
-          { label: "Ubuntu", links: [] },
+          {
+            label: "Ubuntu",
+            links: [
+              {
+                label: "Documentação Oficial",
+                url: "https://help.ubuntu.com/community/PortugueseDocumentation",
+                contentType: LinkContentType.READ,
+              }
+            ]
+          },
           { label: "CentOS", links: [] },
           { label: "RHEL", links: [] },
         ],
@@ -204,7 +223,7 @@ export const data: Level[] = [
                   label: "Curso Básico de Programação em Bash - debxp (Blau Araujo)",
                   url: "https://www.youtube.com/watch?v=spIRwXEF3XY&list=PLf-O3X2-mxDlfAv8IOfic1sHArdwrrkgh&index",
                   contentType: LinkContentType.WATCH,
-                }              ,
+                },
                 {
                   label: "Shell Scripting - Boson Treinamentos",
                   url: "https://www.youtube.com/watch?v=EOLPUc6oo-w&list=PLucm8g_ezqNrYgjXC8_CgbvHbvI7dDfhs",
@@ -281,8 +300,8 @@ export const data: Level[] = [
       {
         label: "Gerenciamento de Configuração",
         children: [
-          { 
-            label: "Ansible", 
+          {
+            label: "Ansible",
             links: [
               {
                 label: "Curso Ansible -  Mário Santana",
@@ -378,10 +397,10 @@ export const data: Level[] = [
   {
     label: "Escolha um provedor de Nuvem",
     items: [
-      { 
+      {
         label: "AWS",
         children: [
-          { 
+          {
             label: "Certificação",
             links: [{
               label: "#BondeDaAWS - Treinamento preparatório para a certificação da AWS - LinuxTips",
