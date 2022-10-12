@@ -54,6 +54,7 @@ export const data: Level[] = [
         children: [
           { label: "Next.js", links: [] },
           { label: "Gatsby", links: [] },
+          { label: "Remix", links: [] },
         ],
       },
       {
