@@ -1005,6 +1005,18 @@ export const data: Level[] = [
               },
             ],
           },
+          {
+            label: "Playwright",
+            links: [
+              {
+                url: "https://playwright.dev/",
+                label: "Documentação",
+                votes: 0,
+                type: LinkType.FREE,
+                contentType: LinkContentType.READ,
+              },
+            ],
+          },
         ],
       },
     ],
