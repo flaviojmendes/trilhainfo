@@ -174,7 +174,16 @@ export const data: Level[] = [
               },
             ],
           },
-          { label: "Debian", links: [] },
+          {
+            label: "Debian",
+            links: [
+              {
+                label: "Documentação Oficial",
+                url: "https://wiki.debian.org/pt_BR/FrontPage",
+                contentType: LinkContentType.READ,
+              }
+            ] 
+          },
           { label: "Fedora", links: [] },
           {
             label: "Ubuntu",
