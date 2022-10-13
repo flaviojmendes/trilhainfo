@@ -153,7 +153,16 @@ export const data: Level[] = [
       { label: "I/O", links: [] },
       { label: "Virtualização", links: [] },
       { label: "Memória/Storage", links: [] },
-      { label: "Sistemas de Arquivos", links: [] },
+      {
+        label: "Sistemas de Arquivos",
+        links: [
+          {
+            label: "Sistemas de Arquivos - Guia Foca",
+            url: "https://www.guiafoca.org/guiaonline/intermediario/ch05.html",
+            contentType: LinkContentType.READ,
+          }
+        ]
+      },
     ],
   },
   {
@@ -306,7 +315,13 @@ export const data: Level[] = [
                 label: "Descomplicando Docker - LinuxTips",
                 url: "https://www.youtube.com/watch?v=qZevFPMtQho&list=PLf-O3X2-mxDn1VpyU2q3fuI6YYeIWp5rR",
                 contentType: LinkContentType.WATCH,
-              }]
+              },
+              {
+                label: "O mínimo que você precisa saber sobre Docker! - Diolinux",
+                url: "https://www.youtube.com/watch?v=ntbpIfS44Gw",
+                contentType: LinkContentType.WATCH,
+              }
+            ]
           },
           { label: "LXC", links: [] },
         ],
