@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import {
   Level,
   LinkType,
@@ -1103,6 +1104,9 @@ export const data: Level[] = [
                 url: "https://www.youtube.com/watch?v=ZHj44_0a1yA",
                 contentType: LinkContentType.WATCH,
               },
+              {label: "RabbitMQ Direto Ao Ponto - DevDojo",
+            url: "https://www.youtube.com/watch?v=JqNH6nRANh0&list=PL62G310vn6nF-iJF7v3DWhk5Mngup-sub",
+          contentType: LinkContentType.WATCH}
             ],
           },
           { label: "Kafka", links: [] },
