@@ -160,6 +160,11 @@ export const data: Level[] = [
             label: "Sistemas de Arquivos - Guia Foca",
             url: "https://www.guiafoca.org/guiaonline/intermediario/ch05.html",
             contentType: LinkContentType.READ,
+          },
+          {
+            label: "BTRFS, o sistema de arquivos “do futuro”",
+            url: "https://diolinux.com.br/editorial/btrfs-o-sistema-de-arquivos-do-futuro.html",
+            contentType: LinkContentType.READ,
           }
         ]
       },
@@ -191,7 +196,7 @@ export const data: Level[] = [
                 url: "https://wiki.debian.org/pt_BR/FrontPage",
                 contentType: LinkContentType.READ,
               }
-            ] 
+            ]
           },
           { label: "Fedora", links: [] },
           {
