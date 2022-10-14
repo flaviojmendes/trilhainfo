@@ -91,6 +91,21 @@ export default function HomePage() {
               simplificado.
             </p>
           </Link>
+
+          {/* Backend */}
+          <Link
+            className="bd-handwritten bd-red bg-brown md:w-1/3 lg:w-1/4 w-full min-h-fit hover:bg-white py-3"
+            to={"/roadmap/react"}
+          >
+            <h3 className="text-center text-3xl txt-handwritten mb-2 c-dark-brown">
+              React
+            </h3>
+            <p className="text-justify mx-5">
+              React é uma biblioteca JavaScript declarativa, eficiente e flexível
+              criada pelo Facebook em 2011 para desenvolver aplicações
+              front-end, ou seja, interfaces de usuário (UIs).
+            </p>
+          </Link>
         </div>
 
         <CheatSheets />
