@@ -49,5 +49,6 @@ export enum LinkContentType {
     WATCH = "Assista",
     READ = "Leia",
     LISTEN = "Ouça",
-    VISIT = "Visite"
+    VISIT = "Visite",
+    PRACTICE ="Pratique"
 }
