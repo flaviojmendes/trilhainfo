@@ -46,6 +46,27 @@ export const data: Level[] = [
                 votes: 0,
                 type: LinkType.FREE,
                 contentType: LinkContentType.WATCH,
+              },
+              {
+                url: "https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Structuring_a_page_of_content",
+                label: "Estruturando uma página de conteúdo (em inglês)",
+                votes: 0,
+                type: LinkType.FREE,
+                contentType: LinkContentType.PRACTICE,
+              },
+              {
+                url: "https://github.com/gustavoguanabara/html-css/tree/master/aulas-pdf",
+                label: "Aulas PDF do Curso Completo de HTML e CSS - Gustavo Guanabara",
+                votes: 0,
+                type: LinkType.FREE,
+                contentType: LinkContentType.PRACTICE,
+              },
+              {
+                url: "https://developer.mozilla.org/en-US/docs/Learn/CSS/Howto",
+                label: "Use CSS para resolver problemas comuns (em inglês)",
+                votes: 0,
+                type: LinkType.FREE,
+                contentType: LinkContentType.PRACTICE,
               }
             ],
           },
@@ -66,6 +87,14 @@ export const data: Level[] = [
                 type: LinkType.FREE,
                 contentType: LinkContentType.WATCH,
               },
+              {
+                url: "https://www.freecodecamp.org/portuguese/news/validacao-de-dados-como-verificar-dados-enviados-pelo-usuario-em-formularios-html-utilizando-javascript/",
+                label: "Validação de dados em formulários HTML - com exemplos",
+                votes: 0,
+                type: LinkType.FREE,
+                contentType: LinkContentType.PRACTICE,
+              },
+              
             ],
           },
           {
@@ -79,6 +108,15 @@ export const data: Level[] = [
                 type: LinkType.FREE,
                 contentType: LinkContentType.WATCH,
               },
+              {
+                url: "https://blog.dankicode.com/melhores-praticas-desenvolvimento-web/#html",
+                label:
+                  "Melhores práticas de desenvolvimento Web – HTML e CSS",
+                votes: 0,
+                type: LinkType.FREE,
+                contentType: LinkContentType.READ,
+              },
+              
             ],
           },
           {
@@ -98,6 +136,20 @@ export const data: Level[] = [
                 votes: 0,
                 type: LinkType.FREE,
                 contentType: LinkContentType.WATCH,
+              },
+              {
+                url: "https://developer.mozilla.org/pt-BR/docs/Learn/Accessibility",
+                label: "Acessibilidade - vários guias",
+                votes: 0,
+                type: LinkType.FREE,
+                contentType: LinkContentType.READ,
+              },
+              {
+                url: "https://developer.mozilla.org/pt-BR/docs/Learn/Accessibility/Accessibility_troubleshooting",
+                label: "Avaliação: solucionando problemas de acessibilidade",
+                votes: 0,
+                type: LinkType.FREE,
+                contentType: LinkContentType.PRACTICE,
               },
             ],
           },
