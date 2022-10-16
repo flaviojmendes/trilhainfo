@@ -1,4 +1,4 @@
-![Discord Shield](https://discordapp.com/api/guilds/989882634358390794/widget.png?style=shield)
+<img src="https://discordapp.com/api/guilds/989882634358390794/widget.png?style=banner2" alt="Discord Banner 2"/>
 
 # Trilha Info
 
