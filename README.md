@@ -1,5 +1,5 @@
 # Trilha Info
-![Discord](https://discordapp.com/api/guilds/989882634358390794/widget.png?style=shield)
+![Discord Shield](https://discordapp.com/api/guilds/989882634358390794/widget.png?style=shield)
 
 Olá 👋
 
