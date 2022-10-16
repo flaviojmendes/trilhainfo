@@ -1,4 +1,4 @@
-<img src="https://discordapp.com/api/guilds/989882634358390794/widget.png?style=banner2" alt="Discord Banner 2"/>
+[![Discord Server](https://discordapp.com/api/guilds/989882634358390794/widget.png?style=banner2)](https://discord.gg/HJ3Spm6R)
 
 # Trilha Info
 
