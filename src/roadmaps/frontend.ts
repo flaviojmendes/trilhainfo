@@ -1282,4 +1282,55 @@ export const data: Level[] = [
       },
     ],
   },
+  {
+    items: [
+      {
+        label: "SEO",
+        description:
+          "SEO (Search Engine Optmization) é um conjunto de boas práticas adotadas tanto pelos desenvolvedores quanto por aqueles que inserem algum tipo de conteúdo no site para que este seja listado em melhores posições nos mecanismos de pesquisa (Google, Bing, Baidu, etc).",
+        children: [
+          {
+            label: "O básico",
+            links: [
+              {
+                url: "https://developer.mozilla.org/pt-BR/docs/Glossary/SEO",
+                label: "O que é SEO? - Mozilla",
+                votes: 0,
+                type: LinkType.FREE,
+                contentType: LinkContentType.READ,
+              },
+              {
+                url: "https://university.br.rockcontent.com/courses/search-engine-optimization-seo-cert",
+                label: "Curso de Introdução ao SEO - Rock University",
+                votes: 0,
+                type: LinkType.FREE,
+                contentType: LinkContentType.WATCH,
+              },
+              {
+                url: "https://dev.to/gabrielgomeso/introducao-ao-seo-seo-00-2bh6",
+                label: "Introdução ao SEO - Gabriel Gomes",
+                votes: 0,
+                type: LinkType.FREE,
+                contentType: LinkContentType.READ,
+              },
+              {
+                url: "https://www.youtube.com/watch?v=v8LWhWVW9Ek",
+                label: "Guia SEO Completo (Básico ao Avançado) para Desenvolvedor - Rafael Perozin",
+                votes: 0,
+                type: LinkType.FREE,
+                contentType: LinkContentType.WATCH,
+              },
+              {
+                url: "https://developers.google.com/search",
+                label: "Central de Pesquisa - Google",
+                votes: 0,
+                type: LinkType.FREE,
+                contentType: LinkContentType.READ,
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
 ];
