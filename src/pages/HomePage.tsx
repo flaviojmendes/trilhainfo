@@ -101,8 +101,8 @@ export default function HomePage() {
               React
             </h3>
             <p className="text-justify mx-5">
-              React é uma biblioteca JavaScript declarativa, eficiente e flexível
-              criada pelo Facebook em 2011 para desenvolver aplicações
+              React é uma biblioteca JavaScript declarativa, eficiente e
+              flexível criada pelo Facebook em 2011 para desenvolver aplicações
               front-end, ou seja, interfaces de usuário (UIs).
             </p>
           </Link>
@@ -138,7 +138,16 @@ export default function HomePage() {
             </p>
             <p className="my-8">
               Portanto, se você também acredita nisso compartilhe para que o
-              conhecimento chegue cada vez mais longe.
+              conhecimento chegue cada vez mais longe. E participe da nossa
+              comunidade no{" "}
+              <span className="font-semibold text-red">
+                <a
+                  target={"_blank"}
+                  href="https://discord.gg/HJ3Spm6R"
+                >
+                  Discord
+                </a>
+              </span>{" "}
             </p>
           </div>
           <div className="w-full mt-4 flex justify-center">
