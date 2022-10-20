@@ -900,6 +900,23 @@ export const data: Level[] = [
               },
             ],
           },
+          {
+            label: "OAuth 2.0 and OpenID Connect",
+            links: [
+              {
+                label:
+                  "OAuth 2.0 and OpenID Connect (in plain English) - OktaDev",
+                url: "https://youtu.be/996OiexHze0",
+                contentType: LinkContentType.WATCH,
+              },
+              {
+                label:
+                  "OAuth 2 // Dicionário do Programador - - Codigo Fonte TV",
+                url: "https://youtu.be/z-RuvnMlw34",
+                contentType: LinkContentType.WATCH,
+              },
+            ],
+          },
         ],
       },
     ],
@@ -1104,9 +1121,11 @@ export const data: Level[] = [
                 url: "https://www.youtube.com/watch?v=ZHj44_0a1yA",
                 contentType: LinkContentType.WATCH,
               },
-              {label: "RabbitMQ Direto Ao Ponto - DevDojo",
-            url: "https://www.youtube.com/watch?v=JqNH6nRANh0&list=PL62G310vn6nF-iJF7v3DWhk5Mngup-sub",
-          contentType: LinkContentType.WATCH}
+              {
+                label: "RabbitMQ Direto Ao Ponto - DevDojo",
+                url: "https://www.youtube.com/watch?v=JqNH6nRANh0&list=PL62G310vn6nF-iJF7v3DWhk5Mngup-sub",
+                contentType: LinkContentType.WATCH,
+              },
             ],
           },
           { label: "Kafka", links: [] },
