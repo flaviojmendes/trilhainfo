@@ -1129,6 +1129,16 @@ export const data: Level[] = [
             ],
           },
           { label: "Kafka", links: [] },
+          {
+            label: "Redis",
+            links: [
+              {
+                label: "Background jobs (filas) no Node.js com Redis",
+                url: "https://youtu.be/uonKHztGhko",
+                contentType: LinkContentType.WATCH,
+              },
+            ],
+          },
         ],
       },
     ],
