@@ -41,7 +41,9 @@ function getColorFromContentType(contentType: LinkContentType | string) {
     case LinkContentType.READ || 'Leia':
       return "yellow";
     case LinkContentType.VISIT || 'Visite':
-      return "purple";
+      return "purple";    
+    case LinkContentType.PRACTICE || 'Pratique':
+      return "green";
     case LinkContentType.WATCH || 'Assista':
     default:
       return "orange";
