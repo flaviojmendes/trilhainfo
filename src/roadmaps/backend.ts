@@ -616,6 +616,14 @@ export const data: Level[] = [
                 votes: 0,
                 contentType: LinkContentType.WATCH,
               },
+              {
+                label:
+                  "Masterclass - Injeção de Dependência no .NET | por André Baltieri #balta",
+                url: "https://www.youtube.com/watch?v=CbAMyaBWzig",
+                type: LinkType.FREE,
+                votes: 0,
+                contentType: LinkContentType.WATCH,
+              },
             ],
           },
         ],
