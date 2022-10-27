@@ -481,7 +481,23 @@ export const data: Level[] = [
         label: "Ruby",
         description:
           "Ruby é uma linguagem de programação interpretada de alto nível que combina Perl, Smalltalk, Eiffel, Ada e Lisp. Ruby foca na simplicidade e produtividade junto com uma sintaxe que lê e escreve naturalmente. Ruby suporta programação procedural, orientada a objetos e funcional e é tipada dinamicamente.",
-        children: [{ label: "O básico", links: [] }],
+        children: [{ label: "O básico", links: [
+          {
+          label: "Learn Ruby - Odin Project",
+          url: "https://www.theodinproject.com/paths/full-stack-ruby-on-rails/courses/ruby",
+          contentType: LinkContentType.READ,
+        },
+        
+      ] },
+    {
+      label: "Frameworks", links: [
+        {
+          label: "Learn Ruby on Rails - Odin Project",
+          url: "https://www.theodinproject.com/paths/full-stack-ruby-on-rails/courses/ruby-on-rails",
+          contentType: LinkContentType.READ,
+        }
+      ]
+    }],
       },
       {
         label: "PHP",
