@@ -183,15 +183,100 @@ export const data: Level[] = [
     label: "Conceitos mais Avançados",
     description: "Componentes em React",
     items: [
-      { label: "Hooks", children: [{ label: "O básico", links: [] }] },
-      { label: "Context", children: [{ label: "O básico", links: [] }] },
-      { label: "Refs", children: [{ label: "O básico", links: [] }] },
+        { label: "Hooks", children: [
+          {
+            label: "O básico",
+            links: [
+              {
+                url: "https://reactjs.org/docs/hooks-reference.html",
+                label: "Documentação oficial",
+                contentType: LinkContentType.READ,
+              },
+            ]
+          },
+          {
+            label: "Hooks avançados",
+            links: [
+              {
+                url: "https://www.youtube.com/watch?v=kzAMDNBiAzs",
+                label: "React Hook useCallback - Huriel",
+                contentType: LinkContentType.WATCH,
+              },
+              {
+                url: "https://www.youtube.com/watch?v=eypNvly4s3Q",
+                label: "React Hook useRef - Huriel",
+                contentType: LinkContentType.WATCH,
+              },
+              {
+                url: "https://www.youtube.com/watch?v=LdYZ-QI0ztM",
+                label: "React Hook useMemo - Huriel",
+                contentType: LinkContentType.WATCH,
+              },
+              {
+                url: "https://www.youtube.com/watch?v=UCUL2JrjZ3c",
+                label: "React Hook useReducer - Huriel",
+                contentType: LinkContentType.WATCH,
+              },
+              {
+                url: "https://www.youtube.com/watch?v=2cTAR3EkvQ8",
+                label: "Hooks Personalizados - Huriel",
+                contentType: LinkContentType.WATCH,
+              },
+            ]
+          }
+        ] },
+      { label: "Context", children: [{ label: "O básico", links: [
+        {
+          url: "https://pt-br.reactjs.org/docs/context.html",
+          label: "Documentação oficial",
+          contentType: LinkContentType.READ,
+        },
+        {
+          url: "https://www.youtube.com/watch?v=0UVYtx_C87w&t=1405s",
+          label: "React Hook useContext - Huriel",
+          contentType: LinkContentType.WATCH,
+        },
+        {
+          url: "https://www.youtube.com/watch?v=iHZIZ2wA1U4",
+          label: "O Guia Definitivo de React Context - Dev Samurai",
+          contentType: LinkContentType.PRACTICE,
+        },
+      ] }] },
+      { label: "Refs", children: [{ label: "O básico", links: [
+          {
+            url: "https://pt-br.reactjs.org/docs/refs-and-the-dom.html",
+            label: "Documentação oficial",
+            contentType: LinkContentType.READ,
+          },
+          {
+            url: "https://www.youtube.com/watch?v=eypNvly4s3Q",
+            label: "Entenda DE VEZ o useRef - Huriel",
+            contentType: LinkContentType.WATCH,
+          },
+          {
+            url: "https://www.youtube.com/watch?v=lA8o3kUl1TA",
+            label: "Utilizando as refs no React de forma avançada - Rocketseat",
+            contentType: LinkContentType.PRACTICE,
+          },
+        ] }] 
+      },
       { label: "Render Props", children: [{ label: "O básico", links: [] }] },
       {
         label: "High Order Components",
         children: [{ label: "O básico", links: [] }],
       },
-      { label: "Portals", children: [{ label: "O básico", links: [] }] },
+      { label: "Portals", children: [{ label: "O básico", links: [
+        {
+          label: "Documentação Oficial",
+          url: "https://reactjs.org/docs/portals.html",
+          contentType: LinkContentType.READ,
+        },
+        {
+          label: "Renderizando componentes com Portals -  Matheus Castiglioni",
+          url: "https://www.youtube.com/watch?v=t2GCO637Oik",
+          contentType: LinkContentType.WATCH,
+        }
+      ] }] },
       {
         label: "Error Boundaries",
         children: [{ label: "O básico", links: [] }],
