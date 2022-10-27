@@ -238,7 +238,18 @@ export const data: Level[] = [
         label: "High Order Components",
         children: [{ label: "O básico", links: [] }],
       },
-      { label: "Portals", children: [{ label: "O básico", links: [] }] },
+      { label: "Portals", children: [{ label: "O básico", links: [
+        {
+          label: "Documentação Oficial",
+          url: "https://reactjs.org/docs/portals.html",
+          contentType: LinkContentType.READ,
+        },
+        {
+          label: "Renderizando componentes com Portals -  Matheus Castiglioni",
+          url: "https://www.youtube.com/watch?v=t2GCO637Oik",
+          contentType: LinkContentType.WATCH,
+        }
+      ] }] },
       {
         label: "Error Boundaries",
         children: [{ label: "O básico", links: [] }],
