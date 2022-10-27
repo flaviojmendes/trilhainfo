@@ -242,7 +242,24 @@ export const data: Level[] = [
           contentType: LinkContentType.PRACTICE,
         },
       ] }] },
-      { label: "Refs", children: [{ label: "O básico", links: [] }] },
+      { label: "Refs", children: [{ label: "O básico", links: [
+          {
+            url: "https://pt-br.reactjs.org/docs/refs-and-the-dom.html",
+            label: "Documentação oficial",
+            contentType: LinkContentType.READ,
+          },
+          {
+            url: "https://www.youtube.com/watch?v=eypNvly4s3Q",
+            label: "Entenda DE VEZ o useRef - Huriel",
+            contentType: LinkContentType.WATCH,
+          },
+          {
+            url: "https://www.youtube.com/watch?v=lA8o3kUl1TA",
+            label: "Utilizando as refs no React de forma avançada - Rocketseat",
+            contentType: LinkContentType.PRACTICE,
+          },
+        ] }] 
+      },
       { label: "Render Props", children: [{ label: "O básico", links: [] }] },
       {
         label: "High Order Components",
