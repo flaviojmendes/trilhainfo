@@ -227,9 +227,19 @@ export const data: Level[] = [
         ] },
       { label: "Context", children: [{ label: "O básico", links: [
         {
+          url: "https://pt-br.reactjs.org/docs/context.html",
+          label: "Documentação oficial",
+          contentType: LinkContentType.READ,
+        },
+        {
           url: "https://www.youtube.com/watch?v=0UVYtx_C87w&t=1405s",
           label: "React Hook useContext - Huriel",
           contentType: LinkContentType.WATCH,
+        },
+        {
+          url: "https://www.youtube.com/watch?v=iHZIZ2wA1U4",
+          label: "O Guia Definitivo de React Context - Dev Samurai",
+          contentType: LinkContentType.PRACTICE,
         },
       ] }] },
       { label: "Refs", children: [{ label: "O básico", links: [] }] },
