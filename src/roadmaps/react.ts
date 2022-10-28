@@ -315,8 +315,56 @@ export const data: Level[] = [
         ] }],
       },
       {
-        label: "Fiber Architecture",
-        children: [{ label: "O básico", links: [] }],
+        label: "Arquiteturas",
+        children: [
+          {
+            label: "Fiber Architecture", links: [
+              {
+                url: "https://github.com/acdlite/react-fiber-architecture",
+                label: "Visão Geral da Fiber Architecture",
+                contentType: LinkContentType.READ,
+              },
+              {
+                url: "https://raphamorim.io/entendendo-react-fiber",
+                label: "Entendendo React Fiber - Raphael Morim",
+                contentType: LinkContentType.READ,
+              }
+            ]
+          },
+          {
+            label: "Arquitetura Limpa", links: [
+              {
+                url: "https://www.youtube.com/watch?v=iUQVZHzqGuc",
+                label: "Clean Architecture no ReactJs - Mango",
+                contentType: LinkContentType.WATCH,
+              },
+              {
+                url: "https://dev.to/rubemfsv/arquitetura-limpa-aplicando-com-react-1eo0",
+                label: "Arquitetura Limpa: Aplicando com React - Rubem Vasconcelos",
+                contentType: LinkContentType.READ,
+              }
+            ]
+          },
+          {
+            label: "Arquitetura Flux", links: [
+              {
+                url: "https://facebook.github.io/flux/",
+                label: "Documentação Oficial",
+                contentType: LinkContentType.READ,
+              },
+              {
+                url: "https://tableless.com.br/flux-entenda-como-funciona-arquitetura-flux-com-react/",
+                label: "Flux: Entenda como funciona a arquitetura Flux com React - Tableless",
+                contentType: LinkContentType.READ,
+              },
+              {
+                url: "https://www.youtube.com/watch?v=cgKRHTm7mPk",
+                label: "Masterclass sobre Arquitetura Flux com Redux - Patryck Gratão",
+                contentType: LinkContentType.PRACTICE,
+              }
+            ]
+          },
+        ],
       },
     ],
   },
