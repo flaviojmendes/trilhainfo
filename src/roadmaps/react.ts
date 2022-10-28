@@ -274,7 +274,18 @@ export const data: Level[] = [
       ] }] },
       {
         label: "High Order Components (HOC)",
-        children: [{ label: "O básico", links: [] }],
+        children: [{ label: "O básico", links: [
+          {
+            url: "https://pt-br.reactjs.org/docs/higher-order-components.html",
+            label: "Documentação oficial",
+            contentType: LinkContentType.READ,
+          },
+          {
+            url: "https://medium.com/reactbrasil/meu-primeiro-higher-order-component-a376efc654a8",
+            label: "Meu primeiro Higher Order Component - React Brasil (por Rafael Maruta)",
+            contentType: LinkContentType.PRACTICE,
+          }
+        ] }],
       },
       { label: "Portals", children: [{ label: "O básico", links: [
         {
