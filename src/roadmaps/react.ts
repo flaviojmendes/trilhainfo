@@ -260,9 +260,20 @@ export const data: Level[] = [
           },
         ] }] 
       },
-      { label: "Render Props", children: [{ label: "O básico", links: [] }] },
+      { label: "Render Props", children: [{ label: "O básico", links: [
+        {
+          url: "https://pt-br.reactjs.org/docs/render-props.html",
+          label: "Documentação oficial",
+          contentType: LinkContentType.READ,
+        },
+        {
+          url: "https://medium.com/collabcode/react-patterns-come%C3%A7ando-pelo-render-props-e0040ef723ce",
+          label: "React Patterns | Começando pelo Render Props - CollabCode (por Caio Alcantara)",
+          contentType: LinkContentType.READ,
+        }
+      ] }] },
       {
-        label: "High Order Components",
+        label: "High Order Components (HOC)",
         children: [{ label: "O básico", links: [] }],
       },
       { label: "Portals", children: [{ label: "O básico", links: [
