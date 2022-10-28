@@ -301,7 +301,18 @@ export const data: Level[] = [
       ] }] },
       {
         label: "Error Boundaries",
-        children: [{ label: "O básico", links: [] }],
+        children: [{ label: "O básico", links: [
+          {
+            url: "https://pt-br.reactjs.org/docs/error-boundaries.html",
+            label: "Documentação oficial",
+            contentType: LinkContentType.READ,
+          },
+          {
+            url: "https://www.youtube.com/watch?v=vfwbOgpSvQA",
+            label: "Trate erros de JavaScript no React com Error Boundaries - AlgaWorks",
+            contentType: LinkContentType.PRACTICE,
+          }
+        ] }],
       },
       {
         label: "Fiber Architecture",
