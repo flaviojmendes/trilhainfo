@@ -36,15 +36,15 @@ type Props = {
 
 function getColorFromContentType(contentType: LinkContentType | string) {
   switch (contentType) {
-    case LinkContentType.LISTEN || 'Ouça':
+    case LinkContentType.LISTEN || "Ouça":
       return "blue";
-    case LinkContentType.READ || 'Leia':
+    case LinkContentType.READ || "Leia":
       return "yellow";
-    case LinkContentType.VISIT || 'Visite':
-      return "purple";    
-    case LinkContentType.PRACTICE || 'Pratique':
+    case LinkContentType.VISIT || "Visite":
+      return "purple";
+    case LinkContentType.PRACTICE || "Pratique":
       return "green";
-    case LinkContentType.WATCH || 'Assista':
+    case LinkContentType.WATCH || "Assista":
     default:
       return "orange";
   }
@@ -103,11 +103,9 @@ export default function Roadmap(props: Props) {
           item.children?.forEach((child) => {
             saveRead(child.label + "-" + item.label, check);
           });
-          
         }
       });
     });
-     
   }
 
   async function handleDownloadImage() {
@@ -145,7 +143,7 @@ export default function Roadmap(props: Props) {
           Baixar meu Roadmap
         </button>
       </div>
-      <div ref={printRef}>
+      <section ref={printRef}>
         <h2 className="text-center font-bold text-3xl c-yellow my-6 txt-handwritten c-dark-brown">
           {props.title}
         </h2>
@@ -242,7 +240,7 @@ export default function Roadmap(props: Props) {
             </ModalFooter>
           </ModalContent>
         </Modal>
-      </div>
+      </section>
     </>
   );
 }

@@ -26,7 +26,7 @@ export default function LevelItem(props: Props) {
 
   return (
     <>
-      <Stack spacing={0}>
+      <Stack spacing={0} as="article">
         <div
           className={
             props.level.label
@@ -36,9 +36,9 @@ export default function LevelItem(props: Props) {
         >
           {props.level.label && (
             <>
-              <h2 className="text-center my-2 txt-handwritten text-xl">
+              <h3 className="text-center my-2 txt-handwritten text-xl">
                 {props.level.label}
-              </h2>
+              </h3>
               <p className="text-center mb-3">{props.level.description}</p>
             </>
           )}
@@ -70,9 +70,7 @@ export default function LevelItem(props: Props) {
                   >
                     <Spacer />
                     {isAllContentRead ? (
-                      <span
-                        className="checking"
-                      >
+                      <span className="checking">
                         <CheckIcon
                           m="auto"
                           mx="1"

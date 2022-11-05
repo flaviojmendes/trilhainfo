@@ -3,6 +3,8 @@ import {
   Button,
   chakra,
   Link as ChakraLink,
+  LinkBox,
+  LinkOverlay,
   Modal,
   ModalBody,
   ModalCloseButton,
@@ -42,7 +44,7 @@ export default function HomePage() {
           Tudo o que você precisa saber para ser:
         </h2>
 
-        <div className="flex flex-wrap items-stretch md:space-x-10 space-y-10 md:space-y-0 justify-center px-2 gap-5">
+        <section className="flex flex-wrap items-stretch md:space-x-10 space-y-10 md:space-y-0 justify-center px-2 gap-5">
           {/* Frontend */}
           <Link
             className="bd-handwritten bd-red bg-brown md:w-1/3 lg:w-1/4 w-full min-h-fit hover:bg-white py-3"
@@ -106,16 +108,16 @@ export default function HomePage() {
               front-end, ou seja, interfaces de usuário (UIs).
             </p>
           </Link>
-        </div>
+        </section>
 
         <CheatSheets />
         <UserArea />
 
-        <div className="flex flex-col items-stretch justify-center">
+        <section className="flex flex-col items-stretch justify-center">
           <h2 className="text-center my-6 txt-handwritten text-3xl c-yellow">
             Open Source
           </h2>
-          <div className="container text-yellow mx-auto px-4 text-justify">
+          <article className="container text-yellow mx-auto px-4 text-justify">
             <p className="my-2">
               A Trilha Info é um projeto{" "}
               <span className="font-semibold text-red">
@@ -149,7 +151,7 @@ export default function HomePage() {
                 </a>
               </span>{" "}
             </p>
-          </div>
+          </article>
           <div className="w-full mt-4 flex justify-center">
             <iframe
               src="https://ghbtns.com/github-btn.html?user=flaviojmendes&repo=trilhainfo&type=star&count=true&size=large&v=2"
@@ -159,7 +161,7 @@ export default function HomePage() {
               title="Trilha Info"
             ></iframe>
           </div>
-        </div>
+        </section>
 
         <Modal isOpen={isOpen} onClose={handleModalClosed} size="5xl">
           <ModalOverlay />
