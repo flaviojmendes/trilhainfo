@@ -5,265 +5,19 @@ import {
   LinkContentType,
   RoadmapItem,
 } from "../entity/RoadmapItem";
-
+import { controleDeVersao } from "./items/controleDeVersao";
+import { css } from "./items/css";
+import { html } from "./items/html";
+import { javascript } from "./items/javascript";
+import { python } from "./items/python";
+import { go } from "./items/go"
+import { rust } from "./items/rust";
 export const data: Level[] = [
   {
     label: "Conhecimento básico de Frontend",
     description:
       "Apesar de ser controverso estar aqui, um conhecimento básico não vai fazer mal 😅 em algum momento do aprendizado.",
-    items: [
-      {
-        label: "HTML",
-        description:
-          "HTML significa HyperText Markup Language. Ele é usado no frontend e fornece a estrutura da página da Web que você pode estilizar usando CSS e tornar interativa usando JavaScript.",
-        children: [
-          {
-            label: "O básico",
-            links: [
-              {
-                url: "https://www.youtube.com/watch?v=CZPa3-1BKnY&list=PLirko8T4cEmzrH3jIJi7R7ufeqcpXYaLa",
-                label: "Marco Bruno HTML e CSS Feliz",
-                votes: 0,
-                type: LinkType.FREE,
-                contentType: LinkContentType.WATCH,
-              },
-              {
-                url: "https://www.youtube.com/watch?v=IOfxZFgUjt8",
-                label: "HTML Básico Parte 1 - Dev Lucas Lopes",
-                votes: 0,
-                type: LinkType.FREE,
-                contentType: LinkContentType.WATCH,
-              },
-              {
-                url: "https://www.youtube.com/watch?v=jU7gyfsQx9Y",
-                label: "HTML Básico Parte 2 - Dev Lucas Lopes",
-                votes: 0,
-                type: LinkType.FREE,
-                contentType: LinkContentType.WATCH,
-              },
-            ],
-          },
-          {
-            label: "Formulários e Validações",
-            links: [
-              {
-                url: "https://www.youtube.com/watch?v=uvzFT-TCVFM",
-                label: "Validação de campos em formulários HTML - Edicursos",
-                votes: 0,
-                type: LinkType.FREE,
-                contentType: LinkContentType.WATCH,
-              },
-              {
-                url: "https://www.youtube.com/watch?v=wwqOJ2o84S4",
-                label: "Formulários com HTML e CSS - Rafaella Ballerini",
-                votes: 0,
-                type: LinkType.FREE,
-                contentType: LinkContentType.WATCH,
-              },
-            ],
-          },
-          {
-            label: "Convenções e Melhores Práticas",
-            links: [
-              {
-                url: "https://www.youtube.com/watch?v=TBplwrsUj4s",
-                label:
-                  "Boas práticas para escrever um HTML profissional - Mayk Brito",
-                votes: 0,
-                type: LinkType.FREE,
-                contentType: LinkContentType.WATCH,
-              },
-            ],
-          },
-          {
-            label: "Acessibilidade",
-            links: [
-              {
-                url: "https://www.youtube.com/watch?v=ZfUwFCCCDh0",
-                label:
-                  "HTML e Acessibilidade. 6 erros comuns que até devs mais experientes podem cometer - Ser Frontend",
-                votes: 0,
-                type: LinkType.FREE,
-                contentType: LinkContentType.WATCH,
-              },
-              {
-                url: "https://www.youtube.com/watch?v=pOmdL9LzDJg",
-                label: "Acessibilidade em páginas web - Matheus Castiglioni",
-                votes: 0,
-                type: LinkType.FREE,
-                contentType: LinkContentType.WATCH,
-              },
-            ],
-          },
-        ],
-      },
-      {
-        label: "CSS",
-        description:
-          "CSS ou Cascading Style Sheets é a linguagem usada para estilizar o frontend de qualquer site. CSS é uma tecnologia fundamental da World Wide Web, juntamente com HTML e JavaScript.",
-        children: [
-          {
-            label: "O básico",
-            links: [
-              {
-                url: "https://www.youtube.com/watch?v=5PS6ku8NzIE&list=PLirko8T4cEmx5eBb1-9j6T6Gl4aBtZ_5x",
-                label: "Pare de Chutar o CSS - Marco Bruno",
-                votes: 0,
-                type: LinkType.FREE,
-                contentType: LinkContentType.WATCH,
-              },
-              {
-                url: "https://www.youtube.com/watch?v=hSfSw4kJHxY&t=3s",
-                label: "Primeiros Passos CSS - Dev Lucas Lopes",
-                votes: 0,
-                type: LinkType.FREE,
-                contentType: LinkContentType.WATCH,
-              },
-            ],
-          },
-          {
-            label: "Fazendo Layouts",
-            links: [
-              {
-                url: "https://www.youtube.com/watch?v=z1Hp72GVHJk&list=PLx4x_zx8csUhDWtEa-AtDAgSSmLObBVaz",
-                label: "CSS Flexbox - CFBCursos",
-                contentType: LinkContentType.WATCH,
-              },
-              {
-                url: "https://www.youtube.com/watch?v=P9TrFDNwor4",
-                label: "Tutorial de Flexbox - Matheus Battisti",
-                contentType: LinkContentType.WATCH,
-              },
-              {
-                url: "https://www.youtube.com/watch?v=8VapN6x897U",
-                label: "Aprenda CSS Grid em 30 minutos - Matheus Battisti",
-                contentType: LinkContentType.WATCH,
-              },
-              {
-                url: "https://www.youtube.com/watch?v=E1tR7sYMEN0",
-                label:
-                  "Pare de chutar e aprenda float e sua trupe - Marco Bruno",
-                contentType: LinkContentType.WATCH,
-              },
-              {
-                url: "https://www.youtube.com/watch?v=5PS6ku8NzIE",
-                label: "Pare de chutar e aprenda display: inline - Marco Bruno",
-                contentType: LinkContentType.WATCH,
-              },
-              {
-                url: "https://www.youtube.com/watch?v=HWfhwokS_qg",
-                label: "Pare de chutar e aprenda display: block - Marco Bruno",
-                contentType: LinkContentType.WATCH,
-              },
-              {
-                url: "https://www.youtube.com/watch?v=Yj9-N9BEVeM",
-                label:
-                  "Pare de chutar e aprenda display: inline-block - Marco Bruno",
-                contentType: LinkContentType.WATCH,
-              },
-            ],
-          },
-          {
-            label: "Design Responsivo e Media Queries",
-            links: [
-              {
-                url: "https://www.youtube.com/watch?v=3rrX9w0HhZc",
-                label: "O que é Web Design Responsivo? - Chief of Design",
-                contentType: LinkContentType.WATCH,
-              },
-              {
-                url: "https://www.youtube.com/watch?v=H91DhKPjhPk",
-                label: "Responsividade na Prática - Mayk Brito",
-                contentType: LinkContentType.WATCH,
-              },
-            ],
-          },
-        ],
-      },
-      {
-        label: "Javascript",
-        description:
-          "JavaScript permite adicionar interatividade às suas páginas. Exemplos comuns que você pode ter visto nos sites são controles deslizantes, interações de clique, pop-ups e assim por diante.",
-        children: [
-          {
-            label: "Sintaxe e o Básico",
-            links: [
-              {
-                url: "https://www.youtube.com/watch?v=bXim6-jCflk&list=PLz_pSrQW_5xJexe74z50HXLCkYDKfks8S",
-                label: "Desafios Javascript - Fabio Bergmann",
-                votes: 0,
-                type: LinkType.FREE,
-                contentType: LinkContentType.WATCH,
-              },
-            ],
-          },
-          {
-            label: "Manipulação de DOM",
-            links: [
-              {
-                url: "https://www.youtube.com/watch?v=xoYFoBtev8A",
-                label: "Manipulando o DOM na prática - Dogcode",
-                contentType: LinkContentType.WATCH,
-              },
-              {
-                url: "https://www.youtube.com/watch?v=aVB67Y31E4A",
-                label: "Manipulando a DOM com Vanilla JS - CodarMe",
-                contentType: LinkContentType.WATCH,
-              },
-              {
-                url: "https://www.youtube.com/watch?v=UftSB4DaRU4",
-                label:
-                  "Manipulação de DOM com JavaScript, do zero, na prática - Mayk Brito",
-                contentType: LinkContentType.WATCH,
-              },
-            ],
-          },
-          {
-            label: "Fetch API / Ajax (XHR)",
-            links: [
-              {
-                url: "https://www.youtube.com/watch?v=mmCuNbChZ9I",
-                label: "Como consumir de uma API usando a Fetch API - Huriel",
-                contentType: LinkContentType.WATCH,
-              },
-              {
-                url: "https://www.youtube.com/watch?v=qIGYM4S8x50",
-                label:
-                  "Aprenda Fetch Api de Javascript - Matheus Battisti (Hora de Codar)",
-                contentType: LinkContentType.WATCH,
-              },
-            ],
-          },
-          {
-            label: "ES6+ e JS Modular",
-            links: [
-              {
-                url: "https://www.youtube.com/watch?v=-Hc7V1R5bt0",
-                label:
-                  "Um guia para MÓDULOS JavaScript (ES6 Modules) - Flávio Coutinho",
-                contentType: LinkContentType.WATCH,
-              },
-              {
-                url: "https://www.youtube.com/watch?v=ihWA4tri1Fc&list=PLDqnSpzNKDvnU__J6Seq2iAhCaRr7nhMP",
-                label: "Javascript ES6+ (playlist) - Angelo Luz",
-                contentType: LinkContentType.WATCH,
-              },
-            ],
-          },
-          {
-            label:
-              "Conceitos de Hoisting, Event Bubbling, Escopo, Prototype, Shadow DOM, strict",
-            links: [
-              {
-                url: "https://www.youtube.com/watch?v=RtfBx90R070&list=PLlAbYrWSYTiPQ1BE8klOtheBC0mtL3hEi",
-                label: "Mini-curso JS Moderno (ES6) - Willian Justen",
-                contentType: LinkContentType.WATCH,
-              },
-            ],
-          },
-        ],
-      },
-    ],
+    items: [html, css, javascript],
   },
   {
     items: [
@@ -373,28 +127,7 @@ export const data: Level[] = [
           },
         ],
       },
-      {
-        label: "Python",
-        description:
-          "Python é uma linguagem de programação bem conhecida que é uma linguagem fortemente tipada e uma linguagem tipada dinamicamente. Sendo uma linguagem interpretada, o código é executado assim que é escrito e a sintaxe do Python permite escrever código de forma programática funcional, procedural ou orientada a objetos.",
-        children: [
-          {
-            label: "Python",
-            links: [
-              {
-                label: "Python Week - Linux Tips e Bruno Rocha",
-                url: "https://www.youtube.com/watch?v=spIRwXEF3XY&list=PLf-O3X2-mxDlfAv8IOfic1sHArdwrrkgh&index=2",
-                contentType: LinkContentType.WATCH,
-              },
-              {
-                label: "Selenium com Python - Dunossauro",
-                url: "https://www.youtube.com/watch?v=PHHXksljGNA&list=PLOQgLBuj2-3LqnMYKZZgzeC7CKCPF375B",
-                contentType: LinkContentType.WATCH,
-              },
-            ],
-          },
-        ],
-      },
+      python,
       {
         label: "Java",
         description:
@@ -428,55 +161,10 @@ export const data: Level[] = [
         description:
           "Go é uma linguagem de programação de código aberto suportada pelo Google. Go pode ser usado para escrever serviços em nuvem, ferramentas CLI, usadas para desenvolvimento de API e muito mais.",
         children: [
-          {
-            label: "Go",
-            links: [
-              {
-                label: "Aprenda Go",
-                url: "https://www.youtube.com/watch?v=WiGU_ZB-u0w&list=PLCKpcjBB_VlBsxJ9IseNxFllf-UFEXOdg",
-                contentType: LinkContentType.WATCH,
-              },
-              {
-                label: "Go 101 - Tiago Temporin",
-                url: "https://tiago-temporin.notion.site/Go-101-1fe9cef0ccc94ed3bed7f38e7dd5815d",
-                contentType: LinkContentType.VISIT,
-              },
-              {
-                label: "Aprenda Go - Ellen Korbes",
-                url: "https://www.youtube.com/c/AprendaGo/about",
-                contentType: LinkContentType.VISIT,
-              },
-              {
-                label: "Aprenda Go com Testes - Lauren Ferreira ",
-                url: "https://larien.gitbook.io/aprenda-go-com-testes/",
-                contentType: LinkContentType.VISIT,
-              },
-            ],
-          },
+          go ,
         ],
       },
-      {
-        label: "Rust",
-        description:
-          "Rust é uma linguagem de programação de sistemas moderna com foco em segurança, velocidade e simultaneidade. Ele atinge esses objetivos sendo seguro para a memória sem usar o garbage collector.",
-        children: [
-          {
-            label: "Rust",
-            links: [
-              {
-                label: "Aprenda com quem não sabe - Fernando Daciuk",
-                url: "https://www.youtube.com/watch?v=mWh49ZpmQwk&list=PLr4c053wuXU-igL9KSptwKK5XdyGX13FB",
-                contentType: LinkContentType.WATCH,
-              },
-              {
-                label: "A Linguagem de Programação Rust - Bruno Rocha",
-                url: "https://www.youtube.com/watch?v=K5Zt804f9tg&list=PLjSf4DcGBdiHC1rf9rXR9orU3wvGjgtpm",
-                contentType: LinkContentType.WATCH,
-              },
-            ],
-          },
-        ],
-      },
+      rust,
       {
         label: "Ruby",
         description:
@@ -631,50 +319,7 @@ export const data: Level[] = [
     ],
   },
   {
-    items: [
-      {
-        label: "Controle de Versão",
-        description:
-          "Os sistemas de controle de versão permitem rastrear alterações em sua base de código/arquivos ao longo do tempo. Eles permitem que você volte para alguma versão anterior da base de código sem problemas. Além disso, eles ajudam na colaboração com pessoas que trabalham no mesmo código – se você já colaborou com outras pessoas em um projeto, você já deve conhecer a frustração de copiar e mesclar as alterações de outra pessoa em sua base de código; sistemas de controle de versão permitem que você se livre desse problema.",
-        children: [
-          {
-            label: "Conceitos de Git",
-            links: [
-              {
-                url: "https://www.youtube.com/watch?v=IBClN6VpJDw&list=PLlAbYrWSYTiPA2iEiQ2PF_A9j__C4hi0A",
-                label: "Git e Github para Iniciantes - Willian Justen",
-                type: LinkType.FREE,
-                votes: 0,
-                contentType: LinkContentType.WATCH,
-              },
-              {
-                label:
-                  "Curso de Git e GitHub: grátis, prático e sem usar comandos no terminal - Curso em Vídeo",
-                url: "https://www.youtube.com/playlist?list=PLHz_AreHm4dm7ZULPAmadvNhH6vk9oNZA",
-                contentType: LinkContentType.WATCH,
-              },
-            ],
-          },
-          {
-            label: "Serviçoes de Hospedagem de Git",
-            children: [
-              {
-                label: "Github",
-                links: [
-                  {
-                    label: "Git e Github: Como subir meu primeiro projeto?",
-                    url: "https://www.youtube.com/watch?v=-6JwElEt49w",
-                    contentType: LinkContentType.WATCH,
-                  },
-                ],
-              },
-              { label: "Gitlab", links: [] },
-              { label: "Bitbucket", links: [] },
-            ],
-          },
-        ],
-      },
-    ],
+    items: [controleDeVersao],
   },
   {
     label: "Bancos de Dados",

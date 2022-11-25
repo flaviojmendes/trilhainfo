@@ -4,6 +4,10 @@ import {
   LinkContentType,
   RoadmapItem,
 } from "../entity/RoadmapItem";
+import { controleDeVersao } from "./items/controleDeVersao";
+import { css } from "./items/css";
+import { html } from "./items/html";
+import { javascript } from "./items/javascript";
 
 export const data: Level[] = [
   {
@@ -11,505 +15,14 @@ export const data: Level[] = [
     description:
       "Esse é o básico. Aprendendo esses conceitos você poderá começar a desenvolver um projeto.",
     items: [
-      {
-        label: "HTML",
-        description:
-          "HTML significa HyperText Markup Language. Ele é usado no frontend e fornece a estrutura da página da Web que você pode estilizar usando CSS e tornar interativa usando JavaScript.",
-        children: [
-          {
-            label: "O básico",
-            links: [
-              {
-                url: "https://www.youtube.com/watch?v=CZPa3-1BKnY&list=PLirko8T4cEmzrH3jIJi7R7ufeqcpXYaLa",
-                label: "Marco Bruno HTML e CSS Feliz",
-                votes: 0,
-                type: LinkType.FREE,
-                contentType: LinkContentType.WATCH,
-              },
-              {
-                url: "https://www.youtube.com/watch?v=IOfxZFgUjt8",
-                label: "HTML Básico Parte 1 - Dev Lucas Lopes",
-                votes: 0,
-                type: LinkType.FREE,
-                contentType: LinkContentType.WATCH,
-              },
-              {
-                url: "https://www.youtube.com/watch?v=jU7gyfsQx9Y",
-                label: "HTML Básico Parte 2 - Dev Lucas Lopes",
-                votes: 0,
-                type: LinkType.FREE,
-                contentType: LinkContentType.WATCH,
-              },
-              {
-                url: "https://www.youtube.com/watch?v=Ejkb_YpuHWs&list=PLHz_AreHm4dkZ9-atkcmcBaMZdmLHft8n",
-                label: "Curso Completo de HTML e CSS - Gustavo Guanabara",
-                votes: 0,
-                type: LinkType.FREE,
-                contentType: LinkContentType.WATCH,
-              },
-              {
-                url: "https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Structuring_a_page_of_content",
-                label: "Estruturando uma página de conteúdo (em inglês)",
-                votes: 0,
-                type: LinkType.FREE,
-                contentType: LinkContentType.PRACTICE,
-              },
-              {
-                url: "https://github.com/gustavoguanabara/html-css/tree/master/aulas-pdf",
-                label: "Aulas PDF do Curso Completo de HTML e CSS - Gustavo Guanabara",
-                votes: 0,
-                type: LinkType.FREE,
-                contentType: LinkContentType.PRACTICE,
-              },
-              {
-                url: "https://developer.mozilla.org/en-US/docs/Learn/CSS/Howto",
-                label: "Use CSS para resolver problemas comuns (em inglês)",
-                votes: 0,
-                type: LinkType.FREE,
-                contentType: LinkContentType.PRACTICE,
-              }
-            ],
-          },
-          {
-            label: "Formulários e Validações",
-            links: [
-              {
-                url: "https://www.youtube.com/watch?v=uvzFT-TCVFM",
-                label: "Validação de campos em formulários HTML - Edicursos",
-                votes: 0,
-                type: LinkType.FREE,
-                contentType: LinkContentType.WATCH,
-              },
-              {
-                url: "https://www.youtube.com/watch?v=wwqOJ2o84S4",
-                label: "Formulários com HTML e CSS - Rafaella Ballerini",
-                votes: 0,
-                type: LinkType.FREE,
-                contentType: LinkContentType.WATCH,
-              },
-              {
-                url: "https://www.freecodecamp.org/portuguese/news/validacao-de-dados-como-verificar-dados-enviados-pelo-usuario-em-formularios-html-utilizando-javascript/",
-                label: "Validação de dados em formulários HTML - com exemplos",
-                votes: 0,
-                type: LinkType.FREE,
-                contentType: LinkContentType.PRACTICE,
-              },
-              
-            ],
-          },
-          {
-            label: "Convenções e Melhores Práticas",
-            links: [
-              {
-                url: "https://www.youtube.com/watch?v=TBplwrsUj4s",
-                label:
-                  "Boas práticas para escrever um HTML profissional - Mayk Brito",
-                votes: 0,
-                type: LinkType.FREE,
-                contentType: LinkContentType.WATCH,
-              },
-              {
-                url: "https://blog.dankicode.com/melhores-praticas-desenvolvimento-web/#html",
-                label:
-                  "Melhores práticas de desenvolvimento Web – HTML e CSS",
-                votes: 0,
-                type: LinkType.FREE,
-                contentType: LinkContentType.READ,
-              },
-              
-            ],
-          },
-          {
-            label: "Acessibilidade",
-            links: [
-              {
-                url: "https://www.youtube.com/watch?v=ZfUwFCCCDh0",
-                label:
-                  "HTML e Acessibilidade. 6 erros comuns que até devs mais experientes podem cometer - Ser Frontend",
-                votes: 0,
-                type: LinkType.FREE,
-                contentType: LinkContentType.WATCH,
-              },
-              {
-                url: "https://www.youtube.com/watch?v=pOmdL9LzDJg",
-                label: "Acessibilidade em páginas web - Matheus Castiglioni",
-                votes: 0,
-                type: LinkType.FREE,
-                contentType: LinkContentType.WATCH,
-              },
-              {
-                url: "https://developer.mozilla.org/pt-BR/docs/Learn/Accessibility",
-                label: "Acessibilidade - vários guias",
-                votes: 0,
-                type: LinkType.FREE,
-                contentType: LinkContentType.READ,
-              },
-              {
-                url: "https://developer.mozilla.org/pt-BR/docs/Learn/Accessibility/Accessibility_troubleshooting",
-                label: "Avaliação: solucionando problemas de acessibilidade",
-                votes: 0,
-                type: LinkType.FREE,
-                contentType: LinkContentType.PRACTICE,
-              },
-            ],
-          },
-        ],
-      },
-      {
-        label: "CSS",
-        description:
-          "CSS ou Cascading Style Sheets é a linguagem usada para estilizar o frontend de qualquer site. CSS é uma tecnologia fundamental da World Wide Web, juntamente com HTML e JavaScript.",
-        children: [
-          {
-            label: "O básico",
-            links: [
-              {
-                url: "https://www.youtube.com/watch?v=5PS6ku8NzIE&list=PLirko8T4cEmx5eBb1-9j6T6Gl4aBtZ_5x",
-                label: "Pare de Chutar o CSS - Marco Bruno",
-                votes: 0,
-                type: LinkType.FREE,
-                contentType: LinkContentType.WATCH,
-              },
-              {
-                url: "https://www.youtube.com/watch?v=hSfSw4kJHxY&t=3s",
-                label: "Primeiros Passos CSS - Dev Lucas Lopes",
-                votes: 0,
-                type: LinkType.FREE,
-                contentType: LinkContentType.WATCH,
-              },
-              {
-                url: "https://docplayer.com.br/86848053-Exercicios-praticos-html5-css3-profa-flavia-pereira-de-carvalho.html",
-                label: "Exercícios práticos em HTML5 E CSS3 - Profa Flavia Pereira de Carvalho",
-                votes: 0,
-                type: LinkType.FREE,
-                contentType: LinkContentType.PRACTICE,
-              },
-              
-            ],
-          },
-          {
-            label: "Fazendo Layouts",
-            links: [
-              {
-                url: "https://www.udemy.com/course/flexbox-guia-completo/",
-                label: "Curso completo Flexbox - Udemy",
-                votes: 0,
-                type: LinkType.FREE,
-                contentType: LinkContentType.WATCH,
-              },
-              {
-                url: "https://www.udemy.com/course/css-grid-layout/",
-                label: "Curso completo CSS Grid - Udemy",
-                votes: 0,
-                type: LinkType.FREE,
-                contentType: LinkContentType.WATCH,
-              },
-              {
-                url: "https://www.youtube.com/watch?v=z1Hp72GVHJk&list=PLx4x_zx8csUhDWtEa-AtDAgSSmLObBVaz",
-                label: "CSS Flexbox - CFBCursos",
-                contentType: LinkContentType.WATCH,
-              },
-              {
-                url: "https://www.youtube.com/watch?v=P9TrFDNwor4",
-                label: "Tutorial de Flexbox - Matheus Battisti",
-                contentType: LinkContentType.WATCH,
-              },
-              {
-                url: "https://www.youtube.com/watch?v=8VapN6x897U",
-                label: "Aprenda CSS Grid em 30 minutos - Matheus Battisti",
-                contentType: LinkContentType.WATCH,
-              },
-              {
-                url: "https://www.youtube.com/watch?v=E1tR7sYMEN0",
-                label:
-                  "Pare de chutar e aprenda float e sua trupe - Marco Bruno",
-                contentType: LinkContentType.WATCH,
-              },
-              {
-                url: "https://www.youtube.com/watch?v=5PS6ku8NzIE",
-                label: "Pare de chutar e aprenda display: inline - Marco Bruno",
-                contentType: LinkContentType.WATCH,
-              },
-              {
-                url: "https://www.youtube.com/watch?v=HWfhwokS_qg",
-                label: "Pare de chutar e aprenda display: block - Marco Bruno",
-                contentType: LinkContentType.WATCH,
-              },
-              {
-                url: "https://www.youtube.com/watch?v=Yj9-N9BEVeM",
-                label:
-                  "Pare de chutar e aprenda display: inline-block - Marco Bruno",
-                contentType: LinkContentType.WATCH,
-              },
-              {
-                url: "http://www.regilan.com.br/wp-content/uploads/2018/08/INTEGRADO_ATIVIDADE_PRATICA_LAYOUT_POSICIONAMENTO.pdf",
-                label:
-                  "EXERCÍCIOS PRÁTICOS – POSICIONAMENTO E LAYOUT COM CSS",
-                contentType: LinkContentType.PRACTICE,
-              },
-              {
-                url: "http://www.regilan.com.br/wp-content/uploads/2016/08/Exercicios-Praticos-CSS-Estiliza%C3%A7%C3%A3o-de-Menus.pdf",
-                label:
-                  "LISTA DE EXERCÍCIOS 05 - CSS: ESTILIZAÇÃO DE MENUS",
-                contentType: LinkContentType.PRACTICE,
-              }             
-            ],
-          },
-          {
-            label: "Design Responsivo e Media Queries",
-            links: [
-              {
-                url: "https://www.youtube.com/watch?v=3rrX9w0HhZc",
-                label: "O que é Web Design Responsivo? - Chief of Design",
-                contentType: LinkContentType.WATCH,
-              },
-              {
-                url: "https://www.youtube.com/watch?v=H91DhKPjhPk",
-                label: "Responsividade na Prática - Mayk Brito",
-                contentType: LinkContentType.WATCH,
-              },
-            ],
-          },
-          {
-            label: "Animações",
-            links: [
-              {
-                url: "https://www.youtube.com/watch?v=eTELLTacg-8",
-                label: "Minicurso Animações CSS - dpw",
-                votes: 0,
-                type: LinkType.FREE,
-                contentType: LinkContentType.WATCH,
-              },
-              {
-                url: "https://www.w3schools.com/css/css_exercises.asp",
-                label: "Exercícios de CSS",
-                votes: 0,
-                type: LinkType.FREE,
-                contentType: LinkContentType.PRACTICE,
-              },
-              
-            ],
-          },
-        ],
-      },
-      {
-        label: "Javascript",
-        description:
-          "JavaScript permite adicionar interatividade às suas páginas. Exemplos comuns que você pode ter visto nos sites são controles deslizantes, interações de clique, pop-ups e assim por diante.",
-        children: [
-          {
-            label: "Sintaxe e o Básico",
-            links: [
-              {
-                url: "https://www.youtube.com/watch?v=bXim6-jCflk&list=PLz_pSrQW_5xJexe74z50HXLCkYDKfks8S",
-                label: "Desafios Javascript - Fabio Bergmann",
-                votes: 0,
-                type: LinkType.FREE,
-                contentType: LinkContentType.WATCH,
-              },
-              {
-                url: "https://www.youtube.com/watch?v=BXqUH86F-kA&list=PLntvgXM11X6pi7mW0O4ZmfUI1xDSIbmTm",
-                label: "Curso Grátis de JavaScript Moderno - Gustavo Guanabara",
-                votes: 0,
-                type: LinkType.FREE,
-                contentType: LinkContentType.WATCH,
-              },
-              {
-                url: "https://gustavoguanabara.github.io/javascript/exercicios/",
-                label: "Exercícios de JavaScript- Gustavo Guanabara",
-                votes: 0,
-                type: LinkType.FREE,
-                contentType: LinkContentType.PRACTICE,
-              },              
-            ],
-          },
-          {
-            label: "Manipulação de DOM",
-            links: [
-              {
-                url: "https://www.youtube.com/watch?v=xoYFoBtev8A",
-                label: "Manipulando o DOM na prática - Dogcode",
-                contentType: LinkContentType.WATCH,
-              },
-              {
-                url: "https://www.youtube.com/watch?v=aVB67Y31E4A",
-                label: "Manipulando a DOM com Vanilla JS - CodarMe",
-                contentType: LinkContentType.WATCH,
-              },
-              {
-                url: "https://www.youtube.com/watch?v=UftSB4DaRU4",
-                label:
-                  "Manipulação de DOM com JavaScript, do zero, na prática - Mayk Brito",
-                contentType: LinkContentType.WATCH,
-              },
-              {
-                url: "https://www.computersciencemaster.com.br/exercicio-manipulacao-dom-javascript/",
-                label:
-                  "Exercícios de manipulação do DOM usando Javascript - Vinicius dos Santos",
-                contentType: LinkContentType.PRACTICE,
-              },
-              {
-                url: "https://www.w3schools.com/js/js_exercises.asp",
-                label:
-                  "Exercícios de JavaScript (em inglês)",
-                contentType: LinkContentType.PRACTICE,
-              },              
-            ],
-          },
-          {
-            label: "Fetch API / Ajax (XHR)",
-            links: [
-              {
-                url: "https://www.youtube.com/watch?v=mmCuNbChZ9I",
-                label: "Como consumir de uma API usando a Fetch API - Huriel",
-                contentType: LinkContentType.WATCH,
-              },
-              {
-                url: "https://www.youtube.com/watch?v=qIGYM4S8x50",
-                label:
-                  "Aprenda Fetch Api de Javascript - Matheus Battisti (Hora de Codar)",
-                contentType: LinkContentType.WATCH,
-              },
-              {
-                url: "https://www.devmedia.com.br/javascript-fetch/41206#2",
-                label:
-                  "JavaScript: Fetch (com exemplos)",
-                contentType: LinkContentType.READ,
-              },              
-            ],
-          },
-          {
-            label: "ES6+ e JS Modular",
-            links: [
-              {
-                url: "https://www.youtube.com/watch?v=-Hc7V1R5bt0",
-                label:
-                  "Um guia para MÓDULOS JavaScript (ES6 Modules) - Flávio Coutinho",
-                contentType: LinkContentType.WATCH,
-              },
-              {
-                url: "https://www.youtube.com/watch?v=ihWA4tri1Fc&list=PLDqnSpzNKDvnU__J6Seq2iAhCaRr7nhMP",
-                label: "Javascript ES6+ (playlist) - Angelo Luz",
-                contentType: LinkContentType.WATCH,
-              },
-              {
-                url: "https://medium.com/trainingcenter/entendendo-m%C3%B3dulos-no-javascript-73bce1d64dbf",
-                label: "Entendendo módulos ES6 - Lucas Santos",
-                contentType: LinkContentType.READ,
-              },
-              
-            ],
-          },
-          {
-            label:
-              "Conceitos de Hoisting, Event Bubbling, Escopo, Prototype, Shadow DOM, strict",
-            links: [
-              {
-                url: "https://www.youtube.com/watch?v=RtfBx90R070&list=PLlAbYrWSYTiPQ1BE8klOtheBC0mtL3hEi",
-                label: "Mini-curso JS Moderno (ES6) - Willian Justen",
-                contentType: LinkContentType.WATCH,
-              },
-              {
-                url: "https://www.questoesestrategicas.com.br/questoes/busca/assunto/javascript",
-                label: "Questões de JavaScript",
-                contentType: LinkContentType.PRACTICE,
-              },
-              
-            ],
-          },
-        ],
-      },
+      html,
+      css,
+      javascript,
     ],
   },
   {
     items: [
-      {
-        label: "Controle de Versão",
-        description:
-          "Os sistemas de controle de versão permitem rastrear alterações em sua base de código/arquivos ao longo do tempo. Eles permitem que você volte para alguma versão anterior da base de código sem problemas. Além disso, eles ajudam na colaboração com pessoas que trabalham no mesmo código – se você já colaborou com outras pessoas em um projeto, você já deve conhecer a frustração de copiar e mesclar as alterações de outra pessoa em sua base de código; sistemas de controle de versão permitem que você se livre desse problema.",
-        children: [
-          {
-            label: "Conceitos de Git",
-            links: [
-              {
-                url: "https://www.youtube.com/watch?v=IBClN6VpJDw&list=PLlAbYrWSYTiPA2iEiQ2PF_A9j__C4hi0A",
-                label: "Git e Github para Iniciantes - Willian Justen",
-                type: LinkType.FREE,
-                votes: 0,
-                contentType: LinkContentType.WATCH,
-              },
-              {
-                url: "https://www.youtube.com/playlist?list=PLlAbYrWSYTiNqugqFFWWsgONJsmc3eMpg",
-                label: "Git e Github na Vida Real - Willian Justen",
-                type: LinkType.FREE,
-                votes: 0,
-                contentType: LinkContentType.WATCH,
-              },
-              {
-                url: "https://www.youtube.com/watch?v=6Czd1Yetaac&t=269s",
-                label: "Entendendo GIT - Fábio Akita",
-                type: LinkType.FREE,
-                votes: 0,
-                contentType: LinkContentType.WATCH,
-              },
-              {
-                url: "https://www.hostinger.com.br/tutoriais/comandos-basicos-de-git/#gref",
-                label: "Comandos Básicos de GIT - Rafael H.",
-                type: LinkType.FREE,
-                votes: 0,
-                contentType: LinkContentType.READ,
-              }, 
-              {
-                url: "https://www.w3schools.com/git/git_exercises.asp ",
-                label: "Exercícios Git",
-                type: LinkType.FREE,
-                votes: 0,
-                contentType: LinkContentType.PRACTICE,
-              },                           
-            ],
-          },
-          {
-            label: "Serviços de Hospedagem de Git",
-            children: [
-              {
-                label: "Github",
-                links: [
-                  {
-                    url: "https://www.youtube.com/watch?v=kB5e-gTAl_s",
-                    label:
-                      "Curso de Git e Github COMPLETO 2021 [Iniciantes] + Desafios + Muita Prática - Dev Aprender",
-                    type: LinkType.FREE,
-                    votes: 0,
-                    contentType: LinkContentType.WATCH,
-                  },
-                ],
-              },
-              { 
-                label: "Gitlab", 
-                links: [
-                  {
-                    url: "https://blog.engdb.com.br/gitlab-ci/",
-                    label:
-                      "O que é e como usar o GitLab Ci?",
-                    type: LinkType.FREE,
-                    votes: 0,
-                    contentType: LinkContentType.READ,
-                  },
-                  {
-                    url: "https://medium.com/ekode/primeiros-passos-com-git-e-gitlab-criando-seu-primeiro-projeto-89f9001614b0",
-                    label:
-                      "Primeiros passos com Git e GitLab: criando seu primeiro projeto",
-                    type: LinkType.FREE,
-                    votes: 0,
-                    contentType: LinkContentType.READ,
-                  },
-              ], 
-              },
-              { label: "Bitbucket", links: [] },
-            ],
-          },
-        ],
-      },
+      controleDeVersao,
     ],
   },
   {
@@ -524,13 +37,14 @@ export const data: Level[] = [
             links: [
               {
                 url: "https://www.youtube.com/watch?v=KvPtIl-Gz2E&list=PLHz_AreHm4dlaTyjolzCFC6IjLzO8O0XV",
-                label: "Curso Básico de Segurança da Informação - Gustavo Guanabara",
+                label:
+                  "Curso Básico de Segurança da Informação - Gustavo Guanabara",
                 contentType: LinkContentType.WATCH,
-              }
-            ]
+              },
+            ],
           },
-          { 
-            label: "HTTPS", 
+          {
+            label: "HTTPS",
             links: [
               {
                 url: "https://www.techtudo.com.br/noticias/2014/02/o-que-e-https-e-como-ele-pode-proteger-sua-navegacao-na-internet.ghtml",
@@ -538,9 +52,7 @@ export const data: Level[] = [
                   "O que é HTTPS e como ele pode proteger a sua navegação na Internet",
                 contentType: LinkContentType.READ,
               },
-              
-
-            ] 
+            ],
           },
           {
             label: "CORS",
@@ -557,18 +69,17 @@ export const data: Level[] = [
                   "O que é CORS e como resolver os principias erros - Gabriel Machado",
                 contentType: LinkContentType.READ,
               },
-              
             ],
           },
-          { 
-            label: "Content Security Policy", 
+          {
+            label: "Content Security Policy",
             links: [
               {
                 url: "https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Headers/Content-Security-Policy",
                 label: "Content-Security-Policy",
                 contentType: LinkContentType.READ,
               },
-            ] 
+            ],
           },
           {
             label: "Helmet",
@@ -600,10 +111,10 @@ export const data: Level[] = [
               },
               {
                 url: "https://tecnoblog.net/responde/o-que-sao-cookies-como-limpar-ativar-e-bloquear/",
-                label: "O que são cookies? [como limpar, ativar e bloquear] - Ronaldo Gogoni",
+                label:
+                  "O que são cookies? [como limpar, ativar e bloquear] - Ronaldo Gogoni",
                 contentType: LinkContentType.READ,
               },
-              
             ],
           },
         ],
@@ -663,7 +174,6 @@ export const data: Level[] = [
                   "Editor e compilador online para praticar a sintaxe do SASS",
                 contentType: LinkContentType.PRACTICE,
               },
-              
             ],
           },
           {
@@ -678,7 +188,7 @@ export const data: Level[] = [
                 url: "https://tableless.com.br/comecando-desenvolver-com-o-postcss/",
                 label: "Começando desenvolver com o PostCSS",
                 contentType: LinkContentType.READ,
-              },              
+              },
             ],
           },
           {
@@ -701,16 +211,16 @@ export const data: Level[] = [
       {
         label: "Task Runners",
         children: [
-          { 
-            label: "npm scripts", 
+          {
+            label: "npm scripts",
             links: [
               {
                 url: "https://acervolima.com/introducao-aos-scripts-npm/",
                 label: "Introdução aos scripts NPM",
                 contentType: LinkContentType.READ,
-              },            
-            ] 
-          }
+              },
+            ],
+          },
         ],
       },
       {
@@ -718,20 +228,22 @@ export const data: Level[] = [
         description:
           "Module Bundlers são ferramentas utilizadas para empacotar todas as dependências e módulos de um projeto em um novo arquivo capaz de ser processado pelo navegador.",
         children: [
-          { 
-            label: "Webpack", 
+          {
+            label: "Webpack",
             links: [
               {
                 url: "https://www.youtube.com/watch?v=sU3W2ZTt-8I",
-                label: "Webpack - Curso rápido para iniciantes - Ricardo Sanches",
+                label:
+                  "Webpack - Curso rápido para iniciantes - Ricardo Sanches",
                 contentType: LinkContentType.WATCH,
               },
               {
                 url: "https://www.youtube.com/watch?v=u0euWX6CeIg",
-                label: "Webpack - Aprenda de uma vez por todas - Gean Developer",
+                label:
+                  "Webpack - Aprenda de uma vez por todas - Gean Developer",
                 contentType: LinkContentType.WATCH,
-              },              
-            ] 
+              },
+            ],
           },
           {
             label: "esbuild",
@@ -741,8 +253,8 @@ export const data: Level[] = [
                 label: "Getting started with esbuild - LogRocket",
                 contentType: LinkContentType.READ,
               },
-            ]
-          },          
+            ],
+          },
           { label: "Rollup", links: [] },
           { label: "Parcel", links: [] },
           {
@@ -757,18 +269,20 @@ export const data: Level[] = [
               },
               {
                 url: "https://dev.to/lixeletto/vite-js-o-build-tool-que-vai-facilitar-a-sua-vida-15ho",
-                label: "Vite.js - O build tool que vai facilitar a sua vida - Camilo Micheletto",
+                label:
+                  "Vite.js - O build tool que vai facilitar a sua vida - Camilo Micheletto",
                 votes: 0,
                 type: LinkType.FREE,
                 contentType: LinkContentType.READ,
               },
               {
                 url: "https://eduardo-diogo.medium.com/vite-js-killer-na-cria%C3%A7%C3%A3o-de-frontend-9b083f8a77e6",
-                label: "ViteJS, O Killer na criação de frontend - Eduardo Garcia",
+                label:
+                  "ViteJS, O Killer na criação de frontend - Eduardo Garcia",
                 votes: 0,
                 type: LinkType.FREE,
                 contentType: LinkContentType.READ,
-              }              
+              },
             ],
           },
         ],
@@ -783,7 +297,8 @@ export const data: Level[] = [
             links: [
               {
                 url: "https://www.youtube.com/watch?v=uem6ChxImEQ",
-                label: "Como instalar o Prettier | CURSO DE HTML E CSS - Front Beginners",
+                label:
+                  "Como instalar o Prettier | CURSO DE HTML E CSS - Front Beginners",
                 votes: 0,
                 type: LinkType.FREE,
                 contentType: LinkContentType.WATCH,
@@ -794,11 +309,11 @@ export const data: Level[] = [
                 votes: 0,
                 type: LinkType.FREE,
                 contentType: LinkContentType.READ,
-              },             
-            ]
+              },
+            ],
           },
-          { 
-            label: "ESLint", 
+          {
+            label: "ESLint",
             links: [
               {
                 url: "https://blog.cod3r.com.br/organizacao-e-padronizacao-com-eslint/",
@@ -814,7 +329,7 @@ export const data: Level[] = [
                 type: LinkType.FREE,
                 contentType: LinkContentType.WATCH,
               },
-            ] 
+            ],
           },
           { label: "StandardJS", links: [] },
         ],
@@ -858,7 +373,6 @@ export const data: Level[] = [
                 label: "Tutorial: Introdução ao React",
                 contentType: LinkContentType.READ,
               },
-              
             ],
           },
           {
@@ -909,8 +423,7 @@ export const data: Level[] = [
                 label: "Exercícios de React",
                 contentType: LinkContentType.PRACTICE,
               },
-              
-            ]
+            ],
           },
           {
             label: "Redux",
@@ -931,7 +444,7 @@ export const data: Level[] = [
                 label:
                   "Uma lista extensa de perguntas sobre React JS... - Laura M.",
                 contentType: LinkContentType.PRACTICE,
-              },              
+              },
             ],
           },
         ],
@@ -1011,7 +524,7 @@ export const data: Level[] = [
                 url: "https://www.devmedia.com.br/vue-js-tutorial/38042",
                 label: "Vue.js Tutorial",
                 contentType: LinkContentType.READ,
-              },              
+              },
             ],
           },
           {
@@ -1084,27 +597,26 @@ export const data: Level[] = [
               },
             ],
           },
-          { 
-            label: "Módulos CSS", 
+          {
+            label: "Módulos CSS",
             links: [
               {
                 url: "https://medium.com/tableless/css-modules-m%C3%B3dulos-no-seu-css-hoje-cb81c4d51e16",
                 label:
                   "CSS Modules: Módulos no seu CSS hoje - Pedro Tacla Yamada",
                 contentType: LinkContentType.READ,
-              },              
-            ] 
+              },
+            ],
           },
           { label: "Styled JSX", links: [] },
-          { 
-            label: "Emotion", 
+          {
+            label: "Emotion",
             links: [
               {
                 url: "https://emotion.sh/docs/introduction",
-                label:
-                  "Introdução ao Emotion (documetação em inglês)",
+                label: "Introdução ao Emotion (documetação em inglês)",
                 contentType: LinkContentType.READ,
-              },              
+              },
             ],
           },
         ],
@@ -1117,8 +629,8 @@ export const data: Level[] = [
       {
         label: "Web Components",
         children: [
-          { 
-            label: "Templates HTML", 
+          {
+            label: "Templates HTML",
             links: [
               {
                 url: "https://rockcontent.com/br/blog/template/",
@@ -1127,8 +639,8 @@ export const data: Level[] = [
                 votes: 0,
                 type: LinkType.FREE,
                 contentType: LinkContentType.READ,
-              }
-            ] 
+              },
+            ],
           },
           {
             label: "Custom Elements",
@@ -1188,7 +700,7 @@ export const data: Level[] = [
                 label: "Bootstrap 5 exercícios",
                 url: "https://www.w3schools.com/bootstrap5/bootstrap_exercises.php",
                 contentType: LinkContentType.PRACTICE,
-              },              
+              },
             ],
           },
           {
@@ -1201,12 +713,10 @@ export const data: Level[] = [
                 contentType: LinkContentType.WATCH,
               },
               {
-                label:
-                  "Bulma | Introdução",
+                label: "Bulma | Introdução",
                 url: "https://acervolima.com/bulma-introducao/",
                 contentType: LinkContentType.READ,
               },
-              
             ],
           },
           {
@@ -1225,7 +735,7 @@ export const data: Level[] = [
                 votes: 0,
                 type: LinkType.FREE,
                 contentType: LinkContentType.READ,
-              },              
+              },
             ],
           },
           {
@@ -1238,9 +748,10 @@ export const data: Level[] = [
               },
               {
                 url: " https://medium.com/igor-js/chakra-ui-facilitando-o-front-end-javascript-aabcade75f09",
-                label: "Chakra UI — Facilidade no front-end JavaScript - Igor Lourenço",
+                label:
+                  "Chakra UI — Facilidade no front-end JavaScript - Igor Lourenço",
                 contentType: LinkContentType.READ,
-              },             
+              },
             ],
           },
           {
@@ -1255,7 +766,7 @@ export const data: Level[] = [
                 url: "https://blog.rocketseat.com.br/react-material-ui/",
                 label: "Integração do Material UI com ReactJS",
                 contentType: LinkContentType.READ,
-              },              
+              },
             ],
           },
           {
@@ -1307,7 +818,6 @@ export const data: Level[] = [
                 type: LinkType.FREE,
                 contentType: LinkContentType.READ,
               },
-              
             ],
           },
           {
@@ -1322,11 +832,12 @@ export const data: Level[] = [
               },
               {
                 url: "https://blog.rocketseat.com.br/introducao-a-testing-library-testando-componentes-react/",
-                label: "Introdução à Testing Library — Testando componentes React",
+                label:
+                  "Introdução à Testing Library — Testando componentes React",
                 votes: 0,
                 type: LinkType.FREE,
                 contentType: LinkContentType.READ,
-              },              
+              },
             ],
           },
           {
@@ -1348,12 +859,12 @@ export const data: Level[] = [
               },
               {
                 url: "https://softdesign.com.br/blog/cypress_passo_a_passo_para_comecar_a_usar/",
-                label: "Cypress: passo a passo para começar a usar - Ederson Meira dos Santos",
+                label:
+                  "Cypress: passo a passo para começar a usar - Ederson Meira dos Santos",
                 votes: 0,
                 type: LinkType.FREE,
                 contentType: LinkContentType.READ,
-              },             
-             
+              },
             ],
           },
           {
@@ -1372,7 +883,7 @@ export const data: Level[] = [
                 votes: 0,
                 type: LinkType.FREE,
                 contentType: LinkContentType.READ,
-              },              
+              },
             ],
           },
           {
@@ -1420,11 +931,11 @@ export const data: Level[] = [
                 votes: 0,
                 type: LinkType.FREE,
                 contentType: LinkContentType.PRACTICE,
-              },             
+              },
             ],
           },
-          { 
-            label: "Flow", 
+          {
+            label: "Flow",
             links: [
               {
                 url: "https://pt-br.reactjs.org/docs/static-type-checking.html",
@@ -1432,8 +943,8 @@ export const data: Level[] = [
                 votes: 0,
                 type: LinkType.FREE,
                 contentType: LinkContentType.READ,
-              },              
-            ] 
+              },
+            ],
           },
         ],
       },
@@ -1448,8 +959,8 @@ export const data: Level[] = [
           "Progressive Web Apps (PWAs) são sites que são progressivamente aprimorados para funcionar como aplicativos nativos instalados em plataformas de suporte, enquanto funcionam como sites normais em outros navegadores.",
         children: [
           { label: "Storage", links: [] },
-          { 
-            label: "Web Sockets", 
+          {
+            label: "Web Sockets",
             links: [
               {
                 url: "https://developer.mozilla.org/pt-BR/docs/Web/API/WebSockets_API",
@@ -1457,11 +968,11 @@ export const data: Level[] = [
                 votes: 0,
                 type: LinkType.FREE,
                 contentType: LinkContentType.READ,
-              },              
-            ] 
+              },
+            ],
           },
-          { 
-            label: "Service Workers", 
+          {
+            label: "Service Workers",
             links: [
               {
                 url: "https://womakerscode.gitbook.io/pwa-workshop/2.-instalando-o-service-worker",
@@ -1469,8 +980,8 @@ export const data: Level[] = [
                 votes: 0,
                 type: LinkType.FREE,
                 contentType: LinkContentType.READ,
-              },  
-            ] 
+              },
+            ],
           },
           { label: "Localização", links: [] },
           { label: "Notificações", links: [] },
@@ -1488,23 +999,23 @@ export const data: Level[] = [
         description:
           "SSR é a sigla para Server Side Rendering, ou Renderização do Lado do Servidor. O SSR vem para solucionar um pouco dos problemas das aplicações SPAs, tentando manter suas principais vantagens.",
         children: [
-          { 
-            label: "React - Next.js", 
+          {
+            label: "React - Next.js",
             links: [
               {
                 url: "https://www.youtube.com/watch?v=PHKaJlAeNLk",
-                label: "Next.JS e React: Curso Intensivo - Masterclass #01 [2021] - Cod3r Cursos",
+                label:
+                  "Next.JS e React: Curso Intensivo - Masterclass #01 [2021] - Cod3r Cursos",
                 votes: 0,
                 type: LinkType.FREE,
                 contentType: LinkContentType.WATCH,
-              },             
-
-            ]
+              },
+            ],
           },
           { label: "React - After.js", links: [] },
           { label: "Angular - Universal", links: [] },
-          { 
-            label: "Vue.js - Nuxt.js", 
+          {
+            label: "Vue.js - Nuxt.js",
             links: [
               {
                 url: "https://www.youtube.com/watch?v=jw6tRUGkpmo",
@@ -1512,9 +1023,8 @@ export const data: Level[] = [
                 votes: 0,
                 type: LinkType.FREE,
                 contentType: LinkContentType.WATCH,
-              }, 
-              
-            ] 
+              },
+            ],
           },
         ],
       },
@@ -1531,11 +1041,12 @@ export const data: Level[] = [
             label: "Introdução",
             links: [
               {
-                label: "Curso Completo de GraphQL Básico - Washington Developer",
+                label:
+                  "Curso Completo de GraphQL Básico - Washington Developer",
                 url: "https://www.youtube.com/watch?v=RyqLvFhPNy8&list=PLK5FPzMuRKlyeZYiJNA54j4lpfxHGlz0j&index=1",
                 contentType: LinkContentType.WATCH,
               },
-            ]
+            ],
           },
           {
             label: "Apollo",
@@ -1547,8 +1058,8 @@ export const data: Level[] = [
               },
             ],
           },
-          { 
-            label: "Relay Modern", 
+          {
+            label: "Relay Modern",
             links: [
               {
                 url: "https://relay.dev/",
@@ -1556,8 +1067,8 @@ export const data: Level[] = [
                 votes: 0,
                 type: LinkType.FREE,
                 contentType: LinkContentType.READ,
-              },             
-            ] 
+              },
+            ],
           },
         ],
       },
@@ -1602,27 +1113,27 @@ export const data: Level[] = [
               },
             ],
           },
-          { 
-            label: "Vuepress", 
+          {
+            label: "Vuepress",
             links: [
               {
                 label: "Conheça o Vuepress",
                 url: "https://vuejsbrasil.org/conheca-o-vuepress/",
                 contentType: LinkContentType.READ,
-              },           
-            ] 
+              },
+            ],
           },
           { label: "Jekyll", links: [] },
           { label: "Hugo", links: [] },
-          { 
-            label: "Gridsome", 
+          {
+            label: "Gridsome",
             links: [
               {
                 label: "Introdução ao Gridsome",
                 url: "https://br.atsit.in/archives/24295",
                 contentType: LinkContentType.READ,
-              },              
-            ] 
+              },
+            ],
           },
           { label: "Eleventy", links: [] },
         ],
@@ -1653,18 +1164,18 @@ export const data: Level[] = [
                 label: "Aprenda React Native - Canal Geek Dev",
                 url: "https://www.youtube.com/watch?v=DmUUsTC2YkA&list=PL8fIRnD1uUSnRqz3E2caAWDqbtIFXmNtW",
                 contentType: LinkContentType.WATCH,
-              }
+              },
             ],
           },
-          { 
-            label: "NativeScript", 
+          {
+            label: "NativeScript",
             links: [
               {
                 label: "Documentação",
                 url: "https://nativescript-vue.org/pt-br/docs/introduction/",
                 contentType: LinkContentType.READ,
-              },              
-            ] 
+              },
+            ],
           },
           {
             label: "Flutter",
@@ -1681,8 +1192,8 @@ export const data: Level[] = [
               },
             ],
           },
-          { 
-            label: "Ionic", 
+          {
+            label: "Ionic",
             links: [
               {
                 label: "Introdução ao Ionic",
@@ -1693,8 +1204,8 @@ export const data: Level[] = [
                 label: "Ionic // Dicionário do Programador",
                 url: "https://www.youtube.com/watch?v=5QqvO_9LPzQ",
                 contentType: LinkContentType.WATCH,
-              },             
-            ] 
+              },
+            ],
           },
         ],
       },
@@ -1721,10 +1232,10 @@ export const data: Level[] = [
                 contentType: LinkContentType.WATCH,
               },
               {
-                label:"Documentação",
+                label: "Documentação",
                 url: "https://www.electronjs.org/pt/docs/latest",
                 contentType: LinkContentType.READ,
-              },              
+              },
             ],
           },
         ],
@@ -1754,7 +1265,7 @@ export const data: Level[] = [
                 votes: 0,
                 type: LinkType.FREE,
                 contentType: LinkContentType.WATCH,
-              },              
+              },
             ],
           },
           {
@@ -1813,7 +1324,8 @@ export const data: Level[] = [
               },
               {
                 url: "https://www.youtube.com/watch?v=v8LWhWVW9Ek",
-                label: "Guia SEO Completo (Básico ao Avançado) para Desenvolvedor - Rafael Perozin",
+                label:
+                  "Guia SEO Completo (Básico ao Avançado) para Desenvolvedor - Rafael Perozin",
                 votes: 0,
                 type: LinkType.FREE,
                 contentType: LinkContentType.WATCH,
