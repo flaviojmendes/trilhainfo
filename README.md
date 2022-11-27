@@ -16,7 +16,7 @@ A ideia é inicialmente engajar a comunidade e então podemos ir evoluindo o por
 
 
 ## Traduções
-<img src = "https://i.imgur.com/lpP9V2p.png" alt="Readme em Inglês" width="16" height="15">・<b>Inglês — </b> [Clique aqui](https://github.com/flaviojmendes/trilhainfo/translation/readme-en.md)<br>
+<img src = "https://i.imgur.com/lpP9V2p.png" alt="Readme em Inglês" width="16" height="15">・<b>Inglês — </b> [Clique aqui](https://github.com/flaviojmendes/trilhainfo/blob/main/translation/readme-en.md)<br>
 
 
 ## Quem já contribuiu:
