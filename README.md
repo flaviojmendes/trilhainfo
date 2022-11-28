@@ -15,16 +15,20 @@ Atualmente estou pedindo contribuições para o Roadmap de Frontend. Basta manda
 A ideia é inicialmente engajar a comunidade e então podemos ir evoluindo o portal à medida em que vamos tendo a necessidade. 😀
 
 
+## Traduções
+<img src = "https://i.imgur.com/lpP9V2p.png" alt="Readme em Inglês" width="16" height="15">・<b>Inglês — </b> [Clique aqui](https://github.com/flaviojmendes/trilhainfo/blob/main/translation/readme-en.md)<br>
+
+
 ## Quem já contribuiu:
 
 <a href = "https://github.com/flaviojmendes/trilhainfo/graphs/contributors">
   <img src = "https://contrib.rocks/image?repo=flaviojmendes/trilhainfo"/>
 </a>
 
-## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+## Contribuição
+Pull requests são bem-vindos. Para grandes mudanças, por favor, abra primeiro uma issue para discutir o que gostaria de mudar.
 
-Please make sure to update tests as appropriate.
+Por favor, certifique-se de atualizar os testes conforme apropriado.
 
-## License
+## Licença
 [MIT](https://choosealicense.com/licenses/mit/)
