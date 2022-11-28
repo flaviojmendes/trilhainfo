@@ -166,14 +166,7 @@ export const data: Level[] = [
         ],
       },
       rust,
-      {
-        label: "Ruby",
-        description:
-          "Ruby é uma linguagem de programação interpretada de alto nível que combina Perl, Smalltalk, Eiffel, Ada e Lisp. Ruby foca na simplicidade e produtividade junto com uma sintaxe que lê e escreve naturalmente. Ruby suporta programação procedural, orientada a objetos e funcional e é tipada dinamicamente.",
-        children: [
-          ruby ,
-        ],
-      },
+      ruby,
       {
         label: "PHP",
         description:
