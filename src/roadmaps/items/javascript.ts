@@ -5,7 +5,7 @@ import {
 } from "../../entity/RoadmapItem";
 
 export const javascript: RoadmapItem = {
-  label: "Javascript",
+  label: "JavaScript",
   description:
     "JavaScript permite adicionar interatividade às suas páginas. Exemplos comuns que você pode ter visto nos sites são controles deslizantes, interações de clique, pop-ups e assim por diante.",
   children: [

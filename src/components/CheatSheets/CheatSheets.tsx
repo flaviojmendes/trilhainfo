@@ -13,7 +13,7 @@ export default function CheatSheets() {
 
   return (
     <>
-      <section className="flex flex-col items-stretch justify-center bg-[#403C3B] my-10 py-10 mx-0 w-full shadow-inner">
+      <section className="flex flex-col items-stretch justify-center bg-dark-brown mb-10 py-10 mx-0 w-full shadow-inner">
         <h2
           className="text-center my-6 txt-handwritten text-3xl c-yellow"
           aria-labelledby="cheat"

@@ -88,7 +88,7 @@ export default function Roadmap(props: Props) {
   function isAllContentRead(label: string, contentLength: number) {
     if (selectedItems) {
       const contentRead = Object.keys(selectedItems).filter(
-        (key) => key.includes("-" + label) && selectedItems[key] === true
+        (key) => key.endsWith("-" + label) && selectedItems[key] === true
       );
       return contentRead.length === contentLength;
     }
