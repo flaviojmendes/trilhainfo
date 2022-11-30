@@ -12,6 +12,7 @@ import { javascript } from "./items/javascript";
 import { python } from "./items/python";
 import { go } from "./items/go";
 import { rust } from "./items/rust";
+import { ruby } from "./items/ruby";
 import { db } from "./items/db";
 import { SO } from "./items/SO";
 import { cloudComputing } from "./items/cloudComputing";
@@ -85,12 +86,7 @@ export const data: Level[] = [
         children: [go],
       },
       rust,
-      {
-        label: "Ruby",
-        description:
-          "Ruby é uma linguagem de programação interpretada de alto nível que combina Perl, Smalltalk, Eiffel, Ada e Lisp. Ruby foca na simplicidade e produtividade junto com uma sintaxe que lê e escreve naturalmente. Ruby suporta programação procedural, orientada a objetos e funcional e é tipada dinamicamente.",
-        children: [{ label: "O básico", links: [] }],
-      },
+      ruby,
       {
         label: "PHP",
         description:
