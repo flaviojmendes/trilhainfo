@@ -10,8 +10,12 @@ import { css } from "./items/css";
 import { html } from "./items/html";
 import { javascript } from "./items/javascript";
 import { python } from "./items/python";
-import { go } from "./items/go"
+import { go } from "./items/go";
 import { rust } from "./items/rust";
+import { db } from "./items/db";
+import { SO } from "./items/SO";
+import { cloudComputing } from "./items/cloudComputing";
+import { containers } from "./items/containers";
 export const data: Level[] = [
   {
     label: "Conhecimento básico de Frontend",
@@ -20,89 +24,7 @@ export const data: Level[] = [
     items: [html, css, javascript],
   },
   {
-    items: [
-      {
-        label: "SO e Conhecimentos Gerais",
-        description:
-          "Sistema Operacional é um programa que gerencia os recursos de um computador, principalmente a alocação desses recursos entre outros programas. Os recursos típicos incluem a unidade central de processamento (CPU), memória do computador, armazenamento de arquivos, dispositivos de entrada/saída (E/S) e conexões de rede.",
-        children: [
-          {
-            label: "Uso do Terminal",
-            links: [
-              {
-                label: "Aprenda os comandos básicos do Linux - Diolinux",
-                url: "https://www.youtube.com/watch?v=JEhVB4VHsTI",
-                contentType: LinkContentType.WATCH,
-              },
-              {
-                label: "Linux Week - Linux Tips",
-                url: "https://www.youtube.com/watch?v=zGE4UxYndrk&list=PLf-O3X2-mxDnl7LhhjhEgbo2etWKkJ0GV",
-                contentType: LinkContentType.WATCH,
-              },
-            ],
-          },
-          {
-            label: "Como funcionam SO's",
-            links: [
-              {
-                url: "https://www.youtube.com/watch?v=Rl6HhDvW984&list=PLxI8Can9yAHeK7GUEGxMsqoPRmJKwI9Jw",
-                label: "Sistemas Operacionais - UNIVESP",
-                votes: 0,
-                type: LinkType.FREE,
-                contentType: LinkContentType.WATCH,
-              },
-            ],
-          },
-          { label: "Gerenciamento de Processos", links: [] },
-          {
-            label: "Threads e Concorrência",
-            links: [
-              {
-                label: "Concorrência e Paralelismo - Fabio Akita",
-                url: "https://www.youtube.com/watch?v=cx1ULv4wYxM",
-                contentType: LinkContentType.WATCH,
-              },
-            ],
-          },
-          {
-            label: "Armazenamento",
-            links: [
-              {
-                label: "Entendendo Armazenamento - Fabio Akita",
-                url: "https://www.youtube.com/playlist?list=PLdsnXVqbHDUcM0LTAxqrVrTy6Q7jQprjt",
-                contentType: LinkContentType.WATCH,
-              },
-            ],
-          },
-          {
-            label: "Gerenciamento de Memória",
-            links: [
-              {
-                label: "Gerenciamento de Memória - Fabio Akita",
-                url: "https://www.youtube.com/watch?v=9AK_1gqEfkQ",
-                contentType: LinkContentType.WATCH,
-              },
-            ],
-          },
-          { label: "Básicos POSIX", links: [] },
-          {
-            label: "Conceitos Básicos de Rede",
-            links: [
-              {
-                label: "Redes de Computadores - Curso em Video",
-                url: "https://www.cursoemvideo.com/curso/redes-de-computadores/",
-                contentType: LinkContentType.VISIT,
-              },
-              {
-                label: "Introdução a Redes - Fabio Akita",
-                url: "https://www.youtube.com/playlist?list=PLdsnXVqbHDUcTGjNZuRYCVj3AZtdt6oG7",
-                contentType: LinkContentType.WATCH,
-              },
-            ],
-          },
-        ],
-      },
-    ],
+    items: [SO],
   },
   {
     label: "Escolha uma linguagem",
@@ -160,9 +82,7 @@ export const data: Level[] = [
         label: "Go",
         description:
           "Go é uma linguagem de programação de código aberto suportada pelo Google. Go pode ser usado para escrever serviços em nuvem, ferramentas CLI, usadas para desenvolvimento de API e muito mais.",
-        children: [
-          go ,
-        ],
+        children: [go],
       },
       rust,
       {
@@ -321,95 +241,7 @@ export const data: Level[] = [
   {
     items: [controleDeVersao],
   },
-  {
-    label: "Bancos de Dados",
-    items: [
-      {
-        label: "Relacionais",
-        description:
-          "Um banco de dados relacional é um tipo de banco de dados que armazena e fornece acesso a pontos de dados relacionados entre si. Os bancos de dados relacionais armazenam dados em uma série de tabelas. As interconexões entre as tabelas são especificadas como chaves estrangeiras. Uma chave estrangeira é uma referência exclusiva de uma linha em uma tabela relacional para outra linha em uma tabela, que pode ser a mesma tabela, mas geralmente é uma tabela diferente.",
-        children: [
-          {
-            label: "PostgreSQL",
-            links: [
-              {
-                label: "PostgreSQL - Boson Treinamentos",
-                url: "https://www.youtube.com/watch?v=Z_SPrzlT4Fc&list=PLucm8g_ezqNoAkYKXN_zWupyH6hQCAwxY",
-                contentType: LinkContentType.WATCH,
-              },
-            ],
-          },
-          {
-            label: "MySQL",
-            links: [
-              {
-                label: "Mysql - Curso em Video",
-                url: "https://www.cursoemvideo.com/curso/mysql/",
-                contentType: LinkContentType.VISIT,
-              },
-            ],
-          },
-          { label: "MariaDB", links: [] },
-          {
-            label: "MS SQL",
-            links: [
-              {
-                label:
-                  "MS SQL 2014 - Curso de SQL com SQL Server (T-SQL) - Bóson Treinamentos",
-                url: "https://www.youtube.com/playlist?list=PLucm8g_ezqNqI5cW3alteV5olcMCcHYRK",
-                contentType: LinkContentType.VISIT,
-              },
-            ],
-          },
-          { label: "Oracle", links: [] },
-        ],
-      },
-      {
-        label: "NoSQL",
-        description:
-          "Os bancos de dados NoSQL oferecem armazenamento e recuperação de dados modelados de forma diferente dos bancos de dados relacionais 'tradicionais'. Os bancos de dados NoSQL normalmente se concentram mais em dimensionamento horizontal, consistência eventual, velocidade e flexibilidade e são usados comumente para aplicativos de big data e streaming em tempo real. O NoSQL é frequentemente descrito como um sistema BASE (basicamente disponível, estado suave, consistência eventual) em oposição ao SQL/relacional que normalmente se concentra em ACID (atomicidade, consistência, isolamento, durabilidade). Estruturas de dados NoSQL comuns incluem par chave-valor, coluna larga, gráfico e documento.",
-        children: [
-          {
-            label: "MongoDB",
-            links: [
-              {
-                label: "MongoDB para iniciantes - Nataniel Paiva",
-                url: "https://www.youtube.com/watch?v=u3sVM3viDtQ&list=PLxuFqIk29JL0DMM0Z-S9_XEHAexXvhYyb",
-                contentType: LinkContentType.WATCH,
-              },
-              {
-                label: "Introdução ao NoSQL: MongoDB - Ricardo Leme",
-                url: "https://www.youtube.com/watch?v=kedLyo95fGU&list=PLyqlZW5s3wkoMhARQKp3s4YtaeKucb0Xj",
-                contentType: LinkContentType.WATCH,
-              },
-            ],
-          },
-          {
-            label: "Cassandra",
-            links: [
-              {
-                label:
-                  "Apache Cassandra - Tutorial 1 - Introduction to Apache Cassandra",
-                url: "https://www.youtube.com/watch?v=s1xc1HVsRk0&list=PLalrWAGybpB-L1PGA-NfFu2uiWHEsdscD",
-                contentType: LinkContentType.WATCH,
-              },
-            ],
-          },
-          { label: "InfluxDB", links: [] },
-          {
-            label: "Firebase",
-            links: [
-              {
-                label: "Introdução ao Firebase - Aula 1 - Introdução",
-                url: "https://www.youtube.com/watch?v=uP_v6RhnP5U&list=PLHlHvK2lnJnccBL9grcoRxv8CsLa9Q_4q",
-                contentType: LinkContentType.WATCH,
-              },
-            ],
-          },
-        ],
-      },
-    ],
-  },
+  db,
   {
     items: [
       {
@@ -797,27 +629,7 @@ export const data: Level[] = [
     ],
   },
   {
-    items: [
-      {
-        label: "Containers vs Virtualização",
-        description:
-          "Contêineres e máquinas virtuais são as duas abordagens mais populares para configurar uma infraestrutura de software para sua organização.",
-        children: [
-          {
-            label: "Docker",
-            links: [
-              {
-                label: "Descomplicando o Docker - Linux Tips",
-                url: "https://www.youtube.com/watch?v=Wm99C_f7Kxw&list=PLf-O3X2-mxDn1VpyU2q3fuI6YYeIWp5rR",
-                contentType: LinkContentType.WATCH,
-              },
-            ],
-          },
-          { label: "rkt", links: [] },
-          { label: "LXC", links: [] },
-        ],
-      },
-    ],
+    items: [containers],
   },
   {
     items: [
@@ -957,65 +769,6 @@ export const data: Level[] = [
     ],
   },
   {
-    items: [
-      {
-        label: "Cloud Computing",
-        description:
-          "Cloud computing, conhecida também como computação em nuvem, é a tecnologia que permite o uso remoto de recursos da computação por meio da conectividade da Internet.",
-        children: [
-          {
-            label: "AWS",
-            links: [
-              {
-                url: "https://www.youtube.com/watch?v=j6yImUbs4OA&list=PLOF5f9_x-OYUaqJar6EKRAonJNSHDFZUm",
-                label:
-                  "O que é AWS e como aprender mais com o Curso Gratuito Amazon Web Services na Prática - Aula 01 - #32",
-                type: LinkType.FREE,
-                votes: 0,
-                contentType: LinkContentType.WATCH,
-              },
-            ],
-          },
-          {
-            label: "Azure",
-            links: [
-              {
-                url: "https://www.youtube.com/watch?v=AITM8sTsu-o&list=PLwftZeDnOzt0quETXYfGjfi2AcpeGX-7i",
-                label:
-                  "Azure Fundamentals - Introdução ao Curso - Ray Carneiro",
-                type: LinkType.FREE,
-                votes: 0,
-                contentType: LinkContentType.WATCH,
-              },
-            ],
-          },
-          {
-            label: "Google Platfom",
-            links: [
-              {
-                url: "https://www.youtube.com/watch?v=4lZmhCaq13U",
-                label:
-                  "Google Cloud, por onde começar e por quê você deveria faze-lo",
-                type: LinkType.FREE,
-                votes: 0,
-                contentType: LinkContentType.WATCH,
-              },
-            ],
-          },
-          {
-            label: "Digital Ocean",
-            links: [
-              {
-                url: "https://www.youtube.com/watch?v=eu6DCSv95MQ&list=PLVKPmJRbmf2Rb2KwvGzRP1eBhQCWrRbhE",
-                label: "Curso Digital Ocean - Introdução ao Curso - Aula 01",
-                type: LinkType.FREE,
-                votes: 0,
-                contentType: LinkContentType.WATCH,
-              },
-            ],
-          },
-        ],
-      },
-    ],
+    items: [cloudComputing],
   },
 ];

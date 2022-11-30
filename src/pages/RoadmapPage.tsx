@@ -9,6 +9,7 @@ import { data as communityData } from "../roadmaps/community";
 import E404Page from "./E404Page";
 import useDocumentTitle from "../components/useDocumentTitle";
 import { useRef } from "react";
+import { dataEngineeringData } from "../roadmaps/dataEngineering";
 
 export default function RoadmapPage() {
   const { name } = useParams<string>();
@@ -18,6 +19,7 @@ export default function RoadmapPage() {
     react: { file: reactData, title: "React" },
     backend: { file: backendData, title: "Backend" },
     devops: { file: devopsData, title: "Devops" },
+    dataEngineer: { file: dataEngineeringData, title: "Data Engineer" },
     community: { file: communityData, title: "Comunidade" },
   };
 
