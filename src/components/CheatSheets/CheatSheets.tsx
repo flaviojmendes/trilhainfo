@@ -26,37 +26,37 @@ export default function CheatSheets() {
             id="cheat"
           >
             <li className="flex flex-col space-y-10 md:space-y-2 ">
-              <a className="text-red text-xl m-auto" href="/guide/bigO">
+              <a className="text-red text-xl m-auto hover:font-bold hover:text-yellow" href="/guide/bigO">
                 {"-> Notação Big O <-"}
               </a>
             </li>
             <li className="flex flex-col space-y-10 md:space-y-2 ">
-              <a className="text-red text-xl m-auto" href="/guide/basicAuth">
+              <a className="text-red text-xl m-auto hover:font-bold hover:text-yellow" href="/guide/basicAuth">
                 {"-> Autenticação Básica <-"}
               </a>
             </li>
             <li className="flex flex-col space-y-10 md:space-y-2 ">
-              <a className="text-red text-xl m-auto" href="/guide/onboarding">
+              <a className="text-red text-xl m-auto hover:font-bold hover:text-yellow" href="/guide/onboarding">
                 {"-> Onboarding <-"}
               </a>
             </li>
             <li className="flex flex-col space-y-10 md:space-y-2 ">
-              <a className="text-red text-xl m-auto" href="/guide/sso">
+              <a className="text-red text-xl m-auto hover:font-bold hover:text-yellow" href="/guide/sso">
                 {"-> SSO (Single Sign On) <-"}
               </a>
             </li>
             <li className="flex flex-col space-y-10 md:space-y-2 ">
-              <a className="text-red text-xl m-auto" href="/guide/star">
+              <a className="text-red text-xl m-auto hover:font-bold hover:text-yellow" href="/guide/star">
                 {"-> Modelo STAR para Entrevistas <-"}
               </a>
             </li>
             <li className="flex flex-col space-y-10 md:space-y-2 ">
-              <a className="text-red text-xl m-auto" href="/guide/slaSloSli">
+              <a className="text-red text-xl m-auto hover:font-bold hover:text-yellow" href="/guide/slaSloSli">
                 {"-> SLA, SLO, SLI? <-"}
               </a>
             </li>
             <li className="flex flex-col space-y-10 md:space-y-2 ">
-              <a className="text-red text-xl m-auto" href="/guide/jsAsyncDefer">
+              <a className="text-red text-xl m-auto hover:font-bold hover:text-yellow" href="/guide/jsAsyncDefer">
                 {"-> Javascript Async, Defer <-"}
               </a>
             </li>
