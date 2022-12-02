@@ -28,6 +28,7 @@ import React, { useEffect, useRef } from "react";
 import { useLocalStorage } from "react-use";
 import { Level, LinkContentType, RoadmapItem } from "../../entity/RoadmapItem";
 import LevelItem from "../Level/LevelItem";
+import Comment from "../Comment/Comment";
 
 type Props = {
   data: Level[];
@@ -214,6 +215,7 @@ export default function Roadmap(props: Props) {
                                       className="h-5"
                                       fontSize="0.6em"
                                       mr="1"
+                                      cursor={"default"}
                                     >
                                       <span>
                                         {link.contentType
@@ -221,6 +223,8 @@ export default function Roadmap(props: Props) {
                                           : null}
                                       </span>
                                     </Badge>
+
+                                    <Comment id={link.url} title={link.label} />
                                   </Flex>
                                 </>
                               );

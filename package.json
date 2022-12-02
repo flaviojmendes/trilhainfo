@@ -32,7 +32,8 @@
     "react-router-navigation-prompt": "^1.9.6",
     "react-share": "^4.4.0",
     "react-use": "^17.4.0",
-    "universal-cookie": "^4.0.4"
+    "universal-cookie": "^4.0.4",
+    "uuid-by-string": "^4.0.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.0",
