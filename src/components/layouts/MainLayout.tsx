@@ -17,7 +17,7 @@ type Props = {
 };
 
 export default function MainLayout({ children }: Props) {
-  const { loginWithRedirect, user, isAuthenticated, isLoading, logout } =
+  const { loginWithRedirect, user, isAuthenticated, isLoading, logout, loginWithPopup } =
     useAuth0();
 
   return (
@@ -79,7 +79,7 @@ export default function MainLayout({ children }: Props) {
               </li>
               <li className="flex">
                 {!isAuthenticated && !isLoading && (
-                  <Button margin={"auto"} onClick={() => loginWithRedirect()}>
+                  <Button margin={"auto"} onClick={() => loginWithPopup()}>
                     Log In
                   </Button>
                 )}

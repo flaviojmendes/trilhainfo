@@ -8,13 +8,14 @@ import Cookies from "universal-cookie";
 const cookies = new Cookies();
 
 export default function LoginPage() {
-  const { user, isAuthenticated, getAccessTokenSilently } = useAuth0();
+  const { user, isAuthenticated, getAccessTokenSilently  } = useAuth0();
 
   useEffect(() => {
     if (isAuthenticated) {
       (async () => {
         const token = await getAccessTokenSilently({
           audience: "TrilhaInfoApi",
+          
         });
         cookies.set("api_token", `Bearer ${token}`);
 
