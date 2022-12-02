@@ -28,6 +28,7 @@ import React, { useEffect, useRef } from "react";
 import { useLocalStorage } from "react-use";
 import { Level, LinkContentType, RoadmapItem } from "../../entity/RoadmapItem";
 import LevelItem from "../Level/LevelItem";
+import Comment from "../Comment/Comment";
 
 type Props = {
   data: Level[];
@@ -36,13 +37,15 @@ type Props = {
 
 function getColorFromContentType(contentType: LinkContentType | string) {
   switch (contentType) {
-    case LinkContentType.LISTEN || 'Ouça':
+    case LinkContentType.LISTEN || "Ouça":
       return "blue";
-    case LinkContentType.READ || 'Leia':
+    case LinkContentType.READ || "Leia":
       return "yellow";
-    case LinkContentType.VISIT || 'Visite':
+    case LinkContentType.VISIT || "Visite":
       return "purple";
-    case LinkContentType.WATCH || 'Assista':
+    case LinkContentType.PRACTICE || "Pratique":
+      return "green";
+    case LinkContentType.WATCH || "Assista":
     default:
       return "orange";
   }
@@ -86,7 +89,7 @@ export default function Roadmap(props: Props) {
   function isAllContentRead(label: string, contentLength: number) {
     if (selectedItems) {
       const contentRead = Object.keys(selectedItems).filter(
-        (key) => key.includes("-" + label) && selectedItems[key] === true
+        (key) => key.endsWith("-" + label) && selectedItems[key] === true
       );
       return contentRead.length === contentLength;
     }
@@ -101,11 +104,9 @@ export default function Roadmap(props: Props) {
           item.children?.forEach((child) => {
             saveRead(child.label + "-" + item.label, check);
           });
-          
         }
       });
     });
-     
   }
 
   async function handleDownloadImage() {
@@ -143,7 +144,7 @@ export default function Roadmap(props: Props) {
           Baixar meu Roadmap
         </button>
       </div>
-      <div ref={printRef}>
+      <section ref={printRef}>
         <h2 className="text-center font-bold text-3xl c-yellow my-6 txt-handwritten c-dark-brown">
           {props.title}
         </h2>
@@ -214,6 +215,7 @@ export default function Roadmap(props: Props) {
                                       className="h-5"
                                       fontSize="0.6em"
                                       mr="1"
+                                      cursor={"default"}
                                     >
                                       <span>
                                         {link.contentType
@@ -221,6 +223,8 @@ export default function Roadmap(props: Props) {
                                           : null}
                                       </span>
                                     </Badge>
+
+                                    <Comment id={link.url} title={link.label} />
                                   </Flex>
                                 </>
                               );
@@ -240,7 +244,7 @@ export default function Roadmap(props: Props) {
             </ModalFooter>
           </ModalContent>
         </Modal>
-      </div>
+      </section>
     </>
   );
 }

@@ -7,11 +7,15 @@ import ReactGA from "react-ga4";
 import LoginPage from "./pages/LoginPage";
 import NewRoadmapPage from "./pages/NewRoadmap";
 import CustomRoadmapPage from "./pages/CustomRoadmapPage";
+import GuidePage from "./pages/GuidePage";
+
 
 function App() {
-  
-  ReactGA.initialize( 'G-GQDL3TBPEZ');
-  ReactGA.send({hitType: "pageview", page: window.location.pathname + window.location.search});
+  ReactGA.initialize("G-GQDL3TBPEZ");
+  ReactGA.send({
+    hitType: "pageview",
+    page: window.location.pathname + window.location.search,
+  });
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
@@ -19,7 +23,9 @@ function App() {
       <Route path="/roadmap/view/:roadmapId" element={<CustomRoadmapPage />} />
       <Route path="/new-roadmap" element={<NewRoadmapPage />} />
       <Route path="/edit-roadmap/:roadmapId" element={<NewRoadmapPage />} />
-      <Route path="/login" element={<LoginPage/>} />
+      <Route path="/login" element={<LoginPage />} />
+      <Route path="/guide/:guide" element={<GuidePage />} />
+      
     </Routes>
   );
 }

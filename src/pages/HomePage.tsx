@@ -3,6 +3,8 @@ import {
   Button,
   chakra,
   Link as ChakraLink,
+  LinkBox,
+  LinkOverlay,
   Modal,
   ModalBody,
   ModalCloseButton,
@@ -16,6 +18,8 @@ import MainLayout from "../components/layouts/MainLayout";
 import UserArea from "../components/UserArea/UserArea";
 import { useEffect } from "react";
 import Cookies from "universal-cookie";
+import CheatSheets from "../components/CheatSheets/CheatSheets";
+import OpenSource from "../components/OpenSource/OpenSource";
 
 const cookies = new Cookies();
 
@@ -24,9 +28,9 @@ export default function HomePage() {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   useEffect(() => {
-    if (!cookies.get("new_release")) {
-      onOpen();
-    }
+    // if (!cookies.get("new_release")) {
+    //   onOpen();
+    // }
   });
 
   function handleModalClosed() {
@@ -41,7 +45,7 @@ export default function HomePage() {
           Tudo o que você precisa saber para ser:
         </h2>
 
-        <div className="flex flex-wrap items-stretch md:space-x-10 space-y-10 md:space-y-0 justify-center">
+        <section className="flex flex-wrap items-stretch md:space-x-10 space-y-10 pb-10 md:space-y-0 justify-center px-2 gap-5">
           {/* Frontend */}
           <Link
             className="bd-handwritten bd-red bg-brown md:w-1/3 lg:w-1/4 w-full min-h-fit hover:bg-white py-3"
@@ -90,72 +94,27 @@ export default function HomePage() {
               simplificado.
             </p>
           </Link>
-        </div>
+
+          {/* Backend */}
+          <Link
+            className="bd-handwritten bd-red bg-brown md:w-1/3 lg:w-1/4 w-full min-h-fit hover:bg-white py-3"
+            to={"/roadmap/react"}
+          >
+            <h3 className="text-center text-3xl txt-handwritten mb-2 c-dark-brown">
+              React
+            </h3>
+            <p className="text-justify mx-5">
+              React é uma biblioteca JavaScript declarativa, eficiente e
+              flexível criada pelo Facebook em 2011 para desenvolver aplicações
+              front-end, ou seja, interfaces de usuário (UIs).
+            </p>
+          </Link>
+        </section>
 
         <UserArea />
-
-        <div className="flex flex-col items-stretch justify-center">
-          <h2 className="text-center my-6 txt-handwritten text-3xl c-yellow">
-            Como usar o site?
-          </h2>
-
-          <iframe
-            className="mx-auto w-200 h-150 md:w-[560px] md:h-[315px]"
-            src="https://www.youtube.com/embed/_aOAojQsyOU"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          ></iframe>
-        </div>
-
-        <Modal isOpen={isOpen} onClose={handleModalClosed} size="5xl">
-          <ModalOverlay />
-          <ModalContent>
-            <ModalHeader>Aoba! 🎉</ModalHeader>
-            <ModalCloseButton />
-            <ModalBody px="12">
-              <p>
-                A nova versão da <strong>Trilha Info</strong> está no ar!
-              </p>
-              <p>
-                Agora você pode logar no Trilha Info com sua conta do Google e
-                criar seus próprios roadmaps através do editor.
-              </p>
-
-              <p>Para isso basta:</p>
-
-              <ol className="list-decimal">
-                <li>
-                  No canto superior, clique em{" "}
-                  <span className="font-bold">Log In</span>
-                </li>
-                <li>
-                  Se autentique pelo <span className="font-bold">Google</span>
-                </li>
-                <li>
-                  Abaixo dos Roadmaps da Trilha Info, clique no botão{" "}
-                  <span className="font-bold">+ Novo Roadmap</span>
-                </li>
-                <li>
-                  Siga esse
-                  <a
-                    className="font-bold c-red" target={'_blank'}
-                    href="https://trilha.info/roadmap/view/d86cd687-2e42-4e18-bf03-a6f878b58844"
-                  >
-                    {" "}
-                    guia
-                  </a>
-                  .
-                </li>
-                <li>Pronto! Crie e compartilhe nas suas redes sociais! 🎊</li>
-              </ol>
-            </ModalBody>
-
-            <ModalFooter>
-              <Button colorScheme="orange" mr={3} onClick={onClose}>
-                Fechar
-              </Button>
-            </ModalFooter>
-          </ModalContent>
-        </Modal>
+        <CheatSheets />
+        <OpenSource />
+        
       </MainLayout>
     </>
   );

@@ -34,7 +34,7 @@ export default function CustomRoadmapPage() {
     setRoadmap(Object.assign(new RoadmapModel(), response.data));
   }
 
-  useDocumentTitle("Trilha Info - " + roadmap?.title);
+  useDocumentTitle(roadmap ? "Trilha Info - " + roadmap?.title : "Trilha Info");
 
   return (
     <>

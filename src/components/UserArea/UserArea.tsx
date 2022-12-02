@@ -1,7 +1,7 @@
 import { useAuth0 } from "@auth0/auth0-react";
 import { DeleteIcon, EditIcon, ViewIcon } from "@chakra-ui/icons";
 import { Button, Icon, IconButton, useToast } from "@chakra-ui/react";
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import { MouseEvent, useEffect, useState } from "react";
 import { FaShare } from "react-icons/fa";
 import { FiShare, FiShare2 } from "react-icons/fi";
@@ -34,17 +34,25 @@ export default function UserArea() {
   async function getRoadmaps() {
     setLoadingRoadmaps(true);
     if (cookies.get("api_token")) {
-      let response = await axios.get(
-        import.meta.env.VITE_API_URL + `/roadmap/${user?.nickname}` || "",
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: cookies.get("api_token"),
-          },
-        }
-      );
+      try {
+        let response = await axios.get(
+          import.meta.env.VITE_API_URL + `/roadmap/${user?.nickname}` || "",
+          {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: cookies.get("api_token"),
+            },
+          }
+        );
 
-      setRoadmaps(response.data);
+        setRoadmaps(response.data);
+      } catch (e) {
+        if (e instanceof AxiosError) {
+          if (e.response?.status === 403) {
+            logout();
+          }
+        }
+      }
     } else {
       logout();
     }
@@ -71,7 +79,7 @@ export default function UserArea() {
 
   function handleCopyToClipboard(roadmapId: string) {
     navigator.clipboard.writeText(
-      `https://beta.trilha.info/roadmap/view/${roadmapId}`
+      `https://trilha.info/roadmap/view/${roadmapId}`
     );
     toast({
       title: "Feito!",
@@ -85,11 +93,11 @@ export default function UserArea() {
   return (
     <>
       {isAuthenticated && (
-        <div className="flex flex-col items-stretch justify-center">
+        <div className="flex flex-col items-stretch justify-center bg-[#403C3B] mt-10 py-10 mx-0 w-full shadow-inner">
           <h2 className="text-center my-6 txt-handwritten text-3xl c-yellow">
             Meus Roadmaps
           </h2>
-          <div className="flex flex-wrap items-stretch py-8 md:space-x-10 space-y-10 md:space-y-0 justify-center">
+          <div className="flex flex-wrap items-stretch py-8 px-4 md:space-x-10 space-y-10 md:space-y-0 justify-center">
             {roadmaps?.map((roadmap, roadmapIndex) => {
               return (
                 <div
@@ -113,7 +121,7 @@ export default function UserArea() {
                     />
                     <IconButton
                       aria-label="Deletar Roadmap"
-                      onClick={() => handleDeleteRoadmap(roadmap.id || '')}
+                      onClick={() => handleDeleteRoadmap(roadmap.id || "")}
                       icon={<DeleteIcon />}
                     />
                     <IconButton
