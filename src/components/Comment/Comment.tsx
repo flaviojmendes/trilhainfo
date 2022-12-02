@@ -190,6 +190,7 @@ export default function Comment(props: Props) {
                 </div>
               </>
             )}
+            {!isAuthenticated && <span className="text-dark-blue">Você precisa fazer login para postar um comentário.</span>}
           </ModalBody>
 
           <ModalFooter>
