@@ -26,6 +26,17 @@ export default function OpenSource() {
           vez mais próspero.
         </p>
         <p className="my-8">
+          Encontrou um Bug 🐛, tem uma ideia 💡? É só abrir uma{" "}
+          <a
+            className="font-semibold text-red"
+            target={"_blank"}
+            href="https://github.com/flaviojmendes/trilhainfo/issues"
+          >
+            issue
+          </a>
+          .
+        </p>
+        <p className="my-8">
           Portanto, se você também acredita nisso compartilhe para que o
           conhecimento chegue cada vez mais longe. E participe da nossa
           comunidade no{" "}

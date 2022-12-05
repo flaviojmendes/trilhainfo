@@ -79,7 +79,7 @@ export default function MainLayout({ children }: Props) {
               </li>
               <li className="flex">
                 {!isAuthenticated && !isLoading && (
-                  <Button margin={"auto"} onClick={() => loginWithPopup()}>
+                  <Button margin={"auto"} onClick={() => loginWithRedirect()}>
                     Log In
                   </Button>
                 )}
