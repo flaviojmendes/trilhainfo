@@ -136,25 +136,28 @@ export default function Comment(props: Props) {
           <ModalBody>
             {comments.map((comment, index) => {
               return (
-                <div className=" mb-4">
-                  {isAuthenticated && comment.author === user?.nickname && (
-                    <div className="flex flex-row-reverse">
-                      <IconButton
-                        size={"xs"}
-                        aria-label="Deletar Comentário"
-                        onClick={() => handleDeleteComment(comment.id || "")}
-                        disabled={isDeletingComment}
-                        icon={<DeleteIcon />}
-                      />
-                    </div>
-                  )}
-                  <p className="mb-0">{comment.text}</p>
-                  <span className="text-red text-xs">
-                    {comment.author +
-                      " - " +
-                      new Date(comment.createdAt!).toLocaleString()}
-                  </span>
-                </div>
+                <>
+                  <div className=" mb-4 ">
+                    {isAuthenticated && comment.author === user?.nickname && (
+                      <div className="flex flex-row-reverse">
+                        <IconButton
+                          size={"xs"}
+                          aria-label="Deletar Comentário"
+                          onClick={() => handleDeleteComment(comment.id || "")}
+                          disabled={isDeletingComment}
+                          icon={<DeleteIcon />}
+                        />
+                      </div>
+                    )}
+                    <p className="mb-0">{comment.text}</p>
+                    <span className="text-red text-xs">
+                      {comment.author +
+                        " - " +
+                        new Date(comment.createdAt!).toLocaleString()}
+                    </span>
+                  </div>
+                  {/* <hr className="my-2 mx-auto w-1/2" /> */}
+                </>
               );
             })}
             {isAuthenticated && (
@@ -164,7 +167,7 @@ export default function Comment(props: Props) {
                   <Textarea
                     value={commentText}
                     onChange={handleCommentTextChange}
-                    placeholder="Here is a sample placeholder"
+                    placeholder="Digite aqui seu comentário."
                     size="sm"
                   />
                   <Button
@@ -190,7 +193,11 @@ export default function Comment(props: Props) {
                 </div>
               </>
             )}
-            {!isAuthenticated && <span className="text-dark-blue">Você precisa fazer login para postar um comentário.</span>}
+            {!isAuthenticated && (
+              <span className="text-dark-blue">
+                Você precisa fazer login para postar um comentário.
+              </span>
+            )}
           </ModalBody>
 
           <ModalFooter>
