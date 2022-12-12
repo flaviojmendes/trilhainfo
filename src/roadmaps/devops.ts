@@ -4,6 +4,7 @@ import {
   LinkContentType,
   RoadmapItem,
 } from "../entity/RoadmapItem";
+import { bash } from "./items/bash";
 import { go } from "./items/go";
 import { javascript } from "./items/javascript";
 import { python } from "./items/python";
@@ -16,11 +17,10 @@ export const data: Level[] = [
     description:
       "Tente aprender alguma dessas com a finalidade de usar para automação de tarefas.",
     items: [
-      javascript,
-
+      bash,
       python,
-
       go,
+      javascript,
       rust,
       ruby,
       {
