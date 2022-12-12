@@ -55,7 +55,7 @@ export default function MobileMenu() {
           </DrawerHeader>
 
           <DrawerBody>
-            <hr className="mb-4 m-auto border-yellow"/>
+            {isAuthenticated && <hr className="mb-4 m-auto border-yellow" />}
             <ul className="flex-col">
               <li className="flex">
                 <a
@@ -93,7 +93,11 @@ export default function MobileMenu() {
               </li>
               <li className="flex">
                 {!isAuthenticated && !isLoading && (
-                  <Button margin={"auto"} mt={8} onClick={() => loginWithRedirect()}>
+                  <Button
+                    margin={"auto"}
+                    mt={8}
+                    onClick={() => loginWithRedirect()}
+                  >
                     Log In
                   </Button>
                 )}
