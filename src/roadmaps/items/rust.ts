@@ -18,6 +18,11 @@ export const rust: RoadmapItem = {
           contentType: LinkContentType.WATCH,
         },
         {
+          label: "Série Aprenda Rust - Bruno Rocha no canal CodeShow",
+          url: "https://bit.ly/aprendarust",
+          contentType: LinkContentType.WATCH,
+        },
+        {
           label: "A Linguagem de Programação Rust - Bruno Rocha",
           url: "https://www.youtube.com/watch?v=K5Zt804f9tg&list=PLjSf4DcGBdiHC1rf9rXR9orU3wvGjgtpm",
           contentType: LinkContentType.WATCH,
