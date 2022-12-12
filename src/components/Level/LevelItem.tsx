@@ -36,7 +36,7 @@ export default function LevelItem(props: Props) {
         >
           {props.level.label && (
             <>
-              <h3 className="text-center my-2 txt-handwritten text-xl">
+              <h3 className="text-center my-2 txt-title text-xl">
                 {props.level.label}
               </h3>
               <p className="text-center mb-3">{props.level.description}</p>
@@ -63,7 +63,7 @@ export default function LevelItem(props: Props) {
                     }}
                     key={item.label}
                     className={
-                      "flex mx-0 my-0 p-1 md:p-2  w-fit text-center cursor-pointer bd-handwritten bd-red hover:bg-white  hover:shadow-md" +
+                      "flex mx-0 my-0 p-1 md:p-2  w-fit text-center cursor-pointer rounded-md border-2 bd-red hover:bg-white  hover:shadow-md" +
                       (level.length >= 4 ? " mb-3" : "") +
                       (isAllContentRead ? " bg-light-orange" : " bg-brown")
                     }
@@ -104,7 +104,7 @@ export default function LevelItem(props: Props) {
                     )}
                     <span
                       className={
-                        "m-auto c-dark-brown font-semibold txt-handwritten text-xl "
+                        "m-auto c-dark-brown font-semibold txt-title text-lg "
                       }
                     >
                       {item.label}

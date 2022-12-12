@@ -1,7 +1,7 @@
 export default function OpenSource() {
   return (
     <section className="flex flex-col items-stretch justify-center">
-      <h2 className="text-center my-6 txt-handwritten text-3xl c-yellow">
+      <h2 className="text-center my-6 txt-title text-3xl c-yellow">
         Open Source
       </h2>
       <article className="container text-yellow mx-auto px-4 text-justify">
