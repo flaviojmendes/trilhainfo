@@ -104,7 +104,7 @@ export default function LevelItem(props: Props) {
                     )}
                     <span
                       className={
-                        "m-auto c-dark-brown font-semibold txt-title text-lg "
+                        "m-auto c-dark-brown  txt-title text-lg "
                       }
                     >
                       {item.label}
