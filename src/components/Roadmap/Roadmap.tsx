@@ -138,14 +138,14 @@ export default function Roadmap(props: Props) {
       <div className="flex">
         <button
           type="button"
-          className="border-2 p-1 rounded-md bg-yellow txt-handwritten bd-handwritten bd-yellow m-auto mr-1 hover:shadow-md"
+          className="border-2 p-1 rounded-md bg-yellow txt-title border-yellow m-auto mr-2 md:mr-10 hover:shadow-md hover:bg-light-orange"
           onClick={handleDownloadImage}
         >
           Baixar meu Roadmap
         </button>
       </div>
       <section ref={printRef}>
-        <h2 className="text-center font-bold text-3xl c-yellow my-6 txt-handwritten c-dark-brown">
+        <h2 className="text-center font-bold text-3xl c-yellow my-6 txt-title c-dark-brown">
           {props.title}
         </h2>
         <div>
@@ -167,7 +167,7 @@ export default function Roadmap(props: Props) {
 
         <Modal size={"xl"} isOpen={isOpen} onClose={onClose}>
           <ModalOverlay />
-          <ModalContent className="bd-handwritten">
+          <ModalContent className="">
             <ModalHeader>{activeItem?.label}</ModalHeader>
             <ModalCloseButton />
             <ModalBody>

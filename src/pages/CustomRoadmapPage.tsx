@@ -39,10 +39,10 @@ export default function CustomRoadmapPage() {
   return (
     <>
       <MainLayout>
-        <p className="mt-4 text-center font-semibold c-brown">
+        <p className="mt-4 text-center font-semibold c-brown md:px-28">
           Não sabe por onde começar a estudar? Que tal dar uma olhada por aqui?
         </p>
-        <p className="mb-4 text-center font-semibold c-brown">
+        <p className="mb-4 text-center font-semibold c-brown md:px-28">
           Lendo de cima pra baixo, cada "caixa" é um assunto a ser estudado.
           Clicando, você verá em mais detalhes o que estudar com links de
           conteúdos gratuitos produzidos por pessoas que dominam a área e te

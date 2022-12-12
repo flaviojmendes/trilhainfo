@@ -41,20 +41,24 @@ export default function HomePage() {
   return (
     <>
       <MainLayout>
-        <h2 className="text-center my-6 txt-handwritten text-3xl c-yellow">
+        <h2 className="text-center txt-title my-6  text-3xl c-yellow">
           Tudo o que você precisa saber para ser:
         </h2>
 
-        <section className="flex flex-wrap items-stretch md:space-x-10 space-y-10 pb-10 md:space-y-0 justify-center px-2 gap-5">
+        <section className="flex flex-wrap items-stretch space-y-10 pb-10 md:space-y-0 justify-center px-2 gap-5">
           {/* Frontend */}
           <Link
-            className="bd-handwritten bd-red bg-brown md:w-1/3 lg:w-1/4 w-full min-h-fit hover:bg-white py-3"
+            className="bg-brown md:w-1/3 lg:w-1/4 w-full min-h-fit hover:bg-white py-3 rounded-md"
             to={"/roadmap/frontend"}
           >
-            <h3 className="text-center text-3xl txt-handwritten mb-2 c-dark-brown">
+            <img
+              className="w-1/2 mx-auto"
+              src={new URL(`../assets/frontend.png`, import.meta.url).href}
+            />
+            <h3 className="text-center text-3xl txt-title mb-2 c-dark-brown">
               Frontend
             </h3>
-            <p className="text-justify mx-5">
+            <p className="text-center mx-5">
               A pessoa que desenvolve front-end é responsável pela experiência
               do usuário dentro de uma aplicação web. É ela quem vai desenhar e
               desenvolver as páginas com as quais, posteriormente, o usuário irá
@@ -64,13 +68,17 @@ export default function HomePage() {
 
           {/* Backend */}
           <Link
-            className="bd-handwritten bd-red bg-brown md:w-1/3 lg:w-1/4 w-full min-h-fit hover:bg-white py-3"
+            className="bg-brown md:w-1/3 lg:w-1/4 w-full min-h-fit hover:bg-white py-3 rounded-md"
             to={"/roadmap/backend"}
           >
-            <h3 className="text-center text-3xl txt-handwritten mb-2 c-dark-brown">
+            <img
+              className="w-1/2 mx-auto"
+              src={new URL(`../assets/backend.png`, import.meta.url).href}
+            />
+            <h3 className="text-center text-3xl txt-title mb-2 c-dark-brown">
               Backend
             </h3>
-            <p className="text-justify mx-5">
+            <p className="text-center mx-5">
               Back-end se relaciona com o que está por trás das aplicações
               desenvolvidas na programação. Ou seja, tudo que dá estrutura e
               apoio às ações do usuário da máquina é chamado de back-end.
@@ -79,13 +87,18 @@ export default function HomePage() {
 
           {/* Devops */}
           <Link
-            className="bd-handwritten bd-red bg-brown md:w-1/3 lg:w-1/4 w-full min-h-fit hover:bg-white py-3"
+            className="bg-brown md:w-1/3 lg:w-1/4 w-full min-h-fit hover:bg-white py-3 rounded-md"
             to={"/roadmap/devops"}
           >
-            <h3 className="text-center text-3xl txt-handwritten mb-2 c-dark-brown">
+            {" "}
+            <img
+              className="w-1/2 mx-auto"
+              src={new URL(`../assets/devops.png`, import.meta.url).href}
+            />
+            <h3 className="text-center text-3xl txt-title mb-2 c-dark-brown">
               Devops
             </h3>
-            <p className="text-justify mx-5">
+            <p className="text-center mx-5">
               Especialista em DevOps (Desenvolvimento e Operações, de maneira
               simplificada) é a pessoa que atua na integração entre as equipes
               de desenvolvimento de software, especialmente nas áreas de
@@ -95,15 +108,19 @@ export default function HomePage() {
             </p>
           </Link>
 
-          {/* Backend */}
+          {/* React */}
           <Link
-            className="bd-handwritten bd-red bg-brown md:w-1/3 lg:w-1/4 w-full min-h-fit hover:bg-white py-3"
+            className="bg-brown md:w-1/3 lg:w-1/4 w-full min-h-fit hover:bg-white py-3 rounded-md"
             to={"/roadmap/react"}
           >
-            <h3 className="text-center text-3xl txt-handwritten mb-2 c-dark-brown">
+            <img
+              className="w-1/2 mx-auto p-4"
+              src={new URL(`../assets/react.svg`, import.meta.url).href}
+            />
+            <h3 className="text-center text-3xl txt-title mb-2 c-dark-brown">
               React
             </h3>
-            <p className="text-justify mx-5">
+            <p className="text-center mx-5">
               React é uma biblioteca JavaScript declarativa, eficiente e
               flexível criada pelo Facebook em 2011 para desenvolver aplicações
               front-end, ou seja, interfaces de usuário (UIs).
@@ -114,7 +131,6 @@ export default function HomePage() {
         <UserArea />
         <CheatSheets />
         <OpenSource />
-        
       </MainLayout>
     </>
   );
