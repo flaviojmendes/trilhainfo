@@ -10,7 +10,15 @@ import {
   Button,
   Checkbox,
   CheckboxGroup,
+  Drawer,
+  DrawerBody,
+  DrawerCloseButton,
+  DrawerContent,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerOverlay,
   Flex,
+  Input,
   Link,
   Modal,
   ModalBody,
@@ -165,13 +173,14 @@ export default function Roadmap(props: Props) {
           })}
         </div>
 
-        <Modal size={"xl"} isOpen={isOpen} onClose={onClose}>
-          <ModalOverlay />
-          <ModalContent className="">
-            <ModalHeader>{activeItem?.label}</ModalHeader>
-            <ModalCloseButton />
-            <ModalBody>
-              <p className="mb-4">{activeItem?.description}</p>
+        <Drawer isOpen={isOpen} size={"lg"} placement="right" onClose={onClose}>
+          <DrawerOverlay />
+          <DrawerContent bgColor={"#444140"}>
+            <DrawerCloseButton />
+            <DrawerHeader><span className="text-light-brown txt-title">{activeItem?.label}</span></DrawerHeader>
+
+            <DrawerBody>
+              <p className="mb-4 text-light-brown txt-title">{activeItem?.description}</p>
               <Accordion allowToggle>
                 {activeItem?.children?.map((child, index) => {
                   const key = child.label + "-" + activeItem.label;
@@ -179,7 +188,7 @@ export default function Roadmap(props: Props) {
                   return (
                     <AccordionItem key={child.label}>
                       <h2 className="font-semibold">
-                        <AccordionButton>
+                        <AccordionButton color={"#e9dad5"}>
                           <Box flex="1" textAlign="left">
                             <CheckboxGroup>
                               <Checkbox
@@ -191,7 +200,7 @@ export default function Roadmap(props: Props) {
                                 }}
                               ></Checkbox>
                             </CheckboxGroup>
-                            {child.label}
+                            <span className="text-light-brown txt-title">{child.label}</span>
                           </Box>
                           <AccordionIcon />
                         </AccordionButton>
@@ -202,9 +211,9 @@ export default function Roadmap(props: Props) {
                               return (
                                 <>
                                   <Flex className="my-2">
-                                    <Link href={link.url} isExternal>
+                                    <a href={link.url} target="_blank" className="text-light-brown hover:underline">
                                       {link.label}
-                                    </Link>
+                                    </a>
                                     <Spacer />
                                     <Badge
                                       colorScheme={getColorFromContentType(
@@ -235,15 +244,17 @@ export default function Roadmap(props: Props) {
                   );
                 })}
               </Accordion>
-            </ModalBody>
+            </DrawerBody>
 
-            <ModalFooter>
-              <Button colorScheme="orange" mr={3} onClick={onClose}>
+            <DrawerFooter>
+              <Button colorScheme="yellow" mr={3} onClick={onClose}>
                 Fechar
               </Button>
-            </ModalFooter>
-          </ModalContent>
-        </Modal>
+            </DrawerFooter>
+          </DrawerContent>
+        </Drawer>
+
+        
       </section>
     </>
   );
