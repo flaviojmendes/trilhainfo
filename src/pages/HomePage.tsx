@@ -58,7 +58,7 @@ export default function HomePage() {
             <h3 className="text-center text-3xl txt-title mb-2 c-dark-brown">
               Frontend
             </h3>
-            <p className="text-center mx-5">
+            <p className="m-6">
               A pessoa que desenvolve front-end é responsável pela experiência
               do usuário dentro de uma aplicação web. É ela quem vai desenhar e
               desenvolver as páginas com as quais, posteriormente, o usuário irá
@@ -78,7 +78,7 @@ export default function HomePage() {
             <h3 className="text-center text-3xl txt-title mb-2 c-dark-brown">
               Backend
             </h3>
-            <p className="text-center mx-5">
+            <p className="m-6">
               Back-end se relaciona com o que está por trás das aplicações
               desenvolvidas na programação. Ou seja, tudo que dá estrutura e
               apoio às ações do usuário da máquina é chamado de back-end.
@@ -98,7 +98,7 @@ export default function HomePage() {
             <h3 className="text-center text-3xl txt-title mb-2 c-dark-brown">
               Devops
             </h3>
-            <p className="text-center mx-5">
+            <p className="m-6">
               Especialista em DevOps (Desenvolvimento e Operações, de maneira
               simplificada) é a pessoa que atua na integração entre as equipes
               de desenvolvimento de software, especialmente nas áreas de
@@ -120,7 +120,7 @@ export default function HomePage() {
             <h3 className="text-center text-3xl txt-title mb-2 c-dark-brown">
               React
             </h3>
-            <p className="text-center mx-5">
+            <p className="m-6">
               React é uma biblioteca JavaScript declarativa, eficiente e
               flexível criada pelo Facebook em 2011 para desenvolver aplicações
               front-end, ou seja, interfaces de usuário (UIs).

@@ -116,7 +116,7 @@ export default function Comment(props: Props) {
   return (
     <>
       <Badge
-        colorScheme={"blackAlpha"}
+        colorScheme={"gray"}
         p={1}
         rounded={"md"}
         className="h-5"
@@ -130,7 +130,7 @@ export default function Comment(props: Props) {
 
       <Modal size={"xl"} isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
-        <ModalContent className="bd-handwritten">
+        <ModalContent className="">
           <ModalHeader>{props.title}</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
