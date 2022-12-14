@@ -188,7 +188,7 @@ export default function Roadmap(props: Props) {
                   return (
                     <AccordionItem key={child.label}>
                       <h2 className="font-semibold">
-                        <AccordionButton>
+                        <AccordionButton color={"#e9dad5"}>
                           <Box flex="1" textAlign="left">
                             <CheckboxGroup>
                               <Checkbox
