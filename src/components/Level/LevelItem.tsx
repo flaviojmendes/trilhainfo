@@ -17,11 +17,15 @@ type Props = {
 export default function LevelItem(props: Props) {
   function triggerItemSelection(item: RoadmapItem) {
     props.setActiveItem(item);
+    window.history.pushState(item.label,item.label ,`#${encodeURI(item.label)}`)
     ReactGA.event({
       category: "item_open",
       action: "open_" + item.label,
     });
     props.onOpen();
+    
+    
+
   }
 
   return (

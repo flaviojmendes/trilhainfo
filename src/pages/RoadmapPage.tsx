@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import MainLayout from "../components/layouts/MainLayout";
 import Roadmap from "../components/Roadmap/Roadmap";
 import { data as frontendData } from "../roadmaps/frontend";
@@ -8,7 +8,7 @@ import { data as devopsData } from "../roadmaps/devops";
 import { data as communityData } from "../roadmaps/community";
 import E404Page from "./E404Page";
 import useDocumentTitle from "../components/useDocumentTitle";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { dataEngineeringData } from "../roadmaps/dataEngineering";
 
 export default function RoadmapPage() {
@@ -22,6 +22,8 @@ export default function RoadmapPage() {
     dataEngineer: { file: dataEngineeringData, title: "Data Engineer" },
     community: { file: communityData, title: "Comunidade" },
   };
+
+  
 
   useDocumentTitle("Trilha Info - " + roadmaps[name || ""].title);
 
