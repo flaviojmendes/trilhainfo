@@ -18,15 +18,6 @@ import {
   DrawerHeader,
   DrawerOverlay,
   Flex,
-  Input,
-  Link,
-  Modal,
-  ModalBody,
-  ModalCloseButton,
-  ModalContent,
-  ModalFooter,
-  ModalHeader,
-  ModalOverlay,
   Spacer,
   useDisclosure,
 } from "@chakra-ui/react";
@@ -37,6 +28,8 @@ import { useLocalStorage } from "react-use";
 import { Level, LinkContentType, RoadmapItem } from "../../entity/RoadmapItem";
 import LevelItem from "../Level/LevelItem";
 import Comment from "../Comment/Comment";
+import { useLocation } from "react-router-dom";
+
 
 type Props = {
   data: Level[];
@@ -62,7 +55,7 @@ function getColorFromContentType(contentType: LinkContentType | string) {
 export default function Roadmap(props: Props) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const printRef = useRef(null);
-
+  const { pathname, hash, key } = useLocation();
   const [activeItem, setActiveItem] = React.useState<RoadmapItem>();
   const [selectedItems, setSelectedItems, remove] = useLocalStorage(
     "selectedItems",
@@ -76,6 +69,24 @@ export default function Roadmap(props: Props) {
       );
     }
   }, []);
+
+  useEffect(() => {
+    if (hash) {
+      const anchorItem = hash.replaceAll("#", "");
+      let itemFound = false;
+      if (anchorItem) {
+        props.data.map((level) => {
+          level.items.map((item) => {
+            if (item.label === decodeURI(anchorItem)) {
+              setActiveItem(item);
+              onOpen(); 
+              itemFound = true;
+            }
+          });
+        });
+      }
+    }
+  }, [pathname, hash, key]);
 
   function saveRead(label: string, checked: boolean) {
     let selected = selectedItems;
@@ -177,10 +188,16 @@ export default function Roadmap(props: Props) {
           <DrawerOverlay />
           <DrawerContent bgColor={"#444140"}>
             <DrawerCloseButton />
-            <DrawerHeader><span className="text-light-brown txt-title">{activeItem?.label}</span></DrawerHeader>
+            <DrawerHeader>
+              <span className="text-light-brown txt-title">
+                {activeItem?.label}
+              </span>
+            </DrawerHeader>
 
             <DrawerBody>
-              <p className="mb-4 text-light-brown txt-title">{activeItem?.description}</p>
+              <p className="mb-4 text-light-brown txt-title">
+                {activeItem?.description}
+              </p>
               <Accordion allowToggle>
                 {activeItem?.children?.map((child, index) => {
                   const key = child.label + "-" + activeItem.label;
@@ -200,7 +217,9 @@ export default function Roadmap(props: Props) {
                                 }}
                               ></Checkbox>
                             </CheckboxGroup>
-                            <span className="text-light-brown txt-title">{child.label}</span>
+                            <span className="text-light-brown txt-title">
+                              {child.label}
+                            </span>
                           </Box>
                           <AccordionIcon />
                         </AccordionButton>
@@ -211,7 +230,11 @@ export default function Roadmap(props: Props) {
                               return (
                                 <>
                                   <Flex className="my-2">
-                                    <a href={link.url} target="_blank" className="text-light-brown hover:underline">
+                                    <a
+                                      href={link.url}
+                                      target="_blank"
+                                      className="text-light-brown hover:underline"
+                                    >
                                       {link.label}
                                     </a>
                                     <Spacer />
@@ -253,8 +276,6 @@ export default function Roadmap(props: Props) {
             </DrawerFooter>
           </DrawerContent>
         </Drawer>
-
-        
       </section>
     </>
   );
