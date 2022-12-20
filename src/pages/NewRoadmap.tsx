@@ -37,9 +37,10 @@ export default function NewRoadmapPage() {
   const { roadmapId } = useParams();
   const navigate = useNavigate();
 
-
-
-  usePrompt('Tem certeza que deseja sair? Você pode perder dados não salvos.', shouldBlock)
+  usePrompt(
+    "Tem certeza que deseja sair? Você pode perder dados não salvos.",
+    shouldBlock
+  );
 
   useEffect(() => {
     if (roadmapId) {
@@ -223,7 +224,9 @@ export default function NewRoadmapPage() {
 
   // Link Functions
   function handleLinkChange(
-    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
+    event: ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >,
     link: Link,
     levelIndex: number,
     itemIndex: number,
@@ -301,7 +304,7 @@ export default function NewRoadmapPage() {
         Authorization: cookies.get("api_token"),
       },
     });
-    
+
     navigate("/");
   }
 
@@ -345,14 +348,15 @@ export default function NewRoadmapPage() {
                 }
               >
                 <div className="w-full flex flex-wrap justify-end">
-                  <span className="grow text-sm">
+                  <span className="grow text-sm txt-title">
                     (Título e Descrição são Opcionais)
                   </span>
                   <div
                     className="m-auto my-2 cursor-pointer w-fit"
                     onClick={() => handleRemoveLevel(level)}
                   >
-                    <DeleteIcon cursor={"pointer"} /> <span className="text-sm">Remover Level</span>
+                    <DeleteIcon cursor={"pointer"} />{" "}
+                    <span className="text-sm txt-title">Remover Level</span>
                   </div>
                 </div>
                 <div className="w-44 h-50 mx-auto text-center">
@@ -388,7 +392,7 @@ export default function NewRoadmapPage() {
                         className="flex flex-col space-y-2 mx-0 my-0 p-2 pt-3 md:p-3 w-full text-center border-2 rounded-md bd-red  hover:shadow-md bg-brown"
                       >
                         <div
-                          className="m-auto my-2 cursor-pointer w-fit"
+                          className="m-auto my-2 cursor-pointer w-fit txt-title"
                           onClick={() => handleRemoveItem(levelIndex, item)}
                         >
                           <DeleteIcon cursor={"pointer"} /> Remover Item
@@ -434,7 +438,7 @@ export default function NewRoadmapPage() {
                           return (
                             <div>
                               <div
-                                className="m-auto my-2 cursor-pointer w-fit"
+                                className="m-auto my-2 cursor-pointer w-fit txt-title"
                                 onClick={() =>
                                   handleRemoveSection(
                                     levelIndex,
@@ -473,7 +477,7 @@ export default function NewRoadmapPage() {
                                       mt="2"
                                     />
                                     <div
-                                      className="m-auto my-2 cursor-pointer w-fit"
+                                      className="m-auto my-2 cursor-pointer w-fit txt-title"
                                       onClick={() =>
                                         handleRemoveLink(
                                           levelIndex,
@@ -531,23 +535,33 @@ export default function NewRoadmapPage() {
                                         />
                                       </div>
                                       <div className="w-full md:w-2/12">
-                                      <Select placeholder="Select option"
-                                        border="2px"
-                                        value={link.contentType}
-                                        borderColor={"#eabc54"}
-                                        onChange={(e) => handleLinkChange( e,
-                                          link,
-                                          levelIndex,
-                                          itemIndex,
-                                          sectionIndex,
-                                          linkIndex,
-                                          ItemField.TYPE)}
-                                        size="sm">
-                                          {Object.values(LinkContentType).map((type) => {return <option value={type}>
-                                            {type}
-                                          </option>})}
-                                          
-                                          
+                                        <Select
+                                          placeholder="Select option"
+                                          border="2px"
+                                          value={link.contentType}
+                                          borderColor={"#eabc54"}
+                                          onChange={(e) =>
+                                            handleLinkChange(
+                                              e,
+                                              link,
+                                              levelIndex,
+                                              itemIndex,
+                                              sectionIndex,
+                                              linkIndex,
+                                              ItemField.TYPE
+                                            )
+                                          }
+                                          size="sm"
+                                        >
+                                          {Object.values(LinkContentType).map(
+                                            (type) => {
+                                              return (
+                                                <option value={type}>
+                                                  {type}
+                                                </option>
+                                              );
+                                            }
+                                          )}
                                         </Select>
                                       </div>
                                     </div>
