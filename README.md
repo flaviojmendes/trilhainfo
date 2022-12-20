@@ -4,11 +4,16 @@
 
 Olá 👋
 
-Se você chegou até esse repo é porque está querendo saber mais sobre como contribuir com o [Trilha Info](https://www.trilha.info/). É bem simples!
-
-Atualmente estou pedindo contribuições para o Roadmap de Frontend. Basta mandar um Pull Request para editar o [JSON](https://github.com/flaviojmendes/trilhainfo/tree/main/src/roadmaps) que contém todas a informações.
+A [Trilha Info](https://trilha.info) é um projeto Open Source que nasceu em Junho/2022 com o objetivo de agregar e organizar conteúdos gratuitos em português para pessoas que querem ingressar na área de Tecnologia.
 
 ![Preview](/src/preview.png)
+
+A motivação em criar esse aplicativo é por acreditar que a educação e o conhecimento devem ser democráticos. Qualquer pessoa deveria ter acesso aos assuntos que se interessa para que garanta um futuro cada vez mais próspero.
+
+Encontrou um Bug 🐛, tem uma ideia 💡? É só abrir uma [issue](https://github.com/flaviojmendes/trilhainfo/issues).
+
+Portanto, se você também acredita nisso compartilhe para que o conhecimento chegue cada vez mais longe. E participe da nossa comunidade no Discord
+
 
 ## Disclaimer
 

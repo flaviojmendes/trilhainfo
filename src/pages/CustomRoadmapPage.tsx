@@ -62,7 +62,7 @@ export default function CustomRoadmapPage() {
           </div>
         )}
         {roadmap && (
-          <Roadmap data={roadmap.getLevels()} title={roadmap.title || ""} />
+          <Roadmap data={roadmap.getLevels()} title={roadmap.title || ""} name={roadmap.id!} />
         )}
         {roadmap && <E404Page />}
       </MainLayout>

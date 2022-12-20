@@ -28,12 +28,12 @@ import { useLocalStorage } from "react-use";
 import { Level, LinkContentType, RoadmapItem } from "../../entity/RoadmapItem";
 import LevelItem from "../Level/LevelItem";
 import Comment from "../Comment/Comment";
-import { useLocation } from "react-router-dom";
-
+import { Link, useLocation } from "react-router-dom";
 
 type Props = {
   data: Level[];
   title: string;
+  name: string;
 };
 
 function getColorFromContentType(contentType: LinkContentType | string) {
@@ -79,7 +79,7 @@ export default function Roadmap(props: Props) {
           level.items.map((item) => {
             if (item.label === decodeURI(anchorItem)) {
               setActiveItem(item);
-              onOpen(); 
+              onOpen();
               itemFound = true;
             }
           });
@@ -270,9 +270,21 @@ export default function Roadmap(props: Props) {
             </DrawerBody>
 
             <DrawerFooter>
-              <Button colorScheme="yellow" mr={3} onClick={onClose}>
-                Fechar
-              </Button>
+              <div className="flex space-x-4">
+                <a
+                  className="twitter-share-button bg-blue rounded-md text-center font-semibold px-2 py-2 align-middle"
+                  href={`https://twitter.com/intent/tweet?text=Vem estudar ${
+                    activeItem?.label
+                  } comigo na Trilha Info.&url=https://trilha.info/roadmap/${
+                    props.name
+                  }${encodeURIComponent("#" + activeItem?.label || "")}`}
+                >
+                  Compartilhar no Twitter
+                </a>
+                <Button colorScheme="yellow" mr={3} onClick={onClose}>
+                  Fechar
+                </Button>
+              </div>
             </DrawerFooter>
           </DrawerContent>
         </Drawer>
