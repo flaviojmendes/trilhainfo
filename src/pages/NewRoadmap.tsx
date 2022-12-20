@@ -312,11 +312,12 @@ export default function NewRoadmapPage() {
           <div className="w-full md:w-1/2 m-auto">
             <span className="c-yellow">Título:</span>
             <Input
-              className="c-red"
+              className="c-yellow font-semibold txt-title"
+              fontSize={"xl"}
               value={roadmap.title}
               onChange={handleTitleChange}
               placeholder="Dê um título para o seu Roadmap"
-              size="sm"
+              size="md"
             />
           </div>
           <div className="w-full md:w-1/2 m-auto">
@@ -357,7 +358,7 @@ export default function NewRoadmapPage() {
                 <div className="w-44 h-50 mx-auto text-center">
                   <Input
                     borderColor={"#000"}
-                    className="font-black placeholder:text-dark-blue"
+                    className="font-black txt-title placeholder:text-dark-blue"
                     value={level.label}
                     onChange={(e) =>
                       handleLevelTitleChange(e, level, levelIndex)
@@ -384,7 +385,7 @@ export default function NewRoadmapPage() {
                     return (
                       <div
                         key={`item-${itemIndex}`}
-                        className="flex flex-col space-y-2 mx-0 my-0 p-2 pt-3 md:p-3 w-full text-center bd-handwritten bd-red  hover:shadow-md bg-brown"
+                        className="flex flex-col space-y-2 mx-0 my-0 p-2 pt-3 md:p-3 w-full text-center border-2 rounded-md bd-red  hover:shadow-md bg-brown"
                       >
                         <div
                           className="m-auto my-2 cursor-pointer w-fit"
