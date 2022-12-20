@@ -13,6 +13,7 @@ import { dataEngineeringData } from "../roadmaps/dataEngineering";
 
 export default function RoadmapPage() {
   const { name } = useParams<string>();
+  const [roadmapName, setRoadmapName] = useState('');
 
   const roadmaps: any = {
     frontend: { file: frontendData, title: "Frontend" },
@@ -23,6 +24,9 @@ export default function RoadmapPage() {
     community: { file: communityData, title: "Comunidade" },
   };
 
+  useEffect(() => {
+    setRoadmapName(name || '');
+  }, [name]);
   
 
   useDocumentTitle("Trilha Info - " + roadmaps[name || ""].title);
@@ -41,7 +45,7 @@ export default function RoadmapPage() {
         </p>
 
         {name && roadmaps[name] && (
-          <Roadmap data={roadmaps[name].file} title={roadmaps[name].title} />
+          <Roadmap data={roadmaps[name].file} title={roadmaps[name].title} name={roadmapName} />
         )}
         {!name || (!roadmaps[name] && <E404Page />)}
       </MainLayout>
