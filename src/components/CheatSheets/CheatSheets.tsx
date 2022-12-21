@@ -1,14 +1,10 @@
-import { MouseEvent, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import { Link, useNavigate } from "react-router-dom";
 import Cookies from "universal-cookie";
-
-const cookies = new Cookies();
+import { cheatSheets } from "../../guides/cheatSheets";
 
 export default function CheatSheets() {
-  const navigate = useNavigate();
-  const [isLoadingRoadmaps, setLoadingRoadmaps] = useState(true);
-
   useEffect(() => {}, []);
 
   return (
@@ -21,46 +17,23 @@ export default function CheatSheets() {
           Guias (Cheat Sheets)
         </h2>
         <div>
-          <ul
-            className="flex flex-col py-8 space-y-10 md:space-y-2 "
-            id="cheat"
-          >
-            <li className="flex flex-col space-y-10 md:space-y-2 ">
-              <a className="text-red text-xl m-auto hover:font-bold hover:text-yellow" href="/guide/bigO">
-                {"-> Notação Big O <-"}
-              </a>
-            </li>
-            <li className="flex flex-col space-y-10 md:space-y-2 ">
-              <a className="text-red text-xl m-auto hover:font-bold hover:text-yellow" href="/guide/basicAuth">
-                {"-> Autenticação Básica <-"}
-              </a>
-            </li>
-            <li className="flex flex-col space-y-10 md:space-y-2 ">
-              <a className="text-red text-xl m-auto hover:font-bold hover:text-yellow" href="/guide/onboarding">
-                {"-> Onboarding <-"}
-              </a>
-            </li>
-            <li className="flex flex-col space-y-10 md:space-y-2 ">
-              <a className="text-red text-xl m-auto hover:font-bold hover:text-yellow" href="/guide/sso">
-                {"-> SSO (Single Sign On) <-"}
-              </a>
-            </li>
-            <li className="flex flex-col space-y-10 md:space-y-2 ">
-              <a className="text-red text-xl m-auto hover:font-bold hover:text-yellow" href="/guide/star">
-                {"-> Modelo STAR para Entrevistas <-"}
-              </a>
-            </li>
-            <li className="flex flex-col space-y-10 md:space-y-2 ">
-              <a className="text-red text-xl m-auto hover:font-bold hover:text-yellow" href="/guide/slaSloSli">
-                {"-> SLA, SLO, SLI? <-"}
-              </a>
-            </li>
-            <li className="flex flex-col space-y-10 md:space-y-2 ">
-              <a className="text-red text-xl m-auto hover:font-bold hover:text-yellow" href="/guide/jsAsyncDefer">
-                {"-> Javascript Async, Defer <-"}
-              </a>
-            </li>
-          </ul>
+          <div className="flex flex-wrap items-stretch py-8 px-4 space-y-4 md:space-y-0 justify-center gap-5">
+            {cheatSheets.map((cheatSheet) => {
+              return (
+                <div
+                  key={cheatSheet.id}
+                  className="flex flex-col md:w-1/3 lg:w-1/4 w-full min-h-fit space-y-2 bg-brown  hover:bg-white py-3 rounded-md"
+                >
+                  <a
+                    className=" text-2xl txt-title m-auto "
+                    href={`/guide/${cheatSheet.id}`}
+                  >
+                    {`-> ${cheatSheet.title} <-`}
+                  </a>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </section>
     </>

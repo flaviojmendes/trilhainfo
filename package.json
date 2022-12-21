@@ -16,6 +16,7 @@
     "@types/events": "^3.0.0",
     "@types/node": "^18.7.3",
     "axios": "^0.27.2",
+    "emojisplosion": "^2.6.1",
     "events": "^3.3.0",
     "framer-motion": "^6",
     "html2canvas": "^1.4.1",
