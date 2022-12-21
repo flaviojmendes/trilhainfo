@@ -110,6 +110,17 @@ export default function Roadmap(props: Props) {
     selected[label] = checked;
     setSelectedItems(selected);
     localStorage.setItem("selectedItems", JSON.stringify(selected));
+    
+    if(checked) {
+      emojisplosion({
+        position: {
+          x: mousePos?.x || innerWidth / 2,
+          y: mousePos?.y || innerHeight / 2,
+        },
+        emojis: ["🎉", "🎊", "🎈", "🤓"],
+      });
+    }
+
   }
 
   function isRead(label: string) {
@@ -147,7 +158,7 @@ export default function Roadmap(props: Props) {
           x: mousePos?.x || innerWidth / 2,
           y: mousePos?.y || innerHeight / 2,
         },
-        emojis: ["🎉", "🎊", "🎈"],
+        emojis: ["🎉", "🎊", "🎈", "🤓"],
       });
     }
   }
