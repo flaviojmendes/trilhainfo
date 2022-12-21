@@ -23,12 +23,13 @@ import {
 } from "@chakra-ui/react";
 import html2canvas from "html2canvas";
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useLocalStorage } from "react-use";
 import { Level, LinkContentType, RoadmapItem } from "../../entity/RoadmapItem";
 import LevelItem from "../Level/LevelItem";
 import Comment from "../Comment/Comment";
 import { Link, useLocation } from "react-router-dom";
+import { emojisplosion } from "emojisplosion";
 
 type Props = {
   data: Level[];
@@ -57,10 +58,23 @@ export default function Roadmap(props: Props) {
   const printRef = useRef(null);
   const { pathname, hash, key } = useLocation();
   const [activeItem, setActiveItem] = React.useState<RoadmapItem>();
+  const [mousePos, setMousePos] = useState<{ x: number; y: number }>();
   const [selectedItems, setSelectedItems, remove] = useLocalStorage(
     "selectedItems",
     {} as { [key: string]: boolean }
   );
+
+  useEffect(() => {
+    const handleMouseMove = (event: { clientX: any; clientY: any }) => {
+      setMousePos({ x: event.clientX, y: event.clientY });
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+    };
+  }, []);
 
   useEffect(() => {
     if (localStorage.getItem("selectedItems")) {
@@ -126,6 +140,16 @@ export default function Roadmap(props: Props) {
         }
       });
     });
+
+    if (check) {
+      emojisplosion({
+        position: {
+          x: mousePos?.x || innerWidth / 2,
+          y: mousePos?.y || innerHeight / 2,
+        },
+        emojis: ["🎉", "🎊", "🎈"],
+      });
+    }
   }
 
   async function handleDownloadImage() {
