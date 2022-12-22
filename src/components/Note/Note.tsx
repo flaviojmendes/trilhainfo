@@ -35,13 +35,14 @@ type Props = {
 };
 
 export default function Note(props: Props) {
-  const { isAuthenticated, user, isLoading, logout } = useAuth0();
-
+  const { isAuthenticated, user, loginWithRedirect } = useAuth0();
+  
   const { isOpen, onOpen, onClose } = useDisclosure();
   let [noteText, setNoteText] = useState("");
   let [notes, setNotes] = useState<NoteModel[]>([]);
   let [isSavingNote, setSavingNote] = useState(false);
   let [isDeletingNote, setDeletingNote] = useState(false);
+  
 
   useEffect(() => {
     if (user) {
@@ -54,8 +55,8 @@ export default function Note(props: Props) {
     try {
       console.log(getUuidByString(props.id));
       let response = await axios.get(
-        import.meta.env.VITE_API_URL +
-          `/notes/${getUuidByString(props.id)}` || "",
+        import.meta.env.VITE_API_URL + `/notes/${getUuidByString(props.id)}` ||
+          "",
         {
           headers: {
             "Content-Type": "application/json",
@@ -189,6 +190,8 @@ export default function Note(props: Props) {
           </div>
         </>
       )}
+      {!isAuthenticated && <>
+      <p className="text-center txt-title">Adicione anotações de seus estudos 📝. Para isso basta <span className="cursor-pointer font-semibold text-red hover:underline" onClick={() => loginWithRedirect()}>fazer login</span>.</p></>}
     </div>
   );
 }
