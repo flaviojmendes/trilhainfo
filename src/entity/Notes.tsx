@@ -1,5 +1,5 @@
 
-export interface CommentModel {
+export interface NoteModel {
     id?: string;
     text: string;
     author?: string;
