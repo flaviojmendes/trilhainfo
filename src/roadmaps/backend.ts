@@ -20,9 +20,9 @@ import { cloudComputing } from "./items/cloudComputing";
 import { containers } from "./items/containers";
 export const data: Level[] = [
   {
-    label: "Conhecimento básico sobre HTTP",
+    label: "Conhecimento básico sobre internet",
     description:
-      "Para ser uma pessoa desenvolvedora backend ou frontend, independente da tecnologia que você ira utilizar, é importante saber os conceitos básicos sobre o protocolo HTTP.",
+      "Para ser uma pessoa desenvolvedora backend ou frontend, independente da tecnologia que você ira utilizar, é importante saber os conceitos básicos sobre a internet.",
     items: [http],
   },
   {
