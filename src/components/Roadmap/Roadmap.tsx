@@ -27,9 +27,10 @@ import React, { useEffect, useRef, useState } from "react";
 import { useLocalStorage } from "react-use";
 import { Level, LinkContentType, RoadmapItem } from "../../entity/RoadmapItem";
 import LevelItem from "../Level/LevelItem";
-import Comment from "../Comment/Comment";
+import Comment from "../Note/Note";
 import { Link, useLocation } from "react-router-dom";
 import { emojisplosion } from "emojisplosion";
+import Note from "../Note/Note";
 
 type Props = {
   data: Level[];
@@ -110,8 +111,8 @@ export default function Roadmap(props: Props) {
     selected[label] = checked;
     setSelectedItems(selected);
     localStorage.setItem("selectedItems", JSON.stringify(selected));
-    
-    if(checked) {
+
+    if (checked) {
       emojisplosion({
         emojiCount: 1,
         uniqueness: 1,
@@ -122,7 +123,6 @@ export default function Roadmap(props: Props) {
         emojis: ["🎉", "🎊", "🎈", "🤓"],
       });
     }
-
   }
 
   function isRead(label: string) {
@@ -295,7 +295,7 @@ export default function Roadmap(props: Props) {
                                       </span>
                                     </Badge>
 
-                                    <Comment id={link.url} title={link.label} />
+                                   
                                   </Flex>
                                 </>
                               );
@@ -306,6 +306,8 @@ export default function Roadmap(props: Props) {
                   );
                 })}
               </Accordion>
+
+              <Note id={activeItem?.label || ""} title={activeItem?.label || ""}/>
             </DrawerBody>
 
             <DrawerFooter>
