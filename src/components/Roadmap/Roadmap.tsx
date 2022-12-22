@@ -27,9 +27,10 @@ import React, { useEffect, useRef, useState } from "react";
 import { useLocalStorage } from "react-use";
 import { Level, LinkContentType, RoadmapItem } from "../../entity/RoadmapItem";
 import LevelItem from "../Level/LevelItem";
-import Comment from "../Comment/Comment";
+import Comment from "../Note/Note";
 import { Link, useLocation } from "react-router-dom";
 import { emojisplosion } from "emojisplosion";
+import Note from "../Note/Note";
 
 type Props = {
   data: Level[];
@@ -110,8 +111,8 @@ export default function Roadmap(props: Props) {
     selected[label] = checked;
     setSelectedItems(selected);
     localStorage.setItem("selectedItems", JSON.stringify(selected));
-    
-    if(checked) {
+
+    if (checked) {
       emojisplosion({
         emojiCount: 1,
         uniqueness: 1,
@@ -122,7 +123,6 @@ export default function Roadmap(props: Props) {
         emojis: ["🎉", "🎊", "🎈", "🤓"],
       });
     }
-
   }
 
   function isRead(label: string) {
@@ -191,6 +191,11 @@ export default function Roadmap(props: Props) {
     }
   }
 
+  function handleCloseDrawer() {
+    window.history.pushState(props.name, props.name, `/roadmap/${props.name}`);
+    onClose();
+  }
+
   return (
     <>
       <div className="flex">
@@ -223,10 +228,14 @@ export default function Roadmap(props: Props) {
           })}
         </div>
 
-        <Drawer isOpen={isOpen} size={"lg"} placement="right" onClose={onClose}>
+        <Drawer isOpen={isOpen} size={"lg"} placement="right" onClose={handleCloseDrawer}>
           <DrawerOverlay />
           <DrawerContent bgColor={"#444140"}>
-            <DrawerCloseButton />
+            <DrawerCloseButton
+              color={"#2A2827"}
+              backgroundColor={"#eabc54"}
+              _hover={{ backgroundColor: "#e9dad5" }}
+            />
             <DrawerHeader>
               <span className="text-light-brown txt-title">
                 {activeItem?.label}
@@ -294,8 +303,6 @@ export default function Roadmap(props: Props) {
                                           : null}
                                       </span>
                                     </Badge>
-
-                                    <Comment id={link.url} title={link.label} />
                                   </Flex>
                                 </>
                               );
@@ -306,6 +313,11 @@ export default function Roadmap(props: Props) {
                   );
                 })}
               </Accordion>
+
+              <Note
+                id={activeItem?.label || ""}
+                title={activeItem?.label || ""}
+              />
             </DrawerBody>
 
             <DrawerFooter>
@@ -320,7 +332,7 @@ export default function Roadmap(props: Props) {
                 >
                   Compartilhar no Twitter
                 </a>
-                <Button colorScheme="yellow" mr={3} onClick={onClose}>
+                <Button colorScheme="yellow" mr={3} onClick={handleCloseDrawer}>
                   Fechar
                 </Button>
               </div>
