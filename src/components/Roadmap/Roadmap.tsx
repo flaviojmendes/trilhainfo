@@ -21,7 +21,7 @@ import {
   Spacer,
   useDisclosure,
 } from "@chakra-ui/react";
-import html2canvas from "html2canvas";
+import domtoimage from "dom-to-image";
 
 import React, { useEffect, useRef, useState } from "react";
 import { useLocalStorage } from "react-use";
@@ -174,9 +174,13 @@ export default function Roadmap(props: Props) {
     });
 
     const element = printRef.current || document.body;
-    const canvas = await html2canvas(element);
+    
+    // const canvas = await html2canvas(element);
+    const data = await domtoimage.toPng(element);
+    
 
-    const data = canvas.toDataURL();
+
+    // const data = canvas.toDataURL();
     const link = document.createElement("a");
 
     if (typeof link.download === "string") {
@@ -207,7 +211,7 @@ export default function Roadmap(props: Props) {
           Baixar meu Roadmap
         </button>
       </div>
-      <section ref={printRef}>
+      <section ref={printRef} className="pb-8">
         <h2 className="text-center font-bold text-3xl c-yellow my-6 txt-title c-dark-brown">
           {props.title}
         </h2>

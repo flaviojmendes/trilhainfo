@@ -67,12 +67,12 @@ export default function LevelItem(props: Props) {
                     }}
                     key={item.label}
                     className={
-                      "flex mx-0 my-0 p-1 md:p-2  w-fit text-center cursor-pointer rounded-md border-2 bd-red hover:bg-white  hover:shadow-md" +
+                      "flex center mx-0 my-0 p-1 md:p-2 overflow-hidden  w-fit text-center cursor-pointer rounded-md border-2 bd-red hover:bg-white  hover:shadow-md" +
                       (level.length >= 4 ? " mb-3" : "") +
                       (isAllContentRead ? " bg-light-orange" : " bg-brown")
                     }
                   >
-                    <Spacer />
+                    
                     {isAllContentRead ? (
                       <span className="checking">
                         <CheckIcon
@@ -106,13 +106,13 @@ export default function LevelItem(props: Props) {
                         }}
                       />
                     )}
-                    <span
+                    <p
                       className={
-                        "m-auto c-dark-brown  txt-title text-lg "
+                        "m-auto c-dark-brown  txt-title text-lg whitespace-nowrap "
                       }
                     >
                       {item.label}
-                    </span>
+                    </p>
 
                     {/* <InfoIcon m="auto" mx="1" color={"#494443"} /> */}
                   </div>
