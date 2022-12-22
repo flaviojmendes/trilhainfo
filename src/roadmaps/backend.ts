@@ -8,6 +8,7 @@ import {
 import { controleDeVersao } from "./items/controleDeVersao";
 import { css } from "./items/css";
 import { html } from "./items/html";
+import { http } from "./items/http";
 import { javascript } from "./items/javascript";
 import { python } from "./items/python";
 import { go } from "./items/go";
@@ -18,6 +19,12 @@ import { SO } from "./items/SO";
 import { cloudComputing } from "./items/cloudComputing";
 import { containers } from "./items/containers";
 export const data: Level[] = [
+  {
+    label: "Conhecimento básico sobre HTTP",
+    description:
+      "Para ser uma pessoa desenvolvedora backend ou frontend, independente da tecnologia que você ira utilizar, é importante saber os conceitos básicos sobre o protocolo HTTP.",
+    items: [http],
+  },
   {
     label: "Conhecimento básico de Frontend",
     description:
