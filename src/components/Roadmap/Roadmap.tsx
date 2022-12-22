@@ -113,6 +113,8 @@ export default function Roadmap(props: Props) {
     
     if(checked) {
       emojisplosion({
+        emojiCount: 1,
+        uniqueness: 1,
         position: {
           x: mousePos?.x || innerWidth / 2,
           y: mousePos?.y || innerHeight / 2,
@@ -154,6 +156,8 @@ export default function Roadmap(props: Props) {
 
     if (check) {
       emojisplosion({
+        emojiCount: 1,
+        uniqueness: 1,
         position: {
           x: mousePos?.x || innerWidth / 2,
           y: mousePos?.y || innerHeight / 2,
