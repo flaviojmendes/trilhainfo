@@ -1,31 +1,13 @@
 import { useAuth0 } from "@auth0/auth0-react";
-import { DeleteIcon } from "@chakra-ui/icons";
-import {
-  Accordion,
-  AccordionButton,
-  AccordionItem,
-  Badge,
-  Box,
-  Button,
-  IconButton,
-  Modal,
-  ModalBody,
-  ModalCloseButton,
-  ModalContent,
-  ModalFooter,
-  ModalHeader,
-  ModalOverlay,
-  Textarea,
-  useDisclosure,
-} from "@chakra-ui/react";
+import { Button, Textarea, useDisclosure } from "@chakra-ui/react";
 import Cookies from "universal-cookie";
 import getUuidByString from "uuid-by-string";
 
 import { ChangeEvent, useEffect, useState } from "react";
 import { NoteModel } from "../../entity/Notes";
 import axios, { AxiosError } from "axios";
-import { ThreeDots } from "react-loader-spinner";
-import { FaTrash, FaTrashAlt } from "react-icons/fa";
+import { Bars, LineWave, ThreeDots } from "react-loader-spinner";
+import { FaTrashAlt } from "react-icons/fa";
 
 const cookies = new Cookies();
 
@@ -36,13 +18,12 @@ type Props = {
 
 export default function Note(props: Props) {
   const { isAuthenticated, user, loginWithRedirect } = useAuth0();
-  
-  const { isOpen, onOpen, onClose } = useDisclosure();
+
   let [noteText, setNoteText] = useState("");
   let [notes, setNotes] = useState<NoteModel[]>([]);
   let [isSavingNote, setSavingNote] = useState(false);
+  let [isLoadingNotes, setLoadingNotes] = useState(false);
   let [isDeletingNote, setDeletingNote] = useState(false);
-  
 
   useEffect(() => {
     if (user) {
@@ -51,7 +32,7 @@ export default function Note(props: Props) {
   }, []);
 
   async function getNotes() {
-    // setLoadingRoadmaps(true);
+    setLoadingNotes(true);
     try {
       console.log(getUuidByString(props.id));
       let response = await axios.get(
@@ -70,6 +51,7 @@ export default function Note(props: Props) {
       if (e instanceof AxiosError) {
       }
     }
+    setLoadingNotes(false);
   }
 
   async function handleDeleteComment(commentId: string) {
@@ -127,6 +109,19 @@ export default function Note(props: Props) {
             <hr className="w-2/3 m-auto my-2 border-yellow" />
           )}
 
+          {isLoadingNotes && (
+            <div className="flex py-4">
+              <Bars
+                height="40"
+                width="40"
+                color="#ee8561"
+                ariaLabel="bars-loading"
+                wrapperStyle={{}}
+                wrapperClass="m-auto"
+                visible={true}
+              />
+            </div>
+          )}
           {notes.map((note, index) => {
             return (
               <>
@@ -190,8 +185,20 @@ export default function Note(props: Props) {
           </div>
         </>
       )}
-      {!isAuthenticated && <>
-      <p className="text-center txt-title">Adicione anotações de seus estudos 📝. Para isso basta <span className="cursor-pointer font-semibold text-red hover:underline" onClick={() => loginWithRedirect()}>fazer login</span>.</p></>}
+      {!isAuthenticated && (
+        <>
+          <p className="text-center txt-title">
+            Adicione anotações de seus estudos 📝. Para isso basta{" "}
+            <span
+              className="cursor-pointer font-semibold text-red hover:underline"
+              onClick={() => loginWithRedirect()}
+            >
+              fazer login
+            </span>
+            .
+          </p>
+        </>
+      )}
     </div>
   );
 }
