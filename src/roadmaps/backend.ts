@@ -115,13 +115,6 @@ export const data: Level[] = [
             label: "C# Básico",
             links: [
               {
-                label: "Conceitos sobre CLR",
-                url: "https://www.youtube.com/watch?v=gQdZq_SRvE8",
-                type: LinkType.FREE,
-                votes: 0,
-                contentType: LinkContentType.WATCH,
-              },
-              {
                 label: "Download .NET",
                 url: "https://dotnet.microsoft.com/en-us/download",
                 type: LinkType.FREE,
