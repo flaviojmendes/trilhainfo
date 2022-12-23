@@ -108,7 +108,7 @@ export default function LevelItem(props: Props) {
                     )}
                     <p
                       className={
-                        "m-auto c-dark-brown  txt-title text-lg whitespace-nowrap "
+                        "m-auto c-dark-brown  txt-title text-lg md:whitespace-nowrap whitespace-normal"
                       }
                     >
                       {item.label}
