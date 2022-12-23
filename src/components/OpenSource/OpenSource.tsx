@@ -4,7 +4,7 @@ export default function OpenSource() {
       <h2 className="text-center my-6 txt-title text-3xl c-yellow">
         Open Source
       </h2>
-      <article className="container text-yellow mx-auto px-4 text-justify txt-title">
+      <article className="container text-yellow mx-auto px-4 text-justify txt-title text-lg md:text-xl">
         <p className="my-2 txt-title">
           A Trilha Info é um projeto{" "}
           <span className="font-semibold text-red hover:text-light-brown">

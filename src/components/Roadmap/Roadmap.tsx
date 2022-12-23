@@ -66,6 +66,10 @@ export default function Roadmap(props: Props) {
   );
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
     const handleMouseMove = (event: { clientX: any; clientY: any }) => {
       setMousePos({ x: event.clientX, y: event.clientY });
     };
@@ -174,8 +178,8 @@ export default function Roadmap(props: Props) {
     });
 
     const element = printRef.current || document.body;
-        const data = await domtoimage.toPng(element);
-    
+    const data = await domtoimage.toPng(element);
+
     const link = document.createElement("a");
 
     if (typeof link.download === "string") {
@@ -227,7 +231,12 @@ export default function Roadmap(props: Props) {
           })}
         </div>
 
-        <Drawer isOpen={isOpen} size={"lg"} placement="right" onClose={handleCloseDrawer}>
+        <Drawer
+          isOpen={isOpen}
+          size={"lg"}
+          placement="right"
+          onClose={handleCloseDrawer}
+        >
           <DrawerOverlay />
           <DrawerContent bgColor={"#444140"}>
             <DrawerCloseButton
