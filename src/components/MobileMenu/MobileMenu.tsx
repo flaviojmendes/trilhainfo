@@ -36,7 +36,7 @@ export default function MobileMenu() {
       <Drawer isOpen={isOpen} placement="left" onClose={onClose}>
         <DrawerOverlay />
         <DrawerContent backgroundColor={"#494443"}>
-          <DrawerCloseButton />
+          <DrawerCloseButton color={"#eabc54"}/>
           <DrawerHeader display={"flex"}>
             {isAuthenticated && (
               <>

@@ -22,10 +22,10 @@ export default function CheatSheets() {
               return (
                 <div
                   key={cheatSheet.id}
-                  className="flex flex-col md:w-1/3 lg:w-1/4 w-full min-h-fit space-y-2 bg-brown  hover:bg-white py-3 rounded-md"
+                  className="flex flex-col md:w-1/3 lg:w-1/4 w-full min-h-fit space-y-2 bg-brown hover:bg-white py-3 rounded-md"
                 >
                   <a
-                    className=" text-2xl txt-title m-auto "
+                    className="text-lg md:text-2xl txt-title m-auto "
                     href={`/guide/${cheatSheet.id}`}
                   >
                     {`-> ${cheatSheet.title} <-`}
