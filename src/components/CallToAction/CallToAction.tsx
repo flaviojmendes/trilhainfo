@@ -35,9 +35,11 @@ export default function CallToAction() {
             />
           </div>
           <p className=" mt-10 max-w-xl text-lg md:text-xl txt-title text-yellow">
-            Essas dúvidas não são só suas. Desde Junho/2022 mais de 18000
-            pessoas já acessaram a Trilha Info gratuitamente como uma ferramenta
-            de apoio aos estudos.
+            Essas dúvidas não são só suas.
+          </p>
+          <p className=" mt-1 max-w-xl text-lg md:text-xl txt-title text-yellow">
+            Desde Junho/2022 mais de 18.000 pessoas já acessaram a Trilha Info
+            gratuitamente como uma ferramenta de apoio aos estudos.
           </p>
           <div className="flex w-full">
             <AnchorLink
