@@ -8,6 +8,7 @@ import { NoteModel } from "../../entity/Notes";
 import axios, { AxiosError } from "axios";
 import { Bars, LineWave, ThreeDots } from "react-loader-spinner";
 import { FaTrashAlt } from "react-icons/fa";
+import { RiCloseCircleFill } from "react-icons/ri";
 
 const cookies = new Cookies();
 
@@ -29,7 +30,7 @@ export default function Note(props: Props) {
     if (user) {
       getNotes();
     }
-  }, []);
+  }, [user]);
 
   async function getNotes() {
     setLoadingNotes(true);
@@ -106,7 +107,7 @@ export default function Note(props: Props) {
             Minhas Anotações
           </h2>
           {notes.length > 0 && (
-            <hr className="w-2/3 m-auto my-2 border-yellow" />
+            <hr className="w-2/3 m-auto my-4 border-yellow" />
           )}
 
           {isLoadingNotes && (
@@ -126,20 +127,23 @@ export default function Note(props: Props) {
             return (
               <>
                 <div className="mb-4 ">
-                  <p className="mb-0 text-dark-brown">{note.text}</p>
-                  <div className="flex align-middle">
+                  <div className="flex hover:bg-dark-brown hover:bg-opacity-5 rounded-sm">
+                    <div className="flex-col grow align-middle">
+                      <p className="mx-2 mt-2 text-dark-brown txt-title">
+                        {note.text}
+                      </p>
+                      <span className="ml-2 mb-2 text-red text-xs inline-block align-middle h-fit txt-title my-auto">
+                        {new Date(note.createdAt!).toLocaleString()}
+                      </span>
+                    </div>
                     <button
                       aria-label="Deletar Comentário"
                       onClick={() => handleDeleteComment(note.id || "")}
                       disabled={isDeletingNote}
-                      className="mr-2 p-1 rounded-sm bg-red"
+                      className="p-1 rounded-sm bg-red"
                     >
-                      <FaTrashAlt className="w-3 text-dark-brown " />
+                      <RiCloseCircleFill className="w-3 text-dark-brown " />
                     </button>
-
-                    <span className="text-red text-xs inline-block align-middle h-fit txt-title my-auto">
-                      {new Date(note.createdAt!).toLocaleString()}
-                    </span>
                   </div>
                 </div>
                 {/* <hr className="my-2 mx-auto w-1/2" /> */}

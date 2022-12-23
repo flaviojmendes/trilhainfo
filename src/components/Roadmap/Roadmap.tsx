@@ -174,13 +174,8 @@ export default function Roadmap(props: Props) {
     });
 
     const element = printRef.current || document.body;
+        const data = await domtoimage.toPng(element);
     
-    // const canvas = await html2canvas(element);
-    const data = await domtoimage.toPng(element);
-    
-
-
-    // const data = canvas.toDataURL();
     const link = document.createElement("a");
 
     if (typeof link.download === "string") {
