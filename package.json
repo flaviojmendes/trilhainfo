@@ -16,6 +16,7 @@
     "@types/dom-to-image": "^2.6.4",
     "@types/events": "^3.0.0",
     "@types/node": "^18.7.3",
+    "@types/react-anchor-link-smooth-scroll": "^1.0.2",
     "axios": "^0.27.2",
     "dom-to-image": "^2.6.0",
     "dom-to-image-more": "^2.13.1",
@@ -25,6 +26,7 @@
     "immutability-helper": "^3.1.1",
     "react": "^18.0.0",
     "react-analytics-charts": "^1.2.13",
+    "react-anchor-link-smooth-scroll": "^1.0.12",
     "react-beforeunload": "^2.5.3",
     "react-dom": "^18.0.0",
     "react-ga": "^3.3.1",
@@ -34,6 +36,7 @@
     "react-router-dom": "^6.3.0",
     "react-router-navigation-prompt": "^1.9.6",
     "react-share": "^4.4.0",
+    "react-type-animation": "^2.1.2",
     "react-use": "^17.4.0",
     "universal-cookie": "^4.0.4",
     "uuid-by-string": "^4.0.0"
