@@ -39,7 +39,7 @@ export default function HorizontalRoadmapFooter(props: Props) {
         })}
       </div>
       {/* Show in Smaller Screens */}
-      <div className=" text-yellow align-middle mx-5 text-xl p-0 h-full flex">
+      <div className=" text-yellow align-middle mx-5 text-xl p-0 h-full flex xl:hidden">
         <span className={"m-auto txt-title"}>{`${props.currentLevelIndex} de ${props.levelQty}`}</span>
       </div>
       <div className="text-5xl text-yellow cursor-pointer">
