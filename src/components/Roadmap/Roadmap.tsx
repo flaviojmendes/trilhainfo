@@ -212,7 +212,7 @@ export default function Roadmap(props: Props) {
         <div className="flex-grow"></div>
         <a
           type="button"
-          className="border-2 p-1 rounded-md bg-light-orange txt-title border-red m-auto mr-2 hover:shadow-md hover:bg-light-orange hidden xl:block"
+          className="border-2 p-1 rounded-md bg-light-orange txt-title border-red m-auto mr-2 hover:shadow-md hover:bg-light-orange"
           href={`/hroadmap/${props.name}`}
           onClick={handleHorizontalRoadmapClick}
         >
