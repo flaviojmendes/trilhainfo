@@ -25,8 +25,8 @@ import domtoimage from "dom-to-image";
 
 import React, { useEffect, useRef, useState } from "react";
 import { useLocalStorage } from "react-use";
-import { Level, LinkContentType, RoadmapItem } from "../../entity/RoadmapItem";
-import LevelItem from "../Level/LevelItem";
+import { Level, LinkContentType, RoadmapItem } from "../../entity/RoadmapModel";
+import LevelItem from "../LevelItem/LevelItem";
 import Comment from "../Note/Note";
 import { Link, useLocation } from "react-router-dom";
 import { emojisplosion } from "emojisplosion";
@@ -199,9 +199,25 @@ export default function Roadmap(props: Props) {
     onClose();
   }
 
+  function handleHorizontalRoadmapClick() {
+    ReactGA.event({
+      category: "action",
+      action: "open_horizontal_roadmap",
+    });
+  }
+
   return (
     <>
       <div className="flex">
+        <div className="flex-grow"></div>
+        <a
+          type="button"
+          className="border-2 p-1 rounded-md bg-light-orange txt-title border-red m-auto mr-2 hover:shadow-md hover:bg-light-orange hidden xl:block"
+          href={`/hroadmap/${props.name}`}
+          onClick={handleHorizontalRoadmapClick}
+        >
+          Visualizar na Horizontal
+        </a>
         <button
           type="button"
           className="border-2 p-1 rounded-md bg-yellow txt-title border-yellow m-auto mr-2 md:mr-10 hover:shadow-md hover:bg-light-orange"

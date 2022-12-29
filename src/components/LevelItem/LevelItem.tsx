@@ -1,7 +1,7 @@
 import { InfoIcon, CheckIcon } from "@chakra-ui/icons";
 import { FaRegCircle } from "react-icons/fa";
 import { Center, Flex, Spacer, Stack } from "@chakra-ui/react";
-import { Level, RoadmapItem } from "../../entity/RoadmapItem";
+import { Level, RoadmapItem } from "../../entity/RoadmapModel";
 import ReactGA from "react-ga4";
 
 type Props = {

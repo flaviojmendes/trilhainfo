@@ -19,7 +19,7 @@ import {
   LinkContentType,
   RoadmapItem,
   RoadmapModel,
-} from "../entity/RoadmapItem";
+} from "../entity/RoadmapModel";
 import Cookies from "universal-cookie";
 import { ItemField } from "../entity/ViewEnums";
 import { useNavigate, useParams } from "react-router-dom";

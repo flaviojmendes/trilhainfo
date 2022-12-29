@@ -3,7 +3,7 @@ import {
   LinkType,
   LinkContentType,
   RoadmapItem,
-} from "../entity/RoadmapItem";
+} from "../entity/RoadmapModel";
 import { bash } from "./items/bash";
 import { go } from "./items/go";
 import { javascript } from "./items/javascript";

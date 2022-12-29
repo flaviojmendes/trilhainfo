@@ -6,7 +6,7 @@ import useDocumentTitle from "../components/useDocumentTitle";
 import { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import Cookies from "universal-cookie";
-import { RoadmapModel } from "../entity/RoadmapItem";
+import { RoadmapModel } from "../entity/RoadmapModel";
 import { Grid } from "react-loader-spinner";
 
 

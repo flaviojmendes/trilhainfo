@@ -1,7 +1,7 @@
 import {
     LinkContentType,
     RoadmapItem,
-  } from "../../entity/RoadmapItem";
+  } from "../../entity/RoadmapModel";
   
   export const http: RoadmapItem = {
     label: "HTTP",

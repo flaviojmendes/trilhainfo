@@ -27,7 +27,7 @@ export default function MainLayout({ children }: Props) {
         <main className="w-full flex-grow py-1 mx-auto mt-0 mb-10">
           {children}
         </main>
-        <footer className="text-center py-4 w-full bg-dark-brown">
+        <footer className="text-center py-4 w-full bg-dark-brown select-none">
           <span className="c-brown">Idealizado por </span>
           <ChakraLink
             isExternal

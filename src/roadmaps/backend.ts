@@ -4,7 +4,7 @@ import {
   LinkType,
   LinkContentType,
   RoadmapItem,
-} from "../entity/RoadmapItem";
+} from "../entity/RoadmapModel";
 import { controleDeVersao } from "./items/controleDeVersao";
 import { css } from "./items/css";
 import { html } from "./items/html";

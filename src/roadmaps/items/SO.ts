@@ -1,4 +1,4 @@
-import { Level, LinkContentType, LinkType, RoadmapItem } from "../../entity/RoadmapItem";
+import { Level, LinkContentType, LinkType, RoadmapItem } from "../../entity/RoadmapModel";
 
 export const SO: RoadmapItem = {
   label: "SO e Conhecimentos Gerais",

@@ -8,6 +8,7 @@ import LoginPage from "./pages/LoginPage";
 import NewRoadmapPage from "./pages/NewRoadmap";
 import CustomRoadmapPage from "./pages/CustomRoadmapPage";
 import GuidePage from "./pages/GuidePage";
+import HorizontalRoadmapPage from "./pages/HorizontalRoadmapPage";
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/roadmap/:name" element={<RoadmapPage />} />
+      <Route path="/hroadmap/:name" element={<HorizontalRoadmapPage />} />
       <Route path="/roadmap/view/:roadmapId" element={<CustomRoadmapPage />} />
       <Route path="/new-roadmap" element={<NewRoadmapPage />} />
       <Route path="/edit-roadmap/:roadmapId" element={<NewRoadmapPage />} />
