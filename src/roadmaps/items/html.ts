@@ -16,20 +16,6 @@ export const html: RoadmapItem =  {
             contentType: LinkContentType.WATCH,
           },
           {
-            url: "https://www.youtube.com/watch?v=IOfxZFgUjt8",
-            label: "HTML Básico Parte 1 - Dev Lucas Lopes",
-            votes: 0,
-            type: LinkType.FREE,
-            contentType: LinkContentType.WATCH,
-          },
-          {
-            url: "https://www.youtube.com/watch?v=jU7gyfsQx9Y",
-            label: "HTML Básico Parte 2 - Dev Lucas Lopes",
-            votes: 0,
-            type: LinkType.FREE,
-            contentType: LinkContentType.WATCH,
-          },
-          {
             url: "https://www.youtube.com/watch?v=Ejkb_YpuHWs&list=PLHz_AreHm4dkZ9-atkcmcBaMZdmLHft8n",
             label: "Curso Completo de HTML e CSS - Gustavo Guanabara",
             votes: 0,
