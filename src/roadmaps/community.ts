@@ -1,4 +1,4 @@
-import { Level, LinkType, LinkContentType } from "../entity/RoadmapItem";
+import { Level, LinkType, LinkContentType } from "../entity/RoadmapModel";
 
 export const data: Level[] = [
   {

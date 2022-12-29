@@ -2,7 +2,7 @@ import {
   LinkContentType,
   LinkType,
   RoadmapItem,
-} from "../../entity/RoadmapItem";
+} from "../../entity/RoadmapModel";
 
 export const python: RoadmapItem = {
   label: "Python",

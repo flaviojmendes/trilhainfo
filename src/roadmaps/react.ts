@@ -3,7 +3,7 @@ import {
   LinkContentType,
   LinkType,
   RoadmapItem,
-} from "../entity/RoadmapItem";
+} from "../entity/RoadmapModel";
 
 export const data: Level[] = [
   { items: [{ label: "Ande o Roadmap de Frontend até React em Frameworks" }] },

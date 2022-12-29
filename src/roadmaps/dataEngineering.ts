@@ -1,4 +1,4 @@
-import { Level } from "../entity/RoadmapItem";
+import { Level } from "../entity/RoadmapModel";
 import { cloudComputing } from "./items/cloudComputing";
 import { containers } from "./items/containers";
 import { db } from "./items/db";

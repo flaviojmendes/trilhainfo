@@ -1,4 +1,4 @@
-import { LinkContentType, RoadmapItem } from "../../entity/RoadmapItem";
+import { LinkContentType, RoadmapItem } from "../../entity/RoadmapModel";
 
 export const containers: RoadmapItem = {
   label: "Containers vs Virtualização",

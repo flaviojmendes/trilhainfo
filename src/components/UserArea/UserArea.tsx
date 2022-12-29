@@ -8,7 +8,7 @@ import { FiShare, FiShare2 } from "react-icons/fi";
 import { Grid } from "react-loader-spinner";
 import { Link, useNavigate } from "react-router-dom";
 import Cookies from "universal-cookie";
-import { RoadmapModel } from "../../entity/RoadmapItem";
+import { RoadmapModel } from "../../entity/RoadmapModel";
 
 const cookies = new Cookies();
 

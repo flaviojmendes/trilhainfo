@@ -1,4 +1,4 @@
-import { LinkContentType, LinkType, RoadmapItem } from "../../entity/RoadmapItem";
+import { LinkContentType, LinkType, RoadmapItem } from "../../entity/RoadmapModel";
 
 export const html: RoadmapItem =  {
     label: "HTML",

@@ -4,11 +4,12 @@ import Cookies from "universal-cookie";
 import getUuidByString from "uuid-by-string";
 
 import { ChangeEvent, useEffect, useState } from "react";
-import { NoteModel } from "../../entity/Notes";
+
 import axios, { AxiosError } from "axios";
 import { Bars, LineWave, ThreeDots } from "react-loader-spinner";
 import { FaTrashAlt } from "react-icons/fa";
 import { RiCloseCircleFill } from "react-icons/ri";
+import { NoteModel } from "../../entity/NoteModel";
 
 const cookies = new Cookies();
 
@@ -30,7 +31,7 @@ export default function Note(props: Props) {
     if (user) {
       getNotes();
     }
-  }, [user]);
+  }, [user, props.id]);
 
   async function getNotes() {
     setLoadingNotes(true);
@@ -100,7 +101,7 @@ export default function Note(props: Props) {
   };
 
   return (
-    <div className="bg-yellow rounded-lg p-4 mt-4">
+    <div className="bg-yellow rounded-lg p-4 my-8">
       {isAuthenticated && (
         <>
           <h2 className="txt-title text-dark-brown text-center font-semibold text-xl">
