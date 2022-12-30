@@ -8,6 +8,7 @@ import CheatSheets from "../components/CheatSheets/CheatSheets";
 import OpenSource from "../components/OpenSource/OpenSource";
 import MainRoadmaps from "../components/MainRoadmaps/MainRoadmaps";
 import CallToAction from "../components/CallToAction/CallToAction";
+import Sponsors from "../components/Sponsors/Sponsors";
 
 export default function HomePage() {
   const Link = chakra(NavLink);
@@ -16,10 +17,13 @@ export default function HomePage() {
     <>
       <MainLayout>
         <CallToAction />
+        {/* <Sponsors /> */}
         <MainRoadmaps />
         <UserArea />
         <CheatSheets />
+        
         <OpenSource />
+        
       </MainLayout>
     </>
   );

@@ -11,8 +11,8 @@ export default function CallToAction() {
   }
   return (
     <>
-      <section className="flex flex-col items-stretch justify-center bg-dark-brown mb-10 py-10 mx-0 w-full shadow-inner">
-        <div className="flex-col md:w-1/2 m-4 md:m-auto py-2 md:py-10">
+      <section className="flex flex-col items-stretch justify-center bg-dark-brown py-10 mx-0 w-full shadow-inner">
+        <div className="flex-col md:w-1/2 m-4 md:m-auto py-2 md:pt-10">
           <div className="min-h-[4em]">
             <TypeAnimation
               // Same String at the start will only be typed once, initially

@@ -12,7 +12,7 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 import React from "react";
-import { FaDiscord, FaGithubSquare, FaNewspaper } from "react-icons/fa";
+import { FaDiscord, FaGithubSquare, FaHandHoldingUsd, FaNewspaper } from "react-icons/fa";
 import { ThreeDots } from "react-loader-spinner";
 
 export default function MobileMenu() {
@@ -57,6 +57,18 @@ export default function MobileMenu() {
           <DrawerBody>
             {isAuthenticated && <hr className="mb-4 m-auto border-yellow" />}
             <ul className="flex-col">
+            <li className="flex">
+                <a
+                  target={"_blank"}
+                  className="flex text-yellow hover:text-red pr-4 mr-4 my-2"
+                  href=""
+                >
+                  <FaHandHoldingUsd className="m-auto w-7 h-7 " />
+                  <span className="my-auto text-base ml-1 txt-title">
+                    Apoia.se
+                  </span>
+                </a>
+              </li>
               <li className="flex">
                 <a
                   target={"_blank"}
