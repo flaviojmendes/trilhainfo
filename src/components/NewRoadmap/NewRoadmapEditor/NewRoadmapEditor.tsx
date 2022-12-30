@@ -20,11 +20,9 @@ type Props = {
   setRoadmap: (roadmap: RoadmapModel) => void;
   setShouldBlock: (shouldBlock: boolean) => void;
   shouldBlock: boolean;
-  
 };
 
 export default function NewRoadmapEditor(props: Props) {
-
   usePrompt(
     "Tem certeza que deseja sair? Você pode perder dados não salvos.",
     props.shouldBlock
@@ -237,7 +235,10 @@ export default function NewRoadmapEditor(props: Props) {
     itemIndex: number,
     sectionIndex: number
   ) {
-    let roadmapTemp: RoadmapModel = Object.assign(new RoadmapModel(), props.roadmap);
+    let roadmapTemp: RoadmapModel = Object.assign(
+      new RoadmapModel(),
+      props.roadmap
+    );
 
     if (!level.items[itemIndex].children![sectionIndex].links) {
       level.items[itemIndex].children![sectionIndex].links = [];
@@ -287,23 +288,25 @@ export default function NewRoadmapEditor(props: Props) {
           <div
             key={levelIndex}
             className={
-              "pb-5 lg:w-full self-center ml-8 p-4 rounded-md " +
+              "pb-5 lg:w-full self-center md:ml-8 px-4 rounded-md " +
               (level.label || level.description
                 ? "border-2 bd-red border-dotted bg-yellow"
                 : "bg-white bg-opacity-50")
             }
           >
-            <div className="w-full flex flex-wrap justify-end">
-              <span className="grow text-sm txt-title">
-                (Título e Descrição são Opcionais)
-              </span>
-              <div
-                className="m-auto my-2 cursor-pointer w-fit"
+            <div className="w-full flex align-middle flex-wrap justify-end">
+              <div className="grow flex">
+                <span className="text-xs txt-title my-auto">
+                  (Título e Descrição são Opcionais)
+                </span>
+              </div>
+              <button
+                className="m-auto my-2 cursor-pointer w-fit border-2 rounded-md p-1 bg-light-orange border-red"
                 onClick={() => handleRemoveLevel(level)}
               >
                 <DeleteIcon cursor={"pointer"} />{" "}
                 <span className="text-sm txt-title">Remover Level</span>
-              </div>
+              </button>
             </div>
             <div className="w-44 h-50 mx-auto text-center">
               <Input
@@ -312,7 +315,7 @@ export default function NewRoadmapEditor(props: Props) {
                 value={level.label}
                 onChange={(e) => handleLevelTitleChange(e, level, levelIndex)}
                 placeholder="Título"
-                size="sm"
+                size="xs"
               />
             </div>
             <div className="w-full h-50 mx-auto mt-4 text-center">
@@ -324,22 +327,24 @@ export default function NewRoadmapEditor(props: Props) {
                   handleLevelDescriptionChange(e, level, levelIndex)
                 }
                 placeholder="Descrição"
-                size="sm"
+                size="xs"
               />
             </div>
             {/* Items */}
-            <div className="w-full flex flex-col space-y-3 space-x-1 mt-8">
+            <div className="w-full flex flex-col space-y-3 space-x-1 mt-4">
               {level.items.map((item, itemIndex) => {
                 return (
                   <div
                     key={`item-${itemIndex}`}
                     className="flex flex-col space-y-2 mx-0 my-0 p-2 pt-3 md:p-3 w-full text-center border-2 rounded-md bd-red  hover:shadow-md bg-brown"
                   >
-                    <div
-                      className="m-auto my-2 cursor-pointer w-fit txt-title"
-                      onClick={() => handleRemoveItem(levelIndex, item)}
-                    >
-                      <DeleteIcon cursor={"pointer"} /> Remover Item
+                    <div className="flex flex-row-reverse">
+                      <button
+                        className="mb-2 cursor-pointer w-fit txt-title text-sm border-2 rounded-md p-1 bg-light-orange border-red"
+                        onClick={() => handleRemoveItem(levelIndex, item)}
+                      >
+                        <DeleteIcon cursor={"pointer"} /> Remover Item
+                      </button>
                     </div>
                     <Input
                       className="font-black placeholder:text-dark-blue"
@@ -356,7 +361,7 @@ export default function NewRoadmapEditor(props: Props) {
                         )
                       }
                       placeholder="Título"
-                      size="sm"
+                      size="xs"
                     />
                     <Textarea
                       className="font-black placeholder:text-dark-blue"
@@ -373,7 +378,7 @@ export default function NewRoadmapEditor(props: Props) {
                         )
                       }
                       placeholder="Descrição"
-                      size="sm"
+                      size="xs"
                     />
                     <span className="font-semibold">Seções</span>
                     {/* Sections */}
@@ -382,7 +387,7 @@ export default function NewRoadmapEditor(props: Props) {
                       return (
                         <div>
                           <div
-                            className="m-auto my-2 cursor-pointer w-fit txt-title"
+                            className="m-auto my-2 cursor-pointer w-fit txt-title text-sm border-2 rounded-md p-1 bg-light-orange border-red"
                             onClick={() =>
                               handleRemoveSection(
                                 levelIndex,
@@ -410,7 +415,7 @@ export default function NewRoadmapEditor(props: Props) {
                               )
                             }
                             placeholder="Título"
-                            size="sm"
+                            size="xs"
                           />
                           {/* Links */}
                           {section.links?.map((link, linkIndex) => {
@@ -418,7 +423,7 @@ export default function NewRoadmapEditor(props: Props) {
                               <>
                                 <Divider borderColor={"yellow.500"} mt="2" />
                                 <div
-                                  className="m-auto my-2 cursor-pointer w-fit txt-title"
+                                  className="m-auto my-2 cursor-pointer w-fit txt-title text-sm border-2 rounded-md p-1 bg-light-orange border-red"
                                   onClick={() =>
                                     handleRemoveLink(
                                       levelIndex,
@@ -450,7 +455,7 @@ export default function NewRoadmapEditor(props: Props) {
                                         )
                                       }
                                       placeholder="Título do Link"
-                                      size="sm"
+                                      size="xs"
                                     />
                                   </div>
                                   <div className="w-full md:w-5/12">
@@ -471,7 +476,7 @@ export default function NewRoadmapEditor(props: Props) {
                                         )
                                       }
                                       placeholder="URL do Link"
-                                      size="sm"
+                                      size="xs"
                                     />
                                   </div>
                                   <div className="w-full md:w-2/12">
@@ -491,7 +496,7 @@ export default function NewRoadmapEditor(props: Props) {
                                           ItemField.TYPE
                                         )
                                       }
-                                      size="sm"
+                                      size="xs"
                                     >
                                       {Object.values(LinkContentType).map(
                                         (type) => {
@@ -506,12 +511,9 @@ export default function NewRoadmapEditor(props: Props) {
                               </>
                             );
                           })}
-                          <div className="w-full flex mt-8">
-                            <Button
-                              my="4"
-                              mx={"auto"}
-                              backgroundColor={"#eabc54"}
-                              variant="solid"
+                          <div className="w-full flex mt-4">
+                            <button
+                              className="my-2 text-xs font-semibold mx-auto bg-yellow rounded-md p-2 border-yellow border-2"
                               onClick={() =>
                                 handleNewLink(
                                   level,
@@ -522,7 +524,7 @@ export default function NewRoadmapEditor(props: Props) {
                               }
                             >
                               + Novo Link
-                            </Button>
+                            </button>
                           </div>
                           {/* Links End */}
                         </div>
@@ -530,17 +532,14 @@ export default function NewRoadmapEditor(props: Props) {
                     })}
                     {/* Sections End */}
                     <div className="w-full flex mt-8">
-                      <Button
-                        my="4"
-                        mx={"auto"}
-                        backgroundColor={"#59c0e4"}
-                        variant="solid"
+                      <button
+                        className="my-2 text-xs font-semibold mx-auto bg-blue rounded-md p-2 border-dark-blue border-2"
                         onClick={() =>
                           handleNewSection(level, levelIndex, itemIndex)
                         }
                       >
                         + Nova Seção
-                      </Button>
+                      </button>
                     </div>
                   </div>
                 );
@@ -548,16 +547,13 @@ export default function NewRoadmapEditor(props: Props) {
             </div>
 
             {/* Items End */}
-            <div className="w-full flex mt-8">
-              <Button
-                my="4"
-                mx={"auto"}
-                backgroundColor={"#ee8561"}
-                variant="solid"
+            <div className="w-full flex mt-4">
+              <button
+                className="my-2 text-xs font-semibold mx-auto bg-light-brown rounded-md p-2 border-red border-2"
                 onClick={() => handleNewItem(level, levelIndex)}
               >
                 + Novo Item
-              </Button>
+              </button>
             </div>
           </div>
         );
