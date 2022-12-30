@@ -36,6 +36,7 @@ type Props = {
   data: Level[];
   title: string;
   name: string;
+  isPreview: boolean;
 };
 
 function getColorFromContentType(contentType: LinkContentType | string) {
@@ -208,7 +209,7 @@ export default function Roadmap(props: Props) {
 
   return (
     <>
-      <div className="flex">
+      <div className={props.isPreview ? "hidden" : "flex"}>
         <div className="flex-grow"></div>
         <a
           type="button"
@@ -227,7 +228,11 @@ export default function Roadmap(props: Props) {
         </button>
       </div>
       <section ref={printRef} className="pb-8">
-        <h2 className="text-center font-bold text-3xl c-yellow my-6 txt-title c-dark-brown">
+        <h2
+          className={`text-center font-bold text-3xl c-yellow my-6 txt-title c-dark-brown ${
+            props.isPreview ? "hidden" : ""
+          }`}
+        >
           {props.title}
         </h2>
         <div>
@@ -337,11 +342,12 @@ export default function Roadmap(props: Props) {
                   );
                 })}
               </Accordion>
-
-              <Note
-                id={activeItem?.label || ""}
-                title={activeItem?.label || ""}
-              />
+              {!props.isPreview && (
+                <Note
+                  id={activeItem?.label || ""}
+                  title={activeItem?.label || ""}
+                />
+              )}
             </DrawerBody>
 
             <DrawerFooter>
