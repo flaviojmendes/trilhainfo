@@ -121,7 +121,7 @@ export default function NewRoadmapPage() {
         <div className="flex">
           {/* Levels */}
 
-          <div className="w-1/2 flex flex-col space-y-2 justify-center mt-8">
+          <div className="w-full md:w-1/2 flex flex-col space-y-2 justify-center mt-8">
             <NewRoadmapEditor
               roadmap={roadmap}
               setShouldBlock={setShouldBlock}
@@ -131,7 +131,7 @@ export default function NewRoadmapPage() {
           </div>
           {/* Levels End */}
           {/* Preview */}
-          <div className="w-1/2 p-8">
+          <div className="w-0 hidden md:block md:w-1/2 p-8">
             <NewRoadmapPreview roadmap={roadmap} />
           </div>
           {/* Preview End */}
