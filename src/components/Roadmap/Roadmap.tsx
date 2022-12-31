@@ -1,4 +1,3 @@
-import ReactGA from "react-ga4";
 import {
   Accordion,
   AccordionButton,
@@ -31,6 +30,7 @@ import Comment from "../Note/Note";
 import { Link, useLocation } from "react-router-dom";
 import { emojisplosion } from "emojisplosion";
 import Note from "../Note/Note";
+import RoadmapButtons from "../RoadmapButtons";
 
 type Props = {
   data: Level[];
@@ -57,7 +57,7 @@ function getColorFromContentType(contentType: LinkContentType | string) {
 
 export default function Roadmap(props: Props) {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const printRef = useRef(null);
+  const roadmapRef = useRef(null);
   const { pathname, hash, key } = useLocation();
   const [activeItem, setActiveItem] = React.useState<RoadmapItem>();
   const [mousePos, setMousePos] = useState<{ x: number; y: number }>();
@@ -172,62 +172,22 @@ export default function Roadmap(props: Props) {
     }
   }
 
-  async function handleDownloadImage() {
-    ReactGA.event({
-      category: "download_roadmap",
-      action: "download_" + props.title,
-    });
-
-    const element = printRef.current || document.body;
-    const data = await domtoimage.toPng(element);
-
-    const link = document.createElement("a");
-
-    if (typeof link.download === "string") {
-      link.href = data;
-      link.download = `trilha${props.title}.png`;
-
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    } else {
-      window.open(data);
-    }
-  }
-
   function handleCloseDrawer() {
     window.history.pushState(props.name, props.name, `/roadmap/${props.name}`);
     onClose();
-  }
-
-  function handleHorizontalRoadmapClick() {
-    ReactGA.event({
-      category: "action",
-      action: "open_horizontal_roadmap",
-    });
   }
 
   return (
     <>
       <div className={props.isPreview ? "hidden" : "flex"}>
         <div className="flex-grow"></div>
-        <a
-          type="button"
-          className="border-2 p-1 rounded-md bg-light-orange txt-title border-red m-auto mr-2 hover:shadow-md hover:bg-light-orange"
-          href={`/hroadmap/${props.name}`}
-          onClick={handleHorizontalRoadmapClick}
-        >
-          Visualizar na Horizontal
-        </a>
-        <button
-          type="button"
-          className="border-2 p-1 rounded-md bg-yellow txt-title border-yellow m-auto mr-2 md:mr-10 hover:shadow-md hover:bg-light-orange"
-          onClick={handleDownloadImage}
-        >
-          Baixar meu Roadmap
-        </button>
+        <RoadmapButtons
+          buttons={["horizontalView", "download"]}
+          title={props.title}
+          roadmapRef={roadmapRef}
+        />
       </div>
-      <section ref={printRef} className="pb-8">
+      <section ref={roadmapRef} className="pb-8">
         <h2
           className={`text-center font-bold text-3xl c-yellow my-6 txt-title c-dark-brown ${
             props.isPreview ? "hidden" : ""
