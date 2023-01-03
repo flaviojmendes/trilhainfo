@@ -71,6 +71,7 @@ export default function HorizontalRoadmapPage() {
             currentLevelIndex={currentLevelIndex}
             setCurrentLevelIndex={setCurrentLevelIndex}
           />
+        </section>
         </div>
       </LevelProvider>
     </MainLayout>
