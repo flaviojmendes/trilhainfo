@@ -108,7 +108,7 @@ const RoadmapButtons = ({
     <>
       {buttons.map((button: Button) => {
         const buttonArgs = BUTTON_ACTIONS.get(button);
-
+        
         return buttonArgs && <ButtonElement {...buttonArgs} />;
       })}
     </>

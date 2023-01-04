@@ -31,6 +31,7 @@ import { Link, useLocation } from "react-router-dom";
 import { emojisplosion } from "emojisplosion";
 import Note from "../Note/Note";
 import RoadmapButtons from "../RoadmapButtons";
+import { useAuth0 } from "@auth0/auth0-react";
 
 type Props = {
   data: Level[];
@@ -57,6 +58,8 @@ function getColorFromContentType(contentType: LinkContentType | string) {
 
 export default function Roadmap(props: Props) {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const { isAuthenticated } = useAuth0();
+
   const roadmapRef = useRef(null);
   const { pathname, hash, key } = useLocation();
   const [activeItem, setActiveItem] = React.useState<RoadmapItem>();
@@ -182,7 +185,11 @@ export default function Roadmap(props: Props) {
       <div className={props.isPreview ? "hidden" : "flex"}>
         <div className="flex-grow"></div>
         <RoadmapButtons
-          buttons={["horizontalView", "download", "exportNotes"]}
+          buttons={
+            isAuthenticated
+              ? ["horizontalView", "download", "exportNotes"]
+              : ["horizontalView", "download"]
+          }
           title={props.title}
           roadmapRef={roadmapRef}
         />
