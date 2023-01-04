@@ -1,4 +1,4 @@
-export type Button = "verticalView" | "horizontalView" | "download";
+export type Button = "verticalView" | "horizontalView" | "download" | "exportNotes";
 
 export type ButtonElementTypes = "link" | "button";
 
