@@ -7,6 +7,7 @@ export type ButtonArgs = {
   type: ButtonElementTypes;
   category: string;
   analyticsActionTag: string;
+  shouldAuthenticate?: boolean;
   href?: string;
   action?: () => void;
 };

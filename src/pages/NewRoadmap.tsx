@@ -1,31 +1,19 @@
 import { useAuth0 } from "@auth0/auth0-react";
 import {
   Button,
-  Divider,
-  Icon,
   Input,
-  Select,
-  Text,
   Textarea,
 } from "@chakra-ui/react";
 import axios from "axios";
 
 import { ChangeEvent, SetStateAction, useEffect, useState } from "react";
-import { FaSpinner, FaTrash } from "react-icons/fa";
 import MainLayout from "../components/layouts/MainLayout";
 import {
-  Level,
-  Link,
-  LinkContentType,
-  RoadmapItem,
   RoadmapModel,
 } from "../entity/RoadmapModel";
 import Cookies from "universal-cookie";
-import { ItemField } from "../entity/ViewEnums";
 import { useNavigate, useParams } from "react-router-dom";
 import { Grid } from "react-loader-spinner";
-import { DeleteIcon } from "@chakra-ui/icons";
-import usePrompt from "../support/navigation";
 import NewRoadmapPreview from "../components/NewRoadmap/NewRoadmapPreview/NewRoadmapPreview";
 import NewRoadmapEditor from "../components/NewRoadmap/NewRoadmapEditor/NewRoadmapEditor";
 

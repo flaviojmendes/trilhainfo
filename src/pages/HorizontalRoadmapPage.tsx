@@ -32,9 +32,12 @@ import HorizontalLevelItem from "../components/HorizontalRoadmap/HorizontalLevel
 import HorizontalRoadmapFooter from "../components/HorizontalRoadmap/HorizontalRoadmapFooter/HorizontalRoadmapFooter";
 import Note from "../components/Note/Note";
 import RoadmapButtons from "../components/RoadmapButtons";
+import { useAuth0 } from "@auth0/auth0-react";
 
 export default function HorizontalRoadmapPage() {
   const { name } = useParams<string>();
+  const { isAuthenticated } = useAuth0();
+
   const [roadmapName, setRoadmapName] = useState("");
   const [roadmapData, setRoadmapData] = useState<Level[]>();
   const [roadmapLevel, setRoadmapLevel] = useState<Level>();
@@ -188,7 +191,7 @@ export default function HorizontalRoadmapPage() {
       <div className="m-auto h-full flex flex-col w-11/12">
         <div className="flex justify-end gap-2 mt-8">
           <RoadmapButtons
-            buttons={["verticalView"]}
+            buttons={isAuthenticated ? ["verticalView", "exportNotes"] : ["verticalView"]}
             title={roadmaps[name || ""].title}
             roadmapRef={roadmapRef}
           />
