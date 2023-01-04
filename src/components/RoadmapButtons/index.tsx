@@ -39,7 +39,7 @@ const RoadmapButtons = ({
 
   const handleExportNotes = async () => {
     let response = await axios.get<string>(
-      import.meta.env.VITE_API_URL + `/notes` || "",
+      import.meta.env.VITE_API_URL + `/note/export` || "",
       {
         headers: {
           "Content-Type": "application/json",

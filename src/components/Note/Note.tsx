@@ -37,9 +37,9 @@ export default function Note(props: Props) {
   async function getNotes() {
     setLoadingNotes(true);
     try {
-      console.log(getUuidByString(id));
-      let response = await axios.get(
-        import.meta.env.VITE_API_URL + `/notes/${getUuidByString(id)}` || "",
+      let response = await axios.post(
+        import.meta.env.VITE_API_URL + `/notes` || "",
+        id,
         {
           headers: {
             "Content-Type": "application/json",
@@ -85,7 +85,7 @@ export default function Note(props: Props) {
       text: noteText,
       author: user?.nickname,
       createdAt: new Date(),
-      contentId: getUuidByString(id),
+      contentId: id,
     };
 
     await axios.post(import.meta.env.VITE_API_URL + `/note` || "", comment, {
