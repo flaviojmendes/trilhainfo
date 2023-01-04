@@ -2,6 +2,11 @@ import ButtonElement from "./ButtonElement";
 import domtoimage from "dom-to-image";
 import { MutableRefObject } from "react";
 import { Button, ButtonArgs } from "./types";
+import axios from "axios";
+import { RoadmapModel } from "../../entity/RoadmapModel";
+import Cookies from "universal-cookie";
+
+const cookies = new Cookies();
 
 type RoadmapButtonsProps = {
   buttons: Button[];
@@ -30,6 +35,29 @@ const RoadmapButtons = ({
     } else {
       window.open(data);
     }
+  };
+
+  const handleExportNotes = async () => {
+    let response = await axios.get<string>(
+      import.meta.env.VITE_API_URL + `/note/export` || "",
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: cookies.get("api_token"),
+        },
+      }
+    );
+
+    const mdText = response.data;
+
+    const element = document.createElement("a");
+    const file = new Blob([mdText], {
+      type: "text/plain;charset=utf-8",
+    });
+    element.href = URL.createObjectURL(file);
+    element.download = "notes.md";
+    document.body.appendChild(element);
+    element.click();
   };
 
   const BUTTON_ACTIONS: Map<Button, ButtonArgs> = new Map([
@@ -61,6 +89,17 @@ const RoadmapButtons = ({
         category: "action",
         analyticsActionTag: "download_" + title,
         action: handleDownloadImage,
+      },
+    ],
+
+    [
+      "exportNotes",
+      {
+        text: "Exportar Anotações",
+        type: "button",
+        category: "action",
+        analyticsActionTag: "export_notes_" + title,
+        action: handleExportNotes,
       },
     ],
   ]);

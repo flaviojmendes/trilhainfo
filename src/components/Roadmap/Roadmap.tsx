@@ -182,7 +182,7 @@ export default function Roadmap(props: Props) {
       <div className={props.isPreview ? "hidden" : "flex"}>
         <div className="flex-grow"></div>
         <RoadmapButtons
-          buttons={["horizontalView", "download"]}
+          buttons={["horizontalView", "download", "exportNotes"]}
           title={props.title}
           roadmapRef={roadmapRef}
         />
