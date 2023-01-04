@@ -1,25 +1,26 @@
 import { useAuth0 } from "@auth0/auth0-react";
-import { Button, Textarea, useDisclosure } from "@chakra-ui/react";
+import { Button, Textarea } from "@chakra-ui/react";
 import Cookies from "universal-cookie";
 import getUuidByString from "uuid-by-string";
 
 import { ChangeEvent, useEffect, useState } from "react";
 
 import axios, { AxiosError } from "axios";
-import { Bars, LineWave, ThreeDots } from "react-loader-spinner";
-import { FaTrashAlt } from "react-icons/fa";
+import { Bars, ThreeDots } from "react-loader-spinner";
 import { RiCloseCircleFill } from "react-icons/ri";
 import { NoteModel } from "../../entity/NoteModel";
+import { useSelectedItem } from "../HorizontalRoadmap/LevelProvider/LevelProvider";
 
 const cookies = new Cookies();
 
 type Props = {
-  id: string;
-  title: string;
+  id?: string;
 };
 
 export default function Note(props: Props) {
   const { isAuthenticated, user, loginWithRedirect } = useAuth0();
+  const [selectedItem] = useSelectedItem();
+  const id = props.id ?? (selectedItem?.label || "");
 
   let [noteText, setNoteText] = useState("");
   let [notes, setNotes] = useState<NoteModel[]>([]);
@@ -31,15 +32,14 @@ export default function Note(props: Props) {
     if (user) {
       getNotes();
     }
-  }, [user, props.id]);
+  }, [user, id]);
 
   async function getNotes() {
     setLoadingNotes(true);
     try {
-      console.log(getUuidByString(props.id));
+      console.log(getUuidByString(id));
       let response = await axios.get(
-        import.meta.env.VITE_API_URL + `/notes/${getUuidByString(props.id)}` ||
-          "",
+        import.meta.env.VITE_API_URL + `/notes/${getUuidByString(id)}` || "",
         {
           headers: {
             "Content-Type": "application/json",
@@ -60,7 +60,7 @@ export default function Note(props: Props) {
     const answer = window.confirm("Tem certeza que quer deletar?");
     if (answer) {
       setDeletingNote(true);
-      let response = await axios.delete(
+      await axios.delete(
         import.meta.env.VITE_API_URL + `/notes/${commentId}` || "",
         {
           headers: {
@@ -85,7 +85,7 @@ export default function Note(props: Props) {
       text: noteText,
       author: user?.nickname,
       createdAt: new Date(),
-      contentId: getUuidByString(props.id),
+      contentId: getUuidByString(id),
     };
 
     await axios.post(import.meta.env.VITE_API_URL + `/note` || "", comment, {
@@ -100,7 +100,7 @@ export default function Note(props: Props) {
     setSavingNote(false);
   };
 
-  return (
+  return selectedItem ? (
     <div className="bg-yellow rounded-lg p-4 my-8">
       {isAuthenticated && (
         <>
@@ -124,33 +124,28 @@ export default function Note(props: Props) {
               />
             </div>
           )}
-          {notes.map((note, index) => {
-            return (
-              <>
-                <div className="mb-4 ">
-                  <div className="flex hover:bg-dark-brown hover:bg-opacity-5 rounded-sm">
-                    <div className="flex-col grow align-middle">
-                      <p className="mx-2 mt-2 text-dark-brown txt-title">
-                        {note.text}
-                      </p>
-                      <span className="ml-2 mb-2 text-red text-xs inline-block align-middle h-fit txt-title my-auto">
-                        {new Date(note.createdAt!).toLocaleString()}
-                      </span>
-                    </div>
-                    <button
-                      aria-label="Deletar Comentário"
-                      onClick={() => handleDeleteComment(note.id || "")}
-                      disabled={isDeletingNote}
-                      className="p-1 rounded-sm bg-red"
-                    >
-                      <RiCloseCircleFill className="w-3 text-dark-brown " />
-                    </button>
-                  </div>
+          {notes.map((note) => (
+            <div className="mb-4 ">
+              <div className="flex hover:bg-dark-brown hover:bg-opacity-5 rounded-sm">
+                <div className="flex-col grow align-middle">
+                  <p className="mx-2 mt-2 text-dark-brown txt-title">
+                    {note.text}
+                  </p>
+                  <span className="ml-2 mb-2 text-red text-xs inline-block align-middle h-fit txt-title my-auto">
+                    {new Date(note.createdAt!).toLocaleString()}
+                  </span>
                 </div>
-                {/* <hr className="my-2 mx-auto w-1/2" /> */}
-              </>
-            );
-          })}
+                <button
+                  aria-label="Deletar Comentário"
+                  onClick={() => handleDeleteComment(note.id || "")}
+                  disabled={isDeletingNote}
+                  className="p-1 rounded-sm bg-red"
+                >
+                  <RiCloseCircleFill className="w-3 text-dark-brown " />
+                </button>
+              </div>
+            </div>
+          ))}
 
           <div>
             <Textarea
@@ -191,19 +186,17 @@ export default function Note(props: Props) {
         </>
       )}
       {!isAuthenticated && (
-        <>
-          <p className="text-center txt-title">
-            Adicione anotações de seus estudos 📝. Para isso basta{" "}
-            <span
-              className="cursor-pointer font-semibold text-red hover:underline"
-              onClick={() => loginWithRedirect()}
-            >
-              fazer login
-            </span>
-            .
-          </p>
-        </>
+        <p className="text-center txt-title">
+          Adicione anotações de seus estudos 📝. Para isso basta{" "}
+          <span
+            className="cursor-pointer font-semibold text-red hover:underline"
+            onClick={() => loginWithRedirect()}
+          >
+            fazer login
+          </span>
+          .
+        </p>
       )}
     </div>
-  );
+  ) : null;
 }
