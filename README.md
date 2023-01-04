@@ -19,6 +19,32 @@ Portanto, se você também acredita nisso compartilhe para que o conhecimento ch
 
 A ideia é inicialmente engajar a comunidade e então podemos ir evoluindo o portal à medida em que vamos tendo a necessidade. 😀
 
+## Como rodar localmente?
+
+Para rodar o projeto basta clonar/fork o projeto executar os seguintes passos:
+
+Na raiz do projeto criar um aquivo `.env.local` com:
+
+```
+# Para usar o backend da Trilha Info:
+VITE_API_URL=https://api.trilha.info/api
+VITE_PUBLIC_URL=https://api.trilha.info/public
+
+# Se possuir o backend rodando localmente:
+VITE_API_URL=http://localhost:8000/api
+VITE_PUBLIC_URL=http://localhost:8000/public
+```
+
+Então, no terminal executar:
+
+```
+# Instalar as dependências com:
+$ yarn 
+
+# Rodar em modo de desenvolvimento com:
+$ yarn dev
+
+```
 
 ## Traduções
 <img src = "https://i.imgur.com/lpP9V2p.png" alt="Readme em Inglês" width="16" height="15">・<b>Inglês — </b> [Clique aqui](https://github.com/flaviojmendes/trilhainfo/blob/main/translation/readme-en.md)<br>
