@@ -32,7 +32,7 @@ const ButtonElement = ({
   const renderButton = (
     <button
       type="button"
-      className="border-2 p-1 rounded-md bg-yellow txt-title border-yellow mr-2 md:mr-10 hover:shadow-md hover:bg-light-orange"
+      className="border-2 p-1 rounded-md bg-yellow txt-title border-yellow mr-2 hover:shadow-md hover:bg-light-orange"
       onClick={args.action}
     >
       {text}

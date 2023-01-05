@@ -1,7 +1,6 @@
 import { useAuth0 } from "@auth0/auth0-react";
 import { Button, Textarea } from "@chakra-ui/react";
 import Cookies from "universal-cookie";
-import getUuidByString from "uuid-by-string";
 
 import { ChangeEvent, useEffect, useState } from "react";
 
@@ -35,10 +34,9 @@ export default function Note(props: Props) {
   async function getNotes() {
     setLoadingNotes(true);
     try {
-      console.log(getUuidByString(props.id));
-      let response = await axios.get(
-        import.meta.env.VITE_API_URL + `/notes/${getUuidByString(props.id)}` ||
-          "",
+      let response = await axios.post(
+        import.meta.env.VITE_API_URL + `/notes/find` || "",
+        { contentId: props.id },
         {
           headers: {
             "Content-Type": "application/json",
@@ -84,7 +82,7 @@ export default function Note(props: Props) {
       text: noteText,
       author: user?.nickname,
       createdAt: new Date(),
-      contentId: getUuidByString(props.id),
+      contentId: props.id,
     };
 
     await axios.post(import.meta.env.VITE_API_URL + `/note` || "", comment, {
@@ -123,28 +121,33 @@ export default function Note(props: Props) {
               />
             </div>
           )}
-          {notes.map((note) => (
-            <div className="mb-4 ">
-              <div className="flex hover:bg-dark-brown hover:bg-opacity-5 rounded-sm">
-                <div className="flex-col grow align-middle">
-                  <p className="mx-2 mt-2 text-dark-brown txt-title">
-                    {note.text}
-                  </p>
-                  <span className="ml-2 mb-2 text-red text-xs inline-block align-middle h-fit txt-title my-auto">
-                    {new Date(note.createdAt!).toLocaleString()}
-                  </span>
+          {notes.map((note ) => {
+            return (
+              <>
+                <div className="mb-4 ">
+                  <div className="flex hover:bg-dark-brown hover:bg-opacity-5 rounded-sm">
+                    <div className="flex-col grow align-middle">
+                      <p className="mx-2 mt-2 text-dark-brown txt-title">
+                        {note.text}
+                      </p>
+                      <span className="ml-2 mb-2 text-red text-xs inline-block align-middle h-fit txt-title my-auto">
+                        {new Date(note.createdAt!).toLocaleString()}
+                      </span>
+                    </div>
+                    <button
+                      aria-label="Deletar Comentário"
+                      onClick={() => handleDeleteComment(note.id || "")}
+                      disabled={isDeletingNote}
+                      className="p-1 rounded-sm bg-red"
+                    >
+                      <RiCloseCircleFill className="w-3 text-dark-brown " />
+                    </button>
+                  </div>
                 </div>
-                <button
-                  aria-label="Deletar Comentário"
-                  onClick={() => handleDeleteComment(note.id || "")}
-                  disabled={isDeletingNote}
-                  className="p-1 rounded-sm bg-red"
-                >
-                  <RiCloseCircleFill className="w-3 text-dark-brown " />
-                </button>
-              </div>
-            </div>
-          ))}
+                {/* <hr className="my-2 mx-auto w-1/2" /> */}
+              </>
+            );
+          })}
 
           <div>
             <Textarea
@@ -185,16 +188,18 @@ export default function Note(props: Props) {
         </>
       )}
       {!isAuthenticated && (
-        <p className="text-center txt-title">
-          Adicione anotações de seus estudos 📝. Para isso basta{" "}
-          <span
-            className="cursor-pointer font-semibold text-red hover:underline"
-            onClick={() => loginWithRedirect()}
-          >
-            fazer login
-          </span>
-          .
-        </p>
+        <>
+          <p className="text-center txt-title">
+            Adicione anotações de seus estudos 📝. Para isso basta{" "}
+            <span
+              className="cursor-pointer font-semibold text-red hover:underline"
+              onClick={() => loginWithRedirect()}
+            >
+              fazer login
+            </span>
+            .
+          </p>
+        </>
       )}
     </div>
   );

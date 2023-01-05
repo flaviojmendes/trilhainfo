@@ -1,31 +1,19 @@
 import { useAuth0 } from "@auth0/auth0-react";
 import {
   Button,
-  Divider,
-  Icon,
   Input,
-  Select,
-  Text,
+  InputGroup,
+  InputLeftAddon,
   Textarea,
 } from "@chakra-ui/react";
 import axios from "axios";
 
 import { ChangeEvent, SetStateAction, useEffect, useState } from "react";
-import { FaSpinner, FaTrash } from "react-icons/fa";
 import MainLayout from "../components/layouts/MainLayout";
-import {
-  Level,
-  Link,
-  LinkContentType,
-  RoadmapItem,
-  RoadmapModel,
-} from "../entity/RoadmapModel";
+import { RoadmapModel } from "../entity/RoadmapModel";
 import Cookies from "universal-cookie";
-import { ItemField } from "../entity/ViewEnums";
 import { useNavigate, useParams } from "react-router-dom";
 import { Grid } from "react-loader-spinner";
-import { DeleteIcon } from "@chakra-ui/icons";
-import usePrompt from "../support/navigation";
 import NewRoadmapPreview from "../components/NewRoadmap/NewRoadmapPreview/NewRoadmapPreview";
 import NewRoadmapEditor from "../components/NewRoadmap/NewRoadmapEditor/NewRoadmapEditor";
 
@@ -35,6 +23,7 @@ export default function NewRoadmapPage() {
   const [shouldBlock, setShouldBlock] = useState(false);
   const [roadmap, setRoadmap] = useState<RoadmapModel>(new RoadmapModel());
   const [loading, setLoading] = useState(true);
+  const [invalidSlug, setInvalidSlug] = useState(false);
   const { user, isAuthenticated, getAccessTokenSilently } = useAuth0();
   const { roadmapId } = useParams();
   const navigate = useNavigate();
@@ -64,11 +53,33 @@ export default function NewRoadmapPage() {
     setRoadmap(Object.assign(new RoadmapModel(), response.data));
   }
 
+  async function checkSlug() {
+    let response = await axios.get<boolean>(
+      import.meta.env.VITE_API_URL + `/roadmap/slug/${roadmap.slug}` || "",
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: cookies.get("api_token"),
+        },
+      }
+    );
+
+    setInvalidSlug(response.data);
+  }
+
   function handleTitleChange(event: ChangeEvent<HTMLInputElement>) {
     let roadmapTemp: RoadmapModel = Object.assign(new RoadmapModel(), roadmap);
     roadmapTemp.title = event.target.value || "";
     setRoadmap(roadmapTemp);
     setShouldBlock(true);
+  }
+
+  function handleSlugChange(event: ChangeEvent<HTMLInputElement>) {
+    let roadmapTemp: RoadmapModel = Object.assign(new RoadmapModel(), roadmap);
+    roadmapTemp.slug = event.target.value || "";
+    setRoadmap(roadmapTemp);
+    setShouldBlock(true);
+    checkSlug();
   }
 
   function handleDescriptionChange(event: ChangeEvent<HTMLTextAreaElement>) {
@@ -96,6 +107,27 @@ export default function NewRoadmapPage() {
     <>
       <MainLayout>
         <div className="flex flex-col space-y-4">
+          <div className="w-full md:w-1/2 m-auto mt-2 flex-col">
+            <InputGroup>
+              <InputLeftAddon
+                children="trilha.info/roadmap/v/"
+                className="bg-yellow"
+              />
+              <Input
+                className="c-yellow txt-title"
+                fontSize={"md"}
+                value={roadmap.slug}
+                onChange={handleSlugChange}
+                placeholder="Uma URL customizada para seu Rodmap"
+                size="md"
+              />
+            </InputGroup>
+            {invalidSlug && (
+              <p className="text-center mt-1 txt-title text-red">
+                Desculpe, mas essa URL já foi escolhida por outra pessoa.. 😔
+              </p>
+            )}
+          </div>
           <div className="w-full md:w-1/2 m-auto">
             <span className="c-yellow">Título:</span>
             <Input

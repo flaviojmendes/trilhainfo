@@ -29,6 +29,7 @@ import { useLocation } from "react-router-dom";
 import { emojisplosion } from "emojisplosion";
 import Note from "../Note/Note";
 import RoadmapButtons from "../RoadmapButtons";
+import { useAuth0 } from "@auth0/auth0-react";
 
 type Props = {
   data: Level[];
@@ -55,11 +56,13 @@ function getColorFromContentType(contentType: LinkContentType | string) {
 
 export default function Roadmap(props: Props) {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const { isAuthenticated } = useAuth0();
+
   const roadmapRef = useRef(null);
   const { pathname, hash, key } = useLocation();
   const [activeItem, setActiveItem] = React.useState<RoadmapItem>();
   const [mousePos, setMousePos] = useState<{ x: number; y: number }>();
-  const [selectedItems, setSelectedItems, remove] = useLocalStorage(
+  const [selectedItems, setSelectedItems] = useLocalStorage(
     "selectedItems",
     {} as { [key: string]: boolean }
   );
@@ -180,7 +183,11 @@ export default function Roadmap(props: Props) {
       <div className={props.isPreview ? "hidden" : "flex"}>
         <div className="flex-grow"></div>
         <RoadmapButtons
-          buttons={["horizontalView", "download"]}
+          buttons={
+            isAuthenticated
+              ? ["horizontalView", "download", "exportNotes"]
+              : ["horizontalView", "download"]
+          }
           title={props.title}
           roadmapRef={roadmapRef}
         />
@@ -234,7 +241,7 @@ export default function Roadmap(props: Props) {
                 {activeItem?.description}
               </p>
               <Accordion allowToggle>
-                {activeItem?.children?.map((child, index) => {
+                {activeItem?.children?.map((child) => {
                   const key = child.label + "-" + activeItem.label;
 
                   return (
@@ -261,7 +268,7 @@ export default function Roadmap(props: Props) {
                       </h2>
                       <AccordionPanel pb={4}>
                         {child.links?.length
-                          ? child.links?.map((link, index) => {
+                          ? child.links?.map((link ) => {
                               return (
                                 <>
                                   <Flex className="my-2">
