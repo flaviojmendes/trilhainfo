@@ -8,12 +8,24 @@ import HorizontalLevelItem from "../components/HorizontalRoadmap/HorizontalLevel
 import HorizontalRoadmapFooter from "../components/HorizontalRoadmap/HorizontalRoadmapFooter/HorizontalRoadmapFooter";
 import Note from "../components/Note/Note";
 import { HorizontalLevelItemContent } from "../components/HorizontalRoadmap/HorizontalLevelItemContent/HorizontalLevelItemContent";
-import { LevelProvider } from "../components/HorizontalRoadmap/LevelProvider/LevelProvider";
+import {
+  LevelProvider,
+  useSelectedItem,
+} from "../components/HorizontalRoadmap/LevelProvider/LevelProvider";
 import RoadmapButtons from "../components/RoadmapButtons";
 
 type RoadmapName = keyof typeof roadmaps;
 
 export default function HorizontalRoadmapPage() {
+  return (
+    <LevelProvider>
+      <HorizontalRoadmapPageImpl />
+    </LevelProvider>
+  );
+}
+
+function HorizontalRoadmapPageImpl() {
+  const [selectedItem] = useSelectedItem();
   const { name } = useParams<{ name: RoadmapName }>();
 
   const roadmapName = name ?? "frontend";
@@ -22,13 +34,12 @@ export default function HorizontalRoadmapPage() {
   const [currentLevelIndex, setCurrentLevelIndex] = useState(0);
 
   const [roadmapLevel, setRoadmapLevel] = useState<Level>(roadmapData[0]);
-  const roadmapRef = useRef(null)
+  const roadmapRef = useRef(null);
 
   useDocumentTitle(`Trilha Info - ${roadmapTitle}`);
 
   return (
     <MainLayout>
-      <LevelProvider>
       <div className="m-auto h-full flex flex-col w-11/12">
         <div className="flex justify-end gap-2 mt-8">
           <RoadmapButtons
@@ -61,7 +72,13 @@ export default function HorizontalRoadmapPage() {
               <HorizontalLevelItemContent />
             </div>
             <div className="w-full xl:w-1/4 xl:pl-10">
-              <Note />
+              {selectedItem && (
+
+              <Note
+                id={selectedItem?.label || ""}
+                title={selectedItem?.label || ""}
+              />
+              )}
             </div>
           </div>
           <div className="flex-grow" />
@@ -72,8 +89,7 @@ export default function HorizontalRoadmapPage() {
             setCurrentLevelIndex={setCurrentLevelIndex}
           />
         </section>
-        </div>
-      </LevelProvider>
+      </div>
     </MainLayout>
   );
 }

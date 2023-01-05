@@ -25,7 +25,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { useLocalStorage } from "react-use";
 import { Level, LinkContentType, RoadmapItem } from "../../entity/RoadmapModel";
 import LevelItem from "../LevelItem/LevelItem";
-import {  useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { emojisplosion } from "emojisplosion";
 import Note from "../Note/Note";
 import RoadmapButtons from "../RoadmapButtons";
@@ -300,7 +300,12 @@ export default function Roadmap(props: Props) {
                   );
                 })}
               </Accordion>
-              {!props.isPreview && <Note id={activeItem?.label || ""} />}
+              {!props.isPreview && (
+                <Note
+                  id={activeItem?.label || ""}
+                  title={activeItem?.label || ""}
+                />
+              )}
             </DrawerBody>
 
             <DrawerFooter>

@@ -9,18 +9,16 @@ import axios, { AxiosError } from "axios";
 import { Bars, ThreeDots } from "react-loader-spinner";
 import { RiCloseCircleFill } from "react-icons/ri";
 import { NoteModel } from "../../entity/NoteModel";
-import { useSelectedItem } from "../HorizontalRoadmap/LevelProvider/LevelProvider";
 
 const cookies = new Cookies();
 
 type Props = {
-  id?: string;
+  id: string;
+  title: string;
 };
 
 export default function Note(props: Props) {
   const { isAuthenticated, user, loginWithRedirect } = useAuth0();
-  const [selectedItem] = useSelectedItem();
-  const id = props.id ?? (selectedItem?.label || "");
 
   let [noteText, setNoteText] = useState("");
   let [notes, setNotes] = useState<NoteModel[]>([]);
@@ -32,14 +30,15 @@ export default function Note(props: Props) {
     if (user) {
       getNotes();
     }
-  }, [user, id]);
+  }, [user, props.id]);
 
   async function getNotes() {
     setLoadingNotes(true);
     try {
-      console.log(getUuidByString(id));
+      console.log(getUuidByString(props.id));
       let response = await axios.get(
-        import.meta.env.VITE_API_URL + `/notes/${getUuidByString(id)}` || "",
+        import.meta.env.VITE_API_URL + `/notes/${getUuidByString(props.id)}` ||
+          "",
         {
           headers: {
             "Content-Type": "application/json",
@@ -85,7 +84,7 @@ export default function Note(props: Props) {
       text: noteText,
       author: user?.nickname,
       createdAt: new Date(),
-      contentId: getUuidByString(id),
+      contentId: getUuidByString(props.id),
     };
 
     await axios.post(import.meta.env.VITE_API_URL + `/note` || "", comment, {
@@ -100,7 +99,7 @@ export default function Note(props: Props) {
     setSavingNote(false);
   };
 
-  return selectedItem ? (
+  return (
     <div className="bg-yellow rounded-lg p-4 my-8">
       {isAuthenticated && (
         <>
@@ -198,5 +197,5 @@ export default function Note(props: Props) {
         </p>
       )}
     </div>
-  ) : null;
+  );
 }
