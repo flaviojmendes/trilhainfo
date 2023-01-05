@@ -307,12 +307,7 @@ export default function Roadmap(props: Props) {
                   );
                 })}
               </Accordion>
-              {!props.isPreview && (
-                <Note
-                  id={activeItem?.label || ""}
-                  title={activeItem?.label || ""}
-                />
-              )}
+              {!props.isPreview && <Note id={activeItem?.label || ""} />}
             </DrawerBody>
 
             <DrawerFooter>
