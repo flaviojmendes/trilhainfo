@@ -6,7 +6,7 @@ Olá 👋
 
 A [Trilha Info](https://trilha.info) é um projeto Open Source que nasceu em Junho/2022 com o objetivo de agregar e organizar conteúdos gratuitos em português para pessoas que querem ingressar na área de Tecnologia.
 
-![Preview](/src/preview.png)
+![Preview](/public/preview.png)
 
 A motivação em criar esse aplicativo é por acreditar que a educação e o conhecimento devem ser democráticos. Qualquer pessoa deveria ter acesso aos assuntos que se interessa para que garanta um futuro cada vez mais próspero.
 
