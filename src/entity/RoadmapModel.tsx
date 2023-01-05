@@ -4,6 +4,7 @@ export class RoadmapModel {
     title?: string;
     description?: string;
     owner?: string;
+    slug?: string;
     levels: Level[] = [];
 
     addLevel(level: Level) {

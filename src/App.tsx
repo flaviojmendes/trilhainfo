@@ -23,6 +23,7 @@ function App() {
       <Route path="/roadmap/:name" element={<RoadmapPage />} />
       <Route path="/hroadmap/:name" element={<HorizontalRoadmapPage />} />
       <Route path="/roadmap/view/:roadmapId" element={<CustomRoadmapPage />} />
+      <Route path="/roadmap/v/:roadmapId" element={<CustomRoadmapPage />} />
       <Route path="/new-roadmap" element={<NewRoadmapPage />} />
       <Route path="/edit-roadmap/:roadmapId" element={<NewRoadmapPage />} />
       <Route path="/login" element={<LoginPage />} />
