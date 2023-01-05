@@ -15,7 +15,7 @@ export default function MainRoadmaps() {
         >
           <img
             className="w-1/2 mx-auto"
-            src={new URL(`../../assets/frontend.png`, import.meta.url).href}
+            src={new URL(`/frontend.png`, import.meta.url).href}
           />
           <h3 className="text-center text-3xl txt-title mb-2 c-dark-brown">
             Frontend
@@ -35,7 +35,7 @@ export default function MainRoadmaps() {
         >
           <img
             className="w-1/2 mx-auto"
-            src={new URL(`../../assets/backend.png`, import.meta.url).href}
+            src={new URL(`/backend.png`, import.meta.url).href}
           />
           <h3 className="text-center text-3xl txt-title mb-2 c-dark-brown">
             Backend
@@ -55,7 +55,7 @@ export default function MainRoadmaps() {
           {" "}
           <img
             className="w-1/2 mx-auto"
-            src={new URL(`../../assets/devops.png`, import.meta.url).href}
+            src={new URL(`/devops.png`, import.meta.url).href}
           />
           <h3 className="text-center text-3xl txt-title mb-2 c-dark-brown">
             Devops
@@ -76,7 +76,7 @@ export default function MainRoadmaps() {
         >
           <img
             className="w-1/2 mx-auto p-4"
-            src={new URL(`../../assets/react.svg`, import.meta.url).href}
+            src={new URL(`/react.svg`, import.meta.url).href}
           />
           <h3 className="text-center text-3xl txt-title mb-2 c-dark-brown">
             React
