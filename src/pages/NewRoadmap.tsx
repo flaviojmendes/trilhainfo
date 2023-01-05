@@ -64,7 +64,7 @@ export default function NewRoadmapPage() {
       }
     );
 
-    setInvalidSlug(!response.data);
+    setInvalidSlug(response.data);
   }
 
   function handleTitleChange(event: ChangeEvent<HTMLInputElement>) {
