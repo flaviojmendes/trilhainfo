@@ -20,14 +20,12 @@ import {
   Spacer,
   useDisclosure,
 } from "@chakra-ui/react";
-import domtoimage from "dom-to-image";
 
 import React, { useEffect, useRef, useState } from "react";
 import { useLocalStorage } from "react-use";
 import { Level, LinkContentType, RoadmapItem } from "../../entity/RoadmapModel";
 import LevelItem from "../LevelItem/LevelItem";
-import Comment from "../Note/Note";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { emojisplosion } from "emojisplosion";
 import Note from "../Note/Note";
 import RoadmapButtons from "../RoadmapButtons";
@@ -64,7 +62,7 @@ export default function Roadmap(props: Props) {
   const { pathname, hash, key } = useLocation();
   const [activeItem, setActiveItem] = React.useState<RoadmapItem>();
   const [mousePos, setMousePos] = useState<{ x: number; y: number }>();
-  const [selectedItems, setSelectedItems, remove] = useLocalStorage(
+  const [selectedItems, setSelectedItems] = useLocalStorage(
     "selectedItems",
     {} as { [key: string]: boolean }
   );
@@ -243,7 +241,7 @@ export default function Roadmap(props: Props) {
                 {activeItem?.description}
               </p>
               <Accordion allowToggle>
-                {activeItem?.children?.map((child, index) => {
+                {activeItem?.children?.map((child) => {
                   const key = child.label + "-" + activeItem.label;
 
                   return (
@@ -270,7 +268,7 @@ export default function Roadmap(props: Props) {
                       </h2>
                       <AccordionPanel pb={4}>
                         {child.links?.length
-                          ? child.links?.map((link, index) => {
+                          ? child.links?.map((link ) => {
                               return (
                                 <>
                                   <Flex className="my-2">
@@ -309,12 +307,7 @@ export default function Roadmap(props: Props) {
                   );
                 })}
               </Accordion>
-              {!props.isPreview && (
-                <Note
-                  id={activeItem?.label || ""}
-                  title={activeItem?.label || ""}
-                />
-              )}
+              {!props.isPreview && <Note id={activeItem?.label || ""} title={activeItem?.label || ""} />}
             </DrawerBody>
 
             <DrawerFooter>

@@ -1,13 +1,11 @@
 import { useAuth0 } from "@auth0/auth0-react";
-import { Button, Textarea, useDisclosure } from "@chakra-ui/react";
+import { Button, Textarea } from "@chakra-ui/react";
 import Cookies from "universal-cookie";
-import getUuidByString from "uuid-by-string";
 
 import { ChangeEvent, useEffect, useState } from "react";
 
 import axios, { AxiosError } from "axios";
-import { Bars, LineWave, ThreeDots } from "react-loader-spinner";
-import { FaTrashAlt } from "react-icons/fa";
+import { Bars, ThreeDots } from "react-loader-spinner";
 import { RiCloseCircleFill } from "react-icons/ri";
 import { NoteModel } from "../../entity/NoteModel";
 
@@ -15,7 +13,7 @@ const cookies = new Cookies();
 
 type Props = {
   id: string;
-  title: string;
+  title: string
 };
 
 export default function Note(props: Props) {
@@ -59,7 +57,7 @@ export default function Note(props: Props) {
     const answer = window.confirm("Tem certeza que quer deletar?");
     if (answer) {
       setDeletingNote(true);
-      let response = await axios.delete(
+      await axios.delete(
         import.meta.env.VITE_API_URL + `/notes/${commentId}` || "",
         {
           headers: {
@@ -99,7 +97,7 @@ export default function Note(props: Props) {
     setSavingNote(false);
   };
 
-  return (
+  return  (
     <div className="bg-yellow rounded-lg p-4 my-8">
       {isAuthenticated && (
         <>
@@ -123,7 +121,7 @@ export default function Note(props: Props) {
               />
             </div>
           )}
-          {notes.map((note, index) => {
+          {notes.map((note ) => {
             return (
               <>
                 <div className="mb-4 ">
@@ -146,10 +144,16 @@ export default function Note(props: Props) {
                     </button>
                   </div>
                 </div>
-                {/* <hr className="my-2 mx-auto w-1/2" /> */}
-              </>
-            );
-          })}
+                <button
+                  aria-label="Deletar Comentário"
+                  onClick={() => handleDeleteComment(note.id || "")}
+                  disabled={isDeletingNote}
+                  className="p-1 rounded-sm bg-red"
+                >
+                  <RiCloseCircleFill className="w-3 text-dark-brown " />
+                </button>
+            </>
+          )})}
 
           <div>
             <Textarea
@@ -190,19 +194,17 @@ export default function Note(props: Props) {
         </>
       )}
       {!isAuthenticated && (
-        <>
-          <p className="text-center txt-title">
-            Adicione anotações de seus estudos 📝. Para isso basta{" "}
-            <span
-              className="cursor-pointer font-semibold text-red hover:underline"
-              onClick={() => loginWithRedirect()}
-            >
-              fazer login
-            </span>
-            .
-          </p>
-        </>
+        <p className="text-center txt-title">
+          Adicione anotações de seus estudos 📝. Para isso basta{" "}
+          <span
+            className="cursor-pointer font-semibold text-red hover:underline"
+            onClick={() => loginWithRedirect()}
+          >
+            fazer login
+          </span>
+          .
+        </p>
       )}
     </div>
-  );
+  ) ;
 }
