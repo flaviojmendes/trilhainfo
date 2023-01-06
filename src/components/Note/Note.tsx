@@ -144,14 +144,14 @@ export default function Note(props: Props) {
                     </button>
                   </div>
                 </div>
-                <button
+                {/* <button
                   aria-label="Deletar Comentário"
                   onClick={() => handleDeleteComment(note.id || "")}
                   disabled={isDeletingNote}
                   className="p-1 rounded-sm bg-red"
                 >
                   <RiCloseCircleFill className="w-3 text-dark-brown " />
-                </button>
+                </button> */}
             </>
           )})}
 
