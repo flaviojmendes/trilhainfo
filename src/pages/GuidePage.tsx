@@ -20,7 +20,7 @@ export default function GuidePage() {
   }, []);
 
   function getImageUrl(name: string) {
-    return new URL(`../guides/${name}.jpg`, import.meta.url).href
+    return `/guides/${name}.jpg`
   }
 
   useDocumentTitle("Trilha Info - " + guide);

@@ -8,7 +8,7 @@ If you've reached this repo it's because you're wondering how to contribute to t
 
 I am currently asking for contributions to the Frontend Roadmap. Just send a Pull Request to edit the [JSON](https://github.com/flaviojmendes/trilhainfo/tree/main/src/roadmaps) that contains all the information.
 
-![Preview](/src/preview.png)
+![Preview](/public/preview.png)
 
 ## Disclaimer
 
