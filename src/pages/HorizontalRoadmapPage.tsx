@@ -42,7 +42,7 @@ function HorizontalRoadmapPageImpl() {
 
   return (
     <MainLayout>
-      <LevelProvider>
+     
         <div className="m-auto h-full flex flex-col w-11/12">
           <div className="flex justify-end gap-2 mt-8">
             <RoadmapButtons
@@ -93,7 +93,6 @@ function HorizontalRoadmapPageImpl() {
             />
           </section>
         </div>
-      </LevelProvider>
     </MainLayout>
   );
 }
