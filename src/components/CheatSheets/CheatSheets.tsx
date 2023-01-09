@@ -5,6 +5,10 @@ import Cookies from "universal-cookie";
 import { cheatSheets } from "../../guides/cheatSheets";
 
 export default function CheatSheets() {
+  function getImageUrl(name: string) {
+    return `/guides/${name}.jpg`;
+  }
+
   useEffect(() => {}, []);
 
   return (
@@ -25,10 +29,14 @@ export default function CheatSheets() {
                   className="flex flex-col md:w-1/3 lg:w-1/4 w-full min-h-fit space-y-2 bg-brown hover:bg-white py-3 rounded-md"
                 >
                   <a
-                    className="text-lg md:text-2xl txt-title m-auto "
+                    className="text-lg md:text-2xl txt-title m-auto mt-0 "
                     href={`/guide/${cheatSheet.id}`}
                   >
-                    {`-> ${cheatSheet.title} <-`}
+                    <h4 className="txt-title text-center mb-6">{`-> ${cheatSheet.title} <-`}</h4>
+                    <img
+                      className="m-auto w-1/2"
+                      src={getImageUrl(cheatSheet.id  || "")}
+                    />
                   </a>
                 </div>
               );
