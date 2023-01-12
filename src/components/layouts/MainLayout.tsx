@@ -24,7 +24,7 @@ export default function MainLayout({ children }: Props) {
     <>
       <div className="flex flex-col h-screen">
         <Header/>
-        <main className="w-full flex-grow py-1 mx-auto mt-0 mb-10">
+        <main className="w-full flex-grow mx-auto mt-0">
           {children}
         </main>
         <footer className="text-center py-4 w-full bg-dark-brown select-none">

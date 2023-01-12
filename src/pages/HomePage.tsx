@@ -4,10 +4,9 @@ import MainLayout from "../components/layouts/MainLayout";
 import UserArea from "../components/UserArea/UserArea";
 import { useEffect } from "react";
 import Cookies from "universal-cookie";
-import CheatSheets from "../components/CheatSheets/CheatSheets";
-import OpenSource from "../components/OpenSource/OpenSource";
 import MainRoadmaps from "../components/MainRoadmaps/MainRoadmaps";
 import CallToAction from "../components/CallToAction/CallToAction";
+import ProjectInfo from "../components/ProjectInfo/ProjectInfo";
 
 export default function HomePage() {
   const Link = chakra(NavLink);
@@ -18,8 +17,8 @@ export default function HomePage() {
         <CallToAction />
         <MainRoadmaps />
         <UserArea />
-        <CheatSheets />
-        <OpenSource />
+        <ProjectInfo />
+        {/* <OpenSource /> */}
       </MainLayout>
     </>
   );

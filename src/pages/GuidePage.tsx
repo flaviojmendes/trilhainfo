@@ -28,7 +28,7 @@ export default function GuidePage() {
   return (
     <>
       <MainLayout>
-       <img className="m-auto w-10/12" src={getImageUrl(guide || '')}/>
+       <img className="m-auto h-screen" src={getImageUrl(guide || '')}/>
       </MainLayout>
     </>
   );
