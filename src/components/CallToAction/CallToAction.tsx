@@ -11,7 +11,7 @@ export default function CallToAction() {
   }
   return (
     <>
-      <section className="flex flex-col items-stretch justify-center bg-dark-brown mb-10 py-10 mx-0 w-full shadow-inner">
+      <section className="flex flex-col items-stretch justify-center bg-dark-brown mb-10 py-10 mx-0 w-full">
         <div className="flex-col md:w-1/2 m-4 md:m-auto py-2 md:py-10">
           <div className="min-h-[4em]">
             <TypeAnimation

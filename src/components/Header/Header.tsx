@@ -15,7 +15,7 @@ export default function Header() {
     loginWithPopup,
   } = useAuth0();
   return (
-    <header className="w-full p-2 flex flex-wrap space-x-0 space-y-2 mx-auto bg-[#2A2827] shadow-md">
+    <header className="w-full p-2 flex flex-wrap space-x-0 space-y-2 mx-auto bg-dark-brown">
       <MobileMenu />
       <div className="flex-grow">
         {" "}
@@ -26,39 +26,28 @@ export default function Header() {
           <li className="flex">
             <a
               target={"_blank"}
-              className="flex border-r-2 border-r-yellow text-yellow hover:text-red pr-4 mr-4 my-2"
+              className="flex text-yellow hover:text-red pr-4 mr-4 my-2"
               href="https://discord.gg/TmneeHgTBp"
             >
-              <FaDiscord className="m-auto w-7 h-7 " />
-              <span className="my-auto text-base ml-1  hidden md:block txt-title">
+              <FaDiscord className="m-auto w-10 h-10 " />
+              {/* <span className="my-auto text-base ml-1  hidden md:block txt-title">
                 Discord
-              </span>
+              </span> */}
             </a>
           </li>
           <li className="flex">
             <a
               target={"_blank"}
-              className="flex border-r-2 border-r-yellow text-yellow hover:text-red pr-4 mr-4 my-2"
+              className="flex text-yellow hover:text-red pr-4 mr-4 my-2"
               href="https://github.com/flaviojmendes/trilhadev"
             >
-              <FaGithubSquare className="m-auto w-7 h-7 " />
-              <span className="my-auto text-base ml-1  hidden md:block txt-title">
+              <FaGithubSquare className="m-auto w-10 h-10 " />
+              {/* <span className="my-auto text-base ml-1  hidden md:block txt-title">
                 Github
-              </span>
+              </span> */}
             </a>
           </li>
-          <li className="flex">
-            <a
-              target={"_blank"}
-              className="flex border-r-2 border-r-yellow text-yellow hover:text-red pr-4 mr-4 my-2"
-              href="https://www.getrevue.co/profile/flaviojmendes"
-            >
-              <FaNewspaper className="m-auto w-7 h-7 " />
-              <span className="my-auto text-base ml-1 hidden md:block txt-title">
-                Assine a Newsletter
-              </span>
-            </a>
-          </li>
+         
 
           <li className="flex">
             {isAuthenticated && (
