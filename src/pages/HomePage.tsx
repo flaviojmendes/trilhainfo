@@ -18,7 +18,6 @@ export default function HomePage() {
         <MainRoadmaps />
         <UserArea />
         <ProjectInfo />
-        {/* <OpenSource /> */}
       </MainLayout>
     </>
   );
