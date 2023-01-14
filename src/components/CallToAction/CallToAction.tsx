@@ -11,8 +11,8 @@ export default function CallToAction() {
   }
   return (
     <>
-      <section className="flex flex-col items-stretch justify-center bg-dark-brown mb-10 py-10 mx-0 w-full">
-        <div className="flex-col md:w-1/2 m-4 md:m-auto py-2 md:py-10">
+      <section className="flex flex-col items-stretch justify-center bg-dark-brown mb-10 py-10 mx-0 w-full xl:px-64">
+        <div className="flex-col md:w-full m-4 md:m-auto py-2 md:py-10">
           <div className="min-h-[4em]">
             <TypeAnimation
               // Same String at the start will only be typed once, initially
@@ -45,7 +45,7 @@ export default function CallToAction() {
             <AnchorLink
               onClick={handleCallToAction}
               href="#mainRoadmaps"
-              className="m-auto mt-10 bg-blue p-4 text-2xl txt-title rounded-full"
+              className="mt-10 bg-blue p-4 text-2xl txt-title rounded-full"
             >
               Começar Agora! (é grátis)
             </AnchorLink>

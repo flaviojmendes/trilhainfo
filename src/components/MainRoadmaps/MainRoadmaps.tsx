@@ -1,7 +1,7 @@
 import { FaArrowRight } from "react-icons/fa";
 import { BsArrowRightCircleFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
-import { mainRoadmaps } from "./mainRoadmaps";
+import { mainRoadmapsData } from "./mainRoadmapsData";
 
 export default function MainRoadmaps() {
   return (
@@ -13,7 +13,7 @@ export default function MainRoadmaps() {
       </h2>
 
       <section className="flex flex-wrap items-stretch space-y-10 pb-10 md:space-y-0 gap-5 w-full mx-auto">
-        {mainRoadmaps.map((mainRoadmap) => {
+        {mainRoadmapsData.map((mainRoadmap) => {
           return (
             <Link
               className="bg-brown md:w-1/3 lg:w-1/4 w-full hover:bg-white py-3 pr-2 rounded-md flex"
