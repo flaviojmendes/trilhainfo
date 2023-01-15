@@ -19,7 +19,7 @@ export default function ProjectInfo() {
             <span className="text-red">Trilha Info</span>
           </p>
           <a
-            className="bg-red txt-title p-4 w-fit rounded-full "
+            className="bg-red txt-title p-2 w-fit rounded-md "
             href="https://www.getrevue.co/profile/flaviojmendes"
           >
             Assine Agora!

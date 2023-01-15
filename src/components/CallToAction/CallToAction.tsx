@@ -53,7 +53,7 @@ export default function CallToAction() {
             <AnchorLink
               onClick={handleCallToAction}
               href="#mainRoadmaps"
-              className="mt-6 bg-blue p-2 text-xl txt-title rounded-md"
+              className="mt-6 bg-blue p-2  txt-title rounded-md"
             >
               Comece Agora
             </AnchorLink>
