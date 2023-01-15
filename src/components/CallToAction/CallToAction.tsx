@@ -13,6 +13,10 @@ export default function CallToAction() {
     <>
       <section className="flex flex-col items-stretch justify-center bg-dark-brown mb-10 py-10 mx-0 w-full xl:px-64">
         <div className="flex-col md:w-full m-4 md:m-auto py-2 md:py-10">
+          <div className="bg-medium-brown rounded-md px-3 txt-title text-light-brown text-sm w-fit mb-10">
+            Mais de <span className="text-red txt-title">18.000 pessoas</span>{" "}
+            já acessaram
+          </div>
           <div className="min-h-[4em]">
             <TypeAnimation
               // Same String at the start will only be typed once, initially
@@ -34,20 +38,24 @@ export default function CallToAction() {
               repeat={Infinity} // Repeat this Animation Sequence infinitely
             />
           </div>
-          <p className=" mt-10 max-w-xl text-lg md:text-xl txt-title text-yellow">
+          <p className=" mt-10 max-w-xl text-lg md:text-xl txt-title text-red">
             Essas dúvidas não são só suas.
           </p>
           <p className=" mt-1 max-w-xl text-lg md:text-xl txt-title text-yellow">
-            Desde Junho/2022 mais de 18.000 pessoas já acessaram a Trilha Info
+            Desde Junho/2022 mais de 18.000 pessoas já acessaram a{" "}
+            <span className="txt-title text-red">Trilha Info </span>
             gratuitamente como uma ferramenta de apoio aos estudos.
           </p>
+          <div className="flex bg-medium-brown rounded-md px-2 txt-title text-light-brown text-sm w-fit my-6">
+            <div className="bg-blue rounded-full w-2 h-2 m-auto mr-2"></div>Conteúdo totalmente gratuito
+          </div>
           <div className="flex w-full">
             <AnchorLink
               onClick={handleCallToAction}
               href="#mainRoadmaps"
-              className="mt-10 bg-blue p-4 text-2xl txt-title rounded-full"
+              className="mt-6 bg-blue p-2 text-xl txt-title rounded-md"
             >
-              Começar Agora! (é grátis)
+              Comece Agora
             </AnchorLink>
           </div>
         </div>
