@@ -3,13 +3,16 @@ import { cheatSheets } from "../../guides/cheatSheets";
 import { GoPlus } from "react-icons/go";
 
 export default function ProjectInfo() {
-
   useEffect(() => {}, []);
 
   return (
     <>
       <section className="flex flex-wrap items-stretch justify-center bg-dark-brown py-10 w-full shadow-inner">
         <div className="w-full lg:w-2/3 flex flex-col px-10 xl:px-64 gap-4">
+          <div className="flex bg-medium-brown rounded-md px-2 txt-title text-light-brown text-sm w-fit my-2">
+            <div className="bg-red rounded-full w-2 h-2 m-auto mr-2"></div>
+            Newsletter mensal sobre a trilha
+          </div>
           <p className="text-4xl txt-title text-yellow m-auto">
             Assine a <span className="text-red">newsletter</span> para não
             perder as últimas novidades da{" "}
@@ -78,6 +81,10 @@ export default function ProjectInfo() {
         </div>
 
         <div className="w-full lg:w-1/3 flex flex-col px-10 xl:pr-28 mt-10 lg:mt-0 gap-4">
+          <div className="flex bg-medium-brown rounded-md px-2 txt-title text-light-brown text-sm w-fit my-2">
+            <div className="bg-blue rounded-full w-2 h-2 m-auto mr-2"></div>
+            Faça download gratuito
+          </div>
           <h3 className="text-4xl txt-title text-yellow font-semibold">
             <span className="text-blue">Guias</span> Cheat Sheets
           </h3>
@@ -98,8 +105,6 @@ export default function ProjectInfo() {
             );
           })}
         </div>
-
-      
       </section>
     </>
   );

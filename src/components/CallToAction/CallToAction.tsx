@@ -11,13 +11,13 @@ export default function CallToAction() {
   }
   return (
     <>
-      <section className="flex flex-col items-stretch justify-center bg-dark-brown mb-10 py-10 mx-0 w-full xl:px-64">
+      <section className="flex items-stretch justify-center bg-dark-brown mb-10 py-10 mx-0 w-full xl:px-64">
         <div className="flex-col md:w-full m-4 md:m-auto py-2 md:py-10">
           <div className="bg-medium-brown rounded-md px-3 txt-title text-light-brown text-sm w-fit mb-10">
             Mais de <span className="text-red txt-title">18.000 pessoas</span>{" "}
             já acessaram
           </div>
-          <div className="min-h-[4em]">
+          <div className="min-h-[5em]">
             <TypeAnimation
               // Same String at the start will only be typed once, initially
               sequence={[
@@ -58,6 +58,9 @@ export default function CallToAction() {
               Comece Agora
             </AnchorLink>
           </div>
+        </div>
+        <div className="hidden md:flex">
+          <img className="rounded-md lg:w-2/3 m-auto" src="/hero.png"></img>
         </div>
       </section>
     </>
