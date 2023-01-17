@@ -98,10 +98,10 @@ export default function Note(props: Props) {
   };
 
   return  (
-    <div className="bg-yellow rounded-lg p-4 my-8">
+    <div className="bg-light-yellow rounded-lg p-4 my-8">
       {isAuthenticated && (
         <>
-          <h2 className="txt-title text-dark-brown text-center font-semibold text-xl">
+          <h2 className="font-title text-dark-brown text-center font-semibold text-xl">
             Minhas Anotações
           </h2>
           {notes.length > 0 && (
@@ -127,10 +127,10 @@ export default function Note(props: Props) {
                 <div className="mb-4 ">
                   <div className="flex hover:bg-dark-brown hover:bg-opacity-5 rounded-sm">
                     <div className="flex-col grow align-middle">
-                      <p className="mx-2 mt-2 text-dark-brown txt-title">
+                      <p className="mx-2 mt-2 text-dark-brown font-title">
                         {note.text}
                       </p>
-                      <span className="ml-2 mb-2 text-red text-xs inline-block align-middle h-fit txt-title my-auto">
+                      <span className="ml-2 mb-2 text-red text-xs inline-block align-middle h-fit font-title my-auto">
                         {new Date(note.createdAt!).toLocaleString()}
                       </span>
                     </div>
@@ -173,7 +173,7 @@ export default function Note(props: Props) {
               fontWeight={"normal"}
               onClick={saveCommentText}
               disabled={isSavingNote}
-              className="txt-title"
+              className="font-title"
               backgroundColor={"#e9dad5"}
             >
               {isSavingNote ? (
@@ -194,7 +194,7 @@ export default function Note(props: Props) {
         </>
       )}
       {!isAuthenticated && (
-        <p className="text-center txt-title">
+        <p className="text-center font-title">
           Adicione anotações de seus estudos 📝. Para isso basta{" "}
           <span
             className="cursor-pointer font-semibold text-red hover:underline"

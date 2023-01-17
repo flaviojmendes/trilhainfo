@@ -94,7 +94,7 @@ export default function UserArea() {
     <>
       {isAuthenticated && (
         <div className="flex flex-col items-stretch justify-center bg-[#403C3B] mt-10 py-10 mx-0 w-full shadow-inner">
-          <h2 className="text-center my-6 txt-title text-3xl c-yellow">
+          <h2 className="text-center my-6 font-title text-3xl c-yellow">
             Meus Roadmaps
           </h2>
           <div className="flex flex-wrap items-stretch py-8 px-4 space-y-10 md:space-y-0 justify-center gap-5">
@@ -108,7 +108,7 @@ export default function UserArea() {
                     className="bg-brown  hover:bg-white py-3 rounded-md"
                     to={`/roadmap/view/${roadmap.id}`}
                   >
-                    <h3 className="text-center text-3xl txt-title mb-2 c-dark-brown">
+                    <h3 className="text-center text-3xl font-title mb-2 c-dark-brown">
                       {roadmap.title}
                     </h3>
                     <p className="text-justify mx-5">{roadmap.description}</p>

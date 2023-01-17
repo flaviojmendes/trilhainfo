@@ -194,7 +194,7 @@ export default function Roadmap(props: Props) {
       </div>
       <section ref={roadmapRef} className="pb-8">
         <h2
-          className={`text-center font-bold text-3xl c-yellow my-6 txt-title c-dark-brown ${
+          className={`text-center font-bold text-3xl c-yellow my-6 font-title c-dark-brown ${
             props.isPreview ? "hidden" : ""
           }`}
         >
@@ -231,13 +231,13 @@ export default function Roadmap(props: Props) {
               _hover={{ backgroundColor: "#e9dad5" }}
             />
             <DrawerHeader>
-              <span className="text-light-brown txt-title">
+              <span className="text-light-brown font-title">
                 {activeItem?.label}
               </span>
             </DrawerHeader>
 
             <DrawerBody>
-              <p className="mb-4 text-light-brown txt-title">
+              <p className="mb-4 text-light-brown font-title">
                 {activeItem?.description}
               </p>
               <Accordion allowToggle>
@@ -259,7 +259,7 @@ export default function Roadmap(props: Props) {
                                 }}
                               ></Checkbox>
                             </CheckboxGroup>
-                            <span className="text-light-brown txt-title">
+                            <span className="text-light-brown font-title">
                               {child.label}
                             </span>
                           </Box>

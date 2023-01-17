@@ -11,7 +11,7 @@ export function HorizontalLevelItemContent() {
     <>
       {!selectedItem && (
         <div className="flex h-full ">
-          <p className="m-auto txt-title text-red">
+          <p className="m-auto font-title text-red">
             Selecione um Item à esquerda para estudar.
           </p>
         </div>
@@ -25,10 +25,10 @@ export function HorizontalLevelItemContent() {
           transition={{ type: "spring", bounce: 0, duration: 0.3 }}
           className="flex flex-col px-4"
         >
-          <h2 className="txt-title text-2xl text-light-orange">
+          <h2 className="font-title text-2xl text-light-orange">
             {selectedItem.label}
           </h2>
-          <p className="txt-title text-xl text-light-orange mt-2">
+          <p className="font-title text-xl text-light-orange mt-2">
             {selectedItem.description}
           </p>
           <Accordion className="mt-4" allowToggle>
@@ -59,7 +59,7 @@ function HorizontalLevelItemSection({ section }: { section: RoadmapItem }) {
               isChecked={isRead()}
               onChange={(e) => saveRead(e.target.checked)}
             />
-            <span className="text-light-brown txt-title">{section.label}</span>
+            <span className="text-light-brown font-title">{section.label}</span>
           </Box>
           <AccordionIcon />
         </AccordionButton>

@@ -111,10 +111,10 @@ export default function NewRoadmapPage() {
             <InputGroup>
               <InputLeftAddon
                 children="trilha.info/roadmap/v/"
-                className="bg-yellow"
+                className="bg-light-yellow"
               />
               <Input
-                className="c-yellow txt-title"
+                className="c-yellow font-title"
                 fontSize={"md"}
                 value={roadmap.slug}
                 onChange={handleSlugChange}
@@ -123,7 +123,7 @@ export default function NewRoadmapPage() {
               />
             </InputGroup>
             {invalidSlug && (
-              <p className="text-center mt-1 txt-title text-red">
+              <p className="text-center mt-1 font-title text-red">
                 Desculpe, mas essa URL já foi escolhida por outra pessoa.. 😔
               </p>
             )}
@@ -131,7 +131,7 @@ export default function NewRoadmapPage() {
           <div className="w-full md:w-1/2 m-auto">
             <span className="c-yellow">Título:</span>
             <Input
-              className="c-yellow font-semibold txt-title"
+              className="c-yellow font-semibold font-title"
               fontSize={"xl"}
               value={roadmap.title}
               onChange={handleTitleChange}

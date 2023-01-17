@@ -60,13 +60,13 @@ export default function HorizontalRoadmapFooter(props: Props) {
           <FaArrowLeft />
         </button>
         {/* Show in XL Screens */}
-        <div className="hidden xl:flex flex-grow items-center gap-4 txt-title text-3xl text-yellow select-none">
+        <div className="hidden xl:flex flex-grow items-center gap-4 font-title text-3xl text-yellow select-none">
           {/* <MotionConfig */}
           {/*   transition={{ type: "spring", bounce: 0, duration: 0.3 }} */}
           {/* > */}
           {/*   <button */}
           {/*     onClick={handlePreviousLevel} */}
-          {/*     className="cursor-pointer text-sm txt-title font-semibold text-white w-8 h-8 flex justify-center items-center rounded-full overflow-hidden relative" */}
+          {/*     className="cursor-pointer text-sm font-title font-semibold text-white w-8 h-8 flex justify-center items-center rounded-full overflow-hidden relative" */}
           {/*   > */}
           {/*     <AnimatePresence custom={direction}> */}
           {/*       {prevLevel > 0 && ( */}
@@ -94,7 +94,7 @@ export default function HorizontalRoadmapFooter(props: Props) {
           {/*       )} */}
           {/*     </AnimatePresence> */}
           {/*   </button> */}
-          {/*   <div className="cursor-pointer text-sm txt-title font-semibold bg-yellow text-dark-brown w-8 h-8 flex justify-center items-center rounded-full overflow-hidden relative"> */}
+          {/*   <div className="cursor-pointer text-sm font-title font-semibold bg-light-yellow text-dark-brown w-8 h-8 flex justify-center items-center rounded-full overflow-hidden relative"> */}
           {/*     <AnimatePresence custom={direction}> */}
           {/*       <motion.span */}
           {/*         key={currentLevel} */}
@@ -122,7 +122,7 @@ export default function HorizontalRoadmapFooter(props: Props) {
 
           {/*   <button */}
           {/*     onClick={handleNextLevel} */}
-          {/*     className="cursor-pointer text-sm txt-title font-semibold text-white w-8 h-8 flex justify-center items-center rounded-full overflow-hidden relative" */}
+          {/*     className="cursor-pointer text-sm font-title font-semibold text-white w-8 h-8 flex justify-center items-center rounded-full overflow-hidden relative" */}
           {/*   > */}
           {/*     <AnimatePresence custom={direction}> */}
           {/*       {nextLevel <= levelQty && ( */}
@@ -154,7 +154,7 @@ export default function HorizontalRoadmapFooter(props: Props) {
 
           {[...Array(levelQty)].map((_, index) => (
             <button
-              className="cursor-pointer text-sm txt-title font-semibold text-dark-brown flex items-center justify-center"
+              className="cursor-pointer text-sm font-title font-semibold text-dark-brown flex items-center justify-center"
               onClick={() => handleNavigateLevel(index)}
               key={index}
             >
@@ -185,7 +185,7 @@ export default function HorizontalRoadmapFooter(props: Props) {
               ) : (
                 <motion.div
                   layoutId={(index + 1).toString()}
-                  className="w-3 h-3 rounded-full bg-yellow"
+                  className="w-3 h-3 rounded-full bg-light-yellow"
                 />
               )}
             </button>
@@ -193,7 +193,7 @@ export default function HorizontalRoadmapFooter(props: Props) {
         </div>
         {/* Show in Smaller Screens */}
         <div className=" text-yellow align-middle mx-5 text-xl p-0 h-full flex xl:hidden">
-          <span className={"m-auto txt-title"}>
+          <span className={"m-auto font-title"}>
             {props.currentLevelIndex + 1} de {levelQty}
           </span>
         </div>
@@ -217,7 +217,7 @@ export default function HorizontalRoadmapFooter(props: Props) {
   /*     onClick={() => handleNavigateLevel(index)} */
 }
 {
-  /*     className={`m-auto cursor-pointer bg-yellow text-sm text-dark-brown rounded-full w-3 h-3 p-0 flex hover:w-5 hover:h-5`} */
+  /*     className={`m-auto cursor-pointer bg-light-yellow text-sm text-dark-brown rounded-full w-3 h-3 p-0 flex hover:w-5 hover:h-5`} */
 }
 {
   /*   /> */

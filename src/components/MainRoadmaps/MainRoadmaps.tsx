@@ -6,9 +6,9 @@ import { mainRoadmapsData } from "./mainRoadmapsData";
 export default function MainRoadmaps() {
   return (
     <div id="mainRoadmaps" className="pt-4 xl:px-64 px-10">
-      <h2 className="txt-title font-semibolds md:w-1/3 my-6 text-4xl c-yellow">
+      <h2 className="font-title font-semibolds md:w-1/3 my-6 text-4xl c-yellow">
         Tudo o que você{" "}
-        <span className="text-red txt-title">precisa saber</span> no universo
+        <span className="text-red font-title">precisa saber</span> no universo
         de:
       </h2>
 
@@ -20,15 +20,15 @@ export default function MainRoadmaps() {
               to={mainRoadmap.url}
             >
               <div className="w-2/3 flex flex-col">
-                <h3 className="ml-4 font-semibold text-3xl txt-title mb-2 c-dark-brown">
+                <h3 className="ml-4 font-semibold text-3xl font-title mb-2 c-dark-brown">
                   {mainRoadmap.title}
                 </h3>
-                <p className="m-4 text-sm txt-title">
+                <p className="m-4 text-sm font-title">
                   {mainRoadmap.description}
                 </p>
                 <div className="grow"></div>
                 <div className="flex ml-4 text-red">
-                  <span className="txt-title underline my-auto font-semibold">
+                  <span className="font-title underline my-auto font-semibold">
                     Comece agora 
                   </span>
                   <BsArrowRightCircleFill  className="my-auto ml-2"/>
