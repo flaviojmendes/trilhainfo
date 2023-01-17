@@ -3,7 +3,6 @@ import domtoimage from "dom-to-image";
 import { MutableRefObject } from "react";
 import { Button, ButtonArgs } from "./types";
 import axios from "axios";
-import { RoadmapModel } from "../../entity/RoadmapModel";
 import Cookies from "universal-cookie";
 
 const cookies = new Cookies();

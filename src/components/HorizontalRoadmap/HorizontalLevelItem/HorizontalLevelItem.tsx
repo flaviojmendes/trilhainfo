@@ -15,10 +15,10 @@ type HorizontalLevelItemsProps = {
 export default function HorizontalLevelItems(props: HorizontalLevelItemsProps) {
   return (
     <motion.div key={props.index} initial={{ x: 100 }} animate={{ x: 0 }}>
-      <p className="text-yellow txt-title text-xl text-center">
+      <p className="text-yellow font-title text-xl text-center">
         {props.roadmapLevel?.label}
       </p>
-      <p className="text-yellow txt-title mt-2 text-center">
+      <p className="text-yellow font-title mt-2 text-center">
         {props.roadmapLevel?.description}
       </p>
       <div className="flex xl:flex-col flex-wrap gap-2">
@@ -46,7 +46,7 @@ function HorizontalLevelItem({ item }: HorizontalLevelItemProps) {
       }`}
     >
       {isAllContentRead() ? (
-        <span className="checking">
+        <span className="animate-checking">
           <CheckIcon
             mx="1"
             color="#228B22"
@@ -58,15 +58,15 @@ function HorizontalLevelItem({ item }: HorizontalLevelItemProps) {
         </span>
       ) : (
         <FaRegCircle
-          className="mx-1 hover:text-light-orange hover: hover:fill-light-orange checking"
+          className="mx-1 hover:text-light-orange hover: hover:fill-light-orange animate-checking"
           onClick={(e) => {
             checkAllContent(true);
             e.stopPropagation();
           }}
         />
       )}
-      <p className="ml-1 xl:ml-2 txt-title text-xl">{item.label}</p>
-      <p className="txt-title text-xl ml-auto">{">>"}</p>
+      <p className="ml-1 xl:ml-2 font-title text-xl">{item.label}</p>
+      <p className="font-title text-xl ml-auto">{">>"}</p>
     </button>
   );
 }

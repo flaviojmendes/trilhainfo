@@ -22,7 +22,7 @@ const ButtonElement = ({
     <a
       type="button"
       href={args.href}
-      className="border-2 p-1 rounded-md bg-light-orange txt-title border-red mr-2 hover:shadow-md hover:bg-light-orange"
+      className="border-2 p-1 rounded-md bg-light-orange font-title border-red mr-2 hover:shadow-md hover:bg-red hover:border-light-orange transition-colors"
       onClick={handleAnalyticsEvent}
     >
       {text}
@@ -32,7 +32,7 @@ const ButtonElement = ({
   const renderButton = (
     <button
       type="button"
-      className="border-2 p-1 rounded-md bg-yellow txt-title border-yellow mr-2 hover:shadow-md hover:bg-light-orange"
+      className="border-2 p-1 rounded-md bg-yellow font-title border-light-yellow mr-2 hover:shadow-md hover:bg-light-yellow hover:border-yellow transition-colors"
       onClick={args.action}
     >
       {text}
