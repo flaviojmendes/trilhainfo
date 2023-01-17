@@ -26,7 +26,7 @@ export default function MobileMenu() {
     loginWithPopup,
   } = useAuth0();
   return (
-    <>
+    <div className="flex md:hidden justify-center items-center">
       <div className="space-y-2 m-auto block md:hidden" onClick={onOpen}>
         <div className="w-8 h-0.5 bg-light-yellow"></div>
         <div className="w-8 h-0.5 bg-light-yellow"></div>
@@ -131,6 +131,6 @@ export default function MobileMenu() {
           <DrawerFooter></DrawerFooter>
         </DrawerContent>
       </Drawer>
-    </>
+    </div>
   );
 }
