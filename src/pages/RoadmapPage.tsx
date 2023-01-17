@@ -33,15 +33,15 @@ export default function RoadmapPage() {
   return (
     <>
       <MainLayout>
-        {/* <p className="mt-4 text-center txt-title c-brown md:px-10">
+        {/* <p className="mt-4 text-center font-title c-brown md:px-10">
           Não sabe por onde começar a estudar? Que tal dar uma olhada por aqui?
         </p> */}
         <div className="m-auto w-2/3 mt-4">
-          <p className="mb-2 txt-title c-brown ">
+          <p className="mb-2 font-title c-brown ">
             Lendo de cima pra baixo, cada{" "}
             <span className="text-red">caixa</span> é um assunto a ser estudado.
           </p>
-          <p className="txt-title c-brown ">
+          <p className="font-title c-brown ">
             <span className="text-red">Clicando</span>, você verá em mais
             detalhes o que estudar com links de conteúdos gratuitos!
           </p>

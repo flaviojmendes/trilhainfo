@@ -7,33 +7,33 @@ export default function Logo() {
   return (
     <>
       <Link to={"/"}>
-        <h1 className="text-center md:text-start site-logo font-bold text-2xl txt-handwritten">
-          <span className="c-brown txt-handwritten">0</span>
-          <span className="c-brown txt-handwritten">1</span>
-          <span className="c-yellow txt-handwritten">0</span>
-          <span className="c-yellow txt-handwritten">1</span>
-          <span className="c-blue txt-handwritten">0</span>
-          <span className="c-red txt-handwritten">Trilha</span>
-          <span className="c-brown txt-handwritten">0</span>
-          <span className="c-brown txt-handwritten">1</span>
-          <span className="c-blue txt-handwritten">0</span>
-          <span className="c-blue txt-handwritten">0</span>
-          <span className="c-yellow txt-handwritten">1</span>
+        <h1 className="text-center md:text-start site-logo font-bold text-2xl">
+          <span className="c-brown font-monospace">0</span>
+          <span className="c-brown font-monospace">1</span>
+          <span className="c-yellow font-monospace">0</span>
+          <span className="c-yellow font-monospace">1</span>
+          <span className="c-blue font-monospace">0</span>
+          <span className="c-red font-monospace">Trilha</span>
+          <span className="c-brown font-monospace">0</span>
+          <span className="c-brown font-monospace">1</span>
+          <span className="c-blue font-monospace">0</span>
+          <span className="c-blue font-monospace">0</span>
+          <span className="c-yellow font-monospace">1</span>
         </h1>
-        <h1 className="text-center md:text-start font-bold text-2xl txt-handwritten">
-          <span className="c-yellow txt-handwritten">1</span>
-          <span className="c-yellow txt-handwritten">1</span>
-          <span className="c-blue txt-handwritten">0</span>
-          <span className="c-blue txt-handwritten">1</span>
-          <span className="c-blue txt-handwritten">1</span>
-          <span className="c-brown txt-handwritten">0</span>
-          <span className="c-brown txt-handwritten">0</span>
-          <span className="c-red txt-handwritten">Info</span>
-          <span className="c-yellow txt-handwritten">1</span>
-          <span className="c-blue txt-handwritten">0</span>
-          <span className="c-blue txt-handwritten">0</span>
-          <span className="c-yellow txt-handwritten">1</span>
-          <span className="c-yellow txt-handwritten">1</span>
+        <h1 className="text-center md:text-start font-bold text-2xl">
+          <span className="c-yellow font-monospace">1</span>
+          <span className="c-yellow font-monospace">1</span>
+          <span className="c-blue font-monospace">0</span>
+          <span className="c-blue font-monospace">1</span>
+          <span className="c-blue font-monospace">1</span>
+          <span className="c-brown font-monospace">0</span>
+          <span className="c-brown font-monospace">0</span>
+          <span className="c-red font-monospace">Info</span>
+          <span className="c-yellow font-monospace">1</span>
+          <span className="c-blue font-monospace">0</span>
+          <span className="c-blue font-monospace">0</span>
+          <span className="c-yellow font-monospace">1</span>
+          <span className="c-yellow font-monospace">1</span>
         </h1>
       </Link>
     </>

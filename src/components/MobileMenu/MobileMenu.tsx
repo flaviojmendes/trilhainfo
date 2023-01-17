@@ -94,24 +94,23 @@ export default function MobileMenu() {
 
               <li className="flex">
                 {isAuthenticated && (
-                  <Button
-                    margin={"auto"}
-                    mt={8}
+                  <button
+                    className="auto p-2 rounded-md m-auto mt-8 bg-brown"
+                    
                     onClick={() => logout({ returnTo: window.location.origin })}
                   >
                     Logout
-                  </Button>
+                  </button>
                 )}
               </li>
               <li className="flex">
                 {!isAuthenticated && !isLoading && (
-                  <Button
-                    margin={"auto"}
-                    mt={8}
+                  <button
+                    className="m-auto mt-8 bg-light-brown p-2 rounded-md"
                     onClick={() => loginWithRedirect()}
                   >
                     Log In
-                  </Button>
+                  </button>
                 )}
                 {isLoading && (
                   <ThreeDots
