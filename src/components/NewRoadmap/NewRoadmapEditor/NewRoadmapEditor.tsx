@@ -279,7 +279,7 @@ export default function NewRoadmapEditor(props: Props) {
 
   return (
     <>
-      <h2 className="txt-title text-light-orange text-center text-2xl ml-2 mb-2">
+      <h2 className="font-title text-light-orange text-center text-2xl ml-2 mb-2">
         Editor
       </h2>
 
@@ -290,13 +290,13 @@ export default function NewRoadmapEditor(props: Props) {
             className={
               "pb-5 lg:w-full self-center md:ml-8 px-4 rounded-md " +
               (level.label || level.description
-                ? "border-2 bd-red border-dotted bg-yellow"
+                ? "border-2 border-dark-red border-dotted bg-light-yellow"
                 : "bg-white bg-opacity-50")
             }
           >
             <div className="w-full flex align-middle flex-wrap justify-end">
               <div className="grow flex">
-                <span className="text-xs txt-title my-auto">
+                <span className="text-xs font-title my-auto">
                   (Título e Descrição são Opcionais)
                 </span>
               </div>
@@ -305,13 +305,13 @@ export default function NewRoadmapEditor(props: Props) {
                 onClick={() => handleRemoveLevel(level)}
               >
                 <DeleteIcon cursor={"pointer"} />{" "}
-                <span className="text-sm txt-title">Remover Level</span>
+                <span className="text-sm font-title">Remover Level</span>
               </button>
             </div>
             <div className="w-44 h-50 mx-auto text-center">
               <Input
                 borderColor={"#000"}
-                className="font-black txt-title placeholder:text-dark-blue"
+                className="font-black font-title placeholder:text-dark-blue"
                 value={level.label}
                 onChange={(e) => handleLevelTitleChange(e, level, levelIndex)}
                 placeholder="Título"
@@ -336,11 +336,11 @@ export default function NewRoadmapEditor(props: Props) {
                 return (
                   <div
                     key={`item-${itemIndex}`}
-                    className="flex flex-col space-y-2 mx-0 my-0 p-2 pt-3 md:p-3 w-full text-center border-2 rounded-md bd-red  hover:shadow-md bg-brown"
+                    className="flex flex-col space-y-2 mx-0 my-0 p-2 pt-3 md:p-3 w-full text-center border-2 rounded-md border-dark-red  hover:shadow-md bg-brown"
                   >
                     <div className="flex flex-row-reverse">
                       <button
-                        className="mb-2 cursor-pointer w-fit txt-title text-sm border-2 rounded-md p-1 bg-light-orange border-red"
+                        className="mb-2 cursor-pointer w-fit font-title text-sm border-2 rounded-md p-1 bg-light-orange border-red"
                         onClick={() => handleRemoveItem(levelIndex, item)}
                       >
                         <DeleteIcon cursor={"pointer"} /> Remover Item
@@ -387,7 +387,7 @@ export default function NewRoadmapEditor(props: Props) {
                       return (
                         <div>
                           <div
-                            className="m-auto my-2 cursor-pointer w-fit txt-title text-sm border-2 rounded-md p-1 bg-light-orange border-red"
+                            className="m-auto my-2 cursor-pointer w-fit font-title text-sm border-2 rounded-md p-1 bg-light-orange border-red"
                             onClick={() =>
                               handleRemoveSection(
                                 levelIndex,
@@ -423,7 +423,7 @@ export default function NewRoadmapEditor(props: Props) {
                               <>
                                 <Divider borderColor={"yellow.500"} mt="2" />
                                 <div
-                                  className="m-auto my-2 cursor-pointer w-fit txt-title text-sm border-2 rounded-md p-1 bg-light-orange border-red"
+                                  className="m-auto my-2 cursor-pointer w-fit font-title text-sm border-2 rounded-md p-1 bg-light-orange border-red"
                                   onClick={() =>
                                     handleRemoveLink(
                                       levelIndex,
@@ -513,7 +513,7 @@ export default function NewRoadmapEditor(props: Props) {
                           })}
                           <div className="w-full flex mt-4">
                             <button
-                              className="my-2 text-xs font-semibold mx-auto bg-yellow rounded-md p-2 border-yellow border-2"
+                              className="my-2 text-xs font-semibold mx-auto bg-light-yellow rounded-md p-2 border-yellow border-2"
                               onClick={() =>
                                 handleNewLink(
                                   level,

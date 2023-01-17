@@ -8,7 +8,7 @@ type Props = {
 export default function NewRoadmapPreview(props: Props) {
   return (
     <>
-      <h2 className="txt-title text-light-orange text-center text-2xl ml-2 mb-4">
+      <h2 className="font-title text-light-orange text-center text-2xl ml-2 mb-4">
         Preview
       </h2>
       <div className="w-full bg-dark-brown h-full rounded-md pt-8">

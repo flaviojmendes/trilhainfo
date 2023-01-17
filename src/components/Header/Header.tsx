@@ -15,7 +15,7 @@ export default function Header() {
     loginWithPopup,
   } = useAuth0();
   return (
-    <header className="w-full p-2 flex flex-wrap space-x-0 space-y-2 mx-auto bg-dark-brown">
+    <header className="w-full p-2 flex flex-wrap justify-center space-x-0 space-y-2 mx-auto bg-dark-brown px-10 xl:px-64">
       <MobileMenu />
       <div className="flex-grow">
         {" "}
@@ -30,7 +30,7 @@ export default function Header() {
               href="https://discord.gg/TmneeHgTBp"
             >
               <FaDiscord className="m-auto w-10 h-10 " />
-              {/* <span className="my-auto text-base ml-1  hidden md:block txt-title">
+              {/* <span className="my-auto text-base ml-1  hidden md:block font-title">
                 Discord
               </span> */}
             </a>
@@ -42,7 +42,7 @@ export default function Header() {
               href="https://github.com/flaviojmendes/trilhadev"
             >
               <FaGithubSquare className="m-auto w-10 h-10 " />
-              {/* <span className="my-auto text-base ml-1  hidden md:block txt-title">
+              {/* <span className="my-auto text-base ml-1  hidden md:block font-title">
                 Github
               </span> */}
             </a>
@@ -58,7 +58,7 @@ export default function Header() {
                     src={user?.picture}
                     alt={user?.name}
                   />
-                  <span className="m-auto ml-2 mr-4 text-base txt-title">
+                  <span className="m-auto ml-2 mr-4 text-base font-title">
                     {user?.name}
                   </span>
                 </div>

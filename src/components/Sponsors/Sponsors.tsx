@@ -2,7 +2,7 @@ export default function Sponsors() {
   return (
     <>
       <section className="bg-dark-brown pb-10">
-        <h1 className="txt-title text-light-orange text-center text-2xl lg:text-3xl">
+        <h1 className="font-title text-light-orange text-center text-2xl lg:text-3xl">
           Em parceria com:
         </h1>
 

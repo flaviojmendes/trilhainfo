@@ -59,7 +59,7 @@ function HorizontalRoadmapPageImpl() {
             ref={roadmapRef}
             className="m-auto h-full flex flex-col w-11/12"
           >
-            <h1 className="m-auto mt-8 text-center txt-title text-4xl text-yellow xl:hidden">
+            <h1 className="m-auto mt-8 text-center font-title text-4xl text-yellow xl:hidden">
               {roadmapTitle}
             </h1>
             <div className="flex flex-col xl:flex-row">
@@ -73,7 +73,7 @@ function HorizontalRoadmapPageImpl() {
               </div>
               {/* Selected Item Content */}
               <div className="w-full xl:w-2/4 xl:pl-10">
-                <h1 className="m-auto my-8 text-center txt-title text-4xl text-yellow hidden xl:block">
+                <h1 className="m-auto my-8 text-center font-title text-4xl text-yellow hidden xl:block">
                   {roadmapTitle}
                 </h1>
                 <HorizontalLevelItemContent />

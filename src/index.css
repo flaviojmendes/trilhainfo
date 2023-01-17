@@ -2,4 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .bd-handwritten {
+    border-width: 3px;
+    border-style: solid;
+    border-top-left-radius: 255px 15px;
+    border-top-right-radius: 15px 255px;
+    border-bottom-right-radius: 225px 15px;
+    border-bottom-left-radius:15px 255px;
+  }
+}
 
+@layer base {
+  * {
+    font-family: "Roboto Mono", monospace;
+  }
+
+  body {
+    @apply bg-medium-brown !important
+  }
+}
