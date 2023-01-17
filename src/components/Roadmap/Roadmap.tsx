@@ -313,7 +313,7 @@ export default function Roadmap(props: Props) {
             <DrawerFooter>
               <div className="flex space-x-4">
                 <a
-                  className="twitter-share-button bg-blue rounded-md text-center font-semibold px-2 py-2 align-middle"
+                  className="twitter-share-button bg-blue hover:bg-dark-blue transition-colors rounded-md text-center font-semibold px-2 py-2 align-middle"
                   href={`https://twitter.com/intent/tweet?text=Vem estudar ${
                     activeItem?.label
                   } comigo na Trilha Info.&url=https://trilha.info/roadmap/${
