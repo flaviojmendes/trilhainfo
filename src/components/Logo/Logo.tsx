@@ -7,33 +7,33 @@ export default function Logo() {
   return (
     <>
       <Link to={"/"}>
-        <h1 className="text-center md:text-start site-logo font-bold text-2xl">
-          <span className="c-brown ">0</span>
-          <span className="c-brown">1</span>
-          <span className="c-yellow">0</span>
-          <span className="c-yellow">1</span>
-          <span className="c-blue">0</span>
-          <span className="c-red">Trilha</span>
-          <span className="c-brown">0</span>
-          <span className="c-brown">1</span>
-          <span className="c-blue">0</span>
-          <span className="c-blue">0</span>
-          <span className="c-yellow">1</span>
+        <h1 className="text-center md:text-start site-logo font-bold text-2xl txt-handwritten">
+          <span className="c-brown txt-handwritten">0</span>
+          <span className="c-brown txt-handwritten">1</span>
+          <span className="c-yellow txt-handwritten">0</span>
+          <span className="c-yellow txt-handwritten">1</span>
+          <span className="c-blue txt-handwritten">0</span>
+          <span className="c-red txt-handwritten">Trilha</span>
+          <span className="c-brown txt-handwritten">0</span>
+          <span className="c-brown txt-handwritten">1</span>
+          <span className="c-blue txt-handwritten">0</span>
+          <span className="c-blue txt-handwritten">0</span>
+          <span className="c-yellow txt-handwritten">1</span>
         </h1>
-        <h1 className="text-center md:text-start font-bold text-2xl">
-          <span className="c-yellow">1</span>
-          <span className="c-yellow">1</span>
-          <span className="c-blue">0</span>
-          <span className="c-blue">1</span>
-          <span className="c-blue">1</span>
-          <span className="c-brown">0</span>
-          <span className="c-brown">0</span>
-          <span className="c-red">Info</span>
-          <span className="c-yellow">1</span>
-          <span className="c-blue">0</span>
-          <span className="c-blue">0</span>
-          <span className="c-yellow">1</span>
-          <span className="c-yellow">1</span>
+        <h1 className="text-center md:text-start font-bold text-2xl txt-handwritten">
+          <span className="c-yellow txt-handwritten">1</span>
+          <span className="c-yellow txt-handwritten">1</span>
+          <span className="c-blue txt-handwritten">0</span>
+          <span className="c-blue txt-handwritten">1</span>
+          <span className="c-blue txt-handwritten">1</span>
+          <span className="c-brown txt-handwritten">0</span>
+          <span className="c-brown txt-handwritten">0</span>
+          <span className="c-red txt-handwritten">Info</span>
+          <span className="c-yellow txt-handwritten">1</span>
+          <span className="c-blue txt-handwritten">0</span>
+          <span className="c-blue txt-handwritten">0</span>
+          <span className="c-yellow txt-handwritten">1</span>
+          <span className="c-yellow txt-handwritten">1</span>
         </h1>
       </Link>
     </>

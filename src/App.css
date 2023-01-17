@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;300;400;500;600&family=Schoolbell&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Slab:wght@500;600&family=Poppins:wght@400;500&display=swap');
 * {
-  font-family: "Roboto Mono", monospace;
+  font-family:'Poppins', sans-serif;
 }
 
 body {
@@ -57,7 +57,7 @@ body {
 
 
 .txt-handwritten {
-  font-family: 'Schoolbell', cursive;
+  font-family:  "Roboto Mono", monospace;
 }
 
 .txt-title {
