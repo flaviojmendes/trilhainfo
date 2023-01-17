@@ -93,7 +93,7 @@ export default function UserArea() {
   return (
     <>
       {isAuthenticated && (
-        <div className="flex flex-col items-stretch justify-center bg-[#403C3B] mt-10 py-10 mx-0 w-full shadow-inner">
+        <section className="flex flex-col items-stretch justify-center bg-[#403C3B] mt-10 py-10 mx-0 w-full shadow-inner px-10 xl:px-64">
           <h2 className="text-center my-6 font-title text-3xl c-yellow">
             Meus Roadmaps
           </h2>
@@ -155,7 +155,7 @@ export default function UserArea() {
               + Novo Roadmap
             </Button>
           </div>
-        </div>
+        </section>
       )}
     </>
   );
