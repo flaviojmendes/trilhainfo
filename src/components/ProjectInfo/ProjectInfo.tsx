@@ -7,8 +7,8 @@ export default function ProjectInfo() {
 
   return (
     <>
-      <section className="flex flex-wrap items-stretch justify-center bg-dark-brown py-10 w-full shadow-inner">
-        <div className="w-full lg:w-2/3 flex flex-col px-10 xl:px-64 gap-4">
+      <section className="grid grid-cols-1 lg:grid-cols-2 items-stretch justify-center bg-dark-brown py-10 w-full shadow-inner px-10 xl:px-64 gap-10">
+        <div className="flex flex-col gap-4">
           <div className="flex bg-medium-brown rounded-md px-2 font-title text-light-brown text-sm w-fit my-2">
             <div className="bg-red rounded-full w-2 h-2 m-auto mr-2"></div>
             Newsletter mensal sobre a trilha
@@ -19,7 +19,7 @@ export default function ProjectInfo() {
             <span className="text-red">Trilha Info</span>
           </p>
           <a
-            className="bg-red font-title p-2 w-fit rounded-md "
+            className="bg-red hover:bg-dark-red font-title p-2 w-fit rounded-md "
             href="https://www.getrevue.co/profile/flaviojmendes"
           >
             Assine Agora!
@@ -80,7 +80,7 @@ export default function ProjectInfo() {
           <div className="grow"></div>
         </div>
 
-        <div className="w-full lg:w-1/3 flex flex-col px-10 xl:pr-28 mt-10 lg:mt-0 gap-4">
+        <div className="w-full flex flex-col mt-10 lg:mt-0 gap-4">
           <div className="flex bg-medium-brown rounded-md px-2 font-title text-light-brown text-sm w-fit my-2">
             <div className="bg-blue rounded-full w-2 h-2 m-auto mr-2"></div>
             Faça download gratuito
