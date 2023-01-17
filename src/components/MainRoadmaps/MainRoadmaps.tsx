@@ -5,18 +5,18 @@ import { mainRoadmapsData } from "./mainRoadmapsData";
 
 export default function MainRoadmaps() {
   return (
-    <div id="mainRoadmaps" className="pt-4 xl:px-64 px-10">
+    <section id="mainRoadmaps" className="pt-4 xl:px-64 px-10">
       <h2 className="font-title font-semibolds md:w-1/3 my-6 text-4xl c-yellow">
         Tudo o que você{" "}
         <span className="text-red font-title">precisa saber</span> no universo
         de:
       </h2>
 
-      <section className="flex flex-wrap items-stretch space-y-10 pb-10 md:space-y-0 gap-5 w-full mx-auto">
+      <section className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 space-y-10 pb-10 md:space-y-0 gap-5 w-full mx-auto">
         {mainRoadmapsData.map((mainRoadmap) => {
           return (
             <Link
-              className="bg-brown md:w-1/3 lg:w-1/4 w-full hover:bg-white py-3 pr-2 rounded-md flex"
+              className="bg-brown w-full hover:bg-white py-3 pr-2 rounded-md flex"
               to={mainRoadmap.url}
             >
               <div className="w-2/3 flex flex-col">
@@ -41,6 +41,6 @@ export default function MainRoadmaps() {
           );
         })}
       </section>
-    </div>
+    </section>
   );
 }
