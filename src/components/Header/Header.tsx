@@ -15,7 +15,7 @@ export default function Header() {
     loginWithPopup,
   } = useAuth0();
   return (
-    <header className="w-full p-2 flex flex-wrap space-x-0 space-y-2 mx-auto bg-dark-brown">
+    <header className="w-full p-2 flex flex-wrap space-x-0 space-y-2 mx-auto bg-dark-brown px-10 xl:px-64">
       <MobileMenu />
       <div className="flex-grow">
         {" "}
