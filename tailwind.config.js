@@ -4,9 +4,10 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        handwritten: ['"Schoolbell", cursive'],
-        title: ['"Poppins", sans-serif'],
-        content: ['"Scope One", serif']
+        handwritten: '"Schoolbell", cursive',
+        title: '"Poppins", sans-serif',
+        content: '"Scope One", serif',
+        monospace: '"Roboto Mono", monospace',
       },
       animation: {
         checking: 'slit-in-vertical 0.2s ease-out both'
@@ -34,10 +35,11 @@ module.exports = {
       'light-orange': '#F6BCA8',
       'white': '#FFFFFF',
       'blue': '#59c0e4',
-      'dark-blue': '#1d6680',
+      'dark-blue': '#50accd',
       'dark-brown': '#494443',
       'light-yellow':  '#f7e3b2',
       'yellow': "#eabc54",
+      'dark-yellow': "#D2A94B",
       'light-brown': '#e9dad5',
       'brown': '#e9dad5',
       'dark-brown': '#2A2827',

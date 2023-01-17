@@ -15,10 +15,11 @@
 
 @layer base {
   * {
-    font-family: "Roboto Mono", monospace;
+    font-family: "Poppins", sans-serif;
   }
 
   body {
-    @apply bg-medium-brown !important
+    @apply bg-medium-brown !important 
+    
   }
 }

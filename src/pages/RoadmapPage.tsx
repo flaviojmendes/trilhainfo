@@ -13,7 +13,7 @@ import { dataEngineeringData } from "../roadmaps/dataEngineering";
 
 export default function RoadmapPage() {
   const { name } = useParams<string>();
-  const [roadmapName, setRoadmapName] = useState('');
+  const [roadmapName, setRoadmapName] = useState("");
 
   const roadmaps: any = {
     frontend: { file: frontendData, title: "Frontend" },
@@ -25,27 +25,35 @@ export default function RoadmapPage() {
   };
 
   useEffect(() => {
-    setRoadmapName(name || '');
+    setRoadmapName(name || "");
   }, [name]);
-  
 
   useDocumentTitle("Trilha Info - " + roadmaps[name || ""].title);
 
   return (
     <>
       <MainLayout>
-        <p className="mt-4 text-center font-semibold c-brown md:px-10">
+        {/* <p className="mt-4 text-center font-title c-brown md:px-10">
           Não sabe por onde começar a estudar? Que tal dar uma olhada por aqui?
-        </p>
-        <p className="mb-4 text-center font-semibold c-brown md:px-28">
-          Lendo de cima pra baixo, cada "caixa" é um assunto a ser estudado.
-          Clicando, você verá em mais detalhes o que estudar com links de
-          conteúdos gratuitos produzidos por pessoas que dominam a área e te
-          ajudarão nessa jornada!
-        </p>
+        </p> */}
+        <div className="m-auto w-2/3 mt-4">
+          <p className="mb-2 font-title c-brown ">
+            Lendo de cima pra baixo, cada{" "}
+            <span className="text-red">caixa</span> é um assunto a ser estudado.
+          </p>
+          <p className="font-title c-brown ">
+            <span className="text-red">Clicando</span>, você verá em mais
+            detalhes o que estudar com links de conteúdos gratuitos!
+          </p>
+        </div>
 
         {name && roadmaps[name] && (
-          <Roadmap isPreview={false} data={roadmaps[name].file} title={roadmaps[name].title} name={roadmapName} />
+          <Roadmap
+            isPreview={false}
+            data={roadmaps[name].file}
+            title={roadmaps[name].title}
+            name={roadmapName}
+          />
         )}
         {!name || (!roadmaps[name] && <E404Page />)}
       </MainLayout>
