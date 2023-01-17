@@ -11,7 +11,7 @@ export default function CallToAction() {
   }
   return (
     <>
-      <section className="flex items-stretch justify-center bg-dark-brown mb-10 py-10 mx-0 w-full xl:px-64">
+      <section className="flex items-stretch justify-center bg-dark-brown mb-10 py-10 mx-0 w-full gap-4 px-10 xl:px-64">
         <div className="flex-col md:w-full m-4 md:m-auto py-2 md:py-10">
           <div className="bg-medium-brown rounded-md px-3 txt-title text-light-brown text-sm w-fit mb-10">
             Mais de <span className="text-red txt-title">18.000 pessoas</span>{" "}
