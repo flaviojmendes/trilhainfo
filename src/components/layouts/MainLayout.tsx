@@ -1,16 +1,7 @@
-import { FaDollarSign, FaGithubSquare, FaNewspaper } from "react-icons/fa";
-import Logo from "../Logo/Logo";
 import {
-  Button,
-  chakra,
-  Icon,
   Link as ChakraLink,
-  useDisclosure,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-import { useAuth0 } from "@auth0/auth0-react";
-import { FiLogOut } from "react-icons/fi";
-import { ThreeDots } from "react-loader-spinner";
 import Header from "../Header/Header";
 
 type Props = {
