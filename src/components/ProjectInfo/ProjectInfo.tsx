@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { cheatSheets } from "../../guides/cheatSheets";
 import { GoPlus } from "react-icons/go";
 
