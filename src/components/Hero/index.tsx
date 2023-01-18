@@ -2,7 +2,7 @@ import { TypeAnimation } from "react-type-animation";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 import ReactGA from "react-ga4";
 
-export default function CallToAction() {
+export default function Hero() {
   function handleCallToAction() {
     ReactGA.event({
       category: "action",
