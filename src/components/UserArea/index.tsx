@@ -1,10 +1,9 @@
 import { useAuth0 } from "@auth0/auth0-react";
-import { DeleteIcon, EditIcon, ViewIcon } from "@chakra-ui/icons";
+import { DeleteIcon, EditIcon } from "@chakra-ui/icons";
 import { Button, Icon, IconButton, useToast } from "@chakra-ui/react";
 import axios, { AxiosError } from "axios";
-import { MouseEvent, useEffect, useState } from "react";
-import { FaShare } from "react-icons/fa";
-import { FiShare, FiShare2 } from "react-icons/fi";
+import { useEffect, useState } from "react";
+import { FiShare2 } from "react-icons/fi";
 import { Grid } from "react-loader-spinner";
 import { Link, useNavigate } from "react-router-dom";
 import Cookies from "universal-cookie";
@@ -90,73 +89,71 @@ export default function UserArea() {
     });
   }
 
-  return (
-    <>
-      {isAuthenticated && (
-        <section className="flex flex-col items-stretch justify-center bg-[#403C3B] mt-10 py-10 mx-0 w-full shadow-inner px-10 xl:px-64">
-          <h2 className="text-center my-6 font-title text-3xl c-yellow">
-            Meus Roadmaps
-          </h2>
-          <div className="flex flex-wrap items-stretch py-8 px-4 space-y-10 md:space-y-0 justify-center gap-5">
-            {roadmaps?.map((roadmap, roadmapIndex) => {
-              return (
-                <div
-                  key={roadmap.id}
-                  className="flex flex-col md:w-1/3 lg:w-1/4 w-full min-h-fit space-y-2"
-                >
-                  <Link
-                    className="bg-brown  hover:bg-white py-3 rounded-md"
-                    to={`/roadmap/view/${roadmap.id}`}
-                  >
-                    <h3 className="text-center text-3xl font-title mb-2 c-dark-brown">
-                      {roadmap.title}
-                    </h3>
-                    <p className="text-justify mx-5">{roadmap.description}</p>
-                  </Link>
-                  <div className="flex space-x-2">
-                    <IconButton
-                      aria-label="Editar Roadmap"
-                      icon={<EditIcon />}
-                      onClick={() => navigate(`/edit-roadmap/${roadmap.id}`)}
-                    />
-                    <IconButton
-                      aria-label="Deletar Roadmap"
-                      onClick={() => handleDeleteRoadmap(roadmap.id || "")}
-                      icon={<DeleteIcon />}
-                    />
-                    <IconButton
-                      aria-label="Compartilhar Roadmap"
-                      onClick={() => handleCopyToClipboard(roadmap.id!)}
-                      icon={<Icon as={FiShare2} />}
-                    />
-                  </div>
-                </div>
-              );
-            })}
-            <Grid
-              height="80"
-              width="80"
-              color="#d56a47"
-              ariaLabel="grid-loading"
-              radius="12.5"
-              wrapperStyle={{}}
-              wrapperClass="opacity-100 "
-              visible={isLoadingRoadmaps}
-            />
-          </div>
+  if(!isAuthenticated) return null
 
-          <div className="flex">
-            <Button
-              m={"auto"}
-              colorScheme="yellow"
-              variant="solid"
-              onClick={handleCreateNew}
+  return (
+    <section className="flex flex-col items-stretch justify-center bg-[#403C3B] mt-10 py-10 mx-0 w-full shadow-inner px-10 xl:px-64">
+      <h2 className="text-center my-6 font-title text-3xl c-yellow">
+        Meus Roadmaps
+      </h2>
+      <div className="flex flex-wrap items-stretch py-8 px-4 space-y-10 md:space-y-0 justify-center gap-5">
+        {roadmaps?.map((roadmap, roadmapIndex) => {
+          return (
+            <div
+              key={roadmap.id}
+              className="flex flex-col md:w-1/3 lg:w-1/4 w-full min-h-fit space-y-2"
             >
-              + Novo Roadmap
-            </Button>
-          </div>
-        </section>
-      )}
-    </>
+              <Link
+                className="bg-brown  hover:bg-white py-3 rounded-md"
+                to={`/roadmap/view/${roadmap.id}`}
+              >
+                <h3 className="text-center text-3xl font-title mb-2 c-dark-brown">
+                  {roadmap.title}
+                </h3>
+                <p className="text-justify mx-5">{roadmap.description}</p>
+              </Link>
+              <div className="flex space-x-2">
+                <IconButton
+                  aria-label="Editar Roadmap"
+                  icon={<EditIcon />}
+                  onClick={() => navigate(`/edit-roadmap/${roadmap.id}`)}
+                />
+                <IconButton
+                  aria-label="Deletar Roadmap"
+                  onClick={() => handleDeleteRoadmap(roadmap.id || "")}
+                  icon={<DeleteIcon />}
+                />
+                <IconButton
+                  aria-label="Compartilhar Roadmap"
+                  onClick={() => handleCopyToClipboard(roadmap.id!)}
+                  icon={<Icon as={FiShare2} />}
+                />
+              </div>
+            </div>
+          );
+        })}
+        <Grid
+          height="80"
+          width="80"
+          color="#d56a47"
+          ariaLabel="grid-loading"
+          radius="12.5"
+          wrapperStyle={{}}
+          wrapperClass="opacity-100 "
+          visible={isLoadingRoadmaps}
+        />
+      </div>
+
+      <div className="flex">
+        <Button
+          m={"auto"}
+          colorScheme="yellow"
+          variant="solid"
+          onClick={handleCreateNew}
+        >
+          + Novo Roadmap
+        </Button>
+      </div>
+    </section>
   );
 }

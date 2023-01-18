@@ -8,14 +8,14 @@ import {
 } from "@chakra-ui/react";
 import axios from "axios";
 
-import { ChangeEvent, SetStateAction, useEffect, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import MainLayout from "../components/layouts/MainLayout";
 import { RoadmapModel } from "../entity/RoadmapModel";
 import Cookies from "universal-cookie";
 import { useNavigate, useParams } from "react-router-dom";
 import { Grid } from "react-loader-spinner";
-import NewRoadmapPreview from "../components/NewRoadmap/NewRoadmapPreview/NewRoadmapPreview";
-import NewRoadmapEditor from "../components/NewRoadmap/NewRoadmapEditor/NewRoadmapEditor";
+import NewRoadmapPreview from "../components/NewRoadmap/NewRoadmapPreview";
+import NewRoadmapEditor from "../components/NewRoadmap/NewRoadmapEditor";
 
 const cookies = new Cookies();
 

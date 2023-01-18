@@ -2,7 +2,7 @@ import {
   Link as ChakraLink,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-import Header from "../Header/Header";
+import Header from "../Header";
 
 type Props = {
   children?: React.ReactNode;

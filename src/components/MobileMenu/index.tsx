@@ -11,7 +11,6 @@ import {
   Input,
   useDisclosure,
 } from "@chakra-ui/react";
-import React from "react";
 import { FaDiscord, FaGithubSquare, FaNewspaper } from "react-icons/fa";
 import { ThreeDots } from "react-loader-spinner";
 

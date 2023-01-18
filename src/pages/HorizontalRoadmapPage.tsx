@@ -4,14 +4,14 @@ import MainLayout from "../components/layouts/MainLayout";
 import useDocumentTitle from "../components/useDocumentTitle";
 import { roadmaps } from "../roadmaps/roadmaps";
 import { Level } from "../entity/RoadmapModel";
-import HorizontalLevelItem from "../components/HorizontalRoadmap/HorizontalLevelItem/HorizontalLevelItem";
-import HorizontalRoadmapFooter from "../components/HorizontalRoadmap/HorizontalRoadmapFooter/HorizontalRoadmapFooter";
-import Note from "../components/Note/Note";
-import { HorizontalLevelItemContent } from "../components/HorizontalRoadmap/HorizontalLevelItemContent/HorizontalLevelItemContent";
+import HorizontalLevelItem from "../components/HorizontalRoadmap/HorizontalLevelItem";
+import HorizontalRoadmapFooter from "../components/HorizontalRoadmap/HorizontalRoadmapFooter";
+import Note from "../components/Note";
+import { HorizontalLevelItemContent } from "../components/HorizontalRoadmap/HorizontalLevelItemContent";
 import {
   LevelProvider,
   useSelectedItem,
-} from "../components/HorizontalRoadmap/LevelProvider/LevelProvider";
+} from "../components/HorizontalRoadmap/LevelProvider";
 import RoadmapButtons from "../components/RoadmapButtons";
 import { useAuth0 } from "@auth0/auth0-react";
 

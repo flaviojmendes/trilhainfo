@@ -1,5 +1,5 @@
 import { useAuth0 } from "@auth0/auth0-react";
-import { CircularProgress, Container } from "@chakra-ui/react";
+import { Container } from "@chakra-ui/react";
 import axios from "axios";
 import { useEffect } from "react";
 import { Grid } from "react-loader-spinner";

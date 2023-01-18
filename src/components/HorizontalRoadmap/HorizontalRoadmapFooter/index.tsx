@@ -1,8 +1,8 @@
-import React, { useRef, useState } from "react";
-import { AnimatePresence, motion, MotionConfig } from "framer-motion";
+import { useRef, useState } from "react";
+import {  motion } from "framer-motion";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { Level } from "../../../entity/RoadmapModel";
-import { useSelectedItem } from "../LevelProvider/LevelProvider";
+import { useSelectedItem } from "../LevelProvider";
 
 type Props = {
   roadmapData: Level[];
