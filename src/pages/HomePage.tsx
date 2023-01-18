@@ -1,15 +1,14 @@
-import { NavLink } from "react-router-dom";
-import MainLayout from "../components/layouts/MainLayout";
-import UserArea from "../components/UserArea/UserArea";
-import MainRoadmaps from "../components/MainRoadmaps/MainRoadmaps";
-import CallToAction from "../components/CallToAction/CallToAction";
-import ProjectInfo from "../components/ProjectInfo/ProjectInfo";
+import MainLayout from '../components/layouts/MainLayout';
+import UserArea from '../components/UserArea';
+import MainRoadmaps from '../components/MainRoadmaps';
+import Hero from '../components/Hero';
+import ProjectInfo from '../components/ProjectInfo';
 
 export default function HomePage() {
   return (
     <>
       <MainLayout>
-        <CallToAction />
+        <Hero />
         <MainRoadmaps />
         <UserArea />
         <ProjectInfo />
