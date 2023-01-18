@@ -7,6 +7,7 @@ export interface RoadmapFileModel {
   devops: RoadmapObjectModel;
   dataEngineer: RoadmapObjectModel;
   community: RoadmapObjectModel;
+  test: RoadmapObjectModel;
 }
 
 export interface RoadmapObjectModel {

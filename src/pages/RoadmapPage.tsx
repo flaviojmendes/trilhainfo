@@ -6,6 +6,7 @@ import { data as reactData } from "../roadmaps/react";
 import { data as backendData } from "../roadmaps/backend";
 import { data as devopsData } from "../roadmaps/devops";
 import { data as communityData } from "../roadmaps/community";
+import { data as testData } from "../roadmaps/test";
 import E404Page from "./E404Page";
 import useDocumentTitle from "../components/useDocumentTitle";
 import { useEffect, useRef, useState } from "react";
@@ -22,6 +23,7 @@ export default function RoadmapPage() {
     devops: { file: devopsData, title: "Devops" },
     dataEngineer: { file: dataEngineeringData, title: "Data Engineer" },
     community: { file: communityData, title: "Comunidade" },
+    test: { file: testData, title: "Test/QA" },
   };
 
   useEffect(() => {
