@@ -20,10 +20,8 @@ export default function GuidePage() {
   useDocumentTitle("Trilha Info - " + guide);
 
   return (
-    <>
-      <MainLayout>
-       <img className="m-auto h-screen" src={getImageUrl(guide || '')}/>
-      </MainLayout>
-    </>
+    <MainLayout>
+      <img className="m-auto h-screen" src={getImageUrl(guide || '')}/>
+    </MainLayout>
   );
 }

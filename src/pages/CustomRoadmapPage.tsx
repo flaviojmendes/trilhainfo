@@ -37,29 +37,27 @@ export default function CustomRoadmapPage() {
   useDocumentTitle(roadmap ? "Trilha Info - " + roadmap?.title : "Trilha Info");
 
   return (
-    <>
-      <MainLayout>
-        <p className="mb-4 mt-8 text-center font-semibold c-brown md:px-28">
-         {roadmap?.description}
-        </p>
-        {isLoadingRoadmap && (<div className="w-full justify-center flex mt-32">
-          <Grid
-            height="80"
-            width="80"
-            color="#d56a47"
-            ariaLabel="grid-loading"
-            radius="12.5"
-            wrapperStyle={{}}
-            wrapperClass="opacity-100 "
-            visible={isLoadingRoadmap}
-          />
-          </div>
-        )}
-        {roadmap && (
-          <Roadmap isPreview={false} data={roadmap.getLevels()} title={roadmap.title || ""} name={roadmap.id!} />
-        )}
-        {roadmap && <E404Page />}
-      </MainLayout>
-    </>
+    <MainLayout>
+      <p className="mb-4 mt-8 text-center font-semibold c-brown md:px-28">
+        {roadmap?.description}
+      </p>
+      {isLoadingRoadmap && (<div className="w-full justify-center flex mt-32">
+        <Grid
+          height="80"
+          width="80"
+          color="#d56a47"
+          ariaLabel="grid-loading"
+          radius="12.5"
+          wrapperStyle={{}}
+          wrapperClass="opacity-100 "
+          visible={isLoadingRoadmap}
+        />
+        </div>
+      )}
+      {roadmap && (
+        <Roadmap isPreview={false} data={roadmap.getLevels()} title={roadmap.title || ""} name={roadmap.id!} />
+      )}
+      {roadmap && <E404Page />}
+    </MainLayout>
   );
 }
