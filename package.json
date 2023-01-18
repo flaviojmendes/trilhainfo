@@ -6,7 +6,10 @@
     "dev": "vite --host",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "lint": "eslint src --max-warnings=0 --fix",
+    "format": "prettier --write",
+    "format:all": "prettier --write ."
   },
   "dependencies": {
     "@auth0/auth0-react": "^1.10.2",
