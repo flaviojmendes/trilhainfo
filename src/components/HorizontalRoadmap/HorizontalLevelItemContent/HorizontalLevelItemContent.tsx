@@ -1,4 +1,4 @@
-import { Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Badge, Box, Checkbox, Flex, Spacer } from "@chakra-ui/react";
+import { Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Badge, Checkbox } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { RoadmapItem } from "../../../entity/RoadmapModel";
 import { getColorFromContentType } from "../../../support/contentType";
@@ -52,7 +52,7 @@ function HorizontalLevelItemSection({ section }: { section: RoadmapItem }) {
     <AccordionItem>
       <h2 className="font-semibold">
         <AccordionButton color="#e9dad5">
-          <Box flex="1" textAlign="left">
+         <div className='flex'>
             <Checkbox
               className="my-auto mr-2"
               size="lg"
@@ -60,14 +60,14 @@ function HorizontalLevelItemSection({ section }: { section: RoadmapItem }) {
               onChange={(e) => saveRead(e.target.checked)}
             />
             <span className="text-light-brown font-title">{section.label}</span>
-          </Box>
+          </div>
           <AccordionIcon />
         </AccordionButton>
       </h2>
       <AccordionPanel pb={4}>
         {section.links?.length
           ? section.links?.map((link) => (
-              <Flex className="my-2">
+              <div className="flex my-2 justify-between">
                 <a
                   href={link.url}
                   target="_blank"
@@ -75,7 +75,6 @@ function HorizontalLevelItemSection({ section }: { section: RoadmapItem }) {
                 >
                   {link.label}
                 </a>
-                <Spacer />
                 <Badge
                   colorScheme={getColorFromContentType(link.contentType)}
                   p={1}
@@ -87,7 +86,7 @@ function HorizontalLevelItemSection({ section }: { section: RoadmapItem }) {
                 >
                   <span>{link.contentType ? link.contentType : null}</span>
                 </Badge>
-              </Flex>
+              </div>
             ))
           : "Ainda não possuimos conteúdo."}
       </AccordionPanel>

@@ -5,8 +5,6 @@ import {
   AccordionItem,
   AccordionPanel,
   Badge,
-  Box,
-  Button,
   Checkbox,
   CheckboxGroup,
   Drawer,
@@ -16,8 +14,6 @@ import {
   DrawerFooter,
   DrawerHeader,
   DrawerOverlay,
-  Flex,
-  Spacer,
   useDisclosure,
 } from "@chakra-ui/react";
 
@@ -247,8 +243,8 @@ export default function Roadmap(props: Props) {
                   return (
                     <AccordionItem key={child.label}>
                       <h2 className="font-semibold">
-                        <AccordionButton color={"#e9dad5"}>
-                          <Box flex="1" textAlign="left">
+                        <AccordionButton color={"#e9dad5"} className="flex justify-between">
+                          <div className="text-left">
                             <CheckboxGroup>
                               <Checkbox
                                 className="my-auto mr-2"
@@ -262,7 +258,7 @@ export default function Roadmap(props: Props) {
                             <span className="text-light-brown font-title">
                               {child.label}
                             </span>
-                          </Box>
+                          </div>
                           <AccordionIcon />
                         </AccordionButton>
                       </h2>
@@ -270,35 +266,32 @@ export default function Roadmap(props: Props) {
                         {child.links?.length
                           ? child.links?.map((link ) => {
                               return (
-                                <>
-                                  <Flex className="my-2">
-                                    <a
-                                      href={link.url}
-                                      target="_blank"
-                                      className="text-light-brown hover:underline"
-                                    >
-                                      {link.label}
-                                    </a>
-                                    <Spacer />
-                                    <Badge
-                                      colorScheme={getColorFromContentType(
-                                        link.contentType
-                                      )}
-                                      p={1}
-                                      rounded={"md"}
-                                      className="h-5"
-                                      fontSize="0.6em"
-                                      mr="1"
-                                      cursor={"default"}
-                                    >
-                                      <span>
-                                        {link.contentType
-                                          ? link.contentType
-                                          : null}
-                                      </span>
-                                    </Badge>
-                                  </Flex>
-                                </>
+                                <div className="flex justify-between">
+                                  <a
+                                    href={link.url}
+                                    target="_blank"
+                                    className="text-light-brown hover:underline"
+                                  >
+                                    {link.label}
+                                  </a>
+                                  <Badge
+                                    colorScheme={getColorFromContentType(
+                                      link.contentType
+                                    )}
+                                    p={1}
+                                    rounded={"md"}
+                                    className="h-5"
+                                    fontSize="0.6em"
+                                    mr="1"
+                                    cursor={"default"}
+                                  >
+                                    <span>
+                                      {link.contentType
+                                        ? link.contentType
+                                        : null}
+                                    </span>
+                                  </Badge>
+                                </div>
                               );
                             })
                           : "Ainda não possuimos conteúdo."}
@@ -307,7 +300,7 @@ export default function Roadmap(props: Props) {
                   );
                 })}
               </Accordion>
-              {!props.isPreview && <Note id={activeItem?.label || ""} title={activeItem?.label || ""} />}
+              {!props.isPreview && <Note id={activeItem?.label || "asdasd"} title={activeItem?.label || ""} />}
             </DrawerBody>
 
             <DrawerFooter>
@@ -322,9 +315,12 @@ export default function Roadmap(props: Props) {
                 >
                   Compartilhar no Twitter
                 </a>
-                <Button colorScheme="yellow" mr={3} onClick={handleCloseDrawer}>
+                <button
+                 className="text-[black] bg-yellow hover:bg-dark-yellow mr-3 px-4 rounded-md font-bold disabled:hover:bg-yellow disabled:cursor-not-allowed transition-colors"
+                 onClick={handleCloseDrawer}
+                >
                   Fechar
-                </Button>
+                </button>
               </div>
             </DrawerFooter>
           </DrawerContent>

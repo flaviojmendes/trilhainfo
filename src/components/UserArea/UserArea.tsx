@@ -1,10 +1,9 @@
 import { useAuth0 } from "@auth0/auth0-react";
-import { DeleteIcon, EditIcon, ViewIcon } from "@chakra-ui/icons";
-import { Button, Icon, IconButton, useToast } from "@chakra-ui/react";
+import { DeleteIcon, EditIcon } from "@chakra-ui/icons";
+import { Icon, IconButton, useToast } from "@chakra-ui/react";
 import axios, { AxiosError } from "axios";
-import { MouseEvent, useEffect, useState } from "react";
-import { FaShare } from "react-icons/fa";
-import { FiShare, FiShare2 } from "react-icons/fi";
+import { useEffect, useState } from "react";
+import {  FiShare2 } from "react-icons/fi";
 import { Grid } from "react-loader-spinner";
 import { Link, useNavigate } from "react-router-dom";
 import Cookies from "universal-cookie";
@@ -145,15 +144,13 @@ export default function UserArea() {
             />
           </div>
 
-          <div className="flex">
-            <Button
-              m={"auto"}
-              colorScheme="yellow"
-              variant="solid"
+          <div className="flex w-full justify-center items-center">
+            <button
+              className="text-[black] bg-yellow hover:bg-dark-yellow px-4 rounded-md font-bold disabled:hover:bg-yellow disabled:cursor-not-allowed transition-colors min-h-[40px]"
               onClick={handleCreateNew}
             >
               + Novo Roadmap
-            </Button>
+            </button>
           </div>
         </section>
       )}

@@ -1,14 +1,7 @@
 import { useAuth0 } from "@auth0/auth0-react";
-import {
-  Button,
-  Input,
-  InputGroup,
-  InputLeftAddon,
-  Textarea,
-} from "@chakra-ui/react";
 import axios from "axios";
 
-import { ChangeEvent, SetStateAction, useEffect, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import MainLayout from "../components/layouts/MainLayout";
 import { RoadmapModel } from "../entity/RoadmapModel";
 import Cookies from "universal-cookie";
@@ -24,7 +17,7 @@ export default function NewRoadmapPage() {
   const [roadmap, setRoadmap] = useState<RoadmapModel>(new RoadmapModel());
   const [loading, setLoading] = useState(true);
   const [invalidSlug, setInvalidSlug] = useState(false);
-  const { user, isAuthenticated, getAccessTokenSilently } = useAuth0();
+  const { user } = useAuth0();
   const { roadmapId } = useParams();
   const navigate = useNavigate();
 
@@ -107,53 +100,53 @@ export default function NewRoadmapPage() {
     <>
       <MainLayout>
         <div className="flex flex-col space-y-4">
-          <div className="w-full md:w-1/2 m-auto mt-2 flex-col">
-            <InputGroup>
-              <InputLeftAddon
-                children="trilha.info/roadmap/v/"
-                className="bg-light-yellow"
-              />
-              <Input
-                className="c-yellow font-title"
-                fontSize={"md"}
-                value={roadmap.slug}
-                onChange={handleSlugChange}
-                placeholder="Uma URL customizada para seu Rodmap"
-                size="md"
-              />
-            </InputGroup>
+          <div className="m-auto mt-2 w-full flex-col md:w-1/2">
+          <div className="flex">
+          <span className="inline-flex items-center px-4 text-gray-900 bg-[#EDF2F7] border border-r-0 border-gray-300 rounded-l-md">
+            trilha.info/roadmap/v/
+          </span>
+          <input 
+            type="text"
+            id="website-admin"
+            className="rounded-none rounded-r-lg bg-[transparent] text-yellow outline-none border-2 border-[#EDF2F7] focus:border-yellow block flex-1 min-w-0 w-full p-2.5 transition-colors" 
+            placeholder="Uma URL customizada para seu Roadmap"
+            value={roadmap.slug}
+            onChange={handleSlugChange}  
+          />
+          </div>
             {invalidSlug && (
-              <p className="text-center mt-1 font-title text-red">
+              <p className="mt-1 text-center font-title text-red">
                 Desculpe, mas essa URL já foi escolhida por outra pessoa.. 😔
               </p>
             )}
           </div>
-          <div className="w-full md:w-1/2 m-auto">
-            <span className="c-yellow">Título:</span>
-            <Input
-              className="c-yellow font-semibold font-title"
-              fontSize={"xl"}
-              value={roadmap.title}
-              onChange={handleTitleChange}
+          <div className="m-auto w-full md:w-1/2">
+            <span className="text-yellow">Título:</span>
+            <input 
+              type="text"
+              id="website-admin"
+              className="rounded-lg border-0 bg-[transparent] text-yellow outline-none ring-1 ring-[#EDF2F7] focus:ring-yellow focus:ring-2 block flex-1 min-w-0 w-full p-2.5 transition-all" 
               placeholder="Dê um título para o seu Roadmap"
-              size="md"
+              value={roadmap.title}
+              onChange={handleTitleChange}  
             />
           </div>
-          <div className="w-full md:w-1/2 m-auto">
-            <span className="c-yellow">Descrição:</span>
-            <Textarea
-              className="c-red"
+          <div className="m-auto w-full md:w-1/2">
+            <span className="text-yellow">Descrição:</span>
+
+            <textarea 
+              id="website-admin"
+              className="rounded-lg border-0 bg-[transparent] text-yellow outline-none ring-1 ring-[#EDF2F7] focus:ring-yellow focus:ring-2 block flex-1 min-w-0 w-full p-2.5 min-h-[80px] transition-all" 
+              placeholder="Dê um título para o seu Roadmap"
               value={roadmap.description}
-              onChange={handleDescriptionChange}
-              placeholder="Escreva uma breve descrição para o seu Roadmap"
-              size="sm"
+              onChange={handleDescriptionChange} 
             />
           </div>
         </div>
         <div className="flex">
           {/* Levels */}
 
-          <div className="w-full md:w-1/2 flex flex-col space-y-2 justify-center mt-8">
+          <div className="mt-8 flex w-full flex-col justify-center space-y-2 md:w-1/2">
             <NewRoadmapEditor
               roadmap={roadmap}
               setShouldBlock={setShouldBlock}
@@ -163,31 +156,28 @@ export default function NewRoadmapPage() {
           </div>
           {/* Levels End */}
           {/* Preview */}
-          <div className="w-0 hidden md:block md:w-1/2 p-8">
+          <div className="hidden w-0 p-8 md:block md:w-1/2">
             <NewRoadmapPreview roadmap={roadmap} />
           </div>
           {/* Preview End */}
         </div>
         <div className="flex flex-col space-y-4">
-          <div className="w-fit self-end m-auto mt-8">
-            <Button
-              my="4"
-              mx={"auto"}
-              colorScheme="yellow"
-              variant="solid"
+          <div className="m-auto mt-8 w-fit self-end">
+            <button
               onClick={handleSaveRoadmap}
+              className="my-4 mx-auto px-4 py-1 text-lg font-bold text-[black] bg-yellow hover:bg-dark-yellow rounded-md transition-colors"
             >
               Salvar
-            </Button>
+            </button>
           </div>
         </div>
       </MainLayout>
       {loading && (
         <div
-          className="m-0 w-full h-full fixed inset-x-0 top-0 bg-dark-brown bg-opacity-70 "
+          className="fixed inset-x-0 top-0 m-0 h-full w-full bg-dark-brown bg-opacity-70 "
           id="signin-success-message"
         >
-          <div className="px-6 py-4 my-4 rounded-md text-lg flex items-center justify-center w-full mt-60">
+          <div className="my-4 mt-60 flex w-full items-center justify-center rounded-md px-6 py-4 text-lg">
             <Grid
               height="80"
               width="80"

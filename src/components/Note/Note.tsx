@@ -1,5 +1,4 @@
 import { useAuth0 } from "@auth0/auth0-react";
-import { Button, Textarea } from "@chakra-ui/react";
 import Cookies from "universal-cookie";
 
 import { ChangeEvent, useEffect, useState } from "react";
@@ -156,25 +155,17 @@ export default function Note(props: Props) {
           )})}
 
           <div>
-            <Textarea
+            <textarea
               value={noteText}
               onChange={handleCommentTextChange}
               placeholder="Salve aqui suas anotações para não esquecer!"
-              size="sm"
-              borderColor={"#eabc54"}
-              borderWidth={"2px"}
-              rounded={"md"}
-              _focus={{ borderColor: "#ee8561" }}
-              className="text-dark-brown"
+              className="text-dark-brown p-2 text-sm w-full bg-[transparent] border-2 border-yellow focus:border-red rounded-md outline-none transition-colors min-h-[80px] leading-snug"
             />
-            <Button
-              mx={"auto"}
-              mt={2}
-              fontWeight={"normal"}
+
+            <button
               onClick={saveCommentText}
               disabled={isSavingNote}
-              className="font-title"
-              backgroundColor={"#e9dad5"}
+              className="font-title mx-auto mt-2 bg-brown hover:bg-[#E2E8F0] disabled:bg-opacity-40 disabled:cursor-not-allowed disabled:hover:bg-brown disabled:hover:bg-opacity-40 transition-colors justify-center items-center inline-flex h-10 px-4 rounded-md leading-tight"
             >
               {isSavingNote ? (
                 <ThreeDots
@@ -189,7 +180,7 @@ export default function Note(props: Props) {
               ) : (
                 <>Salvar Anotação </>
               )}
-            </Button>
+            </button>
           </div>
         </>
       )}

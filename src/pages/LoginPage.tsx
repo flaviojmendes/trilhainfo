@@ -1,5 +1,4 @@
 import { useAuth0 } from "@auth0/auth0-react";
-import { CircularProgress, Container } from "@chakra-ui/react";
 import axios from "axios";
 import { useEffect } from "react";
 import { Grid } from "react-loader-spinner";
@@ -46,19 +45,17 @@ export default function LoginPage() {
   }, [getAccessTokenSilently, isAuthenticated, user?.email, user?.nickname]);
 
   return (
-    <>
-      <Container centerContent>
+    <div className="flex justify-center items-center">
       <Grid
-              height="80"
-              width="80"
-              color="#d56a47"
-              ariaLabel="grid-loading"
-              radius="12.5"
-              wrapperStyle={{}}
-              wrapperClass="opacity-100 mt-60"
-              visible={true}
-            />
-      </Container>
-    </>
+        height="80"
+        width="80"
+        color="#d56a47"
+        ariaLabel="grid-loading"
+        radius="12.5"
+        wrapperStyle={{}}
+        wrapperClass="opacity-100 mt-60"
+        visible={true}
+      />
+    </div>
   );
 }
