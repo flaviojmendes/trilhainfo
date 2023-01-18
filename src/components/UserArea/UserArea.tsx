@@ -1,6 +1,6 @@
 import { useAuth0 } from "@auth0/auth0-react";
 import { DeleteIcon, EditIcon } from "@chakra-ui/icons";
-import { Icon, IconButton, useToast } from "@chakra-ui/react";
+import { useToast } from "@chakra-ui/react";
 import axios, { AxiosError } from "axios";
 import { useEffect, useState } from "react";
 import {  FiShare2 } from "react-icons/fi";
@@ -8,6 +8,7 @@ import { Grid } from "react-loader-spinner";
 import { Link, useNavigate } from "react-router-dom";
 import Cookies from "universal-cookie";
 import { RoadmapModel } from "../../entity/RoadmapModel";
+import IconButton from '../../components/IconButton'
 
 const cookies = new Cookies();
 
@@ -97,7 +98,7 @@ export default function UserArea() {
             Meus Roadmaps
           </h2>
           <div className="flex flex-wrap items-stretch py-8 px-4 space-y-10 md:space-y-0 justify-center gap-5">
-            {roadmaps?.map((roadmap, roadmapIndex) => {
+            {roadmaps?.map((roadmap) => {
               return (
                 <div
                   key={roadmap.id}
@@ -126,7 +127,7 @@ export default function UserArea() {
                     <IconButton
                       aria-label="Compartilhar Roadmap"
                       onClick={() => handleCopyToClipboard(roadmap.id!)}
-                      icon={<Icon as={FiShare2} />}
+                      icon={<FiShare2 />}
                     />
                   </div>
                 </div>
