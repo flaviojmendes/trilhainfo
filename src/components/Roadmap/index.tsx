@@ -11,16 +11,13 @@ import {
 import React, { useEffect, useRef, useState } from 'react';
 import { useLocalStorage } from 'react-use';
 import { Level, RoadmapItem } from '../../entity/RoadmapModel';
-import LevelItem from '../LevelItem/LevelItem';
+import LevelItem from '../LevelItem';
 import { useLocation } from 'react-router-dom';
 import { emojisplosion } from 'emojisplosion';
-import Note from '../Note/Note';
+import Note from '../Note';
 import RoadmapButtons from '../RoadmapButtons';
 import { useAuth0 } from '@auth0/auth0-react';
-import {
-  AccordionContainer,
-  RoadmapAccordion,
-} from '../Accordion';
+import { AccordionContainer, RoadmapAccordion } from '../Accordion';
 
 type Props = {
   data: Level[];
@@ -39,7 +36,7 @@ export default function Roadmap(props: Props) {
   const [mousePos, setMousePos] = useState<{ x: number; y: number }>();
   const [selectedItems, setSelectedItems] = useLocalStorage(
     'selectedItems',
-    {} as { [key: string]: boolean }
+    {} as { [key: string]: boolean },
   );
 
   useEffect(() => {
@@ -60,9 +57,7 @@ export default function Roadmap(props: Props) {
 
   useEffect(() => {
     if (localStorage.getItem('selectedItems')) {
-      setSelectedItems(
-        JSON.parse(localStorage.getItem('selectedItems') || '') || {}
-      );
+      setSelectedItems(JSON.parse(localStorage.getItem('selectedItems') || '') || {});
     }
   }, []);
 
@@ -116,7 +111,7 @@ export default function Roadmap(props: Props) {
   function isAllContentRead(label: string, contentLength: number) {
     if (selectedItems) {
       const contentRead = Object.keys(selectedItems).filter(
-        (key) => key.endsWith('-' + label) && selectedItems[key] === true
+        (key) => key.endsWith('-' + label) && selectedItems[key] === true,
       );
       return contentRead.length === contentLength;
     }
@@ -169,7 +164,7 @@ export default function Roadmap(props: Props) {
       </div>
       <section ref={roadmapRef} className="pb-8">
         <h2
-          className={`text-center font-bold text-3xl c-yellow my-6 font-title c-dark-brown ${
+          className={`c-yellow c-dark-brown my-6 text-center font-title text-3xl font-bold ${
             props.isPreview ? 'hidden' : ''
           }`}
         >
@@ -192,12 +187,7 @@ export default function Roadmap(props: Props) {
           })}
         </div>
 
-        <Drawer
-          isOpen={isOpen}
-          size={'lg'}
-          placement="right"
-          onClose={handleCloseDrawer}
-        >
+        <Drawer isOpen={isOpen} size={'lg'} placement="right" onClose={handleCloseDrawer}>
           <DrawerOverlay />
           <DrawerContent bgColor={'#444140'}>
             <DrawerCloseButton
@@ -206,15 +196,11 @@ export default function Roadmap(props: Props) {
               _hover={{ backgroundColor: '#e9dad5' }}
             />
             <DrawerHeader>
-              <span className="text-light-brown font-title">
-                {activeItem?.label}
-              </span>
+              <span className="font-title text-light-brown">{activeItem?.label}</span>
             </DrawerHeader>
 
             <DrawerBody>
-              <p className="mb-4 text-light-brown font-title">
-                {activeItem?.description}
-              </p>
+              <p className="mb-4 font-title text-light-brown">{activeItem?.description}</p>
               <AccordionContainer className="w-full" collapsible type="single">
                 {activeItem?.children?.map((child) => {
                   return (
@@ -228,17 +214,14 @@ export default function Roadmap(props: Props) {
                 })}
               </AccordionContainer>
               {!props.isPreview && (
-                <Note
-                  id={activeItem?.label || 'asdasd'}
-                  title={activeItem?.label || ''}
-                />
+                <Note id={activeItem?.label || 'asdasd'} title={activeItem?.label || ''} />
               )}
             </DrawerBody>
 
             <DrawerFooter>
               <div className="flex space-x-4">
                 <a
-                  className="twitter-share-button bg-blue hover:bg-dark-blue transition-colors rounded-md text-center font-semibold px-2 py-2 align-middle"
+                  className="twitter-share-button rounded-md bg-blue px-2 py-2 text-center align-middle font-semibold transition-colors hover:bg-dark-blue"
                   href={`https://twitter.com/intent/tweet?text=Vem estudar ${
                     activeItem?.label
                   } comigo na Trilha Info.&url=https://trilha.info/roadmap/${
@@ -248,7 +231,7 @@ export default function Roadmap(props: Props) {
                   Compartilhar no Twitter
                 </a>
                 <button
-                  className="text-[black] bg-yellow hover:bg-dark-yellow mr-3 px-4 rounded-md font-bold disabled:hover:bg-yellow disabled:cursor-not-allowed transition-colors"
+                  className="mr-3 rounded-md bg-yellow px-4 font-bold text-[black] transition-colors hover:bg-dark-yellow disabled:cursor-not-allowed disabled:hover:bg-yellow"
                   onClick={handleCloseDrawer}
                 >
                   Fechar

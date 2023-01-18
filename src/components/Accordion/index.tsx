@@ -4,7 +4,7 @@ import { BsChevronDown } from 'react-icons/bs';
 import { RoadmapItem } from '../../entity/RoadmapModel';
 import { getColorFromContentType } from '../../support/contentType';
 import { Checkbox } from '../Checkbox';
-import { useSectionRoadmapActions } from '../HorizontalRoadmap/LevelProvider/LevelProvider';
+import { useSectionRoadmapActions } from '../HorizontalRoadmap/LevelProvider';
 export const AccordionContainer = RadixAccordion.Root;
 
 type AccordionProps =
@@ -49,20 +49,17 @@ export function RoadmapAccordion(props: AccordionProps) {
       <AccordionContent className={s.Content}>
         {props.section.links?.length
           ? props.section.links?.map((link) => (
-              <div className="flex my-2 justify-between items-start">
+              <div className="my-2 flex items-start justify-between">
                 <a
                   href={link.url}
                   target="_blank"
                   className="text-light-brown hover:underline"
+                  rel="noreferrer"
                 >
                   {link.label}
                 </a>
 
-                <span
-                  className={`badge  ${getColorFromContentType(
-                    link.contentType
-                  )}`}
-                >
+                <span className={`badge  ${getColorFromContentType(link.contentType)}`}>
                   {link.contentType ? link.contentType : null}
                 </span>
               </div>
@@ -96,11 +93,7 @@ export function AccordionHeader({
   children: React.ReactNode;
   className?: string;
 }) {
-  return (
-    <RadixAccordion.Header className={className}>
-      {children}
-    </RadixAccordion.Header>
-  );
+  return <RadixAccordion.Header className={className}>{children}</RadixAccordion.Header>;
 }
 
 export function AccordionTrigger({
@@ -115,10 +108,7 @@ export function AccordionTrigger({
   return (
     <RadixAccordion.Trigger className={className}>
       {children}
-      <BsChevronDown
-        aria-hidden
-        className={`${s.Icon} ${arrowDownClassName}`}
-      />
+      <BsChevronDown aria-hidden className={`${s.Icon} ${arrowDownClassName}`} />
     </RadixAccordion.Trigger>
   );
 }
@@ -130,9 +120,5 @@ export function AccordionContent({
   children: React.ReactNode;
   className?: string;
 }) {
-  return (
-    <RadixAccordion.Content className={className}>
-      {children}
-    </RadixAccordion.Content>
-  );
+  return <RadixAccordion.Content className={className}>{children}</RadixAccordion.Content>;
 }

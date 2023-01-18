@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import MainLayout from "../components/layouts/MainLayout";
-import Roadmap from "../components/Roadmap/Roadmap";
+import Roadmap from "../components/Roadmap";
 import E404Page from "./E404Page";
 import useDocumentTitle from "../components/useDocumentTitle";
 import { useEffect, useState } from "react";

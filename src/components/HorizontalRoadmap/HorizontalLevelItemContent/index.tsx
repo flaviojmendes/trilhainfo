@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { AccordionContainer, RoadmapAccordion } from '../../Accordion';
-import { useSelectedItem } from '../LevelProvider/LevelProvider';
+import { useSelectedItem } from '../LevelProvider';
 
 export function HorizontalLevelItemContent() {
   const [selectedItem] = useSelectedItem();
@@ -9,9 +9,7 @@ export function HorizontalLevelItemContent() {
     <>
       {!selectedItem && (
         <div className="flex h-full ">
-          <p className="m-auto font-title text-red">
-            Selecione um Item à esquerda para estudar.
-          </p>
+          <p className="m-auto font-title text-red">Selecione um Item à esquerda para estudar.</p>
         </div>
       )}
 
@@ -23,19 +21,11 @@ export function HorizontalLevelItemContent() {
           transition={{ type: 'spring', bounce: 0, duration: 0.3 }}
           className="flex flex-col px-4"
         >
-          <h2 className="font-title text-2xl text-light-orange">
-            {selectedItem.label}
-          </h2>
-          <p className="font-title text-xl text-light-orange my-2">
-            {selectedItem.description}
-          </p>
+          <h2 className="font-title text-2xl text-light-orange">{selectedItem.label}</h2>
+          <p className="my-2 font-title text-xl text-light-orange">{selectedItem.description}</p>
           <AccordionContainer className="w-full" collapsible type="single">
             {selectedItem?.children?.map((section, index) => (
-              <RoadmapAccordion
-                isHorizontalPage
-                key={section.label + index}
-                section={section}
-              />
+              <RoadmapAccordion isHorizontalPage key={section.label + index} section={section} />
             ))}
           </AccordionContainer>
         </motion.div>
@@ -43,4 +33,3 @@ export function HorizontalLevelItemContent() {
     </>
   );
 }
-
