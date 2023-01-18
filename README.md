@@ -52,9 +52,11 @@ $ yarn dev
 
 ## Quem já contribuiu:
 
-<a href = "https://github.com/flaviojmendes/trilhainfo/graphs/contributors">
-  <img src = "https://contrib.rocks/image?repo=flaviojmendes/trilhainfo"/>
-</a>
+<p align="center">
+  <a href = "https://github.com/flaviojmendes/trilhainfo/graphs/contributors">
+    <img src = "https://contributors-img.web.app/image?repo=flaviojmendes/trilhainfo" alt="Quem já contribuiu" />
+  </a>
+</p>
 
 ## Contribuição
 Pull requests são bem-vindos. Para grandes mudanças, por favor, abra primeiro uma issue para discutir o que gostaria de mudar.
