@@ -6,14 +6,12 @@ import ProjectInfo from '../components/ProjectInfo';
 
 export default function HomePage() {
   return (
-    <>
-      <MainLayout>
-        <Hero />
-        <MainRoadmaps />
-        <UserArea />
-        <ProjectInfo />
-        {/* <OpenSource /> */}
-      </MainLayout>
-    </>
+    <MainLayout>
+      <Hero />
+      <MainRoadmaps />
+      <UserArea />
+      <ProjectInfo />
+      {/* <OpenSource /> */}
+    </MainLayout>
   );
 }

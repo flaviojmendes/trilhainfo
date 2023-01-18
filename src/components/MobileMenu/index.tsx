@@ -20,7 +20,6 @@ export default function MobileMenu() {
     isAuthenticated,
     isLoading,
     logout,
-    loginWithPopup,
   } = useAuth0();
   return (
     <div className="flex md:hidden justify-center items-center">
