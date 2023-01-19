@@ -51,7 +51,7 @@ function HorizontalLevelItemSection({ section }: { section: RoadmapItem }) {
   return (
     <AccordionItem>
       <h2 className="font-semibold">
-        <AccordionButton color="#e9dad5">
+        <AccordionButton color="#e9dad5" className="flex justify-between">
          <div className='flex'>
             <Checkbox
               className="my-auto mr-2"
