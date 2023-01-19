@@ -1,4 +1,4 @@
-import { Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Badge, Checkbox } from "@chakra-ui/react";
+import { Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Checkbox } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { RoadmapItem } from "../../../entity/RoadmapModel";
 import { getColorFromContentType } from "../../../support/contentType";
@@ -67,7 +67,7 @@ function HorizontalLevelItemSection({ section }: { section: RoadmapItem }) {
       <AccordionPanel pb={4}>
         {section.links?.length
           ? section.links?.map((link) => (
-              <div className="flex my-2 justify-between">
+              <div className="flex my-2 justify-between items-start">
                 <a
                   href={link.url}
                   target="_blank"
@@ -75,17 +75,12 @@ function HorizontalLevelItemSection({ section }: { section: RoadmapItem }) {
                 >
                   {link.label}
                 </a>
-                <Badge
-                  colorScheme={getColorFromContentType(link.contentType)}
-                  p={1}
-                  rounded={"md"}
-                  className="h-5"
-                  fontSize="0.6em"
-                  mr="1"
-                  cursor={"default"}
+               
+                <span
+                  className={`badge  ${getColorFromContentType(link.contentType)}`}
                 >
-                  <span>{link.contentType ? link.contentType : null}</span>
-                </Badge>
+                  {link.contentType ? link.contentType : null}
+                </span>
               </div>
             ))
           : "Ainda não possuimos conteúdo."}

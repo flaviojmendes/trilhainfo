@@ -4,7 +4,6 @@ import {
   AccordionIcon,
   AccordionItem,
   AccordionPanel,
-  Badge,
   Checkbox,
   CheckboxGroup,
   Drawer,
@@ -19,13 +18,14 @@ import {
 
 import React, { useEffect, useRef, useState } from "react";
 import { useLocalStorage } from "react-use";
-import { Level, LinkContentType, RoadmapItem } from "../../entity/RoadmapModel";
+import { Level, RoadmapItem } from "../../entity/RoadmapModel";
 import LevelItem from "../LevelItem/LevelItem";
 import { useLocation } from "react-router-dom";
 import { emojisplosion } from "emojisplosion";
 import Note from "../Note/Note";
 import RoadmapButtons from "../RoadmapButtons";
 import { useAuth0 } from "@auth0/auth0-react";
+import { getColorFromContentType } from "../../support/contentType";
 
 type Props = {
   data: Level[];
@@ -33,22 +33,6 @@ type Props = {
   name: string;
   isPreview: boolean;
 };
-
-function getColorFromContentType(contentType: LinkContentType | string) {
-  switch (contentType) {
-    case LinkContentType.LISTEN || "Ouça":
-      return "blue";
-    case LinkContentType.READ || "Leia":
-      return "yellow";
-    case LinkContentType.VISIT || "Visite":
-      return "purple";
-    case LinkContentType.PRACTICE || "Pratique":
-      return "green";
-    case LinkContentType.WATCH || "Assista":
-    default:
-      return "orange";
-  }
-}
 
 export default function Roadmap(props: Props) {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -262,11 +246,11 @@ export default function Roadmap(props: Props) {
                           <AccordionIcon />
                         </AccordionButton>
                       </h2>
-                      <AccordionPanel pb={4}>
+                      <AccordionPanel pb={4} display="flex" flexDir="column" gap="2">
                         {child.links?.length
                           ? child.links?.map((link ) => {
                               return (
-                                <div className="flex justify-between">
+                                <div className="flex justify-between items-start">
                                   <a
                                     href={link.url}
                                     target="_blank"
@@ -274,23 +258,11 @@ export default function Roadmap(props: Props) {
                                   >
                                     {link.label}
                                   </a>
-                                  <Badge
-                                    colorScheme={getColorFromContentType(
-                                      link.contentType
-                                    )}
-                                    p={1}
-                                    rounded={"md"}
-                                    className="h-5"
-                                    fontSize="0.6em"
-                                    mr="1"
-                                    cursor={"default"}
+                                  <span
+                                    className={`badge ${getColorFromContentType(link.contentType)}`}
                                   >
-                                    <span>
-                                      {link.contentType
-                                        ? link.contentType
-                                        : null}
-                                    </span>
-                                  </Badge>
+                                    {link.contentType ? link.contentType : null}
+                                  </span>
                                 </div>
                               );
                             })
