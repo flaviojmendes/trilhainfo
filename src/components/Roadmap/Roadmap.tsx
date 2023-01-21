@@ -1,11 +1,4 @@
 import {
-  Accordion,
-  AccordionButton,
-  AccordionIcon,
-  AccordionItem,
-  AccordionPanel,
-  Checkbox,
-  CheckboxGroup,
   Drawer,
   DrawerBody,
   DrawerCloseButton,
@@ -14,18 +7,20 @@ import {
   DrawerHeader,
   DrawerOverlay,
   useDisclosure,
-} from "@chakra-ui/react";
-
-import React, { useEffect, useRef, useState } from "react";
-import { useLocalStorage } from "react-use";
-import { Level, RoadmapItem } from "../../entity/RoadmapModel";
-import LevelItem from "../LevelItem/LevelItem";
-import { useLocation } from "react-router-dom";
-import { emojisplosion } from "emojisplosion";
-import Note from "../Note/Note";
-import RoadmapButtons from "../RoadmapButtons";
-import { useAuth0 } from "@auth0/auth0-react";
-import { getColorFromContentType } from "../../support/contentType";
+} from '@chakra-ui/react';
+import React, { useEffect, useRef, useState } from 'react';
+import { useLocalStorage } from 'react-use';
+import { Level, RoadmapItem } from '../../entity/RoadmapModel';
+import LevelItem from '../LevelItem/LevelItem';
+import { useLocation } from 'react-router-dom';
+import { emojisplosion } from 'emojisplosion';
+import Note from '../Note/Note';
+import RoadmapButtons from '../RoadmapButtons';
+import { useAuth0 } from '@auth0/auth0-react';
+import {
+  RoadmapAccordion,
+} from '../Accordion';
+import { Root as AccordionContainer } from '@radix-ui/react-accordion';
 
 type Props = {
   data: Level[];
@@ -43,7 +38,7 @@ export default function Roadmap(props: Props) {
   const [activeItem, setActiveItem] = React.useState<RoadmapItem>();
   const [mousePos, setMousePos] = useState<{ x: number; y: number }>();
   const [selectedItems, setSelectedItems] = useLocalStorage(
-    "selectedItems",
+    'selectedItems',
     {} as { [key: string]: boolean }
   );
 
@@ -56,24 +51,24 @@ export default function Roadmap(props: Props) {
       setMousePos({ x: event.clientX, y: event.clientY });
     };
 
-    window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener('mousemove', handleMouseMove);
 
     return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener('mousemove', handleMouseMove);
     };
   }, []);
 
   useEffect(() => {
-    if (localStorage.getItem("selectedItems")) {
+    if (localStorage.getItem('selectedItems')) {
       setSelectedItems(
-        JSON.parse(localStorage.getItem("selectedItems") || "") || {}
+        JSON.parse(localStorage.getItem('selectedItems') || '') || {}
       );
     }
   }, []);
 
   useEffect(() => {
     if (hash) {
-      const anchorItem = hash.replaceAll("#", "");
+      const anchorItem = hash.replaceAll('#', '');
       let itemFound = false;
       if (anchorItem) {
         props.data.map((level) => {
@@ -96,7 +91,7 @@ export default function Roadmap(props: Props) {
     }
     selected[label] = checked;
     setSelectedItems(selected);
-    localStorage.setItem("selectedItems", JSON.stringify(selected));
+    localStorage.setItem('selectedItems', JSON.stringify(selected));
 
     if (checked) {
       emojisplosion({
@@ -106,7 +101,7 @@ export default function Roadmap(props: Props) {
           x: mousePos?.x || innerWidth / 2,
           y: mousePos?.y || innerHeight / 2,
         },
-        emojis: ["🎉", "🎊", "🎈", "🤓"],
+        emojis: ['🎉', '🎊', '🎈', '🤓'],
       });
     }
   }
@@ -121,7 +116,7 @@ export default function Roadmap(props: Props) {
   function isAllContentRead(label: string, contentLength: number) {
     if (selectedItems) {
       const contentRead = Object.keys(selectedItems).filter(
-        (key) => key.endsWith("-" + label) && selectedItems[key] === true
+        (key) => key.endsWith('-' + label) && selectedItems[key] === true
       );
       return contentRead.length === contentLength;
     }
@@ -134,7 +129,7 @@ export default function Roadmap(props: Props) {
       level.items.forEach((item) => {
         if (item.label === label) {
           item.children?.forEach((child) => {
-            saveRead(child.label + "-" + item.label, check);
+            saveRead(child.label + '-' + item.label, check);
           });
         }
       });
@@ -148,7 +143,7 @@ export default function Roadmap(props: Props) {
           x: mousePos?.x || innerWidth / 2,
           y: mousePos?.y || innerHeight / 2,
         },
-        emojis: ["🎉", "🎊", "🎈", "🤓"],
+        emojis: ['🎉', '🎊', '🎈', '🤓'],
       });
     }
   }
@@ -160,13 +155,13 @@ export default function Roadmap(props: Props) {
 
   return (
     <>
-      <div className={props.isPreview ? "hidden" : "flex"}>
+      <div className={props.isPreview ? 'hidden' : 'flex'}>
         <div className="flex-grow"></div>
         <RoadmapButtons
           buttons={
             isAuthenticated
-              ? ["horizontalView", "download", "exportNotes"]
-              : ["horizontalView", "download"]
+              ? ['horizontalView', 'download', 'exportNotes']
+              : ['horizontalView', 'download']
           }
           title={props.title}
           roadmapRef={roadmapRef}
@@ -175,7 +170,7 @@ export default function Roadmap(props: Props) {
       <section ref={roadmapRef} className="pb-8">
         <h2
           className={`text-center font-bold text-3xl c-yellow my-6 font-title c-dark-brown ${
-            props.isPreview ? "hidden" : ""
+            props.isPreview ? 'hidden' : ''
           }`}
         >
           {props.title}
@@ -199,16 +194,16 @@ export default function Roadmap(props: Props) {
 
         <Drawer
           isOpen={isOpen}
-          size={"lg"}
+          size={'lg'}
           placement="right"
           onClose={handleCloseDrawer}
         >
           <DrawerOverlay />
-          <DrawerContent bgColor={"#444140"}>
+          <DrawerContent bgColor={'#444140'}>
             <DrawerCloseButton
-              color={"#2A2827"}
-              backgroundColor={"#eabc54"}
-              _hover={{ backgroundColor: "#e9dad5" }}
+              color={'#2A2827'}
+              backgroundColor={'#eabc54'}
+              _hover={{ backgroundColor: '#e9dad5' }}
             />
             <DrawerHeader>
               <span className="text-light-brown font-title">
@@ -220,59 +215,24 @@ export default function Roadmap(props: Props) {
               <p className="mb-4 text-light-brown font-title">
                 {activeItem?.description}
               </p>
-              <Accordion allowToggle>
+              <AccordionContainer className="w-full" collapsible type="single">
                 {activeItem?.children?.map((child) => {
-                  const key = child.label + "-" + activeItem.label;
-
                   return (
-                    <AccordionItem key={child.label}>
-                      <h2 className="font-semibold">
-                        <AccordionButton color={"#e9dad5"} className="flex justify-between">
-                          <div className="text-left">
-                            <CheckboxGroup>
-                              <Checkbox
-                                className="my-auto mr-2"
-                                size={"lg"}
-                                isChecked={isRead(key)}
-                                onChange={(e) => {
-                                  saveRead(key, e.target.checked);
-                                }}
-                              ></Checkbox>
-                            </CheckboxGroup>
-                            <span className="text-light-brown font-title">
-                              {child.label}
-                            </span>
-                          </div>
-                          <AccordionIcon />
-                        </AccordionButton>
-                      </h2>
-                      <AccordionPanel pb={4} display="flex" flexDir="column" gap="2">
-                        {child.links?.length
-                          ? child.links?.map((link ) => {
-                              return (
-                                <div className="flex justify-between items-start">
-                                  <a
-                                    href={link.url}
-                                    target="_blank"
-                                    className="text-light-brown hover:underline"
-                                  >
-                                    {link.label}
-                                  </a>
-                                  <span
-                                    className={`badge ${getColorFromContentType(link.contentType)}`}
-                                  >
-                                    {link.contentType ? link.contentType : null}
-                                  </span>
-                                </div>
-                              );
-                            })
-                          : "Ainda não possuimos conteúdo."}
-                      </AccordionPanel>
-                    </AccordionItem>
+                    <RoadmapAccordion
+                      section={child}
+                      isRead={isRead}
+                      saveRead={saveRead}
+                      activeItemLabel={activeItem.label}
+                    />
                   );
                 })}
-              </Accordion>
-              {!props.isPreview && <Note id={activeItem?.label || "asdasd"} title={activeItem?.label || ""} />}
+              </AccordionContainer>
+              {!props.isPreview && (
+                <Note
+                  id={activeItem?.label || 'asdasd'}
+                  title={activeItem?.label || ''}
+                />
+              )}
             </DrawerBody>
 
             <DrawerFooter>
@@ -283,13 +243,13 @@ export default function Roadmap(props: Props) {
                     activeItem?.label
                   } comigo na Trilha Info.&url=https://trilha.info/roadmap/${
                     props.name
-                  }${encodeURIComponent("#" + activeItem?.label || "")}`}
+                  }${encodeURIComponent('#' + activeItem?.label || '')}`}
                 >
                   Compartilhar no Twitter
                 </a>
                 <button
-                 className="text-[black] bg-yellow hover:bg-dark-yellow mr-3 px-4 rounded-md font-bold disabled:hover:bg-yellow disabled:cursor-not-allowed transition-colors"
-                 onClick={handleCloseDrawer}
+                  className="text-[black] bg-yellow hover:bg-dark-yellow mr-3 px-4 rounded-md font-bold disabled:hover:bg-yellow disabled:cursor-not-allowed transition-colors"
+                  onClick={handleCloseDrawer}
                 >
                   Fechar
                 </button>
