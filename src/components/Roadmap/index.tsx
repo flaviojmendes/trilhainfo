@@ -205,10 +205,11 @@ export default function Roadmap(props: Props) {
                 {activeItem?.children?.map((child) => {
                   return (
                     <RoadmapAccordion
+                      key={key}
                       section={child}
+                      activeItemLabel={activeItem?.label}
                       isRead={isRead}
                       saveRead={saveRead}
-                      activeItemLabel={activeItem.label}
                     />
                   );
                 })}
