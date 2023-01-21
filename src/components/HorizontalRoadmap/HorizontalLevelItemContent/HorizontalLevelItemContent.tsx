@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
-import { RoadmapAccordion } from '../../Accordion';
+import { AccordionContainer, RoadmapAccordion } from '../../Accordion';
 import { useSelectedItem } from '../LevelProvider/LevelProvider';
-import { Root as AccordionContainer } from '@radix-ui/react-accordion';
 
 export function HorizontalLevelItemContent() {
   const [selectedItem] = useSelectedItem();
@@ -44,3 +43,4 @@ export function HorizontalLevelItemContent() {
     </>
   );
 }
+

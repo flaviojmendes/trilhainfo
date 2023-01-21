@@ -18,9 +18,9 @@ import Note from '../Note/Note';
 import RoadmapButtons from '../RoadmapButtons';
 import { useAuth0 } from '@auth0/auth0-react';
 import {
+  AccordionContainer,
   RoadmapAccordion,
 } from '../Accordion';
-import { Root as AccordionContainer } from '@radix-ui/react-accordion';
 
 type Props = {
   data: Level[];

@@ -5,7 +5,7 @@ import { RoadmapItem } from '../../entity/RoadmapModel';
 import { getColorFromContentType } from '../../support/contentType';
 import { Checkbox } from '../Checkbox';
 import { useSectionRoadmapActions } from '../HorizontalRoadmap/LevelProvider/LevelProvider';
-export const Collapse = RadixAccordion.Root;
+export const AccordionContainer = RadixAccordion.Root;
 
 type AccordionProps =
   | {
