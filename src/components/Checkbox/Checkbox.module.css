@@ -1,0 +1,41 @@
+.CheckboxContainer {
+  @apply inline-flex my-0 text-white lg:items-center;
+}
+
+.CheckBox {
+  @apply flex items-center justify-center w-5 h-5 bg-white border-2 border-white rounded-sm shadow opacity-95 focus:opacity-100;
+}
+
+.CheckBoxLabel {
+  @apply pl-2 font-mono text-lg text-[black] cursor-pointer select-none;
+}
+
+.CheckboxIndicator {
+  @apply text-green rounded-sm;
+}
+
+.CheckBox[data-state='checked'] {
+  animation: containerCheck 300ms ease-out forwards;
+}
+
+.CheckBox[data-state='unchecked'] {
+  animation: containerUncheck 300ms ease-in forwards;
+}
+
+
+@keyframes containerCheck {
+  from {
+    @apply bg-[transparent] border-white;
+  }
+  to {
+    @apply bg-brown border-dark-red;
+  }
+}
+@keyframes containerUncheck {
+  from {
+    @apply bg-brown border-dark-red;
+  }
+  to {
+    @apply bg-[transparent] border-white;
+  }
+}
