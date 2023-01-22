@@ -11,6 +11,8 @@ module.exports = {
       },
       animation: {
         checking: 'slit-in-vertical 0.2s ease-out both',
+        slideIn: 'slideIn 200ms cubic-bezier(0.16, 1, 0.3, 1) forwards',
+        hide: 'hide 200ms ease-in forwards',
       },
       keyframes: {
         'slit-in-vertical': {
@@ -27,6 +29,22 @@ module.exports = {
           '100%': {
             '-webkit-transform': 'translateZ(0) rotateY(0)',
             transform: 'translateZ(0) rotateY(0)',
+          },
+        },
+        hide: {
+          from: {
+            opacity: 1,
+          },
+          to: {
+            opacity: 0,
+          },
+        },
+        slideIn: {
+          from: {
+            transform: 'translateX(calc(100% + 16px))',
+          },
+          to: {
+            transform: 'translateX(0)',
           },
         },
       },
