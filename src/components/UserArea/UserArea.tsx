@@ -1,14 +1,13 @@
-import { useAuth0 } from "@auth0/auth0-react";
-import { DeleteIcon, EditIcon } from "@chakra-ui/icons";
-import { useToast } from "@chakra-ui/react";
-import axios, { AxiosError } from "axios";
-import { useEffect, useState } from "react";
-import {  FiShare2 } from "react-icons/fi";
-import { Grid } from "react-loader-spinner";
-import { Link, useNavigate } from "react-router-dom";
-import Cookies from "universal-cookie";
-import { RoadmapModel } from "../../entity/RoadmapModel";
-import IconButton from '../../components/IconButton'
+import { useAuth0 } from '@auth0/auth0-react';
+import axios, { AxiosError } from 'axios';
+import { useEffect, useState } from 'react';
+import { FiEdit, FiShare2, FiTrash2 } from 'react-icons/fi';
+import { Grid } from 'react-loader-spinner';
+import { Link, useNavigate } from 'react-router-dom';
+import Cookies from 'universal-cookie';
+import { RoadmapModel } from '../../entity/RoadmapModel';
+import IconButton from '../../components/IconButton';
+import { useToast } from '../../hooks/useToast';
 
 const cookies = new Cookies();
 
@@ -17,13 +16,11 @@ export default function UserArea() {
   const navigate = useNavigate();
   const [isLoadingRoadmaps, setLoadingRoadmaps] = useState(true);
   const [roadmaps, setRoadmaps] = useState<RoadmapModel[]>();
-  const toast = useToast();
+  const { addToast } = useToast();
 
   function handleCreateNew() {
-    navigate("/new-roadmap");
+    navigate('/new-roadmap');
   }
-
-  useEffect(() => {}, []);
 
   useEffect(() => {
     if (user) {
@@ -33,14 +30,14 @@ export default function UserArea() {
 
   async function getRoadmaps() {
     setLoadingRoadmaps(true);
-    if (cookies.get("api_token")) {
+    if (cookies.get('api_token')) {
       try {
         let response = await axios.get(
-          import.meta.env.VITE_API_URL + `/roadmap/${user?.nickname}` || "",
+          import.meta.env.VITE_API_URL + `/roadmap/${user?.nickname}` || '',
           {
             headers: {
-              "Content-Type": "application/json",
-              Authorization: cookies.get("api_token"),
+              'Content-Type': 'application/json',
+              Authorization: cookies.get('api_token'),
             },
           }
         );
@@ -60,16 +57,16 @@ export default function UserArea() {
   }
 
   async function handleDeleteRoadmap(roadmapId: string) {
-    const answer = window.confirm("Tem certeza que quer deletar?");
+    const answer = window.confirm('Tem certeza que quer deletar?');
     if (answer) {
       setLoadingRoadmaps(true);
       setRoadmaps([]);
       let response = await axios.delete(
-        import.meta.env.VITE_API_URL + `/roadmap/${roadmapId}` || "",
+        import.meta.env.VITE_API_URL + `/roadmap/${roadmapId}` || '',
         {
           headers: {
-            "Content-Type": "application/json",
-            Authorization: cookies.get("api_token"),
+            'Content-Type': 'application/json',
+            Authorization: cookies.get('api_token'),
           },
         }
       );
@@ -81,12 +78,12 @@ export default function UserArea() {
     navigator.clipboard.writeText(
       `https://trilha.info/roadmap/view/${roadmapId}`
     );
-    toast({
-      title: "Feito!",
-      description: "O link para o seu Roadmap foi copiado!",
-      status: "info",
-      duration: 9000,
-      isClosable: true,
+
+    addToast({
+      title: 'Feito!',
+      message: 'O link para o seu Roadmap foi copiado!',
+      status: 'info',
+      position: 'bottom',
     });
   }
 
@@ -116,13 +113,13 @@ export default function UserArea() {
                   <div className="flex space-x-2">
                     <IconButton
                       aria-label="Editar Roadmap"
-                      icon={<EditIcon />}
+                      icon={<FiEdit />}
                       onClick={() => navigate(`/edit-roadmap/${roadmap.id}`)}
                     />
                     <IconButton
                       aria-label="Deletar Roadmap"
-                      onClick={() => handleDeleteRoadmap(roadmap.id || "")}
-                      icon={<DeleteIcon />}
+                      onClick={() => handleDeleteRoadmap(roadmap.id || '')}
+                      icon={<FiTrash2 />}
                     />
                     <IconButton
                       aria-label="Compartilhar Roadmap"
