@@ -1,9 +1,8 @@
 import { useAuth0 } from "@auth0/auth0-react";
-import { Button } from "@chakra-ui/react";
-import { FaDiscord, FaGithubSquare, FaNewspaper } from "react-icons/fa";
+import { FaDiscord, FaGithubSquare } from "react-icons/fa";
 import { ThreeDots } from "react-loader-spinner";
-import Logo from "../Logo/Logo";
-import MobileMenu from "../MobileMenu/MobileMenu";
+import Logo from "../Logo";
+import MobileMenu from "../MobileMenu";
 
 export default function Header() {
   const {

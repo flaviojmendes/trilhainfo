@@ -2,7 +2,7 @@ import { Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPane
 import { motion } from "framer-motion";
 import { RoadmapItem } from "../../../entity/RoadmapModel";
 import { getColorFromContentType } from "../../../support/contentType";
-import { useSectionRoadmapActions, useSelectedItem } from "../LevelProvider/LevelProvider";
+import { useSectionRoadmapActions, useSelectedItem } from "../LevelProvider";
 
 export function HorizontalLevelItemContent() {
   const [selectedItem] = useSelectedItem();

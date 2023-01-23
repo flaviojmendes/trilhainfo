@@ -1,5 +1,5 @@
 import { RoadmapModel } from "../../../entity/RoadmapModel";
-import Roadmap from "../../Roadmap/Roadmap";
+import Roadmap from "../../Roadmap";
 
 type Props = {
   roadmap: RoadmapModel;
