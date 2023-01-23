@@ -24,10 +24,10 @@ import {
 import React, { useEffect, useRef, useState } from "react";
 import { useLocalStorage } from "react-use";
 import { Level, LinkContentType, RoadmapItem } from "../../entity/RoadmapModel";
-import LevelItem from "../LevelItem/LevelItem";
+import LevelItem from "../LevelItem";
 import { useLocation } from "react-router-dom";
 import { emojisplosion } from "emojisplosion";
-import Note from "../Note/Note";
+import Note from "../Note";
 import RoadmapButtons from "../RoadmapButtons";
 import { useAuth0 } from "@auth0/auth0-react";
 

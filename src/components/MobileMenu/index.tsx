@@ -1,6 +1,5 @@
 import { useAuth0 } from "@auth0/auth0-react";
 import {
-  Button,
   Drawer,
   DrawerBody,
   DrawerCloseButton,
@@ -8,10 +7,8 @@ import {
   DrawerFooter,
   DrawerHeader,
   DrawerOverlay,
-  Input,
   useDisclosure,
 } from "@chakra-ui/react";
-import React from "react";
 import { FaDiscord, FaGithubSquare, FaNewspaper } from "react-icons/fa";
 import { ThreeDots } from "react-loader-spinner";
 
@@ -23,7 +20,6 @@ export default function MobileMenu() {
     isAuthenticated,
     isLoading,
     logout,
-    loginWithPopup,
   } = useAuth0();
   return (
     <div className="flex md:hidden justify-center items-center">
