@@ -1,17 +1,17 @@
-import { render } from '@testing-library/react'
-import MainRoadmaps from './MainRoadmaps'
-import {BrowserRouter as Router} from 'react-router-dom';
-import {mainRoadmapsData} from './mainRoadmapsData'
+import { render } from '@testing-library/react';
+import MainRoadmaps from '.';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { mainRoadmapsData } from './mainRoadmapsData';
 
 describe('<MainRoadmaps />', () => {
   it('should render all roadmaps', () => {
-    const { getByRole, debug } = render(
+    const { getByRole } = render(
       <Router>
         <MainRoadmaps />
-      </Router>
-    )
+      </Router>,
+    );
     mainRoadmapsData.forEach((roadmap) => {
-      expect(getByRole('heading', {name: roadmap.title, exact: true})).toBeInTheDocument()
-    })
-  })
-})
+      expect(getByRole('heading', { name: roadmap.title, exact: true })).toBeInTheDocument();
+    });
+  });
+});
