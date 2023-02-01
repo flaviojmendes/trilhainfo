@@ -1,6 +1,3 @@
-import {
-  Link as ChakraLink,
-} from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import Header from "../Header/Header";
 
@@ -20,12 +17,12 @@ export default function MainLayout({ children }: Props) {
         </main>
         <footer className="text-center py-4 w-full bg-dark-brown select-none px-10 xl:px-64 text-red">
           <span className="c-brown">Idealizado por </span>
-          <ChakraLink
-            isExternal
+          <a
+            target={"_blank"}
             href="https://github.com/flaviojmendes"
           >
             flaviojmendes
-          </ChakraLink>
+          </a>
           <span className="c-brown">
             {" "}
             e mantido pela{" "}

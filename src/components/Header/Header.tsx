@@ -4,6 +4,10 @@ import { FaDiscord, FaGithubSquare, FaNewspaper } from "react-icons/fa";
 import { ThreeDots } from "react-loader-spinner";
 import Logo from "../Logo/Logo";
 import MobileMenu from "../MobileMenu/MobileMenu";
+import Cookies from "universal-cookie";
+import axios from "axios";
+
+const cookies = new Cookies();
 
 export default function Header() {
   const {
@@ -13,6 +17,7 @@ export default function Header() {
     isLoading,
     logout,
     loginWithPopup,
+    getAccessTokenSilently
   } = useAuth0();
   return (
     <header className="w-full p-2 flex flex-wrap justify-center space-x-0 space-y-2 mx-auto bg-dark-brown px-10 xl:px-64">
@@ -47,7 +52,6 @@ export default function Header() {
               </span> */}
             </a>
           </li>
-         
 
           <li className="flex">
             {isAuthenticated && (
@@ -73,7 +77,7 @@ export default function Header() {
           </li>
           <li className="flex">
             {!isAuthenticated && !isLoading && (
-              <Button margin={"auto"} onClick={() => loginWithRedirect()}>
+              <Button margin={"auto"} onClick={() => handleAuth()}>
                 Log In
               </Button>
             )}
@@ -93,4 +97,40 @@ export default function Header() {
       </nav>
     </header>
   );
+
+  async function handleAuth() {
+    (async () => {
+      const authResult = await loginWithPopup();
+      const token = await getAccessTokenSilently({
+        audience: "TrilhaInfoApi",
+      });
+      cookies.set("api_token", `Bearer ${token}`);
+
+      try {
+        await axios.get(
+          import.meta.env.VITE_API_URL + "/user/" + user?.nickname,
+          {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: cookies.get("api_token"),
+            },
+          }
+        );
+      } catch (e) {
+        await axios.post(
+          import.meta.env.VITE_API_URL + "/user" || "",
+          {
+            user_login: user?.nickname,
+          },
+          {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: cookies.get("api_token"),
+            },
+          }
+        );
+      }
+      document.location.href = "/";
+    })();
+  }
 }
