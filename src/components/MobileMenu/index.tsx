@@ -9,13 +9,19 @@ import {
   DrawerOverlay,
   useDisclosure,
 } from "@chakra-ui/react";
+import axios from "axios";
 import { FaDiscord, FaGithubSquare, FaNewspaper } from "react-icons/fa";
 import { ThreeDots } from "react-loader-spinner";
+import Cookies from "universal-cookie";
+
+
+const cookies = new Cookies();
 
 export default function MobileMenu() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const {
-    loginWithRedirect,
+    loginWithPopup,
+    getAccessTokenSilently,
     user,
     isAuthenticated,
     isLoading,
@@ -103,7 +109,7 @@ export default function MobileMenu() {
                 {!isAuthenticated && !isLoading && (
                   <button
                     className="m-auto mt-8 bg-light-brown p-2 rounded-md"
-                    onClick={() => loginWithRedirect()}
+                    onClick={() => handleAuth()}
                   >
                     Log In
                   </button>
@@ -128,4 +134,40 @@ export default function MobileMenu() {
       </Drawer>
     </div>
   );
+
+  async function handleAuth() {
+    (async () => {
+      const authResult = await loginWithPopup();
+      const token = await getAccessTokenSilently({
+        audience: "TrilhaInfoApi",
+      });
+      cookies.set("api_token", `Bearer ${token}`);
+
+      try {
+        await axios.get(
+          import.meta.env.VITE_API_URL + "/user/" + user?.nickname,
+          {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: cookies.get("api_token"),
+            },
+          }
+        );
+      } catch (e) {
+        await axios.post(
+          import.meta.env.VITE_API_URL + "/user" || "",
+          {
+            user_login: user?.nickname,
+          },
+          {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: cookies.get("api_token"),
+            },
+          }
+        );
+      }
+      document.location.href = "/";
+    })();
+  }
 }
