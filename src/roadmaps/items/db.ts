@@ -1,4 +1,4 @@
-import { Level, LinkContentType, RoadmapItem } from "../../entity/RoadmapModel";
+import { Level, LinkContentType } from "../../entity/RoadmapModel";
 
 export const db: Level = {
   label: "Bancos de Dados",

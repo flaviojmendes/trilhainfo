@@ -1,9 +1,8 @@
 import { useAuth0 } from "@auth0/auth0-react";
-import { Button } from "@chakra-ui/react";
-import { FaDiscord, FaGithubSquare, FaNewspaper } from "react-icons/fa";
+import { FaDiscord, FaGithubSquare } from "react-icons/fa";
 import { ThreeDots } from "react-loader-spinner";
-import Logo from "../Logo/Logo";
-import MobileMenu from "../MobileMenu/MobileMenu";
+import Logo from "../Logo";
+import MobileMenu from "../MobileMenu";
 import Cookies from "universal-cookie";
 import axios from "axios";
 
@@ -35,9 +34,6 @@ export default function Header() {
               href="https://discord.gg/TmneeHgTBp"
             >
               <FaDiscord className="m-auto w-10 h-10 " />
-              {/* <span className="my-auto text-base ml-1  hidden md:block font-title">
-                Discord
-              </span> */}
             </a>
           </li>
           <li className="flex">
@@ -47,9 +43,6 @@ export default function Header() {
               href="https://github.com/flaviojmendes/trilhadev"
             >
               <FaGithubSquare className="m-auto w-10 h-10 " />
-              {/* <span className="my-auto text-base ml-1  hidden md:block font-title">
-                Github
-              </span> */}
             </a>
           </li>
 
@@ -66,20 +59,20 @@ export default function Header() {
                     {user?.name}
                   </span>
                 </div>
-                <Button
-                  margin={"auto"}
+                <button className="m-auto p-2 rounded-md bg-brown"
+                  
                   onClick={() => logout({ returnTo: window.location.origin })}
                 >
                   Logout
-                </Button>
+                </button>
               </>
             )}
           </li>
           <li className="flex">
             {!isAuthenticated && !isLoading && (
-              <Button margin={"auto"} onClick={() => handleAuth()}>
+              <button className="m-auto bg-light-brown hover:bg-brown p-2 rounded-md font-title" onClick={() => handleAuth()}>
                 Log In
-              </Button>
+              </button>
             )}
             {isLoading && (
               <ThreeDots

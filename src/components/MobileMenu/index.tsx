@@ -1,6 +1,5 @@
 import { useAuth0 } from "@auth0/auth0-react";
 import {
-  Button,
   Drawer,
   DrawerBody,
   DrawerCloseButton,
@@ -8,22 +7,25 @@ import {
   DrawerFooter,
   DrawerHeader,
   DrawerOverlay,
-  Input,
   useDisclosure,
 } from "@chakra-ui/react";
-import React from "react";
+import axios from "axios";
 import { FaDiscord, FaGithubSquare, FaNewspaper } from "react-icons/fa";
 import { ThreeDots } from "react-loader-spinner";
+import Cookies from "universal-cookie";
+
+
+const cookies = new Cookies();
 
 export default function MobileMenu() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const {
-    loginWithRedirect,
+    loginWithPopup,
+    getAccessTokenSilently,
     user,
     isAuthenticated,
     isLoading,
     logout,
-    loginWithPopup,
   } = useAuth0();
   return (
     <div className="flex md:hidden justify-center items-center">
@@ -94,24 +96,23 @@ export default function MobileMenu() {
 
               <li className="flex">
                 {isAuthenticated && (
-                  <Button
-                    margin={"auto"}
-                    mt={8}
+                  <button
+                    className="auto p-2 rounded-md m-auto mt-8 bg-brown"
+                    
                     onClick={() => logout({ returnTo: window.location.origin })}
                   >
                     Logout
-                  </Button>
+                  </button>
                 )}
               </li>
               <li className="flex">
                 {!isAuthenticated && !isLoading && (
-                  <Button
-                    margin={"auto"}
-                    mt={8}
-                    onClick={() => loginWithRedirect()}
+                  <button
+                    className="m-auto mt-8 bg-light-brown p-2 rounded-md"
+                    onClick={() => handleAuth()}
                   >
                     Log In
-                  </Button>
+                  </button>
                 )}
                 {isLoading && (
                   <ThreeDots
@@ -133,4 +134,40 @@ export default function MobileMenu() {
       </Drawer>
     </div>
   );
+
+  async function handleAuth() {
+    (async () => {
+      const authResult = await loginWithPopup();
+      const token = await getAccessTokenSilently({
+        audience: "TrilhaInfoApi",
+      });
+      cookies.set("api_token", `Bearer ${token}`);
+
+      try {
+        await axios.get(
+          import.meta.env.VITE_API_URL + "/user/" + user?.nickname,
+          {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: cookies.get("api_token"),
+            },
+          }
+        );
+      } catch (e) {
+        await axios.post(
+          import.meta.env.VITE_API_URL + "/user" || "",
+          {
+            user_login: user?.nickname,
+          },
+          {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: cookies.get("api_token"),
+            },
+          }
+        );
+      }
+      document.location.href = "/";
+    })();
+  }
 }

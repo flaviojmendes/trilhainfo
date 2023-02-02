@@ -5,7 +5,7 @@ import { Level, RoadmapItem } from "../../../entity/RoadmapModel";
 import {
   useLevelRoadmapActions,
   useSelectedItem,
-} from "../LevelProvider/LevelProvider";
+} from "../LevelProvider";
 
 type HorizontalLevelItemsProps = {
   roadmapLevel?: Level;
