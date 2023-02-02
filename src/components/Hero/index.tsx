@@ -13,7 +13,7 @@ export default function Hero() {
     <section className="flex items-stretch justify-center bg-dark-brown mb-10 py-10 mx-0 w-full gap-4 px-10 xl:px-64">
       <div className="flex-col w-full py-2 md:py-10">
         <div className="bg-medium-brown rounded-md px-3 font-title text-light-brown text-sm w-fit mb-10">
-          Mais de <span className="text-red font-title">18.000 pessoas</span>{" "}
+          Mais de <span className="text-red font-title">20.000 pessoas</span>{" "}
           já acessaram
         </div>
         <div className="min-h-[5em]">
@@ -41,7 +41,7 @@ export default function Hero() {
           Essas dúvidas não são só suas.
         </p>
         <p className=" mt-1 max-w-xl text-lg md:text-xl font-title text-yellow">
-          Desde Junho/2022 mais de 18.000 pessoas já acessaram a{" "}
+          Desde Junho/2022 mais de 20.000 pessoas já acessaram a{" "}
           <span className="font-title text-red">Trilha Info </span>
           gratuitamente como uma ferramenta de apoio aos estudos.
         </p>

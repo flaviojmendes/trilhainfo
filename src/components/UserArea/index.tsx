@@ -96,15 +96,15 @@ export default function UserArea() {
       <h2 className="text-center my-6 font-title text-3xl c-yellow">
         Meus Roadmaps
       </h2>
-      <div className="flex flex-wrap items-stretch py-8 px-4 space-y-10 md:space-y-0 justify-center gap-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 py-8 space-y-10 md:space-y-0 gap-5">
         {roadmaps?.map((roadmap, roadmapIndex) => {
           return (
             <div
               key={roadmap.id}
-              className="flex flex-col md:w-1/3 lg:w-1/4 w-full min-h-fit space-y-2"
+              className="flex flex-col space-y-2"
             >
               <Link
-                className="bg-brown  hover:bg-white py-3 rounded-md"
+                className="bg-brown grow  hover:bg-white py-3 rounded-md"
                 to={`/roadmap/view/${roadmap.id}`}
               >
                 <h3 className="text-center text-3xl font-title mb-2 c-dark-brown">

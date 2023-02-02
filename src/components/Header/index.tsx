@@ -10,7 +10,6 @@ const cookies = new Cookies();
 
 export default function Header() {
   const {
-    loginWithRedirect,
     user,
     isAuthenticated,
     isLoading,
