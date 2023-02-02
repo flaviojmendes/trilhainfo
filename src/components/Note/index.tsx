@@ -17,8 +17,14 @@ type Props = {
 };
 
 export default function Note(props: Props) {
-  const { isAuthenticated, user, loginWithRedirect } = useAuth0();
-
+  const {
+    loginWithPopup,
+    getAccessTokenSilently,
+    user,
+    isAuthenticated,
+    isLoading,
+    logout,
+  } = useAuth0();
   let [noteText, setNoteText] = useState("");
   let [notes, setNotes] = useState<NoteModel[]>([]);
   let [isSavingNote, setSavingNote] = useState(false);
@@ -198,7 +204,7 @@ export default function Note(props: Props) {
           Adicione anotações de seus estudos 📝. Para isso basta{" "}
           <span
             className="cursor-pointer font-semibold text-red hover:underline"
-            onClick={() => loginWithRedirect()}
+            onClick={() => handleAuth()}
           >
             fazer login
           </span>
@@ -207,4 +213,40 @@ export default function Note(props: Props) {
       )}
     </div>
   ) ;
+
+  async function handleAuth() {
+    (async () => {
+      const authResult = await loginWithPopup();
+      const token = await getAccessTokenSilently({
+        audience: "TrilhaInfoApi",
+      });
+      cookies.set("api_token", `Bearer ${token}`);
+
+      try {
+        await axios.get(
+          import.meta.env.VITE_API_URL + "/user/" + user?.nickname,
+          {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: cookies.get("api_token"),
+            },
+          }
+        );
+      } catch (e) {
+        await axios.post(
+          import.meta.env.VITE_API_URL + "/user" || "",
+          {
+            user_login: user?.nickname,
+          },
+          {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: cookies.get("api_token"),
+            },
+          }
+        );
+      }
+      document.location.href = "/";
+    })();
+  }
 }
