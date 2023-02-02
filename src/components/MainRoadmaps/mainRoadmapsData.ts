@@ -27,4 +27,11 @@ export const mainRoadmapsData = [
     url: "/roadmap/react",
     image: "/react.svg",
   },
+  {
+    title: "Test/QA",
+    description:
+      "Trabalhando com testes de software você irá verificar se o software corresponde aos requisitos esperados. De acordo com os principios de testes, o teste não garante que um software esta livre de defeitos.",
+    url: "/roadmap/test",
+    image: "/bug.png",
+  },
 ];
