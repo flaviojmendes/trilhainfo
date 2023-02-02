@@ -1,37 +1,37 @@
 export const mainRoadmapsData = [
   {
-    title: "Frontend",
+    title: 'Frontend',
     description:
-      "A pessoa que desenvolve front-end é responsável pela experiência do usuário dentro de uma aplicação web. É ela quem vai desenhar e desenvolver as páginas com as quais, posteriormente, o usuário irá interagir.",
-    url: "/roadmap/frontend",
-    image: "/frontend.png",
+      'A pessoa que desenvolve front-end é responsável pela experiência do usuário dentro de uma aplicação web. É ela quem vai desenhar e desenvolver as páginas com as quais, posteriormente, o usuário irá interagir.',
+    url: '/roadmap/frontend',
+    image: '/frontend.png',
   },
   {
-    title: "Backend",
+    title: 'Backend',
     description:
-      "Back-end se relaciona com o que está por trás das aplicações desenvolvidas na programação. Ou seja, tudo que dá estrutura e apoio às ações do usuário da máquina é chamado de back-end.",
-    url: "/roadmap/backend",
-    image: "/backend.png",
+      'Back-end se relaciona com o que está por trás das aplicações desenvolvidas na programação. Ou seja, tudo que dá estrutura e apoio às ações do usuário da máquina é chamado de back-end.',
+    url: '/roadmap/backend',
+    image: '/backend.png',
   },
   {
-    title: "Devops",
+    title: 'Devops',
     description:
-      "Especialista em DevOps é a pessoa que atua na integração entre as equipes de desenvolvimento de software, integrando e monitorando suas atividades para buscar um desempenho mais otimizado e simplificado.",
-    url: "/roadmap/devops",
-    image: "/devops.png",
+      'Especialista em DevOps é a pessoa que atua na integração entre as equipes de desenvolvimento de software, integrando e monitorando suas atividades para buscar um desempenho mais otimizado e simplificado.',
+    url: '/roadmap/devops',
+    image: '/devops.png',
   },
   {
-    title: "React",
+    title: 'React',
     description:
-      "React é uma biblioteca JavaScript declarativa, eficiente e flexível criada pelo Facebook em 2011 para desenvolver aplicações front-end, ou seja, interfaces de usuário (UIs).",
-    url: "/roadmap/react",
-    image: "/react.svg",
+      'React é uma biblioteca JavaScript declarativa, eficiente e flexível criada pelo Facebook em 2011 para desenvolver aplicações front-end, ou seja, interfaces de usuário (UIs).',
+    url: '/roadmap/react',
+    image: '/react.svg',
   },
   {
-    title: "Test/QA",
+    title: 'Test/QA',
     description:
-      "Trabalhando com testes de software você irá verificar se o software corresponde aos requisitos esperados. De acordo com os principios de testes, o teste não garante que um software esta livre de defeitos.",
-    url: "/roadmap/test",
-    image: "/bug.png",
+      'Trabalhando com testes de software você irá verificar se o software corresponde aos requisitos esperados. De acordo com os principios de testes, o teste não garante que um software esta livre de defeitos.',
+    url: '/roadmap/test',
+    image: '/test.png',
   },
 ];
