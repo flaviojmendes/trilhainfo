@@ -188,6 +188,128 @@ export const data: Level[] = [
     ],
   },
   {
+    items: [
+      {
+        label: 'Acessibilidade na Web',
+        description:
+          'Acessibilidade web é a possibilidade de o conteúdo e os serviços da web estarem disponíveis para todas as pessoas e de pessoas diferentes poderem  entender, compreender, navegar, interagir e contribuir com a web.',
+        children: [
+          {
+            label: 'O que é acessibilidade na web?',
+            links: [
+              {
+                url: 'https://www.alura.com.br/artigos/o-que-e-acessibilidade-web',
+                label: 'O que é acessibilidade na web? - Alura ',
+                contentType: LinkContentType.READ,
+              },
+              {
+                url: 'https://youtu.be/hna7hbg98z4',
+                label: 'Desmistificando a Acessibilidade na Web - Frontinsampa 2014',
+                contentType: LinkContentType.WATCH,
+              },
+              {
+                url: 'https://pt.slideshare.net/MarinaDomingues7/acessibilidade-por-que-deixarmos-de-ser-amadores-para-um-pblico-que-espera-mais-de-ns',
+                label:
+                  'Acessibilidade - por que deixarmos de ser amadores para um público que espera mais de nós',
+                contentType: LinkContentType.READ,
+              },
+              {
+                url: 'https://issuu.com/codeclube/docs/ebook_raissav2',
+                label: 'Introdução à acessibilidade na web para desenvolvedores',
+                contentType: LinkContentType.READ,
+              },
+            ],
+          },
+          {
+            label: 'HTML: Boas práticas em acessibilidade',
+            links: [
+              {
+                url: 'https://developer.mozilla.org/pt-BR/docs/Learn/Accessibility/HTML#boa_sem%C3%A2ntica',
+                label: 'Boa semântica',
+                contentType: LinkContentType.READ,
+              },
+              {
+                url: 'https://mwpt.com.br/acessibilidade-digital/boas-praticas/',
+                label: 'Boas práticas de acessibilidade digital - Movimento Web para Todos',
+                contentType: LinkContentType.READ,
+              },
+              {
+                url: 'https://youtu.be/HaSgt1hK2Fs',
+                label: 'Semântica na HTML5 é importante - @Curso em Vídeo HTML5 e CSS3',
+                contentType: LinkContentType.WATCH,
+              },
+            ],
+          },
+          {
+            label: 'JavaScript com Acessibilidade',
+            links: [
+              {
+                url: 'https://developer.mozilla.org/pt-BR/docs/Learn/Accessibility/CSS_and_JavaScript',
+                label: 'CSS e JavaScript - melhores práticas de acessibilidade - MDN Web Docs',
+                contentType: LinkContentType.READ,
+              },
+              {
+                url: 'https://medium.com/emanuelg-blog/escrevendo-javascript-com-acessibilidade-em-mente-3720e9779969',
+                label: 'Escrevendo JavaScript com acessibilidade em mente',
+                contentType: LinkContentType.READ,
+              },
+              {
+                url: 'https://klauslaube.com.br/2010/11/18/acessibilidade-javascript-nao-obstrusivo.html',
+                label: 'Garantindo acessibilidade com Javascript não obstrusivo',
+                contentType: LinkContentType.READ,
+              },
+            ],
+          },
+          {
+            label: 'WAI-ARIA',
+            links: [
+              {
+                url: 'https://desenvolvimentoparaweb.com/miscelanea/aria-acessibilidade-web-a11y/',
+                label: 'Introdução à ARIA para acessibilidade na Web',
+                contentType: LinkContentType.READ,
+              },
+              {
+                url: 'https://youtu.be/l_NBdzqYm44',
+                label: 'WAI-ARIA: Acessibilidade em tempo real - Frontinsampa 2015 ',
+                contentType: LinkContentType.WATCH,
+              },
+              {
+                url: 'https://developer.mozilla.org/pt-BR/docs/Web/Accessibility/ARIA',
+                label: 'WAI-ARIA - MDN Web Docs ',
+                contentType: LinkContentType.READ,
+              },
+            ],
+          },
+          {
+            label: 'Documentação sobre Acessibilidade na Web',
+            links: [
+              {
+                url: 'https://www.w3c.br/traducoes/wcag/wcag21-pt-BR/',
+                label: 'WCAG',
+                contentType: LinkContentType.READ,
+              },
+              {
+                url: 'https://www.w3.org/WAI/standards-guidelines/aria/',
+                label: 'WAI-ARIA Overview',
+                contentType: LinkContentType.READ,
+              },
+              {
+                url: 'https://developer.mozilla.org/pt-BR/docs/Web/Accessibility',
+                label: 'Acessibilidade - MDN Web Docs',
+                contentType: LinkContentType.READ,
+              },
+              {
+                url: 'https://guia-wcag.com/',
+                label: 'WCAG - Guia de Consulta Rápida',
+                contentType: LinkContentType.READ,
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+  {
     label: 'Ferramentas de Build',
     items: [
       {
