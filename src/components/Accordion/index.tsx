@@ -5,7 +5,11 @@ import { RoadmapItem } from '../../entity/RoadmapModel';
 import { getColorFromContentType } from '../../support/contentType';
 import { Checkbox } from '../Checkbox';
 import { useSectionRoadmapActions } from '../HorizontalRoadmap/LevelProvider';
+
 export const AccordionContainer = RadixAccordion.Root;
+export const AccordionItem = RadixAccordion.Item;
+export const AccordionHeader = RadixAccordion.Header;
+export const AccordionContent = RadixAccordion.Content;
 
 // This component is specific to the Roadmaps, if you want to use it for other
 // cases, use all the separate components together as shown in this component
@@ -99,19 +103,6 @@ export function RoadmapAccordion({ section, isRead, saveRead }: AccordionProps) 
   );
 }
 
-type AccordionItemProps = RadixAccordion.AccordionItemProps & React.RefAttributes<HTMLDivElement>;
-
-export function AccordionItem({ children, ...itemProps }: AccordionItemProps) {
-  return <RadixAccordion.Item {...itemProps}>{children}</RadixAccordion.Item>;
-}
-
-type AccordionHeaderProps = RadixAccordion.AccordionHeaderProps &
-  React.RefAttributes<HTMLHeadingElement>;
-
-export function AccordionHeader({ children, ...accHeaderProps }: AccordionHeaderProps) {
-  return <RadixAccordion.Header {...accHeaderProps}>{children}</RadixAccordion.Header>;
-}
-
 type AccordionTriggerProps = RadixAccordion.AccordionTriggerProps &
   React.RefAttributes<HTMLButtonElement> & {
     arrowDownClassName?: string;
@@ -128,14 +119,4 @@ export function AccordionTrigger({
       <BsChevronDown aria-hidden className={`${s.Icon} ${arrowDownClassName}`} />
     </RadixAccordion.Trigger>
   );
-}
-
-export function AccordionContent({
-  children,
-  className,
-}: {
-  children: React.ReactNode;
-  className?: string;
-}) {
-  return <RadixAccordion.Content className={className}>{children}</RadixAccordion.Content>;
 }
