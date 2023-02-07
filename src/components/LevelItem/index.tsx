@@ -1,8 +1,8 @@
-import { CheckIcon } from '@chakra-ui/icons';
 import { FaRegCircle } from 'react-icons/fa';
 import { Level, RoadmapItem } from '../../entity/RoadmapModel';
 import ReactGA from 'react-ga4';
 import { DrawerTrigger } from '../Drawer';
+import { CheckIcon } from '../CheckIcon';
 
 type Props = {
   level: Level;
@@ -26,7 +26,9 @@ export default function LevelItem(props: Props) {
   }
 
   function handleToggleAllSelection(
-    event: React.MouseEvent<SVGElement, MouseEvent> | React.KeyboardEvent<SVGElement>,
+    event:
+      | React.MouseEvent<SVGElement | HTMLButtonElement, MouseEvent>
+      | React.KeyboardEvent<SVGElement>,
     item: RoadmapItem,
   ) {
     props.checkAllContent(
@@ -77,22 +79,16 @@ export default function LevelItem(props: Props) {
                     }
                   >
                     {isAllContentRead ? (
-                      <span className="animate-checking">
-                        <CheckIcon
-                          m="auto"
-                          mx="1"
-                          color={'#228B22'}
-                          onClick={(e) => {
-                            handleToggleAllSelection(e, item);
-                          }}
-                          onKeyDown={(e) => {
-                            if (e.key === 'Enter') {
-                              handleToggleAllSelection(e, item);
-                            }
-                          }}
-                          tabIndex={0}
-                        />
-                      </span>
+                      <button
+                        onClick={(e) => {
+                          handleToggleAllSelection(e, item);
+                        }}
+                        className="h-full"
+                      >
+                        <span className="animate-checking">
+                          <CheckIcon className="m-auto mx-1 stroke-[#228B22]" />
+                        </span>
+                      </button>
                     ) : (
                       <FaRegCircle
                         className="hover: m-auto mx-1 animate-checking hover:fill-light-orange hover:text-light-orange"

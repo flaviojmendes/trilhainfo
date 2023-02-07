@@ -1,19 +1,15 @@
-import { Button } from "@chakra-ui/button";
-import { DeleteIcon } from "@chakra-ui/icons";
-import { Input } from "@chakra-ui/input";
-import { Divider } from "@chakra-ui/layout";
-import { Select } from "@chakra-ui/select";
-import { Textarea } from "@chakra-ui/textarea";
-import { ChangeEvent, useState } from "react";
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
+import { ChangeEvent } from 'react';
+import { FiTrash2 } from 'react-icons/fi';
 import {
   Level,
   Link,
   LinkContentType,
   RoadmapItem,
   RoadmapModel,
-} from "../../../entity/RoadmapModel";
-import { ItemField } from "../../../entity/ViewEnums";
-import usePrompt from "../../../support/navigation";
+} from '../../../entity/RoadmapModel';
+import { ItemField } from '../../../entity/ViewEnums';
+import usePrompt from '../../../support/navigation';
 
 type Props = {
   roadmap: RoadmapModel;
@@ -23,26 +19,17 @@ type Props = {
 };
 
 export default function NewRoadmapEditor(props: Props) {
-  usePrompt(
-    "Tem certeza que deseja sair? Você pode perder dados não salvos.",
-    props.shouldBlock
-  );
+  usePrompt('Tem certeza que deseja sair? Você pode perder dados não salvos.', props.shouldBlock);
 
   function handleNewLevel() {
-    let roadmapTemp: RoadmapModel = Object.assign(
-      new RoadmapModel(),
-      props.roadmap
-    );
+    const roadmapTemp: RoadmapModel = Object.assign(new RoadmapModel(), props.roadmap);
     roadmapTemp.addLevel({ items: [] });
     props.setRoadmap(roadmapTemp);
     props.setShouldBlock(true);
   }
 
   function handleRemoveLevel(level: Level) {
-    let roadmapTemp: RoadmapModel = Object.assign(
-      new RoadmapModel(),
-      props.roadmap
-    );
+    const roadmapTemp: RoadmapModel = Object.assign(new RoadmapModel(), props.roadmap);
     roadmapTemp?.removeLevel(level);
     props.setRoadmap(roadmapTemp);
     props.setShouldBlock(true);
@@ -51,12 +38,9 @@ export default function NewRoadmapEditor(props: Props) {
   function handleLevelTitleChange(
     event: ChangeEvent<HTMLInputElement>,
     level: Level,
-    index: number
+    index: number,
   ) {
-    let roadmapTemp: RoadmapModel = Object.assign(
-      new RoadmapModel(),
-      props.roadmap
-    );
+    const roadmapTemp: RoadmapModel = Object.assign(new RoadmapModel(), props.roadmap);
 
     level.label = event.target.value;
     roadmapTemp.getLevels()[index] = level;
@@ -67,12 +51,9 @@ export default function NewRoadmapEditor(props: Props) {
   function handleLevelDescriptionChange(
     event: ChangeEvent<HTMLTextAreaElement>,
     level: Level,
-    index: number
+    index: number,
   ) {
-    let roadmapTemp: RoadmapModel = Object.assign(
-      new RoadmapModel(),
-      props.roadmap
-    );
+    const roadmapTemp: RoadmapModel = Object.assign(new RoadmapModel(), props.roadmap);
 
     level.description = event.target.value;
     roadmapTemp.getLevels()[index] = level;
@@ -86,12 +67,9 @@ export default function NewRoadmapEditor(props: Props) {
     item: RoadmapItem,
     levelIndex: number,
     itemIndex: number,
-    itemField: ItemField
+    itemField: ItemField,
   ) {
-    let roadmapTemp: RoadmapModel = Object.assign(
-      new RoadmapModel(),
-      props.roadmap
-    );
+    const roadmapTemp: RoadmapModel = Object.assign(new RoadmapModel(), props.roadmap);
 
     if (itemField === ItemField.LABEL) {
       item.label = event.target.value;
@@ -105,23 +83,17 @@ export default function NewRoadmapEditor(props: Props) {
   }
 
   function handleNewItem(level: Level, index: number) {
-    let roadmapTemp: RoadmapModel = Object.assign(
-      new RoadmapModel(),
-      props.roadmap
-    );
+    const roadmapTemp: RoadmapModel = Object.assign(new RoadmapModel(), props.roadmap);
 
-    level.items.push({ label: "" });
+    level.items.push({ label: '' });
     roadmapTemp.getLevels()[index] = level;
     props.setRoadmap(roadmapTemp);
     props.setShouldBlock(true);
   }
 
   function handleRemoveItem(levelIndex: number, item: RoadmapItem) {
-    let roadmapTemp: RoadmapModel = Object.assign(
-      new RoadmapModel(),
-      props.roadmap
-    );
-    let items = roadmapTemp.levels[levelIndex].items.filter((obj) => {
+    const roadmapTemp: RoadmapModel = Object.assign(new RoadmapModel(), props.roadmap);
+    const items = roadmapTemp.levels[levelIndex].items.filter((obj) => {
       return obj !== item;
     });
     roadmapTemp.levels[levelIndex].items = items;
@@ -136,12 +108,9 @@ export default function NewRoadmapEditor(props: Props) {
     levelIndex: number,
     itemIndex: number,
     sectionIndex: number,
-    itemField: ItemField
+    itemField: ItemField,
   ) {
-    let roadmapTemp: RoadmapModel = Object.assign(
-      new RoadmapModel(),
-      props.roadmap
-    );
+    const roadmapTemp: RoadmapModel = Object.assign(new RoadmapModel(), props.roadmap);
 
     if (itemField === ItemField.LABEL) {
       item.label = event.target.value;
@@ -149,46 +118,28 @@ export default function NewRoadmapEditor(props: Props) {
       item.description = event.target.value;
     }
 
-    roadmapTemp.getLevels()[levelIndex].items[itemIndex].children![
-      sectionIndex
-    ] = item;
+    roadmapTemp.getLevels()[levelIndex].items[itemIndex].children![sectionIndex] = item;
     props.setRoadmap(roadmapTemp);
     props.setShouldBlock(true);
   }
 
-  function handleNewSection(
-    level: Level,
-    levelIndex: number,
-    itemIndex: number
-  ) {
-    let roadmapTemp: RoadmapModel = Object.assign(
-      new RoadmapModel(),
-      props.roadmap
-    );
+  function handleNewSection(level: Level, levelIndex: number, itemIndex: number) {
+    const roadmapTemp: RoadmapModel = Object.assign(new RoadmapModel(), props.roadmap);
 
     if (!level.items[itemIndex].children) {
       level.items[itemIndex].children = [];
     }
 
-    level.items[itemIndex].children!.push({ label: "" });
+    level.items[itemIndex].children!.push({ label: '' });
 
     roadmapTemp.getLevels()[levelIndex] = level;
     props.setRoadmap(roadmapTemp);
     props.setShouldBlock(true);
   }
 
-  function handleRemoveSection(
-    levelIndex: number,
-    itemIndex: number,
-    section: RoadmapItem
-  ) {
-    let roadmapTemp: RoadmapModel = Object.assign(
-      new RoadmapModel(),
-      props.roadmap
-    );
-    let items = roadmapTemp.levels[levelIndex].items[
-      itemIndex
-    ].children!.filter((obj) => {
+  function handleRemoveSection(levelIndex: number, itemIndex: number, section: RoadmapItem) {
+    const roadmapTemp: RoadmapModel = Object.assign(new RoadmapModel(), props.roadmap);
+    const items = roadmapTemp.levels[levelIndex].items[itemIndex].children!.filter((obj) => {
       return obj !== section;
     });
     roadmapTemp.levels[levelIndex].items[itemIndex].children = items;
@@ -199,20 +150,15 @@ export default function NewRoadmapEditor(props: Props) {
 
   // Link Functions
   function handleLinkChange(
-    event: ChangeEvent<
-      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >,
+    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
     link: Link,
     levelIndex: number,
     itemIndex: number,
     sectionIndex: number,
     linkIndex: number,
-    itemField: ItemField
+    itemField: ItemField,
   ) {
-    let roadmapTemp: RoadmapModel = Object.assign(
-      new RoadmapModel(),
-      props.roadmap
-    );
+    const roadmapTemp: RoadmapModel = Object.assign(new RoadmapModel(), props.roadmap);
 
     if (itemField === ItemField.LABEL) {
       link.label = event.target.value;
@@ -222,9 +168,8 @@ export default function NewRoadmapEditor(props: Props) {
       link.contentType = event.target.value;
     }
 
-    roadmapTemp.getLevels()[levelIndex].items[itemIndex].children![
-      sectionIndex
-    ].links![linkIndex] = link;
+    roadmapTemp.getLevels()[levelIndex].items[itemIndex].children![sectionIndex].links![linkIndex] =
+      link;
     props.setRoadmap(roadmapTemp);
     props.setShouldBlock(true);
   }
@@ -233,20 +178,17 @@ export default function NewRoadmapEditor(props: Props) {
     level: Level,
     levelIndex: number,
     itemIndex: number,
-    sectionIndex: number
+    sectionIndex: number,
   ) {
-    let roadmapTemp: RoadmapModel = Object.assign(
-      new RoadmapModel(),
-      props.roadmap
-    );
+    const roadmapTemp: RoadmapModel = Object.assign(new RoadmapModel(), props.roadmap);
 
     if (!level.items[itemIndex].children![sectionIndex].links) {
       level.items[itemIndex].children![sectionIndex].links = [];
     }
 
     level.items[itemIndex].children![sectionIndex].links!.push({
-      label: "",
-      url: "",
+      label: '',
+      url: '',
       contentType: LinkContentType.WATCH,
     });
 
@@ -259,150 +201,123 @@ export default function NewRoadmapEditor(props: Props) {
     levelIndex: number,
     itemIndex: number,
     sectionIndex: number,
-    link: Link
+    link: Link,
   ) {
-    let roadmapTemp: RoadmapModel = Object.assign(
-      new RoadmapModel(),
-      props.roadmap
-    );
-    let items = roadmapTemp.levels[levelIndex].items[itemIndex].children![
+    const roadmapTemp: RoadmapModel = Object.assign(new RoadmapModel(), props.roadmap);
+    const items = roadmapTemp.levels[levelIndex].items[itemIndex].children![
       sectionIndex
     ].links!.filter((obj) => {
       return obj !== link;
     });
-    roadmapTemp.levels[levelIndex].items[itemIndex].children![
-      sectionIndex
-    ].links = items;
+    roadmapTemp.levels[levelIndex].items[itemIndex].children![sectionIndex].links = items;
     props.setRoadmap(roadmapTemp);
     props.setShouldBlock(true);
   }
 
   return (
     <>
-      <h2 className="font-title text-light-orange text-center text-2xl ml-2 mb-2">
-        Editor
-      </h2>
+      <h2 className="ml-2 mb-2 text-center font-title text-2xl text-light-orange">Editor</h2>
 
       {props.roadmap?.getLevels().map((level, levelIndex) => {
         return (
           <div
             key={levelIndex}
             className={
-              "pb-5 lg:w-full self-center md:ml-8 px-4 rounded-md " +
+              'self-center rounded-md px-4 pb-5 md:ml-8 lg:w-full ' +
               (level.label || level.description
-                ? "border-2 border-dark-red border-dotted bg-light-yellow"
-                : "bg-white bg-opacity-50")
+                ? 'border-2 border-dotted border-dark-red bg-light-yellow'
+                : 'bg-white bg-opacity-50')
             }
           >
-            <div className="w-full flex align-middle flex-wrap justify-end">
-              <div className="grow flex">
-                <span className="text-xs font-title my-auto">
+            <div className="flex w-full flex-wrap justify-end align-middle">
+              <div className="flex grow">
+                <span className="my-auto font-title text-xs">
                   (Título e Descrição são Opcionais)
                 </span>
               </div>
               <button
-                className="m-auto my-2 cursor-pointer w-fit border-2 rounded-md p-1 bg-light-orange border-red"
+                className="m-auto my-2 flex w-fit cursor-pointer rounded-md border-2 border-red bg-light-orange p-1"
                 onClick={() => handleRemoveLevel(level)}
               >
-                <DeleteIcon cursor={"pointer"} />{" "}
-                <span className="text-sm font-title">Remover Level</span>
+                <FiTrash2 cursor={'pointer'} />
+                <span className="font-title text-sm">Remover Level</span>
               </button>
             </div>
-            <div className="w-44 h-50 mx-auto text-center">
-              <Input
-                borderColor={"#000"}
-                className="font-black font-title placeholder:text-dark-blue"
+            <div className="h-50 mx-auto w-44 text-center">
+              <input
+                type="text"
+                className="font-title font-black placeholder:text-dark-blue"
                 value={level.label}
                 onChange={(e) => handleLevelTitleChange(e, level, levelIndex)}
                 placeholder="Título"
-                size="xs"
               />
             </div>
-            <div className="w-full h-50 mx-auto mt-4 text-center">
-              <Textarea
-                borderColor={"#000"}
+            <div className="h-50 mx-auto mt-4 w-full text-center">
+              <textarea
                 className="font-black placeholder:text-dark-blue"
                 value={level.description}
-                onChange={(e) =>
-                  handleLevelDescriptionChange(e, level, levelIndex)
-                }
+                onChange={(e) => handleLevelDescriptionChange(e, level, levelIndex)}
                 placeholder="Descrição"
-                size="xs"
               />
             </div>
             {/* Items */}
-            <div className="w-full flex flex-col space-y-3 space-x-1 mt-4">
+            <div className="mt-4 flex w-full flex-col space-y-3 space-x-1">
               {level.items.map((item, itemIndex) => {
                 return (
                   <div
                     key={`item-${itemIndex}`}
-                    className="flex flex-col space-y-2 mx-0 my-0 p-2 pt-3 md:p-3 w-full text-center border-2 rounded-md border-dark-red  hover:shadow-md bg-brown"
+                    className="mx-0 my-0 flex w-full flex-col space-y-2 rounded-md border-2 border-dark-red bg-brown p-2 pt-3 text-center  hover:shadow-md md:p-3"
                   >
                     <div className="flex flex-row-reverse">
                       <button
-                        className="mb-2 cursor-pointer w-fit font-title text-sm border-2 rounded-md p-1 bg-light-orange border-red"
+                        className="mb-2 flex w-fit cursor-pointer rounded-md border-2 border-red bg-light-orange p-1 font-title text-sm"
                         onClick={() => handleRemoveItem(levelIndex, item)}
                       >
-                        <DeleteIcon cursor={"pointer"} /> Remover Item
+                        <FiTrash2 cursor={'pointer'} /> Remover Item
                       </button>
                     </div>
-                    <Input
+                    <input
+                      type="text"
                       className="font-black placeholder:text-dark-blue"
-                      border="2px"
-                      borderColor={"#ee8561"}
                       value={item.label}
                       onChange={(e) =>
-                        handleItemChange(
-                          e,
-                          item,
-                          levelIndex,
-                          itemIndex,
-                          ItemField.LABEL
-                        )
+                        handleItemChange(e, item, levelIndex, itemIndex, ItemField.LABEL)
                       }
                       placeholder="Título"
-                      size="xs"
                     />
-                    <Textarea
+
+                    <textarea
                       className="font-black placeholder:text-dark-blue"
-                      border="2px"
-                      borderColor={"#ee8561"}
                       value={item.description}
                       onChange={(e) =>
-                        handleItemChange(
-                          e,
-                          item,
-                          levelIndex,
-                          itemIndex,
-                          ItemField.DESCRIPTION
-                        )
+                        handleItemChange(e, item, levelIndex, itemIndex, ItemField.DESCRIPTION)
                       }
                       placeholder="Descrição"
-                      size="xs"
                     />
+
                     <span className="font-semibold">Seções</span>
                     {/* Sections */}
 
                     {item.children?.map((section, sectionIndex) => {
                       return (
-                        <div>
+                        <div key={section.label}>
                           <div
-                            className="m-auto my-2 cursor-pointer w-fit font-title text-sm border-2 rounded-md p-1 bg-light-orange border-red"
-                            onClick={() =>
-                              handleRemoveSection(
-                                levelIndex,
-                                itemIndex,
-                                section
-                              )
-                            }
+                            className="m-auto my-2 flex w-fit cursor-pointer rounded-md border-2 border-red bg-light-orange p-1 font-title text-sm"
+                            onClick={() => handleRemoveSection(levelIndex, itemIndex, section)}
+                            onKeyDown={(e) => {
+                              if (e.key === 'Enter') {
+                                handleRemoveSection(levelIndex, itemIndex, section);
+                              }
+                            }}
+                            role="button"
+                            tabIndex={0}
                           >
-                            <DeleteIcon cursor={"pointer"} /> Remover Seção
+                            <FiTrash2 cursor={'pointer'} /> Remover Seção
                           </div>
 
-                          <Input
+                          <input
+                            type="text"
                             className="font-black placeholder:text-dark-blue"
-                            border="2px"
-                            borderColor={"#59c0e4"}
                             value={section.label}
                             onChange={(e) =>
                               handleSectionChange(
@@ -411,37 +326,37 @@ export default function NewRoadmapEditor(props: Props) {
                                 levelIndex,
                                 itemIndex,
                                 sectionIndex,
-                                ItemField.LABEL
+                                ItemField.LABEL,
                               )
                             }
                             placeholder="Título"
-                            size="xs"
                           />
+
                           {/* Links */}
                           {section.links?.map((link, linkIndex) => {
                             return (
                               <>
-                                <Divider borderColor={"yellow.500"} mt="2" />
                                 <div
-                                  className="m-auto my-2 cursor-pointer w-fit font-title text-sm border-2 rounded-md p-1 bg-light-orange border-red"
+                                  className="m-auto my-2 flex w-fit cursor-pointer rounded-md border-2 border-red bg-light-orange p-1 font-title text-sm"
                                   onClick={() =>
-                                    handleRemoveLink(
-                                      levelIndex,
-                                      itemIndex,
-                                      sectionIndex,
-                                      link
-                                    )
+                                    handleRemoveLink(levelIndex, itemIndex, sectionIndex, link)
                                   }
+                                  onKeyDown={(e) => {
+                                    if (e.key === 'Enter') {
+                                      handleRemoveLink(levelIndex, itemIndex, sectionIndex, link);
+                                    }
+                                  }}
+                                  role="button"
+                                  tabIndex={0}
                                 >
-                                  <DeleteIcon cursor={"pointer"} /> Remover Link
+                                  <FiTrash2 cursor={'pointer'} /> Remover Link
                                 </div>
 
-                                <div className="flex flex-wrap md:space-x-2 mt-2">
+                                <div className="mt-2 flex flex-wrap md:space-x-2">
                                   <div className="w-full md:w-4/12">
-                                    <Input
+                                    <input
+                                      type="text"
                                       className="font-black placeholder:text-dark-blue"
-                                      border="2px"
-                                      borderColor={"#eabc54"}
                                       value={link.label}
                                       onChange={(e) =>
                                         handleLinkChange(
@@ -451,18 +366,16 @@ export default function NewRoadmapEditor(props: Props) {
                                           itemIndex,
                                           sectionIndex,
                                           linkIndex,
-                                          ItemField.LABEL
+                                          ItemField.LABEL,
                                         )
                                       }
                                       placeholder="Título do Link"
-                                      size="xs"
                                     />
                                   </div>
                                   <div className="w-full md:w-5/12">
-                                    <Input
+                                    <input
+                                      type="text"
                                       className="font-black placeholder:text-dark-blue"
-                                      border="2px"
-                                      borderColor={"#eabc54"}
                                       value={link.url}
                                       onChange={(e) =>
                                         handleLinkChange(
@@ -472,19 +385,16 @@ export default function NewRoadmapEditor(props: Props) {
                                           itemIndex,
                                           sectionIndex,
                                           linkIndex,
-                                          ItemField.URL
+                                          ItemField.URL,
                                         )
                                       }
                                       placeholder="URL do Link"
-                                      size="xs"
                                     />
                                   </div>
                                   <div className="w-full md:w-2/12">
-                                    <Select
+                                    <select
                                       placeholder="Select option"
-                                      border="2px"
                                       value={link.contentType}
-                                      borderColor={"#eabc54"}
                                       onChange={(e) =>
                                         handleLinkChange(
                                           e,
@@ -493,34 +403,28 @@ export default function NewRoadmapEditor(props: Props) {
                                           itemIndex,
                                           sectionIndex,
                                           linkIndex,
-                                          ItemField.TYPE
+                                          ItemField.TYPE,
                                         )
                                       }
-                                      size="xs"
                                     >
-                                      {Object.values(LinkContentType).map(
-                                        (type) => {
-                                          return (
-                                            <option value={type}>{type}</option>
-                                          );
-                                        }
-                                      )}
-                                    </Select>
+                                      {Object.values(LinkContentType).map((type) => {
+                                        return (
+                                          <option key={type} value={type}>
+                                            {type}
+                                          </option>
+                                        );
+                                      })}
+                                    </select>
                                   </div>
                                 </div>
                               </>
                             );
                           })}
-                          <div className="w-full flex mt-4">
+                          <div className="mt-4 flex w-full">
                             <button
-                              className="my-2 text-xs font-semibold mx-auto bg-light-yellow rounded-md p-2 border-yellow border-2"
+                              className="my-2 mx-auto rounded-md border-2 border-yellow bg-light-yellow p-2 text-xs font-semibold"
                               onClick={() =>
-                                handleNewLink(
-                                  level,
-                                  levelIndex,
-                                  itemIndex,
-                                  sectionIndex
-                                )
+                                handleNewLink(level, levelIndex, itemIndex, sectionIndex)
                               }
                             >
                               + Novo Link
@@ -531,12 +435,10 @@ export default function NewRoadmapEditor(props: Props) {
                       );
                     })}
                     {/* Sections End */}
-                    <div className="w-full flex mt-8">
+                    <div className="mt-8 flex w-full">
                       <button
-                        className="my-2 text-xs font-semibold mx-auto bg-blue rounded-md p-2 border-dark-blue border-2"
-                        onClick={() =>
-                          handleNewSection(level, levelIndex, itemIndex)
-                        }
+                        className="my-2 mx-auto rounded-md border-2 border-dark-blue bg-blue p-2 text-xs font-semibold"
+                        onClick={() => handleNewSection(level, levelIndex, itemIndex)}
                       >
                         + Nova Seção
                       </button>
@@ -547,9 +449,9 @@ export default function NewRoadmapEditor(props: Props) {
             </div>
 
             {/* Items End */}
-            <div className="w-full flex mt-4">
+            <div className="mt-4 flex w-full">
               <button
-                className="my-2 text-xs font-semibold mx-auto bg-light-brown rounded-md p-2 border-red border-2"
+                className="my-2 mx-auto rounded-md border-2 border-red bg-light-brown p-2 text-xs font-semibold"
                 onClick={() => handleNewItem(level, levelIndex)}
               >
                 + Novo Item
@@ -559,15 +461,9 @@ export default function NewRoadmapEditor(props: Props) {
         );
       })}
 
-      <Button
-        my="4"
-        mx={"auto"}
-        colorScheme="yellow"
-        variant="solid"
-        onClick={handleNewLevel}
-      >
+      <button className="my-4 mx-auto" onClick={handleNewLevel}>
         + Novo Nível
-      </Button>
+      </button>
     </>
   );
 }

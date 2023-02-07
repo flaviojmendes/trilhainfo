@@ -339,31 +339,6 @@
     "@babel/helper-validator-identifier" "^7.18.6"
     to-fast-properties "^2.0.0"
 
-"@chakra-ui/icon@3.0.2":
-  version "3.0.2"
-  resolved "https://registry.npmjs.org/@chakra-ui/icon/-/icon-3.0.2.tgz"
-  integrity sha512-sas37byldn5O/TTIKHzxHBujEYqVPXegisoMqutLtF60fpXnb62aG1JTyorXSG3zJxJWQW7+AvjbOGyWKHXc0Q==
-  dependencies:
-    "@chakra-ui/utils" "2.0.2"
-
-"@chakra-ui/icons@^2.0.2":
-  version "2.0.2"
-  resolved "https://registry.npmjs.org/@chakra-ui/icons/-/icons-2.0.2.tgz"
-  integrity sha512-UY7vP8E5pv2a4sd1SiezgVbmq1/tRfnehk6PatunrTvGMxQNhSKJJoiRI/wCtUfMoMz+yp9+ekc1ksJVCnokRg==
-  dependencies:
-    "@chakra-ui/icon" "3.0.2"
-    "@types/react" "^18.0.1"
-
-"@chakra-ui/utils@2.0.2":
-  version "2.0.2"
-  resolved "https://registry.npmjs.org/@chakra-ui/utils/-/utils-2.0.2.tgz"
-  integrity sha512-9AC/ir9zm0shgFG7kdzOKUH2Wx5VB71M3uRMEsMZf75YlhhiU7AvBNtWXnJu+CBiTi41rKa5A+2ImMOsuPfGbA==
-  dependencies:
-    "@types/lodash.mergewith" "4.6.6"
-    css-box-model "1.2.1"
-    framesync "5.3.0"
-    lodash.mergewith "4.6.2"
-
 "@emotion/babel-plugin@^11.7.1":
   version "11.9.2"
   resolved "https://registry.npmjs.org/@emotion/babel-plugin/-/babel-plugin-11.9.2.tgz"
@@ -889,18 +864,6 @@
   resolved "https://registry.yarnpkg.com/@types/json5/-/json5-0.0.29.tgz#ee28707ae94e11d2b827bcbe5270bcea7f3e71ee"
   integrity sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==
 
-"@types/lodash.mergewith@4.6.6":
-  version "4.6.6"
-  resolved "https://registry.npmjs.org/@types/lodash.mergewith/-/lodash.mergewith-4.6.6.tgz"
-  integrity sha512-RY/8IaVENjG19rxTZu9Nukqh0W2UrYgmBj5sdns4hWRZaV8PqR7wIKHFKzvOTjo4zVRV7sVI+yFhAJql12Kfqg==
-  dependencies:
-    "@types/lodash" "*"
-
-"@types/lodash@*":
-  version "4.14.182"
-  resolved "https://registry.npmjs.org/@types/lodash/-/lodash-4.14.182.tgz"
-  integrity sha512-/THyiqyQAP9AfARo4pF+aCGcyiQ94tX/Is2I7HofNRqoYLgN1PBoOWu2/zTA5zMxzP5EFutMtWtGAFRKUe961Q==
-
 "@types/node@^18.7.3":
   version "18.7.3"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-18.7.3.tgz#432c89796eab539b7a30b7b8801a727b585238a4"
@@ -930,7 +893,7 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react@*", "@types/react@^18.0.0", "@types/react@^18.0.1":
+"@types/react@*", "@types/react@^18.0.0":
   version "18.0.14"
   resolved "https://registry.npmjs.org/@types/react/-/react-18.0.14.tgz"
   integrity sha512-x4gGuASSiWmo0xjDLpm5mPb52syZHJx02VKbqUKdLmKtAwIh63XClGsiTI1K6DO5q7ox4xAsQrU+Gl3+gGXF9Q==
@@ -1527,13 +1490,6 @@ cross-spawn@^7.0.2, cross-spawn@^7.0.3:
     path-key "^3.1.0"
     shebang-command "^2.0.0"
     which "^2.0.1"
-
-css-box-model@1.2.1:
-  version "1.2.1"
-  resolved "https://registry.npmjs.org/css-box-model/-/css-box-model-1.2.1.tgz"
-  integrity sha512-a7Vr4Q/kd/aw96bnJG332W9V9LkJO69JRcaCYDUqjp6/z0w6VcZjgAcTbgFxEPfBgdnAwlh3iwu+hLopa+flJw==
-  dependencies:
-    tiny-invariant "^1.0.6"
 
 css-color-keywords@^1.0.0:
   version "1.0.0"
@@ -2368,13 +2324,6 @@ framer-motion@^6:
   optionalDependencies:
     "@emotion/is-prop-valid" "^0.8.2"
 
-framesync@5.3.0:
-  version "5.3.0"
-  resolved "https://registry.npmjs.org/framesync/-/framesync-5.3.0.tgz"
-  integrity sha512-oc5m68HDO/tuK2blj7ZcdEBRx3p1PjrgHazL8GYEpvULhrtGIFbQArN6cQS2QhW8mitffaB+VYzMjDqBxxQeoA==
-  dependencies:
-    tslib "^2.1.0"
-
 framesync@6.0.1:
   version "6.0.1"
   resolved "https://registry.npmjs.org/framesync/-/framesync-6.0.1.tgz"
@@ -3019,11 +2968,6 @@ lodash.merge@^4.6.2:
   version "4.6.2"
   resolved "https://registry.yarnpkg.com/lodash.merge/-/lodash.merge-4.6.2.tgz#558aa53b43b661e1925a0afdfa36a9a1085fe57a"
   integrity sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==
-
-lodash.mergewith@4.6.2:
-  version "4.6.2"
-  resolved "https://registry.npmjs.org/lodash.mergewith/-/lodash.mergewith-4.6.2.tgz"
-  integrity sha512-GK3g5RPZWTRSeLSpgP8Xhra+pnjBC56q9FZYe1d5RN3TJ35dbkGy3YqBSMbyCrlbi+CM9Z3Jk5yTL7RCsqboyQ==
 
 lodash@>=4.17.21, lodash@^4.17.11:
   version "4.17.21"
@@ -4126,7 +4070,7 @@ through@^2.3.8:
   resolved "https://registry.yarnpkg.com/through/-/through-2.3.8.tgz#0dd4c9ffaabc357960b1b724115d7e0e86a2e1f5"
   integrity sha512-w89qg7PI8wAdvX60bMDP+bFoD5Dvhm9oLheFp5O4a2QF0cSBGsBX4qZmadPMvVqlLJBBci+WqGGOAPvcDeNSVg==
 
-tiny-invariant@^1.0.6, tiny-invariant@^1.2.0:
+tiny-invariant@^1.2.0:
   version "1.2.0"
   resolved "https://registry.npmjs.org/tiny-invariant/-/tiny-invariant-1.2.0.tgz"
   integrity sha512-1Uhn/aqw5C6RI4KejVeTg6mIS7IqxnLJ8Mv2tV5rTc0qWobay7pDUz6Wi392Cnc8ak1H0F2cjoRzb2/AW4+Fvg==
