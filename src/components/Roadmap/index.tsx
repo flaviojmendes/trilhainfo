@@ -177,7 +177,6 @@ export default function Roadmap(props: Props) {
                 isAllContentRead={isAllContentRead}
                 checkAllContent={checkAllContent}
                 levelsQty={data.length}
-                onOpen={() => handleOpenChange(true)}
                 setActiveItem={setActiveItem}
                 updateLastSelectedElement={setLastSelectedElement}
               />
