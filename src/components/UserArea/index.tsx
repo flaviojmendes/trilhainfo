@@ -1,6 +1,6 @@
 import { useAuth0 } from '@auth0/auth0-react';
 import axios, { AxiosError } from 'axios';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { FiEdit, FiShare2, FiTrash2 } from 'react-icons/fi';
 import { Grid } from 'react-loader-spinner';
 import { Link, useNavigate } from 'react-router-dom';
@@ -21,14 +21,7 @@ export default function UserArea() {
   function handleCreateNew() {
     navigate('/new-roadmap');
   }
-
-  useEffect(() => {
-    if (user) {
-      getRoadmaps();
-    }
-  }, [isLoading]);
-
-  async function getRoadmaps() {
+  const getRoadmaps = useCallback(async () => {
     setLoadingRoadmaps(true);
     if (cookies.get('api_token')) {
       try {
@@ -54,22 +47,25 @@ export default function UserArea() {
       logout();
     }
     setLoadingRoadmaps(false);
-  }
+  }, [logout, user?.nickname]);
+
+  useEffect(() => {
+    if (user) {
+      getRoadmaps();
+    }
+  }, [isLoading, getRoadmaps, user]);
 
   async function handleDeleteRoadmap(roadmapId: string) {
     const answer = window.confirm('Tem certeza que quer deletar?');
     if (answer) {
       setLoadingRoadmaps(true);
       setRoadmaps([]);
-      const response = await axios.delete(
-        import.meta.env.VITE_API_URL + `/roadmap/${roadmapId}` || '',
-        {
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: cookies.get('api_token'),
-          },
+      await axios.delete(import.meta.env.VITE_API_URL + `/roadmap/${roadmapId}` || '', {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: cookies.get('api_token'),
         },
-      );
+      });
       getRoadmaps();
     }
   }
@@ -90,15 +86,12 @@ export default function UserArea() {
   return (
     <section className="mx-0 mt-10 flex w-full flex-col items-stretch justify-center bg-[#403C3B] py-10 px-10 shadow-inner xl:px-64">
       <h2 className="c-yellow my-6 text-center font-title text-3xl">Meus Roadmaps</h2>
-      <div className="flex flex-wrap items-stretch justify-center gap-5 space-y-10 py-8 px-4 md:space-y-0">
+      <div className="grid grid-cols-1 gap-5 space-y-10 py-8 md:grid-cols-2 md:space-y-0">
         {roadmaps?.map((roadmap) => {
           return (
-            <div
-              key={roadmap.id}
-              className="flex min-h-fit w-full flex-col space-y-2 md:w-1/3 lg:w-1/4"
-            >
+            <div key={roadmap.id} className="flex flex-col space-y-2">
               <Link
-                className="rounded-md  bg-brown py-3 hover:bg-white"
+                className="grow rounded-md  bg-brown py-3 hover:bg-white"
                 to={`/roadmap/view/${roadmap.id}`}
               >
                 <h3 className="c-dark-brown mb-2 text-center font-title text-3xl">
@@ -119,6 +112,7 @@ export default function UserArea() {
                 />
                 <IconButton
                   aria-label="Compartilhar Roadmap"
+                  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
                   onClick={() => handleCopyToClipboard(roadmap.id!)}
                   icon={<FiShare2 />}
                 />

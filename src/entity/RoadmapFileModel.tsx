@@ -1,4 +1,9 @@
-import { Level } from "./RoadmapModel";
+import { Level } from './RoadmapModel';
+
+export interface RoadmapObjectModel {
+  file: Level[];
+  title: string;
+}
 
 export interface RoadmapFileModel {
   frontend: RoadmapObjectModel;
@@ -7,9 +12,5 @@ export interface RoadmapFileModel {
   devops: RoadmapObjectModel;
   dataEngineer: RoadmapObjectModel;
   community: RoadmapObjectModel;
-}
-
-export interface RoadmapObjectModel {
-  file: Level[];
-  title: string;
+  test: RoadmapObjectModel;
 }

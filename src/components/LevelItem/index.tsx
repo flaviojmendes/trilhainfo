@@ -19,7 +19,10 @@ export default function LevelItem(props: Props) {
   function triggerItemSelection(item: RoadmapItem) {
     props.setActiveItem(item);
     window.history.pushState(item.label, item.label, `#${encodeURI(item.label)}`);
+    window.history.pushState(item.label, item.label, `#${encodeURI(item.label)}`);
     ReactGA.event({
+      category: 'item_open',
+      action: 'open_' + item.label,
       category: 'item_open',
       action: 'open_' + item.label,
     });
@@ -49,6 +52,8 @@ export default function LevelItem(props: Props) {
       >
         {props.level.label && (
           <>
+            <h3 className="my-2 text-center font-title text-xl">{props.level.label}</h3>
+            <p className="mb-3 text-center">{props.level.description}</p>
             <h3 className="my-2 text-center font-title text-xl">{props.level.label}</h3>
             <p className="mb-3 text-center">{props.level.description}</p>
           </>

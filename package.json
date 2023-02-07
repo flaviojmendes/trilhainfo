@@ -6,6 +6,8 @@
     "dev": "vite --host",
     "build": "tsc && vite build",
     "preview": "vite preview",
+    "test": "vitest",
+    "coverage": "vitest run --coverage",
     "prepare": "husky install",
     "format": "prettier --write",
     "format:all": "prettier --write ."
@@ -47,12 +49,16 @@
     "uuid-by-string": "^4.0.0"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
     "@typescript-eslint/eslint-plugin": "^5.48.2",
     "@typescript-eslint/parser": "^5.48.2",
     "@vitejs/plugin-react": "^1.3.0",
+    "@vitest/coverage-c8": "^0.27.2",
     "autoprefixer": "^10.4.7",
+    "jsdom": "^21.0.0",
     "eslint": "^8.0.1",
     "eslint-config-prettier": "^8.6.0",
     "eslint-config-standard": "^17.0.0",
@@ -69,7 +75,8 @@
     "prettier-plugin-tailwindcss": "^0.2.1",
     "tailwindcss": "^3.2.4",
     "typescript": "^4.6.3",
-    "vite": "^2.9.9"
+    "vite": "^2.9.9",
+    "vitest": "^0.27.2"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx}": [
