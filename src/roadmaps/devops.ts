@@ -302,7 +302,15 @@ export const data: Level[] = [
             ],
           },
           { label: "CloudFormation", links: [] },
-          { label: "Pulumi", links: [] },
+          {
+            label: "Pulumi", links: [
+              {
+                label: "IaC além da teoria. Infra as Code crash course.",
+                url: "https://www.youtube.com/watch?v=D-mPpylBxVM",
+                contentType: LinkContentType.WATCH,
+              },
+            ]
+          },
         ],
       },
     ],
