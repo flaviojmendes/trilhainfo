@@ -21,11 +21,16 @@ export default function MobileMenu() {
 }
 
 const HeaderDrawer = () => {
-  const { loginWithRedirect, isAuthenticated, isLoading, logout } = useAuth0();
+  const { loginWithRedirect, isAuthenticated, user, isLoading, logout } = useAuth0();
 
   return (
     <Drawer position="left">
-      {isAuthenticated && <hr className="m-auto mb-4 border-yellow" />}
+      {isAuthenticated && (
+        <div className="flex items-start justify-start border-b border-b-yellow pb-5 text-yellow">
+          <img className="h-10 w-10 rounded-full" src={user?.picture} alt={user?.name} />
+          <span className="m-auto ml-2 mr-4 font-title text-base font-bold">{user?.name}</span>
+        </div>
+      )}
       <ul className="flex-col pt-6">
         <li className="flex">
           <a

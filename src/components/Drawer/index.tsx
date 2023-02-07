@@ -49,8 +49,10 @@ export const Drawer = ({
           isRight ? 'right-0' : 'left-0'
         }`}
         onCloseAutoFocus={(e) => {
-          e.preventDefault();
-          lastClickedElement?.focus();
+          if (lastClickedElement) {
+            e.preventDefault();
+            lastClickedElement?.focus();
+          }
         }}
       >
         {children}
