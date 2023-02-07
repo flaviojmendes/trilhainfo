@@ -39,11 +39,26 @@ Então, no terminal executar:
 
 ```
 # Instalar as dependências com:
-$ yarn 
+$ yarn
 
 # Rodar em modo de desenvolvimento com:
 $ yarn dev
 
+```
+
+Rodando com docker:
+
+Para rodar o este projeto com o docker, você precisará do docker-compose, segue o comando abaixo:
+
+```sh
+# na raiz deste repositório
+docker-compose up
+```
+
+Estando com a API rodando localmente:
+```sh
+# utilizando o mesmo env mencionado acima, referencie ao comando do docker:
+docker-compose --env-file ./.env.local up
 ```
 
 ## Traduções

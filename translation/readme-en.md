@@ -34,11 +34,25 @@ Then run in the terminal:
 
 ```
 # Install the dependencies with:
-$ yarn 
+$ yarn
 
 # Run in developer mode:
 $ yarn dev
 
+```
+
+Running with Docker:
+
+You must have the docker-compmose installed on your computer, then execute:
+```sh
+# on the root of the project
+docker-compose up
+```
+
+With the API running locally:
+```sh
+# reutilize the same .env.local as mentioned before, then run:
+docker-compose --env-file ./.env.local up
 ```
 
 ## Translations
