@@ -7,49 +7,38 @@ import { Checkbox } from '../Checkbox';
 import { useSectionRoadmapActions } from '../HorizontalRoadmap/LevelProvider';
 export const AccordionContainer = RadixAccordion.Root;
 
-type AccordionProps =
-  | {
-      section: RoadmapItem;
-      isHorizontalPage: true;
-    }
-  | {
-      section: RoadmapItem;
-      isHorizontalPage?: false;
-      activeItemLabel: string;
-      isRead: (label: string) => boolean;
-      saveRead: (label: string, checked: boolean) => void;
-    };
-
 // This component is specific to the Roadmaps, if you want to use it for other
 // cases, use all the separate components together as shown in this component
-export function RoadmapAccordion(props: AccordionProps) {
-  let key: string;
-  let isRead: boolean;
-  let saveRead: (check: boolean) => void;
+// structure to use the RoadmapAccordion component (both horizontal and vertical)
+// <AccordionContainer>
+//  {map each section to return (
+//   <RoadmapAccordion /> || <HorizontalRoadmapAccordion />
+//  )}
+// </AccordionContainer>
 
-  if (props.isHorizontalPage) {
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    const actions = useSectionRoadmapActions(props.section);
+type HorizontalRoadmapProps = {
+  section: RoadmapItem;
+};
 
-    isRead = actions.isRead();
-    saveRead = (checked: boolean) => actions.saveRead(checked);
-  } else {
-    key = props.section.label + '-' + props.activeItemLabel;
-    isRead = props.isRead(key);
-    saveRead = (checked: boolean) => props.saveRead(key, checked);
-  }
+// it's in a separate component because it uses the useSectionRoadmapActions hook
+// hooks shouldn't be called conditionally
+export function HorizontalRoadmapAccordion({ section }: HorizontalRoadmapProps) {
+  const actions = useSectionRoadmapActions(section);
+
+  const isRead = actions.isRead();
+  const saveRead = (checked: boolean) => actions.saveRead(checked);
 
   return (
-    <AccordionItem value={props.section.label} className={s.Item}>
+    <AccordionItem value={section.label} className={s.Item}>
       <AccordionHeader className={s.Header}>
         <Checkbox checked={isRead} toggleChecked={saveRead} />
         <AccordionTrigger className={s.Trigger}>
-          <span>{props.section.label}</span>
+          <span>{section.label}</span>
         </AccordionTrigger>
       </AccordionHeader>
       <AccordionContent className={s.Content}>
-        {props.section.links?.length
-          ? props.section.links?.map((link) => (
+        {section.links?.length
+          ? section.links?.map((link) => (
               <div key={link.label} className="my-2 flex items-start justify-between">
                 <a
                   href={link.url}
@@ -71,43 +60,70 @@ export function RoadmapAccordion(props: AccordionProps) {
   );
 }
 
-export function AccordionItem({
-  children,
-  value,
-  className,
-}: {
-  children: React.ReactNode;
-  value: string;
-  className?: string;
-}) {
+type AccordionProps = {
+  section: RoadmapItem;
+  isRead: boolean;
+  saveRead: (checked: boolean) => void;
+};
+
+export function RoadmapAccordion({ section, isRead, saveRead }: AccordionProps) {
   return (
-    <RadixAccordion.Item value={value} className={className}>
-      {children}
-    </RadixAccordion.Item>
+    <AccordionItem value={section.label} className={s.Item}>
+      <AccordionHeader className={s.Header}>
+        <Checkbox checked={isRead} toggleChecked={saveRead} />
+        <AccordionTrigger className={s.Trigger}>
+          <span>{section.label}</span>
+        </AccordionTrigger>
+      </AccordionHeader>
+      <AccordionContent className={s.Content}>
+        {section.links?.length
+          ? section.links?.map((link) => (
+              <div key={link.label} className="my-2 flex items-start justify-between">
+                <a
+                  href={link.url}
+                  target="_blank"
+                  className="text-light-brown hover:underline"
+                  rel="noreferrer"
+                >
+                  {link.label}
+                </a>
+
+                <span className={`badge  ${getColorFromContentType(link.contentType)}`}>
+                  {link.contentType ? link.contentType : null}
+                </span>
+              </div>
+            ))
+          : 'Ainda não possuimos conteúdo.'}
+      </AccordionContent>
+    </AccordionItem>
   );
 }
 
-export function AccordionHeader({
-  children,
-  className,
-}: {
-  children: React.ReactNode;
-  className?: string;
-}) {
-  return <RadixAccordion.Header className={className}>{children}</RadixAccordion.Header>;
+type AccordionItemProps = RadixAccordion.AccordionItemProps & React.RefAttributes<HTMLDivElement>;
+
+export function AccordionItem({ children, ...itemProps }: AccordionItemProps) {
+  return <RadixAccordion.Item {...itemProps}>{children}</RadixAccordion.Item>;
 }
 
+type AccordionHeaderProps = RadixAccordion.AccordionHeaderProps &
+  React.RefAttributes<HTMLHeadingElement>;
+
+export function AccordionHeader({ children, ...accHeaderProps }: AccordionHeaderProps) {
+  return <RadixAccordion.Header {...accHeaderProps}>{children}</RadixAccordion.Header>;
+}
+
+type AccordionTriggerProps = RadixAccordion.AccordionTriggerProps &
+  React.RefAttributes<HTMLButtonElement> & {
+    arrowDownClassName?: string;
+  };
+
 export function AccordionTrigger({
-  children,
-  className,
   arrowDownClassName,
-}: {
-  children: React.ReactNode;
-  className?: string;
-  arrowDownClassName?: string;
-}) {
+  children,
+  ...triggerProps
+}: AccordionTriggerProps) {
   return (
-    <RadixAccordion.Trigger className={className}>
+    <RadixAccordion.Trigger {...triggerProps}>
       {children}
       <BsChevronDown aria-hidden className={`${s.Icon} ${arrowDownClassName}`} />
     </RadixAccordion.Trigger>

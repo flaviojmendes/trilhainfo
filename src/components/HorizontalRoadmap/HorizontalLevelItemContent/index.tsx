@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { AccordionContainer, RoadmapAccordion } from '../../Accordion';
+import { AccordionContainer, HorizontalRoadmapAccordion } from '../../Accordion';
 import { useSelectedItem } from '../LevelProvider';
 
 export function HorizontalLevelItemContent() {
@@ -25,7 +25,7 @@ export function HorizontalLevelItemContent() {
           <p className="my-2 font-title text-xl text-light-orange">{selectedItem.description}</p>
           <AccordionContainer className="w-full" collapsible type="single">
             {selectedItem?.children?.map((section, index) => (
-              <RoadmapAccordion isHorizontalPage key={section.label + index} section={section} />
+              <HorizontalRoadmapAccordion key={section.label + index} section={section} />
             ))}
           </AccordionContainer>
         </motion.div>

@@ -191,7 +191,6 @@ export default function Roadmap(props: Props) {
         isRead={isRead}
         saveRead={saveRead}
         isPreview={props.isPreview}
-        uniqueKey={key}
         lastSelectedElement={lastSelectedElement}
       />
     </DrawerRoot>
@@ -203,7 +202,6 @@ type RoadmapDrawerProps = {
   isRead: (label: string) => boolean;
   saveRead: (label: string, checked: boolean) => void;
   isPreview?: boolean;
-  uniqueKey?: string;
   lastSelectedElement?: HTMLElement | null;
 };
 
@@ -212,7 +210,6 @@ const RoadmapDrawer = ({
   isPreview,
   isRead,
   saveRead,
-  uniqueKey,
   lastSelectedElement,
 }: RoadmapDrawerProps) => {
   return (
@@ -225,13 +222,14 @@ const RoadmapDrawer = ({
       <div>
         <AccordionContainer className="w-full" collapsible type="single">
           {activeItem?.children?.map((child) => {
+            const label = child.label + '-' + activeItem?.label;
+
             return (
               <RoadmapAccordion
-                key={uniqueKey}
+                key={child.label}
                 section={child}
-                activeItemLabel={activeItem?.label}
-                isRead={isRead}
-                saveRead={saveRead}
+                isRead={isRead(label)}
+                saveRead={(checked: boolean) => saveRead(label, checked)}
               />
             );
           })}
