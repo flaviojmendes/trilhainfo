@@ -31,24 +31,22 @@ export function Toast({
       duration={duration}
       open={toastOpen}
       onOpenChange={onOpenChange}
-      className={`${classByStatus[status]} border-dark-red border-2 relative rounded-md shadow-lg p-4 grid flex-col items-center data-[state='open']:animate-slideIn data-[state='closed']:animate-hide`}
+      className={`${classByStatus[status]} relative grid flex-col items-center rounded-md border-2 border-dark-red p-4 shadow-lg data-[state='open']:animate-slideInLeft data-[state='closed']:animate-hide`}
     >
       {title && (
-        <RadixToast.Title
-          className={`${message ? 'mb-1' : ''} font-medium text-[black]`}
-        >
+        <RadixToast.Title className={`${message ? 'mb-1' : ''} font-medium text-[black]`}>
           {title}
         </RadixToast.Title>
       )}
       {message && (
-        <RadixToast.Description className="m-0 text-[black] text-sm leading-snug">
+        <RadixToast.Description className="m-0 text-sm leading-snug text-[black]">
           {message}
         </RadixToast.Description>
       )}
       {closable && (
         <RadixToast.Close>
           <span
-            className={`absolute p-1 hover:bg-dark-brown/10 rounded-md 
+            className={`absolute rounded-md p-1 hover:bg-dark-brown/10 
               ${hasMessageOnly ? 'top-[13px] right-[13px]' : 'top-4 right-4'}
             `}
           >
