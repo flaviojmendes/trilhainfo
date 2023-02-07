@@ -57,10 +57,8 @@ export const Drawer = ({
       >
         {children}
 
-        <DrawerClose className="absolute top-3.5 right-3.5">
-          <button className="rounded-lg bg-yellow p-1 transition-colors hover:bg-light-yellow">
-            <RiCloseLine size={24} />
-          </button>
+        <DrawerClose className="absolute top-3.5 right-3.5 rounded-lg bg-yellow p-1 transition-colors hover:bg-light-yellow">
+          <RiCloseLine size={24} />
         </DrawerClose>
       </DrawerContent>
     </DrawerPortal>
