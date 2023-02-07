@@ -16,6 +16,7 @@ type Positions = 'right' | 'left';
 type DrawerProps = {
   children: React.ReactNode;
   position?: Positions;
+  lastSelectedElement?: HTMLElement | null;
 };
 
 const animationByPosition = (position: Positions) => {
@@ -32,7 +33,11 @@ const animationByPosition = (position: Positions) => {
   };
 };
 
-export const Drawer = ({ children, position = 'right' }: DrawerProps) => {
+export const Drawer = ({
+  children,
+  position = 'right',
+  lastSelectedElement: lastClickedElement,
+}: DrawerProps) => {
   const { open, close } = animationByPosition(position);
   const isRight = position === 'right';
 
@@ -43,6 +48,10 @@ export const Drawer = ({ children, position = 'right' }: DrawerProps) => {
         className={`fixed top-0 bottom-0 h-screen w-full bg-[#444140] py-4 px-6 duration-1000 sm:w-3/5 lg:w-2/5 ${open} ${close} ${
           isRight ? 'right-0' : 'left-0'
         }`}
+        onCloseAutoFocus={(e) => {
+          e.preventDefault();
+          lastClickedElement?.focus();
+        }}
       >
         {children}
 

@@ -1,14 +1,4 @@
-import {
-  Drawer,
-  DrawerBody,
-  DrawerCloseButton,
-  DrawerContent,
-  DrawerFooter,
-  DrawerHeader,
-  DrawerOverlay,
-  useDisclosure,
-} from '@chakra-ui/react';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useLocalStorage } from 'react-use';
 import { Level, RoadmapItem } from '../../entity/RoadmapModel';
 import LevelItem from '../LevelItem';
@@ -18,6 +8,7 @@ import Note from '../Note';
 import RoadmapButtons from '../RoadmapButtons';
 import { useAuth0 } from '@auth0/auth0-react';
 import { AccordionContainer, RoadmapAccordion } from '../Accordion';
+import { DrawerRoot, Drawer, DrawerTitle, DrawerDescription } from '../Drawer';
 
 type Props = {
   data: Level[];
@@ -27,7 +18,8 @@ type Props = {
 };
 
 export default function Roadmap(props: Props) {
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [lastSelectedElement, setLastSelectedElement] = useState<HTMLElement | null>(null);
   const { isAuthenticated } = useAuth0();
 
   const roadmapRef = useRef(null);
@@ -36,7 +28,19 @@ export default function Roadmap(props: Props) {
   const [mousePos, setMousePos] = useState<{ x: number; y: number }>();
   const [selectedItems, setSelectedItems] = useLocalStorage(
     'selectedItems',
-    {} as { [key: string]: boolean },
+    {} as Record<string, boolean>,
+  );
+
+  const handleOpenChange = useCallback(
+    (isOpen: boolean) => {
+      if (!isOpen) {
+        window.history.pushState(props.name, props.name, `/roadmap/${props.name}`);
+        setIsDrawerOpen(isOpen);
+      }
+
+      setIsDrawerOpen(isOpen);
+    },
+    [props.name],
   );
 
   useEffect(() => {
@@ -44,7 +48,7 @@ export default function Roadmap(props: Props) {
   }, []);
 
   useEffect(() => {
-    const handleMouseMove = (event: { clientX: any; clientY: any }) => {
+    const handleMouseMove = (event: MouseEvent) => {
       setMousePos({ x: event.clientX, y: event.clientY });
     };
 
@@ -59,25 +63,23 @@ export default function Roadmap(props: Props) {
     if (localStorage.getItem('selectedItems')) {
       setSelectedItems(JSON.parse(localStorage.getItem('selectedItems') || '') || {});
     }
-  }, []);
+  }, [setSelectedItems]);
 
   useEffect(() => {
     if (hash) {
       const anchorItem = hash.replaceAll('#', '');
-      let itemFound = false;
       if (anchorItem) {
-        props.data.map((level) => {
-          level.items.map((item) => {
+        props.data.forEach((level) => {
+          level.items.forEach((item) => {
             if (item.label === decodeURI(anchorItem)) {
               setActiveItem(item);
-              onOpen();
-              itemFound = true;
+              handleOpenChange(true);
             }
           });
         });
       }
     }
-  }, [pathname, hash, key]);
+  }, [pathname, hash, key, handleOpenChange, props.data]);
 
   function saveRead(label: string, checked: boolean) {
     let selected = selectedItems;
@@ -143,13 +145,8 @@ export default function Roadmap(props: Props) {
     }
   }
 
-  function handleCloseDrawer() {
-    window.history.pushState(props.name, props.name, `/roadmap/${props.name}`);
-    onClose();
-  }
-
   return (
-    <>
+    <DrawerRoot open={isDrawerOpen} onOpenChange={handleOpenChange}>
       <div className={props.isPreview ? 'hidden' : 'flex'}>
         <div className="flex-grow"></div>
         <RoadmapButtons
@@ -180,68 +177,67 @@ export default function Roadmap(props: Props) {
                 isAllContentRead={isAllContentRead}
                 checkAllContent={checkAllContent}
                 levelsQty={data.length}
-                onOpen={onOpen}
+                onOpen={() => handleOpenChange(true)}
                 setActiveItem={setActiveItem}
+                updateLastSelectedElement={setLastSelectedElement}
               />
             );
           })}
         </div>
-
-        <Drawer isOpen={isOpen} size={'lg'} placement="right" onClose={handleCloseDrawer}>
-          <DrawerOverlay />
-          <DrawerContent bgColor={'#444140'}>
-            <DrawerCloseButton
-              color={'#2A2827'}
-              backgroundColor={'#eabc54'}
-              _hover={{ backgroundColor: '#e9dad5' }}
-            />
-            <DrawerHeader>
-              <span className="font-title text-light-brown">{activeItem?.label}</span>
-            </DrawerHeader>
-
-            <DrawerBody>
-              <p className="mb-4 font-title text-light-brown">{activeItem?.description}</p>
-              <AccordionContainer className="w-full" collapsible type="single">
-                {activeItem?.children?.map((child) => {
-                  return (
-                    <RoadmapAccordion
-                      key={key}
-                      section={child}
-                      activeItemLabel={activeItem?.label}
-                      isRead={isRead}
-                      saveRead={saveRead}
-                    />
-                  );
-                })}
-              </AccordionContainer>
-              {!props.isPreview && (
-                <Note id={activeItem?.label || 'asdasd'} title={activeItem?.label || ''} />
-              )}
-            </DrawerBody>
-
-            <DrawerFooter>
-              <div className="flex space-x-4">
-                <a
-                  className="twitter-share-button rounded-md bg-blue px-2 py-2 text-center align-middle font-semibold transition-colors hover:bg-dark-blue"
-                  href={`https://twitter.com/intent/tweet?text=Vem estudar ${
-                    activeItem?.label
-                  } comigo na Trilha Info.&url=https://trilha.info/roadmap/${
-                    props.name
-                  }${encodeURIComponent('#' + activeItem?.label || '')}`}
-                >
-                  Compartilhar no Twitter
-                </a>
-                <button
-                  className="mr-3 rounded-md bg-yellow px-4 font-bold text-[black] transition-colors hover:bg-dark-yellow disabled:cursor-not-allowed disabled:hover:bg-yellow"
-                  onClick={handleCloseDrawer}
-                >
-                  Fechar
-                </button>
-              </div>
-            </DrawerFooter>
-          </DrawerContent>
-        </Drawer>
       </section>
-    </>
+
+      <RoadmapDrawer
+        activeItem={activeItem}
+        isRead={isRead}
+        saveRead={saveRead}
+        isPreview={props.isPreview}
+        uniqueKey={key}
+        lastSelectedElement={lastSelectedElement}
+      />
+    </DrawerRoot>
   );
 }
+
+type RoadmapDrawerProps = {
+  activeItem?: RoadmapItem;
+  isRead: (label: string) => boolean;
+  saveRead: (label: string, checked: boolean) => void;
+  isPreview?: boolean;
+  uniqueKey?: string;
+  lastSelectedElement?: HTMLElement | null;
+};
+
+const RoadmapDrawer = ({
+  activeItem,
+  isPreview,
+  isRead,
+  saveRead,
+  uniqueKey,
+  lastSelectedElement,
+}: RoadmapDrawerProps) => {
+  return (
+    <Drawer lastSelectedElement={lastSelectedElement}>
+      <DrawerTitle className="text-xl font-bold text-brown">{activeItem?.label}</DrawerTitle>
+      <DrawerDescription className="mb-4 pt-6 font-title text-light-brown">
+        {activeItem?.description}
+      </DrawerDescription>
+
+      <div>
+        <AccordionContainer className="w-full" collapsible type="single">
+          {activeItem?.children?.map((child) => {
+            return (
+              <RoadmapAccordion
+                key={uniqueKey}
+                section={child}
+                activeItemLabel={activeItem?.label}
+                isRead={isRead}
+                saveRead={saveRead}
+              />
+            );
+          })}
+        </AccordionContainer>
+        {!isPreview && <Note id={activeItem?.label || 'asdasd'} title={activeItem?.label || ''} />}
+      </div>
+    </Drawer>
+  );
+};

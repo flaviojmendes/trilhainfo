@@ -28,6 +28,7 @@ export function RoadmapAccordion(props: AccordionProps) {
   let saveRead: (check: boolean) => void;
 
   if (props.isHorizontalPage) {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     const actions = useSectionRoadmapActions(props.section);
 
     isRead = actions.isRead();
@@ -49,7 +50,7 @@ export function RoadmapAccordion(props: AccordionProps) {
       <AccordionContent className={s.Content}>
         {props.section.links?.length
           ? props.section.links?.map((link) => (
-              <div className="my-2 flex items-start justify-between">
+              <div key={link.label} className="my-2 flex items-start justify-between">
                 <a
                   href={link.url}
                   target="_blank"

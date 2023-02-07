@@ -9,17 +9,12 @@ type CheckboxProps = {
   labelClassName?: string;
 };
 
-export const Checkbox = ({
-  label,
-  checked,
-  toggleChecked,
-  labelClassName,
-}: CheckboxProps) => {
+export const Checkbox = ({ label, checked, toggleChecked, labelClassName }: CheckboxProps) => {
   return (
     <div className={s.CheckboxContainer}>
       <RadixCheckbox.Root
         className={s.CheckBox}
-        id="c1"
+        id={label}
         checked={checked}
         onCheckedChange={toggleChecked}
       >
@@ -28,7 +23,7 @@ export const Checkbox = ({
         </RadixCheckbox.Indicator>
       </RadixCheckbox.Root>
       {label && (
-        <label className={`${s.CheckBoxLabel} ${labelClassName}`} htmlFor="c1">
+        <label className={`${s.CheckBoxLabel} ${labelClassName}`} htmlFor={label}>
           {label}
         </label>
       )}

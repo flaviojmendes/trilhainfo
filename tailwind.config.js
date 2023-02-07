@@ -11,8 +11,13 @@ module.exports = {
       },
       animation: {
         checking: 'slit-in-vertical 0.2s ease-out both',
-        slideIn: 'slideIn 200ms cubic-bezier(0.16, 1, 0.3, 1) forwards',
+        slideInLeft: 'slideIn 600ms cubic-bezier(0.16, 1, 0.3, 1) forwards',
+        slideOutLeft: 'slideOut 200ms cubic-bezier(0.16, 1, 0.3, 1) forwards',
+        slideInRight: 'slideInRight 600ms cubic-bezier(0.16, 1, 0.3, 1) forwards',
+        slideOutRight: 'slideOutRight 200ms cubic-bezier(0.16, 1, 0.3, 1) forwards',
         hide: 'hide 200ms ease-in forwards',
+        fadeIn: 'fadeIn 600ms cubic-bezier(0.16, 1, 0.3, 1) forwards',
+        fadeOut: 'fadeOut 200ms cubic-bezier(0.16, 1, 0.3, 1) forwards',
       },
       keyframes: {
         'slit-in-vertical': {
@@ -39,12 +44,52 @@ module.exports = {
             opacity: 0,
           },
         },
+        slideOut: {
+          from: {
+            transform: 'translateX(0)',
+          },
+          to: {
+            transform: 'translateX(calc(100% + 16px))',
+          },
+        },
         slideIn: {
           from: {
             transform: 'translateX(calc(100% + 16px))',
           },
           to: {
             transform: 'translateX(0)',
+          },
+        },
+        slideInRight: {
+          from: {
+            transform: 'translateX(calc(-100% - 16px))',
+          },
+          to: {
+            transform: 'translateX(0)',
+          },
+        },
+        slideOutRight: {
+          from: {
+            transform: 'translateX(0)',
+          },
+          to: {
+            transform: 'translateX(calc(-100% - 16px))',
+          },
+        },
+        fadeIn: {
+          from: {
+            opacity: 0,
+          },
+          to: {
+            opacity: 1,
+          },
+        },
+        fadeOut: {
+          from: {
+            opacity: 1,
+          },
+          to: {
+            opacity: 0,
           },
         },
       },
