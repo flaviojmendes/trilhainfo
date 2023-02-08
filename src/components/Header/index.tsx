@@ -9,7 +9,8 @@ import axios from 'axios';
 const cookies = new Cookies();
 
 export default function Header() {
-  const { user, isAuthenticated, isLoading, logout, getAccessTokenSilently } = useAuth0();
+  const { user, isAuthenticated, isLoading, logout, getAccessTokenSilently, loginWithPopup } =
+    useAuth0();
   return (
     <header className="mx-auto flex w-full flex-wrap justify-center space-x-0 space-y-2 bg-dark-brown p-2 px-10 xl:px-64">
       <MobileMenu />
@@ -88,6 +89,8 @@ export default function Header() {
 
   async function handleAuth() {
     (async () => {
+      await loginWithPopup();
+
       const token = await getAccessTokenSilently({
         audience: 'TrilhaInfoApi',
       });

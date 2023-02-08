@@ -16,7 +16,7 @@ type Props = {
 };
 
 export default function Note(props: Props) {
-  const { getAccessTokenSilently, user, isAuthenticated } = useAuth0();
+  const { getAccessTokenSilently, user, isAuthenticated, loginWithPopup } = useAuth0();
   const [noteText, setNoteText] = useState('');
   const [notes, setNotes] = useState<NoteModel[]>([]);
   const [isSavingNote, setSavingNote] = useState(false);
@@ -192,6 +192,8 @@ export default function Note(props: Props) {
 
   async function handleAuth() {
     (async () => {
+      await loginWithPopup();
+
       const token = await getAccessTokenSilently({
         audience: 'TrilhaInfoApi',
       });

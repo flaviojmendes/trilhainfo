@@ -2,7 +2,10 @@ import { useAuth0 } from '@auth0/auth0-react';
 import { FaDiscord, FaGithubSquare, FaNewspaper } from 'react-icons/fa';
 import { ThreeDots } from 'react-loader-spinner';
 import { Drawer, DrawerRoot, DrawerTrigger } from '../Drawer';
+import Cookies from 'universal-cookie';
+import axios from 'axios';
 
+const cookies = new Cookies();
 export default function MobileMenu() {
   return (
     <DrawerRoot>
@@ -21,7 +24,8 @@ export default function MobileMenu() {
 }
 
 const HeaderDrawer = () => {
-  const { loginWithRedirect, isAuthenticated, user, isLoading, logout } = useAuth0();
+  const { loginWithPopup, isAuthenticated, user, isLoading, logout, getAccessTokenSilently } =
+    useAuth0();
 
   return (
     <Drawer position="left">
@@ -80,7 +84,7 @@ const HeaderDrawer = () => {
           {!isAuthenticated && !isLoading && (
             <button
               className="m-auto mt-8 rounded-md bg-light-brown p-2"
-              onClick={() => loginWithRedirect()}
+              onClick={() => handleAuth()}
             >
               Log In
             </button>
@@ -100,4 +104,38 @@ const HeaderDrawer = () => {
       </ul>
     </Drawer>
   );
+
+  async function handleAuth() {
+    (async () => {
+      await loginWithPopup();
+
+      const token = await getAccessTokenSilently({
+        audience: 'TrilhaInfoApi',
+      });
+      cookies.set('api_token', `Bearer ${token}`);
+
+      try {
+        await axios.get(import.meta.env.VITE_API_URL + '/user/' + user?.nickname, {
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: cookies.get('api_token'),
+          },
+        });
+      } catch (e) {
+        await axios.post(
+          import.meta.env.VITE_API_URL + '/user' || '',
+          {
+            user_login: user?.nickname,
+          },
+          {
+            headers: {
+              'Content-Type': 'application/json',
+              Authorization: cookies.get('api_token'),
+            },
+          },
+        );
+      }
+      document.location.href = '/';
+    })();
+  }
 };
