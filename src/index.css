@@ -11,6 +11,30 @@
     border-bottom-right-radius: 225px 15px;
     border-bottom-left-radius:15px 255px;
   }
+
+  .badge {
+    @apply text-[0.6rem] ml-2 bg-red p-1 rounded-md font-bold uppercase cursor-default inline-flex items-baseline
+  }
+
+  .badge.badge-blue {
+    @apply text-[#2a4365] bg-[#bee3f8]
+  }
+
+  .badge.badge-green {
+    @apply text-[#22543D] bg-[#C6F6D5]
+  }
+
+  .badge.badge-orange {
+    @apply text-[#7B341E] bg-[#FEEBC8]
+  }
+
+  .badge.badge-purple {
+    @apply text-[#44337A] bg-[#E9D8FD]
+  }
+
+  .badge.badge-yellow {
+    @apply text-[#744210] bg-[#FEFCBF]
+  }
 }
 
 @layer base {
@@ -20,6 +44,5 @@
 
   body {
     @apply bg-medium-brown !important 
-    
   }
 }
