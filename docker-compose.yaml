@@ -1,0 +1,9 @@
+services:
+  trilha-info-front:
+    build:
+      context: .
+    ports:
+      - "80:3000"
+    environment:
+      - VITE_API_URL=https://api.trilha.info/api
+      - VITE_PUBLIC_URL=https://api.trilha.info/public
