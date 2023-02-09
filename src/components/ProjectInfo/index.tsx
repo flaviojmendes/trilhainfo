@@ -1,57 +1,55 @@
-import { useEffect } from "react";
-import { cheatSheets } from "../../guides/cheatSheets";
-import { GoPlus } from "react-icons/go";
+import { cheatSheets } from '../../guides/cheatSheets';
+import { GoPlus } from 'react-icons/go';
 
 export default function ProjectInfo() {
-  useEffect(() => {}, []);
-
   return (
-    <section className="grid grid-cols-1 lg:grid-cols-2 items-stretch justify-center bg-dark-brown py-10 w-full shadow-inner px-10 xl:px-64 gap-10">
+    <section className="grid w-full grid-cols-1 items-stretch justify-center gap-10 bg-dark-brown py-10 px-10 shadow-inner lg:grid-cols-2 xl:px-64">
       <div className="flex flex-col gap-4">
-        <div className="flex bg-medium-brown rounded-md px-2 font-title text-light-brown text-sm w-fit my-2">
-          <div className="bg-red rounded-full w-2 h-2 m-auto mr-2"></div>
+        <div className="my-2 flex w-fit rounded-md bg-medium-brown px-2 font-title text-sm text-light-brown">
+          <div className="m-auto mr-2 h-2 w-2 rounded-full bg-red"></div>
           Newsletter mensal sobre a trilha
         </div>
-        <p className="text-4xl font-title text-yellow m-auto">
-          Assine a <span className="text-red">newsletter</span> para não
-          perder as últimas novidades da{" "}
-          <span className="text-red">Trilha Info</span>
+        <p className="m-auto font-title text-4xl text-yellow">
+          Assine a <span className="text-red">newsletter</span> para não perder as últimas novidades
+          da <span className="text-red">Trilha Info</span>
         </p>
         <a
-          className="bg-red hover:bg-dark-red font-title p-2 w-fit rounded-md "
-          href="https://www.getrevue.co/profile/flaviojmendes"
+          className="w-fit rounded-md bg-red p-2 font-title hover:bg-dark-red "
+          href="http://eepurl.com/iknir1"
+          target={'_blank'}
+          rel="noreferrer"
         >
           Assine Agora!
         </a>
-        <h3 className="font-title text-4xl mt-8 text-yellow font-semibold">
+        <h3 className="mt-8 font-title text-4xl font-semibold text-yellow">
           Open <span className="text-red">Source</span>
         </h3>
         <div className="text-yellow">
           <p className="my-2 font-title">
-            A Trilha Info é um projeto{" "}
+            A Trilha Info é um projeto{' '}
             <span className="font-semibold text-red hover:text-light-brown">
               <a
-                target={"_blank"}
+                target={'_blank'}
                 href="https://github.com/flaviojmendes/trilhainfo"
+                rel="noreferrer"
               >
                 Open Source
               </a>
-            </span>{" "}
-            que nasceu em Junho/2022 com o objetivo de agregar e organizar
-            conteúdos gratuitos em português para pessoas que querem ingressar
-            na área de Tecnologia.
+            </span>{' '}
+            que nasceu em Junho/2022 com o objetivo de agregar e organizar conteúdos gratuitos em
+            português para pessoas que querem ingressar na área de Tecnologia.
           </p>
           <p className="my-8 font-title">
-            A motivação em criar esse aplicativo é por acreditar que a
-            educação e o conhecimento devem ser democráticos. Qualquer pessoa
-            deveria ter acesso aos assuntos que se interessa para que garanta
-            um futuro cada vez mais próspero.
+            A motivação em criar esse aplicativo é por acreditar que a educação e o conhecimento
+            devem ser democráticos. Qualquer pessoa deveria ter acesso aos assuntos que se interessa
+            para que garanta um futuro cada vez mais próspero.
           </p>
           <p className="my-8 font-title">
-            Encontrou um Bug 🐛, tem uma ideia 💡? É só abrir uma{" "}
+            Encontrou um Bug 🐛, tem uma ideia 💡? É só abrir uma{' '}
             <a
               className="font-semibold text-red hover:text-light-brown"
-              target={"_blank"}
+              target={'_blank'}
+              rel="noreferrer"
               href="https://github.com/flaviojmendes/trilhainfo/issues"
             >
               issue
@@ -59,14 +57,13 @@ export default function ProjectInfo() {
             .
           </p>
           <p className="my-8 font-title">
-            Portanto, se você também acredita nisso compartilhe para que o
-            conhecimento chegue cada vez mais longe. E participe da nossa
-            comunidade no{" "}
+            Portanto, se você também acredita nisso compartilhe para que o conhecimento chegue cada
+            vez mais longe. E participe da nossa comunidade no{' '}
             <span className="font-semibold text-red hover:text-light-brown">
-              <a target={"_blank"} href="https://discord.gg/HJ3Spm6R">
+              <a target={'_blank'} href="https://discord.gg/HJ3Spm6R" rel="noreferrer">
                 Discord
               </a>
-            </span>{" "}
+            </span>{' '}
           </p>
           <iframe
             src="https://ghbtns.com/github-btn.html?user=flaviojmendes&repo=trilhainfo&type=star&count=true&size=large&v=2"
@@ -79,26 +76,25 @@ export default function ProjectInfo() {
         <div className="grow"></div>
       </div>
 
-      <div className="w-full flex flex-col mt-10 lg:mt-0 gap-4">
-        <div className="flex bg-medium-brown rounded-md px-2 font-title text-light-brown text-sm w-fit my-2">
-          <div className="bg-blue rounded-full w-2 h-2 m-auto mr-2"></div>
+      <div className="mt-10 flex w-full flex-col gap-4 lg:mt-0">
+        <div className="my-2 flex w-fit rounded-md bg-medium-brown px-2 font-title text-sm text-light-brown">
+          <div className="m-auto mr-2 h-2 w-2 rounded-full bg-blue"></div>
           Faça download gratuito
         </div>
-        <h3 className="text-4xl font-title text-yellow font-semibold">
+        <h3 className="font-title text-4xl font-semibold text-yellow">
           <span className="text-blue">Guias</span> Cheat Sheets
         </h3>
         {cheatSheets.map((cheatSheet) => {
           return (
             <div
               key={cheatSheet.id}
-              className="flex w-full min-h-fit space-y-2 bg-brown hover:bg-white p-3 rounded-md"
+              className="flex min-h-fit w-full space-y-2 rounded-md bg-brown p-3 hover:bg-white"
             >
               <a
-                className="text-lg md:text-2xl font-title flex gap-2"
+                className="flex gap-2 font-title text-lg md:text-2xl"
                 href={`/guide/${cheatSheet.id}`}
               >
-                <GoPlus className="my-auto" />{" "}
-                <span className="my-auto">{cheatSheet.title}</span>
+                <GoPlus className="my-auto" /> <span className="my-auto">{cheatSheet.title}</span>
               </a>
             </div>
           );
