@@ -218,7 +218,10 @@ export const data: Level[] = [
     items: [
       {
         label: "Proxy Reverso",
-        children: [{ label: "Traefik", links: [] }],
+        children: [
+          { label: "Nginx", links: [] },
+          { label: "Traefik", links: [] }
+        ],
       },
       { label: "Caching Server", children: [{ label: "O Básico", links: [] }] },
       { label: "Forward Proxy", children: [{ label: "O Básico", links: [] }] },
@@ -310,14 +313,24 @@ export const data: Level[] = [
   {
     label: "Escolha alguma ferramenta de CI/CD",
     items: [
-      { label: "Gitlab CI", children: [{ label: "O básico", links: [] }] },
-      { label: "Github Actions", children: [{ label: "O básico", links: [] }] },
-      { label: "Jenkins", children: [{ label: "O básico", links: [] }] },
-      { label: "Circle CI", children: [{ label: "O básico", links: [] }] },
-      { label: "Travis CI", children: [{ label: "O básico", links: [] }] },
-      { label: "Bamboo", children: [{ label: "O básico", links: [] }] },
+      {
+        label: "ArgoCD", children: [{
+          label: "O básico", links: [{
+            label: "Deploy Contínuo com GitOps e ArgoCD",
+            url: "https://www.youtube.com/watch?v=63HGUgQXD1w",
+            contentType: LinkContentType.WATCH,
+          },]
+        }]
+      },
       { label: "Azure DevOps", children: [{ label: "O básico", links: [] }] },
+      { label: "Bamboo", children: [{ label: "O básico", links: [] }] },
+      { label: "Circle CI", children: [{ label: "O básico", links: [] }] },
+      { label: "FluxCD", children: [{ label: "O básico", links: [] }] },
+      { label: "Github Actions", children: [{ label: "O básico", links: [] }] },
+      { label: "Gitlab CI", children: [{ label: "O básico", links: [] }] },
+      { label: "Jenkins", children: [{ label: "O básico", links: [] }] },
       { label: "TeamCity", children: [{ label: "O básico", links: [] }] },
+      { label: "Travis CI", children: [{ label: "O básico", links: [] }] },
     ],
   },
   {
@@ -399,6 +412,24 @@ export const data: Level[] = [
           { label: "Gerenciamento de Dados", links: [] },
           { label: "Design e Implementação", links: [] },
           { label: "Gerenciamento e Monitoramento", links: [] },
+          {
+            label: "FinOps", links: [
+              {
+                label: "Você sabe o que é FINOPS? - Zappts",
+                url: "https://www.youtube.com/watch?v=mJjeDENeqTE",
+                contentType: LinkContentType.WATCH,
+              },
+            ]
+          },
+          {
+            label: "GitOps", links: [
+              {
+                label: "O que é GitOps? - FullCycle",
+                url: "https://www.youtube.com/watch?v=qCYmn1RwHZM",
+                contentType: LinkContentType.WATCH,
+              },
+            ]
+          },
         ],
       },
     ],
