@@ -106,14 +106,16 @@ export const data: Level[] = [
     ],
   },
   {
+    label: 'Gerenciadores de Pacote',
+    description:
+      'Os gerenciadores de pacotes permitem que você gerencie as dependências (código externo escrito por você ou outra pessoa) que seu projeto precisa para funcionar corretamente.',
+
     items: [
       {
-        label: 'Gerenciadores de Pacote',
-        description:
-          'Os gerenciadores de pacotes permitem que você gerencie as dependências (código externo escrito por você ou outra pessoa) que seu projeto precisa para funcionar corretamente.',
+        label: 'npm',
         children: [
           {
-            label: 'npm',
+            label: 'O básico',
             links: [
               {
                 url: 'https://www.youtube.com/watch?v=tFqsmNrWW0M',
@@ -122,8 +124,13 @@ export const data: Level[] = [
               },
             ],
           },
+        ],
+      },
+      {
+        label: 'yarn',
+        children: [
           {
-            label: 'yarn',
+            label: 'O básico',
             links: [
               {
                 url: 'https://www.youtube.com/watch?v=3BPfDo4arHc',
@@ -813,14 +820,15 @@ export const data: Level[] = [
   },
 
   {
+    label: 'Frameworks CSS',
+    description:
+      'Uma estrutura CSS fornece ao usuário uma folha de estilo CSS totalmente funcional, permitindo que eles criem uma página da Web simplesmente codificando o HTML com classes, estrutura e IDs apropriados. As classes para recursos populares do site, como rodapé, controle deslizante, barra de navegação, menu de hambúrguer, layouts baseados em colunas e assim por diante, já estão incluídas na estrutura.',
     items: [
       {
-        label: 'Frameworks CSS',
-        description:
-          'Uma estrutura CSS fornece ao usuário uma folha de estilo CSS totalmente funcional, permitindo que eles criem uma página da Web simplesmente codificando o HTML com classes, estrutura e IDs apropriados. As classes para recursos populares do site, como rodapé, controle deslizante, barra de navegação, menu de hambúrguer, layouts baseados em colunas e assim por diante, já estão incluídas na estrutura.',
+        label: 'Bootstrap',
         children: [
           {
-            label: 'Bootstrap',
+            label: 'O básico',
             links: [
               {
                 label: 'Curso de Bootstrap - Matheus Battisti',
@@ -834,8 +842,13 @@ export const data: Level[] = [
               },
             ],
           },
+        ],
+      },
+      {
+        label: 'Bulma',
+        children: [
           {
-            label: 'Bulma',
+            label: 'O básico',
             links: [
               {
                 label: 'Criando Apps responsivos com React e Bulma - Escola de Javascript',
@@ -849,8 +862,13 @@ export const data: Level[] = [
               },
             ],
           },
+        ],
+      },
+      {
+        label: 'Tailwind CSS',
+        children: [
           {
-            label: 'Tailwind CSS',
+            label: 'O básico',
             links: [
               {
                 url: 'https://www.youtube.com/watch?v=1eLaBow7Zbo&list=PLcoYAcR89n-r1m-tMfV4qndrRWpT_rb9u',
@@ -868,8 +886,13 @@ export const data: Level[] = [
               },
             ],
           },
+        ],
+      },
+      {
+        label: 'Chakra UI',
+        children: [
           {
-            label: 'Chakra UI',
+            label: 'O básico',
             links: [
               {
                 url: 'https://www.youtube.com/watch?v=RjZOUCIwo4M',
@@ -883,8 +906,13 @@ export const data: Level[] = [
               },
             ],
           },
+        ],
+      },
+      {
+        label: 'Material UI',
+        children: [
           {
-            label: 'Material UI',
+            label: 'O básico',
             links: [
               {
                 url: 'https://www.youtube.com/watch?v=uJhqvzK7cWw',
@@ -898,8 +926,13 @@ export const data: Level[] = [
               },
             ],
           },
+        ],
+      },
+      {
+        label: 'Radix UI',
+        children: [
           {
-            label: 'Radix UI',
+            label: 'O básico',
             links: [
               {
                 url: 'https://www.radix-ui.com/docs/primitives/overview/introduction',
@@ -1265,12 +1298,13 @@ export const data: Level[] = [
     ],
   },
   {
+    label: 'Aplicações Mobile',
     items: [
       {
-        label: 'Aplicações Mobile',
+        label: 'React Native',
         children: [
           {
-            label: 'React Native',
+            label: 'O básico',
             links: [
               {
                 url: 'https://www.youtube.com/playlist?list=PLdDT8if5attEd4sRnZBIkNihR-_tE612_',
@@ -1291,8 +1325,13 @@ export const data: Level[] = [
               },
             ],
           },
+        ],
+      },
+      {
+        label: 'NativeScript',
+        children: [
           {
-            label: 'NativeScript',
+            label: 'O básico',
             links: [
               {
                 label: 'Documentação',
@@ -1301,8 +1340,13 @@ export const data: Level[] = [
               },
             ],
           },
+        ],
+      },
+      {
+        label: 'Flutter',
+        children: [
           {
-            label: 'Flutter',
+            label: 'O básico',
             links: [
               {
                 label: 'Curso de Flutter - Flutterando',
@@ -1316,8 +1360,13 @@ export const data: Level[] = [
               },
             ],
           },
+        ],
+      },
+      {
+        label: 'Ionic',
+        children: [
           {
-            label: 'Ionic',
+            label: 'O básico',
             links: [
               {
                 label: 'Introdução ao Ionic',
