@@ -48,7 +48,8 @@ export default function LevelItem(props: Props) {
   }
 
   return (
-    <article className="flex flex-col">
+    <article className="relative flex flex-col">
+      <div className="absolute left-[50%] -z-10 h-full translate-x-[-50%] border-l-4 border-dark-red"></div>
       <div
         className={
           props.level.label
@@ -82,7 +83,7 @@ export default function LevelItem(props: Props) {
                       }}
                       id={item.label}
                       className={
-                        'center mx-0 my-0 flex w-fit cursor-pointer overflow-hidden  rounded-md border-2 border-dark-red p-1 text-center hover:bg-white hover:shadow-md  md:p-2' +
+                        'center relative mx-0 my-0 flex w-fit cursor-pointer  rounded-md border-2 border-dark-red p-1 text-center hover:bg-white hover:shadow-md  md:p-2' +
                         (level.length >= 4 ? ' mb-3' : '') +
                         (isAllContentRead ? ' bg-light-orange' : ' bg-brown')
                       }
@@ -108,35 +109,51 @@ export default function LevelItem(props: Props) {
                       }}
                       id={item.label}
                       className={
-                        'center mx-0 my-0 flex w-fit cursor-pointer overflow-hidden  rounded-md border-2 border-dark-red p-1 text-center hover:bg-white hover:shadow-md  md:p-2' +
+                        'center mx-0 my-0 flex w-fit cursor-pointer rounded-md border-2 border-dark-red p-1 text-center hover:bg-white hover:shadow-md  md:p-2' +
                         (level.length >= 4 ? ' mb-3' : '') +
                         (isAllContentRead ? ' bg-light-orange' : ' bg-brown')
                       }
                     >
                       {isAllContentRead ? (
-                        <button
-                          onClick={(e) => {
-                            handleToggleAllSelection(e, item);
-                          }}
-                          className="h-full"
-                        >
-                          <span className="animate-checking">
-                            <CheckIcon className="m-auto mx-1 stroke-[#228B22]" />
-                          </span>
-                        </button>
-                      ) : (
-                        <FaRegCircle
-                          className="hover: m-auto mx-1 animate-checking hover:fill-light-orange hover:text-light-orange"
-                          onClick={(e) => {
-                            handleToggleAllSelection(e, item);
-                          }}
-                          onKeyDown={(e) => {
-                            if (e.key === 'Enter') {
+                        <div className="group relative my-auto flex">
+                          <button
+                            onClick={(e) => {
                               handleToggleAllSelection(e, item);
-                            }
-                          }}
-                          tabIndex={0}
-                        />
+                            }}
+                            className="flex h-full"
+                          >
+                            <span className="animate-checking">
+                              <CheckIcon className="m-auto my-auto mx-1 stroke-[#228B22]" />
+                            </span>
+                          </button>
+                          <div
+                            className="absolute bottom-6 -left-16 w-40 rounded-md bg-dark-brown text-sm
+                 text-light-brown opacity-0 transition-opacity group-hover:opacity-100"
+                          >
+                            Desmarcar Concluído
+                          </div>
+                        </div>
+                      ) : (
+                        <div className="group relative my-auto flex">
+                          <FaRegCircle
+                            className="hover: m-auto mx-1 animate-checking hover:fill-light-orange hover:text-light-orange"
+                            onClick={(e) => {
+                              handleToggleAllSelection(e, item);
+                            }}
+                            onKeyDown={(e) => {
+                              if (e.key === 'Enter') {
+                                handleToggleAllSelection(e, item);
+                              }
+                            }}
+                            tabIndex={0}
+                          />
+                          <div
+                            className="absolute bottom-6 -left-16 w-40 rounded-md bg-dark-brown text-sm
+                     text-light-brown opacity-0 transition-opacity group-hover:opacity-100"
+                          >
+                            Marcar Concluído
+                          </div>
+                        </div>
                       )}
                       <p
                         className={
@@ -151,7 +168,7 @@ export default function LevelItem(props: Props) {
                   )}
 
                   {index < level.length - 1 && level.length < 4 && (
-                    <div className="my-auto h-1 min-w-[10px] max-w-[20px] flex-grow border-2 border-dashed border-dark-red md:max-w-[50px]"></div>
+                    <div className="my-auto h-1 min-w-[10px] max-w-[20px] flex-grow border-b-4 border-dashed border-dark-red md:max-w-[50px]"></div>
                   )}
                 </>
               );
