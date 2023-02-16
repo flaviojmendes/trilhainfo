@@ -3,6 +3,8 @@ import { Level, RoadmapItem } from '../../entity/RoadmapModel';
 import ReactGA from 'react-ga4';
 import { DrawerTrigger } from '../Drawer';
 import { CheckIcon } from '../CheckIcon';
+import { useNavigate } from 'react-router-dom';
+import { TbGitFork } from 'react-icons/tb';
 
 type Props = {
   level: Level;
@@ -15,6 +17,8 @@ type Props = {
 };
 
 export default function LevelItem(props: Props) {
+  const navigate = useNavigate();
+
   function triggerItemSelection(item: RoadmapItem) {
     props.setActiveItem(item);
     window.history.pushState(item.label, item.label, `#${encodeURI(item.label)}`);
@@ -22,6 +26,12 @@ export default function LevelItem(props: Props) {
       category: 'item_open',
       action: 'open_' + item.label,
     });
+  }
+
+  function triggerSubRoadmapSelection(url: string | undefined) {
+    if (url) {
+      navigate(url);
+    }
   }
 
   function handleToggleAllSelection(
@@ -65,53 +75,80 @@ export default function LevelItem(props: Props) {
 
               return (
                 <>
-                  <DrawerTrigger
-                    onClick={(e) => {
-                      triggerItemSelection(item);
-                      props.updateLastSelectedElement(e.currentTarget);
-                    }}
-                    id={item.label}
-                    className={
-                      'center mx-0 my-0 flex w-fit cursor-pointer overflow-hidden  rounded-md border-2 border-dark-red p-1 text-center hover:bg-white hover:shadow-md  md:p-2' +
-                      (level.length >= 4 ? ' mb-3' : '') +
-                      (isAllContentRead ? ' bg-light-orange' : ' bg-brown')
-                    }
-                  >
-                    {isAllContentRead ? (
-                      <button
-                        onClick={(e) => {
-                          handleToggleAllSelection(e, item);
-                        }}
-                        className="h-full"
-                      >
-                        <span className="animate-checking">
-                          <CheckIcon className="m-auto mx-1 stroke-[#228B22]" />
-                        </span>
-                      </button>
-                    ) : (
-                      <FaRegCircle
-                        className="hover: m-auto mx-1 animate-checking hover:fill-light-orange hover:text-light-orange"
-                        onClick={(e) => {
-                          handleToggleAllSelection(e, item);
-                        }}
-                        onKeyDown={(e) => {
-                          if (e.key === 'Enter') {
-                            handleToggleAllSelection(e, item);
-                          }
-                        }}
-                        tabIndex={0}
-                      />
-                    )}
-                    <p
+                  {item.url && (
+                    <button
+                      onClick={() => {
+                        triggerSubRoadmapSelection(item.url);
+                      }}
+                      id={item.label}
                       className={
-                        'c-dark-brown m-auto  whitespace-normal font-title text-lg md:whitespace-nowrap'
+                        'center mx-0 my-0 flex w-fit cursor-pointer overflow-hidden  rounded-md border-2 border-dark-red p-1 text-center hover:bg-white hover:shadow-md  md:p-2' +
+                        (level.length >= 4 ? ' mb-3' : '') +
+                        (isAllContentRead ? ' bg-light-orange' : ' bg-brown')
                       }
                     >
-                      {item.label}
-                    </p>
+                      <TbGitFork className="m-auto mx-1" tabIndex={0} />
 
-                    {/* <InfoIcon m="auto" mx="1" color={"#494443"} /> */}
-                  </DrawerTrigger>
+                      <p
+                        className={
+                          'c-dark-brown m-auto  whitespace-normal font-title text-lg md:whitespace-nowrap'
+                        }
+                      >
+                        {item.label}
+                      </p>
+
+                      {/* <InfoIcon m="auto" mx="1" color={"#494443"} /> */}
+                    </button>
+                  )}
+                  {!item.url && (
+                    <DrawerTrigger
+                      onClick={(e) => {
+                        triggerItemSelection(item);
+                        props.updateLastSelectedElement(e.currentTarget);
+                      }}
+                      id={item.label}
+                      className={
+                        'center mx-0 my-0 flex w-fit cursor-pointer overflow-hidden  rounded-md border-2 border-dark-red p-1 text-center hover:bg-white hover:shadow-md  md:p-2' +
+                        (level.length >= 4 ? ' mb-3' : '') +
+                        (isAllContentRead ? ' bg-light-orange' : ' bg-brown')
+                      }
+                    >
+                      {isAllContentRead ? (
+                        <button
+                          onClick={(e) => {
+                            handleToggleAllSelection(e, item);
+                          }}
+                          className="h-full"
+                        >
+                          <span className="animate-checking">
+                            <CheckIcon className="m-auto mx-1 stroke-[#228B22]" />
+                          </span>
+                        </button>
+                      ) : (
+                        <FaRegCircle
+                          className="hover: m-auto mx-1 animate-checking hover:fill-light-orange hover:text-light-orange"
+                          onClick={(e) => {
+                            handleToggleAllSelection(e, item);
+                          }}
+                          onKeyDown={(e) => {
+                            if (e.key === 'Enter') {
+                              handleToggleAllSelection(e, item);
+                            }
+                          }}
+                          tabIndex={0}
+                        />
+                      )}
+                      <p
+                        className={
+                          'c-dark-brown m-auto  whitespace-normal font-title text-lg md:whitespace-nowrap'
+                        }
+                      >
+                        {item.label}
+                      </p>
+
+                      {/* <InfoIcon m="auto" mx="1" color={"#494443"} /> */}
+                    </DrawerTrigger>
+                  )}
 
                   {index < level.length - 1 && level.length < 4 && (
                     <div className="my-auto h-1 min-w-[10px] max-w-[20px] flex-grow border-2 border-dashed border-dark-red md:max-w-[50px]"></div>
