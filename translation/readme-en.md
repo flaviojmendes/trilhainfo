@@ -18,21 +18,19 @@ The idea is to initially engage the community and then we can evolve the portal 
 
 To run the project you can simply clone/fork the project and execute the following steps:
 
-In the root folder, create a `.env.local` file with:
+Copy the example env variables:
 
-```
-# To use Trilha Info's backend:
-VITE_API_URL=https://api.trilha.info/api
-VITE_PUBLIC_URL=https://api.trilha.info/public
-
-# If you have the backend running locally:
-VITE_API_URL=http://localhost:8000/api
-VITE_PUBLIC_URL=http://localhost:8000/public
+```sh
+cp .env.example .env.local
 ```
 
-Then run in the terminal:
+In the env.local file, you have the option to use a local running API or the trilha's own API, just uncomment and use whatever you find better.
 
-```
+Para rodar o projeto em desenvolvimento, você vai do Yarn para instalar as dependências e iniciar o servidor:
+
+To run the project in development, you need to have Yarn installed to install the dependencies and start the server:
+
+```sh
 # Install the dependencies with:
 $ yarn
 

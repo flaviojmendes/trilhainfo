@@ -23,30 +23,26 @@ A ideia é inicialmente engajar a comunidade e então podemos ir evoluindo o por
 
 Para rodar o projeto basta clonar/fork o projeto executar os seguintes passos:
 
-Na raiz do projeto criar um aquivo `.env.local` com:
+Copie as variaveis de ambiente exemplo:
 
-```
-# Para usar o backend da Trilha Info:
-VITE_API_URL=https://api.trilha.info/api
-VITE_PUBLIC_URL=https://api.trilha.info/public
-
-# Se possuir o backend rodando localmente:
-VITE_API_URL=http://localhost:8000/api
-VITE_PUBLIC_URL=http://localhost:8000/public
+```sh
+cp .env.example .env.local
 ```
 
-Então, no terminal executar:
+Dentro do .env.local você tem a opção de usar uma API rodando localmente ou utilizar a própria API da trilha, basta descomentar e utilizar o que achar melhor.
 
-```
+Para rodar o projeto em desenvolvimento, você vai precisar do Yarn para instalar as dependências e iniciar o servidor:
+
+```sh
 # Instalar as dependências com:
-$ yarn
+yarn
 
 # Rodar em modo de desenvolvimento com:
-$ yarn dev
+yarn dev
 
 ```
 
-Rodando com docker:
+Rodando com Docker:
 
 Para rodar o este projeto com o docker, você precisará do docker-compose, segue o comando abaixo:
 
