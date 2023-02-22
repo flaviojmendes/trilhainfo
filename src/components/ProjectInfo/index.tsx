@@ -13,7 +13,7 @@ export default function ProjectInfo() {
           Assine a <span className="text-red">newsletter</span> para não perder as últimas novidades
           da <span className="text-red">Trilha Info</span>
         </p>
-        <div className="group relative flex h-fit w-full md:w-fit">
+        <div className="group relative flex h-fit w-fit">
           <a
             className="z-20 h-fit w-fit rounded-md bg-light-brown p-2 font-title hover:bg-light-orange"
             href="http://eepurl.com/iknir1"
