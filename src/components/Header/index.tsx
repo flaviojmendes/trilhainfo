@@ -52,23 +52,29 @@ export default function Header() {
                   />
                   <span className="m-auto ml-2 mr-4 font-title text-base">{user?.name}</span>
                 </div>
-                <button
-                  className="m-auto rounded-md bg-brown p-2"
-                  onClick={() => logout({ returnTo: window.location.origin })}
-                >
-                  Logout
-                </button>
+                <div className="group relative m-auto flex h-fit w-fit">
+                  <button
+                    className="z-20 m-auto rounded-md bg-brown p-2 hover:bg-light-orange"
+                    onClick={() => logout({ returnTo: window.location.origin })}
+                  >
+                    Logout
+                  </button>
+                  <div className="absolute top-1 left-1 -right-1 -bottom-1 z-10 rounded-md bg-red group-hover:bg-red"></div>
+                </div>
               </>
             )}
           </li>
           <li className="flex">
             {!isAuthenticated && !isLoading && (
-              <button
-                className="m-auto rounded-md bg-light-brown p-2 font-title hover:bg-brown"
-                onClick={() => handleAuth()}
-              >
-                Log In
-              </button>
+              <div className="group relative m-auto flex h-fit w-fit">
+                <button
+                  className="z-20 m-auto rounded-md bg-light-brown p-2 font-title hover:bg-brown"
+                  onClick={() => handleAuth()}
+                >
+                  Log In
+                </button>
+                <div className="absolute top-1 left-1 -right-1 -bottom-1 z-10 rounded-md bg-red group-hover:bg-red"></div>
+              </div>
             )}
             {isLoading && (
               <ThreeDots

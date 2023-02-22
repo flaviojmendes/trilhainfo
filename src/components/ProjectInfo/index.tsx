@@ -13,14 +13,17 @@ export default function ProjectInfo() {
           Assine a <span className="text-red">newsletter</span> para não perder as últimas novidades
           da <span className="text-red">Trilha Info</span>
         </p>
-        <a
-          className="w-fit rounded-md bg-red p-2 font-title hover:bg-dark-red "
-          href="http://eepurl.com/iknir1"
-          target={'_blank'}
-          rel="noreferrer"
-        >
-          Assine Agora!
-        </a>
+        <div className="group relative flex h-fit w-full md:w-fit">
+          <a
+            className="z-20 h-fit w-fit rounded-md bg-light-brown p-2 font-title hover:bg-light-orange"
+            href="http://eepurl.com/iknir1"
+            target={'_blank'}
+            rel="noreferrer"
+          >
+            Assine Agora!
+          </a>
+          <div className="absolute top-1 left-1 -right-1 -bottom-1 z-10 rounded-md bg-red group-hover:bg-red"></div>
+        </div>
         <h3 className="mt-8 font-title text-4xl font-semibold text-yellow">
           Open <span className="text-red">Source</span>
         </h3>
@@ -86,16 +89,16 @@ export default function ProjectInfo() {
         </h3>
         {cheatSheets.map((cheatSheet) => {
           return (
-            <div
-              key={cheatSheet.id}
-              className="flex min-h-fit w-full space-y-2 rounded-md bg-brown p-3 hover:bg-white"
-            >
-              <a
-                className="flex gap-2 font-title text-lg md:text-2xl"
-                href={`/guide/${cheatSheet.id}`}
-              >
-                <GoPlus className="my-auto" /> <span className="my-auto">{cheatSheet.title}</span>
-              </a>
+            <div key={cheatSheet.id} className="group relative m-auto flex h-full w-full">
+              <div className="z-20 flex min-h-fit w-full space-y-2 rounded-md bg-brown p-3 hover:bg-white">
+                <a
+                  className="flex gap-2 font-title text-lg md:text-2xl"
+                  href={`/guide/${cheatSheet.id}`}
+                >
+                  <GoPlus className="my-auto" /> <span className="my-auto">{cheatSheet.title}</span>
+                </a>
+              </div>{' '}
+              <div className="absolute top-1 left-1 -right-1 -bottom-1 z-10 rounded-md bg-yellow group-hover:bg-yellow"></div>
             </div>
           );
         })}

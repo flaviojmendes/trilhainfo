@@ -147,7 +147,7 @@ export default function Roadmap(props: Props) {
 
   return (
     <DrawerRoot open={isDrawerOpen} onOpenChange={handleOpenChange}>
-      <div className={props.isPreview ? 'hidden' : 'flex'}>
+      <div className={`gap-2 md:pr-4 ${props.isPreview ? 'hidden' : 'flex'}`}>
         <div className="flex-grow"></div>
         <RoadmapButtons
           buttons={
