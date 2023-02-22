@@ -48,14 +48,15 @@ export default function Hero() {
           <div className="m-auto mr-2 h-2 w-2 rounded-full bg-blue"></div>Conteúdo totalmente
           gratuito
         </div>
-        <div className="flex w-full">
+        <div className="relative flex h-fit w-full md:w-fit">
           <AnchorLink
             onClick={handleCallToAction}
             href="#mainRoadmaps"
-            className="mt-6 rounded-md bg-blue p-2 font-title hover:bg-dark-blue"
+            className="z-20 w-full rounded-md bg-light-brown p-2 text-center font-title hover:bg-light-orange"
           >
             Comece Agora
           </AnchorLink>
+          <div className="absolute top-1 left-1 -right-1 -bottom-1 z-10 rounded-md bg-red"></div>
         </div>
       </div>
       <div className="hidden md:flex">

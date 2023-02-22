@@ -90,32 +90,47 @@ export default function UserArea() {
         {roadmaps?.map((roadmap) => {
           return (
             <div key={roadmap.id} className="flex flex-col space-y-2">
-              <Link
-                className="grow rounded-md  bg-brown py-3 hover:bg-white"
-                to={`/roadmap/view/${roadmap.id}`}
-              >
-                <h3 className="c-dark-brown mb-2 text-center font-title text-3xl">
-                  {roadmap.title}
-                </h3>
-                <p className="mx-5 text-justify">{roadmap.description}</p>
-              </Link>
+              <div className="group relative m-auto flex h-full w-full">
+                <Link
+                  className="z-20 grow  rounded-md bg-brown py-3 hover:bg-white"
+                  to={`/roadmap/view/${roadmap.id}`}
+                >
+                  <h3 className="c-dark-brown mb-2 text-center font-title text-3xl">
+                    {roadmap.title}
+                  </h3>
+                  <p className="mx-5 text-justify">{roadmap.description}</p>
+                </Link>
+                <div className="absolute top-1 left-1 -right-1 -bottom-1 z-10 rounded-md bg-yellow group-hover:bg-yellow"></div>
+              </div>
               <div className="flex space-x-2">
-                <IconButton
-                  aria-label="Editar Roadmap"
-                  icon={<FiEdit />}
-                  onClick={() => navigate(`/edit-roadmap/${roadmap.id}`)}
-                />
-                <IconButton
-                  aria-label="Deletar Roadmap"
-                  onClick={() => handleDeleteRoadmap(roadmap.id || '')}
-                  icon={<FiTrash2 />}
-                />
-                <IconButton
-                  aria-label="Compartilhar Roadmap"
-                  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-                  onClick={() => handleCopyToClipboard(roadmap.id!)}
-                  icon={<FiShare2 />}
-                />
+                <div className="group relative flex h-fit w-fit">
+                  <IconButton
+                    className="z-20"
+                    aria-label="Editar Roadmap"
+                    icon={<FiEdit />}
+                    onClick={() => navigate(`/edit-roadmap/${roadmap.id}`)}
+                  />{' '}
+                  <div className="absolute top-1 left-1 -right-1 -bottom-1 z-10 rounded-md bg-red group-hover:bg-red"></div>
+                </div>
+                <div className="group relative flex h-fit w-fit">
+                  <IconButton
+                    className="z-20"
+                    aria-label="Deletar Roadmap"
+                    onClick={() => handleDeleteRoadmap(roadmap.id || '')}
+                    icon={<FiTrash2 />}
+                  />
+                  <div className="absolute top-1 left-1 -right-1 -bottom-1 z-10 rounded-md bg-red group-hover:bg-red"></div>
+                </div>
+                <div className="group relative flex h-fit w-fit">
+                  <IconButton
+                    className="z-20"
+                    aria-label="Compartilhar Roadmap"
+                    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+                    onClick={() => handleCopyToClipboard(roadmap.id!)}
+                    icon={<FiShare2 />}
+                  />
+                  <div className="absolute top-1 left-1 -right-1 -bottom-1 z-10 rounded-md bg-red group-hover:bg-red"></div>
+                </div>
               </div>
             </div>
           );

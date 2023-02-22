@@ -72,22 +72,28 @@ const HeaderDrawer = () => {
 
         <li className="flex">
           {isAuthenticated && (
-            <button
-              className="auto m-auto mt-8 rounded-md bg-brown p-2"
-              onClick={() => logout({ returnTo: window.location.origin })}
-            >
-              Logout
-            </button>
+            <div className="group relative m-auto flex h-fit w-fit">
+              <button
+                className="auto z-20 m-auto rounded-md bg-brown p-2 hover:bg-light-orange"
+                onClick={() => logout({ returnTo: window.location.origin })}
+              >
+                Logout
+              </button>
+              <div className="absolute top-1 left-1 -right-1 -bottom-1 z-10 rounded-md bg-red group-hover:bg-red"></div>
+            </div>
           )}
         </li>
         <li className="flex">
           {!isAuthenticated && !isLoading && (
-            <button
-              className="m-auto mt-8 rounded-md bg-light-brown p-2"
-              onClick={() => handleAuth()}
-            >
-              Log In
-            </button>
+            <div className="group relative m-auto flex h-fit w-fit">
+              <button
+                className="z-20 m-auto rounded-md bg-light-brown p-2 font-title hover:bg-brown"
+                onClick={() => handleAuth()}
+              >
+                Log In
+              </button>
+              <div className="absolute top-1 left-1 -right-1 -bottom-1 z-10 rounded-md bg-red group-hover:bg-red"></div>
+            </div>
           )}
           {isLoading && (
             <ThreeDots

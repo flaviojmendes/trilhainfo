@@ -1,6 +1,6 @@
-import { ReactElement } from "react";
-import ReactGA from "react-ga4";
-import { ButtonArgs } from "./types";
+import { ReactElement } from 'react';
+import ReactGA from 'react-ga4';
+import { ButtonArgs } from './types';
 
 type ButtonElementProps = ButtonArgs;
 
@@ -19,24 +19,30 @@ const ButtonElement = ({
   }
 
   const renderLinkButton = (
-    <a
-      type="button"
-      href={args.href}
-      className="p-2 text-center rounded-md bg-red font-title mr-2 hover:shadow-md hover:bg-dark-red transition-colors"
-      onClick={handleAnalyticsEvent}
-    >
-      {text}
-    </a>
+    <div className="group relative flex h-fit w-fit">
+      <a
+        type="button"
+        href={args.href}
+        className="z-20 rounded-md bg-red p-2 text-center font-title transition-colors hover:bg-dark-red hover:shadow-md"
+        onClick={handleAnalyticsEvent}
+      >
+        {text}
+      </a>
+      <div className="absolute top-1 left-1 -right-1 -bottom-1 z-10 rounded-md bg-light-brown group-hover:bg-brown"></div>
+    </div>
   );
 
   const renderButton = (
-    <button
-      type="button"
-      className="p-2 rounded-md bg-yellow font-title mr-2 hover:shadow-md hover:bg-dark-yellow transition-colors"
-      onClick={args.action}
-    >
-      {text}
-    </button>
+    <div className="group relative flex h-fit w-full md:w-fit">
+      <button
+        type="button"
+        className="z-20 rounded-md bg-yellow p-2 font-title transition-colors hover:bg-dark-yellow hover:shadow-md"
+        onClick={args.action}
+      >
+        {text}
+      </button>
+      <div className="absolute top-1 left-1 -right-1 -bottom-1 z-10 rounded-md bg-light-brown group-hover:bg-brown"></div>
+    </div>
   );
 
   const buttonElements = {

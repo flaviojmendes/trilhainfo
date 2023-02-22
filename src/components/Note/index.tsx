@@ -152,26 +152,28 @@ export default function Note(props: Props) {
               placeholder="Salve aqui suas anotações para não esquecer!"
               className="min-h-[80px] w-full rounded-md border-2 border-yellow bg-[transparent] p-2 text-sm leading-snug text-dark-brown outline-none transition-colors focus:border-red"
             />
-
-            <button
-              onClick={saveCommentText}
-              disabled={isSavingNote}
-              className="mx-auto mt-2 inline-flex h-10 items-center justify-center rounded-md bg-brown px-4 font-title leading-tight transition-colors hover:bg-[#E2E8F0] disabled:cursor-not-allowed disabled:bg-opacity-40 disabled:hover:bg-brown disabled:hover:bg-opacity-40"
-            >
-              {isSavingNote ? (
-                <ThreeDots
-                  height="30"
-                  width="30"
-                  radius="9"
-                  color="#d56a47"
-                  ariaLabel="three-dots-loading"
-                  wrapperStyle={{}}
-                  visible={true}
-                />
-              ) : (
-                <>Salvar Anotação </>
-              )}
-            </button>
+            <div className="group relative m-auto flex h-fit w-fit">
+              <button
+                onClick={saveCommentText}
+                disabled={isSavingNote}
+                className="z-20 mx-auto inline-flex h-10 items-center justify-center rounded-md bg-brown px-4 font-title leading-tight transition-colors hover:bg-[#E2E8F0] disabled:cursor-not-allowed disabled:bg-opacity-40 disabled:hover:bg-brown disabled:hover:bg-opacity-40"
+              >
+                {isSavingNote ? (
+                  <ThreeDots
+                    height="30"
+                    width="30"
+                    radius="9"
+                    color="#d56a47"
+                    ariaLabel="three-dots-loading"
+                    wrapperStyle={{}}
+                    visible={true}
+                  />
+                ) : (
+                  <>Salvar Anotação </>
+                )}
+              </button>
+              <div className="absolute top-1 left-1 -right-1 -bottom-1 z-10 rounded-md bg-red group-hover:bg-yellow"></div>
+            </div>
           </div>
         </>
       )}
