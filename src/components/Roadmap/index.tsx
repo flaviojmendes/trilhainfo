@@ -219,7 +219,12 @@ const RoadmapDrawer = ({
       </DrawerDescription>
 
       <div>
-        <AccordionContainer className="w-full" collapsible type="single">
+        <AccordionContainer
+          defaultValue={activeItem?.children?.[0].label}
+          className="w-full"
+          collapsible
+          type="single"
+        >
           {activeItem?.children?.map((child) => {
             const label = child.label + '-' + activeItem?.label;
 

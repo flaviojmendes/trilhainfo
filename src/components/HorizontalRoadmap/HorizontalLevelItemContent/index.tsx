@@ -23,7 +23,12 @@ export function HorizontalLevelItemContent() {
         >
           <h2 className="font-title text-2xl text-light-orange">{selectedItem.label}</h2>
           <p className="my-2 font-title text-xl text-light-orange">{selectedItem.description}</p>
-          <AccordionContainer className="w-full" collapsible type="single">
+          <AccordionContainer
+            defaultValue={selectedItem.children?.[0].label}
+            className="w-full"
+            collapsible
+            type="single"
+          >
             {selectedItem?.children?.map((section, index) => (
               <HorizontalRoadmapAccordion key={section.label + index} section={section} />
             ))}
