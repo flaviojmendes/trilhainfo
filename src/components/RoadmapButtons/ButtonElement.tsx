@@ -33,7 +33,7 @@ const ButtonElement = ({
   );
 
   const renderButton = (
-    <div className="group relative flex h-fit w-full md:w-fit">
+    <div className="group relative flex h-fit w-fit">
       <button
         type="button"
         className="z-20 rounded-md bg-yellow p-2 font-title transition-colors hover:bg-dark-yellow hover:shadow-md"
