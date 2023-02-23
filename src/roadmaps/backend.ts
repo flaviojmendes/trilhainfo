@@ -156,6 +156,13 @@ export const data: Level[] = [
                 votes: 0,
                 contentType: LinkContentType.WATCH,
               },
+              {
+                label: "Playlist Fundamentos do C# | por Milton Sampaio",
+                url: "https://www.youtube.com/playlist?list=PLAwbaTeLc4u0K45DxQjS6ZShLaUSM3BG-",
+                type: LinkType.FREE,
+                votes: 0,
+                contentType: LinkContentType.WATCH,
+              },
             ],
           },
           {
@@ -190,6 +197,20 @@ export const data: Level[] = [
               {
                 label: "Criando projeto Windows Forms com Entityframework ORM",
                 url: "https://www.youtube.com/watch?v=Zy_tFVgvkOM",
+                type: LinkType.FREE,
+                votes: 0,
+                contentType: LinkContentType.WATCH,
+              },
+              {
+                label: "Playlist ASP.NET | por Milton Sampaio",
+                url: "https://www.youtube.com/playlist?list=PLAwbaTeLc4u2u5FpfTJLXAP9JqGTY7Nuf",
+                type: LinkType.FREE,
+                votes: 0,
+                contentType: LinkContentType.WATCH,
+              },
+              {
+                label: "Playlist Entity Framework | por Milton Sampaio",
+                url: "https://www.youtube.com/playlist?list=PLAwbaTeLc4u3M-3aOIBMasoDNAKMYSGnj",
                 type: LinkType.FREE,
                 votes: 0,
                 contentType: LinkContentType.WATCH,
@@ -250,7 +271,17 @@ export const data: Level[] = [
               },
             ],
           },
-          { label: "Transações", links: [] },
+          { label: "Transações", 
+            links: [
+              {
+                label: "Playlist Entity Framework | por Milton Sampaio",
+                url: "https://www.youtube.com/playlist?list=PLAwbaTeLc4u3M-3aOIBMasoDNAKMYSGnj",
+                type: LinkType.FREE,
+                votes: 0,
+                contentType: LinkContentType.WATCH,
+              },
+            ]
+          },
           {
             label: "N+1",
             description:
@@ -272,7 +303,16 @@ export const data: Level[] = [
               },
             ],
           },
-          { label: "Índices", links: [] },
+          {
+            label: "Índices",
+            links: [
+              {
+                label: "Índices | Por Milton Sampaio",
+                url: "https://www.youtube.com/watch?v=hjiYLR2KEDQ&list=PLAwbaTeLc4u3G-JelKmIO5k_emd0cJjBO&index=4",
+                contentType: LinkContentType.WATCH,
+              },
+            ]
+          },
           { label: "Replicação de Dados", links: [] },
           { label: "Sharding", links: [] },
           {
@@ -280,6 +320,23 @@ export const data: Level[] = [
             description:
               "CAP é um acrônimo que significa consistência, disponibilidade e tolerância de partição. De acordo com o teorema CAP, qualquer sistema distribuído pode garantir apenas duas das três propriedades em qualquer ponto do tempo. Você não pode garantir todas as três propriedades de uma vez.",
             links: [],
+          },
+          {
+            label: "Relacionamento",
+            description:
+              "É a capacidade que um banco relacional tem de criar vínculos entre registros de diversas tabelas.",
+            links: [
+              {
+                label: "Relacionamentos | Por Milton Sampaio",
+                url: "https://www.youtube.com/watch?v=jL3Surq1-Tk&list=PLAwbaTeLc4u3G-JelKmIO5k_emd0cJjBO&index=3",
+                contentType: LinkContentType.WATCH,
+              },
+              {
+                label: "Integridade Referencial no SQL | Por Milton Sampaio",
+                url: "https://www.youtube.com/watch?v=hjiYLR2KEDQ&list=PLAwbaTeLc4u3G-JelKmIO5k_emd0cJjBO&index=5",
+                contentType: LinkContentType.WATCH,
+              },
+            ],
           },
         ],
       },
