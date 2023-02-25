@@ -470,7 +470,7 @@ export const data: Level[] = [
               {
                 url: 'https://www.youtube.com/watch?v=Nzeya0Utfrg',
                 label: 'Next.js - Frontend e Server Side Rendering na Prática - Full Cycle',
-                contentType: LinkContentType.PRACTICE,
+                contentType: LinkContentType.WATCH,
               },
             ],
           },
@@ -489,8 +489,8 @@ export const data: Level[] = [
               },
               {
                 url: 'https://youtu.be/zQICkvPQTfo',
-                label: 'A Nova Forma de Geração Estática do Next js (SSG e ISG)',
-                contentType: LinkContentType.PRACTICE,
+                label: 'A Nova Forma de Geração Estática do Next js (SSG e ISG) - Gus Quem Fala',
+                contentType: LinkContentType.WATCH,
               },
             ],
           },
@@ -505,7 +505,7 @@ export const data: Level[] = [
               {
                 url: 'https://www.aluiziodeveloper.com.br/mini-curso-gratuito-conhecendo-o-framework-gatsby/',
                 label: 'Mini Curso Gratuito - Conhecendo o Framework Gatsby',
-                contentType: LinkContentType.PRACTICE,
+                contentType: LinkContentType.WATCH,
               },
             ],
           },
@@ -519,23 +519,97 @@ export const data: Level[] = [
               },
               {
                 url: 'https://youtu.be/urkZlgvv6wk',
-                label: 'Remix JS, o Mais Novo Framework JS na Prática',
-                contentType: LinkContentType.PRACTICE,
+                label: 'Remix JS, o Mais Novo Framework JS na Prática - dogcode',
+                contentType: LinkContentType.WATCH,
               },
             ],
           },
         ],
       },
       {
-        label: 'API Calls',
+        label: 'Data Fetching',
         children: [
-          { label: 'react-query', links: [] },
-          { label: 'Apollo', links: [] },
-          { label: 'Relay Modern', links: [] },
-          { label: 'Axios', links: [] },
-          { label: 'Unfetch', links: [] },
-          { label: 'superagent', links: [] },
-          { label: 'use-http', links: [] },
+          {
+            label: 'React Query',
+            links: [
+              {
+                url: 'https://react-query-v3.tanstack.com/',
+                label: 'Documentação Oficial',
+                contentType: LinkContentType.READ,
+              },
+              {
+                url: 'https://www.youtube.com/watch?v=mo7MZFYYzWM',
+                label:
+                  'React Query Tutorial em TypeScript - Queries, Mutations e Query Invalidation - Coffstack',
+                contentType: LinkContentType.WATCH,
+              },
+              {
+                url: 'https://www.youtube.com/watch?v=4JLPR8prndw',
+                label: 'React Query No Seu Projeto em 5 Minutos - João Bibiano',
+                contentType: LinkContentType.WATCH,
+              },
+            ],
+          },
+          {
+            label: 'SWR',
+            links: [
+              {
+                url: 'https://swr.vercel.app/pt-BR',
+                label: 'Documentação Oficial',
+                contentType: LinkContentType.READ,
+              },
+              {
+                url: 'https://www.youtube.com/watch?v=9gfUyCETdbo',
+                label: 'Como usar SWR | React Hooks para Data Fetching - Catapulta Club',
+                contentType: LinkContentType.READ,
+              },
+            ],
+          },
+          {
+            label: 'Apollo',
+            links: [
+              {
+                url: 'https://www.apollographql.com/',
+                label: 'Documentação Oficial',
+                contentType: LinkContentType.READ,
+              },
+              {
+                url: 'https://www.youtube.com/watch?v=G_uhCURx-GE',
+                label: 'Apollo Server: Criando uma API Graphql (rápido e fácil) - Dev & Design',
+                contentType: LinkContentType.WATCH,
+              },
+            ],
+          },
+          {
+            label: 'Relay Modern',
+            links: [
+              {
+                url: 'https://relay.dev/',
+                label: 'Documentação Oficial',
+                contentType: LinkContentType.READ,
+              },
+              {
+                url: 'https://www.youtube.com/watch?v=lXLiSLmhlMU',
+                label: 'Relay Modern do Zero e na Prática | Master Class - dogcode',
+                contentType: LinkContentType.WATCH,
+              },
+            ],
+          },
+          {
+            label: 'Axios',
+            links: [
+              {
+                url: 'https://axios-http.com/docs/intro',
+                label: 'Documentação Oficial',
+                contentType: LinkContentType.READ,
+              },
+              {
+                url: 'https://www.youtube.com/watch?v=VM4e37DaskU',
+                label: 'Consumindo API no front-end com AXIOS - Rocketseat',
+                contentType: LinkContentType.WATCH,
+              },
+            ],
+          },
         ],
       },
       { label: 'Mobile', children: [{ label: 'React Native', links: [] }] },
