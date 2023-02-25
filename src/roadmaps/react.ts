@@ -681,9 +681,53 @@ export const data: Level[] = [
       {
         label: 'Testes',
         children: [
-          { label: 'Jest', links: [] },
-          { label: 'React Testing Library', links: [] },
-          { label: 'Cypress', links: [] },
+          {
+            label: 'Jest',
+            links: [
+              {
+                url: 'https://jestjs.io/pt-BR/docs/getting-started',
+                label: 'Documentação Oficial',
+                contentType: LinkContentType.READ,
+              },
+            ],
+          },
+          {
+            label: 'React Testing Library',
+            links: [
+              {
+                url: 'https://testing-library.com/docs/react-testing-library/intro/',
+                label: 'Documentação Oficial',
+                contentType: LinkContentType.READ,
+              },
+              {
+                url: 'https://www.youtube.com/watch?v=p1bjHvX-DqM',
+                label:
+                  'Como testar aplicações React usando Jest & Testing Library - Fernanda Kipper | Dev',
+                contentType: LinkContentType.WATCH,
+              },
+              {
+                url: 'https://www.youtube.com/watch?v=0dRPPmRYM3o',
+                label:
+                  'Avançando com os Testes Unitários no React usando Jest & Testing Library - Fernanda Kipper | Dev',
+                contentType: LinkContentType.WATCH,
+              },
+            ],
+          },
+          {
+            label: 'Cypress',
+            links: [
+              {
+                url: 'https://docs.cypress.io/guides/overview/why-cypress',
+                label: 'Documentação Oficial',
+                contentType: LinkContentType.READ,
+              },
+              {
+                url: 'https://www.youtube.com/watch?v=q0hUw3YOUz4',
+                label: 'Descomplicando o cypress - Conie Menezes',
+                contentType: LinkContentType.WATCH,
+              },
+            ],
+          },
         ],
       },
       {
