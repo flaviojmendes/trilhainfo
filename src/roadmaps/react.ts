@@ -733,7 +733,27 @@ export const data: Level[] = [
       {
         label: 'Gerenciamento de Estado',
         children: [
-          { label: 'Context/State', links: [] },
+          {
+            label: 'Context/State',
+            links: [
+              {
+                label: 'Context API no ReactJS - Simples e direto - Instrutor Feijó',
+                url: 'https://www.youtube.com/watch?v=VMy9Sb0eDHo',
+                contentType: LinkContentType.WATCH,
+              },
+            ],
+          },
+          {
+            label: 'Zustand',
+            links: [
+              {
+                label:
+                  'O Guia Definitivo Sobre Gerenciamento de Estados no React com Zustand | Master Class - dogcode',
+                url: 'https://www.youtube.com/watch?v=nU662dfFfw4',
+                contentType: LinkContentType.WATCH,
+              },
+            ],
+          },
           {
             label: 'Redux',
             links: [
@@ -744,7 +764,17 @@ export const data: Level[] = [
               },
             ],
           },
-          { label: 'MobX', links: [] },
+          {
+            label: 'MobX',
+            links: [
+              {
+                label:
+                  'CONCEITOS BÁSICOS DE MOBX COM REACT | GERENCIAMENTO DE ESTADO GLOBAL EM APP REACTJS - Jorge Aluizio',
+                url: 'https://www.youtube.com/watch?v=IdjV1ffqHEA',
+                contentType: LinkContentType.WATCH,
+              },
+            ],
+          },
         ],
       },
       {
