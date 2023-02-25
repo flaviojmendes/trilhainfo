@@ -760,8 +760,27 @@ export const data: Level[] = [
               },
             ],
           },
-          { label: 'Material UI', links: [] },
-          { label: 'Ant Design', links: [] },
+          {
+            label: 'Material UI',
+            links: [
+              {
+                label: 'Conhecendo Material UI no Reactjs | Try/Code - OmniLabs',
+                url: 'https://www.youtube.com/watch?v=uJhqvzK7cWw',
+                contentType: LinkContentType.WATCH,
+              },
+            ],
+          },
+          {
+            label: 'Ant Design',
+            links: [
+              {
+                label:
+                  'Configurando o AntDesign dentro do projeto React (+ BONUS Formulários) - Alga Works',
+                url: 'https://www.youtube.com/watch?v=VzNxjNxxnYU',
+                contentType: LinkContentType.WATCH,
+              },
+            ],
+          },
           {
             label: 'Styled Components',
             links: [
@@ -772,7 +791,16 @@ export const data: Level[] = [
               },
             ],
           },
-          { label: 'Emotion', links: [] },
+          {
+            label: 'Emotion',
+            links: [
+              {
+                url: 'https://emotion.sh/docs/introduction',
+                label: 'Documentação Oficial',
+                contentType: LinkContentType.READ,
+              },
+            ],
+          },
         ],
       },
     ],
