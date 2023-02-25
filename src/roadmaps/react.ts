@@ -612,7 +612,26 @@ export const data: Level[] = [
           },
         ],
       },
-      { label: 'Mobile', children: [{ label: 'React Native', links: [] }] },
+      {
+        label: 'Mobile',
+        children: [
+          {
+            label: 'React Native',
+            links: [
+              {
+                url: 'https://reactnative.dev/docs/getting-started',
+                label: 'Documentação Oficial',
+                contentType: LinkContentType.READ,
+              },
+              {
+                url: 'https://www.youtube.com/watch?v=Y8tP1jbRYHY&list=PLdDT8if5attEd4sRnZBIkNihR-_tE612_',
+                label: 'Curso React Native (aprendiz) - Onebitcode',
+                contentType: LinkContentType.WATCH,
+              },
+            ],
+          },
+        ],
+      },
       {
         label: 'Forms',
         children: [
