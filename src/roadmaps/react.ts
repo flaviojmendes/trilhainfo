@@ -806,6 +806,11 @@ export const data: Level[] = [
     ],
   },
   {
-    items: [{ label: 'Continue o Roadmap de Frontend após a caixa de Frameworks' }],
+    items: [
+      {
+        label: 'Continue o Roadmap de Frontend após a caixa de Frameworks',
+        url: '/roadmap/frontend',
+      },
+    ],
   },
 ];
