@@ -456,13 +456,74 @@ export const data: Level[] = [
           },
         ],
       },
-      { label: 'SSR', children: [{ label: 'Next.js', links: [] }] },
+      {
+        label: 'SSR',
+        children: [
+          {
+            label: 'Next.js',
+            links: [
+              {
+                url: 'https://nextjs.org/docs/basic-features/pages#server-side-rendering',
+                label: 'Documentação Oficial',
+                contentType: LinkContentType.READ,
+              },
+              {
+                url: 'https://www.youtube.com/watch?v=Nzeya0Utfrg',
+                label: 'Next.js - Frontend e Server Side Rendering na Prática - Full Cycle',
+                contentType: LinkContentType.PRACTICE,
+              },
+            ],
+          },
+        ],
+      },
       {
         label: 'SSG',
         children: [
-          { label: 'Next.js', links: [] },
-          { label: 'Gatsby', links: [] },
-          { label: 'Remix', links: [] },
+          {
+            label: 'Next.js',
+            links: [
+              {
+                url: 'https://nextjs.org/docs/basic-features/pages#static-generation',
+                label: 'Documentação Oficial',
+                contentType: LinkContentType.READ,
+              },
+              {
+                url: 'https://youtu.be/zQICkvPQTfo',
+                label: 'A Nova Forma de Geração Estática do Next js (SSG e ISG)',
+                contentType: LinkContentType.PRACTICE,
+              },
+            ],
+          },
+          {
+            label: 'Gatsby',
+            links: [
+              {
+                url: 'https://www.gatsbyjs.com/docs/glossary/static-site-generator/',
+                label: 'Documentação Oficial',
+                contentType: LinkContentType.READ,
+              },
+              {
+                url: 'https://www.aluiziodeveloper.com.br/mini-curso-gratuito-conhecendo-o-framework-gatsby/',
+                label: 'Mini Curso Gratuito - Conhecendo o Framework Gatsby',
+                contentType: LinkContentType.PRACTICE,
+              },
+            ],
+          },
+          {
+            label: 'Remix',
+            links: [
+              {
+                url: 'https://remix.run/',
+                label: 'Documentação Oficial',
+                contentType: LinkContentType.READ,
+              },
+              {
+                url: 'https://youtu.be/urkZlgvv6wk',
+                label: 'Remix JS, o Mais Novo Framework JS na Prática',
+                contentType: LinkContentType.PRACTICE,
+              },
+            ],
+          },
         ],
       },
       {
