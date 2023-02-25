@@ -635,9 +635,47 @@ export const data: Level[] = [
       {
         label: 'Forms',
         children: [
-          { label: 'React Hook Form', links: [] },
-          { label: 'Formik', links: [] },
-          { label: 'Final Form', links: [] },
+          {
+            label: 'React Hook Form',
+            links: [
+              {
+                url: 'https://react-hook-form.com/',
+                label: 'Documentação Oficial',
+                contentType: LinkContentType.READ,
+              },
+              {
+                url: 'https://www.youtube.com/watch?v=QEdm3EVrhY0',
+                label: 'Como usar o React Hook Form! - Huriel',
+                contentType: LinkContentType.WATCH,
+              },
+            ],
+          },
+          {
+            label: 'Formik',
+            links: [
+              {
+                url: 'https://formik.org/',
+                label: 'Documentação Oficial',
+                contentType: LinkContentType.READ,
+              },
+              {
+                url: 'https://www.youtube.com/watch?v=NcMsGS2_87U',
+                label:
+                  'Introdução ao Formik - Construindo formulários em React com validação - Vinicius Dacal',
+                contentType: LinkContentType.WATCH,
+              },
+            ],
+          },
+          {
+            label: 'Final Form',
+            links: [
+              {
+                url: 'https://final-form.org/docs/react-final-form/getting-started',
+                label: 'Documentação Oficial',
+                contentType: LinkContentType.READ,
+              },
+            ],
+          },
         ],
       },
       {
