@@ -43,7 +43,7 @@ export const Drawer = ({
 
   return (
     <DrawerPortal>
-      <DrawerOverlay className="fixed inset-0 h-screen w-screen bg-[#000000]/70 data-[state='open']:animate-fadeIn data-[state='closed']:animate-fadeOut" />
+      <DrawerOverlay className="fixed inset-0 z-30 h-screen w-screen bg-[#000000]/70 data-[state='open']:animate-fadeIn data-[state='closed']:animate-fadeOut" />
       <DrawerContent
         className={`fixed top-0 bottom-0 z-30 h-screen w-full  bg-[#444140] py-4 px-6 duration-1000 sm:w-3/5 lg:w-2/5 ${open} ${close} ${
           isRight ? 'right-0' : 'left-0'
