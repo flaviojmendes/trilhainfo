@@ -49,12 +49,10 @@ export default function LevelItem(props: Props) {
 
   return (
     <article className="relative flex flex-col">
-      <div className="absolute left-[50%] -z-10 h-full translate-x-[-50%] border-l-4 border-dark-red"></div>
+      <div className="absolute left-[50%] -z-10 h-full translate-x-[-50%] border-l-4 border-yellow"></div>
       <div
         className={
-          props.level.label
-            ? ' self-center rounded-md border-2 border-dotted border-dark-red bg-light-yellow p-4 pb-5 lg:w-2/3'
-            : ''
+          props.level.label ? ' self-center rounded-md  bg-light-yellow p-4 pb-5 lg:w-2/3' : ''
         }
       >
         {props.level.label && (
@@ -77,98 +75,106 @@ export default function LevelItem(props: Props) {
               return (
                 <>
                   {item.url && (
-                    <button
-                      onClick={() => {
-                        triggerSubRoadmapSelection(item.url);
-                      }}
-                      id={item.label}
-                      className={
-                        'center relative mx-0 my-0 flex w-fit cursor-pointer  rounded-md border-2 border-dark-red p-1 text-center hover:bg-white hover:shadow-md  md:p-2' +
-                        (level.length >= 4 ? ' mb-3' : '') +
-                        (isAllContentRead ? ' bg-light-orange' : ' bg-brown')
-                      }
+                    <div
+                      className={'relative flex h-fit w-fit' + (level.length >= 4 ? ' mb-3' : '')}
                     >
-                      <TbGitFork className="m-auto mx-1" tabIndex={0} />
-
-                      <p
+                      <button
+                        onClick={() => {
+                          triggerSubRoadmapSelection(item.url);
+                        }}
+                        id={item.label}
                         className={
-                          'c-dark-brown m-auto  whitespace-normal font-title text-lg md:whitespace-nowrap'
+                          'center z-20 mx-0 my-0 flex w-fit cursor-pointer rounded-md border-2 border-dark-brown p-1 text-center hover:bg-white  hover:shadow-md md:p-2' +
+                          (isAllContentRead ? ' bg-light-orange' : ' bg-brown')
                         }
                       >
-                        {item.label}
-                      </p>
+                        <TbGitFork className="m-auto mx-1" tabIndex={0} />
 
-                      {/* <InfoIcon m="auto" mx="1" color={"#494443"} /> */}
-                    </button>
+                        <p
+                          className={
+                            'c-dark-brown m-auto  whitespace-normal font-title text-lg md:whitespace-nowrap'
+                          }
+                        >
+                          {item.label}
+                        </p>
+
+                        {/* <InfoIcon m="auto" mx="1" color={"#494443"} /> */}
+                      </button>
+                      <div className="absolute top-1 left-1 -right-1 -bottom-1 z-10 rounded-md bg-dark-brown"></div>
+                    </div>
                   )}
                   {!item.url && (
-                    <DrawerTrigger
-                      onClick={(e) => {
-                        triggerItemSelection(item);
-                        props.updateLastSelectedElement(e.currentTarget);
-                      }}
-                      id={item.label}
-                      className={
-                        'center mx-0 my-0 flex w-fit cursor-pointer rounded-md border-2 border-dark-red p-1 text-center hover:bg-white hover:shadow-md  md:p-2' +
-                        (level.length >= 4 ? ' mb-3' : '') +
-                        (isAllContentRead ? ' bg-light-orange' : ' bg-brown')
-                      }
+                    <div
+                      className={'relative flex h-fit w-fit' + (level.length >= 4 ? ' mb-3' : '')}
                     >
-                      {isAllContentRead ? (
-                        <div className="group relative my-auto flex">
-                          <button
-                            onClick={(e) => {
-                              handleToggleAllSelection(e, item);
-                            }}
-                            className="flex h-full"
-                          >
-                            <span className="animate-checking">
-                              <CheckIcon className="m-auto my-auto mx-1 stroke-[#228B22]" />
-                            </span>
-                          </button>
-                          <div
-                            className="absolute bottom-6 -left-16 w-40 rounded-md bg-dark-brown text-sm
-                 text-light-brown opacity-0 transition-opacity group-hover:opacity-100"
-                          >
-                            Desmarcar Concluído
-                          </div>
-                        </div>
-                      ) : (
-                        <div className="group relative my-auto flex">
-                          <FaRegCircle
-                            className="hover: m-auto mx-1 animate-checking hover:fill-light-orange hover:text-light-orange"
-                            onClick={(e) => {
-                              handleToggleAllSelection(e, item);
-                            }}
-                            onKeyDown={(e) => {
-                              if (e.key === 'Enter') {
-                                handleToggleAllSelection(e, item);
-                              }
-                            }}
-                            tabIndex={0}
-                          />
-                          <div
-                            className="absolute bottom-6 -left-16 w-40 rounded-md bg-dark-brown text-sm
-                     text-light-brown opacity-0 transition-opacity group-hover:opacity-100"
-                          >
-                            Marcar Concluído
-                          </div>
-                        </div>
-                      )}
-                      <p
+                      <DrawerTrigger
+                        onClick={(e) => {
+                          triggerItemSelection(item);
+                          props.updateLastSelectedElement(e.currentTarget);
+                        }}
+                        id={item.label}
                         className={
-                          'c-dark-brown m-auto  whitespace-normal font-title text-lg md:whitespace-nowrap'
+                          'center z-20 mx-0 my-0 flex w-fit cursor-pointer rounded-md border-2 border-dark-brown p-1 text-center hover:bg-white  hover:shadow-md md:p-2' +
+                          (isAllContentRead ? ' bg-light-orange' : ' bg-brown')
                         }
                       >
-                        {item.label}
-                      </p>
+                        {isAllContentRead ? (
+                          <div className="group relative my-auto flex">
+                            <button
+                              onClick={(e) => {
+                                handleToggleAllSelection(e, item);
+                              }}
+                              className="flex h-full"
+                            >
+                              <span className="animate-checking">
+                                <CheckIcon className="m-auto my-auto mx-1 stroke-[#228B22]" />
+                              </span>
+                            </button>
+                            <div
+                              className="absolute bottom-6 -left-16 w-40 rounded-md bg-dark-brown text-sm
+                 text-light-brown opacity-0 transition-opacity group-hover:opacity-100"
+                            >
+                              Desmarcar Concluído
+                            </div>
+                          </div>
+                        ) : (
+                          <div className="group relative my-auto flex">
+                            <FaRegCircle
+                              className="hover: m-auto mx-1 animate-checking hover:fill-light-orange hover:text-light-orange"
+                              onClick={(e) => {
+                                handleToggleAllSelection(e, item);
+                              }}
+                              onKeyDown={(e) => {
+                                if (e.key === 'Enter') {
+                                  handleToggleAllSelection(e, item);
+                                }
+                              }}
+                              tabIndex={0}
+                            />
+                            <div
+                              className="absolute bottom-6 -left-16 w-40 rounded-md bg-dark-brown text-sm
+                     text-light-brown opacity-0 transition-opacity group-hover:opacity-100"
+                            >
+                              Marcar Concluído
+                            </div>
+                          </div>
+                        )}
+                        <p
+                          className={
+                            'c-dark-brown m-auto  whitespace-normal font-title text-lg md:whitespace-nowrap'
+                          }
+                        >
+                          {item.label}
+                        </p>
 
-                      {/* <InfoIcon m="auto" mx="1" color={"#494443"} /> */}
-                    </DrawerTrigger>
+                        {/* <InfoIcon m="auto" mx="1" color={"#494443"} /> */}
+                      </DrawerTrigger>
+                      <div className="absolute top-1 left-1 -right-1 -bottom-1 z-10 rounded-md bg-dark-brown"></div>
+                    </div>
                   )}
 
                   {index < level.length - 1 && level.length < 4 && (
-                    <div className="my-auto h-1 min-w-[10px] max-w-[20px] flex-grow border-b-4 border-dashed border-dark-red md:max-w-[50px]"></div>
+                    <div className="my-auto h-1 min-w-[10px] max-w-[20px] flex-grow border-b-4 border-dashed border-dark-brown md:max-w-[50px]"></div>
                   )}
                 </>
               );
@@ -178,7 +184,7 @@ export default function LevelItem(props: Props) {
       </div>
       {props.index < props.levelsQty - 1 && (
         <div className="flex items-center justify-center">
-          <div className="my-0 h-[30px] w-1 border-2 border-dark-red"></div>
+          <div className="my-0 h-[30px]"></div>
         </div>
       )}
     </article>

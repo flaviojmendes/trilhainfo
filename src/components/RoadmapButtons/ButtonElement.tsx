@@ -23,12 +23,12 @@ const ButtonElement = ({
       <a
         type="button"
         href={args.href}
-        className="z-20 rounded-md bg-red p-2 text-center font-title transition-colors hover:bg-dark-red hover:shadow-md"
+        className="z-20 rounded-md border-2 border-dark-brown bg-red p-2 text-center font-title transition-colors hover:bg-dark-red hover:shadow-md"
         onClick={handleAnalyticsEvent}
       >
         {text}
       </a>
-      <div className="absolute top-1 left-1 -right-1 -bottom-1 z-10 rounded-md bg-light-brown group-hover:bg-brown"></div>
+      <div className="absolute top-1 left-1 -right-1 -bottom-1 z-10 rounded-md bg-dark-brown group-hover:bg-dark-brown"></div>
     </div>
   );
 
@@ -36,12 +36,12 @@ const ButtonElement = ({
     <div className="group relative flex h-fit w-fit">
       <button
         type="button"
-        className="z-20 rounded-md bg-yellow p-2 font-title transition-colors hover:bg-dark-yellow hover:shadow-md"
+        className="z-20 rounded-md border-2 border-dark-brown bg-yellow p-2 font-title transition-colors hover:bg-dark-yellow hover:shadow-md"
         onClick={args.action}
       >
         {text}
       </button>
-      <div className="absolute top-1 left-1 -right-1 -bottom-1 z-10 rounded-md bg-light-brown group-hover:bg-brown"></div>
+      <div className="absolute top-1 left-1 -right-1 -bottom-1 z-10 rounded-md bg-dark-brown group-hover:bg-dark-brown"></div>
     </div>
   );
 

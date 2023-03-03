@@ -52,7 +52,7 @@ export default function Hero() {
           <AnchorLink
             onClick={handleCallToAction}
             href="#mainRoadmaps"
-            className="z-20 w-full rounded-md bg-light-brown p-2 text-center font-title hover:bg-light-orange"
+            className="z-20 w-full rounded-md bg-light-brown p-2 text-center font-title hover:bg-light-orange "
           >
             Comece Agora
           </AnchorLink>
