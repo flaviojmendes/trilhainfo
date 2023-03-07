@@ -34,7 +34,7 @@ export const data: Level[] = [
   {
     label: "Conceitos de Sistemas Operacionais",
     description:
-      "Aqui você vai aprenser Conceitos referente a Sistema Operacionais, como Processos, Threads, Sockets, Rede",
+      "Aqui você vai aprender Conceitos referente a Sistema Operacionais, como Processos, Threads, Sockets, Rede",
     items: [
       {
         label: "Gerenciamento de Processos",
