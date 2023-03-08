@@ -1,21 +1,21 @@
-import { Level, LinkContentType, LinkType, RoadmapItem } from "../../entity/RoadmapModel";
+import { LinkContentType, LinkType, RoadmapItem } from '../../entity/RoadmapModel';
 
 export const SO: RoadmapItem = {
-  label: "SO e Conhecimentos Gerais",
+  label: 'SO e Conhecimentos Gerais',
   description:
-    "Sistema Operacional é um programa que gerencia os recursos de um computador, principalmente a alocação desses recursos entre outros programas. Os recursos típicos incluem a unidade central de processamento (CPU), memória do computador, armazenamento de arquivos, dispositivos de entrada/saída (E/S) e conexões de rede.",
+    'Sistema Operacional é um programa que gerencia os recursos de um computador, principalmente a alocação desses recursos entre outros programas. Os recursos típicos incluem a unidade central de processamento (CPU), memória do computador, armazenamento de arquivos, dispositivos de entrada/saída (E/S) e conexões de rede.',
   children: [
     {
-      label: "Uso do Terminal",
+      label: 'Uso do Terminal',
       links: [
         {
-          label: "Aprenda os comandos básicos do Linux - Diolinux",
-          url: "https://www.youtube.com/watch?v=JEhVB4VHsTI",
+          label: 'Aprenda os comandos básicos do Linux - Diolinux',
+          url: 'https://www.youtube.com/watch?v=JEhVB4VHsTI',
           contentType: LinkContentType.WATCH,
         },
         {
-          label: "Linux Week - Linux Tips",
-          url: "https://www.youtube.com/watch?v=zGE4UxYndrk&list=PLf-O3X2-mxDnl7LhhjhEgbo2etWKkJ0GV",
+          label: 'Linux Week - Linux Tips',
+          url: 'https://www.youtube.com/watch?v=zGE4UxYndrk&list=PLf-O3X2-mxDnl7LhhjhEgbo2etWKkJ0GV',
           contentType: LinkContentType.WATCH,
         },
       ],
@@ -24,57 +24,71 @@ export const SO: RoadmapItem = {
       label: "Como funcionam SO's",
       links: [
         {
-          url: "https://www.youtube.com/watch?v=Rl6HhDvW984&list=PLxI8Can9yAHeK7GUEGxMsqoPRmJKwI9Jw",
-          label: "Sistemas Operacionais - UNIVESP",
+          url: 'https://www.youtube.com/watch?v=Rl6HhDvW984&list=PLxI8Can9yAHeK7GUEGxMsqoPRmJKwI9Jw',
+          label: 'Sistemas Operacionais - UNIVESP',
           votes: 0,
           type: LinkType.FREE,
           contentType: LinkContentType.WATCH,
         },
       ],
     },
-    { label: "Gerenciamento de Processos", links: [] },
     {
-      label: "Threads e Concorrência",
+      label: 'Gerenciamento de Processos',
       links: [
         {
-          label: "Concorrência e Paralelismo - Fabio Akita",
-          url: "https://www.youtube.com/watch?v=cx1ULv4wYxM",
+          label: 'Descomplicando Gerenciamento de Processos - LinuxTips',
+          url: 'https://www.youtube.com/watch?v=-bEVlQv_O-8&list=PLf-O3X2-mxDlx6sRx2WB-xv3Q9YHJ23ZN',
           contentType: LinkContentType.WATCH,
         },
       ],
     },
     {
-      label: "Armazenamento",
+      label: 'Threads e Concorrência',
       links: [
         {
-          label: "Entendendo Armazenamento - Fabio Akita",
-          url: "https://www.youtube.com/playlist?list=PLdsnXVqbHDUcM0LTAxqrVrTy6Q7jQprjt",
+          label: 'Concorrência e Paralelismo - Fabio Akita',
+          url: 'https://www.youtube.com/watch?v=cx1ULv4wYxM',
           contentType: LinkContentType.WATCH,
         },
       ],
     },
     {
-      label: "Gerenciamento de Memória",
+      label: 'Armazenamento',
       links: [
         {
-          label: "Gerenciamento de Memória - Fabio Akita",
-          url: "https://www.youtube.com/watch?v=9AK_1gqEfkQ",
+          label: 'Entendendo Armazenamento - Fabio Akita',
+          url: 'https://www.youtube.com/playlist?list=PLdsnXVqbHDUcM0LTAxqrVrTy6Q7jQprjt',
           contentType: LinkContentType.WATCH,
         },
       ],
     },
-    { label: "Básicos POSIX", links: [] },
     {
-      label: "Conceitos Básicos de Rede",
+      label: 'Gerenciamento de Memória',
       links: [
         {
-          label: "Redes de Computadores - Curso em Video",
-          url: "https://www.cursoemvideo.com/curso/redes-de-computadores/",
+          label: 'Gerenciamento de Memória - Fabio Akita',
+          url: 'https://www.youtube.com/watch?v=9AK_1gqEfkQ',
+          contentType: LinkContentType.WATCH,
+        },
+      ],
+    },
+    { label: 'Básicos POSIX', links: [] },
+    {
+      label: 'Conceitos Básicos de Rede',
+      links: [
+        {
+          label: 'Redes de Computadores - Curso em Video',
+          url: 'https://www.cursoemvideo.com/curso/redes-de-computadores',
           contentType: LinkContentType.VISIT,
         },
         {
-          label: "Introdução a Redes - Fabio Akita",
-          url: "https://www.youtube.com/playlist?list=PLdsnXVqbHDUcTGjNZuRYCVj3AZtdt6oG7",
+          label: 'Curso de Redes - Boson Treinamentos',
+          url: 'https://www.youtube.com/watch?v=efGBoJ-f_2Y&list=PLucm8g_ezqNpGh95n-OdEk06ity7YYfvU',
+          contentType: LinkContentType.VISIT,
+        },
+        {
+          label: 'Introdução a Redes - Fabio Akita',
+          url: 'https://www.youtube.com/playlist?list=PLdsnXVqbHDUcTGjNZuRYCVj3AZtdt6oG7',
           contentType: LinkContentType.WATCH,
         },
       ],
