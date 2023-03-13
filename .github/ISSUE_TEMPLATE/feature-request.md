@@ -1,5 +1,5 @@
 ---
-name: Feature Reuqest
+name: Feature Request
 about: Sugira uma funcionalidade/melhoria para a Trilha
 title: "[FEATURE]"
 labels: ''
