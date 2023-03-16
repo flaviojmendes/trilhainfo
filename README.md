@@ -1,10 +1,8 @@
-[![Discord Server](https://discordapp.com/api/guilds/989882634358390794/widget.png?style=banner2)](https://discord.gg/HJ3Spm6R)
-
-
-
-<a href="https://github.com/flaviojmendes/trilhainfo/blob/main/translation/readme-en.md" ><img src = "https://img.shields.io/badge/🇬🇧-English-blue" alt="Readme em Inglês"/></a>
-
-<a href="https://github.com/flaviojmendes/trilhainfo/blob/main/translation/readme.md" ><img src = "https://img.shields.io/badge/🇧🇷-Português-blue" alt="Readme em Inglês"/></a>
+[![Discord Server](https://img.shields.io/discord/989882634358390794?style=flat-square)](https://discord.gg/HJ3Spm6R)
+|
+[![pt](https://img.shields.io/badge/🇧🇷-Português-blue?style=flat-square)](https://github.com/flaviojmendes/trilhainfo/blob/main/translation/readme.md)
+|
+[![en](https://img.shields.io/badge/🇬🇧-English-blue?style=flat-square)](https://github.com/flaviojmendes/trilhainfo/blob/main/translation/readme-en.md)
 
 
 # Trilha Info
