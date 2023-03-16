@@ -1,241 +1,85 @@
-import { Level, LinkType, LinkContentType } from "../entity/RoadmapModel";
+import { Level, LinkType, LinkContentType } from '../entity/RoadmapModel';
 
 export const data: Level[] = [
   {
-    label: "Participe de diversas comunidades Devs!",
+    label: 'Comunidade',
     description:
-      "Conectar-se com devs vai acelerar sua jornada do aprendizado, seja para tirar/responder dúvidas ou conversar com pessoas mais e menos experientes que você.",
+      'A Trilha Info só é possível graças a comunidade que acredita nela e apoia o projeto. Além disso, conectar-se com devs vai acelerar sua jornada do aprendizado, seja para tirar/responder dúvidas ou conversar com pessoas mais e menos experientes que você.',
     items: [
       {
-        label: "Discord",
+        label: 'quem contribui',
         description:
-          "Discord é uma ferramenta de comunidades incrível que facilita a comunicação e aprendizado de diversas pessoas ( em múltiplas vertentes ), onde devs utilizam de canais de texto e voz para trocarem informações e experiência. Escolha uma ( ou todas ) comunidades para entrar, conectar-se e trocar ideias :",
+          'Essas são as pessoas que estão sempre por perto para ajudar a comunidade da Trilha Info.',
         children: [
           {
-            label: "Comunidades",
+            label: 'Twitter',
             links: [
               {
-                url: "https://discord.gg/wagxzStdcR",
-                label: "Ballerini",
+                url: 'https://twitter.com/flaviojmendes',
+                label: 'flaviojmendes',
                 votes: 0,
                 type: LinkType.FREE,
-                contentType: LinkContentType.VISIT
+                contentType: LinkContentType.VISIT,
               },
               {
-                url: "https://discord.gg/wNCWTVuxyz",
-                label: "Codelândia",
+                url: 'https://twitter.com/NicholasCosta04',
+                label: 'Nicholas M',
                 votes: 0,
                 type: LinkType.FREE,
-                contentType: LinkContentType.VISIT
+                contentType: LinkContentType.VISIT,
               },
               {
-                url: "https://discord.gg/FP5UaAG",
-                label: "CollabCode",
+                url: 'https://twitter.com/joaom__00',
+                label: 'João Pedro Magalhães',
                 votes: 0,
                 type: LinkType.FREE,
-                contentType: LinkContentType.VISIT
+                contentType: LinkContentType.VISIT,
               },
               {
-                url: "https://discord.gg/MSr8SJfR4H",
-                label: "Codify Community",
+                url: 'https://twitter.com/jhonatasmatoss',
+                label: 'Jhonatas Matos',
                 votes: 0,
                 type: LinkType.FREE,
-                contentType: LinkContentType.VISIT
-              },             
-              {
-                url: "https://discord.gg/he4rt",
-                label: "He4rt Developers",
-                votes: 0,
-                type: LinkType.FREE,
-                contentType: LinkContentType.VISIT
-              },
-              {
-                url: "http://bitly.com/montano-server",
-                label: "Montano",
-                votes: 0,
-                type: LinkType.FREE,
-                contentType: LinkContentType.VISIT
-              },
-              {
-                url: "https://discord.gg/uYFJ5VJ",
-                label: "Rocketseat",
-                votes: 0,
-                type: LinkType.FREE,
-                contentType: LinkContentType.VISIT
-              },
-            ],
-          },
-        ],
-      },
-    ],
-  },
-  {
-    items: [
-      {
-        label: "Bolha Dev",
-        description:
-          "Se curte usar twitter e quer ter a sua timeline cheia de devs com opiniões fortes, notícias e dúvidas sobre tech/desenvolvimento, siga essas pessoas e hashtags:",
-        children: [
-          {
-            label: "Twitter",
-            links: [
-              {
-                url: "https://twitter.com/AkitaOnRails",
-                label: "@AkitaOnRails",
-                votes: 0,
-                contentType: LinkContentType.VISIT
-              },
-              {
-                url: "https://twitter.com/BolhaTech",
-                label: "#BolhaTech",
-                votes: 0,
-                contentType: LinkContentType.VISIT
-              },
-              {
-                url: "https://twitter.com/danielhe4rt",
-                label: "@danielhe4rt",
-                votes: 0,
-                contentType: LinkContentType.VISIT
-              },
-              {
-                url: "https://twitter.com/flaviojmendes",
-                label: "@flaviojmendes",
-                votes: 0,
-                contentType: LinkContentType.VISIT
-              },
-              {
-                url: "https://twitter.com/marcobrunodev",
-                label: "@marcobrunodev",
-                votes: 0,
-                contentType: LinkContentType.VISIT
-              },
-              {
-                url: "https://twitter.com/paulo_caelum",
-                label: "@paulo_caelum",
-                votes: 0,
-                contentType: LinkContentType.VISIT
-              },
-              {
-                url: "https://twitter.com/sseraphini",
-                label: "@sseraphini",
-                votes: 0,
-                contentType: LinkContentType.VISIT
+                contentType: LinkContentType.VISIT,
               },
             ],
           },
         ],
       },
       {
-        label: "Vídeo e Lives",
-        description:
-          "Canais de Youtubes e Lives na Twitch sobre notícias, carreira e dúvidas sobre tech/desenvolvimento:",
+        label: 'quem apoia',
+        description: 'Essas são as pessoas que estão sempre ajudando a divulgar a Trilha Info.',
         children: [
           {
-            label: "Youtube",
+            label: 'Twitter',
             links: [
               {
-                url: "https://www.youtube.com/c/codigofontetv",
-                label: "Código Fonte TV",
+                url: 'https://twitter.com/marcobrunodev',
+                label: 'Marco Bruno',
                 votes: 0,
-                contentType: LinkContentType.VISIT
+                type: LinkType.FREE,
+                contentType: LinkContentType.VISIT,
               },
               {
-                url: "https://www.youtube.com/c/FabioAkita1990",
-                label: "Fabio Akita",
+                url: 'https://twitter.com/badtux_',
+                label: 'Jefferson Fernando',
                 votes: 0,
-                contentType: LinkContentType.VISIT
+                type: LinkType.FREE,
+                contentType: LinkContentType.VISIT,
               },
               {
-                url: "https://www.youtube.com/c/FilipeDeschamps",
-                label: "FilipeDeschamps",
+                url: 'https://twitter.com/CaioEm1dio',
+                label: 'Caio Emídio',
                 votes: 0,
-                contentType: LinkContentType.VISIT
+                type: LinkType.FREE,
+                contentType: LinkContentType.VISIT,
               },
               {
-                url: "https://www.youtube.com/c/MarcoBrunoDev",
-                label: "marcobrunodev",
+                url: 'https://twitter.com/leovargasdev',
+                label: 'Leo Vargas',
                 votes: 0,
-                contentType: LinkContentType.VISIT
-              },
-              {
-                url: "https://www.youtube.com/c/Programadorbr",
-                label: "Programador BR",
-                votes: 0,
-                contentType: LinkContentType.VISIT
-              },
-            ],
-          },
-          {
-            label: "Twitch",
-            links: [
-              {
-                url: "https://www.twitch.tv/danielhe4rt",
-                label: "danielhe4rt",
-                votes: 0,
-                contentType: LinkContentType.VISIT
-              },
-              {
-                url: "https://twitch.tv/flaviojmendes",
-                label: "flaviojmendes",
-                votes: 0,
-                contentType: LinkContentType.VISIT
-              },
-              {
-                url: "https://www.twitch.tv/marcobrunodev",
-                label: "marcobrunodev",
-                votes: 0,
-                contentType: LinkContentType.VISIT
-              },
-            ],
-          },
-        ],
-      },
-    ],
-  },
-  {
-    items: [
-      {
-        label: "Desafios para Praticar",
-        description:
-          "Se a 'prática leva a perfeição', aqui vão alguns code challenges, sites para praticar e também UX/UI de aplicações para testar seu frontend",
-        children: [
-          {
-            label: "Aprenda/Pratique Javascript",
-            links: [
-              {
-                url: "https://learnjavascript.online/app.html",
-                label: "Learn Javascript",
-                votes: 0,
-                contentType: LinkContentType.VISIT
-              },
-            ],
-          },
-          {
-            label: "Code Challenges ( Desafios )",
-            links: [
-              {
-                url: "https://www.beecrowd.com.br/",
-                label: "Beecrowd",
-                votes: 0,
-                contentType: LinkContentType.VISIT
-              },
-              {
-                url: "https://www.figma.com/file/Yb9IBH56g7T1hdIyZ3BMNO/Desafios---Codelândia?node-id=0%3A1",
-                label: "Desafios Codelândia ( Frontend )",
-                votes: 0,
-                contentType: LinkContentType.VISIT
-              },
-              {
-                url: "https://www.frontendmentor.io/challenges",
-                label: "Frontend Mentor",
-                votes: 0,
-                contentType: LinkContentType.VISIT
-              },
-              {
-                url: "https://www.hackerrank.com/",
-                label: "Hackerrank",
-                votes: 0,
-                contentType: LinkContentType.VISIT
+                type: LinkType.FREE,
+                contentType: LinkContentType.VISIT,
               },
             ],
           },
