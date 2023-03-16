@@ -1,5 +1,12 @@
 [![Discord Server](https://discordapp.com/api/guilds/989882634358390794/widget.png?style=banner2)](https://discord.gg/HJ3Spm6R)
 
+
+
+<a href="https://github.com/flaviojmendes/trilhainfo/blob/main/translation/readme-en.md" ><img src = "https://img.shields.io/badge/🇬🇧-English-blue" alt="Readme em Inglês"/></a>
+
+<a href="https://github.com/flaviojmendes/trilhainfo/blob/main/translation/readme.md" ><img src = "https://img.shields.io/badge/🇧🇷-Português-blue" alt="Readme em Inglês"/></a>
+
+
 # Trilha Info
 
 Olá 👋
@@ -15,9 +22,9 @@ Encontrou um Bug 🐛, tem uma ideia 💡? É só abrir uma [issue](https://gith
 Portanto, se você também acredita nisso compartilhe para que o conhecimento chegue cada vez mais longe. E participe da nossa comunidade no Discord
 
 
-## Disclaimer
+## Como contribuir?
 
-A ideia é inicialmente engajar a comunidade e então podemos ir evoluindo o portal à medida em que vamos tendo a necessidade. 😀
+Veja o [CONTRIBUTING.md](CONTRIBUTING.md) para mais informações.
 
 ## Como rodar localmente?
 
@@ -56,9 +63,6 @@ Estando com a API rodando localmente:
 # utilizando o mesmo env mencionado acima, referencie ao comando do docker:
 docker-compose --env-file ./.env.local up
 ```
-
-## Traduções
-<img src = "https://i.imgur.com/lpP9V2p.png" alt="Readme em Inglês" width="16" height="15">・<b>Inglês — </b> [Clique aqui](https://github.com/flaviojmendes/trilhainfo/blob/main/translation/readme-en.md)<br>
 
 
 ## Quem já contribuiu:
