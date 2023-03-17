@@ -166,11 +166,21 @@ export const data: Level[] = [
         ],
       },
       {
-        label: 'Unix',
+        label: 'BSD',
+        description: 'Berkeley Software Distribution (BSD) é um sistema operacional UNIX com desenvolvimento derivado e distribuído pela Universidade da Califórnia em Berkeley. Hoje o termo "BSD" é frequentemente usado de forma não específica para se referir a qualquer descendente que juntos, formam uma ramificação dessa família de sistemas operacionais.',
         children: [
           { label: 'FreeBSD', links: [] },
           { label: 'OpenBSD', links: [] },
           { label: 'NetBSD', links: [] },
+        ],
+      },
+      {
+        label: 'UNIX',
+        description: 'UNIX é um sistema operacional portável, multitarefa e multiusuário originalmente criado por Ken Thompson, Dennis Ritchie, entre outros, que trabalhavam nos Laboratórios Bell da AT&T.',
+        children: [
+          { label: 'AIX', links: [] },
+          { label: 'Solaris', links: [] },
+          { label: 'MINIX', links: [] },
         ],
       },
       { label: 'Windows', children: [{ label: 'O básico', links: [] }] },
