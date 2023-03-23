@@ -9,7 +9,7 @@ export const unix: RoadmapItem = {
         {
           label: 'UNICAMP - CCUEC - Apostila de AIX',
           url: 'http://www.dicas-l.com.br/download/aix.pdf',
-          contentType: LinkContentType.WATCH,
+          contentType: LinkContentType.VISIT,
         },
       ]
     },
