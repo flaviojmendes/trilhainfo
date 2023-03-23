@@ -6,6 +6,7 @@ import { python } from './items/python';
 import { rust } from './items/rust';
 import { ruby } from './items/ruby';
 import { cplusplus } from './items/cplusplus';
+import { unix } from './items/unix';
 
 export const data: Level[] = [
   {
@@ -170,15 +171,7 @@ export const data: Level[] = [
           { label: 'NetBSD', links: [] },
         ],
       },
-      {
-        label: 'UNIX',
-        description: 'UNIX é um sistema operacional portável, multitarefa e multiusuário originalmente criado por Ken Thompson, Dennis Ritchie, entre outros, que trabalhavam nos Laboratórios Bell da AT&T.',
-        children: [
-          { label: 'AIX', links: [] },
-          { label: 'Solaris', links: [] },
-          { label: 'MINIX', links: [] },
-        ],
-      },
+      unix,
       { label: 'Windows', children: [{ label: 'O básico', links: [] }] },
     ],
   },
