@@ -16,12 +16,12 @@ export const cplusplus: RoadmapItem = {
         {
           label: 'C++: Uma abordagem minimalista',
           url: 'http://www.inf.ufpr.br/ci208/C++-UmaAbordagemMinimalista.pdf',
-          contentType: LinkContentType.WATCH,
+          contentType: LinkContentType.VISIT,
         },
         {
           label: 'Linguagem C++ - Notas de Aula',
           url: 'http://www.inf.ufpr.br/ci208/NotasAula/',
-          contentType: LinkContentType.WATCH,
+          contentType: LinkContentType.VISIT,
         },
       ],
     },
