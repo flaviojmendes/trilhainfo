@@ -73,7 +73,7 @@ export default function LevelItem(props: Props) {
               const isAllContentRead = props.isAllContentRead(item.label, quantity);
 
               return (
-                <>
+                <div key={index}>
                   {item.url && (
                     <div
                       className={'relative flex h-fit w-fit' + (level.length >= 4 ? ' mb-3' : '')}
@@ -176,7 +176,7 @@ export default function LevelItem(props: Props) {
                   {index < level.length - 1 && level.length < 4 && (
                     <div className="my-auto h-1 min-w-[10px] max-w-[20px] flex-grow border-b-4 border-dashed border-dark-brown md:max-w-[50px]"></div>
                   )}
-                </>
+                </div>
               );
             })}
           </div>

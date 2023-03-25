@@ -3,6 +3,7 @@ import { Level } from './RoadmapModel';
 export interface RoadmapObjectModel {
   file: Level[];
   title: string;
+  path: string;
 }
 
 export interface RoadmapFileModel {
