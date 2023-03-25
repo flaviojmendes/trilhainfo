@@ -14,6 +14,7 @@ type Props = {
   data: Level[];
   title: string;
   name: string;
+  path: string;
   isPreview: boolean;
 };
 
@@ -156,6 +157,7 @@ export default function Roadmap(props: Props) {
               : ['horizontalView', 'download']
           }
           title={props.title}
+          path={props.path}
           roadmapRef={roadmapRef}
         />
       </div>

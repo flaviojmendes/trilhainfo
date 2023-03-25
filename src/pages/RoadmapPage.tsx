@@ -18,13 +18,13 @@ export default function RoadmapPage() {
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const roadmaps: any = {
-    frontend: { file: frontendData, title: 'Frontend' },
-    react: { file: reactData, title: 'React' },
-    backend: { file: backendData, title: 'Backend' },
-    devops: { file: devopsData, title: 'Devops' },
-    dataEngineer: { file: dataEngineeringData, title: 'Data Engineer' },
-    community: { file: communityData, title: 'Comunidade' },
-    test: { file: testData, title: 'Test/QA' },
+    frontend: { file: frontendData, title: 'Frontend', path: 'Frontend' },
+    react: { file: reactData, title: 'React', path: 'React' },
+    backend: { file: backendData, title: 'Backend', path: 'Backend' },
+    devops: { file: devopsData, title: 'Devops', path: 'Devops' },
+    dataEngineer: { file: dataEngineeringData, title: 'Data Engineer', path: 'Data Engineer' },
+    community: { file: communityData, title: 'Comunidade', path: 'Community' },
+    test: { file: testData, title: 'Test/QA', path: 'Test/QA' },
   };
 
   useEffect(() => {
@@ -54,6 +54,7 @@ export default function RoadmapPage() {
           isPreview={false}
           data={roadmaps[name].file}
           title={roadmaps[name].title}
+          path={roadmaps[name].path}
           name={roadmapName}
         />
       )}
