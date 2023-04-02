@@ -12,9 +12,9 @@ export default function MainRoadmaps() {
       <section className="mx-auto grid w-full grid-cols-1 gap-5 space-y-10 pb-10 md:grid-cols-2 md:space-y-0 2xl:grid-cols-3">
         {mainRoadmapsData.map((mainRoadmap) => {
           return (
-            <div className="group relative m-auto flex w-fit" key={mainRoadmap.title}>
+            <div className="group relative m-auto flex w-fit " key={mainRoadmap.title}>
               <Link
-                className="z-20 flex w-full rounded-md bg-brown py-3 pr-2 hover:bg-light-orange"
+                className="z-20 flex w-full rounded-md bg-brown py-3 pr-2 shadow-brutalist-red transition-all duration-300 hover:bg-light-orange hover:shadow-brutalist-red-hover"
                 to={mainRoadmap.url}
               >
                 <div className="flex w-2/3 flex-col">
@@ -32,7 +32,6 @@ export default function MainRoadmaps() {
                   <img className="m-auto w-full" alt={'Ícone do Roadmap'} src={mainRoadmap.image} />
                 </div>
               </Link>
-              <div className="absolute top-1 left-1 -right-1 -bottom-1 z-10 rounded-md bg-red group-hover:bg-red"></div>
             </div>
           );
         })}

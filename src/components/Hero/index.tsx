@@ -13,7 +13,7 @@ export default function Hero() {
     <section className="mx-0 mb-10 flex w-full items-stretch justify-center gap-4 bg-dark-brown py-10 px-10 xl:px-64">
       <div className="w-full flex-col py-2 md:py-10">
         <div className="mb-10 w-fit rounded-md bg-medium-brown px-3 font-title text-sm text-light-brown">
-          Mais de <span className="font-title text-red">20.000 pessoas</span> já acessaram
+          Mais de <span className="font-title text-red">25.000 pessoas</span> já acessaram
         </div>
         <div className="min-h-[5em]">
           <TypeAnimation
@@ -52,11 +52,10 @@ export default function Hero() {
           <AnchorLink
             onClick={handleCallToAction}
             href="#mainRoadmaps"
-            className="z-20 w-full rounded-md bg-light-brown p-2 text-center font-title hover:bg-light-orange "
+            className="z-20 w-full rounded-md bg-light-brown p-2 text-center font-title shadow-brutalist-red transition-all duration-300 hover:bg-light-orange hover:shadow-brutalist-red-hover"
           >
             Comece Agora
           </AnchorLink>
-          <div className="absolute top-1 left-1 -right-1 -bottom-1 z-10 rounded-md bg-red"></div>
         </div>
       </div>
       <div className="hidden md:flex">

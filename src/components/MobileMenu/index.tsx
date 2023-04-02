@@ -74,12 +74,11 @@ const HeaderDrawer = () => {
           {isAuthenticated && (
             <div className="group relative m-auto flex h-fit w-fit">
               <button
-                className="auto z-20 m-auto rounded-md bg-brown p-2 hover:bg-light-orange"
+                className="auto z-20 m-auto rounded-md bg-brown p-2 shadow-brutalist-red transition-all duration-300 hover:bg-light-orange hover:shadow-brutalist-red-hover"
                 onClick={() => logout({ returnTo: window.location.origin })}
               >
                 Logout
               </button>
-              <div className="absolute top-1 left-1 -right-1 -bottom-1 z-10 rounded-md bg-red group-hover:bg-red"></div>
             </div>
           )}
         </li>
@@ -87,12 +86,11 @@ const HeaderDrawer = () => {
           {!isAuthenticated && !isLoading && (
             <div className="group relative m-auto flex h-fit w-fit">
               <button
-                className="z-20 m-auto rounded-md bg-light-brown p-2 font-title hover:bg-brown"
+                className="z-20 m-auto rounded-md bg-light-brown p-2 font-title shadow-brutalist-red transition-all duration-300 hover:bg-brown hover:shadow-brutalist-red-hover"
                 onClick={() => handleAuth()}
               >
                 Log In
               </button>
-              <div className="absolute top-1 left-1 -right-1 -bottom-1 z-10 rounded-md bg-red group-hover:bg-red"></div>
             </div>
           )}
           {isLoading && (

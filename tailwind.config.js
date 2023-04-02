@@ -3,6 +3,18 @@ module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
+      boxShadow: {
+        'brutalist-light': '3px 4px 0px 1px #000',
+        'brutalist-light-hover': '5px 6px 0px 1px #000',
+        'brutalist-neg': '-3px 4px 0px 1px #000',
+        'brutalist-neg-hover': '-4px 5px 0px 1px #000',
+
+        'brutalist-red': '3px 4px 0px 1px #ee8561',
+        'brutalist-red-hover': '5px 6px 0px 1px #ee8561',
+
+        'brutalist-yellow': '3px 4px 0px 1px #eabc54',
+        'brutalist-yellow-hover': '5px 6px 0px 1px #eabc54',
+      },
       fontFamily: {
         handwritten: '"Schoolbell", cursive',
         title: '"Poppins", sans-serif',
@@ -44,6 +56,7 @@ module.exports = {
             opacity: 0,
           },
         },
+       
         slideOut: {
           from: {
             transform: 'translateX(0)',
@@ -109,7 +122,9 @@ module.exports = {
       'medium-brown': '#353231',
       red: '#ee8561',
       'dark-red': '#d56a47',
-      green: '#22c55e',
+      green: '#228B22',
+      'light-green': '#a7f3d0',
+      'light-blue': '#BCE5F4',
     },
   },
   plugins: [],

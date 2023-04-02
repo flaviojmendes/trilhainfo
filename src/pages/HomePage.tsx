@@ -3,6 +3,7 @@ import UserArea from '../components/UserArea';
 import MainRoadmaps from '../components/MainRoadmaps';
 import Hero from '../components/Hero';
 import ProjectInfo from '../components/ProjectInfo';
+import Contribute from '../components/Contribute';
 
 export default function HomePage() {
   return (
@@ -11,7 +12,7 @@ export default function HomePage() {
       <MainRoadmaps />
       <UserArea />
       <ProjectInfo />
-      {/* <OpenSource /> */}
+      <Contribute />
     </MainLayout>
   );
 }

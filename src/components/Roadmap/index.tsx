@@ -2,13 +2,18 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useLocalStorage } from 'react-use';
 import { Level, RoadmapItem } from '../../entity/RoadmapModel';
 import LevelItem from '../LevelItem';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { emojisplosion } from 'emojisplosion';
 import Note from '../Note';
 import RoadmapButtons from '../RoadmapButtons';
 import { useAuth0 } from '@auth0/auth0-react';
 import { AccordionContainer, RoadmapAccordion } from '../Accordion';
 import { DrawerRoot, Drawer, DrawerTitle, DrawerDescription } from '../Drawer';
+import { TbFileCertificate } from 'react-icons/tb';
+import axios from 'axios';
+import { CertificationResult } from '../../entity/CertificationModel';
+import Cookies from 'universal-cookie';
+const cookies = new Cookies();
 
 type Props = {
   data: Level[];
@@ -211,9 +216,53 @@ const RoadmapDrawer = ({
   saveRead,
   lastSelectedElement,
 }: RoadmapDrawerProps) => {
+  const [passedCertification, setPassedCertification] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    (async () => {
+      if (activeItem?.certification) {
+        await checkPassedCertification(activeItem?.certification);
+      }
+    })();
+  }, [activeItem?.certification]);
+
+  async function checkPassedCertification(certification: string) {
+    const response = await axios.get<CertificationResult>(
+      `${import.meta.env.VITE_API_URL}/certification/${certification}/highest-score`,
+      {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: cookies.get('api_token'),
+        },
+      },
+    );
+    if (response.data.correctQuestions / response.data.questions.length >= 0.75) {
+      setPassedCertification(true);
+    }
+  }
+
+  function navigateCertification() {
+    navigate(`/certification/${activeItem?.certification}`);
+  }
   return (
     <Drawer lastSelectedElement={lastSelectedElement}>
-      <DrawerTitle className="text-xl font-bold text-brown">{activeItem?.label}</DrawerTitle>
+      <DrawerTitle className="flex items-center gap-2 text-xl font-bold text-brown">
+        {activeItem?.label}{' '}
+        {activeItem?.certification && (
+          <TbFileCertificate
+            className={`m-auto my-auto mx-1 ${passedCertification ? 'stroke-green ' : ''}`}
+          />
+        )}
+        {activeItem?.certification && !passedCertification && (
+          <button
+            onClick={navigateCertification}
+            className="rounded-md bg-light-yellow p-2 text-xs text-dark-brown shadow-brutalist-neg transition-all duration-300 hover:shadow-brutalist-neg-hover"
+          >
+            Fazer Certificação
+          </button>
+        )}
+      </DrawerTitle>
       <DrawerDescription className="mb-4 pt-6 font-title text-light-brown">
         {activeItem?.description}
       </DrawerDescription>

@@ -15,14 +15,13 @@ export default function ProjectInfo() {
         </p>
         <div className="group relative flex h-fit w-fit">
           <a
-            className="z-20 h-fit w-fit rounded-md bg-light-brown p-2 font-title hover:bg-light-orange"
+            className="z-20 h-fit w-fit rounded-md bg-light-brown p-2 font-title shadow-brutalist-red transition-all duration-300 hover:bg-light-orange hover:shadow-brutalist-red-hover"
             href="http://eepurl.com/iknir1"
             target={'_blank'}
             rel="noreferrer"
           >
             Assine Agora!
           </a>
-          <div className="absolute top-1 left-1 -right-1 -bottom-1 z-10 rounded-md bg-red group-hover:bg-red"></div>
         </div>
         <h3 className="mt-8 font-title text-4xl font-semibold text-yellow">
           Open <span className="text-red">Source</span>
@@ -90,7 +89,7 @@ export default function ProjectInfo() {
         {cheatSheets.map((cheatSheet) => {
           return (
             <div key={cheatSheet.id} className="group relative m-auto flex h-full w-full">
-              <div className="z-20 flex min-h-fit w-full space-y-2 rounded-md bg-brown p-3 hover:bg-white">
+              <div className="z-20 flex min-h-fit w-full space-y-2 rounded-md bg-brown p-3 shadow-brutalist-yellow transition-all duration-300 hover:bg-white hover:shadow-brutalist-yellow-hover">
                 <a
                   className="flex gap-2 font-title text-lg md:text-2xl"
                   href={`/guide/${cheatSheet.id}`}
@@ -98,7 +97,6 @@ export default function ProjectInfo() {
                   <GoPlus className="my-auto" /> <span className="my-auto">{cheatSheet.title}</span>
                 </a>
               </div>{' '}
-              <div className="absolute top-1 left-1 -right-1 -bottom-1 z-10 rounded-md bg-yellow group-hover:bg-yellow"></div>
             </div>
           );
         })}
