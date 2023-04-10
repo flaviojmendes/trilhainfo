@@ -75,7 +75,7 @@ const HeaderDrawer = () => {
             <div className="group relative m-auto flex h-fit w-fit">
               <button
                 className="auto z-20 m-auto rounded-md bg-brown p-2 shadow-brutalist-red transition-all duration-300 hover:bg-light-orange hover:shadow-brutalist-red-hover"
-                onClick={() => logout({ returnTo: window.location.origin })}
+                onClick={() => handleLogout()}
               >
                 Logout
               </button>
@@ -108,6 +108,11 @@ const HeaderDrawer = () => {
       </ul>
     </Drawer>
   );
+
+  async function handleLogout() {
+    await logout({ returnTo: window.location.origin });
+    cookies.remove('api_token');
+  }
 
   async function handleAuth() {
     (async () => {

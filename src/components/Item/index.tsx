@@ -108,10 +108,7 @@ export default function Item({
             }}
             id={item.label}
             className={
-              'center z-20 mx-0 my-0 flex w-fit cursor-pointer rounded-md border-2 border-dark-brown p-1 text-center shadow-brutalist-light transition-all duration-300 hover:bg-white hover:shadow-brutalist-light-hover md:p-2' +
-              (isAllContentRead(item.label, item.children?.length || 0)
-                ? ' bg-light-orange'
-                : ' bg-brown')
+              'center z-20 mx-0 my-0 flex w-fit cursor-pointer rounded-md border-2 border-dark-brown bg-brown p-1 text-center shadow-brutalist-light transition-all duration-300 hover:bg-white hover:shadow-brutalist-light-hover md:p-2'
             }
           >
             <TbGitFork className="m-auto mx-1" tabIndex={0} />

@@ -250,9 +250,17 @@ const RoadmapDrawer = ({
       <DrawerTitle className="flex items-center gap-2 text-xl font-bold text-brown">
         {activeItem?.label}{' '}
         {activeItem?.certification && (
-          <TbFileCertificate
-            className={`m-auto my-auto mx-1 ${passedCertification ? 'stroke-green ' : ''}`}
-          />
+          <div className="group relative my-auto flex">
+            <TbFileCertificate
+              className={`m-auto my-auto mx-1 ${passedCertification ? 'stroke-green ' : ''}`}
+            />
+            <div
+              className="absolute top-6 -left-16 flex w-40 rounded-md bg-dark-brown text-center text-sm
+                 text-light-brown opacity-0 transition-opacity group-hover:opacity-100"
+            >
+              {passedCertification ? 'Certificação Concluída' : 'Fazer Certificação'}
+            </div>
+          </div>
         )}
         {activeItem?.certification && !passedCertification && (
           <button
@@ -282,6 +290,7 @@ const RoadmapDrawer = ({
                 key={child.label}
                 section={child}
                 isRead={isRead(label)}
+                hasCertification={!!activeItem?.certification}
                 saveRead={(checked: boolean) => saveRead(label, checked)}
               />
             );

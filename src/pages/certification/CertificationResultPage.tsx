@@ -60,7 +60,7 @@ export default function CertificationResultPage() {
             visible={true}
           />
         ) : (
-          <div className="flex flex-col">
+          <>
             <h1 className="mx-auto mt-4 font-title text-3xl font-bold text-yellow">
               {certificationResult?.title}
             </h1>
@@ -73,7 +73,7 @@ export default function CertificationResultPage() {
               {certificationResult?.questions.map((question, index) => (
                 <div
                   key={index}
-                  className={`relative mx-auto flex w-1/3 flex-col rounded-md p-4 shadow-brutalist-light ${
+                  className={`relative mx-2 flex flex-col rounded-md p-4 shadow-brutalist-light md:mx-auto md:w-1/3 ${
                     question.selectedAnswer?.correct ? ' bg-light-blue ' : 'bg-light-orange '
                   }`}
                 >
@@ -92,14 +92,22 @@ export default function CertificationResultPage() {
                 </div>
               ))}
             </div>
-
-            <button
-              onClick={() => navigate('/certification-results')}
-              className="mx-auto mt-6 w-fit rounded-md bg-yellow p-2 shadow-brutalist-light transition-all duration-300 hover:shadow-brutalist-light-hover"
-            >
-              Ver minhas certificações
-            </button>
-          </div>
+            <div className="mx-2 flex md:mx-auto md:w-1/3">
+              <button
+                onClick={() => history.back()}
+                className="mt-6 w-fit rounded-md bg-yellow p-2 shadow-brutalist-light transition-all duration-300 hover:shadow-brutalist-light-hover"
+              >
+                Voltar
+              </button>
+              <div className="grow"></div>
+              <button
+                onClick={() => navigate('/certification-results')}
+                className="mt-6 w-fit rounded-md bg-yellow p-2 shadow-brutalist-light transition-all duration-300 hover:shadow-brutalist-light-hover"
+              >
+                Ver minhas certificações
+              </button>
+            </div>
+          </>
         )}
       </div>
     </MainLayout>

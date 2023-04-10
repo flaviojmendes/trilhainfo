@@ -68,13 +68,14 @@ type AccordionProps = {
   section: RoadmapItem;
   isRead: boolean;
   saveRead: (checked: boolean) => void;
+  hasCertification?: boolean;
 };
 
-export function RoadmapAccordion({ section, isRead, saveRead }: AccordionProps) {
+export function RoadmapAccordion({ section, isRead, saveRead, hasCertification }: AccordionProps) {
   return (
     <AccordionItem value={section.label} className={s.Item}>
       <AccordionHeader className={s.Header}>
-        <Checkbox checked={isRead} toggleChecked={saveRead} />
+        {!hasCertification && <Checkbox checked={isRead} toggleChecked={saveRead} />}
         <AccordionTrigger className={s.Trigger}>
           <span>{section.label}</span>
         </AccordionTrigger>
