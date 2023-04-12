@@ -1,4 +1,4 @@
-[![Discord Server](https://img.shields.io/discord/989882634358390794?style=flat-square)](https://discord.gg/HJ3Spm6R)
+[![Discord Server](https://img.shields.io/discord/989882634358390794?style=flat-square)](https://discord.gg/TmneeHgTBp)
 |
 [![pt](https://img.shields.io/badge/🇧🇷-Português-blue?style=flat-square)](https://github.com/flaviojmendes/trilhainfo/blob/main/translation/readme.md)
 |
