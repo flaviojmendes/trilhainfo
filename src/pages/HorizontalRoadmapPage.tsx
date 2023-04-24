@@ -53,7 +53,7 @@ function HorizontalRoadmapPageImpl() {
             <RoadmapButtons
               buttons={isAuthenticated ? ['verticalView', 'exportNotes'] : ['verticalView']}
               title={roadmapTitle}
-              roadmapPath={roadmaps[roadmapName].path}
+              roadmapPath={roadmapName}
               roadmapRef={roadmapRef}
             />
           </div>

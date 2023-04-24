@@ -55,7 +55,7 @@ export default function RoadmapPage() {
             data={roadmaps[name as keyof typeof roadmaps].file}
             title={roadmaps[name as keyof typeof roadmaps].title}
             name={roadmapName}
-            roadmapPath={roadmaps[name as keyof typeof roadmaps].path}
+            roadmapPath={roadmapName}
           />
         </>
       )}
