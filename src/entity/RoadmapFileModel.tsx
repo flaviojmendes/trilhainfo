@@ -3,6 +3,7 @@ import { Level } from './RoadmapModel';
 export interface RoadmapObjectModel {
   file: Level[];
   title: string;
+  path: string;
 }
 
 export interface RoadmapFileModel {
@@ -10,7 +11,7 @@ export interface RoadmapFileModel {
   react: RoadmapObjectModel;
   backend: RoadmapObjectModel;
   devops: RoadmapObjectModel;
-  dataEngineer: RoadmapObjectModel;
+  'data-engineer': RoadmapObjectModel;
   community: RoadmapObjectModel;
   test: RoadmapObjectModel;
 }
