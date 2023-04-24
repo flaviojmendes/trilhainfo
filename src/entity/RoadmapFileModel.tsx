@@ -10,7 +10,7 @@ export interface RoadmapFileModel {
   react: RoadmapObjectModel;
   backend: RoadmapObjectModel;
   devops: RoadmapObjectModel;
-  dataEngineer: RoadmapObjectModel;
+  'data-engineer': RoadmapObjectModel;
   community: RoadmapObjectModel;
   test: RoadmapObjectModel;
 }

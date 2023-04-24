@@ -1,63 +1,65 @@
 import { useParams } from 'react-router-dom';
 import MainLayout from '../components/layouts/MainLayout';
 import Roadmap from '../components/Roadmap';
-import { data as frontendData } from '../roadmaps/frontend';
-import { data as reactData } from '../roadmaps/react';
-import { data as backendData } from '../roadmaps/backend';
-import { data as devopsData } from '../roadmaps/devops';
-import { data as communityData } from '../roadmaps/community';
-import { data as testData } from '../roadmaps/test';
-import E404Page from './E404Page';
 import useDocumentTitle from '../components/useDocumentTitle';
 import { useEffect, useState } from 'react';
-import { dataEngineeringData } from '../roadmaps/dataEngineering';
+import { Level } from '../entity/RoadmapModel';
+import { roadmaps } from '../roadmaps/roadmaps';
+import E404Page from './E404Page';
 
 export default function RoadmapPage() {
   const { name } = useParams<string>();
   const [roadmapName, setRoadmapName] = useState('');
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const roadmaps: any = {
-    frontend: { file: frontendData, title: 'Frontend' },
-    react: { file: reactData, title: 'React' },
-    backend: { file: backendData, title: 'Backend' },
-    devops: { file: devopsData, title: 'Devops' },
-    dataEngineer: { file: dataEngineeringData, title: 'Data Engineer' },
-    community: { file: communityData, title: 'Comunidade' },
-    test: { file: testData, title: 'Test/QA' },
-  };
-
   useEffect(() => {
     setRoadmapName(name || '');
   }, [name]);
 
-  useDocumentTitle('Trilha Info - ' + roadmaps[name || ''].title);
+  type Roadmap = {
+    file: Level[];
+    title: string;
+    path: string;
+  };
+
+  // we can be sure it is a keyof typeof roadmaps because of the ternary operator
+  // but TypeScript is not smart enough
+  // I'm using frontend as default in case the name is not in roadmaps so we don't get an error
+  const currentRoadmap = (
+    name ? (name in roadmaps ? name : 'frontend') : 'frontend'
+  ) as keyof typeof roadmaps;
+
+  useDocumentTitle(
+    `Trilha Info ${name && name in roadmaps ? ` - ${roadmaps[currentRoadmap].title}` : ''}`,
+  );
 
   return (
     <MainLayout>
       {/* <p className="mt-4 text-center font-title c-brown md:px-10">
         Não sabe por onde começar a estudar? Que tal dar uma olhada por aqui?
       </p> */}
-      <div className="m-auto mt-4 w-2/3">
-        <p className="c-brown mb-2 font-title ">
-          Lendo de cima pra baixo, cada <span className="text-red">caixa</span> é um assunto a ser
-          estudado.
-        </p>
-        <p className="c-brown font-title ">
-          <span className="text-red">Clicando</span>, você verá em mais detalhes o que estudar com
-          links de conteúdos gratuitos!
-        </p>
-      </div>
+      {name && name in roadmaps && (
+        <>
+          <div className="m-auto mt-4 w-2/3">
+            <p className="c-brown mb-2 font-title ">
+              Lendo de cima pra baixo, cada <span className="text-red">caixa</span> é um assunto a
+              ser estudado.
+            </p>
+            <p className="c-brown font-title ">
+              <span className="text-red">Clicando</span>, você verá em mais detalhes o que estudar
+              com links de conteúdos gratuitos!
+            </p>
+          </div>
 
-      {name && roadmaps[name] && (
-        <Roadmap
-          isPreview={false}
-          data={roadmaps[name].file}
-          title={roadmaps[name].title}
-          name={roadmapName}
-        />
+          <Roadmap
+            isPreview={false}
+            data={roadmaps[name as keyof typeof roadmaps].file}
+            title={roadmaps[name as keyof typeof roadmaps].title}
+            name={roadmapName}
+            roadmapPath={roadmapName}
+          />
+        </>
       )}
-      {!name || (!roadmaps[name] && <E404Page />)}
+      {!name || (!(name in roadmaps) && <E404Page />)}
     </MainLayout>
   );
 }

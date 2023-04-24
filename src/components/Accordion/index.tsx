@@ -41,24 +41,26 @@ export function HorizontalRoadmapAccordion({ section }: HorizontalRoadmapProps) 
         </AccordionTrigger>
       </AccordionHeader>
       <AccordionContent className={s.Content}>
-        {section.links?.length
-          ? section.links?.map((link) => (
-              <div key={link.label} className="my-2 flex items-start justify-between">
-                <a
-                  href={link.url}
-                  target="_blank"
-                  className="text-light-brown hover:underline"
-                  rel="noreferrer"
-                >
-                  {link.label}
-                </a>
+        {section.links?.length ? (
+          section.links?.map((link) => (
+            <div key={link.label} className="my-2 flex items-start justify-between">
+              <a
+                href={link.url}
+                target="_blank"
+                className="text-light-brown hover:underline"
+                rel="noreferrer"
+              >
+                {link.label}
+              </a>
 
-                <span className={`badge  ${getColorFromContentType(link.contentType)}`}>
-                  {link.contentType ? link.contentType : null}
-                </span>
-              </div>
-            ))
-          : 'Ainda não possuimos conteúdo.'}
+              <span className={`badge  ${getColorFromContentType(link.contentType)}`}>
+                {link.contentType ? link.contentType : null}
+              </span>
+            </div>
+          ))
+        ) : (
+          <p className="font-semibold text-red">Ainda não possuímos conteúdo.</p>
+        )}
       </AccordionContent>
     </AccordionItem>
   );
@@ -80,24 +82,26 @@ export function RoadmapAccordion({ section, isRead, saveRead }: AccordionProps) 
         </AccordionTrigger>
       </AccordionHeader>
       <AccordionContent className={s.Content}>
-        {section.links?.length
-          ? section.links?.map((link) => (
-              <div key={link.label} className="my-2 flex items-start justify-between">
-                <a
-                  href={link.url}
-                  target="_blank"
-                  className="text-light-brown hover:underline"
-                  rel="noreferrer"
-                >
-                  {link.label}
-                </a>
+        {section.links?.length ? (
+          section.links?.map((link) => (
+            <div key={link.label} className="my-2 flex items-start justify-between">
+              <a
+                href={link.url}
+                target="_blank"
+                className="text-light-brown hover:underline"
+                rel="noreferrer"
+              >
+                {link.label}
+              </a>
 
-                <span className={`badge  ${getColorFromContentType(link.contentType)}`}>
-                  {link.contentType ? link.contentType : null}
-                </span>
-              </div>
-            ))
-          : 'Ainda não possuimos conteúdo.'}
+              <span className={`badge  ${getColorFromContentType(link.contentType)}`}>
+                {link.contentType ? link.contentType : null}
+              </span>
+            </div>
+          ))
+        ) : (
+          <p className="font-semibold text-red">Ainda não possuímos conteúdo.</p>
+        )}
       </AccordionContent>
     </AccordionItem>
   );

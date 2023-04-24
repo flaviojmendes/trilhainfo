@@ -13,6 +13,7 @@ import { DrawerRoot, Drawer, DrawerTitle, DrawerDescription } from '../Drawer';
 type Props = {
   data: Level[];
   title: string;
+  roadmapPath: string;
   name: string;
   isPreview: boolean;
 };
@@ -156,6 +157,7 @@ export default function Roadmap(props: Props) {
               : ['horizontalView', 'download']
           }
           title={props.title}
+          roadmapPath={props.roadmapPath}
           roadmapRef={roadmapRef}
         />
       </div>

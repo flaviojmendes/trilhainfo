@@ -12,7 +12,7 @@ export const roadmaps: RoadmapFileModel = {
   react: { file: reactData, title: 'React' },
   backend: { file: backendData, title: 'Backend' },
   devops: { file: devopsData, title: 'Devops' },
-  dataEngineer: { file: dataEngineeringData, title: 'Data Engineer' },
+  'data-engineer': { file: dataEngineeringData, title: 'Data Engineer' },
   community: { file: communityData, title: 'Comunidade' },
   test: { file: testData, title: 'Test/QA' },
 };
