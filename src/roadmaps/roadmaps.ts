@@ -8,11 +8,11 @@ import { dataEngineeringData } from '../roadmaps/dataEngineering';
 import { RoadmapFileModel } from '../entity/RoadmapFileModel';
 
 export const roadmaps: RoadmapFileModel = {
-  frontend: { file: frontendData, title: 'Frontend' },
-  react: { file: reactData, title: 'React' },
-  backend: { file: backendData, title: 'Backend' },
-  devops: { file: devopsData, title: 'Devops' },
-  dataEngineer: { file: dataEngineeringData, title: 'Data Engineer' },
-  community: { file: communityData, title: 'Comunidade' },
-  test: { file: testData, title: 'Test/QA' },
+  frontend: { file: frontendData, title: 'Frontend', path: 'frontend' },
+  react: { file: reactData, title: 'React', path: 'react' },
+  backend: { file: backendData, title: 'Backend', path: 'backend' },
+  devops: { file: devopsData, title: 'Devops', path: 'devops' },
+  'data-engineer': { file: dataEngineeringData, title: 'Data Engineer', path: 'data-engineer' },
+  community: { file: communityData, title: 'Comunidade', path: 'community' },
+  test: { file: testData, title: 'Test/QA', path: 'test' },
 };
