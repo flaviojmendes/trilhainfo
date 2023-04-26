@@ -133,7 +133,6 @@ export function CertificationPage() {
                   ariaLabel="rotating-square-loading"
                   strokeWidth="4"
                   wrapperStyle={{}}
-                  wrapperClass="mx-auto mt-4"
                   visible={true}
                 />
               ))}
