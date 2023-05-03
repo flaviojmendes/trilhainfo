@@ -314,6 +314,11 @@ export const data: Level[] = [
                 url: 'https://www.youtube.com/watch?v=Os0Uo5VXxNU&list=PLORF-y_edVoDQnky9u2OgyrfirE1dhutX',
                 contentType: LinkContentType.WATCH,
               },
+              {
+                label: 'Boas práticas do Ansible -  Amaury Borges Souza',
+                url: 'https://amaurybsouza.medium.com/as-boas-pr%C3%A1ticas-do-ansible-que-ningu%C3%A9m-te-conta-e-que-n%C3%A3o-existem-no-google-4fcc3126ad1',
+                contentType: LinkContentType.WATCH,
+              },
             ],
           },
           { label: 'Chef', links: [] },
