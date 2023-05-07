@@ -26,6 +26,7 @@ export default function Header() {
               className="my-2 mr-4 flex pr-4 text-yellow hover:text-red"
               href="https://discord.gg/TmneeHgTBp"
               rel="noreferrer"
+              aria-label="Discord"
             >
               <FaDiscord className="m-auto h-10 w-10 " />
             </a>
@@ -36,6 +37,7 @@ export default function Header() {
               className="my-2 mr-4 flex pr-4 text-yellow hover:text-red"
               href="https://github.com/flaviojmendes/trilhadev"
               rel="noreferrer"
+              aria-label="Github"
             >
               <FaGithubSquare className="m-auto h-10 w-10 " />
             </a>
