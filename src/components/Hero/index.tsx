@@ -11,7 +11,7 @@ export default function Hero() {
   }
   return (
     <section className="mx-0 mb-10 flex w-full items-stretch justify-center gap-4 bg-dark-brown py-10 px-10 xl:px-64">
-      <div className="w-full flex-col py-2 md:py-10">
+      <article className="w-full flex-col py-2 md:py-10">
         <div className="mb-10 w-fit rounded-md bg-medium-brown px-3 font-title text-sm text-light-brown">
           Mais de <span className="font-title text-red">20.000 pessoas</span> já acessaram
         </div>
@@ -58,7 +58,7 @@ export default function Hero() {
           </AnchorLink>
           <div className="absolute top-1 left-1 -right-1 -bottom-1 z-10 rounded-md bg-red"></div>
         </div>
-      </div>
+      </article>
       <div className="hidden md:flex">
         <img className="m-auto rounded-md lg:w-2/3" src="/hero.png" alt="hero"></img>
       </div>
