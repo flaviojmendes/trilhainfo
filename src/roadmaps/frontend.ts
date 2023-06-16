@@ -101,6 +101,22 @@ export const data: Level[] = [
               },
             ],
           },
+          {
+            label: 'Prevenção de ataques',
+            links: [
+              {
+                label: 'Segurança da Informação: Evitando Cross-site scripting (XSS) | Dias de Dev',
+                url: 'https://youtu.be/lntsVxPZibw',
+                contentType: LinkContentType.WATCH,
+              },
+              {
+                label:
+                  'Ataque com Regex - Negação de serviço com expressões regulares | Dias de Dev',
+                url: 'https://youtu.be/MEfgCLE3Dw8',
+                contentType: LinkContentType.WATCH,
+              },
+            ],
+          },
         ],
       },
     ],
