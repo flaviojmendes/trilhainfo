@@ -23,6 +23,11 @@ export const http: RoadmapItem = {
           url: 'https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Methods',
           contentType: LinkContentType.READ,
         },
+        {
+          label: 'Como funciona a Web? - A internet por baixo dos panos | Dias de Dev',
+          url: 'https://youtu.be/B2IWlnJ_dt0',
+          contentType: LinkContentType.WATCH,
+        },
       ],
     },
   ],
