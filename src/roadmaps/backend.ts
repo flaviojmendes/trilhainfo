@@ -480,7 +480,8 @@ export const data: Level[] = [
     items: [
       {
         label: 'Princípios de Design e Desenvolvimento',
-        description: '',
+        description:
+          'Programar é mais do que apenas digitar código. Precisamos pensar na melhor forma de solucionar problemas. Nessa etapa você vai estudar algumas técnicas para que seu código fique, de certa forma, melhor.',
         children: [
           {
             label: 'Design Patterns',
@@ -503,6 +504,11 @@ export const data: Level[] = [
               {
                 label: 'Tech em 10 Minutos DDD - Road to Agility',
                 url: 'https://www.youtube.com/watch?v=wmg3xB0aUv8',
+                contentType: LinkContentType.WATCH,
+              },
+              {
+                label: 'DDD não é sobre arquitetura - O que é Domain-Driven Design | Dias de Dev',
+                url: 'https://youtu.be/SNdGV0c40yo',
                 contentType: LinkContentType.WATCH,
               },
             ],
@@ -535,6 +541,22 @@ export const data: Level[] = [
               {
                 label: 'Você sabe o que é DRY e WET? - Flávio Mendes',
                 url: 'https://www.youtube.com/watch?v=UHvuCfpVDsg',
+                contentType: LinkContentType.WATCH,
+              },
+            ],
+          },
+          {
+            label: 'Object Calisthenics',
+            links: [
+              {
+                label:
+                  'NUNCA USE ELSE - Aprenda uma das regras de Object Calisthenics | Dias de Dev',
+                url: 'https://youtu.be/z4fxFU5MoAA',
+                contentType: LinkContentType.WATCH,
+              },
+              {
+                label: 'Object Calisthenics: Apenas 1 nível de indentação por método | Dias de Dev',
+                url: 'https://youtu.be/u_bg3k82uCE',
                 contentType: LinkContentType.WATCH,
               },
             ],
@@ -629,6 +651,17 @@ export const data: Level[] = [
         description:
           'Os intermediários de mensagens são uma tecnologia de comunicação entre aplicativos para ajudar a criar um mecanismo de integração comum para dar suporte a arquiteturas de nuvem híbrida, sem servidor, baseadas em microsserviços e nativas da nuvem. Dois dos corretores de mensagens mais famosos são RabbitMQ e Apache Kafka',
         children: [
+          {
+            label: 'Conceito',
+            links: [
+              {
+                label:
+                  'Processamento assíncrono com mensageria - Escalando aplicações Web | Dias de Dev',
+                url: 'https://youtu.be/Rx80QRZRgHc',
+                contentType: LinkContentType.WATCH,
+              },
+            ],
+          },
           {
             label: 'RabbitMQ',
             links: [
