@@ -94,6 +94,67 @@ export const data: Level[] = [
                 url: 'https://www.cursoemvideo.com/curso/php-basico/',
                 contentType: LinkContentType.VISIT,
               },
+              {
+                label: 'Por que não usar XAMPP',
+                url: 'https://dias.dev/2021-04-10-por-que-nao-usar-xampp/',
+                contentType: LinkContentType.READ,
+              },
+              {
+                label: 'Como o PHP funciona na Web?',
+                url: 'https://dias.dev/2021-06-15-como-o-php-funciona-na-web/',
+                contentType: LinkContentType.READ,
+              },
+              {
+                label: 'Como o PHP funciona? - Conheça o OPcache | Dias de Dev',
+                url: 'https://youtu.be/6vEspHqjrkI',
+                contentType: LinkContentType.WATCH,
+              },
+              {
+                label: 'PHP além da Web',
+                url: 'https://dias.dev/2020-10-27-php-alem-da-web/',
+                contentType: LinkContentType.READ,
+              },
+              {
+                label: 'PHP.ini: Aprendendo a configurar o comportamento do PHP',
+                url: 'https://dias.dev/2023-02-24-php-ini-conhecendo-as-configuracoes-do-php/',
+                contentType: LinkContentType.READ,
+              },
+              {
+                label: 'Extensões PHP',
+                url: 'https://dias.dev/2022-02-13-extensoes-php/',
+                contentType: LinkContentType.READ,
+              },
+              {
+                label: 'Wrapper de Streams php://',
+                url: 'https://dias.dev/2020-11-03-wraper-de-streams-php/',
+                contentType: LinkContentType.READ,
+              },
+              {
+                label:
+                  'Entenda o erro "Cannot modify header information - headers already sent" no PHP',
+                url: 'https://dias.dev/2023-03-07-entenda-o-erro-cannot-modify-header-information-php/',
+                contentType: LinkContentType.READ,
+              },
+            ],
+          },
+          {
+            label: 'Novidades do PHP',
+            links: [
+              {
+                label: 'Novidades do PHP 8.0 | Dias de Dev',
+                url: 'https://www.youtube.com/playlist?list=PL3j2sfzg3FPuQXklYI2LumuG7jgZsj7cK',
+                contentType: LinkContentType.WATCH,
+              },
+              {
+                label: 'Novidades do PHP 8.1 | Dias de Dev',
+                url: 'https://www.youtube.com/playlist?list=PL3j2sfzg3FPufNI3E8nPq-F-eR-kLheq6',
+                contentType: LinkContentType.WATCH,
+              },
+              {
+                label: 'Novidades do PHP 8.2 | Dias de Dev',
+                url: 'https://www.youtube.com/playlist?list=PL3j2sfzg3FPtMTSCB5wcsZSMYNW8tEZ_B',
+                contentType: LinkContentType.WATCH,
+              },
             ],
           },
         ],
