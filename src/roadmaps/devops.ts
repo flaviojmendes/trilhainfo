@@ -12,15 +12,7 @@ export const data: Level[] = [
   {
     label: 'Escolha uma linguagem',
     description: 'Tente aprender alguma dessas com a finalidade de usar para automação de tarefas.',
-    items: [
-      bash,
-      python,
-      go,
-      javascript,
-      rust,
-      ruby,
-      cplusplus,
-    ],
+    items: [bash, python, go, javascript, rust, ruby, cplusplus],
   },
   {
     label: 'Conceitos de Sistemas Operacionais',
@@ -45,7 +37,18 @@ export const data: Level[] = [
         ],
       },
       { label: 'Threads e Concorrência', links: [] },
-      { label: 'Sockets', links: [] },
+      {
+        label: 'Sockets',
+        description:
+          'Sockets são a forma de acessarmos algum destino em uma rede. Utilizamos sockets o tempo todo, mesmo que indiretamente.',
+        links: [
+          {
+            label: 'Sockets de rede - Como funciona a comunicação na Web | Dias de Dev',
+            url: 'https://youtu.be/qel4jIrh7Z0',
+            contentType: LinkContentType.WATCH,
+          },
+        ],
+      },
       { label: 'Básico POSIX', links: [] },
       { label: 'Conceitos de Rede', links: [] },
       { label: 'initd (Gerenciamento de Inicialização)', links: [] },
@@ -164,7 +167,8 @@ export const data: Level[] = [
       },
       {
         label: 'BSD',
-        description: 'Berkeley Software Distribution (BSD) é um sistema operacional UNIX com desenvolvimento derivado e distribuído pela Universidade da Califórnia em Berkeley. Hoje o termo "BSD" é frequentemente usado de forma não específica para se referir a qualquer descendente que juntos, formam uma ramificação dessa família de sistemas operacionais.',
+        description:
+          'Berkeley Software Distribution (BSD) é um sistema operacional UNIX com desenvolvimento derivado e distribuído pela Universidade da Califórnia em Berkeley. Hoje o termo "BSD" é frequentemente usado de forma não específica para se referir a qualquer descendente que juntos, formam uma ramificação dessa família de sistemas operacionais.',
         children: [
           { label: 'FreeBSD', links: [] },
           { label: 'OpenBSD', links: [] },
@@ -234,7 +238,18 @@ export const data: Level[] = [
           { label: 'HTTPS', links: [] },
           { label: 'FTP', links: [] },
           { label: 'SSL/TLS', links: [] },
-          { label: 'SSH', links: [] },
+          {
+            label: 'SSH',
+            description:
+              'SSH é um protocolo que permite acesso a um terminal remoto. Basicamente, você pode acessar servidores pela rede e executar comandos, transferir arquivos, etc.',
+            links: [
+              {
+                label: 'O que é SSH - Como acessar servidores remotos',
+                url: 'https://youtu.be/M_Pe7jdr8QE',
+                contentType: LinkContentType.WATCH,
+              },
+            ],
+          },
           { label: 'Port Forwarding', links: [] },
           { label: 'SMTP', links: [] },
           { label: 'IMAPS', links: [] },
@@ -255,8 +270,40 @@ export const data: Level[] = [
       },
       { label: 'Caching Server', children: [{ label: 'O Básico', links: [] }] },
       { label: 'Forward Proxy', children: [{ label: 'O Básico', links: [] }] },
-      { label: 'Load Balancer', children: [{ label: 'O Básico', links: [] }] },
-      { label: 'Firewall', children: [{ label: 'O Básico', links: [] }] },
+      {
+        label: 'Load Balancer',
+        description:
+          'Um load balancer serve como ponto único de entrada em uma aplicação. O balanceador de carga distribui o tráfego de entrada entre vários servidores diferentes, por exemplo.',
+        children: [
+          {
+            label: 'O Básico',
+            links: [
+              {
+                label: 'Load balancer - O que é um balanceador de carga? | Dias de Dev',
+                url: 'https://youtu.be/TNl08-PgimE',
+                contentType: LinkContentType.WATCH,
+              },
+            ],
+          },
+        ],
+      },
+      {
+        label: 'Firewall',
+        description:
+          'Um firewall é um dispositivo de segurança de rede que monitora o tráfego que entra e sai da sua rede. É extremamente imortante para a segurança de uma rede.',
+        children: [
+          {
+            label: 'O Básico',
+            links: [
+              {
+                label: 'Firewalls - O mínimo que todo dev deve saber | Dias de Dev',
+                url: 'https://youtu.be/w-wKctaMGpU',
+                contentType: LinkContentType.WATCH,
+              },
+            ],
+          },
+        ],
+      },
       {
         label: 'Web Server',
         children: [
@@ -385,7 +432,23 @@ export const data: Level[] = [
       { label: 'Bamboo', children: [{ label: 'O básico', links: [] }] },
       { label: 'Circle CI', children: [{ label: 'O básico', links: [] }] },
       { label: 'FluxCD', children: [{ label: 'O básico', links: [] }] },
-      { label: 'Github Actions', children: [{ label: 'O básico', links: [] }] },
+      {
+        label: 'Github Actions',
+        children: [
+          {
+            label: 'O básico',
+            description:
+              'GitHub Actions é uma plataforma de integração contínua e entrega contínua (CI/CD) que permite automatizar o processo de build de sua aplicação diretamente do GitHub.',
+            links: [
+              {
+                label: 'GitHub Actions: Integração contínua direto no GitHub | Dias de Dev',
+                url: 'https://youtu.be/ugrB9hNT9qw',
+                contentType: LinkContentType.WATCH,
+              },
+            ],
+          },
+        ],
+      },
       { label: 'Gitlab CI', children: [{ label: 'O básico', links: [] }] },
       { label: 'Jenkins', children: [{ label: 'O básico', links: [] }] },
       { label: 'TeamCity', children: [{ label: 'O básico', links: [] }] },
