@@ -23,7 +23,7 @@ const ButtonElement = ({
       <a
         type="button"
         href={args.href}
-        className="z-20 rounded-md border-2 border-dark-brown bg-red p-2 text-center font-title transition-colors hover:bg-dark-red hover:shadow-md"
+        className="z-20 rounded-md border-2 border-dark-brown bg-red p-2 text-center font-title transition-colors duration-150 hover:bg-dark-red hover:shadow-md"
         onClick={handleAnalyticsEvent}
       >
         {text}
