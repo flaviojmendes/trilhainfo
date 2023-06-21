@@ -23,7 +23,7 @@ export default function Header() {
           <li className="flex">
             <a
               target={'_blank'}
-              className="my-2 mr-4 flex pr-4 text-yellow hover:text-red"
+              className="my-2 mr-4 flex pr-4 text-yellow duration-150 hover:text-red"
               href="https://discord.gg/TmneeHgTBp"
               rel="noreferrer"
               aria-label="Discord"
@@ -34,7 +34,7 @@ export default function Header() {
           <li className="flex">
             <a
               target={'_blank'}
-              className="my-2 mr-4 flex pr-4 text-yellow hover:text-red"
+              className="my-2 mr-4 flex pr-4 text-yellow duration-150 hover:text-red"
               href="https://github.com/flaviojmendes/trilhadev"
               rel="noreferrer"
               aria-label="Github"
@@ -56,12 +56,12 @@ export default function Header() {
                 </div>
                 <div className="group relative m-auto flex h-fit w-fit">
                   <button
-                    className="z-20 m-auto rounded-md bg-brown p-2 hover:bg-light-orange"
+                    className="z-20 m-auto rounded-md bg-brown p-2 duration-150 hover:bg-light-orange"
                     onClick={() => logout({ returnTo: window.location.origin })}
                   >
                     Logout
                   </button>
-                  <div className="absolute top-1 left-1 -right-1 -bottom-1 z-10 rounded-md bg-red group-hover:bg-red"></div>
+                  <div className="absolute top-1 left-1 -right-1 -bottom-1 z-10 rounded-md bg-red duration-150 group-hover:bg-red"></div>
                 </div>
               </>
             )}
@@ -70,7 +70,7 @@ export default function Header() {
             {!isAuthenticated && !isLoading && (
               <div className="group relative m-auto flex h-fit w-fit">
                 <button
-                  className="z-20 m-auto rounded-md bg-light-brown p-2 font-title hover:bg-brown"
+                  className="z-20 m-auto rounded-md bg-light-brown p-2 font-title duration-150 hover:bg-light-orange"
                   onClick={() => handleAuth()}
                 >
                   Log In

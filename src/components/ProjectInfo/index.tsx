@@ -15,7 +15,7 @@ export default function ProjectInfo() {
         </h2>
         <div className="group relative flex h-fit w-fit">
           <a
-            className="z-20 h-fit w-fit rounded-md bg-light-brown p-2 font-title hover:bg-light-orange"
+            className="z-20 h-fit w-fit rounded-md bg-light-brown p-2 font-title duration-150 hover:bg-light-orange"
             href="http://eepurl.com/iknir1"
             target={'_blank'}
             rel="noreferrer"
@@ -91,7 +91,7 @@ export default function ProjectInfo() {
           {cheatSheets.map((cheatSheet) => {
             return (
               <li key={cheatSheet.id} className="group relative m-auto flex h-full w-full">
-                <div className="z-20 flex min-h-fit w-full space-y-2 rounded-md bg-brown p-4 hover:bg-white">
+                <div className="z-20 flex min-h-fit w-full space-y-2 rounded-md bg-brown p-4 duration-150 hover:bg-white">
                   <a
                     className="flex gap-2 font-title text-lg md:text-2xl"
                     href={`/guide/${cheatSheet.id}`}

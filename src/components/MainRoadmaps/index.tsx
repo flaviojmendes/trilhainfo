@@ -14,7 +14,7 @@ export default function MainRoadmaps() {
           return (
             <article className="group relative m-auto flex w-fit" key={mainRoadmap.title}>
               <Link
-                className="z-20 flex w-full rounded-md bg-brown py-3 pr-2 hover:bg-light-orange"
+                className="z-20 flex w-full rounded-md bg-brown py-3 pr-2 duration-150 hover:bg-light-orange"
                 to={mainRoadmap.url}
               >
                 <div className="flex w-2/3 flex-col">

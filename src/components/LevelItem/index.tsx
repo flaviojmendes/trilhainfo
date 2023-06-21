@@ -84,7 +84,7 @@ export default function LevelItem(props: Props) {
                         }}
                         id={item.label}
                         className={
-                          'center z-20 mx-0 my-0 flex w-fit cursor-pointer rounded-md border-2 border-dark-brown p-1 text-center hover:bg-white  hover:shadow-md md:p-2' +
+                          'center z-20 mx-0 my-0 flex w-fit cursor-pointer rounded-md border-2 border-dark-brown p-1 text-center duration-150  hover:bg-white hover:shadow-md md:p-2' +
                           (isAllContentRead ? ' bg-light-orange' : ' bg-brown')
                         }
                       >
@@ -114,7 +114,7 @@ export default function LevelItem(props: Props) {
                         }}
                         id={item.label}
                         className={
-                          'center z-20 mx-0 my-0 flex w-fit cursor-pointer rounded-md border-2 border-dark-brown p-1 text-center hover:bg-white  hover:shadow-md md:p-2' +
+                          'center z-20 mx-0 my-0 flex w-fit cursor-pointer rounded-md border-2 border-dark-brown p-1 text-center duration-150  hover:bg-white hover:shadow-md md:p-2' +
                           (isAllContentRead ? ' bg-light-orange' : ' bg-brown')
                         }
                       >
