@@ -39,10 +39,10 @@
 
 @layer base {
   * {
-    font-family: "Poppins", sans-serif;
+    font-family: 'Hanken Grotesk', sans-serif;
   }
 
   body {
-    @apply bg-medium-brown !important 
+    @apply bg-black !important 
   }
 }

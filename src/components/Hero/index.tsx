@@ -1,67 +1,22 @@
-import { TypeAnimation } from 'react-type-animation';
-import AnchorLink from 'react-anchor-link-smooth-scroll';
-import ReactGA from 'react-ga4';
-
 export default function Hero() {
-  function handleCallToAction() {
-    ReactGA.event({
-      category: 'action',
-      action: 'call_to_action',
-    });
-  }
   return (
-    <section className="mx-0 mb-10 flex w-full items-stretch justify-center gap-4 bg-dark-brown py-10 px-10 xl:px-64">
-      <article className="w-full flex-col py-2 md:py-10">
-        <div className="mb-10 w-fit rounded-md bg-medium-brown px-3 font-title text-sm text-light-brown">
-          Mais de <span className="font-title text-red">20.000 pessoas</span> já acessaram
+    <section className="mx-0 mb-10 flex w-full items-stretch justify-center gap-4 py-16 px-10 xl:px-64">
+      <article className="flex w-full py-2 md:py-10">
+        <div className="w-2/3">
+          <h1 className="font-base text-8xl font-light text-white">
+            <span className="text-pink">Trilhe</span> sua carreira como dev
+          </h1>
+          <h3 className="mt-4 font-base text-xl font-light text-dark-pink">
+            Trilhas de estudo gratuitas para você
+          </h3>
         </div>
-        <div className="min-h-[5em]">
-          <TypeAnimation
-            // Same String at the start will only be typed once, initially
-            sequence={[
-              'Qual linguagem devo aprender primeiro?',
-              4000,
-              'É melhor começar pelo Frontend ou Backend?',
-              4000,
-              'É possível programar sem saber inglês?',
-              4000,
-              'Só vou aprender com cursos pagos?',
-              4000,
-              'Como sei se sou Júnior ou Senior?',
-              4000,
-            ]}
-            speed={60} // Custom Speed from 1-99 - Default Speed: 40
-            className="text-2xl text-yellow md:text-4xl"
-            wrapper="h1" // Animation will be rendered as a <span>
-            repeat={Infinity} // Repeat this Animation Sequence infinitely
-          />
-        </div>
-        <p className=" mt-10 max-w-xl font-title text-lg text-red md:text-xl">
-          Essas dúvidas não são só suas.
-        </p>
-        <p className=" mt-1 max-w-xl font-title text-lg text-yellow md:text-xl">
-          Desde Junho/2022 mais de 20.000 pessoas já acessaram a{' '}
-          <span className="font-title text-red">Trilha Info </span>
-          gratuitamente como uma ferramenta de apoio aos estudos.
-        </p>
-        <div className="my-6 flex w-fit rounded-md bg-medium-brown px-2 font-title text-sm text-light-brown">
-          <div className="m-auto mr-2 h-2 w-2 rounded-full bg-blue"></div>Conteúdo totalmente
-          gratuito
-        </div>
-        <div className="relative flex h-fit w-full md:w-fit">
-          <AnchorLink
-            onClick={handleCallToAction}
-            href="#mainRoadmaps"
-            className="z-20 w-full rounded-md bg-light-brown p-2 text-center font-title hover:bg-light-orange "
-          >
-            Comece Agora
-          </AnchorLink>
-          <div className="absolute top-1 left-1 -right-1 -bottom-1 z-10 rounded-md bg-red"></div>
+        <div className="w-1/3 flex-col">
+          <img className="bg-gradient-to-r from-black" src="hero-bg.png" alt="hero" />
+          <h3 className="mt-4 w-fit bg-gradient-to-r from-transparent to-light-gray py-1 px-2 text-lg text-blue">
+            Mais de 30.000 pessoas já acessaram
+          </h3>
         </div>
       </article>
-      <div className="hidden md:flex">
-        <img className="m-auto rounded-md lg:w-2/3" src="/hero.png" alt="hero"></img>
-      </div>
     </section>
   );
 }

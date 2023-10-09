@@ -8,6 +8,7 @@ module.exports = {
         title: '"Poppins", sans-serif',
         content: '"Scope One", serif',
         monospace: '"Roboto Mono", monospace',
+        base: '"Hanken Grotesk", sans-serif'
       },
       animation: {
         checking: 'slit-in-vertical 0.2s ease-out both',
@@ -93,13 +94,17 @@ module.exports = {
           },
         },
       },
+      boxShadow: {
+        solid: '-4px 4px 0px 0px rgba(255, 255, 255, 0.80)',
+        "solid-blue": '-6px 6px 0px 0px #003963',
+
+      },
+      
     },
     colors: {
       'light-orange': '#F6BCA8',
-      white: '#FFFFFF',
-      blue: '#59c0e4',
+      // blue: '#59c0e4'   ,
       'dark-blue': '#50accd',
-      'dark-brown': '#494443',
       'light-yellow': '#f7e3b2',
       yellow: '#eabc54',
       'dark-yellow': '#D2A94B',
@@ -110,7 +115,23 @@ module.exports = {
       red: '#ee8561',
       'dark-red': '#d56a47',
       green: '#22c55e',
+
+      black: '#000002',
+      pink: '#E1047B',
+      "dark-pink": "#D7BECB",
+      "card-pink": "#2d0119",
+      "card-pink-hover": "#38011F",
+      "card-blue": "#003963",
+
+      "hover-pink": "#FC52AE",
+      blue: '#008FF6',
+      "blue-focus": 'rgba(0, 143, 246, 0.40)',
+      white: '#FDFDFD',
+      "transparent": 'rgba(0, 0, 0, 0)',
+      "light-gray": 'rgba(255, 255, 255, 0.12)'
     },
+
+    
   },
   plugins: [],
 };

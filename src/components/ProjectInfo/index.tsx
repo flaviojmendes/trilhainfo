@@ -1,110 +1,49 @@
-import { cheatSheets } from '../../guides/cheatSheets';
-import { GoPlus } from 'react-icons/go';
+import { SlArrowRight } from 'react-icons/sl';
+import Button from '../atom/Button';
 
 export default function ProjectInfo() {
   return (
-    <section className="grid w-full grid-cols-1 items-stretch justify-center gap-10 bg-dark-brown py-10 px-10 shadow-inner lg:grid-cols-2 xl:px-64">
-      <div className="flex flex-col gap-4">
-        <div className="my-2 flex w-fit rounded-md bg-medium-brown px-2 font-title text-sm text-light-brown">
-          <div className="m-auto mr-2 h-2 w-2 rounded-full bg-red"></div>
-          Newsletter mensal sobre a trilha
-        </div>
-        <h2 className="m-auto font-title text-4xl text-yellow">
-          Assine a <span className="text-red">newsletter</span> para não perder as últimas novidades
-          da <span className="text-red">Trilha Info</span>
-        </h2>
-        <div className="group relative flex h-fit w-fit">
-          <a
-            className="z-20 h-fit w-fit rounded-md bg-light-brown p-2 font-title hover:bg-light-orange"
-            href="http://eepurl.com/iknir1"
-            target={'_blank'}
-            rel="noreferrer"
-          >
-            Assine Agora!
-          </a>
-          <div className="absolute top-1 left-1 -right-1 -bottom-1 z-10 rounded-md bg-red group-hover:bg-red"></div>
-        </div>
-        <h3 className="mt-8 font-title text-4xl font-semibold text-yellow">
-          Open <span className="text-red">Source</span>
-        </h3>
-        <div className="text-yellow">
-          <p className="my-2 font-title">
-            A Trilha Info é um projeto{' '}
-            <span className="font-semibold text-red hover:text-light-brown">
-              <a
-                target={'_blank'}
-                href="https://github.com/flaviojmendes/trilhainfo"
-                rel="noreferrer"
-              >
-                Open Source
-              </a>
-            </span>{' '}
-            que nasceu em Junho/2022 com o objetivo de agregar e organizar conteúdos gratuitos em
-            português para pessoas que querem ingressar na área de Tecnologia.
-          </p>
-          <p className="my-8 font-title">
-            A motivação em criar esse aplicativo é por acreditar que a educação e o conhecimento
-            devem ser democráticos. Qualquer pessoa deveria ter acesso aos assuntos que se interessa
-            para que garanta um futuro cada vez mais próspero.
-          </p>
-          <p className="my-8 font-title">
-            Encontrou um Bug 🐛, tem uma ideia 💡? É só abrir uma{' '}
-            <a
-              className="font-semibold text-red hover:text-light-brown"
-              target={'_blank'}
-              rel="noreferrer"
-              href="https://github.com/flaviojmendes/trilhainfo/issues"
-            >
-              issue
-            </a>
-            .
-          </p>
-          <p className="my-8 font-title">
-            Portanto, se você também acredita nisso compartilhe para que o conhecimento chegue cada
-            vez mais longe. E participe da nossa comunidade no{' '}
-            <span className="font-semibold text-red hover:text-light-brown">
-              <a target={'_blank'} href="https://discord.gg/HJ3Spm6R" rel="noreferrer">
-                Discord
-              </a>
-            </span>{' '}
-          </p>
-          <iframe
-            src="https://ghbtns.com/github-btn.html?user=flaviojmendes&repo=trilhainfo&type=star&count=true&size=large&v=2"
-            scrolling="0"
-            width="170"
-            height="30"
-            title="Trilha Info"
-          ></iframe>
-        </div>
-        <div className="grow"></div>
-      </div>
+    <section className="grid w-full grid-cols-1 items-stretch py-10 px-10 text-base shadow-inner xl:px-64">
+      <h2 className="my-6 font-base text-5xl text-dark-pink ">
+        Da comunidade, para a comunidade.{' '}
+      </h2>
 
-      <div className="mt-10 flex w-full flex-col gap-4 lg:mt-0">
-        <div className="my-2 flex w-fit rounded-md bg-medium-brown px-2 font-title text-sm text-light-brown">
-          <div className="m-auto mr-2 h-2 w-2 rounded-full bg-blue"></div>
-          Faça download gratuito
+      <div className="flex gap-6">
+        <div className="flex w-1/3 rounded-sm bg-card-pink p-4">
+          <div className="flex flex-col">
+            <h3 className="mb-2 font-base text-3xl text-white">A Trilha Info</h3>
+            <div className="h-2 w-1/2 bg-gradient-to-r from-pink to-transparent"></div>
+            <p className="my-4 font-base text-sm text-white">
+              É um projeto{' '}
+              <a href="https://github.com/flaviojmendes/trilhainfo" className="text-pink underline">
+                Open Source
+              </a>{' '}
+              que nasceu em Junho/2022 com o objetivo de agregar e organizar conteúdos gratuitos em
+              português para pessoas que querem ingressar na área de Tecnologia.
+            </p>
+            <div className="grow"></div>
+            <div className=" flex gap-2 text-dark-brown">
+              <SlArrowRight className="my-auto ml-2 text-pink " />
+              <span className="my-auto font-base font-semibold text-pink underline">
+                Comece agora
+              </span>
+            </div>
+          </div>
         </div>
-        <h3 className="font-title text-4xl font-semibold text-yellow">
-          <span className="text-blue">Guias</span> Cheat Sheets
-        </h3>
-        <ul className="mt-10 flex w-full flex-col gap-4 lg:mt-0">
-          {cheatSheets.map((cheatSheet) => {
-            return (
-              <li key={cheatSheet.id} className="group relative m-auto flex h-full w-full">
-                <div className="z-20 flex min-h-fit w-full space-y-2 rounded-md bg-brown p-4 hover:bg-white">
-                  <a
-                    className="flex gap-2 font-title text-lg md:text-2xl"
-                    href={`/guide/${cheatSheet.id}`}
-                  >
-                    <GoPlus className="my-auto" />{' '}
-                    <span className="my-auto">{cheatSheet.title}</span>
-                  </a>
-                </div>{' '}
-                <div className="absolute top-1 left-1 -right-1 -bottom-1 z-10 rounded-md bg-yellow group-hover:bg-yellow"></div>
-              </li>
-            );
-          })}
-        </ul>
+
+        <div className="group relative flex w-2/3 rounded-sm bg-[url('/opensourcebanner.png')] bg-cover bg-no-repeat p-0 transition-all">
+          <div className="absolute h-full w-full bg-blue mix-blend-color"></div>
+
+          <div className="absolute h-full  w-full bg-gradient-to-r from-black via-transparent to-transparent hover:backdrop-blur-sm"></div>
+
+          <div className="absolute hidden h-full w-full items-center transition-all duration-[10] group-hover:flex  ">
+            <div className="flex h-full w-full grow bg-black bg-opacity-80 px-10 backdrop-blur-sm">
+              <Button type="secondary" className="m-auto h-16 w-full">
+                colabore
+              </Button>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

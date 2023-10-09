@@ -1,39 +1,31 @@
-import { BsArrowRightCircleFill } from 'react-icons/bs';
+import { SlArrowRight } from 'react-icons/sl';
 import { Link } from 'react-router-dom';
 import { mainRoadmapsData } from './mainRoadmapsData';
 
 export default function MainRoadmaps() {
   return (
     <section id="mainRoadmaps" className="px-10 pt-4 xl:px-64">
-      <h2 className="font-semibolds c-yellow my-6 font-title text-4xl md:w-1/3">
-        Tudo o que você <span className="font-title text-red">precisa saber</span> no universo de:
-      </h2>
+      <h2 className="my-6 font-base text-5xl text-dark-pink md:w-2/3">Conheça nossas trilhas.</h2>
 
-      <section className="mx-auto grid w-full grid-cols-1 gap-5 space-y-10 pb-10 md:grid-cols-2 md:space-y-0 2xl:grid-cols-3">
+      <section className="mx-auto grid w-full grid-cols-1 gap-5 space-y-10 pb-10 md:grid-cols-2 md:space-y-0 2xl:grid-cols-4">
         {mainRoadmapsData.map((mainRoadmap) => {
           return (
-            <article className="group relative m-auto flex w-fit" key={mainRoadmap.title}>
-              <Link
-                className="z-20 flex w-full rounded-md bg-brown py-3 pr-2 hover:bg-light-orange"
-                to={mainRoadmap.url}
-              >
-                <div className="flex w-2/3 flex-col">
-                  <h3 className="c-dark-brown ml-4 mb-2 font-title text-3xl font-semibold">
-                    {mainRoadmap.title}
-                  </h3>
-                  <p className="m-4 font-title text-sm">{mainRoadmap.description}</p>
-                  <div className="grow"></div>
-                  <div className="ml-4 flex text-dark-brown">
-                    <span className="my-auto font-title font-semibold">Comece agora</span>
-                    <BsArrowRightCircleFill className="my-auto ml-2" />
-                  </div>
+            <Link
+              key={mainRoadmap.title}
+              className="flex w-full rounded-sm bg-card-pink p-4 transition-all hover:bg-card-pink-hover  hover:shadow-solid-blue"
+              to={mainRoadmap.url}
+            >
+              <div className="flex flex-col">
+                <h3 className="mb-2 font-base text-3xl text-white">{mainRoadmap.title}</h3>
+                <div className="h-2 w-1/2 bg-gradient-to-r from-pink to-transparent"></div>
+                <p className="my-4 font-base text-sm text-white">{mainRoadmap.description}</p>
+                <div className="grow"></div>
+                <div className=" flex gap-2 text-dark-brown">
+                  <SlArrowRight className="my-auto ml-2 text-pink " />
+                  <span className="my-auto font-base text-pink underline">Comece agora</span>
                 </div>
-                <div className="flex w-1/3">
-                  <img className="m-auto w-full" alt={'Ícone do Roadmap'} src={mainRoadmap.image} />
-                </div>
-              </Link>
-              <div className="absolute top-1 left-1 -right-1 -bottom-1 z-10 rounded-md bg-red group-hover:bg-red"></div>
-            </article>
+              </div>
+            </Link>
           );
         })}
       </section>

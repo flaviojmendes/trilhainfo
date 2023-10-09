@@ -1,24 +1,16 @@
-import { useAuth0 } from '@auth0/auth0-react';
-import { FaDiscord, FaGithubSquare } from 'react-icons/fa';
-import { ThreeDots } from 'react-loader-spinner';
-import Logo from '../Logo';
 import MobileMenu from '../MobileMenu';
-import Cookies from 'universal-cookie';
-import axios from 'axios';
-
-const cookies = new Cookies();
 
 export default function Header() {
-  const { user, isAuthenticated, isLoading, logout, getAccessTokenSilently, loginWithPopup } =
-    useAuth0();
   return (
-    <header className="mx-auto flex w-full flex-wrap justify-center space-x-0 space-y-2 bg-dark-brown p-2 px-10 xl:px-64">
+    <header className="fixed flex h-20 w-full flex-wrap justify-center bg-[rgb(41,41,43)] bg-opacity-50 p-2 px-10 shadow-sm backdrop-blur-md xl:px-64">
       <MobileMenu />
-      <div className="flex-grow">
-        {' '}
-        <Logo />
-      </div>
-      <nav className="hidden md:flex" aria-label="navegação principal">
+
+      <a href="/" className="relative my-auto ">
+        <img src="/logo.png" className="w-48" alt="Logo" />
+      </a>
+      <div className="grow"></div>
+
+      {/* <nav className="hidden md:flex" aria-label="navegação principal">
         <ul className="flex">
           <li className="flex">
             <a
@@ -91,41 +83,41 @@ export default function Header() {
             )}
           </li>
         </ul>
-      </nav>
+      </nav> */}
     </header>
   );
 
-  async function handleAuth() {
-    (async () => {
-      await loginWithPopup();
+  //   async function handleAuth() {
+  //     (async () => {
+  //       await loginWithPopup();
 
-      const token = await getAccessTokenSilently({
-        audience: 'TrilhaInfoApi',
-      });
-      cookies.set('api_token', `Bearer ${token}`);
+  //       const token = await getAccessTokenSilently({
+  //         audience: 'TrilhaInfoApi',
+  //       });
+  //       cookies.set('api_token', `Bearer ${token}`);
 
-      try {
-        await axios.get(import.meta.env.VITE_API_URL + '/user/' + user?.nickname, {
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: cookies.get('api_token'),
-          },
-        });
-      } catch (e) {
-        await axios.post(
-          import.meta.env.VITE_API_URL + '/user' || '',
-          {
-            user_login: user?.nickname,
-          },
-          {
-            headers: {
-              'Content-Type': 'application/json',
-              Authorization: cookies.get('api_token'),
-            },
-          },
-        );
-      }
-      document.location.href = '/';
-    })();
-  }
+  //       try {
+  //         await axios.get(import.meta.env.VITE_API_URL + '/user/' + user?.nickname, {
+  //           headers: {
+  //             'Content-Type': 'application/json',
+  //             Authorization: cookies.get('api_token'),
+  //           },
+  //         });
+  //       } catch (e) {
+  //         await axios.post(
+  //           import.meta.env.VITE_API_URL + '/user' || '',
+  //           {
+  //             user_login: user?.nickname,
+  //           },
+  //           {
+  //             headers: {
+  //               'Content-Type': 'application/json',
+  //               Authorization: cookies.get('api_token'),
+  //             },
+  //           },
+  //         );
+  //       }
+  //       document.location.href = '/';
+  //     })();
+  //   }
 }
