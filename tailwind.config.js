@@ -93,6 +93,12 @@ module.exports = {
           },
         },
       },
+      boxShadow: {
+        'primary-blue': '-12px 12px 0px 0px rgba(0, 143, 246, 0.40);',
+        'primary-white': '-4px 4px 0px 0px #FDFDFD;',
+        'secondary-white': '-4px 4px 0px 0px rgba(255, 255, 255, 0.80);',
+      },
+      
     },
     colors: {
       'light-orange': '#F6BCA8',
@@ -110,6 +116,15 @@ module.exports = {
       red: '#ee8561',
       'dark-red': '#d56a47',
       green: '#22c55e',
+      black: '#000002',
+      primary: '#E1047B',
+      'primary-hover': '#FC52AE',
+      'primary-shadow': '#FDFDFD',
+      'text-primary': '#FDFDFD',
+      'box-primary': 'rgba(56, 1, 31, 0.80)',
+      'box-primary-shadow':
+        'linear-gradient(0deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.08) 100%), rgba(56, 1, 31, 0.80);',
+      'text-secondary': '#008FF6',
     },
   },
   plugins: [],

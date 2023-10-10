@@ -11,10 +11,10 @@ export default function MobileMenu() {
     <DrawerRoot>
       <div className="flex cursor-pointer items-center justify-center md:hidden">
         <DrawerTrigger>
-          <div className="m-auto block space-y-2 md:hidden">
-            <div className="h-0.5 w-8 bg-light-yellow"></div>
-            <div className="h-0.5 w-8 bg-light-yellow"></div>
-            <div className="h-0.5 w-8 bg-light-yellow"></div>
+          <div className="m-auto my-10 block space-y-2 md:hidden">
+            <div className="h-0.5 w-8 bg-primary"></div>
+            <div className="h-0.5 w-8 bg-primary"></div>
+            <div className="h-0.5 w-8 bg-primary"></div>
           </div>
         </DrawerTrigger>
       </div>
@@ -39,29 +39,29 @@ const HeaderDrawer = () => {
         <li className="flex">
           <a
             target={'_blank'}
-            className="my-2 mr-4 flex pr-4 text-yellow hover:text-red"
+            className="my-2 mr-4 flex pr-4 text-primary"
             href="https://discord.gg/TmneeHgTBp"
             rel="noreferrer"
           >
             <FaDiscord className="m-auto h-7 w-7 " />
-            <span className="my-auto ml-1 font-title text-base">Discord</span>
+            <span className="my-auto ml-1 font-title text-xl">Discord</span>
           </a>
         </li>
         <li className="flex">
           <a
             target={'_blank'}
-            className="my-2 mr-4 flex pr-4 text-yellow hover:text-red"
+            className="my-2 mr-4 flex pr-4 text-primary "
             href="https://github.com/flaviojmendes/trilhadev"
             rel="noreferrer"
           >
             <FaGithubSquare className="m-auto h-8 w-8 " />
-            <span className="my-auto ml-1 font-title text-lg">Github</span>
+            <span className="my-auto ml-1 font-title text-xl">Github</span>
           </a>
         </li>
         <li className="flex">
           <a
             target={'_blank'}
-            className="my-2 mr-4 flex pr-4 text-yellow hover:text-red"
+            className="my-2 mr-4 flex pr-4 text-xl text-primary"
             href="https://www.getrevue.co/profile/flaviojmendes"
             rel="noreferrer"
           >
@@ -83,16 +83,15 @@ const HeaderDrawer = () => {
             </div>
           )}
         </li>
-        <li className="flex">
+        {/* <li className="flex">
           {!isAuthenticated && !isLoading && (
             <div className="group relative m-auto flex h-fit w-fit">
               <button
-                className="z-20 m-auto rounded-md bg-light-brown p-2 font-title hover:bg-brown"
+                className="z-20 m-auto rounded-md bg-primary p-2 font-title hover:bg-primary-hover duration-100 hover:shadow-primary-white"
                 onClick={() => handleAuth()}
               >
                 Log In
               </button>
-              <div className="absolute top-1 left-1 -right-1 -bottom-1 z-10 rounded-md bg-red group-hover:bg-red"></div>
             </div>
           )}
           {isLoading && (
@@ -106,7 +105,7 @@ const HeaderDrawer = () => {
               visible={true}
             />
           )}
-        </li>
+        </li> */}
       </ul>
     </Drawer>
   );

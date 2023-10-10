@@ -11,7 +11,7 @@
 }
 
 .CheckboxIndicator {
-  @apply text-green rounded-sm;
+  @apply text-box-primary rounded-sm;
 }
 
 .CheckBox[data-state='checked'] {
@@ -28,12 +28,12 @@
     @apply bg-[transparent] border-white;
   }
   to {
-    @apply bg-brown border-dark-red;
+    @apply bg-white border-white;
   }
 }
 @keyframes containerUncheck {
   from {
-    @apply bg-brown border-dark-red;
+    @apply bg-white border-white;
   }
   to {
     @apply bg-[transparent] border-white;
