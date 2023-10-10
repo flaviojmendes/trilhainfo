@@ -41,12 +41,12 @@ export default function RoadmapPage() {
         <>
           <div className="m-auto mt-4 w-2/3">
             <p className="c-brown mb-2 font-title ">
-              Lendo de cima pra baixo, cada <span className="text-red">caixa</span> é um assunto a
-              ser estudado.
+              Lendo de cima pra baixo, cada <span className="text-primary">caixa</span> é um assunto
+              a ser estudado.
             </p>
             <p className="c-brown font-title ">
-              <span className="text-red">Clicando</span>, você verá em mais detalhes o que estudar
-              com links de conteúdos gratuitos!
+              <span className="text-primary">Clicando</span>, você verá em mais detalhes o que
+              estudar com links de conteúdos gratuitos!
             </p>
           </div>
 

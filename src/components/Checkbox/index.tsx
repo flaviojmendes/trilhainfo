@@ -19,7 +19,7 @@ export const Checkbox = ({ label, checked, toggleChecked, labelClassName }: Chec
         onCheckedChange={toggleChecked}
       >
         <RadixCheckbox.Indicator className={s.CheckboxIndicator}>
-          <CheckIcon className="stroke-green" />
+          <CheckIcon className="stroke-box-primary" />
         </RadixCheckbox.Indicator>
       </RadixCheckbox.Root>
       {label && (

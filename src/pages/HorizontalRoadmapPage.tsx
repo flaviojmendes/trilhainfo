@@ -6,9 +6,8 @@ import { roadmaps } from '../roadmaps/roadmaps';
 import { Level } from '../entity/RoadmapModel';
 import HorizontalLevelItem from '../components/HorizontalRoadmap/HorizontalLevelItem';
 import HorizontalRoadmapFooter from '../components/HorizontalRoadmap/HorizontalRoadmapFooter';
-import Note from '../components/Note';
 import { HorizontalLevelItemContent } from '../components/HorizontalRoadmap/HorizontalLevelItemContent';
-import { LevelProvider, useSelectedItem } from '../components/HorizontalRoadmap/LevelProvider';
+import { LevelProvider } from '../components/HorizontalRoadmap/LevelProvider';
 import RoadmapButtons from '../components/RoadmapButtons';
 import { useAuth0 } from '@auth0/auth0-react';
 import E404Page from './E404Page';
@@ -24,7 +23,6 @@ export default function HorizontalRoadmapPage() {
 }
 
 function HorizontalRoadmapPageImpl() {
-  const [selectedItem] = useSelectedItem();
   const { name } = useParams<{ name: RoadmapName }>();
   const { isAuthenticated } = useAuth0();
 
@@ -58,7 +56,7 @@ function HorizontalRoadmapPageImpl() {
             />
           </div>
           <section ref={roadmapRef} className="m-auto flex h-full w-11/12 flex-col">
-            <h1 className="m-auto mt-8 text-center font-title text-4xl text-yellow xl:hidden">
+            <h1 className="m-auto mt-8 text-center font-title text-4xl text-text-primary xl:hidden">
               {roadmapTitle}
             </h1>
             <div className="flex flex-col xl:flex-row">
@@ -69,13 +67,13 @@ function HorizontalRoadmapPageImpl() {
               </div>
               {/* Selected Item Content */}
               <div className="w-full xl:w-2/4 xl:pl-10">
-                <h1 className="m-auto my-8 hidden text-center font-title text-4xl text-yellow xl:block">
+                <h1 className="m-auto my-8 hidden text-center font-title text-4xl text-text-primary xl:block">
                   {roadmapTitle}
                 </h1>
                 <HorizontalLevelItemContent />
               </div>
               <div className="w-full xl:w-1/4 xl:pl-10">
-                {selectedItem && <Note id={selectedItem.label} title={selectedItem.label} />}
+                {/* {selectedItem && <Note id={selectedItem.label} title={selectedItem.label} />} */}
               </div>
             </div>
             <div className="flex-grow" />

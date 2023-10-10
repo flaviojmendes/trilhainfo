@@ -9,7 +9,9 @@ export function HorizontalLevelItemContent() {
     <>
       {!selectedItem && (
         <div className="flex h-full ">
-          <p className="m-auto font-title text-red">Selecione um Item à esquerda para estudar.</p>
+          <p className="m-auto font-title text-text-secondary">
+            Selecione um Item à esquerda para estudar.
+          </p>
         </div>
       )}
 
@@ -21,8 +23,8 @@ export function HorizontalLevelItemContent() {
           transition={{ type: 'spring', bounce: 0, duration: 0.3 }}
           className="flex flex-col px-4"
         >
-          <h2 className="font-title text-2xl text-light-orange">{selectedItem.label}</h2>
-          <p className="my-2 font-title text-xl text-light-orange">{selectedItem.description}</p>
+          <h2 className="font-title text-2xl text-white">{selectedItem.label}</h2>
+          <p className="my-2 font-title text-xl text-white">{selectedItem.description}</p>
           <AccordionContainer
             defaultValue={selectedItem.children?.[0].label}
             className="w-full"

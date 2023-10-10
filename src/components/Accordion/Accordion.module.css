@@ -23,7 +23,7 @@
 }
 
 .Trigger span {
-  @apply font-bold text-brown;
+  @apply font-bold text-white;
 }
 
 .Content {
@@ -65,7 +65,7 @@
 }
 
 input:checked + div {
-  @apply border-red;
+  @apply border-white;
 }
 input:checked + div svg {
   @apply block;

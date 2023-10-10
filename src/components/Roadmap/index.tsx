@@ -4,7 +4,6 @@ import { Level, RoadmapItem } from '../../entity/RoadmapModel';
 import LevelItem from '../LevelItem';
 import { useLocation } from 'react-router-dom';
 import { emojisplosion } from 'emojisplosion';
-import Note from '../Note';
 import RoadmapButtons from '../RoadmapButtons';
 import { useAuth0 } from '@auth0/auth0-react';
 import { AccordionContainer, RoadmapAccordion } from '../Accordion';
@@ -148,7 +147,7 @@ export default function Roadmap(props: Props) {
 
   return (
     <DrawerRoot open={isDrawerOpen} onOpenChange={handleOpenChange}>
-      <div className={`gap-2 pr-2 md:pr-4 ${props.isPreview ? 'hidden' : 'flex'}`}>
+      <div className={`gap-2 px-10 pr-2 md:pr-4  xl:px-64 ${props.isPreview ? 'hidden' : 'flex'}`}>
         <div className="flex-grow"></div>
         <RoadmapButtons
           buttons={
@@ -161,14 +160,18 @@ export default function Roadmap(props: Props) {
           roadmapRef={roadmapRef}
         />
       </div>
-      <section ref={roadmapRef} className="pb-8">
-        <h2
-          className={`c-yellow c-dark-brown my-6 text-center font-title text-3xl font-bold ${
-            props.isPreview ? 'hidden' : ''
-          }`}
-        >
-          {props.title}
-        </h2>
+      <section ref={roadmapRef} className="px-10 pb-8 xl:px-64">
+        <div className="mb-10 flex">
+          <div className="flex w-4 bg-gradient-to-r from-text-secondary via-text-secondary to-black "></div>
+          <h2
+            className={` font-title text-3xl font-bold text-text-primary ${
+              props.isPreview ? 'hidden' : ''
+            }`}
+          >
+            {props.title}
+          </h2>
+        </div>
+
         <div>
           {props.data.map((level, index, data) => {
             return (
@@ -215,8 +218,10 @@ const RoadmapDrawer = ({
 }: RoadmapDrawerProps) => {
   return (
     <Drawer lastSelectedElement={lastSelectedElement}>
-      <DrawerTitle className="text-xl font-bold text-brown">{activeItem?.label}</DrawerTitle>
-      <DrawerDescription className="mb-4 pt-6 font-title text-light-brown">
+      <DrawerTitle className="text-2xl font-bold text-text-primary">
+        {activeItem?.label}
+      </DrawerTitle>
+      <DrawerDescription className="mb-4 pt-6 font-title text-text-primary">
         {activeItem?.description}
       </DrawerDescription>
 
@@ -240,7 +245,7 @@ const RoadmapDrawer = ({
             );
           })}
         </AccordionContainer>
-        {!isPreview && <Note id={activeItem?.label || 'asdasd'} title={activeItem?.label || ''} />}
+        {/* {!isPreview && <Note id={activeItem?.label || 'asdasd'} title={activeItem?.label || ''} />} */}
       </div>
     </Drawer>
   );

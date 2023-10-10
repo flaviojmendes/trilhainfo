@@ -3,34 +3,33 @@ import { GoPlus } from 'react-icons/go';
 
 export default function ProjectInfo() {
   return (
-    <section className="grid w-full grid-cols-1 items-stretch justify-center gap-10 bg-dark-brown py-10 px-10 shadow-inner lg:grid-cols-2 xl:px-64">
+    <section className="grid w-full grid-cols-1 items-stretch justify-center gap-10 py-10 px-10 shadow-inner lg:grid-cols-2 xl:px-64">
       <div className="flex flex-col gap-4">
-        <div className="my-2 flex w-fit rounded-md bg-medium-brown px-2 font-title text-sm text-light-brown">
-          <div className="m-auto mr-2 h-2 w-2 rounded-full bg-red"></div>
+        <div className="my-2 flex w-fit rounded-md bg-box-primary px-2 font-title text-sm text-white">
+          <div className="m-auto mr-2 h-2 w-2 rounded-full bg-primary"></div>
           Newsletter mensal sobre a trilha
         </div>
-        <h2 className="m-auto font-title text-4xl text-yellow">
-          Assine a <span className="text-red">newsletter</span> para não perder as últimas novidades
-          da <span className="text-red">Trilha Info</span>
+        <h2 className="m-auto font-title text-4xl text-text-primary">
+          Assine a <span className="text-primary">newsletter</span> para não perder as últimas
+          novidades da <span className="text-primary">Trilha Info</span>
         </h2>
         <div className="group relative flex h-fit w-fit">
           <a
-            className="z-20 h-fit w-fit rounded-md bg-light-brown p-2 font-title hover:bg-light-orange"
+            className="z-20 h-fit w-fit rounded-md bg-primary p-2 font-title duration-100 hover:shadow-primary-white"
             href="http://eepurl.com/iknir1"
             target={'_blank'}
             rel="noreferrer"
           >
-            Assine Agora!
+            Assine Agora
           </a>
-          <div className="absolute top-1 left-1 -right-1 -bottom-1 z-10 rounded-md bg-red group-hover:bg-red"></div>
         </div>
-        <h3 className="mt-8 font-title text-4xl font-semibold text-yellow">
-          Open <span className="text-red">Source</span>
+        <h3 className="mt-8 font-title text-4xl font-semibold text-text-primary">
+          Open <span className="text-primary">Source</span>
         </h3>
-        <div className="text-yellow">
+        <div className="text-text-primary">
           <p className="my-2 font-title">
             A Trilha Info é um projeto{' '}
-            <span className="font-semibold text-red hover:text-light-brown">
+            <span className="font-semibold text-primary hover:text-light-brown">
               <a
                 target={'_blank'}
                 href="https://github.com/flaviojmendes/trilhainfo"
@@ -50,7 +49,7 @@ export default function ProjectInfo() {
           <p className="my-8 font-title">
             Encontrou um Bug 🐛, tem uma ideia 💡? É só abrir uma{' '}
             <a
-              className="font-semibold text-red hover:text-light-brown"
+              className="font-semibold text-primary hover:text-light-brown"
               target={'_blank'}
               rel="noreferrer"
               href="https://github.com/flaviojmendes/trilhainfo/issues"
@@ -62,7 +61,7 @@ export default function ProjectInfo() {
           <p className="my-8 font-title">
             Portanto, se você também acredita nisso compartilhe para que o conhecimento chegue cada
             vez mais longe. E participe da nossa comunidade no{' '}
-            <span className="font-semibold text-red hover:text-light-brown">
+            <span className="font-semibold text-primary hover:text-light-brown">
               <a target={'_blank'} href="https://discord.gg/HJ3Spm6R" rel="noreferrer">
                 Discord
               </a>
@@ -80,18 +79,18 @@ export default function ProjectInfo() {
       </div>
 
       <div className="mt-10 flex w-full flex-col gap-4 lg:mt-0">
-        <div className="my-2 flex w-fit rounded-md bg-medium-brown px-2 font-title text-sm text-light-brown">
-          <div className="m-auto mr-2 h-2 w-2 rounded-full bg-blue"></div>
+        <div className="my-2 flex w-fit rounded-md bg-box-primary px-2 font-title text-sm text-white">
+          <div className="m-auto mr-2 h-2 w-2 rounded-full bg-text-secondary"></div>
           Faça download gratuito
         </div>
-        <h3 className="font-title text-4xl font-semibold text-yellow">
-          <span className="text-blue">Guias</span> Cheat Sheets
+        <h3 className="font-title text-4xl font-semibold text-text-primary">
+          <span className="text-text-secondary">Guias</span> Cheat Sheets
         </h3>
         <ul className="mt-10 flex w-full flex-col gap-4 lg:mt-0">
           {cheatSheets.map((cheatSheet) => {
             return (
               <li key={cheatSheet.id} className="group relative m-auto flex h-full w-full">
-                <div className="z-20 flex min-h-fit w-full space-y-2 rounded-md bg-brown p-4 hover:bg-white">
+                <div className="z-20 flex min-h-fit w-full space-y-2 rounded-md border-2 border-primary p-4 text-primary duration-100 hover:shadow-secondary-white">
                   <a
                     className="flex gap-2 font-title text-lg md:text-2xl"
                     href={`/guide/${cheatSheet.id}`}
@@ -100,7 +99,6 @@ export default function ProjectInfo() {
                     <span className="my-auto">{cheatSheet.title}</span>
                   </a>
                 </div>{' '}
-                <div className="absolute top-1 left-1 -right-1 -bottom-1 z-10 rounded-md bg-yellow group-hover:bg-yellow"></div>
               </li>
             );
           })}
