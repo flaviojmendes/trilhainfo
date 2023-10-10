@@ -11,10 +11,10 @@ export default function MobileMenu() {
     <DrawerRoot>
       <div className="flex cursor-pointer items-center justify-center md:hidden">
         <DrawerTrigger>
-          <div className="m-auto block space-y-2 md:hidden">
-            <div className="h-0.5 w-8 bg-light-yellow"></div>
-            <div className="h-0.5 w-8 bg-light-yellow"></div>
-            <div className="h-0.5 w-8 bg-light-yellow"></div>
+          <div className="m-auto my-10 block space-y-2 md:hidden">
+            <div className="h-0.5 w-8 bg-primary"></div>
+            <div className="h-0.5 w-8 bg-primary"></div>
+            <div className="h-0.5 w-8 bg-primary"></div>
           </div>
         </DrawerTrigger>
       </div>
