@@ -39,7 +39,7 @@ export default function RoadmapPage() {
       </p> */}
       {name && name in roadmaps && (
         <>
-          <div className="m-auto mt-4 w-2/3">
+          <div className="m-auto mt-4 px-2 lg:w-2/3">
             <p className="c-brown mb-2 font-title ">
               Lendo de cima pra baixo, cada <span className="text-primary">caixa</span> é um assunto
               a ser estudado.

@@ -147,7 +147,11 @@ export default function Roadmap(props: Props) {
 
   return (
     <DrawerRoot open={isDrawerOpen} onOpenChange={handleOpenChange}>
-      <div className={`gap-2 px-10 pr-2 md:pr-4  xl:px-64 ${props.isPreview ? 'hidden' : 'flex'}`}>
+      <div
+        className={`my-10 gap-2 px-2 pr-2 md:pr-4 lg:my-0 xl:px-64 ${
+          props.isPreview ? 'hidden' : 'flex'
+        }`}
+      >
         <div className="flex-grow"></div>
         <RoadmapButtons
           buttons={
@@ -160,7 +164,7 @@ export default function Roadmap(props: Props) {
           roadmapRef={roadmapRef}
         />
       </div>
-      <section ref={roadmapRef} className="px-10 pb-8 xl:px-64">
+      <section ref={roadmapRef} className="pb-8 xl:px-64">
         <div className="mb-10 flex">
           <div className="flex w-4 bg-gradient-to-r from-text-secondary via-text-secondary to-black "></div>
           <h2
