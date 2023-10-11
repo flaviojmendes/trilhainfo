@@ -10,9 +10,9 @@ export default function Hero() {
     });
   }
   return (
-    <section className="mx-0 mb-10 flex w-full items-stretch justify-center gap-4 py-10 px-10 xl:px-64">
+    <section className="mx-0 mb-10 mt-[80px] flex w-full items-stretch justify-center gap-4 px-10 pt-12 md:pt-0 xl:px-64">
       <article className="w-full flex-col py-2 md:py-10">
-        {/* <div className="mb-10 w-fit rounded-md bg-box-primary px-3 font-title text-sm text-text-secondary">
+        {/* <div className="mb-10 w-fit rounded-sm bg-box-primary px-3 font-title text-sm text-text-secondary">
           Mais de 30.000 pessoas já acessaram
         </div> */}
         <div className="min-h-[5em]">
@@ -44,7 +44,7 @@ export default function Hero() {
           <span className="font-title text-primary">Trilha Info </span>
           gratuitamente como uma ferramenta de apoio aos estudos.
         </p>
-        <div className="my-6 flex w-fit rounded-md bg-box-primary px-2 font-title text-sm text-white">
+        <div className="my-6 flex w-fit rounded-sm bg-box-primary px-2 font-title text-sm text-white">
           <div className="m-auto mr-2 h-2 w-2 rounded-full bg-text-secondary"></div>Conteúdo
           totalmente gratuito
         </div>
@@ -52,15 +52,15 @@ export default function Hero() {
           <AnchorLink
             onClick={handleCallToAction}
             href="#mainRoadmaps"
-            className="z-20 w-full rounded-md bg-light-brown p-2 text-center font-title hover:bg-light-orange "
+            className="z-20 w-full rounded-sm bg-light-brown p-2 text-center font-title hover:bg-light-orange "
           >
             Comece Agora
           </AnchorLink>
-          <div className="absolute top-1 left-1 -right-1 -bottom-1 z-10 rounded-md bg-red"></div>
+          <div className="absolute top-1 left-1 -right-1 -bottom-1 z-10 rounded-sm bg-red"></div>
         </div> */}
       </article>
       <div className="hidden md:flex">
-        <img className="m-auto rounded-sm gradient-mask-l-30" src="/hero.png" alt="hero"></img>
+        <img className="mt-0 rounded-sm gradient-mask-l-30" src="/hero.png" alt="hero"></img>
       </div>
     </section>
   );

@@ -150,13 +150,13 @@ export default function Note(props: Props) {
               value={noteText}
               onChange={handleCommentTextChange}
               placeholder="Salve aqui suas anotações para não esquecer!"
-              className="min-h-[80px] w-full rounded-md border-2 border-yellow bg-[transparent] p-2 text-sm leading-snug text-dark-brown outline-none transition-colors focus:border-red"
+              className="min-h-[80px] w-full rounded-sm border-2 border-yellow bg-[transparent] p-2 text-sm leading-snug text-dark-brown outline-none transition-colors focus:border-red"
             />
             <div className="group relative m-auto flex h-fit w-fit">
               <button
                 onClick={saveCommentText}
                 disabled={isSavingNote}
-                className="z-20 mx-auto inline-flex h-10 items-center justify-center rounded-md bg-brown px-4 font-title leading-tight transition-colors hover:bg-[#E2E8F0] disabled:cursor-not-allowed disabled:bg-opacity-40 disabled:hover:bg-brown disabled:hover:bg-opacity-40"
+                className="z-20 mx-auto inline-flex h-10 items-center justify-center rounded-sm bg-brown px-4 font-title leading-tight transition-colors hover:bg-[#E2E8F0] disabled:cursor-not-allowed disabled:bg-opacity-40 disabled:hover:bg-brown disabled:hover:bg-opacity-40"
               >
                 {isSavingNote ? (
                   <ThreeDots
@@ -172,7 +172,7 @@ export default function Note(props: Props) {
                   <>Salvar Anotação </>
                 )}
               </button>
-              <div className="absolute top-1 left-1 -right-1 -bottom-1 z-10 rounded-md bg-red group-hover:bg-yellow"></div>
+              <div className="absolute top-1 left-1 -right-1 -bottom-1 z-10 rounded-sm bg-red group-hover:bg-yellow"></div>
             </div>
           </div>
         </>

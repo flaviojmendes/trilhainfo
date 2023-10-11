@@ -1,14 +1,14 @@
-import { useAuth0 } from "@auth0/auth0-react";
-import axios from "axios";
+import { useAuth0 } from '@auth0/auth0-react';
+import axios from 'axios';
 
-import { ChangeEvent, useEffect, useState } from "react";
-import MainLayout from "../components/layouts/MainLayout";
-import { RoadmapModel } from "../entity/RoadmapModel";
-import Cookies from "universal-cookie";
-import { useNavigate, useParams } from "react-router-dom";
-import { Grid } from "react-loader-spinner";
-import NewRoadmapPreview from "../components/NewRoadmap/NewRoadmapPreview";
-import NewRoadmapEditor from "../components/NewRoadmap/NewRoadmapEditor";
+import { ChangeEvent, useEffect, useState } from 'react';
+import MainLayout from '../components/layouts/MainLayout';
+import { RoadmapModel } from '../entity/RoadmapModel';
+import Cookies from 'universal-cookie';
+import { useNavigate, useParams } from 'react-router-dom';
+import { Grid } from 'react-loader-spinner';
+import NewRoadmapPreview from '../components/NewRoadmap/NewRoadmapPreview';
+import NewRoadmapEditor from '../components/NewRoadmap/NewRoadmapEditor';
 
 const cookies = new Cookies();
 
@@ -33,51 +33,51 @@ export default function NewRoadmapPage() {
   }, []);
 
   async function getRoadmap() {
-    let response = await axios.get<RoadmapModel>(
-      import.meta.env.VITE_PUBLIC_URL + `/roadmap/${roadmapId}` || "",
+    const response = await axios.get<RoadmapModel>(
+      import.meta.env.VITE_PUBLIC_URL + `/roadmap/${roadmapId}` || '',
       {
         headers: {
-          "Content-Type": "application/json",
-          Authorization: cookies.get("api_token"),
+          'Content-Type': 'application/json',
+          Authorization: cookies.get('api_token'),
         },
-      }
+      },
     );
 
     setRoadmap(Object.assign(new RoadmapModel(), response.data));
   }
 
   async function checkSlug() {
-    let response = await axios.get<boolean>(
-      import.meta.env.VITE_API_URL + `/roadmap/slug/${roadmap.slug}` || "",
+    const response = await axios.get<boolean>(
+      import.meta.env.VITE_API_URL + `/roadmap/slug/${roadmap.slug}` || '',
       {
         headers: {
-          "Content-Type": "application/json",
-          Authorization: cookies.get("api_token"),
+          'Content-Type': 'application/json',
+          Authorization: cookies.get('api_token'),
         },
-      }
+      },
     );
 
     setInvalidSlug(response.data);
   }
 
   function handleTitleChange(event: ChangeEvent<HTMLInputElement>) {
-    let roadmapTemp: RoadmapModel = Object.assign(new RoadmapModel(), roadmap);
-    roadmapTemp.title = event.target.value || "";
+    const roadmapTemp: RoadmapModel = Object.assign(new RoadmapModel(), roadmap);
+    roadmapTemp.title = event.target.value || '';
     setRoadmap(roadmapTemp);
     setShouldBlock(true);
   }
 
   function handleSlugChange(event: ChangeEvent<HTMLInputElement>) {
-    let roadmapTemp: RoadmapModel = Object.assign(new RoadmapModel(), roadmap);
-    roadmapTemp.slug = event.target.value || "";
+    const roadmapTemp: RoadmapModel = Object.assign(new RoadmapModel(), roadmap);
+    roadmapTemp.slug = event.target.value || '';
     setRoadmap(roadmapTemp);
     setShouldBlock(true);
     checkSlug();
   }
 
   function handleDescriptionChange(event: ChangeEvent<HTMLTextAreaElement>) {
-    let roadmapTemp: RoadmapModel = Object.assign(new RoadmapModel(), roadmap);
-    roadmapTemp.description = event.target.value || "";
+    const roadmapTemp: RoadmapModel = Object.assign(new RoadmapModel(), roadmap);
+    roadmapTemp.description = event.target.value || '';
     setRoadmap(roadmapTemp);
     setShouldBlock(true);
   }
@@ -85,15 +85,15 @@ export default function NewRoadmapPage() {
   async function handleSaveRoadmap() {
     roadmap.owner = user?.nickname;
     setShouldBlock(false);
-    await axios.post(import.meta.env.VITE_API_URL + `/roadmap` || "", roadmap, {
+    await axios.post(import.meta.env.VITE_API_URL + `/roadmap` || '', roadmap, {
       withCredentials: true,
       headers: {
-        "Content-Type": "application/json",
-        Authorization: cookies.get("api_token"),
+        'Content-Type': 'application/json',
+        Authorization: cookies.get('api_token'),
       },
     });
 
-    navigate("/");
+    navigate('/');
   }
 
   return (
@@ -101,19 +101,19 @@ export default function NewRoadmapPage() {
       <MainLayout>
         <div className="flex flex-col space-y-4">
           <div className="m-auto mt-2 w-full flex-col md:w-1/2">
-          <div className="flex">
-          <span className="inline-flex items-center px-4 text-gray-900 bg-[#EDF2F7] border border-r-0 border-gray-300 rounded-l-md">
-            trilha.info/roadmap/v/
-          </span>
-          <input 
-            type="text"
-            id="website-admin"
-            className="rounded-none rounded-r-lg bg-[transparent] text-yellow outline-none border-2 border-[#EDF2F7] focus:border-yellow block flex-1 min-w-0 w-full p-2.5 transition-colors" 
-            placeholder="Uma URL customizada para seu Roadmap"
-            value={roadmap.slug}
-            onChange={handleSlugChange}  
-          />
-          </div>
+            <div className="flex">
+              <span className="text-gray-900 border-gray-300 inline-flex items-center rounded-l-md border border-r-0 bg-[#EDF2F7] px-4">
+                trilha.info/roadmap/v/
+              </span>
+              <input
+                type="text"
+                id="website-admin"
+                className="block w-full min-w-0 flex-1 rounded-none rounded-r-lg border-2 border-[#EDF2F7] bg-[transparent] p-2.5 text-yellow outline-none transition-colors focus:border-yellow"
+                placeholder="Uma URL customizada para seu Roadmap"
+                value={roadmap.slug}
+                onChange={handleSlugChange}
+              />
+            </div>
             {invalidSlug && (
               <p className="mt-1 text-center font-title text-red">
                 Desculpe, mas essa URL já foi escolhida por outra pessoa.. 😔
@@ -122,24 +122,24 @@ export default function NewRoadmapPage() {
           </div>
           <div className="m-auto w-full md:w-1/2">
             <span className="text-yellow">Título:</span>
-            <input 
+            <input
               type="text"
               id="website-admin"
-              className="rounded-lg border-0 bg-[transparent] text-yellow outline-none ring-1 ring-[#EDF2F7] focus:ring-yellow focus:ring-2 block flex-1 min-w-0 w-full p-2.5 transition-all" 
+              className="block w-full min-w-0 flex-1 rounded-lg border-0 bg-[transparent] p-2.5 text-yellow outline-none ring-1 ring-[#EDF2F7] transition-all focus:ring-2 focus:ring-yellow"
               placeholder="Dê um título para o seu Roadmap"
               value={roadmap.title}
-              onChange={handleTitleChange}  
+              onChange={handleTitleChange}
             />
           </div>
           <div className="m-auto w-full md:w-1/2">
             <span className="text-yellow">Descrição:</span>
 
-            <textarea 
+            <textarea
               id="website-admin"
-              className="rounded-lg border-0 bg-[transparent] text-yellow outline-none ring-1 ring-[#EDF2F7] focus:ring-yellow focus:ring-2 block flex-1 min-w-0 w-full p-2.5 min-h-[80px] transition-all" 
+              className="block min-h-[80px] w-full min-w-0 flex-1 rounded-lg border-0 bg-[transparent] p-2.5 text-yellow outline-none ring-1 ring-[#EDF2F7] transition-all focus:ring-2 focus:ring-yellow"
               placeholder="Dê um título para o seu Roadmap"
               value={roadmap.description}
-              onChange={handleDescriptionChange} 
+              onChange={handleDescriptionChange}
             />
           </div>
         </div>
@@ -165,7 +165,7 @@ export default function NewRoadmapPage() {
           <div className="m-auto mt-8 w-fit self-end">
             <button
               onClick={handleSaveRoadmap}
-              className="my-4 mx-auto px-4 py-1 text-lg font-bold text-[black] bg-yellow hover:bg-dark-yellow rounded-md transition-colors"
+              className="my-4 mx-auto rounded-sm bg-yellow px-4 py-1 text-lg font-bold text-[black] transition-colors hover:bg-dark-yellow"
             >
               Salvar
             </button>
@@ -177,7 +177,7 @@ export default function NewRoadmapPage() {
           className="fixed inset-x-0 top-0 m-0 h-full w-full bg-dark-brown bg-opacity-70 "
           id="signin-success-message"
         >
-          <div className="my-4 mt-60 flex w-full items-center justify-center rounded-md px-6 py-4 text-lg">
+          <div className="my-4 mt-60 flex w-full items-center justify-center rounded-sm px-6 py-4 text-lg">
             <Grid
               height="80"
               width="80"

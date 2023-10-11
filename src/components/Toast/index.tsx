@@ -31,7 +31,7 @@ export function Toast({
       duration={duration}
       open={toastOpen}
       onOpenChange={onOpenChange}
-      className={`${classByStatus[status]} relative grid flex-col items-center rounded-md border-2 border-dark-red p-4 shadow-lg data-[state='open']:animate-slideInLeft data-[state='closed']:animate-hide`}
+      className={`${classByStatus[status]} relative grid flex-col items-center rounded-sm border-2 border-dark-red p-4 shadow-lg data-[state='open']:animate-slideInLeft data-[state='closed']:animate-hide`}
     >
       {title && (
         <RadixToast.Title className={`${message ? 'mb-1' : ''} font-medium text-[black]`}>
@@ -46,7 +46,7 @@ export function Toast({
       {closable && (
         <RadixToast.Close>
           <span
-            className={`absolute rounded-md p-1 hover:bg-dark-brown/10 
+            className={`absolute rounded-sm p-1 hover:bg-dark-brown/10 
               ${hasMessageOnly ? 'top-[13px] right-[13px]' : 'top-4 right-4'}
             `}
           >

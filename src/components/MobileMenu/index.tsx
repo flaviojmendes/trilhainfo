@@ -1,11 +1,8 @@
 import { useAuth0 } from '@auth0/auth0-react';
 import { FaDiscord, FaGithubSquare, FaNewspaper } from 'react-icons/fa';
-import { ThreeDots } from 'react-loader-spinner';
-import { Drawer, DrawerRoot, DrawerTrigger } from '../Drawer';
-import Cookies from 'universal-cookie';
-import axios from 'axios';
 
-const cookies = new Cookies();
+import { Drawer, DrawerRoot, DrawerTrigger } from '../Drawer';
+
 export default function MobileMenu() {
   return (
     <DrawerRoot>
@@ -24,8 +21,7 @@ export default function MobileMenu() {
 }
 
 const HeaderDrawer = () => {
-  const { loginWithPopup, isAuthenticated, user, isLoading, logout, getAccessTokenSilently } =
-    useAuth0();
+  const { isAuthenticated, user, logout } = useAuth0();
 
   return (
     <Drawer position="left">
@@ -74,12 +70,12 @@ const HeaderDrawer = () => {
           {isAuthenticated && (
             <div className="group relative m-auto flex h-fit w-fit">
               <button
-                className="auto z-20 m-auto rounded-md bg-brown p-2 hover:bg-light-orange"
+                className="auto z-20 m-auto rounded-sm bg-brown p-2 hover:bg-light-orange"
                 onClick={() => logout({ returnTo: window.location.origin })}
               >
                 Logout
               </button>
-              <div className="absolute top-1 left-1 -right-1 -bottom-1 z-10 rounded-md bg-red group-hover:bg-red"></div>
+              <div className="absolute top-1 left-1 -right-1 -bottom-1 z-10 rounded-sm bg-red group-hover:bg-red"></div>
             </div>
           )}
         </li>
@@ -87,7 +83,7 @@ const HeaderDrawer = () => {
           {!isAuthenticated && !isLoading && (
             <div className="group relative m-auto flex h-fit w-fit">
               <button
-                className="z-20 m-auto rounded-md bg-primary p-2 font-title hover:bg-primary-hover duration-100 hover:shadow-primary-white"
+                className="z-20 m-auto rounded-sm bg-primary p-2 font-title hover:bg-primary-hover duration-100 hover:shadow-primary-white"
                 onClick={() => handleAuth()}
               >
                 Log In
@@ -110,37 +106,37 @@ const HeaderDrawer = () => {
     </Drawer>
   );
 
-  async function handleAuth() {
-    (async () => {
-      await loginWithPopup();
+  // async function handleAuth() {
+  //   (async () => {
+  //     await loginWithPopup();
 
-      const token = await getAccessTokenSilently({
-        audience: 'TrilhaInfoApi',
-      });
-      cookies.set('api_token', `Bearer ${token}`);
+  //     const token = await getAccessTokenSilently({
+  //       audience: 'TrilhaInfoApi',
+  //     });
+  //     cookies.set('api_token', `Bearer ${token}`);
 
-      try {
-        await axios.get(import.meta.env.VITE_API_URL + '/user/' + user?.nickname, {
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: cookies.get('api_token'),
-          },
-        });
-      } catch (e) {
-        await axios.post(
-          import.meta.env.VITE_API_URL + '/user' || '',
-          {
-            user_login: user?.nickname,
-          },
-          {
-            headers: {
-              'Content-Type': 'application/json',
-              Authorization: cookies.get('api_token'),
-            },
-          },
-        );
-      }
-      document.location.href = '/';
-    })();
-  }
+  //     try {
+  //       await axios.get(import.meta.env.VITE_API_URL + '/user/' + user?.nickname, {
+  //         headers: {
+  //           'Content-Type': 'application/json',
+  //           Authorization: cookies.get('api_token'),
+  //         },
+  //       });
+  //     } catch (e) {
+  //       await axios.post(
+  //         import.meta.env.VITE_API_URL + '/user' || '',
+  //         {
+  //           user_login: user?.nickname,
+  //         },
+  //         {
+  //           headers: {
+  //             'Content-Type': 'application/json',
+  //             Authorization: cookies.get('api_token'),
+  //           },
+  //         },
+  //       );
+  //     }
+  //     document.location.href = '/';
+  //   })();
+  // }
 };

@@ -98,6 +98,9 @@ module.exports = {
         'primary-white': '-4px 4px 0px 0px #FDFDFD;',
         'secondary-white': '-4px 4px 0px 0px rgba(255, 255, 255, 0.80);',
       },
+      
+
+      
       backgroundImage: {
         'footer-pattern': "url('/footerpattern.svg')",
       },
@@ -128,6 +131,7 @@ module.exports = {
       'box-primary-shadow':
         'linear-gradient(0deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.08) 100%), rgba(56, 1, 31, 0.80);',
       'text-secondary': '#008FF6',
+      'menu-background': 'rgba(255, 255, 255)',
     },
   },
   plugins: [

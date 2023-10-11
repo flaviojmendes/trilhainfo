@@ -223,7 +223,7 @@ export default function NewRoadmapEditor(props: Props) {
           <div
             key={levelIndex}
             className={
-              'self-center rounded-md px-4 pb-5 md:ml-8 lg:w-full ' +
+              'self-center rounded-sm px-4 pb-5 md:ml-8 lg:w-full ' +
               (level.label || level.description
                 ? 'border-2 border-dotted border-dark-red bg-light-yellow'
                 : 'bg-white bg-opacity-50')
@@ -236,7 +236,7 @@ export default function NewRoadmapEditor(props: Props) {
                 </span>
               </div>
               <button
-                className="m-auto my-2 flex w-fit cursor-pointer rounded-md border-2 border-red bg-light-orange p-1"
+                className="m-auto my-2 flex w-fit cursor-pointer rounded-sm border-2 border-red bg-light-orange p-1"
                 onClick={() => handleRemoveLevel(level)}
               >
                 <FiTrash2 cursor={'pointer'} />
@@ -266,11 +266,11 @@ export default function NewRoadmapEditor(props: Props) {
                 return (
                   <div
                     key={`item-${itemIndex}`}
-                    className="mx-0 my-0 flex w-full flex-col space-y-2 rounded-md border-2 border-dark-red bg-brown p-2 pt-3 text-center  hover:shadow-md md:p-3"
+                    className="mx-0 my-0 flex w-full flex-col space-y-2 rounded-sm border-2 border-dark-red bg-brown p-2 pt-3 text-center  hover:shadow-md md:p-3"
                   >
                     <div className="flex flex-row-reverse">
                       <button
-                        className="mb-2 flex w-fit cursor-pointer rounded-md border-2 border-red bg-light-orange p-1 font-title text-sm"
+                        className="mb-2 flex w-fit cursor-pointer rounded-sm border-2 border-red bg-light-orange p-1 font-title text-sm"
                         onClick={() => handleRemoveItem(levelIndex, item)}
                       >
                         <FiTrash2 cursor={'pointer'} /> Remover Item
@@ -302,7 +302,7 @@ export default function NewRoadmapEditor(props: Props) {
                       return (
                         <div key={section.label}>
                           <div
-                            className="m-auto my-2 flex w-fit cursor-pointer rounded-md border-2 border-red bg-light-orange p-1 font-title text-sm"
+                            className="m-auto my-2 flex w-fit cursor-pointer rounded-sm border-2 border-red bg-light-orange p-1 font-title text-sm"
                             onClick={() => handleRemoveSection(levelIndex, itemIndex, section)}
                             onKeyDown={(e) => {
                               if (e.key === 'Enter') {
@@ -337,7 +337,7 @@ export default function NewRoadmapEditor(props: Props) {
                             return (
                               <>
                                 <div
-                                  className="m-auto my-2 flex w-fit cursor-pointer rounded-md border-2 border-red bg-light-orange p-1 font-title text-sm"
+                                  className="m-auto my-2 flex w-fit cursor-pointer rounded-sm border-2 border-red bg-light-orange p-1 font-title text-sm"
                                   onClick={() =>
                                     handleRemoveLink(levelIndex, itemIndex, sectionIndex, link)
                                   }
@@ -422,7 +422,7 @@ export default function NewRoadmapEditor(props: Props) {
                           })}
                           <div className="mt-4 flex w-full">
                             <button
-                              className="my-2 mx-auto rounded-md border-2 border-yellow bg-light-yellow p-2 text-xs font-semibold"
+                              className="my-2 mx-auto rounded-sm border-2 border-yellow bg-light-yellow p-2 text-xs font-semibold"
                               onClick={() =>
                                 handleNewLink(level, levelIndex, itemIndex, sectionIndex)
                               }
@@ -437,7 +437,7 @@ export default function NewRoadmapEditor(props: Props) {
                     {/* Sections End */}
                     <div className="mt-8 flex w-full">
                       <button
-                        className="my-2 mx-auto rounded-md border-2 border-dark-blue bg-blue p-2 text-xs font-semibold"
+                        className="my-2 mx-auto rounded-sm border-2 border-dark-blue bg-blue p-2 text-xs font-semibold"
                         onClick={() => handleNewSection(level, levelIndex, itemIndex)}
                       >
                         + Nova Seção
@@ -451,7 +451,7 @@ export default function NewRoadmapEditor(props: Props) {
             {/* Items End */}
             <div className="mt-4 flex w-full">
               <button
-                className="my-2 mx-auto rounded-md border-2 border-red bg-light-brown p-2 text-xs font-semibold"
+                className="my-2 mx-auto rounded-sm border-2 border-red bg-light-brown p-2 text-xs font-semibold"
                 onClick={() => handleNewItem(level, levelIndex)}
               >
                 + Novo Item

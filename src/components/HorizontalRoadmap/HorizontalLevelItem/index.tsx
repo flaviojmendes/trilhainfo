@@ -34,7 +34,7 @@ function HorizontalLevelItem({ item }: HorizontalLevelItemProps) {
   return (
     <button
       onClick={() => setSelectedItem(item)}
-      className={`flex w-fit cursor-pointer items-center rounded-md border-2 border-primary  p-2 pl-1 text-white hover:bg-white hover:text-black xl:w-full xl:p-4 ${
+      className={`flex w-fit cursor-pointer items-center rounded-sm border-2 border-primary  p-2 pl-1 text-white hover:bg-white hover:text-black xl:w-full xl:p-4 ${
         selectedItem?.label === item.label ? 'bg-primary' : 'bg-black'
       }`}
     >

@@ -13,7 +13,7 @@
   }
 
   .badge {
-    @apply text-[0.6rem] ml-2 bg-red p-1 rounded-md font-bold uppercase cursor-default inline-flex items-baseline
+    @apply text-[0.6rem] ml-2 bg-red p-1 rounded-sm font-bold uppercase cursor-default inline-flex items-baseline
   }
 
   .badge.badge-blue {
