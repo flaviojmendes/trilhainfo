@@ -4819,6 +4819,11 @@
   "resolved" "https://registry.npmjs.org/symbol-tree/-/symbol-tree-3.2.4.tgz"
   "version" "3.2.4"
 
+"tailwind-gradient-mask-image@^1.0.0":
+  "integrity" "sha512-eZJhn6wHZ0Irfpq5sm0ErewH6IC82gqjfVsDQ7MYrJcfTgepOoTI6EryLppNPoZds4EeD6/H0WrysT8HE90H5g=="
+  "resolved" "https://registry.npmjs.org/tailwind-gradient-mask-image/-/tailwind-gradient-mask-image-1.0.0.tgz"
+  "version" "1.0.0"
+
 "tailwindcss@^3.2.4":
   "integrity" "sha512-AhwtHCKMtR71JgeYDaswmZXhPcW9iuI9Sp2LvZPo9upDZ7231ZJ7eA9RaURbhpXGVlrjX4cFNlB4ieTetEb7hQ=="
   "resolved" "https://registry.npmjs.org/tailwindcss/-/tailwindcss-3.2.4.tgz"
