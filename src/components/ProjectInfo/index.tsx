@@ -90,7 +90,7 @@ export default function ProjectInfo() {
           {cheatSheets.map((cheatSheet) => {
             return (
               <li key={cheatSheet.id} className="group relative m-auto flex h-full w-full">
-                <div className="z-20 flex min-h-fit w-full space-y-2 rounded-sm bg-box-primary p-4 text-primary duration-100 hover:shadow-primary-blue">
+                <div className="z-20 flex min-h-fit w-full space-y-2 rounded-sm bg-box-primary p-4 text-text-primary duration-100 hover:shadow-primary-blue">
                   <a
                     className="flex gap-2 font-title text-lg md:text-2xl"
                     href={`/guide/${cheatSheet.id}`}
