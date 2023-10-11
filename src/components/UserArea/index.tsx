@@ -92,7 +92,7 @@ export default function UserArea() {
             <div key={roadmap.id} className="flex flex-col space-y-2">
               <div className="group relative m-auto flex h-full w-full">
                 <Link
-                  className="z-20 grow  rounded-md bg-brown py-3 hover:bg-white"
+                  className="z-20 grow  rounded-sm bg-brown py-3 hover:bg-white"
                   to={`/roadmap/view/${roadmap.id}`}
                 >
                   <h3 className="c-dark-brown mb-2 text-center font-title text-3xl">
@@ -100,7 +100,7 @@ export default function UserArea() {
                   </h3>
                   <p className="mx-5 text-justify">{roadmap.description}</p>
                 </Link>
-                <div className="absolute top-1 left-1 -right-1 -bottom-1 z-10 rounded-md bg-yellow group-hover:bg-yellow"></div>
+                <div className="absolute top-1 left-1 -right-1 -bottom-1 z-10 rounded-sm bg-yellow group-hover:bg-yellow"></div>
               </div>
               <div className="flex space-x-2">
                 <div className="group relative flex h-fit w-fit">
@@ -110,7 +110,7 @@ export default function UserArea() {
                     icon={<FiEdit />}
                     onClick={() => navigate(`/edit-roadmap/${roadmap.id}`)}
                   />{' '}
-                  <div className="absolute top-1 left-1 -right-1 -bottom-1 z-10 rounded-md bg-red group-hover:bg-red"></div>
+                  <div className="absolute top-1 left-1 -right-1 -bottom-1 z-10 rounded-sm bg-red group-hover:bg-red"></div>
                 </div>
                 <div className="group relative flex h-fit w-fit">
                   <IconButton
@@ -119,7 +119,7 @@ export default function UserArea() {
                     onClick={() => handleDeleteRoadmap(roadmap.id || '')}
                     icon={<FiTrash2 />}
                   />
-                  <div className="absolute top-1 left-1 -right-1 -bottom-1 z-10 rounded-md bg-red group-hover:bg-red"></div>
+                  <div className="absolute top-1 left-1 -right-1 -bottom-1 z-10 rounded-sm bg-red group-hover:bg-red"></div>
                 </div>
                 <div className="group relative flex h-fit w-fit">
                   <IconButton
@@ -129,7 +129,7 @@ export default function UserArea() {
                     onClick={() => handleCopyToClipboard(roadmap.id!)}
                     icon={<FiShare2 />}
                   />
-                  <div className="absolute top-1 left-1 -right-1 -bottom-1 z-10 rounded-md bg-red group-hover:bg-red"></div>
+                  <div className="absolute top-1 left-1 -right-1 -bottom-1 z-10 rounded-sm bg-red group-hover:bg-red"></div>
                 </div>
               </div>
             </div>
@@ -149,7 +149,7 @@ export default function UserArea() {
 
       <div className="flex w-full items-center justify-center">
         <button
-          className="min-h-[40px] rounded-md bg-yellow px-4 font-bold text-[black] transition-colors hover:bg-dark-yellow disabled:cursor-not-allowed disabled:hover:bg-yellow"
+          className="min-h-[40px] rounded-sm bg-yellow px-4 font-bold text-[black] transition-colors hover:bg-dark-yellow disabled:cursor-not-allowed disabled:hover:bg-yellow"
           onClick={handleCreateNew}
         >
           + Novo Roadmap

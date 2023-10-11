@@ -57,7 +57,7 @@ export const Drawer = ({
       >
         {children}
 
-        <DrawerClose className="absolute top-3.5 right-3.5 rounded-lg bg-primary p-1 hover:bg-primary-hover hover:shadow-primary-white">
+        <DrawerClose className="absolute top-3.5 right-3.5 rounded-sm bg-primary p-1 hover:bg-primary-hover hover:shadow-primary-white">
           <RiCloseLine size={24} />
         </DrawerClose>
       </DrawerContent>

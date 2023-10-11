@@ -19,9 +19,12 @@ export default function MainRoadmaps() {
                 to={mainRoadmap.url}
               >
                 <div className="flex w-full flex-col">
-                  <h3 className="ml-4 mb-2 font-title text-3xl font-semibold text-text-primary">
-                    {mainRoadmap.title}
-                  </h3>
+                  <div className="w-fit">
+                    <h3 className="ml-4 mb-2 font-title text-3xl font-semibold text-text-primary">
+                      {mainRoadmap.title}
+                    </h3>
+                    <div className="to-transparent ml-4 h-1 w-full bg-gradient-to-r from-primary"></div>
+                  </div>
                   <p className="m-4 font-title text-sm text-text-primary">
                     {mainRoadmap.description}
                   </p>
@@ -35,7 +38,7 @@ export default function MainRoadmaps() {
                   <img className="m-auto w-full" alt={'Ícone do Roadmap'} src={mainRoadmap.image} />
                 </div> */}
               </Link>
-              {/* <div className="absolute top-1 left-1 -right-1 -bottom-1 z-10 rounded-md bg-red group-hover:bg-red"></div> */}
+              {/* <div className="absolute top-1 left-1 -right-1 -bottom-1 z-10 rounded-sm bg-red group-hover:bg-red"></div> */}
             </article>
           );
         })}
