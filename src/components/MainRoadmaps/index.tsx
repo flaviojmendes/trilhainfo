@@ -13,9 +13,9 @@ export default function MainRoadmaps() {
       <section className="mx-auto grid w-full grid-cols-1 gap-5 space-y-10 pb-10 md:grid-cols-2 md:space-y-0 2xl:grid-cols-3">
         {mainRoadmapsData.map((mainRoadmap) => {
           return (
-            <article className="group relative m-auto flex w-fit" key={mainRoadmap.title}>
+            <article className="group relative m-auto flex h-full w-fit" key={mainRoadmap.title}>
               <Link
-                className="z-20 flex w-full rounded-sm bg-box-primary py-3 pr-2  duration-100 hover:shadow-primary-blue"
+                className="z-20 flex w-full rounded-sm bg-box-primary py-3 pr-2 duration-100 hover:shadow-primary-blue"
                 to={mainRoadmap.url}
               >
                 <div className="flex w-full flex-col">

@@ -5,8 +5,8 @@ module.exports = {
     extend: {
       fontFamily: {
         handwritten: '"Schoolbell", cursive',
-        title: '"Poppins", sans-serif',
-        content: '"Scope One", serif',
+        title: "'Hanken Grotesk', sans-serif",
+        content: "'Hanken Grotesk', sans-serif'",
         monospace: '"Roboto Mono", monospace',
       },
       animation: {
@@ -98,6 +98,9 @@ module.exports = {
         'primary-white': '-4px 4px 0px 0px #FDFDFD;',
         'secondary-white': '-4px 4px 0px 0px rgba(255, 255, 255, 0.80);',
       },
+      backgroundImage: {
+        'footer-pattern': "url('/footerpattern.svg')",
+      },
       
     },
     colors: {
@@ -127,5 +130,8 @@ module.exports = {
       'text-secondary': '#008FF6',
     },
   },
-  plugins: [],
+  plugins: [
+    'tailwind-gradient-mask-image',
+    require('tailwind-gradient-mask-image'),
+  ],
 };

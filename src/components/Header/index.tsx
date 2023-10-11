@@ -12,7 +12,7 @@ export default function Header() {
   const { user, isAuthenticated, isLoading, logout, getAccessTokenSilently, loginWithPopup } =
     useAuth0();
   return (
-    <header className="mx-auto flex w-full flex-wrap justify-center space-x-0 space-y-2 bg-black  p-2 px-10 xl:px-64">
+    <header className="mx-auto flex w-full flex-wrap justify-center space-x-0 space-y-2 bg-black p-2 px-10 xl:px-64">
       <MobileMenu />
       <div className="flex-grow">
         {' '}

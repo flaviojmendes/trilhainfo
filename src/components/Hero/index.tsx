@@ -60,7 +60,7 @@ export default function Hero() {
         </div> */}
       </article>
       <div className="hidden md:flex">
-        <img className="m-auto rounded-md" src="/hero.png" alt="hero"></img>
+        <img className="m-auto rounded-sm gradient-mask-l-30" src="/hero.png" alt="hero"></img>
       </div>
     </section>
   );

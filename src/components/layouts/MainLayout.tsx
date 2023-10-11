@@ -24,24 +24,39 @@ export default function MainLayout({ children }: Props) {
       </div> */}
       <Header />
       <main className="mx-auto mt-0 w-full flex-grow bg-black">{children}</main>
-      <footer className="w-full select-none bg-black py-4 px-10 text-center text-text-primary xl:px-64">
-        <span className="">Idealizado por </span>
-        <a
-          target="_blank"
-          rel="noreferrer"
-          href="https://youtube.com/flaviojmendes"
-          className="text-primary hover:underline"
-        >
-          flaviojmendes
-        </a>
-        <span className="c-brown">
-          {' '}
-          e mantido pela{' '}
-          <Link to={'/roadmap/community'} className="text-primary hover:underline">
-            comunidade
-          </Link>
+      <footer className="flex h-60 w-full select-none flex-col bg-black bg-footer-pattern bg-cover pt-4 text-center text-text-primary">
+        <div>
+          <img src="/verticalLogo.svg" className="mx-auto w-64" alt="logo"></img>
+        </div>
+        <div className="w-full bg-box-primary py-4">
+          <span className="">Idealizado por </span>
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href="https://youtube.com/flaviojmendes"
+            className="text-primary hover:underline"
+          >
+            flaviojmendes
+          </a>
+          <span className="c-brown">
+            {' '}
+            e mantido pela{' '}
+            <a href={'/roadmap/community'} className="text-primary hover:underline">
+              comunidade
+            </a>
+            .
+          </span>
+          <span> Design por </span>
+          <a
+            target="_blank"
+            href={'https://badico.cloud'}
+            className="text-primary hover:underline"
+            rel="noreferrer"
+          >
+            Badico Cloud
+          </a>
           .
-        </span>
+        </div>
       </footer>
     </div>
   );
