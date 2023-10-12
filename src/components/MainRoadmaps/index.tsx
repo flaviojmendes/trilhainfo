@@ -4,13 +4,12 @@ import { mainRoadmapsData } from './mainRoadmapsData';
 
 export default function MainRoadmaps() {
   return (
-    <section id="mainRoadmaps" className="px-10 pt-4 xl:px-64">
-      <h2 className="font-semibolds my-6 font-title text-4xl text-text-primary md:w-1/3">
-        Tudo o que você <span className="font-title text-primary">precisa saber</span> no universo
-        de:
+    <section id="mainRoadmaps" className="px-10 pt-4">
+      <h2 className=" my-6 font-title text-4xl text-title-primary md:w-1/3 xl:ml-64">
+        Tudo o que você precisa saber no universo de:
       </h2>
 
-      <section className="mx-auto grid w-full grid-cols-1 gap-5 space-y-10 pb-10 md:grid-cols-2 md:space-y-0 2xl:grid-cols-3">
+      <section className="mx-auto grid w-full grid-cols-1 gap-5 space-y-10 pb-10 md:grid-cols-2 md:space-y-0 xl:px-64 2xl:grid-cols-3">
         {mainRoadmapsData.map((mainRoadmap) => {
           return (
             <article className="group relative m-auto flex h-full w-fit" key={mainRoadmap.title}>
@@ -43,6 +42,10 @@ export default function MainRoadmaps() {
           );
         })}
       </section>
+      <div className="mt-10 flex gap-2 lg:mt-2">
+        <div className="h-3 w-64 bg-gradient-to-r from-black via-text-secondary to-text-secondary"></div>
+        <div className="h-3 w-4 bg-gradient-to-r from-black to-primary"></div>
+      </div>
     </section>
   );
 }
