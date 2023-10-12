@@ -23,9 +23,7 @@ export default function ProjectInfo() {
             Assine Agora
           </a>
         </div>
-        <h3 className="mt-8 font-title text-4xl font-semibold text-text-primary">
-          Open <span className="text-primary">Source</span>
-        </h3>
+        <h3 className="mt-8 font-title text-4xl text-title-primary">Open Source</h3>
         <div className="text-text-primary">
           <p className="my-2 font-title">
             A Trilha Info é um projeto{' '}
@@ -83,9 +81,7 @@ export default function ProjectInfo() {
           <div className="m-auto mr-2 h-2 w-2 rounded-full bg-text-secondary"></div>
           Faça download gratuito
         </div>
-        <h3 className="font-title text-4xl font-semibold text-text-primary">
-          <span className="text-text-secondary">Guias</span> Cheat Sheets
-        </h3>
+        <h3 className="font-title text-4xl text-title-primary">Guias/Cheat Sheets</h3>
         <ul className="mt-10 flex w-full flex-col gap-4 lg:mt-0">
           {cheatSheets.map((cheatSheet) => {
             return (

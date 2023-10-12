@@ -127,6 +127,7 @@ module.exports = {
       'primary-hover': '#FC52AE',
       'primary-shadow': '#FDFDFD',
       'text-primary': '#FDFDFD',
+      'title-primary': '#D7BECB',
       'box-primary': 'rgba(56, 1, 31, 0.80)',
       'box-primary-shadow':
         'linear-gradient(0deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.08) 100%), rgba(56, 1, 31, 0.80);',
