@@ -53,7 +53,7 @@ export function HorizontalRoadmapAccordion({ section }: HorizontalRoadmapProps) 
                 {link.label}
               </a>
 
-              <span className={`badge  ${getColorFromContentType(link.contentType)}`}>
+              <span className={`badge bg-text-secondary`}>
                 {link.contentType ? link.contentType : null}
               </span>
             </div>
@@ -78,7 +78,7 @@ export function RoadmapAccordion({ section, isRead, saveRead }: AccordionProps) 
       <AccordionHeader className={s.Header}>
         <Checkbox checked={isRead} toggleChecked={saveRead} />
         <AccordionTrigger className={s.Trigger}>
-          <span>{section.label}</span>
+          <span className="text-text-primary">{section.label}</span>
         </AccordionTrigger>
       </AccordionHeader>
       <AccordionContent className={s.Content}>
@@ -88,13 +88,13 @@ export function RoadmapAccordion({ section, isRead, saveRead }: AccordionProps) 
               <a
                 href={link.url}
                 target="_blank"
-                className="text-light-brown hover:underline"
+                className="text-text-primary hover:underline"
                 rel="noreferrer"
               >
                 {link.label}
               </a>
 
-              <span className={`badge  ${getColorFromContentType(link.contentType)}`}>
+              <span className={`badge bg-text-secondary`}>
                 {link.contentType ? link.contentType : null}
               </span>
             </div>

@@ -12,18 +12,18 @@ export default function Header() {
   const { user, isAuthenticated, isLoading, logout, getAccessTokenSilently, loginWithPopup } =
     useAuth0();
   return (
-    <header className="mx-auto flex w-full flex-wrap justify-center space-x-0 space-y-2 bg-dark-brown p-2 px-10 xl:px-64">
-      <MobileMenu />
-      <div className="flex-grow">
+    <header className="fixed z-30 mx-auto flex min-h-[80px] w-full flex-wrap justify-center space-x-0 space-y-2 bg-menu-background bg-opacity-10 px-10 backdrop-blur-[30px] xl:px-64">
+      <div className="flex flex-grow">
         {' '}
         <Logo />
       </div>
+      <MobileMenu />
       <nav className="hidden md:flex" aria-label="navegação principal">
         <ul className="flex">
           <li className="flex">
             <a
               target={'_blank'}
-              className="my-2 mr-4 flex pr-4 text-yellow hover:text-red"
+              className="my-2 mr-4 flex pr-4 text-primary hover:text-primary-shadow"
               href="https://discord.gg/TmneeHgTBp"
               rel="noreferrer"
               aria-label="Discord"
@@ -34,7 +34,7 @@ export default function Header() {
           <li className="flex">
             <a
               target={'_blank'}
-              className="my-2 mr-4 flex pr-4 text-yellow hover:text-red"
+              className="my-2 mr-4 flex pr-4 text-primary hover:text-primary-shadow"
               href="https://github.com/flaviojmendes/trilhadev"
               rel="noreferrer"
               aria-label="Github"
@@ -56,26 +56,26 @@ export default function Header() {
                 </div>
                 <div className="group relative m-auto flex h-fit w-fit">
                   <button
-                    className="z-20 m-auto rounded-md bg-brown p-2 hover:bg-light-orange"
+                    className="z-20 m-auto rounded-sm bg-brown p-2 hover:bg-light-orange"
                     onClick={() => logout({ returnTo: window.location.origin })}
                   >
                     Logout
                   </button>
-                  <div className="absolute top-1 left-1 -right-1 -bottom-1 z-10 rounded-md bg-red group-hover:bg-red"></div>
+                  <div className="absolute top-1 left-1 -right-1 -bottom-1 z-10 rounded-sm bg-red group-hover:bg-red"></div>
                 </div>
               </>
             )}
           </li>
-          <li className="flex">
+          {/* <li className="flex">
             {!isAuthenticated && !isLoading && (
               <div className="group relative m-auto flex h-fit w-fit">
                 <button
-                  className="z-20 m-auto rounded-md bg-light-brown p-2 font-title hover:bg-brown"
+                  className="z-20 m-auto rounded-sm bg-primary p-2 font-title hover:shadow-primary-white duration-100"
                   onClick={() => handleAuth()}
                 >
                   Log In
                 </button>
-                <div className="absolute top-1 left-1 -right-1 -bottom-1 z-10 rounded-md bg-red group-hover:bg-red"></div>
+                
               </div>
             )}
             {isLoading && (
@@ -89,7 +89,7 @@ export default function Header() {
                 visible={true}
               />
             )}
-          </li>
+          </li> */}
         </ul>
       </nav>
     </header>

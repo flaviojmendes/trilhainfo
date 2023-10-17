@@ -1,20 +1,17 @@
 import { useAuth0 } from '@auth0/auth0-react';
 import { FaDiscord, FaGithubSquare, FaNewspaper } from 'react-icons/fa';
-import { ThreeDots } from 'react-loader-spinner';
-import { Drawer, DrawerRoot, DrawerTrigger } from '../Drawer';
-import Cookies from 'universal-cookie';
-import axios from 'axios';
 
-const cookies = new Cookies();
+import { Drawer, DrawerRoot, DrawerTrigger } from '../Drawer';
+
 export default function MobileMenu() {
   return (
     <DrawerRoot>
       <div className="flex cursor-pointer items-center justify-center md:hidden">
         <DrawerTrigger>
-          <div className="m-auto block space-y-2 md:hidden">
-            <div className="h-0.5 w-8 bg-light-yellow"></div>
-            <div className="h-0.5 w-8 bg-light-yellow"></div>
-            <div className="h-0.5 w-8 bg-light-yellow"></div>
+          <div className="m-auto my-10 block space-y-2 md:hidden">
+            <div className="h-0.5 w-8 bg-primary"></div>
+            <div className="h-0.5 w-8 bg-primary"></div>
+            <div className="h-0.5 w-8 bg-primary"></div>
           </div>
         </DrawerTrigger>
       </div>
@@ -24,8 +21,7 @@ export default function MobileMenu() {
 }
 
 const HeaderDrawer = () => {
-  const { loginWithPopup, isAuthenticated, user, isLoading, logout, getAccessTokenSilently } =
-    useAuth0();
+  const { isAuthenticated, user, logout } = useAuth0();
 
   return (
     <Drawer position="left">
@@ -39,29 +35,29 @@ const HeaderDrawer = () => {
         <li className="flex">
           <a
             target={'_blank'}
-            className="my-2 mr-4 flex pr-4 text-yellow hover:text-red"
+            className="my-2 mr-4 flex pr-4 text-primary"
             href="https://discord.gg/TmneeHgTBp"
             rel="noreferrer"
           >
             <FaDiscord className="m-auto h-7 w-7 " />
-            <span className="my-auto ml-1 font-title text-base">Discord</span>
+            <span className="my-auto ml-1 font-title text-xl">Discord</span>
           </a>
         </li>
         <li className="flex">
           <a
             target={'_blank'}
-            className="my-2 mr-4 flex pr-4 text-yellow hover:text-red"
+            className="my-2 mr-4 flex pr-4 text-primary "
             href="https://github.com/flaviojmendes/trilhadev"
             rel="noreferrer"
           >
             <FaGithubSquare className="m-auto h-8 w-8 " />
-            <span className="my-auto ml-1 font-title text-lg">Github</span>
+            <span className="my-auto ml-1 font-title text-xl">Github</span>
           </a>
         </li>
         <li className="flex">
           <a
             target={'_blank'}
-            className="my-2 mr-4 flex pr-4 text-yellow hover:text-red"
+            className="my-2 mr-4 flex pr-4 text-xl text-primary"
             href="https://www.getrevue.co/profile/flaviojmendes"
             rel="noreferrer"
           >
@@ -74,25 +70,24 @@ const HeaderDrawer = () => {
           {isAuthenticated && (
             <div className="group relative m-auto flex h-fit w-fit">
               <button
-                className="auto z-20 m-auto rounded-md bg-brown p-2 hover:bg-light-orange"
+                className="auto z-20 m-auto rounded-sm bg-brown p-2 hover:bg-light-orange"
                 onClick={() => logout({ returnTo: window.location.origin })}
               >
                 Logout
               </button>
-              <div className="absolute top-1 left-1 -right-1 -bottom-1 z-10 rounded-md bg-red group-hover:bg-red"></div>
+              <div className="absolute top-1 left-1 -right-1 -bottom-1 z-10 rounded-sm bg-red group-hover:bg-red"></div>
             </div>
           )}
         </li>
-        <li className="flex">
+        {/* <li className="flex">
           {!isAuthenticated && !isLoading && (
             <div className="group relative m-auto flex h-fit w-fit">
               <button
-                className="z-20 m-auto rounded-md bg-light-brown p-2 font-title hover:bg-brown"
+                className="z-20 m-auto rounded-sm bg-primary p-2 font-title hover:bg-primary-hover duration-100 hover:shadow-primary-white"
                 onClick={() => handleAuth()}
               >
                 Log In
               </button>
-              <div className="absolute top-1 left-1 -right-1 -bottom-1 z-10 rounded-md bg-red group-hover:bg-red"></div>
             </div>
           )}
           {isLoading && (
@@ -106,42 +101,42 @@ const HeaderDrawer = () => {
               visible={true}
             />
           )}
-        </li>
+        </li> */}
       </ul>
     </Drawer>
   );
 
-  async function handleAuth() {
-    (async () => {
-      await loginWithPopup();
+  // async function handleAuth() {
+  //   (async () => {
+  //     await loginWithPopup();
 
-      const token = await getAccessTokenSilently({
-        audience: 'TrilhaInfoApi',
-      });
-      cookies.set('api_token', `Bearer ${token}`);
+  //     const token = await getAccessTokenSilently({
+  //       audience: 'TrilhaInfoApi',
+  //     });
+  //     cookies.set('api_token', `Bearer ${token}`);
 
-      try {
-        await axios.get(import.meta.env.VITE_API_URL + '/user/' + user?.nickname, {
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: cookies.get('api_token'),
-          },
-        });
-      } catch (e) {
-        await axios.post(
-          import.meta.env.VITE_API_URL + '/user' || '',
-          {
-            user_login: user?.nickname,
-          },
-          {
-            headers: {
-              'Content-Type': 'application/json',
-              Authorization: cookies.get('api_token'),
-            },
-          },
-        );
-      }
-      document.location.href = '/';
-    })();
-  }
+  //     try {
+  //       await axios.get(import.meta.env.VITE_API_URL + '/user/' + user?.nickname, {
+  //         headers: {
+  //           'Content-Type': 'application/json',
+  //           Authorization: cookies.get('api_token'),
+  //         },
+  //       });
+  //     } catch (e) {
+  //       await axios.post(
+  //         import.meta.env.VITE_API_URL + '/user' || '',
+  //         {
+  //           user_login: user?.nickname,
+  //         },
+  //         {
+  //           headers: {
+  //             'Content-Type': 'application/json',
+  //             Authorization: cookies.get('api_token'),
+  //           },
+  //         },
+  //       );
+  //     }
+  //     document.location.href = '/';
+  //   })();
+  // }
 };

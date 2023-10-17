@@ -8,8 +8,9 @@ import NewRoadmapPage from './pages/NewRoadmap';
 import CustomRoadmapPage from './pages/CustomRoadmapPage';
 import GuidePage from './pages/GuidePage';
 import HorizontalRoadmapPage from './pages/HorizontalRoadmapPage';
-import BlogPostPage from './pages/BlogPostPage';
+
 import BlogPage from './pages/BlogPage';
+import BlogPostPage from './pages/BlogPostPage';
 
 function App() {
   ReactGA.initialize('G-GQDL3TBPEZ');

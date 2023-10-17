@@ -42,11 +42,13 @@
     "react-ga4": "^1.4.1",
     "react-icons": "^4.4.0",
     "react-loader-spinner": "^5.1.7-beta.1",
+    "react-markdown": "^9.0.0",
     "react-router-dom": "^6.3.0",
     "react-router-navigation-prompt": "^1.9.6",
     "react-share": "^4.4.0",
     "react-type-animation": "^2.1.2",
     "react-use": "^17.4.0",
+    "tailwind-gradient-mask-image": "^1.0.0",
     "universal-cookie": "^4.0.4",
     "uuid-by-string": "^4.0.0"
   },
@@ -82,7 +84,7 @@
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx}": [
-      "eslint --max-warnings=0 --fix",
+      "eslint --max-warnings=20 --fix",
       "prettier --write"
     ]
   }

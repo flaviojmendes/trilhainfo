@@ -1,8 +1,8 @@
-import { useRef, useState } from "react";
-import {  motion } from "framer-motion";
-import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
-import { Level } from "../../../entity/RoadmapModel";
-import { useSelectedItem } from "../LevelProvider";
+import { useRef, useState } from 'react';
+import { motion } from 'framer-motion';
+import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
+import { Level } from '../../../entity/RoadmapModel';
+import { useSelectedItem } from '../LevelProvider';
 
 type Props = {
   roadmapData: Level[];
@@ -13,7 +13,7 @@ type Props = {
 
 export default function HorizontalRoadmapFooter(props: Props) {
   const [, setSelectedItem] = useSelectedItem();
-  const [direction, setDirection] = useState<"left" | "right">("right");
+  const [direction, setDirection] = useState<'left' | 'right'>('right');
 
   const timeoutRef = useRef<ReturnType<typeof setTimeout>>();
 
@@ -29,7 +29,7 @@ export default function HorizontalRoadmapFooter(props: Props) {
       props.setRoadmapLevel(props.roadmapData[newIndex]);
       props.setCurrentLevelIndex(newIndex);
       setSelectedItem(undefined);
-      setDirection("right");
+      setDirection('right');
     }
   }
 
@@ -39,7 +39,7 @@ export default function HorizontalRoadmapFooter(props: Props) {
       props.setRoadmapLevel(props.roadmapData[newIndex]);
       props.setCurrentLevelIndex(newIndex);
       setSelectedItem(undefined);
-      setDirection("left");
+      setDirection('left');
     }
   }
 
@@ -47,20 +47,20 @@ export default function HorizontalRoadmapFooter(props: Props) {
     props.setRoadmapLevel(props.roadmapData[index]);
     props.setCurrentLevelIndex(index);
     setSelectedItem(undefined);
-    setDirection(index > props.currentLevelIndex ? "right" : "left");
+    setDirection(index > props.currentLevelIndex ? 'right' : 'left');
   }
 
   return (
     <div className="flex justify-center">
-      <div className="flex justify-center items-center gap-3">
+      <div className="flex items-center justify-center gap-3">
         <button
-          className="text-5xl text-yellow cursor-pointer select-none"
+          className="cursor-pointer select-none text-5xl text-primary"
           onClick={handlePreviousLevel}
         >
           <FaArrowLeft />
         </button>
         {/* Show in XL Screens */}
-        <div className="hidden xl:flex flex-grow items-center gap-4 font-title text-3xl text-yellow select-none">
+        <div className="hidden flex-grow select-none items-center gap-4 font-title text-3xl text-yellow xl:flex">
           {/* <MotionConfig */}
           {/*   transition={{ type: "spring", bounce: 0, duration: 0.3 }} */}
           {/* > */}
@@ -154,14 +154,14 @@ export default function HorizontalRoadmapFooter(props: Props) {
 
           {[...Array(levelQty)].map((_, index) => (
             <button
-              className="cursor-pointer text-sm font-title font-semibold text-dark-brown flex items-center justify-center"
+              className="flex cursor-pointer items-center justify-center font-title text-sm font-semibold text-dark-brown"
               onClick={() => handleNavigateLevel(index)}
               key={index}
             >
               {props.currentLevelIndex === index ? (
                 <motion.div
                   layoutId={(index + 1).toString()}
-                  className="w-8 h-8 rounded-full bg-red flex items-center justify-center"
+                  className="flex h-8 w-8 items-center justify-center rounded-full bg-primary"
                   transition={{ duration: 0.2 }}
                 >
                   <motion.span
@@ -171,13 +171,13 @@ export default function HorizontalRoadmapFooter(props: Props) {
                     custom={direction}
                     variants={{
                       initial: (direction: string) => ({
-                        x: direction === "right" ? -60 : 60,
+                        x: direction === 'right' ? -60 : 60,
                       }),
                       animate: {
                         x: 0,
                       },
                     }}
-                    transition={{ type: "spring", bounce: 0, duration: 0.3 }}
+                    transition={{ type: 'spring', bounce: 0, duration: 0.3 }}
                   >
                     {index + 1}
                   </motion.span>
@@ -185,20 +185,20 @@ export default function HorizontalRoadmapFooter(props: Props) {
               ) : (
                 <motion.div
                   layoutId={(index + 1).toString()}
-                  className="w-3 h-3 rounded-full bg-light-yellow"
+                  className="h-3 w-3 rounded-full bg-text-secondary"
                 />
               )}
             </button>
           ))}
         </div>
         {/* Show in Smaller Screens */}
-        <div className=" text-yellow align-middle mx-5 text-xl p-0 h-full flex xl:hidden">
-          <span className={"m-auto font-title"}>
+        <div className=" mx-5 flex h-full p-0 align-middle text-xl text-primary xl:hidden">
+          <span className={'m-auto font-title'}>
             {props.currentLevelIndex + 1} de {levelQty}
           </span>
         </div>
         <button
-          className="text-5xl text-yellow cursor-pointer select-none"
+          className="cursor-pointer select-none text-5xl text-primary"
           onClick={handleNextLevel}
         >
           <FaArrowRight />
@@ -206,22 +206,4 @@ export default function HorizontalRoadmapFooter(props: Props) {
       </div>
     </div>
   );
-}
-{
-  /* {props.currentLevelIndex !== index && ( */
-}
-{
-  /*   <div */
-}
-{
-  /*     onClick={() => handleNavigateLevel(index)} */
-}
-{
-  /*     className={`m-auto cursor-pointer bg-light-yellow text-sm text-dark-brown rounded-full w-3 h-3 p-0 flex hover:w-5 hover:h-5`} */
-}
-{
-  /*   /> */
-}
-{
-  /* )} */
 }

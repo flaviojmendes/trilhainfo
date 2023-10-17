@@ -5,8 +5,8 @@ module.exports = {
     extend: {
       fontFamily: {
         handwritten: '"Schoolbell", cursive',
-        title: '"Poppins", sans-serif',
-        content: '"Scope One", serif',
+        title: "'Hanken Grotesk', sans-serif",
+        content: "'Hanken Grotesk', sans-serif'",
         monospace: '"Roboto Mono", monospace',
       },
       animation: {
@@ -93,6 +93,18 @@ module.exports = {
           },
         },
       },
+      boxShadow: {
+        'primary-blue': '-12px 12px 0px 0px rgba(0, 143, 246, 0.40);',
+        'primary-white': '-4px 4px 0px 0px #FDFDFD;',
+        'secondary-white': '-4px 4px 0px 0px rgba(255, 255, 255, 0.80);',
+      },
+      
+
+      
+      backgroundImage: {
+        'footer-pattern': "url('/footerpattern.svg')",
+      },
+      
     },
     colors: {
       'light-orange': '#F6BCA8',
@@ -110,7 +122,21 @@ module.exports = {
       red: '#ee8561',
       'dark-red': '#d56a47',
       green: '#22c55e',
+      black: '#000002',
+      primary: '#E1047B',
+      'primary-hover': '#FC52AE',
+      'primary-shadow': '#FDFDFD',
+      'text-primary': '#FDFDFD',
+      'title-primary': '#D7BECB',
+      'box-primary': 'rgba(56, 1, 31, 0.80)',
+      'box-primary-shadow':
+        'linear-gradient(0deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.08) 100%), rgba(56, 1, 31, 0.80);',
+      'text-secondary': '#008FF6',
+      'menu-background': 'rgba(255, 255, 255)',
     },
   },
-  plugins: [],
+  plugins: [
+    'tailwind-gradient-mask-image',
+    require('tailwind-gradient-mask-image'),
+  ],
 };
