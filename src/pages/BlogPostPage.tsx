@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import MainLayout from '../components/layouts/MainLayout';
 import Markdown from 'markdown-to-jsx';
 import { useParams } from 'react-router';
+import useDocumentTitle from '../components/useDocumentTitle';
 
 export default function BlogPostPage() {
   const { title } = useParams<string>();
@@ -20,6 +21,17 @@ export default function BlogPostPage() {
       })
       .catch((err) => console.log(err));
   });
+
+  useDocumentTitle(
+    `${
+      title
+        ? title.split('-')[0].charAt(0).toUpperCase() +
+          title.split('-')[0].slice(1) +
+          ' #' +
+          title.split('-')[1]
+        : ''
+    }`,
+  );
 
   return (
     <MainLayout>
