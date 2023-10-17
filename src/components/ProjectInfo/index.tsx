@@ -3,7 +3,7 @@ import { GoPlus } from 'react-icons/go';
 
 export default function ProjectInfo() {
   return (
-    <section className="grid w-full grid-cols-1 items-stretch justify-center gap-10 py-10 px-10 shadow-inner lg:grid-cols-2 xl:px-64">
+    <section className="grid w-full grid-cols-1 items-stretch justify-center gap-10 py-10 px-10 shadow-inner lg:grid-cols-2 xl:px-72">
       <div className="flex flex-col gap-4">
         <div className="my-2 flex w-fit rounded-sm bg-box-primary px-2 font-title text-sm text-white">
           <div className="m-auto mr-2 h-2 w-2 rounded-full bg-primary"></div>
