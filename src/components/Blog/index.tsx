@@ -27,7 +27,7 @@ export default function Blog() {
               to={`/blog/${post.url}`}
             >
               <div className="w-fit">
-                <h3 className="ml-4 mb-2 font-title text-3xl font-semibold text-text-primary">
+                <h3 className="mb-2 ml-4 font-title text-3xl font-semibold text-text-primary">
                   {post.title}
                 </h3>
                 <div className="to-transparent ml-4 h-1 w-full bg-gradient-to-r from-primary"></div>
