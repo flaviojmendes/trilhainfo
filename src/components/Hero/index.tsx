@@ -1,16 +1,8 @@
 import { TypeAnimation } from 'react-type-animation';
-import AnchorLink from 'react-anchor-link-smooth-scroll';
-import ReactGA from 'react-ga4';
 
 export default function Hero() {
-  function handleCallToAction() {
-    ReactGA.event({
-      category: 'action',
-      action: 'call_to_action',
-    });
-  }
   return (
-    <section className="mx-0 mb-10 flex w-full flex-col items-stretch justify-center gap-4 px-10 pt-12 md:pt-0 xl:px-64">
+    <section className="mx-0 mb-10 flex w-full flex-col items-stretch justify-center gap-4 px-10 pt-12 md:pt-0 xl:px-72">
       <div className="flex">
         <article className="w-full flex-col py-2 md:py-10">
           <div className="min-h-[5em]">
