@@ -3,13 +3,13 @@ import { GoPlus } from 'react-icons/go';
 
 export default function ProjectInfo() {
   return (
-    <section className="grid w-full grid-cols-1 items-stretch justify-center gap-10 py-10 px-10 shadow-inner lg:grid-cols-2 xl:px-72">
+    <section className="grid w-full grid-cols-1 items-stretch justify-center gap-10 px-10 py-10 shadow-inner lg:grid-cols-2 xl:px-72">
       <div className="flex flex-col gap-4">
         <div className="my-2 flex w-fit rounded-sm bg-box-primary px-2 font-title text-sm text-white">
           <div className="m-auto mr-2 h-2 w-2 rounded-full bg-primary"></div>
           Newsletter mensal sobre a trilha
         </div>
-        <h2 className="m-auto font-title text-4xl text-text-primary">
+        <h2 className="m-auto font-title text-4xl text-title-primary">
           Assine a <span className="text-primary">newsletter</span> para não perder as últimas
           novidades da <span className="text-primary">Trilha Info</span>
         </h2>
