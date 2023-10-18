@@ -12,7 +12,7 @@ const Title = ({ children, ...props }: TitleProps) => (
   <div {...props} className="w-full">
     {' '}
     <h1 className="mx-auto mt-4 text-center font-title text-4xl text-text-primary">{children}</h1>
-    <div className="mt-2 mb-16 flex w-full gap-2">
+    <div className="mb-16 mt-2 flex w-full gap-2">
       <div className="mx-auto h-2 w-64 bg-gradient-to-r from-black via-primary to-black"></div>
     </div>
   </div>

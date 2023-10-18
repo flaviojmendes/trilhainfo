@@ -7,7 +7,7 @@ type Props = {
 
 export default function MainLayout({ children }: Props) {
   return (
-    <div className="flex h-screen flex-col">
+    <div className="flex h-screen flex-col bg-black">
       {/* <div className="flex bg-light-orange p-2">
         <p className="m-auto text-center font-title text-sm">
           A Trilha Info está passando por uma revolução. Para saber mais clique{' '}
@@ -23,7 +23,7 @@ export default function MainLayout({ children }: Props) {
         </p>
       </div> */}
       <Header />
-      <main className="mx-auto mt-0 w-full flex-grow bg-black">{children}</main>
+      <main className="mx-auto mt-[80px] w-full flex-grow bg-[inherit]">{children}</main>
       <footer className="flex h-60 w-full select-none flex-col bg-black bg-footer-pattern bg-cover pt-4 text-center text-text-primary">
         <div>
           <img src="/verticalLogo.svg" className="mx-auto w-64" alt="logo"></img>
