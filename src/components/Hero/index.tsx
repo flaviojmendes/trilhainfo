@@ -2,10 +2,10 @@ import { TypeAnimation } from 'react-type-animation';
 
 export default function Hero() {
   return (
-    <section className="mx-0 mb-10 flex w-full flex-col items-stretch justify-center gap-4 px-10 pt-12 md:pt-0 xl:px-72">
+    <section className="mx-0 mb-10 flex w-full flex-col items-stretch justify-center gap-4 px-10 pt-12 md:pt-0 lg:mb-0 xl:px-72">
       <div className="flex">
         <article className="w-full flex-col py-2 md:py-10">
-          <div className="min-h-[5em]">
+          {/* <div className="min-h-[5em]">
             <TypeAnimation
               // Same String at the start will only be typed once, initially
               sequence={[
@@ -25,19 +25,17 @@ export default function Hero() {
               wrapper="h1" // Animation will be rendered as a <span>
               repeat={Infinity} // Repeat this Animation Sequence infinitely
             />
-          </div>
-          <p className=" mt-10 max-w-xl font-title text-lg text-primary md:text-xl">
-            Essas dúvidas não são só suas.
+          </div> */}
+          <h1 className=" mt-10 font-title text-4xl text-text-primary md:text-6xl">
+            <span className="text-primary">Explore</span> o seu caminho
+          </h1>
+          <p className=" mt-1 font-title text-lg text-title-primary md:text-xl">
+            Trilhas Gratuitas para você.
           </p>
-          <p className=" mt-1 max-w-xl font-title text-lg text-text-primary md:text-xl">
-            Desde Junho/2022 mais de 30.000 pessoas já acessaram a{' '}
-            <span className="font-title text-primary">Trilha Info </span>
-            gratuitamente como uma ferramenta de apoio aos estudos.
-          </p>
-          <div className="my-6 flex w-fit rounded-sm bg-box-primary px-2 font-title text-sm text-white">
+          {/* <div className="my-6 flex w-fit rounded-sm bg-box-primary px-2 font-title text-sm text-white">
             <div className="m-auto mr-2 h-2 w-2 rounded-full bg-text-secondary"></div>Conteúdo
             totalmente gratuito
-          </div>
+          </div>  */}
           {/* <div className="relative flex h-fit w-full md:w-fit">
           <AnchorLink
             onClick={handleCallToAction}

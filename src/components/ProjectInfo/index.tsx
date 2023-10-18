@@ -9,7 +9,7 @@ export default function ProjectInfo() {
           <div className="m-auto mr-2 h-2 w-2 rounded-full bg-primary"></div>
           Newsletter mensal sobre a trilha
         </div>
-        <h2 className="m-auto font-title text-4xl text-text-primary">
+        <h2 className="m-auto font-title text-4xl text-title-primary">
           Assine a <span className="text-primary">newsletter</span> para não perder as últimas
           novidades da <span className="text-primary">Trilha Info</span>
         </h2>
