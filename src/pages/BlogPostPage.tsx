@@ -11,7 +11,7 @@ type TitleProps = {
 const Title = ({ children, ...props }: TitleProps) => (
   <div {...props} className="w-full">
     {' '}
-    <h1 className="mx-auto mt-4 text-center font-title text-4xl text-text-primary">{children}</h1>
+    <h1 className="mx-auto mt-4 text-center font-title text-4xl text-title-primary">{children}</h1>
     <div className="mb-16 mt-2 flex w-full gap-2">
       <div className="mx-auto h-2 w-64 bg-gradient-to-r from-black via-primary to-black"></div>
     </div>
@@ -22,7 +22,9 @@ const SecondaryTitle = ({ children, ...props }: TitleProps) => (
   <div {...props} className="flex h-fit w-full">
     <div className="flex">
       <div className="mx-auto h-full w-4 bg-gradient-to-r from-text-secondary via-text-secondary to-black"></div>
-      <h2 className="mx-auto grow text-center font-title text-3xl text-text-primary">{children}</h2>
+      <h2 className="mx-auto grow text-center font-title text-3xl text-title-primary">
+        {children}
+      </h2>
     </div>
   </div>
 );
@@ -45,6 +47,16 @@ const H4Title = ({ children, ...props }: TitleProps) => (
       <h2 className="mx-auto grow text-center font-title text-lg font-semibold text-text-primary">
         {children}
       </h2>
+    </div>
+  </div>
+);
+
+const hr = ({ children, ...props }: TitleProps) => (
+  <div {...props} className="">
+    <div className="my-10 flex w-full gap-2">
+      <div className="flex-grow"></div>
+      <div className="h-3 w-4 bg-gradient-to-r from-text-secondary to-black"></div>
+      <div className="h-3 w-64 bg-gradient-to-r from-primary via-primary to-black"></div>
     </div>
   </div>
 );
@@ -80,7 +92,7 @@ export default function BlogPostPage() {
 
   return (
     <MainLayout>
-      <div className="my-32 px-2 text-text-primary lg:px-64">
+      <div className="my-32 px-4 text-justify text-text-primary lg:mx-80 ">
         <Markdown
           options={{
             forceWrapper: false,
@@ -115,7 +127,9 @@ export default function BlogPostPage() {
                   className: 'mx-auto',
                 },
               },
-
+              hr: {
+                component: hr,
+              },
               a: {
                 component: 'a',
                 props: {

@@ -5,11 +5,7 @@
 
 Aqui estamos, edição número 001 do que virá a ser uma publicação semanal. A ideia é compartilhar com você que trilha seu caminho no mundo do desenvolvimento algumas informações relevantes que vão além do código.
 
-<div className="flex w-full gap-2 my-10">
-    <div className="flex-grow"></div>
-    <div className="h-3 w-4 bg-gradient-to-r from-text-secondary to-black"></div>
-    <div className="h-3 w-64 bg-gradient-to-r from-primary via-primary to-black"></div>
-</div>
+----
 
 
 ## Soft Skills: Você conhece a Escada de Inferência?
@@ -78,6 +74,8 @@ No final, o caminho é cada pessoa descer da sua escada, e subir uma nova escada
 
 
 
+---
+
 ## Dica de livro: [Ego é o Inimigo](https://amzn.to/3Qu4nUJ)
 
 ![ego](https://m.media-amazon.com/images/I/61wr4eRbOUL._SY522_.jpg)
@@ -91,5 +89,7 @@ Ego é o inimigo é um livro que fala sobre como o ego pode ser um obstáculo pa
 .
 
 .
+
+
 
 _Por [flaviojmendes](https://youtube.com/flaviojmendes)_
