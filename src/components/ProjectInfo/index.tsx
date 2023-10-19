@@ -1,5 +1,6 @@
 import { cheatSheets } from '../../guides/cheatSheets';
 import { GoPlus } from 'react-icons/go';
+import SubscriptionEmbeded from '../SubscriptionEmbeded';
 
 export default function ProjectInfo() {
   return (
@@ -13,17 +14,10 @@ export default function ProjectInfo() {
           Assine a <span className="text-primary">newsletter</span> para não perder as últimas
           novidades da <span className="text-primary">Trilha Info</span>
         </h2>
-        <div className="group relative flex h-fit w-fit">
-          <a
-            className="z-20 h-fit w-fit rounded-sm bg-primary p-2 font-title duration-100 hover:shadow-primary-white"
-            href="http://eepurl.com/iknir1"
-            target={'_blank'}
-            rel="noreferrer"
-          >
-            Assine Agora
-          </a>
+        <div className="group relative flex h-fit w-full">
+          <SubscriptionEmbeded />
         </div>
-        <h3 className="mt-8 font-title text-4xl text-title-primary">Open Source</h3>
+        <h3 className="mt-0 font-title text-4xl text-title-primary">Open Source</h3>
         <div className="text-text-primary">
           <p className="my-2 font-title">
             A Trilha Info é um projeto{' '}
