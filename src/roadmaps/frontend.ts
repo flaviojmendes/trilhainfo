@@ -1,8 +1,11 @@
 import { Level, LinkType, LinkContentType } from '../entity/RoadmapModel';
 import { controleDeVersao } from './items/controleDeVersao';
 import { css } from './items/css';
+import { frameworksCSS } from './items/frameworksCSS';
+import { frontendFramework } from './items/frontendFramework';
 import { html } from './items/html';
 import { javascript } from './items/javascript';
+import { packageManager } from './items/packageManager';
 
 export const data: Level[] = [
   {
@@ -121,44 +124,7 @@ export const data: Level[] = [
       },
     ],
   },
-  {
-    label: 'Gerenciadores de Pacote',
-    description:
-      'Os gerenciadores de pacotes permitem que você gerencie as dependências (código externo escrito por você ou outra pessoa) que seu projeto precisa para funcionar corretamente.',
-
-    items: [
-      {
-        label: 'npm',
-        children: [
-          {
-            label: 'O básico',
-            links: [
-              {
-                url: 'https://www.youtube.com/watch?v=tFqsmNrWW0M',
-                label: 'Introdução ao NPM - Fellyph Cintra ',
-                contentType: LinkContentType.WATCH,
-              },
-            ],
-          },
-        ],
-      },
-      {
-        label: 'yarn',
-        children: [
-          {
-            label: 'O básico',
-            links: [
-              {
-                url: 'https://www.youtube.com/watch?v=3BPfDo4arHc',
-                label: 'Yarn - DevPleno',
-                contentType: LinkContentType.WATCH,
-              },
-            ],
-          },
-        ],
-      },
-    ],
-  },
+  packageManager,
   {
     items: [
       {
@@ -497,145 +463,7 @@ export const data: Level[] = [
       },
     ],
   },
-  {
-    label: 'Escolha um Framework',
-    description:
-      'Frameworks são coleções de bibliotecas que auxiliam no desenvolvimento de um produto de software ou site. Os frameworks variam em seus recursos e funções, dependendo do conjunto de tarefas. Eles definem a estrutura, estabelecem as regras e fornecem as ferramentas de desenvolvimento necessárias.',
-    items: [
-      {
-        label: 'React',
-        url: '/roadmap/react',
-      },
-      {
-        label: 'Angular',
-        description:
-          'Angular é uma estrutura de desenvolvimento front-end baseada em componentes construída em TypeScript que inclui uma coleção de bibliotecas bem integradas que incluem recursos como roteamento, gerenciamento de formulários, comunicação cliente-servidor e muito mais.',
-        children: [
-          {
-            label: 'O Básico',
-            links: [
-              {
-                url: 'https://www.youtube.com/playlist?list=PLGxZ4Rq3BOBoSRcKWEdQACbUCNWLczg2G',
-                label: 'Curso de Angular - Loiane Groner',
-                votes: 0,
-                type: LinkType.FREE,
-                contentType: LinkContentType.WATCH,
-              },
-              {
-                url: 'https://www.devmedia.com.br/implementando-servicos-com-angularjs/32715',
-                label: 'Implementando serviços com AngularJS',
-                votes: 0,
-                type: LinkType.FREE,
-                contentType: LinkContentType.READ,
-              },
-              {
-                url: 'https://www.w3schools.com/angular/angular_examples.asp',
-                label: 'Exemplos de AngularJS',
-                votes: 0,
-                type: LinkType.FREE,
-                contentType: LinkContentType.PRACTICE,
-              },
-            ],
-          },
-          {
-            label: 'RxJS',
-            links: [
-              {
-                url: 'https://www.youtube.com/watch?v=DBHpS2CqGZs',
-                label: 'Programação Reativa com RxJS Parte 1 - Cod3r Cursos',
-                contentType: LinkContentType.WATCH,
-              },
-              {
-                url: 'https://www.youtube.com/watch?v=KXliXSjxC6k',
-                label: 'Programação Reativa com RxJS Parte 2 - Cod3r Cursos',
-                contentType: LinkContentType.WATCH,
-              },
-            ],
-          },
-          {
-            label: 'NgRx',
-            links: [
-              {
-                url: 'https://www.youtube.com/watch?v=yCac7PRG6R4',
-                label: 'NgRx com Angular - HypeIT Brasil',
-                contentType: LinkContentType.WATCH,
-              },
-            ],
-          },
-        ],
-      },
-      {
-        label: 'Vue.js',
-        description:
-          'Vue.js é uma estrutura JavaScript de código aberto para criar interfaces de usuário e aplicativos de página única. É focado principalmente no desenvolvimento front-end.',
-        children: [
-          {
-            label: 'O Básico',
-            links: [
-              {
-                url: 'https://vuejs.org/guide/introduction.html',
-                label: 'Documentação',
-                contentType: LinkContentType.READ,
-              },
-              {
-                url: 'https://www.devmedia.com.br/vue-js-tutorial/38042',
-                label: 'Vue.js Tutorial',
-                contentType: LinkContentType.READ,
-              },
-            ],
-          },
-          {
-            label: 'Cursos',
-            links: [
-              {
-                url: 'https://treinamento.vuejsbrasil.org/',
-                label: 'Curso completo e gratuito de Vue 3 do iniciante ao avançado',
-                contentType: LinkContentType.VISIT,
-              },
-            ],
-          },
-          {
-            label: 'Pinia',
-            links: [
-              {
-                url: 'https://pinia.vuejs.org',
-                label: 'Documentação oficial',
-                votes: 0,
-                type: LinkType.FREE,
-                contentType: LinkContentType.READ,
-              },
-              {
-                url: 'https://www.youtube.com/watch?v=4DFrzPTif2E',
-                label: 'Gerenciando estado com Pinia - Pablo Codes',
-                votes: 0,
-                type: LinkType.FREE,
-                contentType: LinkContentType.WATCH,
-              },
-            ],
-          },
-          {
-            label: 'VueX',
-            links: [
-              {
-                url: 'https://vuex.vuejs.org',
-                label: 'Documentação oficial',
-                votes: 0,
-                type: LinkType.FREE,
-                contentType: LinkContentType.READ,
-              },
-              {
-                url: 'https://www.youtube.com/watch?v=qq8yJmXys6U',
-                label: 'Gerenciando estado com Vuex -  Matheus Castiglioni',
-                votes: 0,
-                type: LinkType.FREE,
-                contentType: LinkContentType.WATCH,
-              },
-            ],
-          },
-        ],
-      },
-    ],
-  },
+  frontendFramework,
 
   {
     items: [
@@ -733,141 +561,7 @@ export const data: Level[] = [
     ],
   },
 
-  {
-    label: 'Frameworks CSS',
-    description:
-      'Uma estrutura CSS fornece ao usuário uma folha de estilo CSS totalmente funcional, permitindo que eles criem uma página da Web simplesmente codificando o HTML com classes, estrutura e IDs apropriados. As classes para recursos populares do site, como rodapé, controle deslizante, barra de navegação, menu de hambúrguer, layouts baseados em colunas e assim por diante, já estão incluídas na estrutura.',
-    items: [
-      {
-        label: 'Bootstrap',
-        children: [
-          {
-            label: 'O básico',
-            links: [
-              {
-                label: 'Curso de Bootstrap - Matheus Battisti',
-                url: 'https://www.youtube.com/playlist?list=PLnDvRpP8Bnexu5wvxogy6N49_S5Xk8Cze',
-                contentType: LinkContentType.WATCH,
-              },
-              {
-                label: 'Bootstrap 5 exercícios',
-                url: 'https://www.w3schools.com/bootstrap5/bootstrap_exercises.php',
-                contentType: LinkContentType.PRACTICE,
-              },
-            ],
-          },
-        ],
-      },
-      {
-        label: 'Bulma',
-        children: [
-          {
-            label: 'O básico',
-            links: [
-              {
-                label: 'Criando Apps responsivos com React e Bulma - Escola de Javascript',
-                url: 'https://www.youtube.com/watch?v=Yxkti4L6-Wk',
-                contentType: LinkContentType.WATCH,
-              },
-              {
-                label: 'Bulma | Introdução',
-                url: 'https://acervolima.com/bulma-introducao/',
-                contentType: LinkContentType.READ,
-              },
-            ],
-          },
-        ],
-      },
-      {
-        label: 'Tailwind CSS',
-        children: [
-          {
-            label: 'O básico',
-            links: [
-              {
-                url: 'https://www.youtube.com/watch?v=1eLaBow7Zbo&list=PLcoYAcR89n-r1m-tMfV4qndrRWpT_rb9u',
-                label: 'Curso Gratuito Tailwind CSS - Tiago Matos',
-                votes: 0,
-                type: LinkType.FREE,
-                contentType: LinkContentType.WATCH,
-              },
-              {
-                url: 'https://www.codigofonte.com.br/artigos/por-que-usar-tailwind-css',
-                label: 'Por que usar Tailwind CSS',
-                votes: 0,
-                type: LinkType.FREE,
-                contentType: LinkContentType.READ,
-              },
-            ],
-          },
-        ],
-      },
-      {
-        label: 'Chakra UI',
-        children: [
-          {
-            label: 'O básico',
-            links: [
-              {
-                url: 'https://www.youtube.com/watch?v=RjZOUCIwo4M',
-                label: 'Configurando Chakra UI no React! - Huriel',
-                contentType: LinkContentType.WATCH,
-              },
-              {
-                url: ' https://medium.com/igor-js/chakra-ui-facilitando-o-front-end-javascript-aabcade75f09',
-                label: 'Chakra UI — Facilidade no front-end JavaScript - Igor Lourenço',
-                contentType: LinkContentType.READ,
-              },
-            ],
-          },
-        ],
-      },
-      {
-        label: 'Material UI',
-        children: [
-          {
-            label: 'O básico',
-            links: [
-              {
-                url: 'https://www.youtube.com/watch?v=uJhqvzK7cWw',
-                label: 'Conhecendo Material UI no Reactjs - OmniLabs',
-                contentType: LinkContentType.WATCH,
-              },
-              {
-                url: 'https://blog.rocketseat.com.br/react-material-ui/',
-                label: 'Integração do Material UI com ReactJS',
-                contentType: LinkContentType.READ,
-              },
-            ],
-          },
-        ],
-      },
-      {
-        label: 'Radix UI',
-        children: [
-          {
-            label: 'O básico',
-            links: [
-              {
-                url: 'https://www.radix-ui.com/docs/primitives/overview/introduction',
-                label: 'Documentação',
-                votes: 0,
-                type: LinkType.FREE,
-                contentType: LinkContentType.READ,
-              },
-              {
-                url: 'https://www.youtube.com/watch?v=c_hrvOaZRNo',
-                label: 'Aulão de Stitches e Radix UI - dpw e Pedro Duarte (Radix UI Co-creator)',
-                votes: 0,
-                type: LinkType.FREE,
-                contentType: LinkContentType.WATCH,
-              },
-            ],
-          },
-        ],
-      },
-    ],
-  },
+  frameworksCSS,
 
   {
     items: [

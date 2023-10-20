@@ -7,6 +7,10 @@ import { rust } from './items/rust';
 import { ruby } from './items/ruby';
 import { cplusplus } from './items/cplusplus';
 import { unix } from './items/unix';
+import { monitoring } from './items/monitoring';
+import { cicd } from './items/cicd';
+import { configManagement } from './items/configManagement';
+import { infrastructureProvisioning } from './items/infrastructureProvisioning';
 
 export const data: Level[] = [
   {
@@ -350,29 +354,7 @@ export const data: Level[] = [
           { label: 'LXC', links: [] },
         ],
       },
-      {
-        label: 'Gerenciamento de Configuração',
-        children: [
-          {
-            label: 'Ansible',
-            links: [
-              {
-                label: 'Curso Ansible -  Mário Santana',
-                url: 'https://www.youtube.com/watch?v=Os0Uo5VXxNU&list=PLORF-y_edVoDQnky9u2OgyrfirE1dhutX',
-                contentType: LinkContentType.WATCH,
-              },
-              {
-                label: 'Boas práticas do Ansible -  Amaury Borges Souza',
-                url: 'https://amaurybsouza.medium.com/as-boas-pr%C3%A1ticas-do-ansible-que-ningu%C3%A9m-te-conta-e-que-n%C3%A3o-existem-no-google-4fcc3126ad1',
-                contentType: LinkContentType.WATCH,
-              },
-            ],
-          },
-          { label: 'Chef', links: [] },
-          { label: 'Salt', links: [] },
-          { label: 'Puppet', links: [] },
-        ],
-      },
+      configManagement,
       {
         label: 'Orquestração de Containers',
         children: [
@@ -382,122 +364,11 @@ export const data: Level[] = [
           { label: 'Nomad', links: [] },
         ],
       },
-      {
-        label: 'Provisionamento de Infraestrutura',
-        children: [
-          {
-            label: 'Terraform',
-            links: [
-              {
-                label: 'Curso de Terraform com AWS  - Cleber Gasparoto',
-                url: 'https://www.youtube.com/watch?v=bIPF_hzmQGE&list=PLWQmZVQayUUIgSmOj3GPH2BJcn0hOzIaP',
-                contentType: LinkContentType.WATCH,
-              },
-            ],
-          },
-          { label: 'CloudFormation', links: [] },
-          {
-            label: 'Pulumi',
-            links: [
-              {
-                label: 'IaC além da teoria. Infra as Code crash course.',
-                url: 'https://www.youtube.com/watch?v=D-mPpylBxVM',
-                contentType: LinkContentType.WATCH,
-              },
-            ],
-          },
-        ],
-      },
+      infrastructureProvisioning,
     ],
   },
-  {
-    label: 'Escolha alguma ferramenta de CI/CD',
-    items: [
-      {
-        label: 'ArgoCD',
-        children: [
-          {
-            label: 'O básico',
-            links: [
-              {
-                label: 'Deploy Contínuo com GitOps e ArgoCD',
-                url: 'https://www.youtube.com/watch?v=63HGUgQXD1w',
-                contentType: LinkContentType.WATCH,
-              },
-            ],
-          },
-        ],
-      },
-      { label: 'Azure DevOps', children: [{ label: 'O básico', links: [] }] },
-      { label: 'Bamboo', children: [{ label: 'O básico', links: [] }] },
-      { label: 'Circle CI', children: [{ label: 'O básico', links: [] }] },
-      { label: 'FluxCD', children: [{ label: 'O básico', links: [] }] },
-      {
-        label: 'Github Actions',
-        children: [
-          {
-            label: 'O básico',
-            description:
-              'GitHub Actions é uma plataforma de integração contínua e entrega contínua (CI/CD) que permite automatizar o processo de build de sua aplicação diretamente do GitHub.',
-            links: [
-              {
-                label: 'GitHub Actions: Integração contínua direto no GitHub | Dias de Dev',
-                url: 'https://youtu.be/ugrB9hNT9qw',
-                contentType: LinkContentType.WATCH,
-              },
-            ],
-          },
-        ],
-      },
-      { label: 'Gitlab CI', children: [{ label: 'O básico', links: [] }] },
-      { label: 'Jenkins', children: [{ label: 'O básico', links: [] }] },
-      { label: 'TeamCity', children: [{ label: 'O básico', links: [] }] },
-      { label: 'Travis CI', children: [{ label: 'O básico', links: [] }] },
-    ],
-  },
-  {
-    items: [
-      {
-        label: 'Monitoramento de Infraestrutura',
-        children: [
-          { label: 'Prometheus', links: [] },
-          { label: 'Nagios', links: [] },
-          { label: 'Grafana', links: [] },
-          {
-            label: 'Zabbix',
-            links: [
-              {
-                label: 'Treinamento base Zabbix 5.0  - Magno Monte Cerqueira',
-                url: 'https://www.youtube.com/watch?v=vf5LidtostQ&list=PLCFBm2AvdHoCObUAfon9WL9E1q3C5-UKB',
-                contentType: LinkContentType.WATCH,
-              },
-            ],
-          },
-          { label: 'Monit', links: [] },
-          { label: 'Datadog', links: [] },
-        ],
-      },
-      {
-        label: 'Monitoramento de Aplicação',
-        children: [
-          { label: 'Jaeger', links: [] },
-          { label: 'New Relic', links: [] },
-          { label: 'AppDynamics', links: [] },
-          { label: 'Instana', links: [] },
-          { label: 'OpenTracing', links: [] },
-        ],
-      },
-      {
-        label: 'Gerenciamento de Logs',
-        children: [
-          { label: 'Elastic Stack', links: [] },
-          { label: 'Graylog', links: [] },
-          { label: 'Splunk', links: [] },
-          { label: 'Papertrail', links: [] },
-        ],
-      },
-    ],
-  },
+  cicd,
+  monitoring,
   {
     label: 'Escolha um provedor de Nuvem',
     items: [

@@ -13,4 +13,5 @@ export interface RoadmapFileModel {
   'data-engineer': RoadmapObjectModel;
   community: RoadmapObjectModel;
   test: RoadmapObjectModel;
+  fullstack: RoadmapObjectModel;
 }
