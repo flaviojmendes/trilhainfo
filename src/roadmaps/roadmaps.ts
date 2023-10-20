@@ -4,6 +4,7 @@ import { data as backendData } from '../roadmaps/backend';
 import { data as devopsData } from '../roadmaps/devops';
 import { data as testData } from '../roadmaps/test';
 import { data as communityData } from '../roadmaps/community';
+import { data as fullstackData } from '../roadmaps/fullstack';
 import { dataEngineeringData } from '../roadmaps/dataEngineering';
 import { RoadmapFileModel } from '../entity/RoadmapFileModel';
 
@@ -11,6 +12,7 @@ export const roadmaps: RoadmapFileModel = {
   frontend: { file: frontendData, title: 'Frontend' },
   react: { file: reactData, title: 'React' },
   backend: { file: backendData, title: 'Backend' },
+  fullstack: { file: fullstackData, title: 'Fullstack' },
   devops: { file: devopsData, title: 'Devops' },
   'data-engineer': { file: dataEngineeringData, title: 'Data Engineer' },
   community: { file: communityData, title: 'Comunidade' },

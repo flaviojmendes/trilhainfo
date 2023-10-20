@@ -14,6 +14,14 @@ export const mainRoadmapsData = [
     image: '/backend.png',
   },
   {
+    title: 'Fullstack',
+    description:
+      'Full Stack é alguém com formação técnica completa para projetar, desenvolver, testar e distribuir web sites ou aplicativos. Essa pessoa é capaz de operar tanto no front-end quanto no back-end no desenvolvimento.',
+    url: '/roadmap/fullstack',
+    image: '/backend.png',
+  },
+
+  {
     title: 'Devops',
     description:
       'Especialista em DevOps é a pessoa que atua na integração entre as equipes de desenvolvimento de software, integrando e monitorando suas atividades para buscar um desempenho mais otimizado e simplificado.',
