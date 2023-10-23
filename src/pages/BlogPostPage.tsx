@@ -66,17 +66,10 @@ const hr = ({ children, ...props }: TitleProps) => (
 const code = ({ children, ...props }: TitleProps) => (
   <div {...props} className="flex h-fit w-full">
     <div className="mx-auto flex w-fit text-xs">
-      <SyntaxHighlighter
-        language="javascript"
-        style={dracula}
-        showInlineLineNumbers={true}
-        showLineNumbers={true}
-        breakpoint={40}
-        wrapLines={true}
-        wrapLongLines={true}
+      <code
       >
-        {children?.toString() || ''}
-      </SyntaxHighlighter>
+        {children}
+      </code>
     </div>
   </div>
 );
