@@ -3,6 +3,8 @@ import MainLayout from '../components/layouts/MainLayout';
 import Markdown from 'markdown-to-jsx';
 import { useParams } from 'react-router';
 import useDocumentTitle from '../components/useDocumentTitle';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { dracula } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 type TitleProps = {
   children: React.ReactNode;
@@ -57,6 +59,24 @@ const hr = ({ children, ...props }: TitleProps) => (
       <div className="flex-grow"></div>
       <div className="h-3 w-4 bg-gradient-to-r from-text-secondary to-black"></div>
       <div className="h-3 w-64 bg-gradient-to-r from-primary via-primary to-black"></div>
+    </div>
+  </div>
+);
+
+const code = ({ children, ...props }: TitleProps) => (
+  <div {...props} className="flex h-fit w-full">
+    <div className="mx-auto flex w-fit text-xs">
+      <SyntaxHighlighter
+        language="javascript"
+        style={dracula}
+        showInlineLineNumbers={true}
+        showLineNumbers={true}
+        breakpoint={40}
+        wrapLines={true}
+        wrapLongLines={true}
+      >
+        {children?.toString() || ''}
+      </SyntaxHighlighter>
     </div>
   </div>
 );
@@ -135,6 +155,9 @@ export default function BlogPostPage() {
                 props: {
                   className: 'text-primary hover:text-primary-shadow',
                 },
+              },
+              code: {
+                component: code,
               },
             },
           }}
