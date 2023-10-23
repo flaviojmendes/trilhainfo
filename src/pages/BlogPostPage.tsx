@@ -75,7 +75,7 @@ const code = ({ children, ...props }: TitleProps) => (
         wrapLines={true}
         wrapLongLines={true}
       >
-        {children || ''}
+        {children?.toString() || ''}
       </SyntaxHighlighter>
     </div>
   </div>
