@@ -18,7 +18,7 @@ export default function Blog() {
     <section id="blog" className="px-10 pt-4 xl:px-72">
       <h2 className=" my-6 font-title text-4xl text-title-primary md:w-1/3 ">Revista Semanal</h2>
 
-      <div className="my-10 flex flex-wrap">
+      <div className="my-10 flex flex-wrap gap-6">
         {posts.map((post) => {
           return (
             <Link
