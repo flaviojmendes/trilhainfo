@@ -2,11 +2,13 @@
   {
     "title": "Trilha #002",
     "summary": "Circuit Breaker, um livro que pode mudar sua carreira e uma reflexão sincera.",
-    "url": "trilha-002" 
+    "url": "trilha-002",
+    "date": "23/10/2023"
   },
   {
     "title": "Trilha #001",
     "summary": "Aqui estamos, edição número 001 do que virá a ser uma publicação semanal. A ideia é compartilhar com você que trilha seu caminho no mundo do desenvolvimento algumas informações relevantes que vão além do código.",
-    "url": "trilha-001" 
+    "url": "trilha-001",
+    "date": "16/10/2023"
   }
 ]
