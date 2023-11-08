@@ -46,6 +46,7 @@ O Programador Pragmático ilustra as melhores práticas e as principais armadilh
 
 ## Notas do Editor
 
+Estou tentando abordar assuntos mais complexos, pra quem acompanha a Trilha Info ter uma ideia do que se estuda ou se lida no dia a dia de grandes empresas e sistemas complexos. Espero que estejam gostando.
 
 Um abraço,
 
