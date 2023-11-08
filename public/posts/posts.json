@@ -1,5 +1,10 @@
 [
   {
+    "title": "Trilha #003",
+    "summary": "Metaestabilidade, um conceito muito importante.",
+    "url": "trilha-003" 
+  },
+  {
     "title": "Trilha #002",
     "summary": "Circuit Breaker, um livro que pode mudar sua carreira e uma reflexão sincera.",
     "url": "trilha-002" 
