@@ -21,7 +21,7 @@ Chamamos esse padrão de falha de falha metaestável, ou melhor, dizemos que um 
 
 Para entender mais sobre a importância dos gatilhos e efeitos de sustentação, precisamos observar como a maioria dos sistemas distribuídos é implantada. A utilização de recursos é um fator importante para sistemas grandes, pois melhorar a utilização pode economizar muito dinheiro em escala. Isso significa que os sistemas muitas vezes têm recursos extras limitados quando ocorre um aumento de carga inesperado. Esses sistemas operam em um estado metaestável que chamamos de **estado vulnerável** metastável, já que o sistema é vulnerável a uma falha se um número suficiente de gatilhos perturbar sua estabilidade.
 
-![estados](trilha-003/../assets/trilha-003/states.png)
+![estados](/posts/assets/trilha-003/states.png)
 
 Claro, ter alguma carga extra não antecipada aplicada ao sistema não é suficiente para que ocorra uma falha metastável. Na verdade, mesmo se a carga levar o sistema a funcionar em sua capacidade máxima (ou tentar funcionar acima da capacidade), deveríamos ver apenas um aumento na latência e talvez uma degradação no throughput. Quando a carga extra é removida, o sistema deve retornar ao funcionamento normal por si só.
 
@@ -34,7 +34,7 @@ Vamos analisar um exemplo hipotético idealizado de uma falha metastável. Consi
 
 Agora, digamos que ocorreu uma falha de rede que durou alguns segundos entre os servidores web e o banco de dados. Após a correção da rede, todos os pacotes atrasados chegam ao banco de dados de maneira intensa, excedendo a capacidade de 300 QPS do banco de dados. Isso, por sua vez, aumenta a latência acima do limite de tentativas na aplicação web, fazendo com que todas as novas consultas após a falha da rede também tentem novamente. Agora temos um acúmulo de consultas da falha de rede e uma nova carga efetiva de consultas de 560 QPS (280 consultas da carga de trabalho + 280 novas tentativas de consulta). Com uma carga tão alta e sustentada, o banco de dados não voltará ao estado normal por si só. Isso resulta em um sistema sobrecarregado que remove 300 QPS de carga (menos do que a carga ampliada) e produz muito pouco throughput, uma vez que a maioria das consultas demora demais para processar e expira ou é descartada pelo tempo que o banco de dados as retorna. Isso pode continuar indefinidamente até que a carga oferecida seja reduzida para menos de 150 QPS ou a política de novas tentativas seja alterada/suspensa.
 
-![exemplo](trilha-003/../assets/trilha-003/behaviour.png)
+![exemplo](/posts/assets/trilha-003/behaviour.png)
 
 *Esse artigo é uma tradução de: [https://sigops.org/s/conferences/hotos/2021/papers/hotos21-s11-bronson.pdf](https://sigops.org/s/conferences/hotos/2021/papers/hotos21-s11-bronson.pdf)*
 
