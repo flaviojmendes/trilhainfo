@@ -6,7 +6,7 @@ export const http: RoadmapItem = {
     'HTTP é o protocolo da Web, sendo backend ou frontend você deve saber pelo menos como esse protocolo funciona',
   children: [
     {
-      label: 'HTTP',
+      label: 'HTTP Básico',
       links: [
         {
           label: 'Conceitos Essenciais: O Básico de HTTP - Cod3r',

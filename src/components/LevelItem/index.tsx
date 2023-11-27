@@ -6,13 +6,15 @@ import { DrawerTrigger } from '../Drawer';
 import { CheckIcon } from '../CheckIcon';
 import { useNavigate } from 'react-router-dom';
 import { TbGitFork } from 'react-icons/tb';
+import { findRoadmapReadItem, isRead, updateReadAttribute } from '../../support/roadmapUtils';
 
 type Props = {
   level: Level;
   index: number;
   levelsQty: number;
+  selectedItems: RoadmapItem[];
+  setSelectedItems: (items: RoadmapItem[]) => void;
   setActiveItem: (item: RoadmapItem) => void;
-  isAllContentRead: (label: string, contentLength: number) => boolean;
   checkAllContent: (label: string, check: boolean) => void;
   updateLastSelectedElement: (element: HTMLElement | null) => void;
 };
@@ -40,11 +42,15 @@ export default function LevelItem(props: Props) {
       | React.MouseEvent<SVGElement | HTMLButtonElement, MouseEvent>
       | React.KeyboardEvent<SVGElement>,
     item: RoadmapItem,
+    check: boolean,
   ) {
-    props.checkAllContent(
-      item.label,
-      !props.isAllContentRead(item.label, item.children?.length || -1),
-    );
+    console.log(item.label);
+    const itemLabel = findRoadmapReadItem(item.label, props.selectedItems)?.label;
+    console.log(itemLabel);
+    if (itemLabel) {
+      updateReadAttribute(itemLabel, check, props.setSelectedItems, props.selectedItems);
+    }
+
     event.stopPropagation();
   }
 
@@ -71,8 +77,10 @@ export default function LevelItem(props: Props) {
             }
           >
             {props.level.items.map((item, index, level) => {
-              const quantity = item.children?.length || -1;
-              const isAllContentRead = props.isAllContentRead(item.label, quantity);
+              const isAllContentRead = isRead(
+                `${props.level.label}-${item.label}`,
+                props.selectedItems,
+              );
 
               return (
                 <>
@@ -125,16 +133,16 @@ export default function LevelItem(props: Props) {
                           <div className="group relative my-auto flex hover:text-black">
                             <button
                               onClick={(e) => {
-                                handleToggleAllSelection(e, item);
+                                handleToggleAllSelection(e, item, false);
                               }}
                               className="flex h-full hover:text-black"
                             >
                               <span className="animate-checking">
-                                <FaSquareCheck className="m-auto my-auto mx-1  hover:text-black" />
+                                <FaSquareCheck className="m-auto mx-1 my-auto  hover:text-black" />
                               </span>
                             </button>
                             <div
-                              className="absolute bottom-6 -left-16 w-40 rounded-sm bg-dark-brown text-sm
+                              className="absolute -left-16 bottom-6 w-40 rounded-sm bg-dark-brown text-sm
                  text-light-brown opacity-0 transition-opacity group-hover:opacity-100"
                             >
                               Desmarcar Concluído
@@ -145,17 +153,17 @@ export default function LevelItem(props: Props) {
                             <FaRegSquare
                               className="hover: m-auto mx-1 animate-checking hover:fill-primary hover:text-primary"
                               onClick={(e) => {
-                                handleToggleAllSelection(e, item);
+                                handleToggleAllSelection(e, item, true);
                               }}
                               onKeyDown={(e) => {
                                 if (e.key === 'Enter') {
-                                  handleToggleAllSelection(e, item);
+                                  handleToggleAllSelection(e, item, true);
                                 }
                               }}
                               tabIndex={0}
                             />
                             <div
-                              className="absolute bottom-6 -left-16 w-40 rounded-sm bg-dark-brown text-sm
+                              className="absolute -left-16 bottom-6 w-40 rounded-sm bg-dark-brown text-sm
                      text-light-brown opacity-0 transition-opacity group-hover:opacity-100"
                             >
                               Marcar Concluído

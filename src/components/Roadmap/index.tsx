@@ -8,6 +8,9 @@ import RoadmapButtons from '../RoadmapButtons';
 import { useAuth0 } from '@auth0/auth0-react';
 import { AccordionContainer, RoadmapAccordion } from '../Accordion';
 import { DrawerRoot, Drawer, DrawerTitle, DrawerDescription } from '../Drawer';
+import { RoadmapRead } from '../../entity/RoadmapReadModel';
+import { convertToRoadmapRead, isRead, updateReadAttribute } from '../../support/roadmapUtils';
+import { set } from 'react-ga';
 
 type Props = {
   data: Level[];
@@ -25,11 +28,8 @@ export default function Roadmap(props: Props) {
   const roadmapRef = useRef(null);
   const { pathname, hash, key } = useLocation();
   const [activeItem, setActiveItem] = React.useState<RoadmapItem>();
-  const [mousePos, setMousePos] = useState<{ x: number; y: number }>();
-  const [selectedItems, setSelectedItems] = useLocalStorage(
-    'selectedItems',
-    {} as Record<string, boolean>,
-  );
+
+  const [selectedItems, setSelectedItems] = useLocalStorage('selectedItems', [] as RoadmapRead[]);
 
   const handleOpenChange = useCallback(
     (isOpen: boolean) => {
@@ -48,21 +48,12 @@ export default function Roadmap(props: Props) {
   }, []);
 
   useEffect(() => {
-    const handleMouseMove = (event: MouseEvent) => {
-      setMousePos({ x: event.clientX, y: event.clientY });
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-
-    return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-    };
-  }, []);
-
-  useEffect(() => {
-    if (localStorage.getItem('selectedItems')) {
-      setSelectedItems(JSON.parse(localStorage.getItem('selectedItems') || '') || {});
-    }
+    (async () => {
+      if (!selectedItems || selectedItems.length === 0) {
+        const roadmapRead = convertToRoadmapRead(props.data);
+        setSelectedItems(roadmapRead);
+      }
+    })();
   }, [setSelectedItems]);
 
   useEffect(() => {
@@ -81,52 +72,17 @@ export default function Roadmap(props: Props) {
     }
   }, [pathname, hash, key, handleOpenChange, props.data]);
 
-  function saveRead(label: string, checked: boolean) {
-    let selected = selectedItems;
-    if (!selected) {
-      selected = {};
-    }
-    selected[label] = checked;
-    setSelectedItems(selected);
-    localStorage.setItem('selectedItems', JSON.stringify(selected));
-
-    if (checked) {
-      emojisplosion({
-        emojiCount: 1,
-        uniqueness: 1,
-        position: {
-          x: mousePos?.x || innerWidth / 2,
-          y: mousePos?.y || innerHeight / 2,
-        },
-        emojis: ['🎉', '🎊', '🎈', '🤓'],
-      });
-    }
-  }
-
-  function isRead(label: string) {
-    if (selectedItems) {
-      return selectedItems[label];
-    }
-    return false;
-  }
-
-  function isAllContentRead(label: string, contentLength: number) {
-    if (selectedItems) {
-      const contentRead = Object.keys(selectedItems).filter(
-        (key) => key.endsWith('-' + label) && selectedItems[key] === true,
-      );
-      return contentRead.length === contentLength;
-    }
-
-    return false;
-  }
-
   function checkAllContent(label: string, check: boolean) {
     props.data.forEach((level) => {
       level.items.forEach((item) => {
         if (item.label === label) {
           item.children?.forEach((child) => {
-            saveRead(child.label + '-' + item.label, check);
+            updateReadAttribute(
+              child.label + '-' + item.label,
+              check,
+              setSelectedItems,
+              selectedItems || [],
+            );
           });
         }
       });
@@ -134,11 +90,11 @@ export default function Roadmap(props: Props) {
 
     if (check) {
       emojisplosion({
-        emojiCount: 1,
-        uniqueness: 1,
+        emojiCount: 5,
+        uniqueness: 3,
         position: {
-          x: mousePos?.x || innerWidth / 2,
-          y: mousePos?.y || innerHeight / 2,
+          x: innerWidth / 2,
+          y: innerHeight / 2,
         },
         emojis: ['🎉', '🎊', '🎈', '🤓'],
       });
@@ -180,10 +136,11 @@ export default function Roadmap(props: Props) {
           {props.data.map((level, index, data) => {
             return (
               <LevelItem
+                setSelectedItems={setSelectedItems}
+                selectedItems={selectedItems || []}
                 key={index}
                 level={level}
                 index={index}
-                isAllContentRead={isAllContentRead}
                 checkAllContent={checkAllContent}
                 levelsQty={data.length}
                 setActiveItem={setActiveItem}
@@ -197,8 +154,10 @@ export default function Roadmap(props: Props) {
       <RoadmapDrawer
         activeItem={activeItem}
         isRead={isRead}
-        saveRead={saveRead}
+        saveRead={updateReadAttribute}
         isPreview={props.isPreview}
+        selectedItems={selectedItems || []}
+        setSelectedItems={setSelectedItems}
         lastSelectedElement={lastSelectedElement}
       />
     </DrawerRoot>
@@ -207,10 +166,17 @@ export default function Roadmap(props: Props) {
 
 type RoadmapDrawerProps = {
   activeItem?: RoadmapItem;
-  isRead: (label: string) => boolean;
-  saveRead: (label: string, checked: boolean) => void;
+  isRead: (label: string, selectedItems: RoadmapRead[]) => boolean;
+  saveRead: (
+    label: string,
+    checked: boolean,
+    setSelectedItems: (items: RoadmapRead[]) => void,
+    selectedItems: RoadmapRead[],
+  ) => void;
   isPreview?: boolean;
   lastSelectedElement?: HTMLElement | null;
+  setSelectedItems: (items: RoadmapRead[]) => void;
+  selectedItems: RoadmapRead[];
 };
 
 const RoadmapDrawer = ({
@@ -219,6 +185,8 @@ const RoadmapDrawer = ({
   isRead,
   saveRead,
   lastSelectedElement,
+  setSelectedItems,
+  selectedItems,
 }: RoadmapDrawerProps) => {
   return (
     <Drawer lastSelectedElement={lastSelectedElement}>
@@ -237,14 +205,16 @@ const RoadmapDrawer = ({
           type="single"
         >
           {activeItem?.children?.map((child) => {
-            const label = child.label + '-' + activeItem?.label;
+            const label = activeItem?.label + '-' + child.label;
 
             return (
               <RoadmapAccordion
                 key={child.label}
                 section={child}
-                isRead={isRead(label)}
-                saveRead={(checked: boolean) => saveRead(label, checked)}
+                isRead={isRead(label, selectedItems)}
+                saveRead={(checked: boolean) =>
+                  saveRead(label, checked, setSelectedItems, selectedItems)
+                }
               />
             );
           })}

@@ -9,7 +9,7 @@ import { packageManager } from './items/packageManager';
 
 export const data: Level[] = [
   {
-    label: 'Comece por aqui!',
+    label: 'HTML, CSS e Javascript',
     description:
       'Esse é o básico. Aprendendo esses conceitos você poderá começar a desenvolver um projeto.',
     items: [html, css, javascript],

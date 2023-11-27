@@ -12,7 +12,7 @@
 
 
 .Header {
-  @apply relative py-2 px-4 flex justify-center items-start gap-2;
+  @apply relative py-2 px-4 flex items-start gap-2;
 }
 
 .Icon {

@@ -67,11 +67,11 @@ const RoadmapButtons = ({ buttons, roadmapRef, title, roadmapPath }: RoadmapButt
     [
       'horizontalView',
       {
-        text: 'Visualizar Horizontalmente',
+        text: 'Modo Curso (beta)',
         type: 'link',
         category: 'action',
-        analyticsActionTag: 'open_horizontal_roadmap',
-        href: `/hroadmap/${roadmapPath}`,
+        analyticsActionTag: 'open_course_roadmap',
+        href: `/course/${roadmapPath}`,
       },
     ],
     [
