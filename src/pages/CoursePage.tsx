@@ -23,7 +23,10 @@ export default function CoursePage() {
   const { name } = useParams<string>();
   const [roadmapName, setRoadmapName] = useState('');
   const [mousePos, setMousePos] = useState<{ x: number; y: number }>();
-  const [selectedItems, setSelectedItems] = useLocalStorage('selectedItems', [] as RoadmapRead[]);
+  const [selectedItems, setSelectedItems] = useLocalStorage(
+    `selectedItems-${name}`,
+    [] as RoadmapRead[],
+  );
 
   const currentRoadmap = (
     name ? (name in roadmaps ? name : 'frontend') : 'frontend'

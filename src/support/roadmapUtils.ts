@@ -5,6 +5,7 @@ export function convertToRoadmapRead(levels: Level[]): RoadmapRead[] {
   function convertItems(items: RoadmapItem[], parentLabel: string): RoadmapRead[] {
     return items.map((item) => {
       const { label, children, links } = item;
+
       const roadmapReadItem: RoadmapRead = {
         label: `${parentLabel}-${label}`,
         read: false, // Set default value for 'read' attribute
@@ -27,8 +28,8 @@ export function convertToRoadmapRead(levels: Level[]): RoadmapRead[] {
   return levels.map((level) => {
     const { items } = level;
     const roadmapReadLevel: RoadmapRead = {
-      label: level.label || '',
-      children: convertItems(items, level.label || ''),
+      label: level.label || level.items[0].label,
+      children: convertItems(items, level.label || level.items[0].label),
       read: false, // Set default value for 'read' attribute
     };
 
@@ -42,6 +43,8 @@ export function updateReadAttribute(
   setSelectedItems: (items: RoadmapRead[]) => void,
   selectedItems: RoadmapRead[],
 ) {
+  console.log(labelToFind);
+
   const newData = selectedItems;
 
   const updateRead = (items: RoadmapRead[]): boolean => {

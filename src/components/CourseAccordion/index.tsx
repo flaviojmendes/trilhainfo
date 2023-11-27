@@ -72,7 +72,13 @@ export function CourseAccordion({
           }}
         />
         <AccordionTrigger className={s.CourseTrigger}>
-          <span className="text-text-primary">{section.label || section.items[0].label}</span>
+          <span
+            className={`text-text-primary ${
+              isRead(section.label || section.items[0].label, selectedItems) ? 'line-through' : ''
+            }`}
+          >
+            {section.label || section.items[0].label}
+          </span>
         </AccordionTrigger>
       </AccordionHeader>
       <AccordionContent className={s.CourseContent}>
@@ -91,10 +97,10 @@ export function CourseAccordion({
             >
               <AccordionHeader className={s.Header}>
                 <CourseCheckbox
-                  checked={isRead(`${section.label}-${item.label}`, selectedItems)}
+                  checked={isRead(`${section.label || item.label}-${item.label}`, selectedItems)}
                   toggleChecked={(checked: boolean) =>
                     updateReadAttribute(
-                      `${section.label}-${item.label}`,
+                      `${section.label || item.label}-${item.label}`,
                       checked,
                       setSelectedItems,
                       selectedItems,
@@ -104,7 +110,9 @@ export function CourseAccordion({
                 <AccordionTrigger className={s.Trigger}>
                   <span
                     className={`ml-2 text-text-primary ${
-                      isRead(item.label, selectedItems) ? 'line-through' : ''
+                      isRead(`${section.label || item.label}-${item.label}`, selectedItems)
+                        ? 'line-through'
+                        : ''
                     }`}
                   >
                     {item.label}
@@ -139,7 +147,15 @@ export function CourseAccordion({
                           }
                         />
                         <AccordionTrigger className={s.Trigger}>
-                          <span className="ml-3 text-text-primary">{child.label}</span>
+                          <span
+                            className={`ml-3 text-text-primary ${
+                              isRead(`${item.label}-${child.label}`, selectedItems)
+                                ? 'line-through'
+                                : ''
+                            }`}
+                          >
+                            {child.label}
+                          </span>
                         </AccordionTrigger>
                       </AccordionHeader>
                       <AccordionContent>
@@ -166,7 +182,9 @@ export function CourseAccordion({
                             <button
                               onClick={() => setActiveLink(link)}
                               className={`my-auto ml-4 text-left text-text-primary hover:underline ${
-                                isRead(link.label, selectedItems) ? 'line-through' : ''
+                                isRead(`${child.label}-${link.label}`, selectedItems)
+                                  ? 'line-through'
+                                  : ''
                               }`}
                               rel="noreferrer"
                             >

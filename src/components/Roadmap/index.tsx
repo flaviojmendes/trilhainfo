@@ -20,7 +20,7 @@ type Props = {
   isPreview: boolean;
 };
 
-export default function Roadmap(props: Props) {
+export default function Roadmap({ data, title, roadmapPath, name, isPreview }: Props) {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [lastSelectedElement, setLastSelectedElement] = useState<HTMLElement | null>(null);
   const { isAuthenticated } = useAuth0();
@@ -29,18 +29,21 @@ export default function Roadmap(props: Props) {
   const { pathname, hash, key } = useLocation();
   const [activeItem, setActiveItem] = React.useState<RoadmapItem>();
 
-  const [selectedItems, setSelectedItems] = useLocalStorage('selectedItems', [] as RoadmapRead[]);
+  const [selectedItems, setSelectedItems] = useLocalStorage(
+    `selectedItems-${name}`,
+    [] as RoadmapRead[],
+  );
 
   const handleOpenChange = useCallback(
     (isOpen: boolean) => {
       if (!isOpen) {
-        window.history.pushState(props.name, props.name, `/roadmap/${props.name}`);
+        window.history.pushState(name, name, `/roadmap/${name}`);
         setIsDrawerOpen(isOpen);
       }
 
       setIsDrawerOpen(isOpen);
     },
-    [props.name],
+    [name],
   );
 
   useEffect(() => {
@@ -50,7 +53,7 @@ export default function Roadmap(props: Props) {
   useEffect(() => {
     (async () => {
       if (!selectedItems || selectedItems.length === 0) {
-        const roadmapRead = convertToRoadmapRead(props.data);
+        const roadmapRead = convertToRoadmapRead(data);
         setSelectedItems(roadmapRead);
       }
     })();
@@ -60,7 +63,7 @@ export default function Roadmap(props: Props) {
     if (hash) {
       const anchorItem = hash.replaceAll('#', '');
       if (anchorItem) {
-        props.data.forEach((level) => {
+        data.forEach((level) => {
           level.items.forEach((item) => {
             if (item.label === decodeURI(anchorItem)) {
               setActiveItem(item);
@@ -73,7 +76,7 @@ export default function Roadmap(props: Props) {
   }, [pathname, hash, key, handleOpenChange, props.data]);
 
   function checkAllContent(label: string, check: boolean) {
-    props.data.forEach((level) => {
+    data.forEach((level) => {
       level.items.forEach((item) => {
         if (item.label === label) {
           item.children?.forEach((child) => {
@@ -105,7 +108,7 @@ export default function Roadmap(props: Props) {
     <DrawerRoot open={isDrawerOpen} onOpenChange={handleOpenChange}>
       <div
         className={`my-10 gap-2 px-2 pr-2 md:pr-4 lg:my-0 xl:px-64 ${
-          props.isPreview ? 'hidden' : 'flex'
+          isPreview ? 'hidden' : 'flex'
         }`}
       >
         <div className="flex-grow"></div>
@@ -115,8 +118,8 @@ export default function Roadmap(props: Props) {
               ? ['horizontalView', 'download', 'exportNotes']
               : ['horizontalView', 'download']
           }
-          title={props.title}
-          roadmapPath={props.roadmapPath}
+          title={title}
+          roadmapPath={roadmapPath}
           roadmapRef={roadmapRef}
         />
       </div>
@@ -125,15 +128,15 @@ export default function Roadmap(props: Props) {
           <div className="flex w-4 bg-gradient-to-r from-text-secondary via-text-secondary to-black "></div>
           <h2
             className={` font-title text-3xl font-bold text-text-primary ${
-              props.isPreview ? 'hidden' : ''
+              isPreview ? 'hidden' : ''
             }`}
           >
-            {props.title}
+            {title}
           </h2>
         </div>
 
         <div>
-          {props.data.map((level, index, data) => {
+          {data.map((level, index, data) => {
             return (
               <LevelItem
                 setSelectedItems={setSelectedItems}
@@ -155,7 +158,7 @@ export default function Roadmap(props: Props) {
         activeItem={activeItem}
         isRead={isRead}
         saveRead={updateReadAttribute}
-        isPreview={props.isPreview}
+        isPreview={isPreview}
         selectedItems={selectedItems || []}
         setSelectedItems={setSelectedItems}
         lastSelectedElement={lastSelectedElement}
