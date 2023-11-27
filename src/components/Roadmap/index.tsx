@@ -73,7 +73,7 @@ export default function Roadmap({ data, title, roadmapPath, name, isPreview }: P
         });
       }
     }
-  }, [pathname, hash, key, handleOpenChange, props.data]);
+  }, [pathname, hash, key, handleOpenChange, data]);
 
   function checkAllContent(label: string, check: boolean) {
     data.forEach((level) => {
