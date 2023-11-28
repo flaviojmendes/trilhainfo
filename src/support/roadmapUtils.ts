@@ -115,7 +115,7 @@ export function findRoadmapReadItem(
       if (
         (item.label.split('-').length === 1 && item.label === labelToFind) ||
         (item.label.split('-').length > 1 &&
-          item.label.split('-')[1].toLowerCase() === labelToFind?.toLowerCase()) ||
+          item.label.split('-').slice(1).join('-').toLowerCase() === labelToFind?.toLowerCase()) ||
         ''
       ) {
         foundItem = item;
