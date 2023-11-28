@@ -57,3 +57,5 @@ export enum LinkContentType {
   VISIT = 'Visite',
   PRACTICE = 'Pratique',
 }
+
+export type AdjacentLink = Link | undefined;

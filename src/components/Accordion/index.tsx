@@ -2,7 +2,6 @@ import * as RadixAccordion from '@radix-ui/react-accordion';
 import s from './Accordion.module.css';
 import { BsChevronDown } from 'react-icons/bs';
 import { RoadmapItem } from '../../entity/RoadmapModel';
-import { getColorFromContentType } from '../../support/contentType';
 import { Checkbox } from '../Checkbox';
 import { useSectionRoadmapActions } from '../HorizontalRoadmap/LevelProvider';
 

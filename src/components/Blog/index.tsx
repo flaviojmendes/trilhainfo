@@ -28,7 +28,7 @@ export default function Blog() {
             >
               <div className="w-fit">
                 <h3 className="mb-2 ml-4 font-title text-3xl font-semibold text-text-primary">
-                  {post.title}
+                  {post.title} - {post.date}
                 </h3>
                 <div className="to-transparent ml-4 h-1 w-full bg-gradient-to-r from-primary"></div>
               </div>
