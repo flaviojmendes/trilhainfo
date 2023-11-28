@@ -52,12 +52,12 @@ export default function Roadmap({ data, title, roadmapPath, name, isPreview }: P
 
   useEffect(() => {
     (async () => {
-      if (!selectedItems || selectedItems.length === 0) {
+      if (name && (!selectedItems || selectedItems.length === 0)) {
         const roadmapRead = convertToRoadmapRead(data);
         setSelectedItems(roadmapRead);
       }
     })();
-  }, [setSelectedItems]);
+  }, [setSelectedItems, name]);
 
   useEffect(() => {
     if (hash) {
