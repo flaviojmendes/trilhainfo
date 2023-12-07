@@ -147,7 +147,30 @@ export const data: Level[] = [
       },
     ],
   },
-  { items: [{ label: 'Recursão', children: [{ label: 'O básico', links: [] }] }] },
+  {
+    items: [
+      {
+        label: 'Recursão',
+        children: [
+          {
+            label: 'O básico',
+            links: [
+              {
+                label: 'Recursividade - Código Fonte TV',
+                url: 'https://www.youtube.com/watch?v=NKymAD4pJZI',
+                contentType: LinkContentType.WATCH,
+              },
+              {
+                label: 'Recursão em Python - HashTag Programação',
+                url: 'https://www.youtube.com/watch?v=fYSrdwRusOE',
+                contentType: LinkContentType.WATCH,
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
   {
     items: [
       {
@@ -233,7 +256,13 @@ export const data: Level[] = [
         children: [
           {
             label: 'O Básico',
-            links: [],
+            links: [
+              {
+                label: 'Heap Sort - André Quintiliano',
+                url: 'https://www.youtube.com/watch?v=bXwCZj1xipY',
+                contentType: LinkContentType.WATCH,
+              },
+            ],
           },
         ],
       },
