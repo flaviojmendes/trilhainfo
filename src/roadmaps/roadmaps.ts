@@ -5,6 +5,7 @@ import { data as devopsData } from '../roadmaps/devops';
 import { data as testData } from '../roadmaps/test';
 import { data as communityData } from '../roadmaps/community';
 import { data as fullstackData } from '../roadmaps/fullstack';
+import { data as entrevistasData } from '../roadmaps/entrevistas';
 import { dataEngineeringData } from '../roadmaps/dataEngineering';
 import { RoadmapFileModel } from '../entity/RoadmapFileModel';
 
@@ -17,4 +18,5 @@ export const roadmaps: RoadmapFileModel = {
   'data-engineer': { file: dataEngineeringData, title: 'Data Engineer' },
   community: { file: communityData, title: 'Comunidade' },
   test: { file: testData, title: 'Test/QA' },
+  entrevistas: { file: entrevistasData, title: 'Entrevistas' },
 };

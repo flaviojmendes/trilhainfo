@@ -22,6 +22,13 @@ export const mainRoadmapsData = [
   },
 
   {
+    title: 'Entrevistas',
+    description:
+      'A entrevista técnica é uma etapa importante do processo seletivo para uma vaga de desenvolvedor. Nela, o candidato é avaliado por meio de perguntas e exercícios práticos para testar seus conhecimentos e habilidades.',
+    url: '/roadmap/entrevistas',
+    image: '/backend.png',
+  },
+  {
     title: 'Devops',
     description:
       'Especialista em DevOps é a pessoa que atua na integração entre as equipes de desenvolvimento de software, integrando e monitorando suas atividades para buscar um desempenho mais otimizado e simplificado.',
