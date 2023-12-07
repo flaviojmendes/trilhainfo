@@ -147,6 +147,41 @@ export const data: Level[] = [
       },
     ],
   },
+  { items: [{ label: 'Recursão', children: [{ label: 'O básico', links: [] }] }] },
+  {
+    items: [
+      {
+        label: 'Busca',
+        children: [
+          {
+            label: 'Busca Binária',
+            links: [
+              {
+                label: 'Busca Binária - Augusto Galego',
+                url: 'https://youtu.be/YbJKI2Sdwes?si=ne35_4DABa0IE3_i',
+                contentType: LinkContentType.WATCH,
+              },
+            ],
+          },
+          {
+            label: 'Operações com bits',
+            links: [
+              {
+                label: 'XOR - Augusto Galego',
+                url: 'https://youtu.be/mVcGSzGxrYM?si=jLbmvjkWmzL_b3Ca',
+                contentType: LinkContentType.WATCH,
+              },
+              {
+                label: 'Tipos de dados e Operações com bits - Rodrigo Maximiano',
+                url: 'https://www.youtube.com/watch?v=Fd9cJLeOsIc',
+                contentType: LinkContentType.WATCH,
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
   {
     label: 'Ordenação',
     description:
@@ -250,39 +285,59 @@ export const data: Level[] = [
     ],
   },
   {
+    label: 'Grafos',
+    description:
+      'Grafos são estruturas de dados que representam relacionamentos entre objetos. Um grafo é composto por um conjunto de vértices e um conjunto de arestas.',
     items: [
       {
-        label: 'Busca',
+        label: 'Grafos Direcionados',
         children: [
           {
-            label: 'Busca Binária',
-            links: [
-              {
-                label: 'Busca Binária - Augusto Galego',
-                url: 'https://youtu.be/YbJKI2Sdwes?si=ne35_4DABa0IE3_i',
-                contentType: LinkContentType.WATCH,
-              },
-            ],
+            label: 'O Básico',
+            links: [],
           },
+        ],
+      },
+      {
+        label: 'Grafos Não Direcionados',
+        children: [
           {
-            label: 'Operações com bits',
-            children: [
-              {
-                label: 'XOR',
-                links: [
-                  {
-                    label: 'XOR - Augusto Galego',
-                    url: 'https://youtu.be/mVcGSzGxrYM?si=jLbmvjkWmzL_b3Ca',
-                    contentType: LinkContentType.WATCH,
-                  },
-                ],
-              },
-            ],
+            label: 'O Básico',
+            links: [],
+          },
+        ],
+      },
+      {
+        label: 'Matriz de Adjacência',
+        children: [
+          {
+            label: 'O Básico',
+            links: [],
+          },
+        ],
+      },
+
+      {
+        label: 'Lista de Adjacência',
+        children: [
+          {
+            label: 'O Básico',
+            links: [],
+          },
+        ],
+      },
+      {
+        label: 'Travessias',
+        children: [
+          {
+            label: 'O Básico',
+            links: [],
           },
         ],
       },
     ],
   },
+
   {
     label: 'System Design',
     description: 'System Design é a disciplina que estuda como projetar sistemas de software.',
@@ -341,6 +396,42 @@ export const data: Level[] = [
               {
                 label: 'Sequencer - Augusto Galego',
                 url: 'https://youtu.be/2FbbjssqA9g?si=Ra_EPQRcZ7Pee4Fk',
+                contentType: LinkContentType.WATCH,
+              },
+            ],
+          },
+        ],
+      },
+      {
+        label: 'Sharding',
+        children: [
+          {
+            label: 'O básico',
+            links: [
+              {
+                label: 'A Diferença entre Replicação, Sharding e Clustering - Universo dos Dados',
+                url: 'https://www.youtube.com/watch?v=wgNVF9dCONE',
+                contentType: LinkContentType.WATCH,
+              },
+            ],
+          },
+        ],
+      },
+      { label: 'Messaging', children: [{ label: 'O básico', links: [] }] },
+      {
+        label: 'Caching',
+        children: [
+          {
+            label: 'O básico',
+            links: [
+              {
+                label: 'Como funciona o cache em aplicações web? - Fellyph Cintra',
+                url: 'https://www.youtube.com/watch?v=a1itiLNTxc8',
+                contentType: LinkContentType.WATCH,
+              },
+              {
+                label: 'Tudo o que você precisa saber sobre cache | Dias de Dev',
+                url: 'https://www.youtube.com/watch?v=zfTw5AUS0K0',
                 contentType: LinkContentType.WATCH,
               },
             ],

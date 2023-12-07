@@ -48,8 +48,10 @@ export default function CoursePage() {
     setRoadmapName(name || '');
     findAdjacentLinks();
     (async () => {
+      const roadmapRead = convertToRoadmapRead(roadmaps[currentRoadmap].file);
       if (!selectedItems || selectedItems.length === 0) {
-        const roadmapRead = convertToRoadmapRead(roadmaps[currentRoadmap].file);
+        setSelectedItems(roadmapRead);
+      } else if (selectedItems.length !== roadmapRead.length) {
         setSelectedItems(roadmapRead);
       }
     })();
@@ -59,17 +61,26 @@ export default function CoursePage() {
     `Trilha Info ${name && name in roadmaps ? ` - ${roadmaps[currentRoadmap].title}` : ''}`,
   );
 
-  function extractVideoId(url: string | undefined): string | null {
+  function extractVideoId(url: string | undefined) {
     if (!url) return null;
 
-    const regex = /[?&]v=([^&]+)/;
-    const match = url.match(regex);
+    let videoId = null;
 
-    if (match && match[1]) {
-      return match[1];
-    } else {
-      return null;
+    // Regular expression to match the video ID in two different URL formats
+    const regexLong = /[?&]v=([^&]+)/;
+    const regexShort = /youtu\.be\/([^?]+)/;
+
+    // Check for matches in both URL formats
+    const matchLong = url.match(regexLong);
+    const matchShort = url.match(regexShort);
+
+    if (matchLong && matchLong[1]) {
+      videoId = matchLong[1];
+    } else if (matchShort && matchShort[1]) {
+      videoId = matchShort[1];
     }
+
+    return videoId;
   }
 
   function findAdjacentLinks(selectedLink?: Link) {
@@ -172,7 +183,7 @@ export default function CoursePage() {
         </div>
         <div className="flex h-full w-full flex-col p-4">
           <div className="flex w-fit flex-row">
-            <a href="/roadmap" className="flex h-fit gap-2 text-primary">
+            <a href={`/roadmap/${roadmapName}`} className="flex h-fit gap-2 text-primary">
               <FaArrowLeft className="my-auto" /> voltar à visualização tradicional{' '}
               <RiOrganizationChart className="my-auto" />
             </a>

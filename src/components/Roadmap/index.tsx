@@ -52,8 +52,10 @@ export default function Roadmap({ data, title, roadmapPath, name, isPreview }: P
 
   useEffect(() => {
     (async () => {
-      if (name && (!selectedItems || selectedItems.length === 0)) {
-        const roadmapRead = convertToRoadmapRead(data);
+      const roadmapRead = convertToRoadmapRead(data);
+      if (!selectedItems || selectedItems.length === 0) {
+        setSelectedItems(roadmapRead);
+      } else if (selectedItems.length !== roadmapRead.length) {
         setSelectedItems(roadmapRead);
       }
     })();
