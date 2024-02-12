@@ -12,6 +12,7 @@ import HorizontalRoadmapPage from './pages/HorizontalRoadmapPage';
 import BlogPage from './pages/BlogPage';
 import BlogPostPage from './pages/BlogPostPage';
 import CoursePage from './pages/CoursePage';
+import UserPage from './pages/UserPage';
 
 function App() {
   ReactGA.initialize('G-GQDL3TBPEZ');
@@ -24,6 +25,7 @@ function App() {
       <Route path="/" element={<HomePage />} />
       <Route path="/roadmap/:name" element={<RoadmapPage />} />
       <Route path="/course/:name" element={<CoursePage />} />
+      <Route path="/profile" element={<UserPage />} />
 
       <Route path="/hroadmap/:name" element={<HorizontalRoadmapPage />} />
       <Route path="/roadmap/view/:roadmapId" element={<CustomRoadmapPage />} />

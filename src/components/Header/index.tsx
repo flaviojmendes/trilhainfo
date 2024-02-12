@@ -1,16 +1,19 @@
 import { useAuth0 } from '@auth0/auth0-react';
-import { FaDiscord, FaGithubSquare } from 'react-icons/fa';
+import { FaDiscord, FaGithubSquare, FaInstagram } from 'react-icons/fa';
 import { ThreeDots } from 'react-loader-spinner';
 import Logo from '../Logo';
 import MobileMenu from '../MobileMenu';
 import Cookies from 'universal-cookie';
 import axios from 'axios';
+import { decode } from 'base-64';
+import { useEffect } from 'react';
 
 const cookies = new Cookies();
 
 export default function Header() {
   const { user, isAuthenticated, isLoading, logout, getAccessTokenSilently, loginWithPopup } =
     useAuth0();
+
   return (
     <header className="fixed z-30 mx-auto flex min-h-[80px] w-full flex-wrap justify-center space-x-0 space-y-2 bg-menu-background bg-opacity-10 px-10 backdrop-blur-[30px] xl:px-64">
       <div className="flex flex-grow">
@@ -42,8 +45,19 @@ export default function Header() {
               <FaGithubSquare className="m-auto h-10 w-10 " />
             </a>
           </li>
-
           <li className="flex">
+            <a
+              target={'_blank'}
+              className="my-2 mr-4 flex pr-4 text-primary hover:text-primary-shadow"
+              href="https://instagram.com/trilhainfo"
+              rel="noreferrer"
+              aria-label="Instagram"
+            >
+              <FaInstagram className="m-auto h-10 w-10 " />
+            </a>
+          </li>
+
+          {/* <li className="flex">
             {isAuthenticated && (
               <>
                 <div className="w-200 flex align-middle text-yellow">
@@ -61,21 +75,20 @@ export default function Header() {
                   >
                     Logout
                   </button>
-                  <div className="absolute top-1 left-1 -right-1 -bottom-1 z-10 rounded-sm bg-red group-hover:bg-red"></div>
+                  <div className="absolute -bottom-1 -right-1 left-1 top-1 z-10 rounded-sm bg-red group-hover:bg-red"></div>
                 </div>
               </>
             )}
           </li>
-          {/* <li className="flex">
+          <li className="flex">
             {!isAuthenticated && !isLoading && (
               <div className="group relative m-auto flex h-fit w-fit">
                 <button
-                  className="z-20 m-auto rounded-sm bg-primary p-2 font-title hover:shadow-primary-white duration-100"
+                  className="z-20 m-auto rounded-sm bg-primary p-2 font-title duration-100 hover:shadow-primary-white"
                   onClick={() => handleAuth()}
                 >
                   Log In
                 </button>
-                
               </div>
             )}
             {isLoading && (
@@ -104,8 +117,14 @@ export default function Header() {
       });
       cookies.set('api_token', `Bearer ${token}`);
 
+      console.log(`Token ${token}`);
+
+      const base64Payload = token.split('.')[1];
+      const payload = decode(base64Payload);
+      const email = JSON.parse(payload.toString())['https://trilha.info/email'];
+
       try {
-        await axios.get(import.meta.env.VITE_API_URL + '/user/' + user?.nickname, {
+        await axios.get(import.meta.env.VITE_API_URL + '/users/' + email, {
           headers: {
             'Content-Type': 'application/json',
             Authorization: cookies.get('api_token'),
@@ -113,9 +132,9 @@ export default function Header() {
         });
       } catch (e) {
         await axios.post(
-          import.meta.env.VITE_API_URL + '/user' || '',
+          import.meta.env.VITE_API_URL + '/users/' || '',
           {
-            user_login: user?.nickname,
+            login: email,
           },
           {
             headers: {

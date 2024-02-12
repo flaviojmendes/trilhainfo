@@ -44,9 +44,7 @@ export default function LevelItem(props: Props) {
     item: RoadmapItem,
     check: boolean,
   ) {
-    console.log(item.label);
     const itemLabel = findRoadmapReadItem(item.label, props.selectedItems)?.label;
-    console.log(itemLabel);
     if (itemLabel) {
       updateReadAttribute(itemLabel, check, props.setSelectedItems, props.selectedItems);
     }

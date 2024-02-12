@@ -66,7 +66,7 @@ const HeaderDrawer = () => {
           </a>
         </li>
 
-        <li className="flex">
+        {/* <li className="flex">
           {isAuthenticated && (
             <div className="group relative m-auto flex h-fit w-fit">
               <button
@@ -78,7 +78,7 @@ const HeaderDrawer = () => {
               <div className="absolute top-1 left-1 -right-1 -bottom-1 z-10 rounded-sm bg-red group-hover:bg-red"></div>
             </div>
           )}
-        </li>
+        </li> */}
         {/* <li className="flex">
           {!isAuthenticated && !isLoading && (
             <div className="group relative m-auto flex h-fit w-fit">
