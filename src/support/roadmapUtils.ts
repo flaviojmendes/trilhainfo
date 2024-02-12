@@ -43,8 +43,6 @@ export function updateReadAttribute(
   setSelectedItems: (items: RoadmapRead[]) => void,
   selectedItems: RoadmapRead[],
 ) {
-  console.log(labelToFind);
-
   const newData = selectedItems;
 
   const updateRead = (items: RoadmapRead[]): boolean => {

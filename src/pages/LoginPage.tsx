@@ -17,8 +17,9 @@ export default function LoginPage() {
         });
         cookies.set('api_token', `Bearer ${token}`);
 
+        console.log(`Token ${token}`);
         try {
-          await axios.get(import.meta.env.VITE_API_URL + '/user/' + user?.nickname, {
+          await axios.get(import.meta.env.VITE_API_URL + '/user/' + user?.email, {
             headers: {
               'Content-Type': 'application/json',
               Authorization: cookies.get('api_token'),
@@ -28,7 +29,7 @@ export default function LoginPage() {
           await axios.post(
             import.meta.env.VITE_API_URL + '/user' || '',
             {
-              user_login: user?.nickname,
+              login: user?.email,
             },
             {
               headers: {
@@ -41,6 +42,7 @@ export default function LoginPage() {
         document.location.href = '/';
       })();
     }
+    console.log('not authenticated');
   }, [getAccessTokenSilently, isAuthenticated, user?.email, user?.nickname]);
 
   return (
