@@ -47,6 +47,7 @@ export default function Roadmap({ data, title, roadmapPath, name, isPreview }: P
   );
 
   useEffect(() => {
+    console.log(JSON.stringify(data));
     window.scrollTo(0, 0);
   }, []);
 

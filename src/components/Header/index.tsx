@@ -7,6 +7,7 @@ import Cookies from 'universal-cookie';
 import axios from 'axios';
 import { decode } from 'base-64';
 import { useEffect } from 'react';
+import { MdArrowDropDown } from 'react-icons/md';
 
 const cookies = new Cookies();
 
@@ -57,31 +58,37 @@ export default function Header() {
             </a>
           </li>
 
-          {/* <li className="flex">
+          <li className="flex">
             {isAuthenticated && (
               <>
-                <div className="w-200 flex align-middle text-yellow">
-                  <img
-                    className="m-auto h-10 w-10 rounded-full"
-                    src={user?.picture}
-                    alt={user?.name}
-                  />
-                  <span className="m-auto ml-2 mr-4 font-title text-base">{user?.name}</span>
-                </div>
-                <div className="group relative m-auto flex h-fit w-fit">
+                <div className="relative m-auto flex h-fit w-fit">
+                  <div className="group mr-2 flex">
+                    <div className=" flex cursor-pointer rounded-sm border-2 border-primary text-primary hover:bg-primary hover:text-white">
+                      <span className="m-auto ml-2 mr-1 font-title ">{user?.name}</span>
+                      <MdArrowDropDown className="my-auto h-6 w-6 " />
+                    </div>
+                    {/* A dropdown */}
+                    <div className="absolute right-20 top-10 z-10 hidden rounded-sm border-2 border-primary bg-dark-brown  group-hover:block">
+                      <a
+                        className="block px-4 py-2 text-primary hover:bg-primary-hover hover:text-white"
+                        href="/profile"
+                      >
+                        Dashboard
+                      </a>
+                    </div>
+                  </div>
                   <button
-                    className="z-20 m-auto rounded-sm bg-brown p-2 hover:bg-light-orange"
+                    className="z-20 rounded-sm bg-primary p-2 font-title duration-100 hover:bg-primary-hover hover:shadow-primary-white"
                     onClick={() => logout({ returnTo: window.location.origin })}
                   >
                     Logout
                   </button>
-                  <div className="absolute -bottom-1 -right-1 left-1 top-1 z-10 rounded-sm bg-red group-hover:bg-red"></div>
                 </div>
               </>
             )}
           </li>
           <li className="flex">
-            {!isAuthenticated && !isLoading && (
+            {/* {!isAuthenticated && !isLoading && (
               <div className="group relative m-auto flex h-fit w-fit">
                 <button
                   className="z-20 m-auto rounded-sm bg-primary p-2 font-title duration-100 hover:shadow-primary-white"
@@ -90,19 +97,20 @@ export default function Header() {
                   Log In
                 </button>
               </div>
-            )}
+            )} */}
             {isLoading && (
               <ThreeDots
                 height="30"
                 width="30"
                 radius="9"
-                color="#d56a47"
+                color="#E1047B"
                 ariaLabel="three-dots-loading"
                 wrapperStyle={{}}
                 visible={true}
+                wrapperClass="m-auto"
               />
             )}
-          </li> */}
+          </li>
         </ul>
       </nav>
     </header>

@@ -26,7 +26,7 @@ export default function UserArea() {
     if (cookies.get('api_token')) {
       try {
         const response = await axios.get(
-          import.meta.env.VITE_API_URL + `/roadmap/${user?.nickname}` || '',
+          import.meta.env.VITE_API_URL + `/roadmap/${user?.email}` || '',
           {
             headers: {
               'Content-Type': 'application/json',
@@ -84,7 +84,7 @@ export default function UserArea() {
   if (!isAuthenticated) return null;
 
   return (
-    <section className="mx-0 mt-10 flex w-full flex-col items-stretch justify-center bg-[#403C3B] py-10 px-10 shadow-inner xl:px-64">
+    <section className="mx-0 mt-10 flex w-full flex-col items-stretch justify-center bg-[#403C3B] px-10 py-10 shadow-inner xl:px-64">
       <h2 className="c-yellow my-6 text-center font-title text-3xl">Meus Roadmaps</h2>
       <div className="grid grid-cols-1 gap-5 space-y-10 py-8 md:grid-cols-2 md:space-y-0">
         {roadmaps?.map((roadmap) => {
@@ -100,7 +100,7 @@ export default function UserArea() {
                   </h3>
                   <p className="mx-5 text-justify">{roadmap.description}</p>
                 </Link>
-                <div className="absolute top-1 left-1 -right-1 -bottom-1 z-10 rounded-sm bg-yellow group-hover:bg-yellow"></div>
+                <div className="absolute -bottom-1 -right-1 left-1 top-1 z-10 rounded-sm bg-yellow group-hover:bg-yellow"></div>
               </div>
               <div className="flex space-x-2">
                 <div className="group relative flex h-fit w-fit">
@@ -110,7 +110,7 @@ export default function UserArea() {
                     icon={<FiEdit />}
                     onClick={() => navigate(`/edit-roadmap/${roadmap.id}`)}
                   />{' '}
-                  <div className="absolute top-1 left-1 -right-1 -bottom-1 z-10 rounded-sm bg-red group-hover:bg-red"></div>
+                  <div className="absolute -bottom-1 -right-1 left-1 top-1 z-10 rounded-sm bg-red group-hover:bg-red"></div>
                 </div>
                 <div className="group relative flex h-fit w-fit">
                   <IconButton
@@ -119,7 +119,7 @@ export default function UserArea() {
                     onClick={() => handleDeleteRoadmap(roadmap.id || '')}
                     icon={<FiTrash2 />}
                   />
-                  <div className="absolute top-1 left-1 -right-1 -bottom-1 z-10 rounded-sm bg-red group-hover:bg-red"></div>
+                  <div className="absolute -bottom-1 -right-1 left-1 top-1 z-10 rounded-sm bg-red group-hover:bg-red"></div>
                 </div>
                 <div className="group relative flex h-fit w-fit">
                   <IconButton
@@ -129,7 +129,7 @@ export default function UserArea() {
                     onClick={() => handleCopyToClipboard(roadmap.id!)}
                     icon={<FiShare2 />}
                   />
-                  <div className="absolute top-1 left-1 -right-1 -bottom-1 z-10 rounded-sm bg-red group-hover:bg-red"></div>
+                  <div className="absolute -bottom-1 -right-1 left-1 top-1 z-10 rounded-sm bg-red group-hover:bg-red"></div>
                 </div>
               </div>
             </div>
