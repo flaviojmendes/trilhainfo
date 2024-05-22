@@ -15,6 +15,56 @@ export default function Header() {
   const { user, isAuthenticated, isLoading, logout, getAccessTokenSilently, loginWithPopup } =
     useAuth0();
 
+  useEffect(() => {
+    const token = import.meta.env.VITE_INSTAGRAM_TOKEN;
+
+    const fetchData = async () => {
+      // setLoading(true);
+      await fetchUserMedia(token)
+        .then((media) => {
+          // setReels(media);
+          console.log(media);
+        })
+        .catch((error) => {
+          console.error('Error fetching media:', error);
+        });
+      // setLoading(false);
+    };
+
+    // Call the fetchData function
+    fetchData();
+  }, []);
+
+  const fetchUserMedia = async (token: string): Promise<any> => {
+    // let media: InstagramMedia[] = [];
+    const userId = '25452501691064340'; // replace with the actual user ID
+    const url = `https://graph.instagram.com/v20.0/${userId}/insights?metric=impressions,reach,profile_views&period=day&access_token=${token}`;
+
+    const fetchPage = async (url: string): Promise<any> => {
+      try {
+        const response = await fetch(url);
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+
+        const data = await response.json();
+        console.log(data);
+        // media = media.concat(data.data);
+
+        // if (data.paging && data.paging.next) {
+        //   return fetchPage(data.paging.next);
+        // } else {
+        //   return media;
+        // }
+      } catch (error) {
+        console.error('Error fetching media:', error);
+        return null;
+      }
+    };
+
+    return fetchPage(url);
+  };
+
   return (
     <header className="fixed z-30 mx-auto flex min-h-[80px] w-full flex-wrap justify-center space-x-0 space-y-2 bg-menu-background bg-opacity-10 px-10 backdrop-blur-[30px] xl:px-64">
       <div className="flex flex-grow">

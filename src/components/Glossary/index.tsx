@@ -1,6 +1,7 @@
 import { useEffect, useState, useTransition } from 'react';
 import { InstagramMedia } from '../../entity/InstagramModel';
 import { FidgetSpinner, RotatingSquare } from 'react-loader-spinner';
+import ReactGA from 'react-ga4';
 
 export default function Glossary() {
   const [reels, setReels] = useState<InstagramMedia[]>([]);
@@ -39,7 +40,7 @@ export default function Glossary() {
   const fetchUserMedia = async (token: string): Promise<InstagramMedia[]> => {
     let media: InstagramMedia[] = [];
     const userId = '25452501691064340'; // replace with the actual user ID
-    const url = `https://graph.instagram.com/${userId}/media?fields=id,caption,media_type,media_url,thumbnail_url,permalink&access_token=${token}`;
+    const url = `https://graph.instagram.com/${userId}/media?fields=id,caption,media_type,media_url,thumbnail_url,permalink,likes&access_token=${token}`;
 
     const fetchPage = async (url: string): Promise<any> => {
       try {
@@ -65,6 +66,13 @@ export default function Glossary() {
     return fetchPage(url);
   };
 
+  async function logReelsClick() {
+    ReactGA.event({
+      category: 'reels_open',
+      action: 'open_reels',
+    });
+  }
+
   return (
     <section id="blog" className="px-10 pt-4 xl:px-72">
       <h2 className=" my-6 font-title text-4xl text-title-primary md:w-1/3 ">Glossário</h2>
@@ -81,7 +89,12 @@ export default function Glossary() {
             <>
               {filteredReels.slice(0, 4).map((reel: InstagramMedia) => (
                 <div key={reel.id} className="cursor-pointer">
-                  <a href={reel.permalink} target="_blank" rel="noopener noreferrer">
+                  <a
+                    href={reel.permalink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={logReelsClick}
+                  >
                     <img
                       src={reel.thumbnail_url || reel.media_url}
                       alt={reel.caption}
