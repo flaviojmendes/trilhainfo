@@ -76,7 +76,7 @@ export default function Glossary() {
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
-        <div className="mt-4 grid grid-cols-4 gap-2">
+        <div className="mt-4 grid grid-cols-2 gap-2 md:grid-cols-4">
           {!isLoading && (
             <>
               {filteredReels.slice(0, 4).map((reel: InstagramMedia) => (
@@ -87,7 +87,6 @@ export default function Glossary() {
                       alt={reel.caption}
                       className="cursor-pointer rounded-sm"
                     />
-                    <p>{reel.caption}</p>
                   </a>
                 </div>
               ))}
