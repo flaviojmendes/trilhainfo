@@ -13,14 +13,15 @@ export default function Glossary() {
 
     const fetchData = async () => {
       setLoading(true);
-      await fetchUserMedia(token)
-        .then((media) => {
+      try {
+        const media = await fetchUserMedia(token);
+        if (media) {
           setReels(media);
           console.log(media);
-        })
-        .catch((error) => {
-          console.error('Error fetching media:', error);
-        });
+        }
+      } catch (error) {
+        console.error('Error fetching media:', error);
+      }
       setLoading(false);
     };
 
