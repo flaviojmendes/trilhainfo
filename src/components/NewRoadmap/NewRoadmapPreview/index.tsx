@@ -8,7 +8,7 @@ type Props = {
 export default function NewRoadmapPreview(props: Props) {
   return (
     <>
-      <h2 className="ml-2 mb-4 text-center font-title text-2xl text-light-orange">Preview</h2>
+      <h2 className="mb-4 ml-2 text-center font-title text-2xl text-light-orange">Preview</h2>
       <div className="h-full w-full rounded-sm bg-dark-brown pt-8">
         {props.roadmap.levels?.length > 0 && (
           <Roadmap

@@ -10,7 +10,7 @@ import { HorizontalLevelItemContent } from '../components/HorizontalRoadmap/Hori
 import { LevelProvider } from '../components/HorizontalRoadmap/LevelProvider';
 import RoadmapButtons from '../components/RoadmapButtons';
 import { useAuth0 } from '@auth0/auth0-react';
-import E404Page from './E404Page';
+import RoadmapNotfound from './RoadmapNotfound';
 
 type RoadmapName = keyof typeof roadmaps;
 
@@ -86,7 +86,7 @@ function HorizontalRoadmapPageImpl() {
           </section>
         </div>
       )}
-      {!name || (!(name in roadmaps) && <E404Page />)}
+      {!name || (!(name in roadmaps) && <RoadmapNotfound />)}
     </MainLayout>
   );
 }

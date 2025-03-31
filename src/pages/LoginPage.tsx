@@ -17,7 +17,6 @@ export default function LoginPage() {
         });
         cookies.set('api_token', `Bearer ${token}`);
 
-        console.log(`Token ${token}`);
         try {
           await axios.get(import.meta.env.VITE_API_URL + '/user/' + user?.email, {
             headers: {
@@ -42,7 +41,6 @@ export default function LoginPage() {
         document.location.href = '/';
       })();
     }
-    console.log('not authenticated');
   }, [getAccessTokenSilently, isAuthenticated, user?.email, user?.nickname]);
 
   return (

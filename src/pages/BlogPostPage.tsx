@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import MainLayout from '../components/layouts/MainLayout';
-import Markdown from 'markdown-to-jsx';
 import { useParams } from 'react-router';
+import Markdown from 'markdown-to-jsx';
+import MainLayout from '../components/layouts/MainLayout';
 import useDocumentTitle from '../components/useDocumentTitle';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { dracula } from 'react-syntax-highlighter/dist/esm/styles/prism';
@@ -10,155 +10,119 @@ type TitleProps = {
   children: React.ReactNode;
 };
 
-const Title = ({ children, ...props }: TitleProps) => (
-  <div {...props} className="w-full">
-    {' '}
-    <h1 className="mx-auto mt-4 text-center font-title text-4xl text-title-primary">{children}</h1>
-    <div className="mb-16 mt-2 flex w-full gap-2">
-      <div className="mx-auto h-2 w-64 bg-gradient-to-r from-black via-primary to-black"></div>
+const Title = ({ children }: TitleProps) => (
+  <div className="w-full">
+    <h1 className="mx-auto mt-4 text-4xl text-center font-title text-title-primary">{children}</h1>
+    <div className="flex w-full gap-2 mt-2 mb-16">
+      <div className="w-64 h-2 mx-auto bg-gradient-to-r from-black via-primary to-black"></div>
     </div>
   </div>
 );
 
-const SecondaryTitle = ({ children, ...props }: TitleProps) => (
-  <div {...props} className="flex h-fit w-full">
+const SecondaryTitle = ({ children }: TitleProps) => (
+  <div className="flex w-full h-fit">
     <div className="flex">
-      <div className="mx-auto h-full w-4 bg-gradient-to-r from-text-secondary via-text-secondary to-black"></div>
-      <h2 className="mx-auto grow text-center font-title text-3xl text-title-primary">
+      <div className="w-4 h-full mx-auto bg-gradient-to-r from-text-secondary via-text-secondary to-black"></div>
+      <h2 className="mx-auto text-3xl text-center grow font-title text-title-primary">
         {children}
       </h2>
     </div>
   </div>
 );
 
-const H3Title = ({ children, ...props }: TitleProps) => (
-  <div {...props} className="mt-8 flex h-fit w-full">
-    <div className="flex">
-      {/* <div className="mx-auto h-full w-4 bg-gradient-to-r from-text-secondary via-text-secondary to-black"></div> */}
-      <h2 className="mx-auto grow text-center font-title text-xl font-semibold text-text-primary">
-        {children}
-      </h2>
-    </div>
+const H3Title = ({ children }: TitleProps) => (
+  <div className="flex w-full mt-8 h-fit">
+    <h2 className="mx-auto text-xl font-semibold text-center grow font-title text-text-primary">
+      {children}
+    </h2>
   </div>
 );
 
-const H4Title = ({ children, ...props }: TitleProps) => (
-  <div {...props} className="mt-8 flex h-fit w-full">
-    <div className="flex">
-      {/* <div className="mx-auto h-full w-4 bg-gradient-to-r from-text-secondary via-text-secondary to-black"></div> */}
-      <h2 className="mx-auto grow text-center font-title text-lg font-semibold text-text-primary">
-        {children}
-      </h2>
-    </div>
+const H4Title = ({ children }: TitleProps) => (
+  <div className="flex w-full mt-8 h-fit">
+    <h2 className="mx-auto text-lg font-semibold text-center grow font-title text-text-primary">
+      {children}
+    </h2>
   </div>
 );
 
-const hr = ({ children, ...props }: TitleProps) => (
-  <div {...props} className="">
-    <div className="my-10 flex w-full gap-2">
-      <div className="flex-grow"></div>
-      <div className="h-3 w-4 bg-gradient-to-r from-text-secondary to-black"></div>
-      <div className="h-3 w-64 bg-gradient-to-r from-primary via-primary to-black"></div>
-    </div>
+const Hr = () => (
+  <div className="flex w-full gap-2 my-10">
+    <div className="flex-grow"></div>
+    <div className="w-4 h-3 bg-gradient-to-r from-text-secondary to-black"></div>
+    <div className="w-64 h-3 bg-gradient-to-r from-primary via-primary to-black"></div>
   </div>
 );
 
-const code = ({ children, ...props }: TitleProps) => (
-  <div {...props} className="flex h-fit w-full">
-    <div className="mx-auto flex w-fit overflow-x-scroll text-xs">
-      <SyntaxHighlighter
-        language="javascript"
-        style={dracula}
-        showInlineLineNumbers={true}
-        showLineNumbers={true}
-        breakpoint={40}
-        wrapLines={true}
-        wrapLongLines={true}
-      >
-        {(children as string[]) || ''}
-      </SyntaxHighlighter>
+const CodeBlock = ({ children }: TitleProps) => {
+  const codeString = Array.isArray(children) ? children.join('') : String(children);
+
+  return (
+    <div className="flex w-full h-fit">
+      <div className="flex mx-auto overflow-auto text-xs w-fit">
+        <SyntaxHighlighter
+          language="javascript"
+          style={dracula}
+          showInlineLineNumbers
+          showLineNumbers
+          wrapLines
+          wrapLongLines
+        >
+          {codeString}
+        </SyntaxHighlighter>
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default function BlogPostPage() {
-  const { title } = useParams<string>();
-
+  const { title } = useParams<{ title: string }>();
   const [post, setPost] = useState('');
 
   useEffect(() => {
-    fetch(`/posts/${title}.md`)
-      .then((res) => {
-        console.log(res);
-        return res.text();
-      })
-      .then((res) => {
-        console.log(res);
-        return setPost(res);
-      })
-      .catch((err) => console.log(err));
-  });
+    if (!title) return;
+
+    const fetchPost = async () => {
+      try {
+        const res = await fetch(`/posts/${title}.md`);
+        const text = await res.text();
+        setPost(text);
+      } catch (error) {
+        console.error('Erro ao carregar o post:', error);
+      }
+    };
+
+    fetchPost();
+  }, [title]);
 
   useDocumentTitle(
-    `${
-      title
-        ? title.split('-')[0].charAt(0).toUpperCase() +
-          title.split('-')[0].slice(1) +
-          ' #' +
-          title.split('-')[1]
-        : ''
-    }`,
+    title
+      ? title
+          .split('-')
+          .map((word, index) =>
+            index === 0 ? word.charAt(0).toUpperCase() + word.slice(1) : `#${word}`,
+          )
+          .join(' ')
+      : '',
   );
 
   return (
     <MainLayout>
-      <div className="my-32 px-4 text-justify text-text-primary lg:mx-80 ">
+      <div className="px-4 my-32 text-justify text-text-primary lg:mx-80">
         <Markdown
           options={{
             forceWrapper: false,
             overrides: {
-              article: {
-                component: 'article',
-                props: {
-                  className: 'flex',
-                },
-              },
-              p: {
-                component: 'p',
-                props: {
-                  className: 'my-4',
-                },
-              },
-              h1: {
-                component: Title,
-              },
-              h2: {
-                component: SecondaryTitle,
-              },
-              h3: {
-                component: H3Title,
-              },
-              h4: {
-                component: H4Title,
-              },
-              img: {
-                component: 'img',
-                props: {
-                  className: 'mx-auto',
-                },
-              },
-              hr: {
-                component: hr,
-              },
-              a: {
-                component: 'a',
-                props: {
-                  className: 'text-primary hover:text-primary-shadow',
-                },
-              },
-              code: {
-                component: code,
-              },
+              article: { component: 'article', props: { className: 'flex' } },
+              p: { component: 'p', props: { className: 'my-4' } },
+              h1: { component: Title },
+              h2: { component: SecondaryTitle },
+              h3: { component: H3Title },
+              h4: { component: H4Title },
+              img: { component: 'img', props: { className: 'mx-auto' } },
+              hr: { component: Hr },
+              a: { component: 'a', props: { className: 'text-primary hover:text-primary-shadow' } },
+              code: { component: CodeBlock },
             },
           }}
         >

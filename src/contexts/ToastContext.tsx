@@ -1,8 +1,5 @@
 import { createContext, useState } from 'react';
-import {
-  ToastProvider as RadixToastProvider,
-  Viewport,
-} from '@radix-ui/react-toast';
+import { ToastProvider as RadixToastProvider, Viewport } from '@radix-ui/react-toast';
 import { Toast } from '../components/Toast';
 import { ToastProps } from '../components/Toast/types';
 
@@ -22,15 +19,9 @@ interface ToastContextData {
   addToast: (props: ToastProps) => void;
 }
 
-export const ToastContext = createContext<ToastContextData>(
-  {} as ToastContextData
-);
+export const ToastContext = createContext<ToastContextData>({} as ToastContextData);
 
-export default function ToastProvider({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function ToastProvider({ children }: { children: React.ReactNode }) {
   const [toasts, setToasts] = useState<ToastProps[]>([] as ToastProps[]);
   const [toastPosition, setToastPosition] =
     useState<NonNullable<ToastProps['position']>>(DEFAULT_POSITION);
@@ -45,10 +36,7 @@ export default function ToastProvider({
     type = 'foreground',
   }: ToastProps) {
     setToasts((prev) => {
-      return [
-        ...prev,
-        { title, message, position, status, closable, duration, type },
-      ];
+      return [...prev, { title, message, position, status, closable, duration, type }];
     });
 
     setToastPosition(position ?? DEFAULT_POSITION);
@@ -60,14 +48,11 @@ export default function ToastProvider({
         {children}
 
         {toasts.map((toast, index) => (
-          <Toast
-            key={`${toast.title || toast.message || ''}-${index}`}
-            {...toast}
-          />
+          <Toast key={`${toast.title || toast.message || ''}-${index}`} {...toast} />
         ))}
 
         <Viewport
-          className={`fixed ${classByPosition[toastPosition]} flex flex-col p-4 gap-4 w-96 max-w-full m-0 list-none z-50 outline-none`}
+          className={`fixed ${classByPosition[toastPosition]} z-50 m-0 flex w-96 max-w-full list-none flex-col gap-4 p-4 outline-none`}
         />
       </ToastContext.Provider>
     </RadixToastProvider>

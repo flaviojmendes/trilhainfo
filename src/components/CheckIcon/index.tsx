@@ -9,7 +9,7 @@ export const CheckIcon = ({ className }: CheckIconProps) => {
     <svg
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
-      className={`stroke-[3] w-4 h-4 fill-none ${className}`}
+      className={`h-4 w-4 fill-none stroke-[3] ${className}`}
     >
       <motion.path
         initial={{ pathLength: 0 }}

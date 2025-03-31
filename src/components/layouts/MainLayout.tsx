@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import Header from '../Header';
 
 type Props = {
@@ -8,8 +7,8 @@ type Props = {
 export default function MainLayout({ children }: Props) {
   return (
     <div className="flex h-screen flex-col bg-black">
-      {/* <div className="flex bg-light-orange p-2">
-        <p className="m-auto text-center font-title text-sm">
+      {/* <div className="flex p-2 bg-light-orange">
+        <p className="m-auto text-sm text-center font-title">
           A Trilha Info está passando por uma revolução. Para saber mais clique{' '}
           <a
             href="https://blog.flaviojmendes.com"

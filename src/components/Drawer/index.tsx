@@ -43,9 +43,9 @@ export const Drawer = ({
 
   return (
     <DrawerPortal>
-      <DrawerOverlay className="fixed inset-0 z-30 h-screen w-screen bg-[#000000]/90 data-[state='open']:animate-fadeIn data-[state='closed']:animate-fadeOut" />
+      <DrawerOverlay className="fixed inset-0 z-30 h-screen w-screen bg-[#000000]/90 data-[state='closed']:animate-fadeOut data-[state='open']:animate-fadeIn" />
       <DrawerContent
-        className={`fixed top-0 bottom-0 z-30 h-screen w-full  bg-box-primary py-4 px-6 duration-1000 sm:w-3/5 lg:w-2/5 ${open} ${close} ${
+        className={`fixed bottom-0 top-0 z-30 h-screen w-full  bg-box-primary px-6 py-4 duration-1000 sm:w-3/5 lg:w-2/5 ${open} ${close} ${
           isRight ? 'right-0' : 'left-0'
         }`}
         onCloseAutoFocus={(e) => {
@@ -57,7 +57,7 @@ export const Drawer = ({
       >
         {children}
 
-        <DrawerClose className="absolute top-3.5 right-3.5 rounded-sm bg-primary p-1 hover:bg-primary-hover hover:shadow-primary-white">
+        <DrawerClose className="absolute right-3.5 top-3.5 rounded-sm bg-primary p-1 hover:bg-primary-hover hover:shadow-primary-white">
           <RiCloseLine size={24} />
         </DrawerClose>
       </DrawerContent>

@@ -63,12 +63,12 @@ export default function Header() {
               <>
                 <div className="relative m-auto flex h-fit w-fit">
                   <div className="group mr-2 flex">
-                    <div className=" flex cursor-pointer rounded-sm border-2 border-primary text-primary hover:bg-primary hover:text-white">
+                    <div className="flex cursor-pointer rounded-sm border-2  border-primary text-primary hover:bg-primary hover:text-white">
                       <span className="m-auto ml-2 mr-1 font-title ">{user?.name}</span>
                       <MdArrowDropDown className="my-auto h-6 w-6 " />
                     </div>
                     {/* A dropdown */}
-                    <div className="absolute right-20 top-10 z-10 hidden rounded-sm border-2 border-primary bg-dark-brown  group-hover:block">
+                    <div className="absolute right-20 top-10 z-10 hidden rounded-sm border-2 border-primary bg-dark-brown group-hover:block">
                       <a
                         className="block px-4 py-2 text-primary hover:bg-primary-hover hover:text-white"
                         href="/profile"
@@ -89,9 +89,9 @@ export default function Header() {
           </li>
           <li className="flex">
             {/* {!isAuthenticated && !isLoading && (
-              <div className="group relative m-auto flex h-fit w-fit">
+              <div className="relative flex m-auto group h-fit w-fit">
                 <button
-                  className="z-20 m-auto rounded-sm bg-primary p-2 font-title duration-100 hover:shadow-primary-white"
+                  className="z-20 p-2 m-auto duration-100 rounded-sm bg-primary font-title hover:shadow-primary-white"
                   onClick={() => handleAuth()}
                 >
                   Log In
@@ -124,8 +124,6 @@ export default function Header() {
         audience: 'TrilhaInfoApi',
       });
       cookies.set('api_token', `Bearer ${token}`);
-
-      console.log(`Token ${token}`);
 
       const base64Payload = token.split('.')[1];
       const payload = decode(base64Payload);

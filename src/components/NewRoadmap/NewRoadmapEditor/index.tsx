@@ -216,7 +216,7 @@ export default function NewRoadmapEditor(props: Props) {
 
   return (
     <>
-      <h2 className="ml-2 mb-2 text-center font-title text-2xl text-light-orange">Editor</h2>
+      <h2 className="mb-2 ml-2 text-center font-title text-2xl text-light-orange">Editor</h2>
 
       {props.roadmap?.getLevels().map((level, levelIndex) => {
         return (
@@ -261,7 +261,7 @@ export default function NewRoadmapEditor(props: Props) {
               />
             </div>
             {/* Items */}
-            <div className="mt-4 flex w-full flex-col space-y-3 space-x-1">
+            <div className="mt-4 flex w-full flex-col space-x-1 space-y-3">
               {level.items.map((item, itemIndex) => {
                 return (
                   <div
@@ -422,7 +422,7 @@ export default function NewRoadmapEditor(props: Props) {
                           })}
                           <div className="mt-4 flex w-full">
                             <button
-                              className="my-2 mx-auto rounded-sm border-2 border-yellow bg-light-yellow p-2 text-xs font-semibold"
+                              className="mx-auto my-2 rounded-sm border-2 border-yellow bg-light-yellow p-2 text-xs font-semibold"
                               onClick={() =>
                                 handleNewLink(level, levelIndex, itemIndex, sectionIndex)
                               }
@@ -437,7 +437,7 @@ export default function NewRoadmapEditor(props: Props) {
                     {/* Sections End */}
                     <div className="mt-8 flex w-full">
                       <button
-                        className="my-2 mx-auto rounded-sm border-2 border-dark-blue bg-blue p-2 text-xs font-semibold"
+                        className="mx-auto my-2 rounded-sm border-2 border-dark-blue bg-blue p-2 text-xs font-semibold"
                         onClick={() => handleNewSection(level, levelIndex, itemIndex)}
                       >
                         + Nova Seção
@@ -451,7 +451,7 @@ export default function NewRoadmapEditor(props: Props) {
             {/* Items End */}
             <div className="mt-4 flex w-full">
               <button
-                className="my-2 mx-auto rounded-sm border-2 border-red bg-light-brown p-2 text-xs font-semibold"
+                className="mx-auto my-2 rounded-sm border-2 border-red bg-light-brown p-2 text-xs font-semibold"
                 onClick={() => handleNewItem(level, levelIndex)}
               >
                 + Novo Item
@@ -461,7 +461,7 @@ export default function NewRoadmapEditor(props: Props) {
         );
       })}
 
-      <button className="my-4 mx-auto" onClick={handleNewLevel}>
+      <button className="mx-auto my-4" onClick={handleNewLevel}>
         + Novo Nível
       </button>
     </>
