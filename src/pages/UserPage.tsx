@@ -1,7 +1,6 @@
 import { useAuth0 } from '@auth0/auth0-react';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { Grid } from 'react-loader-spinner';
 import Cookies from 'universal-cookie';
 import { User, mapResponseToUser, UserApiResponse } from '../entity/UserModel';
 import MainLayout from '../components/layouts/MainLayout';

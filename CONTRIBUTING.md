@@ -14,7 +14,6 @@ Atualmente as trilhas são:
 - [Teste/QA](https://github.com/flaviojmendes/trilhainfo/blob/main/src/roadmaps/test.ts)
 - [React](https://github.com/flaviojmendes/trilhainfo/blob/main/src/roadmaps/react.ts)
 
-
 ## Contribuindo com o código
 
 Para contribuir com código, você deve antes abrir uma issue descrevendo o que pretende alterar/adicionar.
@@ -23,7 +22,6 @@ Existem dois modelos de issues que você pode usar:
 
 - Bug Report: para reportar um bug, ou seja, um comportamento inesperado do sistema.
 - Feature Request: para solicitar uma nova funcionalidade ou alteração no sistema.
-
 
 ## Contribuindo com a documentação
 

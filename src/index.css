@@ -9,40 +9,40 @@
     border-top-left-radius: 255px 15px;
     border-top-right-radius: 15px 255px;
     border-bottom-right-radius: 225px 15px;
-    border-bottom-left-radius:15px 255px;
+    border-bottom-left-radius: 15px 255px;
   }
 
   .badge {
-    @apply text-[0.6rem] ml-2 bg-red p-1 rounded-sm font-bold uppercase cursor-default inline-flex items-baseline
+    @apply ml-2 inline-flex cursor-default items-baseline rounded-sm bg-red p-1 text-[0.6rem] font-bold uppercase;
   }
 
   .badge.badge-blue {
-    @apply text-[#2a4365] bg-[#bee3f8]
+    @apply bg-[#bee3f8] text-[#2a4365];
   }
 
   .badge.badge-green {
-    @apply text-[#22543D] bg-[#C6F6D5]
+    @apply bg-[#C6F6D5] text-[#22543D];
   }
 
   .badge.badge-orange {
-    @apply text-[#7B341E] bg-[#FEEBC8]
+    @apply bg-[#FEEBC8] text-[#7B341E];
   }
 
   .badge.badge-purple {
-    @apply text-[#44337A] bg-[#E9D8FD]
+    @apply bg-[#E9D8FD] text-[#44337A];
   }
 
   .badge.badge-yellow {
-    @apply text-[#744210] bg-[#FEFCBF]
+    @apply bg-[#FEFCBF] text-[#744210];
   }
 }
 
 @layer base {
   * {
-    font-family: "Poppins", sans-serif;
+    font-family: 'Poppins', sans-serif;
   }
 
   body {
-    @apply bg-medium-brown !important 
+    @apply bg-medium-brown !important;
   }
 }

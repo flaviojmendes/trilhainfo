@@ -7,16 +7,15 @@
 }
 
 .CourseItem {
-  @apply relative ;
+  @apply relative;
 }
 
-
 .Header {
-  @apply relative py-2 px-4 flex justify-center items-start gap-2;
+  @apply relative flex items-start justify-center gap-2 px-4 py-2;
 }
 
 .Icon {
-  @apply absolute right-0 w-4 h-4 text-white duration-300 transform rounded-full;
+  @apply absolute right-0 h-4 w-4 transform rounded-full text-white duration-300;
 }
 
 .Trigger[data-state='open'] .Icon {
@@ -24,7 +23,7 @@
 }
 
 .Trigger {
-  @apply relative flex items-start justify-start w-full text-left;
+  @apply relative flex w-full items-start justify-start text-left;
 }
 
 .Trigger span {
@@ -32,7 +31,7 @@
 }
 
 .CourseTrigger {
-  @apply relative flex items-start justify-start w-full text-left;
+  @apply relative flex w-full items-start justify-start text-left;
 }
 
 .CourseTrigger span {
@@ -40,7 +39,7 @@
 }
 
 .Content {
-  @apply relative px-4 pt-0 overflow-hidden;
+  @apply relative overflow-hidden px-4 pt-0;
 }
 
 .Content[data-state='open'] {
@@ -52,7 +51,7 @@
 }
 
 .CourseContent {
-  @apply relative px-0 pt-0 overflow-hidden;
+  @apply relative overflow-hidden px-0 pt-0;
 }
 
 .CourseContent[data-state='open'] {

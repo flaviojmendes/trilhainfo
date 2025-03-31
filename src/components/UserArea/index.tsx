@@ -77,7 +77,7 @@ export default function UserArea() {
       title: 'Feito!',
       message: 'O link para o seu Roadmap foi copiado!',
       status: 'info',
-      position: 'bottom',
+      position: 'bottom-left',
     });
   }
 
@@ -92,7 +92,7 @@ export default function UserArea() {
             <div key={roadmap.id} className="flex flex-col space-y-2">
               <div className="group relative m-auto flex h-full w-full">
                 <Link
-                  className="z-20 grow  rounded-sm bg-brown py-3 hover:bg-white"
+                  className="z-20 grow rounded-sm bg-brown py-3 hover:bg-white"
                   to={`/roadmap/view/${roadmap.id}`}
                 >
                   <h3 className="c-dark-brown mb-2 text-center font-title text-3xl">

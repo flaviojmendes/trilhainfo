@@ -1,10 +1,10 @@
-import { useCallback, useState } from "react";
+import { useCallback, useState } from 'react';
 
 type UpdaterFn<TState> = (currentState: TState) => TState;
 
 type Result<TState> = [
   state: TState,
-  wrappedSetState: (update: TState | UpdaterFn<TState>) => void
+  wrappedSetState: (update: TState | UpdaterFn<TState>) => void,
 ];
 
 type Options<TState> = {
@@ -15,7 +15,7 @@ type Options<TState> = {
 export function useLocalStorage<TState>(
   key: string,
   initialValue: TState,
-  options?: Options<TState>
+  options?: Options<TState>,
 ): Result<TState> {
   const serializer = options?.serializer ?? JSON.stringify;
   const deserializer = options?.deserializer ?? JSON.parse;
@@ -35,8 +35,7 @@ export function useLocalStorage<TState>(
     (update: any) => {
       try {
         setState((currentState) => {
-          const nextState =
-            typeof update === "function" ? update(currentState) : update;
+          const nextState = typeof update === 'function' ? update(currentState) : update;
 
           window.localStorage.setItem(key, serializer(nextState));
           return nextState;
@@ -45,7 +44,7 @@ export function useLocalStorage<TState>(
         console.error(error);
       }
     },
-    [key]
+    [key],
   );
 
   return [state, wrappedSetState];

@@ -1,12 +1,11 @@
 import { useParams } from 'react-router-dom';
 import MainLayout from '../components/layouts/MainLayout';
 import { useEffect, useState } from 'react';
-import { AdjacentLink, Level, Link, RoadmapItem } from '../entity/RoadmapModel';
+import { AdjacentLink, Level, Link } from '../entity/RoadmapModel';
 import useDocumentTitle from '../components/useDocumentTitle';
 import { roadmaps } from '../roadmaps/roadmaps';
 
 import { useLocalStorage } from '../hooks/useLocalStorage';
-import { emojisplosion } from 'emojisplosion';
 import { FaArrowLeft, FaArrowRight, FaCheck, FaExternalLinkAlt } from 'react-icons/fa';
 import { RiOrganizationChart } from 'react-icons/ri';
 import { AccordionContainer, CourseAccordion } from '../components/CourseAccordion';
@@ -22,7 +21,6 @@ import {
 export default function CoursePage() {
   const { name } = useParams<string>();
   const [roadmapName, setRoadmapName] = useState('');
-  const [mousePos, setMousePos] = useState<{ x: number; y: number }>();
   const [selectedItems, setSelectedItems] = useLocalStorage(
     `selectedItems-${name}`,
     [] as RoadmapRead[],
@@ -189,7 +187,7 @@ export default function CoursePage() {
             </a>
           </div>
           <div className="flex flex-col">
-            <div className="my-10  flex">
+            <div className="my-10 flex">
               <div className="flex w-4 bg-gradient-to-r from-text-secondary via-text-secondary to-black "></div>
               <h1 className="my-auto mr-10 h-fit text-xl text-white">{activeLink?.label}</h1>
               {!extractVideoId(activeLink?.url) && (
@@ -231,7 +229,7 @@ export default function CoursePage() {
                         selectedItems,
                       )
                     }
-                    className="z-20 flex gap-2 rounded-sm border-2 border-primary p-2 text-center font-title text-primary duration-100  hover:shadow-secondary-white"
+                    className="z-20 flex gap-2 rounded-sm border-2 border-primary p-2 text-center font-title text-primary duration-100 hover:shadow-secondary-white"
                   >
                     <FaCheck className="my-auto" /> {'concluir conteúdo'}
                   </button>
@@ -250,7 +248,7 @@ export default function CoursePage() {
                         selectedItems,
                       )
                     }
-                    className="z-20 flex gap-2 rounded-sm border-2 border-primary bg-primary p-2 text-center font-title text-text-primary duration-100  hover:shadow-secondary-white"
+                    className="z-20 flex gap-2 rounded-sm border-2 border-primary bg-primary p-2 text-center font-title text-text-primary duration-100 hover:shadow-secondary-white"
                   >
                     <FaCheck className="my-auto" /> {'desmarcar conteúdo'}
                   </button>

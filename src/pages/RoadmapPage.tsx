@@ -5,7 +5,7 @@ import useDocumentTitle from '../components/useDocumentTitle';
 import { useEffect, useState } from 'react';
 import { Level } from '../entity/RoadmapModel';
 import { roadmaps } from '../roadmaps/roadmaps';
-import E404Page from './E404Page';
+import RoadmapNotfound from './RoadmapNotfound';
 
 export default function RoadmapPage() {
   const { name } = useParams<string>();
@@ -21,9 +21,6 @@ export default function RoadmapPage() {
     path: string;
   };
 
-  // we can be sure it is a keyof typeof roadmaps because of the ternary operator
-  // but TypeScript is not smart enough
-  // I'm using frontend as default in case the name is not in roadmaps so we don't get an error
   const currentRoadmap = (
     name ? (name in roadmaps ? name : 'frontend') : 'frontend'
   ) as keyof typeof roadmaps;
@@ -34,9 +31,6 @@ export default function RoadmapPage() {
 
   return (
     <MainLayout>
-      {/* <p className="mt-4 text-center font-title c-brown md:px-10">
-        Não sabe por onde começar a estudar? Que tal dar uma olhada por aqui?
-      </p> */}
       {name && name in roadmaps && (
         <>
           <div className="m-auto mt-4 px-2 lg:w-2/3">
@@ -59,7 +53,7 @@ export default function RoadmapPage() {
           />
         </>
       )}
-      {!name || (!(name in roadmaps) && <E404Page />)}
+      {!name || (!(name in roadmaps) && <RoadmapNotfound />)}
     </MainLayout>
   );
 }

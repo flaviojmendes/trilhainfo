@@ -1,12 +1,10 @@
 # Trilha #001
 
-
 ## Nota do editor
 
 Aqui estamos, edição número 001 do que virá a ser uma publicação semanal. A ideia é compartilhar com você que trilha seu caminho no mundo do desenvolvimento algumas informações relevantes que vão além do código.
 
-----
-
+---
 
 ## Soft Skills: Você conhece a Escada de Inferência?
 
@@ -24,7 +22,7 @@ O modelo foi criado por Chris Argyris e Peter Senge e é apresentado no livro "A
 
 A escada da inferência é uma abordagem cognitiva que descreve como nossa mente trabalha ao tomar decisões com base nas informações disponíveis.
 
-Ela é composta por 7 degraus que representam o caminho que percorremos para chegar a uma conclusão. 
+Ela é composta por 7 degraus que representam o caminho que percorremos para chegar a uma conclusão.
 
 À medida que coletamos informações, subimos "degraus" na escada, passando por várias etapas para chegar a uma conclusão. Essas etapas podem incluir observação direta, interpretação dos dados, aplicação de nossas experiências passadas e conhecimento prévio, formulação de hipóteses, etc.
 
@@ -72,8 +70,6 @@ Se você perceber que a outra pessoa está tirando conclusões com base em infor
 
 No final, o caminho é cada pessoa descer da sua escada, e subir uma nova escada, buscando um consenso.
 
-
-
 ---
 
 ## Dica de livro: [Ego é o Inimigo](https://amzn.to/3Qu4nUJ)
@@ -89,7 +85,5 @@ Ego é o inimigo é um livro que fala sobre como o ego pode ser um obstáculo pa
 .
 
 .
-
-
 
 _Por [flaviojmendes](https://youtube.com/flaviojmendes)_

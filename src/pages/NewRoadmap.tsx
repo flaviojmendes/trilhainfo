@@ -165,7 +165,7 @@ export default function NewRoadmapPage() {
           <div className="m-auto mt-8 w-fit self-end">
             <button
               onClick={handleSaveRoadmap}
-              className="my-4 mx-auto rounded-sm bg-yellow px-4 py-1 text-lg font-bold text-[black] transition-colors hover:bg-dark-yellow"
+              className="mx-auto my-4 rounded-sm bg-yellow px-4 py-1 text-lg font-bold text-[black] transition-colors hover:bg-dark-yellow"
             >
               Salvar
             </button>

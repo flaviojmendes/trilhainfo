@@ -118,7 +118,7 @@ export default function Note(props: Props) {
                   <div className="flex rounded-sm hover:bg-dark-brown hover:bg-opacity-5">
                     <div className="grow flex-col align-middle">
                       <p className="mx-2 mt-2 font-title text-dark-brown">{note.text}</p>
-                      <span className="my-auto ml-2 mb-2 inline-block h-fit align-middle font-title text-xs text-red">
+                      <span className="my-auto mb-2 ml-2 inline-block h-fit align-middle font-title text-xs text-red">
                         {/* eslint-disable-next-line @typescript-eslint/no-non-null-assertion */}
                         {new Date(note.createdAt!).toLocaleString()}
                       </span>
@@ -172,7 +172,7 @@ export default function Note(props: Props) {
                   <>Salvar Anotação </>
                 )}
               </button>
-              <div className="absolute top-1 left-1 -right-1 -bottom-1 z-10 rounded-sm bg-red group-hover:bg-yellow"></div>
+              <div className="absolute -bottom-1 -right-1 left-1 top-1 z-10 rounded-sm bg-red group-hover:bg-yellow"></div>
             </div>
           </div>
         </>

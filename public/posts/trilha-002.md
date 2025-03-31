@@ -1,12 +1,10 @@
-
-
 # Trilha 002
 
 ## Você já ouviu falar em circuit breaker?
 
 Circuit Breaker é um mecanismo arquitetural que tem como objetivo evitar que uma falha em um serviço se propague para outros serviços. Ele é muito utilizado em sistemas distribuídos, onde a falha de um serviço pode causar uma cascata de falhas em outros serviços.
 
-O circuit breaker possui três estados: fechado, aberto e semi-aberto. 
+O circuit breaker possui três estados: fechado, aberto e semi-aberto.
 
 **Fechado:** Nesse estado, o circuit breaker permite que as requisições sejam feitas normalmente.
 
@@ -15,9 +13,8 @@ O circuit breaker possui três estados: fechado, aberto e semi-aberto.
 **Semi-aberto:** Nesse estado, o circuit breaker permite que uma requisição seja feita para verificar se o serviço está funcionando. Se a requisição falhar, o circuit breaker volta para o estado aberto. Se a requisição for bem sucedida, o circuit breaker volta para o estado fechado.
 
 Um exemplo de implementação utilizando Typescript:
-    
-```typescript
 
+```typescript
 enum CircuitBreakerState {
   Closed,
   Open,
@@ -32,7 +29,6 @@ export class CircuitBreaker {
 
   constructor() {}
 
-
   public async execute<T>(fn: () => Promise<T>): Promise<T> {
     switch (this.state) {
       case CircuitBreakerState.Closed:
@@ -45,7 +41,9 @@ export class CircuitBreaker {
 
           // Se o número de falhas exceder o limite, abra o circuit breaker.
           if (this.failureCount >= this.failureThreshold) {
-            console.log(`Failure threshold of ${this.failureThreshold} exceeded: ${this.failureCount}`)
+            console.log(
+              `Failure threshold of ${this.failureThreshold} exceeded: ${this.failureCount}`,
+            );
             this.openCircuitBreaker();
           }
 
@@ -55,13 +53,13 @@ export class CircuitBreaker {
 
       case CircuitBreakerState.Open:
         // O circuit breaker está aberto, então precisamos retornar um erro imediatamente.
-        console.log("Circuit breaker is open");
-        throw new Error("Circuit breaker is open");
+        console.log('Circuit breaker is open');
+        throw new Error('Circuit breaker is open');
 
       case CircuitBreakerState.HalfOpen:
         // O circuit breaker está semi-aberto, então podemos tentar executar a função novamente.
         try {
-          console.log("Circuit breaker is half-open");
+          console.log('Circuit breaker is half-open');
           return await fn();
         } catch (error) {
           // A função falhou novamente, então abra o circuit breaker.
@@ -76,7 +74,7 @@ export class CircuitBreaker {
         }
 
       default:
-        throw new Error("Unknown circuit breaker state");
+        throw new Error('Unknown circuit breaker state');
     }
   }
 
@@ -98,7 +96,6 @@ export class CircuitBreaker {
     }, this.resetTimeout);
   }
 }
-
 ```
 
 Para utilizar o circuit breaker em um código de exemplo, basta criar uma instância e chamar o método execute passando a função que você deseja executar.
@@ -106,17 +103,16 @@ Para utilizar o circuit breaker em um código de exemplo, basta criar uma instâ
 Nesse exemplo, uma exceção é lançada aleatoriamente. Se a exceção for lançada, o circuit breaker contabiliza a falha. Se o número de falhas exceder o limite, o circuit breaker é aberto. Se a exceção não for lançada, o circuit breaker é fechado.
 
 ```typescript
-
-import { CircuitBreaker } from "./circuit-breaker/ circuitBreaker";
+import { CircuitBreaker } from './circuit-breaker/ circuitBreaker';
 
 const circuitBreaker = new CircuitBreaker();
 
 async function makeHttpRequest() {
   // aleatoriamente, a função pode lançar um erro.
   if (Math.random() < 0.5) {
-    throw new Error("Erro aleatório");
+    throw new Error('Erro aleatório');
   } else {
-    return "Success!";
+    return 'Success!';
   }
 }
 
@@ -139,8 +135,6 @@ function delay(ms: number) {
     await delay(1000);
   }
 })();
-
-
 ```
 
 ## Dica de Livro: [Construindo uma Carreira em Software](https://amzn.to/40byJ1d)
@@ -149,10 +143,9 @@ function delay(ms: number) {
 
 Construindo uma Carreira em Software é um livro que fala sobre como construir uma carreira de sucesso na área de tecnologia. O autor John Sonmez mostra como se destacar no mercado de trabalho e como se tornar um profissional de alto nível.
 
-
 ## Notas do Editor
 
-Uma breve reflexão. 
+Uma breve reflexão.
 
 Nos 15 anos de mercado que tenho, se tem algo que me orgulho é a maturidade para lidar com as situações.
 
