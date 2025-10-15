@@ -4,6 +4,7 @@ import useDocumentTitle from '../components/useDocumentTitle';
 import BigONotation from '../components/CheatSheets/BigONotation';
 import BasicAuth from '../components/CheatSheets/BasicAuth';
 import StarGuide from '../components/CheatSheets/StarGuide';
+import SlaSloSli from '../components/CheatSheets/SlaSloSli';
 
 export default function GuidePage() {
   const { guide } = useParams();
@@ -22,6 +23,8 @@ export default function GuidePage() {
         return <BasicAuth />;
       case 'star':
         return <StarGuide />;
+      case 'slaSloSli':
+        return <SlaSloSli />;
       default:
         return <img className="m-auto h-screen" alt="Guide" src={getImageUrl(guide || '')} />;
     }
