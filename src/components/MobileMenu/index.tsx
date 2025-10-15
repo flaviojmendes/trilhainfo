@@ -1,5 +1,5 @@
 import { useAuth0 } from '@auth0/auth0-react';
-import { FaDiscord, FaGithubSquare, FaNewspaper } from 'react-icons/fa';
+import { FaGithubSquare, FaNewspaper } from 'react-icons/fa';
 
 import { Drawer, DrawerRoot, DrawerTrigger } from '../Drawer';
 
@@ -32,17 +32,6 @@ const HeaderDrawer = () => {
         </div>
       )}
       <ul className="flex-col pt-6">
-        <li className="flex">
-          <a
-            target={'_blank'}
-            className="my-2 mr-4 flex pr-4 text-primary"
-            href="https://discord.gg/TmneeHgTBp"
-            rel="noreferrer"
-          >
-            <FaDiscord className="m-auto h-7 w-7 " />
-            <span className="my-auto ml-1 font-title text-xl">Discord</span>
-          </a>
-        </li>
         <li className="flex">
           <a
             target={'_blank'}
