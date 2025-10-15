@@ -1,5 +1,5 @@
 import { useAuth0 } from '@auth0/auth0-react';
-import { FaDiscord, FaGithubSquare, FaInstagram } from 'react-icons/fa';
+import { FaGithubSquare, FaInstagram } from 'react-icons/fa';
 import { ThreeDots } from 'react-loader-spinner';
 import Logo from '../Logo';
 import MobileMenu from '../MobileMenu';
@@ -24,17 +24,6 @@ export default function Header() {
       <MobileMenu />
       <nav className="hidden md:flex" aria-label="navegação principal">
         <ul className="flex">
-          <li className="flex">
-            <a
-              target={'_blank'}
-              className="my-2 mr-4 flex pr-4 text-primary hover:text-primary-shadow"
-              href="https://discord.gg/TmneeHgTBp"
-              rel="noreferrer"
-              aria-label="Discord"
-            >
-              <FaDiscord className="m-auto h-10 w-10 " />
-            </a>
-          </li>
           <li className="flex">
             <a
               target={'_blank'}

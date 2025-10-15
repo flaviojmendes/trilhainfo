@@ -52,12 +52,7 @@ export default function ProjectInfo() {
           </p>
           <p className="my-8 font-title">
             Portanto, se você também acredita nisso compartilhe para que o conhecimento chegue cada
-            vez mais longe. E participe da nossa comunidade no{' '}
-            <span className="font-semibold text-primary hover:text-light-brown">
-              <a target={'_blank'} href="https://discord.gg/HJ3Spm6R" rel="noreferrer">
-                Discord
-              </a>
-            </span>{' '}
+            vez mais longe.
           </p>
           <iframe
             src="https://ghbtns.com/github-btn.html?user=flaviojmendes&repo=trilhainfo&type=star&count=true&size=large&v=2"
