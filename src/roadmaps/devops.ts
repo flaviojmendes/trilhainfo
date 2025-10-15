@@ -345,8 +345,8 @@ export const data: Level[] = [
                 contentType: LinkContentType.WATCH,
               },
               {
-                label: 'Docker em 22 Minutos - Programador a Bordo',
-                url: 'https://livro.descomplicandodocker.com.br/',
+                label: 'Docker - Ayrton Teshima',
+                url: 'https://www.youtube.com/playlist?list=PLbA-jMwv0cuVRs8qkXKkeOuL80bdiQ96D',
                 contentType: LinkContentType.WATCH,
               },
             ],
