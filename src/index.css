@@ -13,7 +13,9 @@
   }
 
   .badge {
-    @apply text-[0.6rem] ml-2 bg-red p-1 rounded-sm font-bold uppercase cursor-default inline-flex items-baseline
+    @apply text-[0.6rem] bg-red ml-2 rounded-sm font-bold uppercase cursor-default inline-flex items-center justify-center whitespace-nowrap;
+    width: 54.71px;
+    height: 19.18px;
   }
 
   .badge.badge-blue {
@@ -43,6 +45,6 @@
   }
 
   body {
-    @apply bg-medium-brown !important 
+    @apply bg-medium-brown !important
   }
 }
