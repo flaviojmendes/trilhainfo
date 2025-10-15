@@ -21,7 +21,7 @@ export const containers: RoadmapItem = {
         {
           label: 'Livro Descomplicando Docker',
           url: 'https://livro.descomplicandodocker.com.br/',
-          contentType: LinkContentType.WATCH,
+          contentType: LinkContentType.READ,
         },
         {
           label: 'Docker em 22 Minutos - Programador a Bordo',
