@@ -358,7 +358,41 @@ export const data: Level[] = [
       {
         label: 'Orquestração de Containers',
         children: [
-          { label: 'Kubernetes', links: [] },
+          {
+            label: 'Kubernetes',
+            links: [
+              {
+                label: 'Curso Completo de Kubernetes - Marcones Nunes',
+                url: 'https://www.youtube.com/playlist?list=PL9wKVHxY5DoNy-D4errvry9sVktl9YNcA',
+                contentType: LinkContentType.WATCH,
+              },
+              {
+                label: 'Curso de Introdução ao Kubernetes - Insight Lab',
+                url: 'https://www.youtube.com/playlist?list=PLXzx948cNtr8XI5JBemHT9OWuYSPNUtXs',
+                contentType: LinkContentType.WATCH,
+              },
+              {
+                label: 'Descomplicando o Kubernetes - Linux Tips',
+                url: 'https://www.youtube.com/playlist?list=PLf-O3X2-mxDmXQU-mJVgeaSL7Rtejvv0S',
+                contentType: LinkContentType.WATCH,
+              },
+              {
+                label: 'Kubernetes Geral - Linux Tips',
+                url: 'https://www.youtube.com/playlist?list=PLf-O3X2-mxDm9d-RJSpjut6qDuGqRMsY2',
+                contentType: LinkContentType.WATCH,
+              },
+              {
+                label: 'Mutirão Kubernetes - Linux Tips',
+                url: 'https://www.youtube.com/playlist?list=PLf-O3X2-mxDli3suNEnRquFyKYdrFLm3t',
+                contentType: LinkContentType.WATCH,
+              },
+              {
+                label: 'Tutorial Completo De Kubernetes Para Iniciantes - Linux Tips',
+                url: 'https://www.youtube.com/watch?v=zEOeukcJl6E',
+                contentType: LinkContentType.WATCH,
+              },
+            ],
+          },
           { label: 'Mesos', links: [] },
           { label: 'Docker Swarm', links: [] },
           { label: 'Nomad', links: [] },
