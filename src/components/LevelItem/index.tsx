@@ -68,12 +68,7 @@ export default function LevelItem(props: Props) {
           </>
         )}
         <>
-          <div
-            className={
-              'flex place-content-center ' +
-              (props.level.items.length >= 4 ? ' flex-wrap space-x-2' : '')
-            }
-          >
+          <div className="flex flex-wrap place-content-center gap-2">
             {props.level.items.map((item, index, level) => {
               const isAllContentRead = isRead(
                 `${props.level.label}-${item.label}`,
@@ -100,13 +95,7 @@ export default function LevelItem(props: Props) {
                       >
                         <TbGitFork className="m-auto mx-1" tabIndex={0} />
 
-                        <p
-                          className={
-                            'm-auto  whitespace-normal font-title text-lg md:whitespace-nowrap'
-                          }
-                        >
-                          {item.label}
-                        </p>
+                        <p className="m-auto whitespace-normal font-title text-lg">{item.label}</p>
 
                         {/* <InfoIcon m="auto" mx="1" color={"#494443"} /> */}
                       </button>
@@ -168,13 +157,7 @@ export default function LevelItem(props: Props) {
                             </div>
                           </div>
                         )}
-                        <p
-                          className={
-                            ' m-auto  whitespace-normal font-title text-lg md:whitespace-nowrap'
-                          }
-                        >
-                          {item.label}
-                        </p>
+                        <p className="m-auto whitespace-normal font-title text-lg">{item.label}</p>
 
                         {/* <InfoIcon m="auto" mx="1" color={"#494443"} /> */}
                       </DrawerTrigger>

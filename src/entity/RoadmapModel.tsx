@@ -32,6 +32,7 @@ export interface Level {
 export interface RoadmapItem {
   label: string;
   description?: string;
+  prompt?: string;
   children?: RoadmapItem[];
   links?: Link[];
   url?: string;

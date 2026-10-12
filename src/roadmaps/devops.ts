@@ -1,448 +1,124 @@
-import { Level, LinkContentType } from '../entity/RoadmapModel';
-import { bash } from './items/bash';
-import { go } from './items/go';
-import { javascript } from './items/javascript';
-import { python } from './items/python';
-import { rust } from './items/rust';
-import { ruby } from './items/ruby';
-import { cplusplus } from './items/cplusplus';
-import { unix } from './items/unix';
-import { monitoring } from './items/monitoring';
-import { cicd } from './items/cicd';
-import { configManagement } from './items/configManagement';
-import { infrastructureProvisioning } from './items/infrastructureProvisioning';
+import { withAILearning } from './aiLearning';
+import { Level } from '../entity/RoadmapModel';
+import { career, git, project, topic, web } from './curriculum';
+import { resources as r } from './resources';
 
-export const data: Level[] = [
-  {
-    label: 'Escolha uma linguagem',
-    description: 'Tente aprender alguma dessas com a finalidade de usar para automação de tarefas.',
-    items: [bash, python, go, javascript, rust, ruby, cplusplus],
-  },
-  {
-    label: 'Conceitos de Sistemas Operacionais',
-    description:
-      'Aqui você vai aprender Conceitos referente a Sistema Operacionais, como Processos, Threads, Sockets, Rede',
-    items: [
-      {
-        label: 'Gerenciamento de Processos',
-        description:
-          'Aqui Você vai entender mais sobre o gerenciamento de processos no Sistema Operacional',
-        children: [
-          {
-            label: 'Linux',
-            links: [
-              {
-                label: 'Gerenciamento de Processos - LinuxTips',
-                url: 'https://www.youtube.com/watch?v=-bEVlQv_O-8&list=PLf-O3X2-mxDlx6sRx2WB-xv3Q9YHJ23ZN',
-                contentType: LinkContentType.WATCH,
-              },
-            ],
-          },
-        ],
-      },
-      { label: 'Threads e Concorrência', links: [] },
-      {
-        label: 'Sockets',
-        description:
-          'Sockets são a forma de acessarmos algum destino em uma rede. Utilizamos sockets o tempo todo, mesmo que indiretamente.',
-        links: [
-          {
-            label: 'Sockets de rede - Como funciona a comunicação na Web | Dias de Dev',
-            url: 'https://youtu.be/qel4jIrh7Z0',
-            contentType: LinkContentType.WATCH,
-          },
-        ],
-      },
-      { label: 'Básico POSIX', links: [] },
-      { label: 'Conceitos de Rede', links: [] },
-      { label: 'initd (Gerenciamento de Inicialização)', links: [] },
-      {
-        label: 'systemd (Gerenciamento de Serviço)',
-        description: 'Systemd é um sistema gerenciador de serviços para Linux.',
-        children: [
-          {
-            label: 'systemd (Gerenciamento de Serviço)',
-            links: [
-              {
-                label: 'O que é Systemd? - LinuxTips',
-                url: 'https://www.youtube.com/watch?v=1uGqXhhberk&t',
-                contentType: LinkContentType.WATCH,
-              },
-              {
-                label: 'O que é Systemd? - Diolinux',
-                url: 'https://www.youtube.com/watch?v=7mXCxj4SWqU',
-                contentType: LinkContentType.WATCH,
-              },
-            ],
-          },
-        ],
-      },
-      { label: 'I/O', links: [] },
-      { label: 'Virtualização', links: [] },
-      { label: 'Memória/Storage', links: [] },
-      {
-        label: 'Sistemas de Arquivos',
-        links: [
-          {
-            label: 'Sistemas de Arquivos - Guia Foca',
-            url: 'https://www.guiafoca.org/guiaonline/intermediario/ch05.html',
-            contentType: LinkContentType.READ,
-          },
-          {
-            label: 'BTRFS, o sistema de arquivos “do futuro”',
-            url: 'https://diolinux.com.br/editorial/btrfs-o-sistema-de-arquivos-do-futuro.html',
-            contentType: LinkContentType.READ,
-          },
-        ],
-      },
-    ],
-  },
-  {
-    label: 'Aprenda a gerenciar servidores',
-    description: 'Aprenda conceitos de administração em algum Sistema Operacional.',
-    items: [
-      {
-        label: 'Linux',
-        children: [
-          {
-            label: 'Guiafoca',
-            links: [
-              {
-                label: 'Documentação Oficial',
-                url: 'https://www.guiafoca.org/',
-                contentType: LinkContentType.READ,
-              },
-            ],
-          },
-          {
-            label: 'Certificação',
-            links: [
-              {
-                label: 'Descomplicando LPI Day 1 - LinuxTips',
-                url: 'https://www.youtube.com/watch?v=QstQd6-3cnY&list=PLf-O3X2-mxDlwFxiS-VZR1kOewf0XjyAW',
-                contentType: LinkContentType.READ,
-              },
-              {
-                label: 'Descomplicando LPI Day 2 - LinuxTips',
-                url: 'https://www.youtube.com/watch?v=68NdygyTJXQ&list=PLf-O3X2-mxDlzNexUj5zS3RT8qMjTfBLL',
-                contentType: LinkContentType.READ,
-              },
-              {
-                label: '#BondeDaLPI - LinuxTips',
-                url: 'https://www.youtube.com/watch?v=xn_E4v_vRXQ',
-                contentType: LinkContentType.READ,
-              },
-            ],
-          },
-          {
-            label: 'Arch',
-            links: [
-              {
-                label: 'Documentação Oficial',
-                url: 'https://wiki.archlinux.org/title/Main_page_(Portugu%C3%AAs)',
-                contentType: LinkContentType.READ,
-              },
-            ],
-          },
-          {
-            label: 'Debian',
-            links: [
-              {
-                label: 'Documentação Oficial',
-                url: 'https://wiki.debian.org/pt_BR/FrontPage',
-                contentType: LinkContentType.READ,
-              },
-            ],
-          },
-          { label: 'Fedora', links: [] },
-          {
-            label: 'Ubuntu',
-            links: [
-              {
-                label: 'Documentação Oficial',
-                url: 'https://help.ubuntu.com/community/PortugueseDocumentation',
-                contentType: LinkContentType.READ,
-              },
-            ],
-          },
-          { label: 'CentOS', links: [] },
-          { label: 'RHEL', links: [] },
-        ],
-      },
-      {
-        label: 'BSD',
-        description:
-          'Berkeley Software Distribution (BSD) é um sistema operacional UNIX com desenvolvimento derivado e distribuído pela Universidade da Califórnia em Berkeley. Hoje o termo "BSD" é frequentemente usado de forma não específica para se referir a qualquer descendente que juntos, formam uma ramificação dessa família de sistemas operacionais.',
-        children: [
-          { label: 'FreeBSD', links: [] },
-          { label: 'OpenBSD', links: [] },
-          { label: 'NetBSD', links: [] },
-        ],
-      },
-      unix,
-      { label: 'Windows', children: [{ label: 'O básico', links: [] }] },
-    ],
-  },
-  {
-    items: [
-      {
-        label: 'Usando o Terminal',
-        children: [
-          {
-            label: 'Bash Script',
-            links: [
-              {
-                label: 'Curso Shell GNU - debxp (Blau Araujo)',
-                url: 'https://www.youtube.com/watch?v=Daasn9IjwMQ&list=PLXoSGejyuQGqJEEyo2fY3SA-QCKlF2rxO',
-                contentType: LinkContentType.WATCH,
-              },
-              {
-                label: 'Além do Bash - debxp (Blau Araujo)',
-                url: 'https://www.youtube.com/watch?v=_W51nj5JTwk&list=PLXoSGejyuQGpen1lAlhngkpuldmot8DV0',
-                contentType: LinkContentType.WATCH,
-              },
-              {
-                label: 'Curso Básico de Programação em Bash - debxp (Blau Araujo)',
-                url: 'https://www.youtube.com/watch?v=spIRwXEF3XY&list=PLf-O3X2-mxDlfAv8IOfic1sHArdwrrkgh&index',
-                contentType: LinkContentType.WATCH,
-              },
-              {
-                label: 'Shell Scripting - Boson Treinamentos',
-                url: 'https://www.youtube.com/watch?v=EOLPUc6oo-w&list=PLucm8g_ezqNrYgjXC8_CgbvHbvI7dDfhs',
-                contentType: LinkContentType.WATCH,
-              },
-            ],
-          },
-          { label: 'Ferramentas de Texto', links: [] },
-          {
-            label: 'Editores de Texto',
-            links: [
-              {
-                label: 'Descomplicando VIM - LinuxTips',
-                url: 'https://www.youtube.com/watch?v=TxSulvPxqic&list=PLf-O3X2-mxDnp9OpR8ZfbiRdq9CFPN5RE',
-                contentType: LinkContentType.WATCH,
-              },
-            ],
-          },
-          { label: 'Compilação', links: [] },
-          { label: 'System Performance', links: [] },
-          { label: 'Monitoramento de Processos', links: [] },
-          { label: 'Rede', links: [] },
-          { label: 'Outros', links: [] },
-        ],
-      },
-    ],
-  },
-  {
-    items: [
-      {
-        label: 'Rede, Segurança e Protocolos',
-        children: [
-          { label: 'HTTP', links: [] },
-          { label: 'HTTPS', links: [] },
-          { label: 'FTP', links: [] },
-          { label: 'SSL/TLS', links: [] },
-          {
-            label: 'SSH',
-            description:
-              'SSH é um protocolo que permite acesso a um terminal remoto. Basicamente, você pode acessar servidores pela rede e executar comandos, transferir arquivos, etc.',
-            links: [
-              {
-                label: 'O que é SSH - Como acessar servidores remotos',
-                url: 'https://youtu.be/M_Pe7jdr8QE',
-                contentType: LinkContentType.WATCH,
-              },
-            ],
-          },
-          { label: 'Port Forwarding', links: [] },
-          { label: 'SMTP', links: [] },
-          { label: 'IMAPS', links: [] },
-          { label: 'POP3', links: [] },
-        ],
-      },
-    ],
-  },
-  {
-    label: 'O que é, e como configurar:',
-    items: [
-      {
-        label: 'Proxy Reverso',
-        children: [
-          { label: 'Nginx', links: [] },
-          { label: 'Traefik', links: [] },
-        ],
-      },
-      { label: 'Caching Server', children: [{ label: 'O Básico', links: [] }] },
-      { label: 'Forward Proxy', children: [{ label: 'O Básico', links: [] }] },
-      {
-        label: 'Load Balancer',
-        description:
-          'Um load balancer serve como ponto único de entrada em uma aplicação. O balanceador de carga distribui o tráfego de entrada entre vários servidores diferentes, por exemplo.',
-        children: [
-          {
-            label: 'O Básico',
-            links: [
-              {
-                label: 'Load balancer - O que é um balanceador de carga? | Dias de Dev',
-                url: 'https://youtu.be/TNl08-PgimE',
-                contentType: LinkContentType.WATCH,
-              },
-            ],
-          },
-        ],
-      },
-      {
-        label: 'Firewall',
-        description:
-          'Um firewall é um dispositivo de segurança de rede que monitora o tráfego que entra e sai da sua rede. É extremamente imortante para a segurança de uma rede.',
-        children: [
-          {
-            label: 'O Básico',
-            links: [
-              {
-                label: 'Firewalls - O mínimo que todo dev deve saber | Dias de Dev',
-                url: 'https://youtu.be/w-wKctaMGpU',
-                contentType: LinkContentType.WATCH,
-              },
-            ],
-          },
-        ],
-      },
-      {
-        label: 'Web Server',
-        children: [
-          { label: 'Nginx', links: [] },
-          { label: 'Apache', links: [] },
-          { label: 'IIS', links: [] },
-          { label: 'Tomcat', links: [] },
-          { label: 'Caddy', links: [] },
-        ],
-      },
-    ],
-  },
-  {
-    label: 'Infraestrutura como Código',
-    items: [
-      {
-        label: 'Containers',
-        children: [
-          {
-            label: 'Docker',
-            links: [
-              {
-                label: 'Descomplicando o Docker - Linux Tips',
-                url: 'https://www.youtube.com/watch?v=Wm99C_f7Kxw&list=PLf-O3X2-mxDn1VpyU2q3fuI6YYeIWp5rR',
-                contentType: LinkContentType.WATCH,
-              },
-              {
-                label: 'Curso Docker - Robert Silva',
-                url: 'https://www.youtube.com/watch?v=c2y_yz9B6_M&list=PLg7nVxv7fa6dxsV1ftKI8FAm4YD6iZuI4',
-                contentType: LinkContentType.WATCH,
-              },
-              {
-                label: 'Livro Descomplicando Docker',
-                url: 'https://livro.descomplicandodocker.com.br/',
-                contentType: LinkContentType.WATCH,
-              },
-              {
-                label: 'Docker em 22 Minutos - Programador a Bordo',
-                url: 'https://livro.descomplicandodocker.com.br/',
-                contentType: LinkContentType.WATCH,
-              },
-            ],
-          },
-          { label: 'LXC', links: [] },
-        ],
-      },
-      configManagement,
-      {
-        label: 'Orquestração de Containers',
-        children: [
-          { label: 'Kubernetes', links: [] },
-          { label: 'Mesos', links: [] },
-          { label: 'Docker Swarm', links: [] },
-          { label: 'Nomad', links: [] },
-        ],
-      },
-      infrastructureProvisioning,
-    ],
-  },
-  cicd,
-  monitoring,
-  {
-    label: 'Escolha um provedor de Nuvem',
-    items: [
-      {
-        label: 'AWS',
-        children: [
-          {
-            label: 'Certificação',
-            links: [
-              {
-                label:
-                  '#BondeDaAWS - Treinamento preparatório para a certificação da AWS - LinuxTips',
-                url: 'https://www.youtube.com/watch?v=VrQVDbgwFDs&t',
-                contentType: LinkContentType.WATCH,
-              },
-            ],
-          },
-        ],
-      },
-      {
-        label: 'Oracle Cloud',
-        children: [
-          {
-            label: 'Certificação',
-            links: [
-              {
-                label:
-                  '#BondeDoOCI - Workshop completo rumo a certificação Oracle Cloud - LinuxTips',
-                url: 'https://www.youtube.com/watch?v=jWG3gVf2YWEs',
-                contentType: LinkContentType.WATCH,
-              },
-            ],
-          },
-        ],
-      },
-      { label: 'Google Cloud', children: [{ label: 'O básico', links: [] }] },
-      { label: 'Azure', children: [{ label: 'O básico', links: [] }] },
-      { label: 'Heroku', children: [{ label: 'O básico', links: [] }] },
-      { label: 'Digital Ocean', children: [{ label: 'O básico', links: [] }] },
-      { label: 'Linode', children: [{ label: 'O básico', links: [] }] },
-      { label: 'Vultr', children: [{ label: 'O básico', links: [] }] },
-    ],
-  },
-  {
-    items: [
-      {
-        label: 'Design Patterns para Nuvem',
-        children: [
-          { label: 'Disponibilidade', links: [] },
-          { label: 'Gerenciamento de Dados', links: [] },
-          { label: 'Design e Implementação', links: [] },
-          { label: 'Gerenciamento e Monitoramento', links: [] },
-          {
-            label: 'FinOps',
-            links: [
-              {
-                label: 'Você sabe o que é FINOPS? - Zappts',
-                url: 'https://www.youtube.com/watch?v=mJjeDENeqTE',
-                contentType: LinkContentType.WATCH,
-              },
-            ],
-          },
-          {
-            label: 'GitOps',
-            links: [
-              {
-                label: 'O que é GitOps? - FullCycle',
-                url: 'https://www.youtube.com/watch?v=qCYmn1RwHZM',
-                contentType: LinkContentType.WATCH,
-              },
-            ],
-          },
-        ],
-      },
-    ],
-  },
-];
+export const data: Level[] = withAILearning(
+  [
+    {
+      label: 'Base para operar sistemas',
+      description:
+        'DevOps envolve desenvolvimento e operação. Para começar, pratique Linux, redes, Git e uma aplicação simples; suporte, infraestrutura e desenvolvimento também podem ser portas de entrada.',
+      items: [git, web],
+    },
+    {
+      label: 'Linux e redes na prática',
+      items: [
+        topic(
+          'Linux e terminal',
+          'Aprenda arquivos, permissões, usuários, processos, serviços, pacotes, logs e SSH. Use uma máquina local ou VM de laboratório.',
+          [r.linux],
+          'Crie um usuário com permissões limitadas, execute um serviço e encontre o motivo de uma falha nos logs.',
+        ),
+        topic(
+          'Redes e diagnóstico',
+          'Entenda IP, portas, DNS, HTTP/TLS, firewall e proxy reverso. Use ferramentas de diagnóstico para seguir uma requisição.',
+          [r.http, r.linux],
+          'Diagnostique separadamente uma porta fechada, um erro de DNS e um serviço indisponível.',
+        ),
+      ],
+    },
+    {
+      label: 'Automação simples',
+      description:
+        'Comece com shell; use Python para scripts com mais lógica. Go, Rust e C++ são especializações, não uma lista obrigatória.',
+      items: [
+        topic(
+          'Shell e Python',
+          'Aprenda variáveis, pipes, códigos de saída e scripts idempotentes. Em Python, use arquivos, subprocessos, HTTP e tratamento de erros.',
+          [r.bash, r.pythonCourse, r.python],
+          'Automatize uma checagem de serviço, produza logs úteis e retorne um código de erro quando a verificação falhar.',
+        ),
+      ],
+    },
+    project(
+      'Serviço Linux reproduzível',
+      'Execute uma aplicação simples em um laboratório local e automatize sua configuração básica.',
+      'Documente portas, permissões e comandos. Execute o script duas vezes sem corromper o estado e demonstre como diagnosticar uma falha.',
+      [r.linux, r.python],
+    ),
+    {
+      label: 'Containers antes de orquestração',
+      items: [
+        topic(
+          'Docker e Compose',
+          'Aprenda imagem, container, volumes, redes, Dockerfile, health check e execução sem root quando possível. Rode uma aplicação e um banco com Compose.',
+          [r.docker, r.compose],
+          'Recrie a aplicação a partir dos arquivos versionados e confirme que os dados sobrevivem à recriação do container.',
+        ),
+      ],
+    },
+    {
+      label: 'CI/CD e segurança de entrega',
+      items: [
+        topic(
+          'Pipeline de entrega',
+          'Automatize testes, build e artefatos. Separe CI de deploy; use permissões mínimas, segredos protegidos e dependências verificáveis.',
+          [r.actions, r.security],
+          'Faça a CI validar um pull request e registre um artefato versionado. Demonstre rollback para uma versão anterior.',
+        ),
+      ],
+    },
+    {
+      label: 'Nuvem e infraestrutura como código',
+      description:
+        'Aprenda conceitos de um provedor. A documentação é gratuita; serviços podem ser cobrados. Os exercícios principais podem ser feitos localmente.',
+      items: [
+        topic(
+          'Conceitos de nuvem',
+          'Entenda IAM, computação, rede, armazenamento, banco gerenciado, responsabilidade compartilhada e custos. Escolha AWS, Azure ou GCP conforme seu contexto.',
+          [r.cloud],
+          'Desenhe o ambiente da aplicação, estime os recursos e explique as permissões mínimas. Se usar nuvem, defina orçamento e remova recursos ao terminar.',
+        ),
+        topic(
+          'Terraform e estado',
+          'Aprenda plano, aplicação, estado, drift e ciclo de vida com Terraform ou outra ferramenta compatível. Comece no laboratório Docker local.',
+          [r.terraform],
+          'Crie e remova um recurso local por código; explique o plano e proteja o arquivo de estado.',
+        ),
+      ],
+    },
+    {
+      label: 'Confiabilidade e operação',
+      items: [
+        topic(
+          'Observabilidade e incidentes',
+          'Aprenda logs, métricas, traces, SLI/SLO, alertas acionáveis, runbooks, backups e recuperação. Monitore sintomas percebidos pelo usuário.',
+          [r.otel, r.sre],
+          'Simule indisponibilidade, identifique a causa, recupere o serviço e escreva um relato sem atribuir culpa.',
+        ),
+      ],
+    },
+    project(
+      'Entrega e recuperação de um serviço',
+      'Monte um laboratório com aplicação, banco, containers, CI e documentação operacional.',
+      'Outro desenvolvedor consegue reproduzir o ambiente. Demonstre pipeline, rollback, alerta útil e restauração de backup; registre custos se houver nuvem.',
+      [r.compose, r.actions, r.otel, r.sre],
+    ),
+    career,
+    {
+      label: 'Plataformas e escala opcionais',
+      description:
+        'Kubernetes, GitOps e plataformas internas ficam depois de saber entregar e operar um serviço simples.',
+      items: [
+        topic(
+          'Kubernetes e engenharia de plataforma',
+          'Aprenda deployments, services, configuração, recursos, probes e RBAC em um cluster local. Avalie a complexidade antes de adotar GitOps ou um portal interno.',
+          [r.kubernetes, r.sre],
+          'Faça deploy local, simule a falha de um pod e compare o custo operacional com Compose.',
+        ),
+      ],
+    },
+  ],
+  'devops',
+);

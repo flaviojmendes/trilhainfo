@@ -2,24 +2,12 @@ import { useParams } from 'react-router-dom';
 import MainLayout from '../components/layouts/MainLayout';
 import Roadmap from '../components/Roadmap';
 import useDocumentTitle from '../components/useDocumentTitle';
-import { useEffect, useState } from 'react';
-import { Level } from '../entity/RoadmapModel';
 import { roadmaps } from '../roadmaps/roadmaps';
 import E404Page from './E404Page';
+import RoadmapGuide from '../components/RoadmapGuide';
 
 export default function RoadmapPage() {
   const { name } = useParams<string>();
-  const [roadmapName, setRoadmapName] = useState('');
-
-  useEffect(() => {
-    setRoadmapName(name || '');
-  }, [name]);
-
-  type Roadmap = {
-    file: Level[];
-    title: string;
-    path: string;
-  };
 
   // we can be sure it is a keyof typeof roadmaps because of the ternary operator
   // but TypeScript is not smart enough
@@ -40,6 +28,7 @@ export default function RoadmapPage() {
       {name && name in roadmaps && (
         <>
           <div className="m-auto mt-4 px-2 lg:w-2/3">
+            <RoadmapGuide name={currentRoadmap} />
             <p className="c-brown mb-2 font-title ">
               Lendo de cima pra baixo, cada <span className="text-primary">caixa</span> é um assunto
               a ser estudado.
@@ -51,11 +40,12 @@ export default function RoadmapPage() {
           </div>
 
           <Roadmap
+            key={currentRoadmap}
             isPreview={false}
             data={roadmaps[name as keyof typeof roadmaps].file}
             title={roadmaps[name as keyof typeof roadmaps].title}
-            name={roadmapName}
-            roadmapPath={roadmapName}
+            name={currentRoadmap}
+            roadmapPath={currentRoadmap}
           />
         </>
       )}

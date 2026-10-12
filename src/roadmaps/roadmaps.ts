@@ -14,9 +14,9 @@ export const roadmaps: RoadmapFileModel = {
   react: { file: reactData, title: 'React' },
   backend: { file: backendData, title: 'Backend' },
   fullstack: { file: fullstackData, title: 'Fullstack' },
-  devops: { file: devopsData, title: 'Devops' },
-  'data-engineer': { file: dataEngineeringData, title: 'Data Engineer' },
+  devops: { file: devopsData, title: 'DevOps' },
+  'data-engineer': { file: dataEngineeringData, title: 'Engenharia de Dados' },
   community: { file: communityData, title: 'Comunidade' },
-  test: { file: testData, title: 'Test/QA' },
+  test: { file: testData, title: 'Testes / QA' },
   entrevistas: { file: entrevistasData, title: 'Entrevistas' },
 };

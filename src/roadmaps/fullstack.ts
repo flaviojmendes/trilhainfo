@@ -1,51 +1,116 @@
-import { Level, LinkType, LinkContentType } from '../entity/RoadmapModel';
-import { controleDeVersao } from './items/controleDeVersao';
-import { css } from './items/css';
-import { html } from './items/html';
-import { http } from './items/http';
-import { javascript } from './items/javascript';
-import { python } from './items/python';
-import { go } from './items/go';
-import { rust } from './items/rust';
-import { ruby } from './items/ruby';
-import { db } from './items/db';
-import { SO } from './items/SO';
-import { cloudComputing } from './items/cloudComputing';
-import { containers } from './items/containers';
-import { packageManager } from './items/packageManager';
-import { frameworksCSS } from './items/frameworksCSS';
-import { frontendFramework } from './items/frontendFramework';
-import { backendLanguages } from './items/backendLanguages';
-import { apis } from './items/apis';
-import { security } from './items/security';
-import { monitoring } from './items/monitoring';
-import { cicd } from './items/cicd';
-import { configManagement } from './items/configManagement';
-import { infrastructureProvisioning } from './items/infrastructureProvisioning';
-export const data: Level[] = [
-  {
-    label: 'Conhecimento básico sobre internet',
-    description:
-      'Para ser uma pessoa desenvolvedora backend ou frontend, independente da tecnologia que você ira utilizar, é importante saber os conceitos básicos sobre a internet.',
-    items: [http],
-  },
-  {
-    label: 'Conhecimento básico de Frontend',
-    description: '',
-    items: [html, css, javascript],
-  },
-  packageManager,
-  { items: [controleDeVersao] },
-  frameworksCSS,
-  frontendFramework,
-  backendLanguages,
-  db,
-  apis,
-  security,
-  { items: [SO] },
-  { items: [cloudComputing] },
-  monitoring,
-  cicd,
-  { items: [configManagement] },
-  { items: [infrastructureProvisioning] },
-];
+import { withAILearning } from './aiLearning';
+import { Level } from '../entity/RoadmapModel';
+import {
+  accessibility,
+  career,
+  css,
+  delivery,
+  git,
+  html,
+  javascript,
+  project,
+  sql,
+  topic,
+  typescript,
+  web,
+} from './curriculum';
+import { resources as r } from './resources';
+
+export const data: Level[] = withAILearning(
+  [
+    {
+      label: 'Uma base para os dois lados',
+      description:
+        'Construa um produto pequeno de ponta a ponta. Se estiver começando do zero, aprofunde primeiro Frontend ou Backend; não tente dominar duas carreiras de uma vez.',
+      items: [web, git],
+    },
+    { label: 'Interface sem abstrações', items: [html, css, javascript] },
+    project(
+      'Protótipo navegável',
+      'Crie uma interface de controle de despesas usando dados locais.',
+      'Inclua formulário, lista, filtros, layout responsivo e validação; peça que outra pessoa complete uma tarefa.',
+      [r.html, r.css, r.js],
+    ),
+    {
+      label: 'Uma stack para o produto',
+      description:
+        'TypeScript com React e Node.js permite reutilizar a linguagem. Outra combinação já conhecida também serve; escolha uma e mantenha o foco.',
+      items: [
+        typescript,
+        topic(
+          'React e Node.js',
+          'Aprenda componentes, estado, rotas e uma API simples. Use Vite para estudar o cliente e entenda o processo separado do servidor.',
+          [r.react, r.vite, r.node],
+          'Rode frontend e API localmente e explique o caminho de uma requisição entre eles.',
+        ),
+      ],
+    },
+    {
+      label: 'Dados e contrato',
+      items: [
+        sql,
+        topic(
+          'Integração HTTP',
+          'Defina o contrato REST, validação no servidor, status, paginação e tratamento de erro no cliente. Tipos compartilhados não substituem validação em runtime.',
+          [r.openapi, r.fetch, r.security],
+          'Conecte um formulário à API; trate timeout, resposta inválida e falha de validação sem perder os dados digitados.',
+        ),
+      ],
+    },
+    project(
+      'Aplicação com persistência',
+      'Substitua os dados locais por uma API com PostgreSQL.',
+      'Crie migrações, valide entradas e teste o fluxo de cadastrar e consultar despesas. Documente o contrato entre cliente e servidor.',
+      [r.postgres, r.openapi, r.playwright],
+    ),
+    {
+      label: 'Acesso, inclusão e testes',
+      items: [
+        topic(
+          'Sessões e permissões',
+          'Entenda autenticação, autorização, cookies, CSRF e CORS. Mantenha segredos no servidor e use bibliotecas mantidas.',
+          [r.security, r.http],
+          'Teste que um usuário não acesse despesas de outro e que entradas maliciosas sejam tratadas.',
+        ),
+        accessibility,
+        topic(
+          'Testes de ponta a ponta',
+          'Cubra regras no backend, comportamento do cliente e uma jornada completa. Evite substituir todos os testes por automação de navegador.',
+          [r.vitest, r.testingLibrary, r.playwright],
+          'Execute testes de cadastro, falha de API e acesso negado com dados isolados.',
+        ),
+      ],
+    },
+    {
+      label: 'Entrega e operação básica',
+      items: [
+        delivery,
+        topic(
+          'Configuração e monitoramento',
+          'Empacote com Docker Compose, separe ambientes, exponha health checks e logs e planeje backups e rollback. Kubernetes não é necessário para o primeiro produto.',
+          [r.compose, r.otel],
+          'Reproduza o produto a partir do README e simule restauração dos dados e falha do serviço.',
+        ),
+      ],
+    },
+    project(
+      'Produto completo',
+      'Entregue um controle de despesas utilizável com interface, API, banco e acesso por usuário.',
+      'Disponibilize demo local ou hospedada, CI, testes, configuração segura e documentação. Registre feedback de uso e uma correção; explique o fluxo inteiro sem auxílio de IA.',
+      [r.compose, r.actions, r.playwright],
+    ),
+    career,
+    {
+      label: 'Próximos passos opcionais',
+      items: [
+        topic(
+          'Framework de aplicação completa',
+          'Depois de compreender a separação cliente/servidor, avalie Next.js ou outro framework. Compare SSR, cache e deploy com sua aplicação atual.',
+          [r.next, r.reactSetup],
+          'Reimplemente uma rota e justifique quando essa arquitetura ajuda e quando aumenta a complexidade.',
+        ),
+      ],
+    },
+  ],
+  'fullstack',
+);

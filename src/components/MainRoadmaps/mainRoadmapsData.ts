@@ -1,52 +1,23 @@
-export const mainRoadmapsData = [
-  {
-    title: 'Frontend',
-    description:
-      'A pessoa que desenvolve front-end é responsável pela experiência do usuário dentro de uma aplicação web. É ela quem vai desenhar e desenvolver as páginas com as quais, posteriormente, o usuário irá interagir.',
-    url: '/roadmap/frontend',
-    image: '/frontend.png',
-  },
-  {
-    title: 'Backend',
-    description:
-      'Back-end se relaciona com o que está por trás das aplicações desenvolvidas na programação. Ou seja, tudo que dá estrutura e apoio às ações do usuário da máquina é chamado de back-end.',
-    url: '/roadmap/backend',
-    image: '/backend.png',
-  },
-  {
-    title: 'Fullstack',
-    description:
-      'Full Stack é alguém com formação técnica completa para projetar, desenvolver, testar e distribuir web sites ou aplicativos. Essa pessoa é capaz de operar tanto no front-end quanto no back-end no desenvolvimento.',
-    url: '/roadmap/fullstack',
-    image: '/backend.png',
-  },
+import { roadmapGuides } from '../../roadmaps/guides';
+import { roadmaps } from '../../roadmaps/roadmaps';
 
-  {
-    title: 'Entrevistas',
-    description:
-      'A entrevista técnica é uma etapa importante do processo seletivo para uma vaga de desenvolvedor. Nela, o candidato é avaliado por meio de perguntas e exercícios práticos para testar seus conhecimentos e habilidades.',
-    url: '/roadmap/entrevistas',
-    image: '/backend.png',
-  },
-  {
-    title: 'Devops',
-    description:
-      'Especialista em DevOps é a pessoa que atua na integração entre as equipes de desenvolvimento de software, integrando e monitorando suas atividades para buscar um desempenho mais otimizado e simplificado.',
-    url: '/roadmap/devops',
-    image: '/devops.png',
-  },
-  {
-    title: 'React',
-    description:
-      'React é uma biblioteca JavaScript declarativa, eficiente e flexível criada pelo Facebook em 2011 para desenvolver aplicações front-end, ou seja, interfaces de usuário (UIs).',
-    url: '/roadmap/react',
-    image: '/react.svg',
-  },
-  {
-    title: 'Test/QA',
-    description:
-      'Trabalhando com testes de software você irá verificar se o software corresponde aos requisitos esperados. De acordo com os principios de testes, o teste não garante que um software esta livre de defeitos.',
-    url: '/roadmap/test',
-    image: '/test.png',
-  },
-];
+// Carreiras primeiro; especialização e preparação complementar depois.
+const featuredRoadmaps = [
+  'frontend',
+  'backend',
+  'fullstack',
+  'test',
+  'devops',
+  'data-engineer',
+  'react',
+  'entrevistas',
+] as const;
+
+export const mainRoadmapsData = featuredRoadmaps.map((name) => {
+  const guide = roadmapGuides[name];
+  return {
+    title: roadmaps[name].title,
+    description: guide ? `${guide.audience} ${guide.start}` : '',
+    url: `/roadmap/${name}`,
+  };
+});

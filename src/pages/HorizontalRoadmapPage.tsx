@@ -11,12 +11,14 @@ import { LevelProvider } from '../components/HorizontalRoadmap/LevelProvider';
 import RoadmapButtons from '../components/RoadmapButtons';
 import { useAuth0 } from '@auth0/auth0-react';
 import E404Page from './E404Page';
+import RoadmapGuide from '../components/RoadmapGuide';
 
 type RoadmapName = keyof typeof roadmaps;
 
 export default function HorizontalRoadmapPage() {
+  const { name } = useParams<{ name: RoadmapName }>();
   return (
-    <LevelProvider>
+    <LevelProvider key={name}>
       <HorizontalRoadmapPageImpl />
     </LevelProvider>
   );
@@ -47,6 +49,7 @@ function HorizontalRoadmapPageImpl() {
     <MainLayout>
       {name && name in roadmaps && (
         <div className="m-auto flex h-full w-11/12 flex-col">
+          <RoadmapGuide name={name} />
           <div className="mt-8 flex justify-end gap-2">
             <RoadmapButtons
               buttons={isAuthenticated ? ['verticalView', 'exportNotes'] : ['verticalView']}

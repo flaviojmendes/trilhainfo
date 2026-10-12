@@ -16,7 +16,7 @@ export function convertToRoadmapRead(levels: Level[]): RoadmapRead[] {
       } else if (links && links.length > 0) {
         // Handle 'links' instead of 'children'
         roadmapReadItem.children = links.map((link) => ({
-          label: `${item.label}-${link.label}`,
+          label: `${parentLabel}-${item.label}-${link.label}`,
           read: false, // Set default value for 'read' attribute for links
         }));
       }
@@ -35,6 +35,45 @@ export function convertToRoadmapRead(levels: Level[]): RoadmapRead[] {
 
     return roadmapReadLevel;
   });
+}
+
+// Rebuild the current tree, preserving completed resources by their stored labels.
+// New resources stay unchecked, even when their old parent section was complete.
+export function reconcileRoadmapRead(levels: Level[], previous: RoadmapRead[]): RoadmapRead[] {
+  const previousRead = new Map<string, boolean>();
+  function collect(items: RoadmapRead[], parentLabel?: string) {
+    items.forEach((item) => {
+      previousRead.set(item.label, previousRead.get(item.label) === true || item.read === true);
+      if (item.children) {
+        collect(item.children, item.label);
+      } else if (parentLabel && !item.label.startsWith(parentLabel + '-')) {
+        // Legacy resource IDs omitted the topic. Recover it from the stored
+        // parent so identical references in different exercises stay independent.
+        for (let index = 0; index < item.label.length; index++) {
+          if (item.label[index] === '-' && parentLabel.endsWith('-' + item.label.slice(0, index))) {
+            previousRead.set(parentLabel + '-' + item.label.slice(index + 1), item.read === true);
+            break;
+          }
+        }
+      }
+    });
+  }
+  collect(previous);
+
+  function restore(items: RoadmapRead[]): RoadmapRead[] {
+    return items.map((item) => {
+      const children = item.children ? restore(item.children) : undefined;
+      return {
+        ...item,
+        ...(children ? { children } : {}),
+        read: children?.length
+          ? children.every((child) => child.read === true)
+          : previousRead.get(item.label) === true,
+      };
+    });
+  }
+
+  return restore(convertToRoadmapRead(levels));
 }
 
 export function updateReadAttribute(

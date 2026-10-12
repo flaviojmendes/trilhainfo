@@ -4,6 +4,7 @@ import { BsChevronDown } from 'react-icons/bs';
 import { RoadmapItem } from '../../entity/RoadmapModel';
 import { Checkbox } from '../Checkbox';
 import { useSectionRoadmapActions } from '../HorizontalRoadmap/LevelProvider';
+import LearningPrompt from '../LearningPrompt';
 
 export const AccordionContainer = RadixAccordion.Root;
 export const AccordionItem = RadixAccordion.Item;
@@ -40,6 +41,14 @@ export function HorizontalRoadmapAccordion({ section }: HorizontalRoadmapProps) 
         </AccordionTrigger>
       </AccordionHeader>
       <AccordionContent className={s.Content}>
+        {section.description && (
+          <p className="mb-3 whitespace-pre-line leading-relaxed text-text-primary">
+            {section.description}
+          </p>
+        )}
+        {section.prompt && (
+          <LearningPrompt key={section.prompt} prompt={section.prompt} label={section.label} />
+        )}
         {section.links?.length ? (
           section.links?.map((link) => (
             <div key={link.label} className="my-2 flex items-start justify-between">
@@ -81,6 +90,14 @@ export function RoadmapAccordion({ section, isRead, saveRead }: AccordionProps) 
         </AccordionTrigger>
       </AccordionHeader>
       <AccordionContent className={s.Content}>
+        {section.description && (
+          <p className="mb-3 whitespace-pre-line leading-relaxed text-text-primary">
+            {section.description}
+          </p>
+        )}
+        {section.prompt && (
+          <LearningPrompt key={section.prompt} prompt={section.prompt} label={section.label} />
+        )}
         {section.links?.length ? (
           section.links?.map((link) => (
             <div key={link.label} className="my-2 flex items-start justify-between">

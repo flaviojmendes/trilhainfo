@@ -9,7 +9,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 import { AccordionContainer, RoadmapAccordion } from '../Accordion';
 import { DrawerRoot, Drawer, DrawerTitle, DrawerDescription } from '../Drawer';
 import { RoadmapRead } from '../../entity/RoadmapReadModel';
-import { convertToRoadmapRead, isRead, updateReadAttribute } from '../../support/roadmapUtils';
+import { isRead, reconcileRoadmapRead, updateReadAttribute } from '../../support/roadmapUtils';
 import { set } from 'react-ga';
 
 type Props = {
@@ -47,20 +47,15 @@ export default function Roadmap({ data, title, roadmapPath, name, isPreview }: P
   );
 
   useEffect(() => {
-    console.log(JSON.stringify(data));
     window.scrollTo(0, 0);
   }, []);
 
   useEffect(() => {
-    (async () => {
-      const roadmapRead = convertToRoadmapRead(data);
-      if (!selectedItems || selectedItems.length === 0) {
-        setSelectedItems(roadmapRead);
-      } else if (selectedItems.length !== roadmapRead.length) {
-        setSelectedItems(roadmapRead);
-      }
-    })();
-  }, [setSelectedItems, name]);
+    const updated = reconcileRoadmapRead(data, selectedItems || []);
+    if (JSON.stringify(updated) !== JSON.stringify(selectedItems)) {
+      setSelectedItems(updated);
+    }
+  }, [data, selectedItems, setSelectedItems, name]);
 
   useEffect(() => {
     if (hash) {

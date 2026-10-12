@@ -6,8 +6,12 @@ export default function MainRoadmaps() {
   return (
     <section id="mainRoadmaps" className="px-10 pt-4">
       <h2 className=" my-6 font-title text-4xl text-title-primary md:w-1/3 xl:ml-64">
-        Tudo o que você precisa saber no universo de:
+        Escolha seu caminho de aprendizado
       </h2>
+      <p className="mb-6 max-w-[70ch] font-title leading-relaxed text-text-primary xl:ml-64">
+        Trilhas revisadas para outubro de 2026, com fundamentos, prática de IA e projetos para
+        portfólio. Comece por uma carreira; React e Entrevistas complementam sua formação.
+      </p>
 
       <section className="mx-auto grid w-full grid-cols-1 gap-5 space-y-10 pb-10 md:grid-cols-2 md:space-y-0 xl:px-64 2xl:grid-cols-3">
         {mainRoadmapsData.map((mainRoadmap) => {
@@ -19,7 +23,7 @@ export default function MainRoadmaps() {
               >
                 <div className="flex w-full flex-col">
                   <div className="w-fit">
-                    <h3 className="ml-4 mb-2 font-title text-3xl font-semibold text-text-primary">
+                    <h3 className="mb-2 ml-4 font-title text-3xl font-semibold text-text-primary">
                       {mainRoadmap.title}
                     </h3>
                     <div className="to-transparent ml-4 h-1 w-full bg-gradient-to-r from-primary"></div>
