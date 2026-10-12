@@ -6,12 +6,14 @@ import { resources as r } from './resources';
 export const data: Level[] = withAILearning(
   [
     {
+      id: 'backend.fundamentos-de-desenvolvimento',
       label: 'Fundamentos de desenvolvimento',
       description:
         'Comece por lógica, Git e HTTP. HTML e CSS básicos ajudam a entender o cliente, mas dominar frontend não é pré-requisito para backend.',
       items: [git, web],
     },
     {
+      id: 'backend.escolha-uma-linguagem-e-uma-stack',
       label: 'Escolha uma linguagem e uma stack',
       description:
         'Escolha uma opção conforme seus objetivos e as vagas locais. Faça todo o primeiro projeto na mesma stack; não estude todas em paralelo.',
@@ -21,6 +23,7 @@ export const data: Level[] = withAILearning(
           'Opções: TypeScript com Node.js, Python com FastAPI, Java com Spring ou C# com ASP.NET Core. Pratique funções, coleções, erros, módulos, testes e depuração.',
           [r.jsCourse, r.js, r.ts, r.node, r.pythonCourse, r.python, r.java, r.dotnet],
           'Construa um programa de linha de comando com validação, persistência em arquivo e testes na linguagem escolhida.',
+          'backend.uma-linguagem-de-backend',
         ),
       ],
     },
@@ -29,9 +32,15 @@ export const data: Level[] = withAILearning(
       'Implemente um controle de despesas no terminal, separando entrada, regras e armazenamento.',
       'Teste valores inválidos e regras de cálculo, trate erros de arquivo e documente como rodar e depurar.',
       [r.node, r.python, r.java, r.dotnet],
+      'backend.programa-com-regras-de-negocio',
     ),
-    { label: 'Persistência relacional', items: [sql] },
     {
+      id: 'backend.persistencia-relacional',
+      label: 'Persistência relacional',
+      items: [sql],
+    },
+    {
+      id: 'backend.primeira-api',
       label: 'Primeira API',
       items: [
         topic(
@@ -39,12 +48,14 @@ export const data: Level[] = withAILearning(
           'Use um framework da stack escolhida. Entenda rotas, status, validação de dados, paginação, erros consistentes e OpenAPI.',
           [r.node, r.fastapi, r.spring, r.aspnet, r.openapi],
           'Crie endpoints de despesas com validação e documentação; demonstre respostas de sucesso e erro.',
+          'backend.api-rest-e-contratos',
         ),
         topic(
           'Acesso a dados e migrações',
           'Use consultas parametrizadas, transações e migrações versionadas. Um ORM ajuda, mas você precisa entender o SQL produzido.',
           [r.postgres, r.security],
           'Aplique uma migração em um banco vazio, teste rollback de uma transação e explique como evitar SQL injection.',
+          'backend.acesso-a-dados-e-migracoes',
         ),
       ],
     },
@@ -53,8 +64,10 @@ export const data: Level[] = withAILearning(
       'Conecte a API de despesas ao PostgreSQL e documente o contrato.',
       'Inclua CRUD, paginação, migrações reproduzíveis e testes de integração com banco de teste. Demonstre validação e conflitos de dados.',
       [r.postgres, r.openapi, r.playwrightApi],
+      'backend.api-com-banco-de-dados',
     ),
     {
+      id: 'backend.seguranca-e-qualidade',
       label: 'Segurança e qualidade',
       items: [
         topic(
@@ -62,16 +75,19 @@ export const data: Level[] = withAILearning(
           'Diferencie identidade e permissões. Aprenda hash seguro de senha, sessão/cookies, tokens, TLS, CORS, CSRF, limites de requisição e gestão de segredos. Prefira bibliotecas mantidas.',
           [r.security, r.http],
           'Garanta que uma pessoa não leia nem altere despesas de outra; teste acesso sem sessão e com permissões insuficientes.',
+          'backend.autenticacao-e-autorizacao',
         ),
         topic(
           'Testes e design simples',
           'Separe regras de negócio do transporte HTTP. Teste unidades, integração e contrato; use um monólito modular antes de microserviços.',
           [r.pytest, r.vitest, r.playwrightApi],
           'Teste regras, banco e endpoints com dados isolados e justifique os limites dos módulos.',
+          'backend.testes-e-design-simples',
         ),
       ],
     },
     {
+      id: 'backend.execucao-e-operacao',
       label: 'Execução e operação',
       items: [
         topic(
@@ -79,6 +95,7 @@ export const data: Level[] = withAILearning(
           'Aprenda Docker, health checks, logs estruturados, métricas e backups. Identifique falhas antes de adicionar infraestrutura.',
           [r.docker, r.compose, r.otel],
           'Rode API e banco em Compose, investigue uma falha por logs e demonstre restauração de um backup.',
+          'backend.containers-e-observabilidade',
         ),
         delivery,
       ],
@@ -88,9 +105,12 @@ export const data: Level[] = withAILearning(
       'Entregue a API com acesso por usuário, banco, documentação, testes e execução reproduzível.',
       'A CI valida a aplicação; README descreve configuração sem segredos, decisões, limites e recuperação. Disponibilize uma demo local ou hospedada com custos conhecidos.',
       [r.compose, r.actions, r.security],
+      'backend.servico-pronto-para-demonstracao',
     ),
     career,
     {
+      optional: true,
+      id: 'backend.escala-e-especializacao-opcionais',
       label: 'Escala e especialização opcionais',
       description:
         'Estude quando o projeto ou a vaga exigir. GraphQL, bancos em grafos e mecanismos de busca não são requisitos universais de entrada.',
@@ -100,12 +120,14 @@ export const data: Level[] = withAILearning(
           'Explore invalidação de cache, jobs, retries, idempotência e consistência. Meça a necessidade antes de separar serviços.',
           [r.sre, r.kafka],
           'Implemente uma tarefa assíncrona idempotente e documente o que acontece em caso de repetição e falha.',
+          'backend.cache-filas-e-sistemas-distribuidos',
         ),
         topic(
           'Arquitetura e escalabilidade',
           'Compare escalabilidade vertical e horizontal, gargalos de banco, custo e observabilidade. Discuta trade-offs a partir de medições.',
           [r.sre, r.otel],
           'Meça um gargalo e proponha uma melhoria com seus custos e limitações.',
+          'backend.arquitetura-e-escalabilidade',
         ),
       ],
     },

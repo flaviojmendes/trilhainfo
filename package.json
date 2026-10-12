@@ -4,13 +4,15 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite --host",
-    "build": "tsc && vite build",
+    "build": "tsc --noEmit && tsc -p tsconfig.node.json --noEmit && vite build",
     "preview": "vite preview",
     "test": "vitest",
     "coverage": "vitest run --coverage",
     "prepare": "husky install",
     "format": "prettier --write",
-    "format:all": "prettier --write ."
+    "format:all": "prettier --write .",
+    "check": "tsc --noEmit && tsc -p tsconfig.node.json --noEmit",
+    "test:run": "vitest run"
   },
   "dependencies": {
     "@auth0/auth0-react": "^1.10.2",

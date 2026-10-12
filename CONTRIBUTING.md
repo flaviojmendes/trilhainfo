@@ -21,6 +21,8 @@ O currículo ativo foi [revisado em outubro de 2026](docs/revisao-trilhas-2026-1
 
 As práticas de IA devem acompanhar a etapa e a carreira, com contexto, critérios de verificação e uma tarefa pequena. Cursor, Claude e Codex são opções, sem exigir acesso a todos. Consulte [Aprender programação com auxílio de IA](docs/aprender-com-ia.md) e `src/roadmaps/aiLearning.ts`. Um prompt de exemplo pode ser definido no campo `prompt` de uma seção.
 
+Preserve os IDs editoriais ao renomear ou mover conteúdo. Os helpers `topic` e `project` recebem o ID no quinto argumento. Consulte [Trilhas adaptativas e contratos para agentes](docs/aplicativo-adaptativo.md) e sua [versão em inglês](docs/adaptive-learning.en.md) para personalização, migração e arquivos gerados.
+
 ## Contribuindo com o código
 
 Para contribuir com código, você deve antes abrir uma issue descrevendo o que pretende alterar/adicionar.

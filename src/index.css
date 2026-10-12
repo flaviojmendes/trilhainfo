@@ -2,6 +2,57 @@
 @tailwind components;
 @tailwind utilities;
 
+.site-header {
+  background: #171316;
+  border-bottom: 1px solid #493b44;
+}
+.site-skip-link {
+  position: fixed;
+  left: 16px;
+  top: -100px;
+  z-index: 50;
+  background: #fff;
+  color: #171316;
+  padding: 12px 16px;
+  border-radius: 8px;
+}
+.site-skip-link:focus {
+  top: 16px;
+}
+.roadmap-loading {
+  min-height: 70vh;
+  max-width: 1200px;
+  margin: auto;
+  padding: 48px 24px;
+  color: #fdfdfd;
+}
+.roadmap-loading h1 {
+  font-size: 2rem;
+  margin-bottom: 16px;
+}
+.roadmap-loading button {
+  min-height: 44px;
+  margin-top: 16px;
+  padding: 8px 16px;
+  border: 1px solid #ff83c5;
+  border-radius: 8px;
+}
+.roadmap-skeleton {
+  background: #211b20;
+  border-radius: 12px;
+  height: 110px;
+  margin-top: 24px;
+}
+@media (prefers-reduced-motion: reduce) {
+  [role='dialog'],
+  [data-radix-popper-content-wrapper],
+  [data-state='open'],
+  [data-state='closed'] {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
 @layer components {
   .bd-handwritten {
     border-width: 3px;
@@ -9,40 +60,40 @@
     border-top-left-radius: 255px 15px;
     border-top-right-radius: 15px 255px;
     border-bottom-right-radius: 225px 15px;
-    border-bottom-left-radius:15px 255px;
+    border-bottom-left-radius: 15px 255px;
   }
 
   .badge {
-    @apply text-[0.6rem] ml-2 bg-red p-1 rounded-sm font-bold uppercase cursor-default inline-flex items-baseline
+    @apply ml-2 inline-flex cursor-default items-baseline rounded-sm bg-red p-1 text-[0.6rem] font-bold uppercase;
   }
 
   .badge.badge-blue {
-    @apply text-[#2a4365] bg-[#bee3f8]
+    @apply bg-[#bee3f8] text-[#2a4365];
   }
 
   .badge.badge-green {
-    @apply text-[#22543D] bg-[#C6F6D5]
+    @apply bg-[#C6F6D5] text-[#22543D];
   }
 
   .badge.badge-orange {
-    @apply text-[#7B341E] bg-[#FEEBC8]
+    @apply bg-[#FEEBC8] text-[#7B341E];
   }
 
   .badge.badge-purple {
-    @apply text-[#44337A] bg-[#E9D8FD]
+    @apply bg-[#E9D8FD] text-[#44337A];
   }
 
   .badge.badge-yellow {
-    @apply text-[#744210] bg-[#FEFCBF]
+    @apply bg-[#FEFCBF] text-[#744210];
   }
 }
 
 @layer base {
   * {
-    font-family: "Poppins", sans-serif;
+    font-family: 'Poppins', sans-serif;
   }
 
   body {
-    @apply bg-medium-brown !important 
+    @apply bg-medium-brown !important;
   }
 }

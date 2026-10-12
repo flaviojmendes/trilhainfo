@@ -1,14 +1,17 @@
 import { useAuth0 } from '@auth0/auth0-react';
 import { FaGithubSquare, FaNewspaper } from 'react-icons/fa';
 
-import { Drawer, DrawerRoot, DrawerTrigger } from '../Drawer';
+import { Drawer, DrawerRoot, DrawerTrigger, DrawerTitle, DrawerDescription } from '../Drawer';
 
 export default function MobileMenu() {
   return (
     <DrawerRoot>
       <div className="flex cursor-pointer items-center justify-center md:hidden">
-        <DrawerTrigger>
-          <div className="m-auto my-10 block space-y-2 md:hidden">
+        <DrawerTrigger
+          aria-label="Abrir menu principal"
+          className="flex min-h-[44px] min-w-[44px] items-center justify-center"
+        >
+          <div className="m-auto block space-y-2 md:hidden" aria-hidden="true">
             <div className="h-0.5 w-8 bg-primary"></div>
             <div className="h-0.5 w-8 bg-primary"></div>
             <div className="h-0.5 w-8 bg-primary"></div>
@@ -25,6 +28,10 @@ const HeaderDrawer = () => {
 
   return (
     <Drawer position="left">
+      <DrawerTitle className="sr-only">Menu principal</DrawerTitle>
+      <DrawerDescription className="sr-only">
+        Navegação e links da comunidade Trilha Info.
+      </DrawerDescription>
       {isAuthenticated && (
         <div className="flex items-start justify-start border-b border-b-yellow pb-5 text-yellow">
           <img className="h-10 w-10 rounded-full" src={user?.picture} alt={user?.name} />

@@ -24,12 +24,16 @@ export class RoadmapModel {
 }
 
 export interface Level {
+  /** Permanent editorial identity; keep it when renaming or moving content. */
+  id?: string;
   label?: string;
+  optional?: boolean;
   description?: string;
   items: RoadmapItem[];
 }
 
 export interface RoadmapItem {
+  id?: string;
   label: string;
   description?: string;
   prompt?: string;
@@ -39,6 +43,10 @@ export interface RoadmapItem {
 }
 
 export interface Link {
+  id?: string;
+  language?: string | null;
+  estimatedMinutes?: number | null;
+  lastReviewedAt?: string | null;
   url: string;
   type?: string;
   votes?: number;

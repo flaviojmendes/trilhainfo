@@ -16,7 +16,7 @@ export default function Header() {
     useAuth0();
 
   return (
-    <header className="fixed z-30 mx-auto flex min-h-[80px] w-full flex-wrap justify-center space-x-0 space-y-2 bg-menu-background bg-opacity-10 px-10 backdrop-blur-[30px] xl:px-64">
+    <header className="site-header fixed z-30 mx-auto flex min-h-[80px] w-full flex-wrap justify-center space-x-0 px-4 md:px-8 xl:px-16">
       <div className="flex flex-grow">
         {' '}
         <Logo />

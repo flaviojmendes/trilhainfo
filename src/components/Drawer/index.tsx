@@ -57,7 +57,10 @@ export const Drawer = ({
       >
         {children}
 
-        <DrawerClose className="absolute right-3.5 top-3.5 rounded-sm bg-primary p-1 hover:bg-primary-hover hover:shadow-primary-white">
+        <DrawerClose
+          aria-label="Fechar painel"
+          className="absolute right-3.5 top-3.5 flex min-h-[44px] min-w-[44px] items-center justify-center rounded-sm bg-primary p-1 hover:bg-primary-hover hover:shadow-primary-white"
+        >
           <RiCloseLine size={24} />
         </DrawerClose>
       </DrawerContent>

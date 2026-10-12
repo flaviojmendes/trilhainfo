@@ -1,5 +1,5 @@
 import { roadmapGuides } from '../../roadmaps/guides';
-import { roadmaps } from '../../roadmaps/roadmaps';
+import { roadmapTitles } from '../../roadmaps/titles';
 
 // Carreiras primeiro; especialização e preparação complementar depois.
 const featuredRoadmaps = [
@@ -16,7 +16,7 @@ const featuredRoadmaps = [
 export const mainRoadmapsData = featuredRoadmaps.map((name) => {
   const guide = roadmapGuides[name];
   return {
-    title: roadmaps[name].title,
+    title: roadmapTitles[name],
     description: guide ? `${guide.audience} ${guide.start}` : '',
     url: `/roadmap/${name}`,
   };

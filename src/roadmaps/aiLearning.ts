@@ -93,17 +93,20 @@ function withPrompt(item: RoadmapItem, prompt: string): RoadmapItem {
 }
 
 const aiStart: RoadmapItem = {
+  id: 'aiLearning.seu-assistente-de-estudos',
   label: 'Seu assistente de estudos',
   description:
     'Aprenda programação e uso de IA em paralelo. Escolha uma ferramenta a que já tenha acesso; os exercícios também funcionam em um chat, compartilhando trechos pequenos. Documentação gratuita não significa serviço gratuito: consulte os limites da sua conta. Você não precisa assinar nem dominar três ferramentas.',
   children: [
     {
+      id: 'aiLearning.escolha-uma-ferramenta',
       label: 'Escolha uma ferramenta',
       description:
         'Experimente uma opção neste momento. Para concluir esta etapa, basta abrir um exercício em uma ferramenta e localizar como conversar, fornecer contexto e revisar uma mudança.\n\nCursor: abra um projeto no editor, converse sobre um arquivo e forneça trechos ou arquivos como contexto. Peça uma alteração pequena, examine o diff e execute o exemplo.\n\nClaude: use o chat com trechos fornecidos por você, ou Claude Code para trabalhar no projeto por terminal ou integrações de editor, se já tiver acesso. Siga o quickstart e peça uma explicação do repositório antes da primeira mudança.\n\nCodex: consulte o quickstart e escolha a superfície disponível para sua conta, como aplicativo, editor ou terminal. Peça que explique o projeto e como executar o exercício; depois experimente uma mudança pequena.\n\nSe ainda não tiver acesso a uma IA, siga os exercícios de programação e retome estas práticas quando uma opção estiver disponível.',
       links: [r.cursor, r.cursorPrompts, r.claude, r.claudePractices, r.codex, r.codexPrompts],
     },
     {
+      id: 'aiLearning.pratique-tutoria',
       label: 'Pratique tutoria',
       description:
         'Faça uma tentativa, peça uma explicação ou pista e confira o resultado executando o exemplo. Solicite perguntas e exercícios de revisão. Quando a IA gerar código, leia, altere e teste esse código. Conclua esta etapa após responder uma pergunta sobre o exemplo e resolver uma pequena variação.',
@@ -114,6 +117,7 @@ const aiStart: RoadmapItem = {
 };
 
 const prompting: Level = {
+  id: 'aiLearning.ia-prompting-e-contexto',
   label: 'IA: prompting e contexto',
   description:
     'Depois dos primeiros fundamentos, pratique transformar uma dúvida em uma tarefa verificável. Use uma ferramenta por vez.',
@@ -124,6 +128,7 @@ const prompting: Level = {
         'Expresse objetivo, contexto, limites e como conferir o resultado. Mostre sua tentativa e exemplos de entrada/saída. Peça uma resposta no nível de quem está aprendendo e faça perguntas quando algo não estiver claro. Ajuste o prompt a partir do resultado, sem decorar fórmulas.',
         [r.codexPrompts, r.cursorPrompts, r.claudePractices],
         'Compare um pedido vago com um pedido que inclui sua tentativa e critérios. Execute os exemplos e registre qual informação melhorou a resposta.',
+        'aiLearning.prompts-para-aprender-e-construir',
       ),
       studyPrompt,
     ),
@@ -132,11 +137,13 @@ const prompting: Level = {
       'Forneça os arquivos relevantes, o erro completo sanitizado, a versão usada e o comportamento esperado. Diferencie conversar sobre código de permitir edição e execução. Use dados de laboratório; não compartilhe senhas, tokens ou dados pessoais.',
       [r.cursorPrompts, r.codexPrompts, r.ai],
       'Peça ajuda para a mesma dúvida com e sem o trecho relevante. Identifique uma suposição incorreta e corrija o contexto antes de aceitar a solução.',
+      'aiLearning.contexto-util-e-dados-protegidos',
     ),
   ],
 };
 
 const pairing: Level = {
+  id: 'aiLearning.ia-programacao-em-parceria',
   label: 'IA: programação em parceria',
   description:
     'Use o primeiro projeto como contexto. Alterne pequenas implementações, leitura de código, depuração e testes.',
@@ -147,6 +154,7 @@ const pairing: Level = {
         'Defina um recorte pequeno e peça um plano. Decida o que implementar você e o que delegar. Revise cada diff, rode a aplicação e confira o comportamento antes de seguir para outra tarefa. A IA pode gerar código, testes e documentação, mas a evidência precisa ser executada.',
         [r.claudePractices, r.codexPrompts, r.cursor],
         'Implemente uma pequena mudança em parceria. Explique o diff, rejeite ou ajuste uma sugestão e acrescente um caso de teste que não veio da mesma proposta.',
+        'aiLearning.planejar-implementar-e-revisar',
       ),
       `Quero implementar [mudança pequena] neste projeto.
 Contexto: [arquivos relevantes, comportamento atual e versão].
@@ -161,6 +169,7 @@ Ao implementar, mostre o diff, explique as decisões e informe os comandos execu
         'Reproduza o problema e registre esperado versus observado. Peça hipóteses e uma forma de distinguir entre elas antes de tentar correções. Não confunda uma explicação plausível com uma causa confirmada.',
         [r.claudePractices, r.codexPrompts],
         'Introduza um bug no laboratório, confirme uma hipótese por log, breakpoint ou teste e verifique uma correção mínima.',
+        'aiLearning.depuracao-com-evidencias',
       ),
       `Problema reproduzível: [passos].
 Esperado: [resultado]. Observado: [resultado ou erro sanitizado].
@@ -172,6 +181,7 @@ Primeiro vamos confirmar a causa. Depois proponha a menor correção e um teste 
 };
 
 const agents: Level = {
+  id: 'aiLearning.ia-agentes-regras-e-verificacao',
   label: 'IA: agentes, regras e verificação',
   description:
     'Depois de conseguir ler diffs, depurar e testar, delegue uma tarefa limitada no repositório de laboratório.',
@@ -181,17 +191,20 @@ const agents: Level = {
       'Documente como rodar, testar e organizar o projeto. Pratique regras do Cursor, CLAUDE.md ou AGENTS.md conforme a ferramenta escolhida. Defina arquivos, tarefa, limites e permissões. Comece com uma branch e uma alteração pequena; deixe MCP, múltiplos agentes e automações amplas para aprofundamento.',
       [r.cursorRules, r.claudePractices, r.codexRules],
       'Escreva instruções curtas com comandos reais do projeto. Peça uma alteração pequena e confira que as instruções foram usadas e que o diff respeita o escopo.',
+      'aiLearning.instrucoes-do-projeto-e-escopo-do-agente',
     ),
     topic(
       'Validar trabalho gerado por IA',
       'Confira comportamento e requisitos além dos testes produzidos pelo próprio agente. Verifique casos negativos, dependências, documentação da versão e o resultado dos comandos. Para interface, faça inspeção visual e por teclado; para dados, use uma amostra com resultado conhecido.',
       [r.claudePractices, r.ai, r.codexPrompts],
       'Revise uma proposta que parece correta, mas tem um caso-limite errado. Acrescente uma verificação independente, corrija e documente a evidência.',
+      'aiLearning.validar-trabalho-gerado-por-ia',
     ),
   ],
 };
 
 const interviewAI: Level = {
+  id: 'aiLearning.ia-simulacao-e-feedback',
   label: 'IA: simulação e feedback',
   description:
     'Use a ferramenta para praticar antes do processo. Durante uma avaliação real, siga as regras comunicadas pela equipe.',
@@ -202,6 +215,7 @@ const interviewAI: Level = {
         'Peça uma pergunta por vez sobre seu projeto ou um exercício. Responda antes de receber dicas e peça feedback sobre raciocínio, testes e clareza. Confira as críticas no código ou na documentação; feedback de IA também pode estar errado.',
         [r.codexPrompts, r.claudePractices],
         'Faça uma simulação, confira uma crítica com evidência e repita uma resposta com suas próprias palavras. Pergunte ao recrutador quais usos de IA são permitidos em cada etapa.',
+        'aiLearning.treine-explicacao-e-raciocinio',
       ),
       `Simule uma entrevista para [vaga e nível] a partir deste projeto: [README e trecho sanitizado].
 Faça uma pergunta por vez e espere minha resposta.
@@ -236,6 +250,7 @@ Mostre as hipóteses e como verificá-las. Informe o que foi executado e o que a
       children: [
         ...(item.children || []),
         {
+          id: `${item.id}.ai-practice`,
           label: 'Prática de IA neste projeto',
           description:
             stage + ' Adapte o prompt ao que você já construiu nesta etapa. ' + practice.challenge,
@@ -243,6 +258,7 @@ Mostre as hipóteses e como verificá-las. Informe o que foi executado e o que a
           links: [r.codexPrompts, r.cursorPrompts, r.claudePractices],
         },
         {
+          id: `${item.id}.verification`,
           label: 'Registre sua verificação',
           description:
             'Registre um prompt sanitizado, uma sugestão aceita ou corrigida, a verificação executada e seu resultado. Explique a mudança com suas palavras. Conclua o projeto após demonstrar os critérios, mesmo quando parte do código vier de IA.',

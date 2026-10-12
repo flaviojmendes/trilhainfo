@@ -1,3 +1,4 @@
+import { roadmapTitles } from './titles';
 import { data as frontendData } from '../roadmaps/frontend';
 import { data as reactData } from '../roadmaps/react';
 import { data as backendData } from '../roadmaps/backend';
@@ -10,13 +11,13 @@ import { dataEngineeringData } from '../roadmaps/dataEngineering';
 import { RoadmapFileModel } from '../entity/RoadmapFileModel';
 
 export const roadmaps: RoadmapFileModel = {
-  frontend: { file: frontendData, title: 'Frontend' },
-  react: { file: reactData, title: 'React' },
-  backend: { file: backendData, title: 'Backend' },
-  fullstack: { file: fullstackData, title: 'Fullstack' },
-  devops: { file: devopsData, title: 'DevOps' },
-  'data-engineer': { file: dataEngineeringData, title: 'Engenharia de Dados' },
-  community: { file: communityData, title: 'Comunidade' },
-  test: { file: testData, title: 'Testes / QA' },
-  entrevistas: { file: entrevistasData, title: 'Entrevistas' },
+  frontend: { file: frontendData, title: roadmapTitles.frontend },
+  react: { file: reactData, title: roadmapTitles.react },
+  backend: { file: backendData, title: roadmapTitles.backend },
+  fullstack: { file: fullstackData, title: roadmapTitles.fullstack },
+  devops: { file: devopsData, title: roadmapTitles.devops },
+  'data-engineer': { file: dataEngineeringData, title: roadmapTitles['data-engineer'] },
+  community: { file: communityData, title: roadmapTitles.community },
+  test: { file: testData, title: roadmapTitles.test },
+  entrevistas: { file: entrevistasData, title: roadmapTitles.entrevistas },
 };

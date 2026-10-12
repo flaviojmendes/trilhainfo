@@ -1,55 +1,86 @@
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import MainLayout from '../components/layouts/MainLayout';
-import Roadmap from '../components/Roadmap';
-import useDocumentTitle from '../components/useDocumentTitle';
-import { roadmaps } from '../roadmaps/roadmaps';
+import LearningWorkspace from '../components/LearningWorkspace';
+import { loadCatalog, roadmapTitles } from '../learning/loaders';
+import { RoadmapCatalog } from '../learning/types';
+import { useCatalogMetadata } from '../learning/useCatalogMetadata';
 import E404Page from './E404Page';
-import RoadmapGuide from '../components/RoadmapGuide';
+import { useAuth0 } from '@auth0/auth0-react';
+import { downloadBlob } from '../learning/downloads';
 
 export default function RoadmapPage() {
-  const { name } = useParams<string>();
-
-  // we can be sure it is a keyof typeof roadmaps because of the ternary operator
-  // but TypeScript is not smart enough
-  // I'm using frontend as default in case the name is not in roadmaps so we don't get an error
-  const currentRoadmap = (
-    name ? (name in roadmaps ? name : 'frontend') : 'frontend'
-  ) as keyof typeof roadmaps;
-
-  useDocumentTitle(
-    `Trilha Info ${name && name in roadmaps ? ` - ${roadmaps[currentRoadmap].title}` : ''}`,
+  const { isAuthenticated } = useAuth0();
+  const { name } = useParams<{ name: string }>();
+  const [state, setState] = useState<{ name?: string; catalog?: RoadmapCatalog; error?: string }>(
+    {},
   );
+  const [attempt, setAttempt] = useState(0);
+  const valid = !!name && Object.prototype.hasOwnProperty.call(roadmapTitles, name);
+  const catalog = state.name === name ? state.catalog : undefined;
+  useCatalogMetadata(catalog);
+
+  async function exportNotes() {
+    const base = import.meta.env.VITE_API_URL;
+    if (!base) throw new Error('API não configurada');
+    const [{ default: axios }, { default: Cookies }] = await Promise.all([
+      import('axios'),
+      import('universal-cookie'),
+    ]);
+    const response = await axios.get<string>(`${base}/note/export`, {
+      headers: { Authorization: new Cookies().get('api_token') },
+    });
+    if (typeof response.data !== 'string') throw new Error('Resposta inesperada');
+    downloadBlob('notes.md', new Blob([response.data], { type: 'text/markdown;charset=utf-8' }));
+  }
+
+  useEffect(() => {
+    let cancelled = false;
+    if (valid && name)
+      loadCatalog(name)
+        .then((catalog) => {
+          if (!cancelled) setState({ name, catalog });
+        })
+        .catch(() => {
+          if (!cancelled)
+            setState({ name, error: 'Não foi possível carregar esta trilha. Tente novamente.' });
+        });
+    return () => {
+      cancelled = true;
+    };
+  }, [name, valid, attempt]);
 
   return (
     <MainLayout>
-      {/* <p className="mt-4 text-center font-title c-brown md:px-10">
-        Não sabe por onde começar a estudar? Que tal dar uma olhada por aqui?
-      </p> */}
-      {name && name in roadmaps && (
-        <>
-          <div className="m-auto mt-4 px-2 lg:w-2/3">
-            <RoadmapGuide name={currentRoadmap} />
-            <p className="c-brown mb-2 font-title ">
-              Lendo de cima pra baixo, cada <span className="text-primary">caixa</span> é um assunto
-              a ser estudado.
-            </p>
-            <p className="c-brown font-title ">
-              <span className="text-primary">Clicando</span>, você verá em mais detalhes o que
-              estudar com links de conteúdos gratuitos!
-            </p>
-          </div>
-
-          <Roadmap
-            key={currentRoadmap}
-            isPreview={false}
-            data={roadmaps[name as keyof typeof roadmaps].file}
-            title={roadmaps[name as keyof typeof roadmaps].title}
-            name={currentRoadmap}
-            roadmapPath={currentRoadmap}
-          />
-        </>
+      {!valid ? (
+        <E404Page />
+      ) : catalog ? (
+        <LearningWorkspace
+          key={catalog.id}
+          catalog={catalog}
+          onExportNotes={isAuthenticated ? exportNotes : undefined}
+        />
+      ) : state.name === name && state.error ? (
+        <section className="roadmap-loading">
+          <p role="alert">{state.error}</p>
+          <button
+            type="button"
+            onClick={() => {
+              setState({});
+              setAttempt((value) => value + 1);
+            }}
+          >
+            Tentar novamente
+          </button>
+        </section>
+      ) : (
+        <section className="roadmap-loading" aria-label="Carregando trilha" aria-busy="true">
+          <h1>{name ? roadmapTitles[name] : 'Trilha'}</h1>
+          <p role="status">Preparando seu caminho de estudos…</p>
+          <div className="roadmap-skeleton" />
+          <div className="roadmap-skeleton" />
+        </section>
       )}
-      {!name || (!(name in roadmaps) && <E404Page />)}
     </MainLayout>
   );
 }

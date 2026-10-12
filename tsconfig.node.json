@@ -1,8 +1,24 @@
 {
   "compilerOptions": {
-    "composite": true,
+    "noEmit": true,
+    "target": "ES2020",
+    "jsx": "react-jsx",
+    "strict": true,
+    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,
     "module": "esnext",
     "moduleResolution": "node"
   },
-  "include": ["vite.config.ts"]
+  "include": [
+    "vite.config.ts",
+    "scripts/**/*.ts",
+    "src/roadmaps/**/*.ts",
+    "src/entity/RoadmapModel.tsx",
+    "src/entity/RoadmapFileModel.tsx",
+    "src/learning/catalog.ts",
+    "src/learning/types.ts",
+    "src/learning/schema.ts",
+    "src/learning/metadata.ts"
+  ],
+  "exclude": ["**/*.test.ts"]
 }
