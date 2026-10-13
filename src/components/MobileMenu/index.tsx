@@ -13,7 +13,6 @@ import {
 const links = [
   { label: 'Trilhas', href: '/#trilhas' },
   { label: 'Guias', to: '/guias' },
-  { label: 'Comunidade', to: '/roadmap/community' },
 ];
 
 export default function MobileMenu() {

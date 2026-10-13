@@ -3,7 +3,7 @@ import { RoadmapFileModel } from '../entity/RoadmapFileModel';
 import { topic as curriculumTopic } from './curriculum';
 import { resources as r } from './resources';
 
-type Specialty = Exclude<keyof RoadmapFileModel, 'community'>;
+type Specialty = keyof RoadmapFileModel;
 
 // The editorial tag stays valid when a title or description is revised.
 function topic(...args: Parameters<typeof curriculumTopic>): RoadmapItem {

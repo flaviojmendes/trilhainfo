@@ -7,6 +7,5 @@ export const roadmapTitles: Record<string, string> = {
   fullstack: 'Fullstack',
   test: 'Testes / QA',
   entrevistas: 'Entrevistas',
-  community: 'Comunidade',
   'data-engineer': 'Engenharia de Dados',
 };

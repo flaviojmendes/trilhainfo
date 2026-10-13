@@ -16,9 +16,4 @@ describe('Orientação da trilha', () => {
     );
     expect(screen.getByText('outubro de 2026')).toHaveAttribute('datetime', '2026-10-12');
   });
-
-  it('não atribui revisão curricular à página institucional de comunidade', () => {
-    const { container } = render(<RoadmapGuide name="community" />);
-    expect(container).toBeEmptyDOMElement();
-  });
 });

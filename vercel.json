@@ -1,3 +1,7 @@
 {
+  "redirects": [
+    { "source": "/roadmap/community", "destination": "/", "permanent": true },
+    { "source": "/hroadmap/community", "destination": "/", "permanent": true }
+  ],
   "rewrites": [{ "source": "/((?!api/).*)", "destination": "/" }]
 }

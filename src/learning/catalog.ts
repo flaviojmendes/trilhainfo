@@ -142,23 +142,21 @@ export function createCatalog(
       });
       const challengeId = `${groupId}.deepening`;
       const deepIds = [...nodeIds];
-      if (id !== 'community') {
-        if (catalog.nodes[challengeId]) throw new Error(`Nó duplicado: ${challengeId}`);
-        catalog.nodes[challengeId] = {
-          id: challengeId,
-          groupId,
-          title: 'Desafio de aprofundamento',
-          kind: 'challenge',
-          ...(item.ai === 'focused' ? { ai: item.ai } : {}),
-          description:
-            challenges[groupId] ||
-            `Escolha uma decisão de ${item.label} no seu projeto. Construa uma segunda solução, compare os resultados com um caso de teste e explique os limites de cada abordagem. Use as referências para verificar sua conclusão.`,
-          requires: [...requiredIds],
-          resourceIds: [...new Set(nodeIds.flatMap((nodeId) => catalog.nodes[nodeId].resourceIds))],
-          legacyIds: [],
-        };
-        deepIds.push(challengeId);
-      }
+      if (catalog.nodes[challengeId]) throw new Error(`Nó duplicado: ${challengeId}`);
+      catalog.nodes[challengeId] = {
+        id: challengeId,
+        groupId,
+        title: 'Desafio de aprofundamento',
+        kind: 'challenge',
+        ...(item.ai === 'focused' ? { ai: item.ai } : {}),
+        description:
+          challenges[groupId] ||
+          `Escolha uma decisão de ${item.label} no seu projeto. Construa uma segunda solução, compare os resultados com um caso de teste e explique os limites de cada abordagem. Use as referências para verificar sua conclusão.`,
+        requires: [...requiredIds],
+        resourceIds: [...new Set(nodeIds.flatMap((nodeId) => catalog.nodes[nodeId].resourceIds))],
+        legacyIds: [],
+      };
+      deepIds.push(challengeId);
       catalog.groups[groupId] = {
         id: groupId,
         title: item.label,

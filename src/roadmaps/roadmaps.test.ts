@@ -6,10 +6,7 @@ import { convertToRoadmapRead } from '../support/roadmapUtils';
 import { RoadmapRead } from '../entity/RoadmapReadModel';
 
 describe('Currículo de outubro de 2026', () => {
-  const careerNames = Object.keys(roadmaps).filter((name) => name !== 'community') as Exclude<
-    keyof typeof roadmaps,
-    'community'
-  >[];
+  const careerNames = Object.keys(roadmaps) as Array<keyof typeof roadmaps>;
 
   it.each(careerNames)(
     '%s tem orientação, projeto, prática e recursos acessíveis pela interface',

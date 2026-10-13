@@ -12,7 +12,6 @@ const loaders: Record<string, () => Promise<{ data: Level[] }>> = {
   fullstack: () => import('../roadmaps/fullstack'),
   test: () => import('../roadmaps/test'),
   entrevistas: () => import('../roadmaps/entrevistas'),
-  community: () => import('../roadmaps/community'),
   'data-engineer': async () => ({
     data: (await import('../roadmaps/dataEngineering')).dataEngineeringData,
   }),

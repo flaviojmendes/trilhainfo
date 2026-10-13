@@ -33,9 +33,6 @@ export default function MainLayout({ children }: Props) {
                 <Link to="/guias">Guias</Link>
               </li>
               <li>
-                <Link to="/roadmap/community">Comunidade</Link>
-              </li>
-              <li>
                 <a
                   href="https://github.com/flaviojmendes/trilhainfo"
                   target="_blank"
@@ -51,10 +48,6 @@ export default function MainLayout({ children }: Props) {
           Idealizado por{' '}
           <a target="_blank" rel="noreferrer" href="https://youtube.com/flaviojmendes">
             flaviojmendes
-          </a>{' '}
-          e mantido pela <Link to="/roadmap/community">comunidade</Link>. Design por{' '}
-          <a target="_blank" href="https://badico.cloud" rel="noreferrer">
-            Badico Cloud
           </a>
           .
         </p>

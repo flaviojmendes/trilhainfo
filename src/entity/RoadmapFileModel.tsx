@@ -11,7 +11,6 @@ export interface RoadmapFileModel {
   backend: RoadmapObjectModel;
   devops: RoadmapObjectModel;
   'data-engineer': RoadmapObjectModel;
-  community: RoadmapObjectModel;
   test: RoadmapObjectModel;
   fullstack: RoadmapObjectModel;
   entrevistas: RoadmapObjectModel;
