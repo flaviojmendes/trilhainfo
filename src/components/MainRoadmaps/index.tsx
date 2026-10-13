@@ -12,6 +12,7 @@ import {
   PiLayout,
   PiStack,
 } from 'react-icons/pi';
+import { DevFlip } from '../../devmode/DevFlip';
 import { readProgressSnapshots } from '../../learning/progressSnapshot';
 import { curriculumReviewLabel } from '../../roadmaps/guides';
 import { mainRoadmapsData } from './mainRoadmapsData';
@@ -71,40 +72,46 @@ export default function MainRoadmaps() {
     const started = !!snapshot && snapshot.done > 0;
     return (
       <li key={roadmap.id} style={{ '--i': index } as CSSProperties}>
-        <Link className="roadmap-card" to={roadmap.url} onPointerMove={spotlight}>
-          <span className="roadmap-card-top">
-            <span className="roadmap-card-icon" aria-hidden="true">
-              <Icon />
-            </span>
-            <span className="roadmap-card-kind">{roadmap.kind}</span>
-          </span>
-          <h4>{roadmap.title}</h4>
-          <p className="roadmap-card-audience">{roadmap.audience}</p>
-          {roadmap.outcome && (
-            <p className="roadmap-card-outcome">
-              <span>Você vai entregar</span>
-              {roadmap.outcome}
-            </p>
-          )}
-          <RouteGlyph seed={index} />
-          <span className="roadmap-card-footer">
-            {started ? (
-              <span className="roadmap-card-status">
-                <span
-                  className="roadmap-card-meter"
-                  style={{ '--p': snapshot.percent / 100 } as CSSProperties}
-                  aria-hidden="true"
-                >
-                  <span />
-                </span>
-                Continuar · {snapshot.percent}%
+        <DevFlip
+          id="roadmap-card"
+          label={roadmap.title}
+          data={{ roadmap, snapshot: snapshot ?? null }}
+        >
+          <Link className="roadmap-card" to={roadmap.url} onPointerMove={spotlight}>
+            <span className="roadmap-card-top">
+              <span className="roadmap-card-icon" aria-hidden="true">
+                <Icon />
               </span>
-            ) : (
-              <span className="roadmap-card-status">Começar a trilha</span>
+              <span className="roadmap-card-kind">{roadmap.kind}</span>
+            </span>
+            <h4>{roadmap.title}</h4>
+            <p className="roadmap-card-audience">{roadmap.audience}</p>
+            {roadmap.outcome && (
+              <p className="roadmap-card-outcome">
+                <span>Você vai entregar</span>
+                {roadmap.outcome}
+              </p>
             )}
-            <PiArrowRight className="roadmap-card-arrow" aria-hidden="true" />
-          </span>
-        </Link>
+            <RouteGlyph seed={index} />
+            <span className="roadmap-card-footer">
+              {started ? (
+                <span className="roadmap-card-status">
+                  <span
+                    className="roadmap-card-meter"
+                    style={{ '--p': snapshot.percent / 100 } as CSSProperties}
+                    aria-hidden="true"
+                  >
+                    <span />
+                  </span>
+                  Continuar · {snapshot.percent}%
+                </span>
+              ) : (
+                <span className="roadmap-card-status">Começar a trilha</span>
+              )}
+              <PiArrowRight className="roadmap-card-arrow" aria-hidden="true" />
+            </span>
+          </Link>
+        </DevFlip>
       </li>
     );
   }

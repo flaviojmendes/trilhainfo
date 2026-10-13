@@ -8,6 +8,7 @@ import Cookies from 'universal-cookie';
 import axios from 'axios';
 import { decode } from 'base-64';
 import { MdArrowDropDown } from 'react-icons/md';
+import { DevFlip } from '../../devmode/DevFlip';
 
 const cookies = new Cookies();
 
@@ -22,71 +23,77 @@ export default function Header() {
 
   return (
     <header className="site-header">
-      <div className="site-header-inner">
-        <Logo />
-        <nav className="site-nav" aria-label="navegação principal">
-          <ul>
-            {siteLinks.map((link) => (
-              <li key={link.label}>
-                {link.to ? (
-                  <NavLink to={link.to}>{link.label}</NavLink>
-                ) : (
-                  <a href={link.href}>{link.label}</a>
-                )}
-              </li>
-            ))}
-          </ul>
-        </nav>
-        <div className="site-header-actions">
-          <a
-            target="_blank"
-            className="site-icon-link"
-            href="https://github.com/flaviojmendes/trilhainfo"
-            rel="noreferrer"
-            aria-label="Github"
-          >
-            <FaGithub aria-hidden="true" />
-          </a>
-          <a
-            target="_blank"
-            className="site-icon-link"
-            href="https://instagram.com/trilhainfo"
-            rel="noreferrer"
-            aria-label="Instagram"
-          >
-            <FaInstagram aria-hidden="true" />
-          </a>
-          {isAuthenticated && (
-            <div className="site-user">
-              <Link to="/profile" className="site-user-button">
-                {user?.picture && <img src={user.picture} alt="" />}
-                <span>{user?.name}</span>
-                <MdArrowDropDown aria-hidden="true" />
-              </Link>
-              <button
-                type="button"
-                className="site-ghost-button"
-                onClick={() => logout({ returnTo: window.location.origin })}
-              >
-                Sair
-              </button>
-            </div>
-          )}
-          {isLoading && (
-            <ThreeDots
-              height="24"
-              width="24"
-              radius="9"
-              color="#FF83C5"
-              ariaLabel="Carregando sessão"
-              wrapperStyle={{}}
-              visible={true}
-              wrapperClass="m-auto"
-            />
-          )}
+      <DevFlip
+        id="header"
+        variant="dialog"
+        data={{ siteLinks, isAuthenticated, isLoading, user: user?.name }}
+      >
+        <div className="site-header-inner">
+          <Logo />
+          <nav className="site-nav" aria-label="navegação principal">
+            <ul>
+              {siteLinks.map((link) => (
+                <li key={link.label}>
+                  {link.to ? (
+                    <NavLink to={link.to}>{link.label}</NavLink>
+                  ) : (
+                    <a href={link.href}>{link.label}</a>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </nav>
+          <div className="site-header-actions">
+            <a
+              target="_blank"
+              className="site-icon-link"
+              href="https://github.com/flaviojmendes/trilhainfo"
+              rel="noreferrer"
+              aria-label="Github"
+            >
+              <FaGithub aria-hidden="true" />
+            </a>
+            <a
+              target="_blank"
+              className="site-icon-link"
+              href="https://instagram.com/trilhainfo"
+              rel="noreferrer"
+              aria-label="Instagram"
+            >
+              <FaInstagram aria-hidden="true" />
+            </a>
+            {isAuthenticated && (
+              <div className="site-user">
+                <Link to="/profile" className="site-user-button">
+                  {user?.picture && <img src={user.picture} alt="" />}
+                  <span>{user?.name}</span>
+                  <MdArrowDropDown aria-hidden="true" />
+                </Link>
+                <button
+                  type="button"
+                  className="site-ghost-button"
+                  onClick={() => logout({ returnTo: window.location.origin })}
+                >
+                  Sair
+                </button>
+              </div>
+            )}
+            {isLoading && (
+              <ThreeDots
+                height="24"
+                width="24"
+                radius="9"
+                color="#FF83C5"
+                ariaLabel="Carregando sessão"
+                wrapperStyle={{}}
+                visible={true}
+                wrapperClass="m-auto"
+              />
+            )}
+          </div>
+          <MobileMenu />
         </div>
-        <MobileMenu />
-      </div>
+      </DevFlip>
     </header>
   );
 

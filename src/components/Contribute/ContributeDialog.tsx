@@ -24,6 +24,7 @@ import {
   youtubeId,
 } from '../../contributions/validate';
 import { fetchLinkInfo, submitContribution, SubmitResult } from '../../contributions/client';
+import { DevFlip } from '../../devmode/DevFlip';
 import { Turnstile } from './Turnstile';
 import './contribute.css';
 
@@ -75,10 +76,21 @@ export function ContributeDialog({
         if (!next) setFormKey((key) => key + 1);
       }}
     >
-      <aside className="group-contribute" aria-label={`Sugerir conteúdo para ${group.title}`}>
-        <p>Conhece um vídeo, documentação ou exercício que ajudaria aqui?</p>
-        <Dialog.Trigger className="group-contribute-button">Sugerir conteúdo</Dialog.Trigger>
-      </aside>
+      <DevFlip
+        id="contribute"
+        label={group.title}
+        data={{
+          roadmapId: catalog.id,
+          groupId: group.id,
+          steps: group.variants.deep.stepIds,
+          turnstile: Boolean(siteKey),
+        }}
+      >
+        <aside className="group-contribute" aria-label={`Sugerir conteúdo para ${group.title}`}>
+          <p>Conhece um vídeo, documentação ou exercício que ajudaria aqui?</p>
+          <Dialog.Trigger className="group-contribute-button">Sugerir conteúdo</Dialog.Trigger>
+        </aside>
+      </DevFlip>
       <Dialog.Portal>
         <Dialog.Overlay className="contribute-overlay" />
         <Dialog.Content className="contribute-dialog">

@@ -1,0 +1,240 @@
+.dev-flip {
+  --dev-turn: 620ms;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-width: 0;
+  height: 100%;
+  perspective: 1800px;
+}
+/* `.dev-flip >` outranks containers that style every button, like the study workspace. */
+.dev-flip > .dev-flip-toggle {
+  align-self: flex-end;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 28px;
+  margin: 0 8px 6px;
+  padding: 3px 11px;
+  border: 1px solid rgb(145 228 198 / 0.45);
+  border-radius: 999px;
+  background: rgb(145 228 198 / 0.1);
+  color: #91e4c6;
+  font: 600 0.75rem/1.2 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  cursor: pointer;
+  transition: background-color 160ms ease;
+}
+.dev-flip > .dev-flip-toggle:hover {
+  border-color: rgb(145 228 198 / 0.7);
+  background: rgb(145 228 198 / 0.2);
+}
+.dev-flip-toggle:focus-visible,
+.site-dev-toggle:focus-visible,
+.dev-bar button:focus-visible,
+.dev-dialog-close:focus-visible {
+  outline: 2px solid #91e4c6;
+  outline-offset: 2px;
+}
+.dev-flip-inner {
+  position: relative;
+  display: grid;
+  flex: 1 1 auto;
+  min-height: 0;
+  transform-style: preserve-3d;
+  transition: transform var(--dev-turn) cubic-bezier(0.16, 1, 0.3, 1);
+}
+.dev-flip-face {
+  grid-area: 1 / 1;
+  min-width: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.dev-flip-front {
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px;
+  outline: 1px dashed rgb(145 228 198 / 0.4);
+  outline-offset: 4px;
+  transition: visibility 0s;
+}
+.dev-flip-front > * {
+  flex: 1 1 auto;
+}
+.dev-flip-back {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
+  transform: rotateY(180deg);
+  border: 1px solid rgb(145 228 198 / 0.45);
+  border-radius: 16px;
+  background: #141013;
+  color: #f4eef2;
+  visibility: hidden;
+  transition: visibility 0s linear var(--dev-turn);
+}
+.dev-flip[data-flipped] > .dev-flip-inner {
+  min-height: var(--dev-h, 420px);
+  transform: rotateY(180deg);
+}
+.dev-flip[data-flipped] > .dev-flip-inner > .dev-flip-front {
+  max-height: var(--dev-h, 420px);
+  overflow: hidden;
+  visibility: hidden;
+  transition: visibility 0s linear var(--dev-turn);
+}
+.dev-flip[data-flipped] > .dev-flip-inner > .dev-flip-back {
+  visibility: visible;
+  transition-delay: 0s;
+}
+.dev-loading {
+  margin: auto;
+  padding: 24px;
+  color: #c5b9c1;
+  font-size: 0.875rem;
+}
+
+/* Fixed elements (the header) open the back side in a dialog instead of flipping in place. */
+.dev-flip-dialog {
+  display: block;
+  height: 100%;
+  perspective: none;
+}
+.dev-flip > .dev-flip-toggle-hang {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 16px;
+  margin: 0;
+  background: #141013;
+}
+.dev-dialog-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  background: rgb(8 6 7 / 0.76);
+}
+.dev-dialog {
+  position: fixed;
+  z-index: 81;
+  inset: 4vh max(4vw, calc((100vw - 1180px) / 2));
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid rgb(145 228 198 / 0.45);
+  border-radius: 18px;
+  background: #141013;
+  color: #f4eef2;
+  box-shadow: 0 40px 120px -40px rgb(0 0 0 / 0.9);
+  animation: dev-turn-in 560ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+@keyframes dev-turn-in {
+  from {
+    opacity: 0;
+    transform: perspective(1800px) rotateY(-70deg) scale(0.96);
+  }
+}
+.dev-dialog-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 1;
+  min-height: 36px;
+  padding: 0 14px;
+  border: 1px solid rgb(255 255 255 / 0.16);
+  border-radius: 999px;
+  background: #1f191d;
+  color: #f4eef2;
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+.dev-dialog-close:hover {
+  border-color: rgb(145 228 198 / 0.6);
+}
+
+/* Footer switch and the bar that shows the mode is on */
+.site-dev-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  min-height: 32px;
+  margin-left: 10px;
+  padding: 0 8px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  color: var(--site-muted, #c5b9c1);
+  font: 600 0.75rem/1 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  vertical-align: middle;
+  transition: color 160ms ease, border-color 160ms ease;
+}
+.site-dev-toggle:hover {
+  color: #91e4c6;
+  border-color: rgb(145 228 198 / 0.35);
+}
+.site-dev-toggle[aria-pressed='true'] {
+  color: #91e4c6;
+  border-color: rgb(145 228 198 / 0.45);
+  background: rgb(145 228 198 / 0.1);
+}
+.dev-bar {
+  position: fixed;
+  left: 16px;
+  bottom: 16px;
+  z-index: 75;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: calc(100vw - 32px);
+  padding: 6px 6px 6px 14px;
+  border: 1px solid rgb(145 228 198 / 0.45);
+  border-radius: 999px;
+  background: #141013;
+  color: #f4eef2;
+  font-size: 0.8125rem;
+  box-shadow: 0 18px 40px -18px rgb(0 0 0 / 0.8);
+}
+.dev-bar p {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.dev-bar-mark {
+  color: #91e4c6;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-weight: 700;
+}
+.dev-bar button {
+  min-height: 32px;
+  padding: 0 14px;
+  border-radius: 999px;
+  background: #91e4c6;
+  color: #0d0a0c;
+  font-weight: 700;
+}
+.dev-bar button:hover {
+  background: #b5efd9;
+}
+html:has(.dev-bar) {
+  scroll-padding-bottom: 72px;
+}
+
+@media (max-width: 640px) {
+  .dev-dialog {
+    inset: 0;
+    border-radius: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .dev-flip {
+    --dev-turn: 0ms;
+  }
+  .dev-flip-inner {
+    transition: none;
+  }
+  .dev-dialog {
+    animation: none;
+  }
+}

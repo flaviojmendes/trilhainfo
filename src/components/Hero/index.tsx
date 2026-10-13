@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { PiArrowRight } from 'react-icons/pi';
+import { DevFlip } from '../../devmode/DevFlip';
 import { latestSnapshot } from '../../learning/progressSnapshot';
 import { roadmapTitles } from '../../roadmaps/titles';
 import { mainRoadmapsData } from '../MainRoadmaps/mainRoadmapsData';
@@ -60,53 +61,55 @@ function HeroTrail() {
 export default function Hero() {
   const [resume] = useState(latestSnapshot);
   return (
-    <section className="home-hero" aria-labelledby="home-title">
-      <div className="home-hero-copy">
-        <p className="home-eyebrow">
-          <span className="home-eyebrow-dot" aria-hidden="true" /> Gratuito, em português e open
-          source
-        </p>
-        <h1 id="home-title">
-          Explore o seu{' '}
-          <span className="home-hero-mark">
-            caminho
-            <svg viewBox="0 0 220 24" aria-hidden="true" preserveAspectRatio="none">
-              <path d="M4 16 C 50 4, 110 22, 216 8" pathLength={1} />
-            </svg>
-          </span>{' '}
-          na tecnologia
-        </h1>
-        <p className="home-lead">
-          Trilhas com referências abertas, prática com IA e projetos para o portfólio. Você sempre
-          sabe onde está, o que vem depois e o que vai conseguir entregar.
-        </p>
-        <div className="home-actions">
-          {resume && roadmapTitles[resume[0]] && (
-            <Link className="home-button home-button-primary" to={`/roadmap/${resume[0]}`}>
-              Continuar {roadmapTitles[resume[0]]}
-              <span className="home-button-badge">{resume[1].percent}%</span>
-            </Link>
-          )}
-          <a className={`home-button ${resume ? '' : 'home-button-primary'}`} href="#trilhas">
-            Escolher uma trilha <PiArrowRight aria-hidden="true" />
-          </a>
+    <DevFlip id="hero" data={{ resume: resume ?? null, trails: mainRoadmapsData.length }}>
+      <section className="home-hero" aria-labelledby="home-title">
+        <div className="home-hero-copy">
+          <p className="home-eyebrow">
+            <span className="home-eyebrow-dot" aria-hidden="true" /> Gratuito, em português e open
+            source
+          </p>
+          <h1 id="home-title">
+            Explore o seu{' '}
+            <span className="home-hero-mark">
+              caminho
+              <svg viewBox="0 0 220 24" aria-hidden="true" preserveAspectRatio="none">
+                <path d="M4 16 C 50 4, 110 22, 216 8" pathLength={1} />
+              </svg>
+            </span>{' '}
+            na tecnologia
+          </h1>
+          <p className="home-lead">
+            Trilhas com referências abertas, prática com IA e projetos para o portfólio. Você sempre
+            sabe onde está, o que vem depois e o que vai conseguir entregar.
+          </p>
+          <div className="home-actions">
+            {resume && roadmapTitles[resume[0]] && (
+              <Link className="home-button home-button-primary" to={`/roadmap/${resume[0]}`}>
+                Continuar {roadmapTitles[resume[0]]}
+                <span className="home-button-badge">{resume[1].percent}%</span>
+              </Link>
+            )}
+            <a className={`home-button ${resume ? '' : 'home-button-primary'}`} href="#trilhas">
+              Escolher uma trilha <PiArrowRight aria-hidden="true" />
+            </a>
+          </div>
+          <dl className="home-facts">
+            <div>
+              <dt>trilhas completas</dt>
+              <dd>{mainRoadmapsData.length}</dd>
+            </div>
+            <div>
+              <dt>para começar</dt>
+              <dd>Sem cadastro</dd>
+            </div>
+            <div>
+              <dt>seu progresso</dt>
+              <dd>No navegador</dd>
+            </div>
+          </dl>
         </div>
-        <dl className="home-facts">
-          <div>
-            <dt>trilhas completas</dt>
-            <dd>{mainRoadmapsData.length}</dd>
-          </div>
-          <div>
-            <dt>para começar</dt>
-            <dd>Sem cadastro</dd>
-          </div>
-          <div>
-            <dt>seu progresso</dt>
-            <dd>No navegador</dd>
-          </div>
-        </dl>
-      </div>
-      <HeroTrail />
-    </section>
+        <HeroTrail />
+      </section>
+    </DevFlip>
   );
 }

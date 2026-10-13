@@ -9,6 +9,7 @@ import {
   PiStarFill,
 } from 'react-icons/pi';
 import { Link } from 'react-router-dom';
+import { DevFlip } from '../../devmode/DevFlip';
 import { findGuide, GuideMeta, guides } from '../../guides';
 import { roadmapTitles } from '../../roadmaps/titles';
 import { GuideCard } from '../Guide/GuideCard';
@@ -76,82 +77,87 @@ export default function ProjectInfo() {
       </section>
 
       <section className="home-section" aria-labelledby="open-title">
-        <div className="open-card">
-          <div className="open-copy">
-            <p className="home-eyebrow">Código aberto</p>
-            <h2 id="open-title">Feita em código aberto, por quem estuda e ensina</h2>
-            <p>
-              A Trilha Info nasceu em junho de 2022 para organizar conteúdos gratuitos em português
-              para quem quer entrar na área de tecnologia. Todo o currículo está no GitHub, e
-              qualquer pessoa pode propor melhorias.
-            </p>
-            <dl className="open-stats">
-              <div>
-                <dt>Trilhas</dt>
-                <dd>{trails}</dd>
-              </div>
-              <div>
-                <dt>Guias</dt>
-                <dd>{guides.length}</dd>
-              </div>
-              {stars !== undefined && (
+        <DevFlip
+          id="open-source"
+          data={{ stars: stars ?? null, trails, guides: guides.length, ways }}
+        >
+          <div className="open-card">
+            <div className="open-copy">
+              <p className="home-eyebrow">Código aberto</p>
+              <h2 id="open-title">Feita em código aberto, por quem estuda e ensina</h2>
+              <p>
+                A Trilha Info nasceu em junho de 2022 para organizar conteúdos gratuitos em
+                português para quem quer entrar na área de tecnologia. Todo o currículo está no
+                GitHub, e qualquer pessoa pode propor melhorias.
+              </p>
+              <dl className="open-stats">
                 <div>
-                  <dt>Estrelas no GitHub</dt>
-                  <dd>{stars.toLocaleString('pt-BR')}</dd>
+                  <dt>Trilhas</dt>
+                  <dd>{trails}</dd>
                 </div>
-              )}
-              <div>
-                <dt>Para estudar</dt>
-                <dd>Grátis</dd>
+                <div>
+                  <dt>Guias</dt>
+                  <dd>{guides.length}</dd>
+                </div>
+                {stars !== undefined && (
+                  <div>
+                    <dt>Estrelas no GitHub</dt>
+                    <dd>{stars.toLocaleString('pt-BR')}</dd>
+                  </div>
+                )}
+                <div>
+                  <dt>Para estudar</dt>
+                  <dd>Grátis</dd>
+                </div>
+              </dl>
+              <div className="open-actions">
+                <a className="open-primary" href={repository} target="_blank" rel="noreferrer">
+                  <PiGithubLogo aria-hidden="true" />
+                  Ver no GitHub
+                  <span className="sr-only"> (abre em nova aba)</span>
+                </a>
+                <a
+                  className="open-secondary"
+                  href={`${repository}/stargazers`}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <PiStarFill aria-hidden="true" />
+                  Dar uma estrela
+                  <span className="sr-only"> (abre em nova aba)</span>
+                </a>
               </div>
-            </dl>
-            <div className="open-actions">
-              <a className="open-primary" href={repository} target="_blank" rel="noreferrer">
-                <PiGithubLogo aria-hidden="true" />
-                Ver no GitHub
-                <span className="sr-only"> (abre em nova aba)</span>
-              </a>
-              <a
-                className="open-secondary"
-                href={`${repository}/stargazers`}
-                target="_blank"
-                rel="noreferrer"
-              >
-                <PiStarFill aria-hidden="true" />
-                Dar uma estrela
-                <span className="sr-only"> (abre em nova aba)</span>
-              </a>
+            </div>
+
+            <div className="open-ways">
+              <h3>Como participar</h3>
+              <ul>
+                {ways.map((way) => (
+                  <li key={way.title}>
+                    <a
+                      href={way.href}
+                      {...(way.external ? { target: '_blank', rel: 'noreferrer' } : {})}
+                    >
+                      <span className="open-way-icon" aria-hidden="true">
+                        {way.icon}
+                      </span>
+                      <span className="open-way-text">
+                        <strong>{way.title}</strong>
+                        <span>{way.text}</span>
+                      </span>
+                      {way.external ? (
+                        <PiArrowUpRight className="open-way-arrow" aria-hidden="true" />
+                      ) : (
+                        <PiArrowRight className="open-way-arrow" aria-hidden="true" />
+                      )}
+                      {way.external && <span className="sr-only"> (abre em nova aba)</span>}
+                    </a>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
-
-          <div className="open-ways">
-            <h3>Como participar</h3>
-            <ul>
-              {ways.map((way) => (
-                <li key={way.title}>
-                  <a
-                    href={way.href}
-                    {...(way.external ? { target: '_blank', rel: 'noreferrer' } : {})}
-                  >
-                    <span className="open-way-icon" aria-hidden="true">
-                      {way.icon}
-                    </span>
-                    <span className="open-way-text">
-                      <strong>{way.title}</strong>
-                      <span>{way.text}</span>
-                    </span>
-                    {way.external ? (
-                      <PiArrowUpRight className="open-way-arrow" aria-hidden="true" />
-                    ) : (
-                      <PiArrowRight className="open-way-arrow" aria-hidden="true" />
-                    )}
-                    {way.external && <span className="sr-only"> (abre em nova aba)</span>}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
+        </DevFlip>
       </section>
     </>
   );
