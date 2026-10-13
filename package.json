@@ -12,6 +12,7 @@
     "format": "prettier --write",
     "format:all": "prettier --write .",
     "check": "tsc --noEmit && tsc -p tsconfig.node.json --noEmit",
+    "icons": "node scripts/generate-icons.mjs",
     "test:run": "vitest run"
   },
   "dependencies": {
@@ -62,6 +63,9 @@
     "uuid-by-string": "^4.0.0"
   },
   "devDependencies": {
+    "@fontsource/bricolage-grotesque": "^5.3.0",
+    "@fontsource/hanken-grotesk": "^5.3.0",
+    "@resvg/resvg-js": "^2.6.2",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@types/react": "^18.0.0",
@@ -86,6 +90,7 @@
     "postcss": "^8.4.14",
     "prettier": "^2.8.3",
     "prettier-plugin-tailwindcss": "^0.2.1",
+    "satori": "^0.55.1",
     "tailwindcss": "^3.2.4",
     "typescript": "^4.6.3",
     "vite": "^2.9.9",

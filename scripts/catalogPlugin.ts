@@ -1,21 +1,19 @@
 import { Plugin } from 'vite';
 import { roadmaps } from '../src/roadmaps/roadmaps';
 import { roadmapGuides } from '../src/roadmaps/guides';
+import { guides } from '../src/guides';
 import { createCatalog } from '../src/learning/catalog';
 import { roadmapSchema, studyContextSchema, studyPlanSchema } from '../src/learning/schema';
 import { enrichAppHTML, roadmapMarkdown, staticCatalogHTML } from './roadmapArtifacts';
 
+export function roadmapCatalogs() {
+  return Object.entries(roadmaps).map(([id, roadmap]) =>
+    createCatalog(id, roadmap.title, roadmap.file, roadmapGuides[id as keyof typeof roadmapGuides]),
+  );
+}
+
 export function catalogPlugin(): Plugin {
-  function catalogs() {
-    return Object.entries(roadmaps).map(([id, roadmap]) =>
-      createCatalog(
-        id,
-        roadmap.title,
-        roadmap.file,
-        roadmapGuides[id as keyof typeof roadmapGuides],
-      ),
-    );
-  }
+  const catalogs = roadmapCatalogs;
   function artifacts() {
     const all = catalogs();
     const files = new Map<string, { type: string; body: string }>();
@@ -61,6 +59,11 @@ export function catalogPlugin(): Plugin {
       type: 'application/xml; charset=utf-8',
       body: `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>https://trilha.info/</loc></url>${all
         .map((c) => `<url><loc>https://trilha.info/roadmap/${c.id}</loc></url>`)
+        .join('')}<url><loc>https://trilha.info/guias</loc></url>${guides
+        .map(
+          (guide) =>
+            `<url><loc>https://trilha.info/guide/${guide.id}</loc><lastmod>${guide.updatedAt}</lastmod></url>`,
+        )
         .join('')}</urlset>`,
     });
     return { all, files };
