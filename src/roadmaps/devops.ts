@@ -19,7 +19,7 @@ export const data: Level[] = withAILearning(
         topic(
           'Linux e terminal',
           'Aprenda arquivos, permissões, usuários, processos, serviços, pacotes, logs e SSH. Use uma máquina local ou VM de laboratório.',
-          [r.linux],
+          [r.linux, r.youtubeLinuxtips, r.youtubeBosonLinux],
           'Crie um usuário com permissões limitadas, execute um serviço e encontre o motivo de uma falha nos logs.',
           'devops.linux-e-terminal',
         ),

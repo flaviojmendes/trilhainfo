@@ -12,6 +12,11 @@ const read = (label: string, url: string, id: string): Link => ({
   contentType: LinkContentType.READ,
 });
 
+const watch = (label: string, url: string, id: string): Link => ({
+  ...read(label, url, id),
+  contentType: LinkContentType.WATCH,
+});
+
 export const resources = {
   cursor: read(
     'Cursor: uso do agente (inglês; documentação gratuita)',
@@ -143,6 +148,16 @@ export const resources = {
     'Next.js: curso oficial de aplicação completa (inglês)',
     'https://nextjs.org/learn',
     'resource.next',
+  ),
+  angular: read(
+    'Angular: tutorial interativo (inglês)',
+    'https://angular.dev/tutorials/learn-angular',
+    'resource.angular',
+  ),
+  vue: read(
+    'Vue.js: introdução (inglês)',
+    'https://vuejs.org/guide/introduction.html',
+    'resource.vue',
   ),
   testingLibrary: read(
     'Testing Library: testes centrados no usuário (inglês)',
@@ -336,5 +351,245 @@ export const resources = {
     'GitHub: uso responsável de sugestões de IA (português)',
     'https://docs.github.com/pt/copilot/responsible-use/copilot-code-completion',
     'resource.ai',
+  ),
+  youtubeLinuxtips: watch(
+    'LINUXtips: Linux e terminal (português; vídeos gratuitos no YouTube)',
+    'https://www.youtube.com/c/linuxtips',
+    'resource.youtubeLinuxtips',
+  ),
+  youtubeBosonLinux: watch(
+    'Bóson Treinamentos: sistemas operacionais e Linux (português; vídeos gratuitos no YouTube)',
+    'https://www.youtube.com/c/bosontreinamentos',
+    'resource.youtubeBosonLinux',
+  ),
+  youtubeRocketseat: watch(
+    'Rocketseat: Node.js (português; vídeos gratuitos no YouTube)',
+    'https://www.youtube.com/c/rocketseat',
+    'resource.youtubeRocketseat',
+  ),
+  youtubeErickWendel: watch(
+    'Erick Wendel: Node.js avançado (português; vídeos gratuitos no YouTube)',
+    'https://www.youtube.com/c/ErickWendelTreinamentos',
+    'resource.youtubeErickWendel',
+  ),
+  youtubeDevDojo: watch(
+    'DevDojo: Maratona Java (português; vídeos gratuitos no YouTube)',
+    'https://www.youtube.com/c/DevDojoBrasil',
+    'resource.youtubeDevDojo',
+  ),
+  youtubeMichelliSpring: watch(
+    'Michelli Brito: Spring Boot e microsserviços (português; vídeos gratuitos no YouTube)',
+    'https://www.youtube.com/c/MichelliBrito',
+    'resource.youtubeMichelliSpring',
+  ),
+  youtubePythonCourse: watch(
+    'Curso em Vídeo: Python 3, mundo 1 (português; playlist gratuita no YouTube)',
+    'https://www.youtube.com/playlist?list=PLHz_AreHm4dlKP6QQCekuIPky1CiwmdI6',
+    'resource.youtubePythonCourse',
+  ),
+  youtubeDunossauro: watch(
+    'Eduardo Mendes: Python profundo (português; vídeos gratuitos no YouTube)',
+    'https://www.youtube.com/@Dunossauro',
+    'resource.youtubeDunossauro',
+  ),
+  youtubeAprendaGo: watch(
+    'Ellen Körbes: Aprenda Go (português; vídeos gratuitos no YouTube)',
+    'https://www.youtube.com/@AprendaGo',
+    'resource.youtubeAprendaGo',
+  ),
+  youtubeAprendaGolang: watch(
+    'Aprenda Golang: Go para backend (português; vídeos gratuitos no YouTube)',
+    'https://www.youtube.com/@tiago.temporin',
+    'resource.youtubeAprendaGolang',
+  ),
+  youtubeDesenvolvedorIo: watch(
+    'desenvolvedor.io: C# e arquitetura (português; vídeos gratuitos no YouTube)',
+    'https://www.youtube.com/c/Desenvolvedorio',
+    'resource.youtubeDesenvolvedorIo',
+  ),
+  youtubeLuisDev: watch(
+    'LuisDev: APIs em .NET (português; vídeos gratuitos no YouTube)',
+    'https://www.youtube.com/c/luisdev',
+    'resource.youtubeLuisDev',
+  ),
+  youtubeMysqlCourse: watch(
+    'Curso em Vídeo: bancos de dados e MySQL (português; playlist gratuita no YouTube)',
+    'https://www.youtube.com/playlist?list=PLHz_AreHm4dkBs-795Dsgvau_ekxg8g1r',
+    'resource.youtubeMysqlCourse',
+  ),
+  youtubeBosonModeling: watch(
+    'Bóson Treinamentos: modelagem de dados (português; vídeos gratuitos no YouTube)',
+    'https://www.youtube.com/c/bosontreinamentos',
+    'resource.youtubeBosonModeling',
+  ),
+  youtubeBranas: watch(
+    'Rodrigo Branas: padrões de API e Clean Architecture (português; vídeos gratuitos no YouTube)',
+    'https://www.youtube.com/c/RodrigoBranas',
+    'resource.youtubeBranas',
+  ),
+  youtubeFullCycleApis: watch(
+    'Full Cycle: REST, gRPC e GraphQL (português; vídeos gratuitos no YouTube)',
+    'https://www.youtube.com/c/FullCycle',
+    'resource.youtubeFullCycleApis',
+  ),
+  youtubeTrilhaInfo: watch(
+    'Flávio Mendes (Trilha Info): arquitetura e carreira (português; vídeos gratuitos no YouTube)',
+    'https://www.youtube.com/@atrilhainfo',
+    'resource.youtubeTrilhaInfo',
+  ),
+  youtubeFullCycleArchitecture: watch(
+    'Full Cycle: arquitetura e microsserviços (português; vídeos gratuitos no YouTube)',
+    'https://www.youtube.com/c/FullCycle',
+    'resource.youtubeFullCycleArchitecture',
+  ),
+  youtubeManguinho: watch(
+    'Rodrigo Manguinho: Clean Architecture na prática (português; vídeos gratuitos no YouTube)',
+    'https://www.youtube.com/@rmanguinho',
+    'resource.youtubeManguinho',
+  ),
+  youtubeMichelliMessaging: watch(
+    'Michelli Brito: RabbitMQ e Kafka na prática (português; vídeos gratuitos no YouTube)',
+    'https://www.youtube.com/c/MichelliBrito',
+    'resource.youtubeMichelliMessaging',
+  ),
+  youtubeFullCycleMessaging: watch(
+    'Full Cycle: mensageria para alta escalabilidade (português; vídeos gratuitos no YouTube)',
+    'https://www.youtube.com/c/FullCycle',
+    'resource.youtubeFullCycleMessaging',
+  ),
+  youtubeLinuxtipsContainers: watch(
+    'LINUXtips: Docker e Kubernetes (português; vídeos gratuitos no YouTube)',
+    'https://www.youtube.com/c/linuxtips',
+    'resource.youtubeLinuxtipsContainers',
+  ),
+  youtubeVeronez: watch(
+    'Fabricio Veronez: Docker e Kubernetes descomplicados (português; vídeos gratuitos no YouTube)',
+    'https://www.youtube.com/c/FabricioVeronez',
+    'resource.youtubeVeronez',
+  ),
+  youtubeAlgorithmsCourse: watch(
+    'Curso em Vídeo: algoritmos e lógica de programação (português; playlist gratuita no YouTube)',
+    'https://www.youtube.com/playlist?list=PLHz_AreHm4dmSj0MHol_aoNYCSGFqvfXV',
+    'resource.youtubeAlgorithmsCourse',
+  ),
+  youtubeAkita: watch(
+    'Fabio Akita: base da computação e algoritmos (português; vídeos gratuitos no YouTube)',
+    'https://www.youtube.com/c/FabioAkita1990',
+    'resource.youtubeAkita',
+  ),
+  youtubeDeschamps: watch(
+    'Filipe Deschamps: carreira, atitude e soft skills (português; vídeos gratuitos no YouTube)',
+    'https://www.youtube.com/c/FilipeDeschamps',
+    'resource.youtubeDeschamps',
+  ),
+  youtubeMontanoInterviews: watch(
+    'Lucas Montano: entrevistas em big techs e carreira (português; vídeos gratuitos no YouTube)',
+    'https://www.youtube.com/c/LucasMontano',
+    'resource.youtubeMontanoInterviews',
+  ),
+  youtubeSoutinhoLiveCoding: watch(
+    'Mario Souto (DevSoutinho): live coding e desafios (português; vídeos gratuitos no YouTube)',
+    'https://www.youtube.com/c/DevSoutinho',
+    'resource.youtubeSoutinhoLiveCoding',
+  ),
+  youtubeRocketseatChallenges: watch(
+    'Rocketseat: resolução de desafios técnicos (português; vídeos gratuitos no YouTube)',
+    'https://www.youtube.com/c/rocketseat',
+    'resource.youtubeRocketseatChallenges',
+  ),
+  youtubeSoutinhoPortfolio: watch(
+    'Mario Souto (DevSoutinho): como montar um portfólio (português; vídeos gratuitos no YouTube)',
+    'https://www.youtube.com/c/DevSoutinho',
+    'resource.youtubeSoutinhoPortfolio',
+  ),
+  youtubeMontanoResume: watch(
+    'Lucas Montano: revisão de currículos e contratação (português; vídeos gratuitos no YouTube)',
+    'https://www.youtube.com/c/LucasMontano',
+    'resource.youtubeMontanoResume',
+  ),
+  youtubeDeschampsWeb: watch(
+    'Filipe Deschamps: como a internet funciona e APIs (português; vídeos gratuitos no YouTube)',
+    'https://www.youtube.com/c/FilipeDeschamps',
+    'resource.youtubeDeschampsWeb',
+  ),
+  youtubeCodigoFonte: watch(
+    'Código Fonte TV: Dicionário do Programador (português; vídeos gratuitos no YouTube)',
+    'https://www.youtube.com/c/codigofontetv',
+    'resource.youtubeCodigoFonte',
+  ),
+  youtubeHtmlCourse: watch(
+    'Curso em Vídeo: HTML5 completo (português; playlist gratuita no YouTube)',
+    'https://www.youtube.com/playlist?list=PLHz_AreHm4dlAnJ_jJtV29RFxnPHDuk9o',
+    'resource.youtubeHtmlCourse',
+  ),
+  youtubeCssCourse: watch(
+    'Curso em Vídeo: HTML5 e CSS3, módulo 2 (português; playlist gratuita no YouTube)',
+    'https://www.youtube.com/playlist?list=PLHz_AreHm4dlUpEXkY1AyVLQGcpSgVF8s',
+    'resource.youtubeCssCourse',
+  ),
+  youtubeOrigamid: watch(
+    'Origamid: CSS avançado e interfaces (português; vídeos gratuitos no YouTube)',
+    'https://www.youtube.com/c/Origamid',
+    'resource.youtubeOrigamid',
+  ),
+  youtubeJsCourse: watch(
+    'Curso em Vídeo: JavaScript para iniciantes (português; playlist gratuita no YouTube)',
+    'https://www.youtube.com/playlist?list=PLHz_AreHm4dlsK3Nr9GVvXCbpQyHQl1o1',
+    'resource.youtubeJsCourse',
+  ),
+  youtubeHoraDeCodarJs: watch(
+    'Hora de Codar: JavaScript e projetos (português; playlist gratuita no YouTube)',
+    'https://www.youtube.com/playlist?list=PLnDvRpP8BneysKU8KivhnrVaKpILD3gZ6',
+    'resource.youtubeHoraDeCodarJs',
+  ),
+  youtubeBranasTs: watch(
+    'Rodrigo Branas: masterclass de TypeScript (português; vídeos gratuitos no YouTube)',
+    'https://www.youtube.com/c/RodrigoBranas',
+    'resource.youtubeBranasTs',
+  ),
+  youtubeRocketseatTs: watch(
+    'Rocketseat: TypeScript na prática (português; vídeos gratuitos no YouTube)',
+    'https://www.youtube.com/c/rocketseat',
+    'resource.youtubeRocketseatTs',
+  ),
+  youtubeGitJusten: watch(
+    'Willian Justen: Git e GitHub para iniciantes (português; playlist gratuita no YouTube)',
+    'https://www.youtube.com/playlist?list=PLlAbYrWSYTiPA2iEiQ2PF_A9j__C4hi0A',
+    'resource.youtubeGitJusten',
+  ),
+  youtubeGitCourse: watch(
+    'Curso em Vídeo: Git e GitHub (português; playlist gratuita no YouTube)',
+    'https://www.youtube.com/playlist?list=PLHz_AreHm4dm7ZULPAmadvNhH6vk9oNZA',
+    'resource.youtubeGitCourse',
+  ),
+  youtubeHoraDeCodarReact: watch(
+    'Hora de Codar: curso de React (português; playlist gratuita no YouTube)',
+    'https://www.youtube.com/playlist?list=PLnDvRpP8BneyVA0SZ2okm-QBojomniQVO',
+    'resource.youtubeHoraDeCodarReact',
+  ),
+  youtubeRocketseatReact: watch(
+    'Rocketseat: ecossistema React e Next.js (português; vídeos gratuitos no YouTube)',
+    'https://www.youtube.com/c/rocketseat',
+    'resource.youtubeRocketseatReact',
+  ),
+  youtubeRocketseatTailwind: watch(
+    'Rocketseat: projetos com Tailwind CSS (português; vídeos gratuitos no YouTube)',
+    'https://www.youtube.com/c/rocketseat',
+    'resource.youtubeRocketseatTailwind',
+  ),
+  youtubeHoraDeCodarCss: watch(
+    'Hora de Codar: Bootstrap e Tailwind (português; vídeos gratuitos no YouTube)',
+    'https://www.youtube.com/@MatheusBattisti',
+    'resource.youtubeHoraDeCodarCss',
+  ),
+  youtubeLoiane: watch(
+    'Loiane Groner: curso completo de Angular (português; vídeos gratuitos no YouTube)',
+    'https://www.youtube.com/c/loianegroner',
+    'resource.youtubeLoiane',
+  ),
+  youtubeTiagoMatos: watch(
+    'Tiago Matos: cursos de Vue.js (português; vídeos gratuitos no YouTube)',
+    'https://www.youtube.com/c/tiagomatosweb',
+    'resource.youtubeTiagoMatos',
   ),
 };

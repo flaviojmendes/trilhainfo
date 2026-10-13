@@ -47,7 +47,7 @@ export function project(
 export const git = topic(
   'Controle de Versão',
   'Use Git desde o primeiro exercício: commits pequenos, branches, pull requests, revisão e resolução de conflitos. Não publique credenciais.',
-  [r.git, r.contribute],
+  [r.git, r.contribute, r.youtubeGitJusten, r.youtubeGitCourse],
   'Crie um repositório com README, abra um pull request e resolva um conflito em uma branch de exercício. Peça à IA que explique o diff e confira a explicação no histórico do Git.',
   'curriculum.controle-de-versao',
 );
@@ -55,7 +55,7 @@ export const git = topic(
 export const web = topic(
   'Internet e HTTP',
   'Entenda cliente e servidor, DNS, HTTPS, métodos, status, cabeçalhos, JSON e o ciclo de uma requisição. Use o painel Network do navegador.',
-  [r.web, r.http],
+  [r.web, r.http, r.youtubeDeschampsWeb, r.youtubeCodigoFonte],
   'Inspecione uma requisição real e explique URL, método, resposta, status e por que uma falha ocorreu. Peça à IA hipóteses para a falha e confira cada uma no painel Network.',
   'curriculum.internet-e-http',
 );
@@ -63,7 +63,7 @@ export const web = topic(
 export const html = topic(
   'HTML',
   'Aprenda estrutura semântica, títulos, links, imagens e formulários com labels e validação nativa. A página deve fazer sentido sem CSS.',
-  [r.htmlCourse, r.html],
+  [r.htmlCourse, r.html, r.youtubeHtmlCourse],
   'Monte uma página com navegação, formulário e imagens com texto alternativo. Peça à IA uma revisão de semântica e labels; confira as sugestões na documentação e percorra os controles pelo teclado.',
   'curriculum.html',
 );
@@ -71,7 +71,7 @@ export const html = topic(
 export const css = topic(
   'CSS',
   'Aprenda cascata, especificidade, box model, Flexbox, Grid e layouts responsivos. Depois explore propriedades customizadas e container queries.',
-  [r.htmlCourse, r.css],
+  [r.htmlCourse, r.css, r.youtubeCssCourse, r.youtubeOrigamid],
   'Adapte a mesma página a celular e desktop sem rolagem horizontal, com texto legível e foco visível. Descreva um problema de layout à IA, teste a hipótese nas ferramentas do navegador e explique a correção.',
   'curriculum.css',
 );
@@ -79,7 +79,7 @@ export const css = topic(
 export const javascript = topic(
   'JavaScript',
   'Pratique variáveis, funções, arrays, objetos, módulos, DOM, eventos, promises, async/await e tratamento de erros antes de usar um framework.',
-  [r.jsCourse, r.js, r.fetch],
+  [r.jsCourse, r.js, r.fetch, r.youtubeJsCourse, r.youtubeHoraDeCodarJs],
   'Crie uma lista com filtros e dados de uma API. Mostre carregamento, lista vazia e erro; peça uma pista à IA para um bug e investigue a hipótese com breakpoints. Altere uma função gerada e preveja o resultado.',
   'curriculum.javascript',
 );
@@ -87,7 +87,7 @@ export const javascript = topic(
 export const typescript = topic(
   'TypeScript',
   'Use tipos, interfaces, unions, narrowing e generics simples. Ative strict e entenda que tipos não validam dados recebidos em tempo de execução.',
-  [r.ts],
+  [r.ts, r.youtubeBranasTs, r.youtubeRocketseatTs],
   'Tipifique os dados do projeto sem any e valide a resposta de uma API antes de usá-la. Peça à IA que explique um erro de tipo e confira a correção com o compilador, preservando strict.',
   'curriculum.typescript',
 );

@@ -78,9 +78,23 @@ export const data: Level[] = withAILearning(
         topic(
           'Componentes com React',
           'Estude componentes, props, estado, eventos e composição depois de dominar JavaScript. Continue pela trilha React para aprofundar.',
-          [r.react, r.reactSetup],
+          [r.react, r.reactSetup, r.youtubeHoraDeCodarReact, r.youtubeRocketseatReact],
           'Recrie uma tela do catálogo com componentes pequenos e explique onde o estado deve ficar.',
           'frontend.componentes-com-react',
+        ),
+        topic(
+          'Componentes com Angular',
+          'Estude componentes, templates, signals, serviços, injeção de dependência e rotas depois de dominar JavaScript e TypeScript.',
+          [r.angular, r.youtubeLoiane],
+          'Recrie uma tela do catálogo com componentes standalone e um serviço para os dados; explique onde o estado deve ficar.',
+          'frontend.componentes-com-angular',
+        ),
+        topic(
+          'Componentes com Vue',
+          'Estude componentes, props, reatividade, eventos e composables depois de dominar JavaScript.',
+          [r.vue, r.youtubeTiagoMatos],
+          'Recrie uma tela do catálogo com componentes pequenos e explique onde o estado deve ficar.',
+          'frontend.componentes-com-vue',
         ),
       ],
     },
@@ -122,7 +136,7 @@ export const data: Level[] = withAILearning(
         topic(
           'Renderização, design system e CSS avançado',
           'Compare SPA, SSR e geração estática. Explore componentes reutilizáveis, CSS moderno e SEO. PWA, mobile, desktop e WebAssembly são caminhos separados.',
-          [r.next, r.css, r.curriculum],
+          [r.next, r.css, r.curriculum, r.youtubeRocketseatTailwind, r.youtubeHoraDeCodarCss],
           'Justifique a estratégia de renderização de uma página e implemente uma melhoria mensurável.',
           'frontend.renderizacao-design-system-e-css-avancado',
         ),

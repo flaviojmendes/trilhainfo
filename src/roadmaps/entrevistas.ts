@@ -14,7 +14,7 @@ export const data: Level[] = withAILearning(
         topic(
           'Currículo, vaga e apresentação',
           'Compare requisitos recorrentes de vagas de entrada. Descreva projetos e contribuições com evidências, prepare uma demonstração e exemplos de colaboração, aprendizado e resolução de problemas.',
-          [r.git, r.contribute],
+          [r.git, r.contribute, r.youtubeSoutinhoPortfolio, r.youtubeMontanoResume],
           'Apresente um projeto em cinco minutos: problema, sua contribuição, decisões, falha encontrada e próximos passos.',
           'entrevistas.curriculo-vaga-e-apresentacao',
         ),
@@ -49,14 +49,19 @@ export const data: Level[] = withAILearning(
         topic(
           'Arrays, mapas e complexidade',
           'Use arrays, strings, mapas, conjuntos, pilhas e filas. Entenda tempo e espaço com Big O e pratique busca, ordenação e contagem.',
-          [r.algorithms, r.algorithmsCourse, r.js],
+          [r.algorithms, r.algorithmsCourse, r.js, r.youtubeAlgorithmsCourse, r.youtubeAkita],
           'Resolva deduplicação e busca em uma coleção; explique a complexidade e teste vazio, repetição e limites.',
           'entrevistas.arrays-mapas-e-complexidade',
         ),
         topic(
           'Raciocínio e comunicação',
           'Trabalhe um exemplo pequeno, defina invariantes e compare soluções. Pratique recursão e busca binária; não decore respostas sem compreender.',
-          [r.algorithms, r.algorithmsCourse],
+          [
+            r.algorithms,
+            r.algorithmsCourse,
+            r.youtubeSoutinhoLiveCoding,
+            r.youtubeRocketseatChallenges,
+          ],
           'Resolva um exercício em voz alta, escreva casos de teste antes de finalizar e discuta uma alternativa.',
           'entrevistas.raciocinio-e-comunicacao',
         ),
@@ -90,7 +95,7 @@ export const data: Level[] = withAILearning(
         topic(
           'Desafio técnico e conversa com a equipe',
           'Confirme escopo, tempo disponível e critérios do desafio. Documente o que entregou e o que falta. Pergunte sobre mentoria, rotina e expectativas para o nível de entrada.',
-          [r.git, r.contribute],
+          [r.git, r.contribute, r.youtubeDeschamps, r.youtubeMontanoInterviews],
           'Entregue um README com execução, testes, decisões e limitações; registre feedback e atualize seu plano de estudo.',
           'entrevistas.desafio-tecnico-e-conversa-com-a-equipe',
         ),
@@ -105,7 +110,7 @@ export const data: Level[] = withAILearning(
         topic(
           'Estruturas e design de sistemas',
           'Aprenda árvores/grafos, BFS/DFS e modelagem de sistemas quando solicitados. Compare cache, filas, escala e consistência partindo de requisitos explícitos.',
-          [r.algorithmsCourse, r.sre, r.kafka],
+          [r.algorithmsCourse, r.sre, r.kafka, r.youtubeTrilhaInfo, r.youtubeFullCycleArchitecture],
           'Desenhe um serviço simples, estime seus limites e justifique uma escolha arquitetural sem adicionar componentes desnecessários.',
           'entrevistas.estruturas-e-design-de-sistemas',
         ),
