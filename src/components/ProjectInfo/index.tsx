@@ -1,27 +1,35 @@
-import { PiArrowUpRight, PiEnvelopeSimple, PiFileText, PiGithubLogo } from 'react-icons/pi';
-import { cheatSheets } from '../../guides/cheatSheets';
+import { PiArrowRight, PiEnvelopeSimple, PiGithubLogo } from 'react-icons/pi';
+import { Link } from 'react-router-dom';
+import { findGuide, GuideMeta, guides } from '../../guides';
+import { GuideCard } from '../Guide/GuideCard';
 import SubscriptionEmbeded from '../SubscriptionEmbeded';
+
+const featured = ['urlToPage', 'httpApis', 'sqlJoins', 'testTypes', 'gitDaily', 'aiStudy']
+  .map(findGuide)
+  .filter((guide): guide is GuideMeta => Boolean(guide));
 
 export default function ProjectInfo() {
   return (
     <>
       <section id="guias" className="home-section" aria-labelledby="guias-title">
         <header className="home-section-head">
-          <p className="home-eyebrow">Download gratuito</p>
-          <h2 id="guias-title">Guias e cheat sheets</h2>
-          <p>Resumos visuais para revisar um conceito em poucos minutos.</p>
+          <p className="home-eyebrow">Guias rápidos</p>
+          <h2 id="guias-title">Revise um conceito em poucos minutos</h2>
+          <p>
+            Explicações curtas com diagramas e exemplos, ligadas aos assuntos das trilhas. Abra
+            durante o estudo ou antes de uma entrevista.
+          </p>
         </header>
-        <ul className="guide-grid">
-          {cheatSheets.map((cheatSheet) => (
-            <li key={cheatSheet.id}>
-              <a className="guide-card" href={`/guide/${cheatSheet.id}`}>
-                <PiFileText className="guide-card-icon" aria-hidden="true" />
-                <span>{cheatSheet.title}</span>
-                <PiArrowUpRight className="guide-card-arrow" aria-hidden="true" />
-              </a>
+        <ul className="guide-tiles">
+          {featured.map((guide) => (
+            <li key={guide.id}>
+              <GuideCard guide={guide} />
             </li>
           ))}
         </ul>
+        <Link className="home-section-more" to="/guias">
+          Ver os {guides.length} guias <PiArrowRight aria-hidden="true" />
+        </Link>
       </section>
 
       <section className="home-section home-community" aria-label="Comunidade">

@@ -189,6 +189,42 @@
   color: var(--learning-accent);
   text-decoration: underline;
 }
+.group-guides {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 10px;
+  margin-top: 16px;
+  padding: 10px 14px;
+  border-radius: 14px;
+  border: 1px solid var(--learning-hairline);
+  background: rgb(255 255 255 / 0.025);
+  font-size: 0.875rem;
+}
+.group-guides > svg {
+  width: 18px;
+  height: 18px;
+  stroke: var(--learning-accent);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.group-guides > span {
+  font-weight: 700;
+}
+.group-guides ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+  color: var(--learning-muted);
+}
+.group-guides a {
+  color: var(--learning-accent);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: rgb(255 131 197 / 0.4);
+  text-underline-offset: 3px;
+}
 .learning-progress {
   display: flex;
   align-items: center;

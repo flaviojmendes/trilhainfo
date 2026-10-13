@@ -12,7 +12,7 @@ import {
 
 const links = [
   { label: 'Trilhas', href: '/#trilhas' },
-  { label: 'Guias', href: '/#guias' },
+  { label: 'Guias', to: '/guias' },
   { label: 'Comunidade', to: '/roadmap/community' },
 ];
 

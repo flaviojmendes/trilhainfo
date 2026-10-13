@@ -30,7 +30,7 @@ export default function MainLayout({ children }: Props) {
                 <a href="/#trilhas">Trilhas</a>
               </li>
               <li>
-                <a href="/#guias">Guias</a>
+                <Link to="/guias">Guias</Link>
               </li>
               <li>
                 <Link to="/roadmap/community">Comunidade</Link>

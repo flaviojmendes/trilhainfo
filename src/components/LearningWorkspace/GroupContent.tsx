@@ -4,7 +4,9 @@ import { projectBranch } from '../../learning/catalog';
 import { Depth, LearningGroup, RoadmapCatalog, StudyPreferences } from '../../learning/types';
 import { ResourceList } from './ResourceList';
 import LearningPrompt from '../LearningPrompt';
-import { AISymbol } from './icons';
+import { Link } from 'react-router-dom';
+import { guidesForTopic } from '../../guides';
+import { AISymbol, BookIcon } from './icons';
 
 export const depthLabels: Record<Depth, string> = {
   simple: 'Simplificar',
@@ -40,6 +42,7 @@ export const GroupContent = memo(function GroupContent({
   const reduced = useReducedMotion();
   const ownIds = group.variants.deep.stepIds;
   const complete = group.requiredIds.every((id) => prefs.completedNodeIds.includes(id));
+  const topicGuides = guidesForTopic(group.id);
   return (
     <article className="learning-group" aria-labelledby={`title-${group.id}`}>
       <header className="group-heading">
@@ -82,6 +85,20 @@ export const GroupContent = memo(function GroupContent({
         <a className="related-roadmap" href={group.href}>
           Abrir a trilha de {group.title} ↗
         </a>
+      )}
+      {topicGuides.length > 0 && (
+        <aside className="group-guides" aria-label={`Guias rápidos sobre ${group.title}`}>
+          <BookIcon />
+          <span>Guia rápido</span>
+          <ul>
+            {topicGuides.map((guide) => (
+              <li key={guide.id}>
+                <Link to={`/guide/${guide.id}`}>{guide.title}</Link>
+                <span> · {guide.minutes} min</span>
+              </li>
+            ))}
+          </ul>
+        </aside>
       )}
       <ol className="learning-steps" id={`steps-${group.id}`}>
         {nodes.map((node) => {

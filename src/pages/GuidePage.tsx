@@ -1,37 +1,30 @@
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import MainLayout from '../components/layouts/MainLayout';
 import useDocumentTitle from '../components/useDocumentTitle';
-import BigONotation from '../components/CheatSheets/BigONotation';
-import BasicAuth from '../components/CheatSheets/BasicAuth';
-import StarGuide from '../components/CheatSheets/StarGuide';
-import JsAsyncDefer from '../components/CheatSheets/JsAsyncDefer';
-import SlaSloSli from '../components/CheatSheets/SlaSloSli';
+import { GuideView } from '../components/Guide/GuideView';
+import { findGuide } from '../guides';
 
 export default function GuidePage() {
-  const { guide } = useParams();
+  const { guide: id } = useParams();
+  const guide = findGuide(id);
+  useDocumentTitle(
+    guide ? `${guide.title} · Guias · Trilha Info` : 'Guia não encontrado · Trilha Info',
+  );
 
-  function getImageUrl(name: string) {
-    return `/guides/${name}.jpg`;
-  }
-
-  useDocumentTitle('Trilha Info - ' + guide);
-
-  const renderGuide = () => {
-    switch (guide) {
-      case 'bigO':
-        return <BigONotation />;
-      case 'basicAuth':
-        return <BasicAuth />;
-      case 'star':
-        return <StarGuide />;
-      case 'slaSloSli':
-        return <SlaSloSli />;
-      case 'jsAsyncDefer':
-        return <JsAsyncDefer />;
-      default:
-        return <img className="m-auto h-screen" alt="Guide" src={getImageUrl(guide || '')} />;
-    }
-  };
-
-  return <MainLayout>{renderGuide()}</MainLayout>;
+  return (
+    <MainLayout>
+      {guide ? (
+        <GuideView key={guide.id} guide={guide} />
+      ) : (
+        <section className="site-empty">
+          <p className="home-eyebrow">Guia não encontrado</p>
+          <h1>Este guia não existe, ou mudou de nome</h1>
+          <p>Veja todos os guias disponíveis e escolha um assunto para revisar.</p>
+          <Link className="home-button home-button-primary" to="/guias">
+            Ver todos os guias
+          </Link>
+        </section>
+      )}
+    </MainLayout>
+  );
 }
