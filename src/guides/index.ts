@@ -11,17 +11,17 @@ export const guideCategories: GuideCategory[] = [
   {
     id: 'apis',
     title: 'APIs e segurança',
-    description: 'Contratos HTTP, autenticação e controle de acesso.',
+    description: 'Contratos HTTP, CORS, autenticação e segurança de aplicações.',
   },
   {
     id: 'dados',
     title: 'Dados e algoritmos',
-    description: 'Consultas, custo de algoritmos e raciocínio sobre dados.',
+    description: 'Consultas, índices, modelagem, pipelines e custo de algoritmos.',
   },
   {
     id: 'operacao',
     title: 'Qualidade e operação',
-    description: 'Testes, containers e confiabilidade de serviços.',
+    description: 'Testes, CI, terminal, containers, cache e confiabilidade de serviços.',
   },
   {
     id: 'carreira',
@@ -45,6 +45,19 @@ export const guides: GuideMeta[] = [
     topics: ['curriculum.internet-e-http'],
     updatedAt,
     load: () => import('./content/urlToPage'),
+  },
+  {
+    id: 'htmlSemantics',
+    title: 'HTML semântico na prática',
+    summary:
+      'A tag certa entrega teclado, leitor de tela e formulários funcionando sem código extra.',
+    category: 'web',
+    level: 'Iniciante',
+    minutes: 6,
+    trails: ['frontend', 'fullstack'],
+    topics: ['curriculum.html'],
+    updatedAt,
+    load: () => import('./content/htmlSemantics'),
   },
   {
     id: 'jsAsyncDefer',
@@ -100,6 +113,49 @@ export const guides: GuideMeta[] = [
     load: () => import('./content/accessibilityChecks'),
   },
   {
+    id: 'typescriptBasics',
+    title: 'TypeScript essencial',
+    summary:
+      'Tipos de objeto, uniões, estreitamento e genéricos: o suficiente para usar TypeScript com confiança.',
+    category: 'web',
+    level: 'Iniciante',
+    minutes: 8,
+    trails: ['frontend', 'react', 'fullstack'],
+    topics: ['curriculum.typescript'],
+    updatedAt,
+    load: () => import('./content/typescriptBasics'),
+  },
+  {
+    id: 'reactEffects',
+    title: 'useEffect: quando usar e quando evitar',
+    summary:
+      'Estado derivado, eventos e sincronização: como decidir se você precisa de um Effect e como limpá-lo.',
+    category: 'web',
+    level: 'Intermediário',
+    minutes: 7,
+    trails: ['react', 'frontend'],
+    topics: ['react.effects-e-refs', 'react.estado-e-eventos', 'frontend.componentes-com-react'],
+    updatedAt,
+    load: () => import('./content/reactEffects'),
+  },
+  {
+    id: 'webPerformance',
+    title: 'Desempenho web e Core Web Vitals',
+    summary:
+      'LCP, INP e CLS: o que cada métrica mede, como medir e as otimizações que mais rendem.',
+    category: 'web',
+    level: 'Intermediário',
+    minutes: 7,
+    trails: ['frontend', 'react', 'test'],
+    topics: [
+      'frontend.desempenho-e-seguranca-web',
+      'react.build-e-desempenho',
+      'test.desempenho-seguranca-e-mobile',
+    ],
+    updatedAt,
+    load: () => import('./content/webPerformance'),
+  },
+  {
     id: 'httpApis',
     title: 'HTTP para APIs: métodos e status',
     summary:
@@ -117,6 +173,24 @@ export const guides: GuideMeta[] = [
     ],
     updatedAt,
     load: () => import('./content/httpApis'),
+  },
+  {
+    id: 'cors',
+    title: 'CORS sem mistério',
+    summary:
+      'Por que o navegador bloqueia a resposta da sua API, como funciona o preflight e como liberar só o necessário.',
+    category: 'apis',
+    level: 'Iniciante',
+    minutes: 6,
+    trails: ['frontend', 'react', 'fullstack', 'backend'],
+    topics: [
+      'fullstack.integracao-http',
+      'frontend.aplicacao-com-api',
+      'react.rotas-e-requisicoes',
+      'backend.api-rest-e-contratos',
+    ],
+    updatedAt,
+    load: () => import('./content/cors'),
   },
   {
     id: 'basicAuth',
@@ -164,6 +238,25 @@ export const guides: GuideMeta[] = [
     load: () => import('./content/sso'),
   },
   {
+    id: 'webSecurity',
+    title: 'Segurança web: injeção, XSS e CSRF',
+    summary:
+      'As falhas mais exploradas em aplicações web, com o código vulnerável, a correção e uma base de proteção.',
+    category: 'apis',
+    level: 'Intermediário',
+    minutes: 8,
+    trails: ['frontend', 'backend', 'fullstack', 'test', 'entrevistas'],
+    topics: [
+      'frontend.desempenho-e-seguranca-web',
+      'backend.api-com-banco-de-dados',
+      'fullstack.sessoes-e-permissoes',
+      'test.desempenho-seguranca-e-mobile',
+      'entrevistas.http-dados-e-seguranca',
+    ],
+    updatedAt,
+    load: () => import('./content/webSecurity'),
+  },
+  {
     id: 'bigO',
     title: 'Notação Big O',
     summary:
@@ -196,6 +289,56 @@ export const guides: GuideMeta[] = [
     load: () => import('./content/sqlJoins'),
   },
   {
+    id: 'sqlIndexes',
+    title: 'Índices e transações em SQL',
+    summary:
+      'Como um índice acelera consultas, como ler o EXPLAIN e quando agrupar comandos em uma transação.',
+    category: 'dados',
+    level: 'Intermediário',
+    minutes: 8,
+    trails: ['backend', 'fullstack', 'data-engineer', 'entrevistas'],
+    topics: [
+      'backend.acesso-a-dados-e-migracoes',
+      'backend.api-com-banco-de-dados',
+      'fullstack.aplicacao-com-persistencia',
+      'curriculum.sql-e-postgresql',
+    ],
+    updatedAt,
+    load: () => import('./content/sqlIndexes'),
+  },
+  {
+    id: 'dataModeling',
+    title: 'Modelagem dimensional e formatos',
+    summary:
+      'Fatos, dimensões, grão e histórico, e por que Parquet é tão mais rápido que CSV para análise.',
+    category: 'dados',
+    level: 'Intermediário',
+    minutes: 8,
+    trails: ['data-engineer'],
+    topics: [
+      'dataEngineering.modelagem-analitica-e-formatos',
+      'dataEngineering.transformacoes-com-dbt',
+    ],
+    updatedAt,
+    load: () => import('./content/dataModeling'),
+  },
+  {
+    id: 'idempotentPipelines',
+    title: 'Pipelines idempotentes e backfill',
+    summary: 'Como fazer um pipeline que pode rodar de novo sem duplicar nem perder dados.',
+    category: 'dados',
+    level: 'Intermediário',
+    minutes: 7,
+    trails: ['data-engineer'],
+    topics: [
+      'dataEngineering.pipelines-batch',
+      'dataEngineering.orquestracao-com-airflow',
+      'dataEngineering.pipeline-local-de-dados',
+    ],
+    updatedAt,
+    load: () => import('./content/idempotentPipelines'),
+  },
+  {
     id: 'testTypes',
     title: 'Que teste escrever?',
     summary:
@@ -212,6 +355,50 @@ export const guides: GuideMeta[] = [
     ],
     updatedAt,
     load: () => import('./content/testTypes'),
+  },
+  {
+    id: 'testDesign',
+    title: 'Técnicas de projeto de testes',
+    summary:
+      'Partição de equivalência, valor-limite e tabela de decisão para escolher poucos casos que pegam muitos defeitos.',
+    category: 'operacao',
+    level: 'Iniciante',
+    minutes: 7,
+    trails: ['test'],
+    topics: ['test.tecnicas-e-riscos'],
+    updatedAt,
+    load: () => import('./content/testDesign'),
+  },
+  {
+    id: 'bugReport',
+    title: 'Como relatar um bug',
+    summary:
+      'Um modelo de relato que qualquer pessoa reproduz na primeira tentativa, com severidade e evidências.',
+    category: 'operacao',
+    level: 'Iniciante',
+    minutes: 5,
+    trails: ['test'],
+    topics: ['test.testes-exploratorios-e-relato-de-bugs', 'test.plano-de-testes-e-evidencias'],
+    updatedAt,
+    load: () => import('./content/bugReport'),
+  },
+  {
+    id: 'ciPipeline',
+    title: 'CI/CD com GitHub Actions',
+    summary:
+      'Um pipeline comentado, onde guardar configuração e segredos e como manter a CI rápida e confiável.',
+    category: 'operacao',
+    level: 'Iniciante',
+    minutes: 7,
+    trails: ['devops', 'backend', 'fullstack', 'test', 'frontend'],
+    topics: [
+      'curriculum.ci-e-publicacao',
+      'devops.pipeline-de-entrega',
+      'test.ci-e-estrategia-de-cobertura',
+      'fullstack.configuracao-e-monitoramento',
+    ],
+    updatedAt,
+    load: () => import('./content/ciPipeline'),
   },
   {
     id: 'dockerBasics',
@@ -231,6 +418,19 @@ export const guides: GuideMeta[] = [
     load: () => import('./content/dockerBasics'),
   },
   {
+    id: 'linuxTerminal',
+    title: 'Terminal Linux para o dia a dia',
+    summary:
+      'Arquivos, pipes, permissões, processos e logs: os comandos para trabalhar em qualquer servidor.',
+    category: 'operacao',
+    level: 'Iniciante',
+    minutes: 8,
+    trails: ['devops', 'backend', 'data-engineer'],
+    topics: ['devops.linux-e-terminal', 'devops.shell-e-python'],
+    updatedAt,
+    load: () => import('./content/linuxTerminal'),
+  },
+  {
     id: 'slaSloSli',
     title: 'SLA, SLO e SLI',
     summary:
@@ -243,6 +443,18 @@ export const guides: GuideMeta[] = [
     poster: true,
     updatedAt,
     load: () => import('./content/slaSloSli'),
+  },
+  {
+    id: 'caching',
+    title: 'Cache sem dados velhos',
+    summary: 'Camadas de cache, o padrão cache-aside e como invalidar sem servir dados errados.',
+    category: 'operacao',
+    level: 'Intermediário',
+    minutes: 7,
+    trails: ['backend', 'fullstack'],
+    topics: ['backend.cache-filas-e-sistemas-distribuidos', 'backend.arquitetura-e-escalabilidade'],
+    updatedAt,
+    load: () => import('./content/caching'),
   },
   {
     id: 'gitDaily',
@@ -284,6 +496,36 @@ export const guides: GuideMeta[] = [
     poster: true,
     updatedAt,
     load: () => import('./content/star'),
+  },
+  {
+    id: 'liveCoding',
+    title: 'Live coding em entrevistas',
+    summary:
+      'Um roteiro para resolver problemas em voz alta, testar o próprio código e sair de um travamento.',
+    category: 'carreira',
+    level: 'Iniciante',
+    minutes: 6,
+    trails: ['entrevistas'],
+    topics: [
+      'entrevistas.raciocinio-e-comunicacao',
+      'entrevistas.codigo-depuracao-e-revisao',
+      'entrevistas.desafio-tecnico-e-conversa-com-a-equipe',
+    ],
+    updatedAt,
+    load: () => import('./content/liveCoding'),
+  },
+  {
+    id: 'systemDesign',
+    title: 'Design de sistemas em entrevistas',
+    summary:
+      'Requisitos, estimativas e trocas: como conduzir 45 minutos de design com um exemplo completo.',
+    category: 'carreira',
+    level: 'Intermediário',
+    minutes: 9,
+    trails: ['entrevistas', 'backend'],
+    topics: ['entrevistas.estruturas-e-design-de-sistemas', 'backend.arquitetura-e-escalabilidade'],
+    updatedAt,
+    load: () => import('./content/systemDesign'),
   },
   {
     id: 'aiStudy',

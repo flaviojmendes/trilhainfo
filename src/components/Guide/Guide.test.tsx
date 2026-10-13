@@ -1,6 +1,6 @@
 import { fireEvent, render, screen, within } from '@testing-library/react';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
-import { findGuide } from '../../guides';
+import { findGuide, guides, guidesInCategory } from '../../guides';
 import GuidePage from '../../pages/GuidePage';
 import GuidesPage from '../../pages/GuidesPage';
 import { GuideView } from './GuideView';
@@ -82,7 +82,9 @@ describe('Página de guia', () => {
 });
 
 describe('Índice de guias', () => {
-  const count = () => screen.getByText(/^(\d+ de )?18 guias$/);
+  const total = guides.length;
+  const apis = guidesInCategory('apis').length;
+  const count = () => screen.getByText(new RegExp(`^(\\d+ de )?${total} guias$`));
 
   it('filtra por tema e por busca, e permite limpar', () => {
     render(
@@ -90,14 +92,14 @@ describe('Índice de guias', () => {
         <GuidesPage />
       </MemoryRouter>,
     );
-    expect(count()).toHaveTextContent('18 guias');
+    expect(count()).toHaveTextContent(`${total} guias`);
 
     fireEvent.click(screen.getByRole('button', { name: 'APIs e segurança' }));
     expect(screen.getByRole('button', { name: 'APIs e segurança' })).toHaveAttribute(
       'aria-pressed',
       'true',
     );
-    expect(count()).toHaveTextContent('4 de 18 guias');
+    expect(count()).toHaveTextContent(`${apis} de ${total} guias`);
     expect(screen.queryByRole('heading', { name: 'Web e navegador' })).not.toBeInTheDocument();
 
     fireEvent.change(screen.getByRole('searchbox', { name: 'Buscar guia' }), {
@@ -105,6 +107,6 @@ describe('Índice de guias', () => {
     });
     expect(screen.getByText(/Nenhum guia encontrado/)).toBeInTheDocument();
     fireEvent.click(screen.getByRole('button', { name: 'Limpar filtros' }));
-    expect(count()).toHaveTextContent('18 guias');
+    expect(count()).toHaveTextContent(`${total} guias`);
   });
 });
