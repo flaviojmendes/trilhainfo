@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "id": "2026-10-13-teste-teste-un1hze",
+  "createdAt": "2026-10-13",
+  "kind": "resource",
+  "roadmapId": "frontend",
+  "groupId": "aiLearning.prompts-para-aprender-e-construir",
+  "nodeId": "aiLearning.prompts-para-aprender-e-construir.basics",
+  "resource": {
+    "kind": "video",
+    "title": "Teste Teste",
+    "url": "https://teste.com/",
+    "language": "pt-BR"
+  },
+  "reason": "TesteTesteTesteTesteTesteTesteTeste",
+  "author": {
+    "name": "Flavio Mendes",
+    "github": "flaviojmendes"
+  }
+}
