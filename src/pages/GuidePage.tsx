@@ -4,6 +4,7 @@ import useDocumentTitle from '../components/useDocumentTitle';
 import BigONotation from '../components/CheatSheets/BigONotation';
 import BasicAuth from '../components/CheatSheets/BasicAuth';
 import StarGuide from '../components/CheatSheets/StarGuide';
+import JsAsyncDefer from '../components/CheatSheets/JsAsyncDefer';
 import SlaSloSli from '../components/CheatSheets/SlaSloSli';
 
 export default function GuidePage() {
@@ -25,6 +26,8 @@ export default function GuidePage() {
         return <StarGuide />;
       case 'slaSloSli':
         return <SlaSloSli />;
+      case 'jsAsyncDefer':
+        return <JsAsyncDefer />;
       default:
         return <img className="m-auto h-screen" alt="Guide" src={getImageUrl(guide || '')} />;
     }
