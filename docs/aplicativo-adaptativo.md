@@ -4,6 +4,14 @@ As rotas `/roadmap/:name` e `/hroadmap/:name` usam a mesma interface e progresso
 
 O download da visualização em PNG permanece disponível, com limite de tamanho e carregamento do exportador sob demanda. A exportação de anotações continua disponível para pessoas autenticadas, usando a API existente.
 
+## Visão do trajeto
+
+Novas sessões começam pelo Mapa; a visualização salva anteriormente é preservada. `src/learning/journey.ts` agrupa etapas obrigatórias em trechos encerrados por projetos, mantendo a ordem editorial. O conteúdo de carreira após a última entrega continua no trecho final. Essa projeção não acrescenta bloqueios nem inventa dependências.
+
+No Mapa, aprofundamentos opcionais sempre aparecem, separados do percurso obrigatório. IA ocupa uma faixa transversal alinhada às entregas; seus exercícios também recebem identificação no detalhe. Abrir um assunto ou a prática de IA de um projeto e voltar restaura o foco no controle original. A busca considera os metadados de IA.
+
+`Level.kind` classifica estudo, projeto ou IA. `RoadmapItem.ai` classifica conteúdo dedicado a IA (`focused`) ou aplicação em um projeto (`assisted`). Os campos são independentes de `optional`, normalizados no catálogo e aceitos como propriedades opcionais no schema v1 publicado. Consumidores que mantêm cópias locais dos schemas devem atualizá-las. A mudança de metadata altera a versão do catálogo, mas preserva IDs e progresso; planos de uma versão anterior precisam ser regenerados.
+
 ## Conteúdo e identidade
 
 Cada etapa, assunto, seção e referência curada tem um ID editorial. Preserve o ID ao renomear ou mover conteúdo. Nos helpers `topic` e `project`, o quinto argumento é esse ID. Novos assuntos devem receber IDs novos, sem reaproveitar identidades de conteúdos removidos.

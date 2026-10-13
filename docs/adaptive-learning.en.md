@@ -6,6 +6,10 @@ PNG export remains available with size limits and an on-demand image exporter. A
 
 ## Content and identity
 
+New sessions start on the Map; previously saved views remain selected. The overview groups required stages into segments ending at project deliveries without changing editorial order or inventing prerequisite gates. Optional topics remain visible. A parallel AI lane links to concrete project exercises; opening a topic and returning restores focus to the originating control.
+
+Optional editorial fields `Level.kind` (`study`, `project`, `ai`) and `RoadmapItem.ai` (`focused`, `assisted`) remain independent from `optional`. The normalized catalog and published v1 schemas include these additive fields. Consumers with frozen schema copies should update them. Metadata changes update the catalog version while retaining IDs and progress; plans from older versions need to be regenerated.
+
 Every curated stage, topic, section and resource has a permanent editorial ID. Keep that ID when renaming or moving content. The fifth argument of `topic` and `project` is the ID. New concepts receive new IDs; do not reuse retired identities.
 
 ```ts

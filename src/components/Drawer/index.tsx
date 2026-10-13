@@ -43,9 +43,9 @@ export const Drawer = ({
 
   return (
     <DrawerPortal>
-      <DrawerOverlay className="fixed inset-0 z-30 h-screen w-screen bg-[#000000]/90 data-[state='closed']:animate-fadeOut data-[state='open']:animate-fadeIn" />
+      <DrawerOverlay className="fixed inset-0 z-40 h-screen w-screen bg-[#0c090b]/80 backdrop-blur-sm data-[state='closed']:animate-fadeOut data-[state='open']:animate-fadeIn" />
       <DrawerContent
-        className={`fixed bottom-0 top-0 z-30 h-screen w-full overflow-y-auto bg-box-primary px-6 py-4 duration-1000 sm:w-3/5 lg:w-2/5 ${open} ${close} ${
+        className={`fixed bottom-0 top-0 z-40 h-screen w-full overflow-y-auto bg-[#1b161a] px-6 py-4 text-text-primary duration-1000 sm:w-3/5 lg:w-2/5 ${open} ${close} ${
           isRight ? 'right-0' : 'left-0'
         }`}
         onCloseAutoFocus={(e) => {
@@ -59,7 +59,7 @@ export const Drawer = ({
 
         <DrawerClose
           aria-label="Fechar painel"
-          className="absolute right-3.5 top-3.5 flex min-h-[44px] min-w-[44px] items-center justify-center rounded-sm bg-primary p-1 hover:bg-primary-hover hover:shadow-primary-white"
+          className="absolute right-3.5 top-3.5 flex min-h-[44px] min-w-[44px] items-center justify-center rounded-xl border border-white/10 p-1 text-text-primary transition-colors hover:bg-white/10"
         >
           <RiCloseLine size={24} />
         </DrawerClose>

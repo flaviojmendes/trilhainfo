@@ -2,47 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.site-header {
-  background: #171316;
-  border-bottom: 1px solid #493b44;
-}
-.site-skip-link {
-  position: fixed;
-  left: 16px;
-  top: -100px;
-  z-index: 50;
-  background: #fff;
-  color: #171316;
-  padding: 12px 16px;
-  border-radius: 8px;
-}
-.site-skip-link:focus {
-  top: 16px;
-}
-.roadmap-loading {
-  min-height: 70vh;
-  max-width: 1200px;
-  margin: auto;
-  padding: 48px 24px;
-  color: #fdfdfd;
-}
-.roadmap-loading h1 {
-  font-size: 2rem;
-  margin-bottom: 16px;
-}
-.roadmap-loading button {
-  min-height: 44px;
-  margin-top: 16px;
-  padding: 8px 16px;
-  border: 1px solid #ff83c5;
-  border-radius: 8px;
-}
-.roadmap-skeleton {
-  background: #211b20;
-  border-radius: 12px;
-  height: 110px;
-  margin-top: 24px;
-}
 @media (prefers-reduced-motion: reduce) {
   [role='dialog'],
   [data-radix-popper-content-wrapper],
@@ -90,10 +49,30 @@
 
 @layer base {
   * {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Hanken Grotesk', system-ui, sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 88px;
+    color-scheme: dark;
   }
 
   body {
-    @apply bg-medium-brown !important;
+    background: #171316 !important;
+    color: #fdfdfd;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background: rgb(225 4 123 / 0.45);
+    color: #fff;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
   }
 }

@@ -4,6 +4,7 @@ import { vi } from 'vitest';
 import LearningWorkspace from '.';
 import { createCatalog } from '../../learning/catalog';
 import { Level, LinkContentType } from '../../entity/RoadmapModel';
+import { initialPreferences } from '../../learning/progress';
 
 const data: Level[] = [
   {
@@ -55,12 +56,15 @@ beforeEach(() => {
   Element.prototype.scrollIntoView = vi.fn();
 });
 afterEach(() => vi.unstubAllGlobals());
-const mount = () =>
-  render(
+const mount = (study = true) => {
+  const result = render(
     <MemoryRouter>
       <LearningWorkspace catalog={catalog} />
     </MemoryRouter>,
   );
+  if (study) fireEvent.click(screen.getByRole('button', { name: 'Estudar', exact: true }));
+  return result;
+};
 
 it('adapta o ramo mantendo foco, progresso e desfazer', async () => {
   mount();
@@ -178,4 +182,141 @@ it('preserva formatos desconhecidos recebidos de outra aba sem perder a sessão'
   fireEvent.click(screen.getByRole('checkbox', { name: /Demonstrei: HTML/ }));
   expect(screen.getByRole('checkbox', { name: /Demonstrei: HTML/ })).toBeChecked();
   expect(localStorage.getItem(key)).toBe(newerRecord);
+});
+
+it('começa pelo trajeto completo e preserva a visualização escolhida nas sessões anteriores', () => {
+  const first = mount(false);
+  expect(screen.getByRole('heading', { name: 'Seu trajeto, do começo à entrega' })).toBeVisible();
+  expect(screen.getByRole('button', { name: 'Mapa', exact: true })).toHaveAttribute(
+    'aria-pressed',
+    'true',
+  );
+  expect(document.querySelector('.journey-ai-lane')).toBeNull();
+  first.unmount();
+  localStorage.setItem(
+    'trilha-study:v1:sample',
+    JSON.stringify({ ...initialPreferences(catalog), view: 'list' }),
+  );
+  mount(false);
+  expect(screen.getByRole('button', { name: 'Lista', exact: true })).toHaveAttribute(
+    'aria-pressed',
+    'true',
+  );
+});
+
+it('marca o ponto atual do trajeto e registra o resumo do progresso para a página inicial', async () => {
+  mount(false);
+  expect(screen.getByRole('button', { name: /HTML.*Você está aqui/ })).toHaveAttribute(
+    'aria-current',
+    'step',
+  );
+  expect(screen.getByText('Destino')).toBeVisible();
+  await waitFor(() =>
+    expect(JSON.parse(localStorage.getItem('trilha-progress:v1') || '{}').sample).toMatchObject({
+      done: 0,
+      percent: 0,
+    }),
+  );
+  fireEvent.click(screen.getByRole('button', { name: 'Estudar', exact: true }));
+  fireEvent.click(screen.getByRole('checkbox', { name: /Estudei: HTML/ }));
+  await waitFor(() =>
+    expect(JSON.parse(localStorage.getItem('trilha-progress:v1') || '{}').sample.done).toBe(1),
+  );
+});
+
+it('abre um assunto e volta ao mapa com foco e conclusão preservados', async () => {
+  mount(false);
+  fireEvent.click(screen.getByRole('button', { name: /HTML.*Obrigatório/ }));
+  await waitFor(() =>
+    expect(screen.getByRole('heading', { name: 'HTML', exact: true })).toHaveFocus(),
+  );
+  fireEvent.click(screen.getByRole('checkbox', { name: /Estudei: HTML/ }));
+  fireEvent.click(screen.getByRole('button', { name: /Voltar ao mapa/ }));
+  const origin = screen.getByRole('button', { name: /HTML.*Obrigatório/ });
+  await waitFor(() => expect(origin).toHaveFocus());
+  expect(
+    JSON.parse(localStorage.getItem('trilha-study:v1:sample') || '{}').completedNodeIds,
+  ).toContain('html.basics');
+  fireEvent.click(origin);
+  fireEvent.change(screen.getByRole('searchbox'), { target: { value: 'sem-correspondencia' } });
+  fireEvent.click(screen.getByRole('button', { name: 'Voltar ao mapa' }));
+  await waitFor(() =>
+    expect(screen.getByRole('heading', { name: 'Seu trajeto, do começo à entrega' })).toHaveFocus(),
+  );
+  expect(screen.getByRole('button', { name: 'Limpar busca' })).toBeVisible();
+});
+
+it('mostra opcionais e IA como informações independentes e abre a prática exata do projeto', async () => {
+  const enriched: Level[] = [
+    {
+      ...data[0],
+      items: [
+        ...data[0].items,
+        {
+          id: 'ai.tutor',
+          label: 'Tutoria',
+          ai: 'focused',
+          children: [{ id: 'ai.tutor.basics', label: 'Peça uma pista', links: [] }],
+        },
+      ],
+    },
+    {
+      id: 'stage.project',
+      label: 'Projeto',
+      kind: 'project',
+      items: [
+        {
+          id: 'project.page',
+          label: 'Minha página',
+          ai: 'assisted',
+          children: [
+            { id: 'project.page.criteria', label: 'Critérios de conclusão', links: [] },
+            {
+              id: 'project.page.ai-practice',
+              label: 'Prática de IA neste projeto',
+              ai: 'assisted',
+              links: [],
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: 'stage.optional',
+      label: 'Especialização',
+      optional: true,
+      items: [
+        {
+          id: 'optional.css',
+          label: 'CSS avançado',
+          children: [{ id: 'optional.css.basics', label: 'O básico', links: [] }],
+        },
+      ],
+    },
+  ];
+  const richCatalog = createCatalog('rich', 'Trilha', enriched);
+  render(
+    <MemoryRouter>
+      <LearningWorkspace catalog={richCatalog} />
+    </MemoryRouter>,
+  );
+  expect(screen.getByRole('heading', { name: 'Aprofundamentos opcionais' })).toBeVisible();
+  expect(screen.getByRole('button', { name: /CSS avançado.*Opcional/ })).toBeVisible();
+  expect(screen.getByRole('button', { name: /Tutoria.*Obrigatório.*Com IA/ })).toBeVisible();
+  expect(
+    screen.queryByRole('checkbox', { name: 'Mostrar etapas opcionais' }),
+  ).not.toBeInTheDocument();
+  fireEvent.click(screen.getByRole('button', { name: /Praticar IA no projeto: Minha página/ }));
+  const practice = document.getElementById('node-title-project.page.ai-practice');
+  await waitFor(() => expect(practice).toHaveFocus());
+  expect(practice?.closest('li')).toHaveAttribute('data-ai', 'assisted');
+  expect(
+    screen.getByRole('checkbox', { name: /Demonstrei: Minha página, Prática de IA/ }),
+  ).not.toBeChecked();
+  fireEvent.click(screen.getByRole('button', { name: 'Voltar ao mapa' }));
+  await waitFor(() =>
+    expect(
+      screen.getByRole('button', { name: /Praticar IA no projeto: Minha página/ }),
+    ).toHaveFocus(),
+  );
 });

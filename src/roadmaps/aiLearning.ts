@@ -1,9 +1,14 @@
 import { Level, RoadmapItem } from '../entity/RoadmapModel';
 import { RoadmapFileModel } from '../entity/RoadmapFileModel';
-import { topic } from './curriculum';
+import { topic as curriculumTopic } from './curriculum';
 import { resources as r } from './resources';
 
 type Specialty = Exclude<keyof RoadmapFileModel, 'community'>;
+
+// The editorial tag stays valid when a title or description is revised.
+function topic(...args: Parameters<typeof curriculumTopic>): RoadmapItem {
+  return { ...curriculumTopic(...args), ai: 'focused' };
+}
 
 interface AIPractice {
   task: string;
@@ -94,6 +99,7 @@ function withPrompt(item: RoadmapItem, prompt: string): RoadmapItem {
 
 const aiStart: RoadmapItem = {
   id: 'aiLearning.seu-assistente-de-estudos',
+  ai: 'focused',
   label: 'Seu assistente de estudos',
   description:
     'Aprenda programação e uso de IA em paralelo. Escolha uma ferramenta a que já tenha acesso; os exercícios também funcionam em um chat, compartilhando trechos pequenos. Documentação gratuita não significa serviço gratuito: consulte os limites da sua conta. Você não precisa assinar nem dominar três ferramentas.',
@@ -118,6 +124,7 @@ const aiStart: RoadmapItem = {
 
 const prompting: Level = {
   id: 'aiLearning.ia-prompting-e-contexto',
+  kind: 'ai',
   label: 'IA: prompting e contexto',
   description:
     'Depois dos primeiros fundamentos, pratique transformar uma dúvida em uma tarefa verificável. Use uma ferramenta por vez.',
@@ -144,6 +151,7 @@ const prompting: Level = {
 
 const pairing: Level = {
   id: 'aiLearning.ia-programacao-em-parceria',
+  kind: 'ai',
   label: 'IA: programação em parceria',
   description:
     'Use o primeiro projeto como contexto. Alterne pequenas implementações, leitura de código, depuração e testes.',
@@ -182,6 +190,7 @@ Primeiro vamos confirmar a causa. Depois proponha a menor correção e um teste 
 
 const agents: Level = {
   id: 'aiLearning.ia-agentes-regras-e-verificacao',
+  kind: 'ai',
   label: 'IA: agentes, regras e verificação',
   description:
     'Depois de conseguir ler diffs, depurar e testar, delegue uma tarefa limitada no repositório de laboratório.',
@@ -205,6 +214,7 @@ const agents: Level = {
 
 const interviewAI: Level = {
   id: 'aiLearning.ia-simulacao-e-feedback',
+  kind: 'ai',
   label: 'IA: simulação e feedback',
   description:
     'Use a ferramenta para praticar antes do processo. Durante uma avaliação real, siga as regras comunicadas pela equipe.',
@@ -247,10 +257,12 @@ Mostre as hipóteses e como verificá-las. Informe o que foi executado e o que a
     ...level,
     items: level.items.map((item) => ({
       ...item,
+      ai: 'assisted',
       children: [
         ...(item.children || []),
         {
           id: `${item.id}.ai-practice`,
+          ai: 'assisted',
           label: 'Prática de IA neste projeto',
           description:
             stage + ' Adapte o prompt ao que você já construiu nesta etapa. ' + practice.challenge,
@@ -259,6 +271,7 @@ Mostre as hipóteses e como verificá-las. Informe o que foi executado e o que a
         },
         {
           id: `${item.id}.verification`,
+          ai: 'assisted',
           label: 'Registre sua verificação',
           description:
             'Registre um prompt sanitizado, uma sugestão aceita ou corrigida, a verificação executada e seu resultado. Explique a mudança com suas palavras. Conclua o projeto após demonstrar os critérios, mesmo quando parte do código vier de IA.',
@@ -272,10 +285,12 @@ Mostre as hipóteses e como verificá-las. Informe o que foi executado e o que a
 // The same progression is placed at learning milestones; project exercises
 // remain specific to each career. Historical catalogs and custom tracks stay intact.
 export function withAILearning(levels: Level[], specialty: Specialty): Level[] {
-  const projectCount = levels.filter((level) => level.label?.startsWith('Projeto: ')).length;
+  const isProject = (level: Level) =>
+    level.kind === 'project' || (!level.kind && level.label?.startsWith('Projeto: '));
+  const projectCount = levels.filter(isProject).length;
   let projectIndex = 0;
   return levels.flatMap((level, index) => {
-    if (!level.label?.startsWith('Projeto: ')) {
+    if (!isProject(level)) {
       return [{ ...level, items: index === 0 ? [...level.items, aiStart] : level.items }];
     }
 

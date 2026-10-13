@@ -2,8 +2,8 @@ import { NavLink } from 'react-router-dom';
 
 export default function Logo() {
   return (
-    <NavLink className={'my-auto'} to="/">
-      <img className="my-auto w-36" src="/logo.png" alt="logo" />
+    <NavLink className="site-logo" to="/" aria-label="Trilha Info, página inicial">
+      <img src="/logo.png" alt="" />
     </NavLink>
   );
 }

@@ -2,6 +2,8 @@ const identity = { type: 'string', pattern: '^[a-zA-Z0-9][a-zA-Z0-9._-]*$' };
 const ids = { type: 'array', items: identity, uniqueItems: true };
 const text = { type: 'string' };
 const nullableText = { type: ['string', 'null'] };
+const stageKind = { enum: ['study', 'project', 'ai'] };
+const aiFocus = { enum: ['focused', 'assisted'] };
 const object = (properties: Record<string, unknown>, required = Object.keys(properties)) => ({
   type: 'object',
   additionalProperties: false,
@@ -33,13 +35,17 @@ export const roadmapSchema = {
       prerequisite: object({ label: text, path: text }),
       stages: {
         type: 'array',
-        items: object({
-          id: identity,
-          title: text,
-          description: text,
-          optional: { type: 'boolean' },
-          groupIds: ids,
-        }),
+        items: object(
+          {
+            id: identity,
+            title: text,
+            description: text,
+            optional: { type: 'boolean' },
+            kind: stageKind,
+            groupIds: ids,
+          },
+          ['id', 'title', 'description', 'optional', 'groupIds'],
+        ),
       },
       groups: map(
         object(
@@ -48,6 +54,7 @@ export const roadmapSchema = {
             title: text,
             description: text,
             stageId: identity,
+            ai: aiFocus,
             href: text,
             requiredIds: ids,
             variants: object({ simple: variant, standard: variant, deep: variant }),
@@ -65,6 +72,7 @@ export const roadmapSchema = {
             requires: ids,
             resourceIds: ids,
             kind: { enum: ['concept', 'practice', 'criteria', 'challenge'] },
+            ai: aiFocus,
             prompt: text,
             legacyIds: { type: 'array', items: text },
           },

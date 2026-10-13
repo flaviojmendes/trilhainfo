@@ -21,6 +21,7 @@ export interface LearningNode {
   requires: string[];
   resourceIds: string[];
   kind: 'concept' | 'practice' | 'criteria' | 'challenge';
+  ai?: 'focused' | 'assisted';
   prompt?: string;
   legacyIds: string[];
 }
@@ -30,6 +31,7 @@ export interface LearningGroup {
   title: string;
   description: string;
   stageId: string;
+  ai?: 'focused' | 'assisted';
   href?: string;
   requiredIds: string[];
   variants: Record<Depth, { summary: string; stepIds: string[] }>;
@@ -40,6 +42,7 @@ export interface LearningStage {
   title: string;
   description: string;
   optional: boolean;
+  kind?: 'study' | 'project' | 'ai';
   groupIds: string[];
 }
 

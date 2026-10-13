@@ -28,6 +28,7 @@ export function project(
 ): Level {
   return {
     id: `${id}.stage`,
+    kind: 'project',
     label: 'Projeto: ' + label,
     description: 'Construa antes de avançar. Registre as decisões e peça uma revisão.',
     items: [
@@ -115,13 +116,16 @@ export const delivery = topic(
   'curriculum.ci-e-publicacao',
 );
 
-export const ai = topic(
-  'IA no fluxo de trabalho',
-  'Use IA para explicar erros, propor testes e revisar hipóteses. Confira a documentação, o diff e os resultados. Proteja dados privados e segredos.',
-  [r.ai],
-  'Compare uma sugestão de IA com sua solução, identifique uma limitação e teste a mudança. Explique o código sem depender da ferramenta.',
-  'curriculum.ia-no-fluxo-de-trabalho',
-);
+export const ai: RoadmapItem = {
+  ...topic(
+    'IA no fluxo de trabalho',
+    'Use IA para explicar erros, propor testes e revisar hipóteses. Confira a documentação, o diff e os resultados. Proteja dados privados e segredos.',
+    [r.ai],
+    'Compare uma sugestão de IA com sua solução, identifique uma limitação e teste a mudança. Explique o código sem depender da ferramenta.',
+    'curriculum.ia-no-fluxo-de-trabalho',
+  ),
+  ai: 'focused',
+};
 
 export const career: Level = {
   id: 'curriculum.preparacao-para-oportunidades',

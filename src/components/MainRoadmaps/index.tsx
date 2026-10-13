@@ -1,55 +1,133 @@
-import { BsArrowRightCircleFill } from 'react-icons/bs';
+import { CSSProperties, PointerEvent, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { IconType } from 'react-icons';
+import {
+  PiArrowRight,
+  PiAtom,
+  PiBug,
+  PiChatsCircle,
+  PiDatabase,
+  PiFlowArrow,
+  PiInfinity,
+  PiLayout,
+  PiStack,
+} from 'react-icons/pi';
+import { readProgressSnapshots } from '../../learning/progressSnapshot';
+import { curriculumReviewLabel } from '../../roadmaps/guides';
 import { mainRoadmapsData } from './mainRoadmapsData';
 
-export default function MainRoadmaps() {
-  return (
-    <section id="mainRoadmaps" className="px-10 pt-4">
-      <h2 className=" my-6 font-title text-4xl text-title-primary md:w-1/3 xl:ml-64">
-        Escolha seu caminho de aprendizado
-      </h2>
-      <p className="mb-6 max-w-[70ch] font-title leading-relaxed text-text-primary xl:ml-64">
-        Trilhas revisadas para outubro de 2026, com fundamentos, prática de IA e projetos para
-        portfólio. Comece por uma carreira; React e Entrevistas complementam sua formação.
-      </p>
+const icons: Record<string, IconType> = {
+  frontend: PiLayout,
+  backend: PiDatabase,
+  fullstack: PiStack,
+  test: PiBug,
+  devops: PiInfinity,
+  'data-engineer': PiFlowArrow,
+  react: PiAtom,
+  entrevistas: PiChatsCircle,
+};
 
-      <section className="mx-auto grid w-full grid-cols-1 gap-5 space-y-10 pb-10 md:grid-cols-2 md:space-y-0 xl:px-64 2xl:grid-cols-3">
-        {mainRoadmapsData.map((mainRoadmap) => {
-          return (
-            <article className="group relative m-auto flex h-full w-fit" key={mainRoadmap.title}>
-              <Link
-                className="z-20 flex w-full rounded-sm bg-box-primary py-3 pr-2 duration-100 hover:shadow-primary-blue"
-                to={mainRoadmap.url}
-              >
-                <div className="flex w-full flex-col">
-                  <div className="w-fit">
-                    <h3 className="mb-2 ml-4 font-title text-3xl font-semibold text-text-primary">
-                      {mainRoadmap.title}
-                    </h3>
-                    <div className="to-transparent ml-4 h-1 w-full bg-gradient-to-r from-primary"></div>
-                  </div>
-                  <p className="m-4 font-title text-sm text-text-primary">
-                    {mainRoadmap.description}
-                  </p>
-                  <div className="grow"></div>
-                  <div className="ml-4 flex text-primary">
-                    <span className="my-auto font-title font-semibold">Comece agora</span>
-                    <BsArrowRightCircleFill className="my-auto ml-2" />
-                  </div>
-                </div>
-                {/* <div className="flex w-1/3">
-                  <img className="m-auto w-full" alt={'Ícone do Roadmap'} src={mainRoadmap.image} />
-                </div> */}
-              </Link>
-              {/* <div className="absolute top-1 left-1 -right-1 -bottom-1 z-10 rounded-sm bg-red group-hover:bg-red"></div> */}
-            </article>
-          );
-        })}
-      </section>
-      <div className="mt-10 flex gap-2 lg:mt-2">
-        <div className="h-3 w-64 bg-gradient-to-r from-black via-text-secondary to-text-secondary"></div>
-        <div className="h-3 w-4 bg-gradient-to-r from-black to-primary"></div>
-      </div>
+function RouteGlyph({ seed }: { seed: number }) {
+  const lift = 6 + (seed % 3) * 4;
+  const flip = seed % 2 ? -1 : 1;
+  const ys = [20 + flip * lift, 20 - flip * lift, 20 + flip * lift * 0.6, 20 - flip * lift * 0.4];
+  const xs = [8, 46, 84, 122];
+  const d = xs.reduce(
+    (path, x, index) =>
+      index
+        ? `${path} C${xs[index - 1] + 19} ${ys[index - 1]} ${x - 19} ${ys[index]} ${x} ${ys[index]}`
+        : `M${x} ${ys[0]}`,
+    '',
+  );
+  return (
+    <svg className="route-glyph" viewBox="0 0 130 40" aria-hidden="true">
+      <path className="route-glyph-base" d={d} />
+      <path className="route-glyph-draw" d={d} pathLength={1} />
+      {xs.map((x, index) => (
+        <circle
+          key={x}
+          cx={x}
+          cy={ys[index]}
+          r={index === xs.length - 1 ? 4.5 : 3.5}
+          className={index === xs.length - 1 ? 'route-glyph-goal' : undefined}
+        />
+      ))}
+    </svg>
+  );
+}
+
+function spotlight(event: PointerEvent<HTMLAnchorElement>) {
+  const box = event.currentTarget.getBoundingClientRect();
+  event.currentTarget.style.setProperty('--mx', `${event.clientX - box.left}px`);
+  event.currentTarget.style.setProperty('--my', `${event.clientY - box.top}px`);
+}
+
+export default function MainRoadmaps() {
+  const [progress] = useState(readProgressSnapshots);
+
+  function card(roadmap: (typeof mainRoadmapsData)[number], index: number) {
+    const Icon = icons[roadmap.id] || PiLayout;
+    const snapshot = progress[roadmap.id];
+    const started = !!snapshot && snapshot.done > 0;
+    return (
+      <li key={roadmap.id} style={{ '--i': index } as CSSProperties}>
+        <Link className="roadmap-card" to={roadmap.url} onPointerMove={spotlight}>
+          <span className="roadmap-card-top">
+            <span className="roadmap-card-icon" aria-hidden="true">
+              <Icon />
+            </span>
+            <span className="roadmap-card-kind">{roadmap.kind}</span>
+          </span>
+          <h4>{roadmap.title}</h4>
+          <p className="roadmap-card-audience">{roadmap.audience}</p>
+          {roadmap.outcome && (
+            <p className="roadmap-card-outcome">
+              <span>Você vai entregar</span>
+              {roadmap.outcome}
+            </p>
+          )}
+          <RouteGlyph seed={index} />
+          <span className="roadmap-card-footer">
+            {started ? (
+              <span className="roadmap-card-status">
+                <span
+                  className="roadmap-card-meter"
+                  style={{ '--p': snapshot.percent / 100 } as CSSProperties}
+                  aria-hidden="true"
+                >
+                  <span />
+                </span>
+                Continuar · {snapshot.percent}%
+              </span>
+            ) : (
+              <span className="roadmap-card-status">Começar a trilha</span>
+            )}
+            <PiArrowRight className="roadmap-card-arrow" aria-hidden="true" />
+          </span>
+        </Link>
+      </li>
+    );
+  }
+
+  const careers = mainRoadmapsData.filter((roadmap) => roadmap.group === 'career');
+  const complements = mainRoadmapsData.filter((roadmap) => roadmap.group === 'complement');
+
+  return (
+    <section id="trilhas" className="home-section" aria-labelledby="trilhas-title">
+      <header className="home-section-head">
+        <p className="home-eyebrow">Trilhas revisadas em {curriculumReviewLabel}</p>
+        <h2 id="trilhas-title">Escolha seu caminho de aprendizado</h2>
+        <p>
+          Comece por uma carreira. Cada trilha é dividida em trechos que terminam em um projeto para
+          o portfólio, com prática de IA ao longo do caminho.
+        </p>
+      </header>
+      <h3 className="home-group-title">Carreiras</h3>
+      <ul className="roadmap-grid">{careers.map(card)}</ul>
+      <h3 className="home-group-title">Para complementar sua formação</h3>
+      <ul className="roadmap-grid roadmap-grid-compact">
+        {complements.map((roadmap, index) => card(roadmap, careers.length + index))}
+      </ul>
     </section>
   );
 }

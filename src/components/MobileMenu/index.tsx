@@ -1,30 +1,35 @@
 import { useAuth0 } from '@auth0/auth0-react';
-import { FaGithubSquare, FaNewspaper } from 'react-icons/fa';
+import { FaGithub, FaInstagram } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
+import {
+  Drawer,
+  DrawerRoot,
+  DrawerTrigger,
+  DrawerTitle,
+  DrawerDescription,
+  DrawerClose,
+} from '../Drawer';
 
-import { Drawer, DrawerRoot, DrawerTrigger, DrawerTitle, DrawerDescription } from '../Drawer';
+const links = [
+  { label: 'Trilhas', href: '/#trilhas' },
+  { label: 'Guias', href: '/#guias' },
+  { label: 'Comunidade', to: '/roadmap/community' },
+];
 
 export default function MobileMenu() {
   return (
     <DrawerRoot>
-      <div className="flex cursor-pointer items-center justify-center md:hidden">
-        <DrawerTrigger
-          aria-label="Abrir menu principal"
-          className="flex min-h-[44px] min-w-[44px] items-center justify-center"
-        >
-          <div className="m-auto block space-y-2 md:hidden" aria-hidden="true">
-            <div className="h-0.5 w-8 bg-primary"></div>
-            <div className="h-0.5 w-8 bg-primary"></div>
-            <div className="h-0.5 w-8 bg-primary"></div>
-          </div>
-        </DrawerTrigger>
-      </div>
+      <DrawerTrigger aria-label="Abrir menu principal" className="site-menu-trigger">
+        <span aria-hidden="true" />
+        <span aria-hidden="true" />
+      </DrawerTrigger>
       <HeaderDrawer />
     </DrawerRoot>
   );
 }
 
 const HeaderDrawer = () => {
-  const { isAuthenticated, user, logout } = useAuth0();
+  const { isAuthenticated, user } = useAuth0();
 
   return (
     <Drawer position="left">
@@ -32,107 +37,42 @@ const HeaderDrawer = () => {
       <DrawerDescription className="sr-only">
         Navegação e links da comunidade Trilha Info.
       </DrawerDescription>
-      {isAuthenticated && (
-        <div className="flex items-start justify-start border-b border-b-yellow pb-5 text-yellow">
-          <img className="h-10 w-10 rounded-full" src={user?.picture} alt={user?.name} />
-          <span className="m-auto ml-2 mr-4 font-title text-base font-bold">{user?.name}</span>
-        </div>
-      )}
-      <ul className="flex-col pt-6">
-        <li className="flex">
-          <a
-            target={'_blank'}
-            className="my-2 mr-4 flex pr-4 text-primary "
-            href="https://github.com/flaviojmendes/trilhadev"
-            rel="noreferrer"
-          >
-            <FaGithubSquare className="m-auto h-8 w-8 " />
-            <span className="my-auto ml-1 font-title text-xl">Github</span>
-          </a>
-        </li>
-        <li className="flex">
-          <a
-            target={'_blank'}
-            className="my-2 mr-4 flex pr-4 text-xl text-primary"
-            href="https://www.getrevue.co/profile/flaviojmendes"
-            rel="noreferrer"
-          >
-            <FaNewspaper className="m-auto h-8 w-8 " />
-            <span className="my-auto ml-1 font-title text-lg">Assine a Newsletter</span>
-          </a>
-        </li>
-
-        {/* <li className="flex">
-          {isAuthenticated && (
-            <div className="group relative m-auto flex h-fit w-fit">
-              <button
-                className="auto z-20 m-auto rounded-sm bg-brown p-2 hover:bg-light-orange"
-                onClick={() => logout({ returnTo: window.location.origin })}
-              >
-                Logout
-              </button>
-              <div className="absolute top-1 left-1 -right-1 -bottom-1 z-10 rounded-sm bg-red group-hover:bg-red"></div>
-            </div>
-          )}
-        </li> */}
-        {/* <li className="flex">
-          {!isAuthenticated && !isLoading && (
-            <div className="group relative m-auto flex h-fit w-fit">
-              <button
-                className="z-20 m-auto rounded-sm bg-primary p-2 font-title hover:bg-primary-hover duration-100 hover:shadow-primary-white"
-                onClick={() => handleAuth()}
-              >
-                Log In
-              </button>
-            </div>
-          )}
-          {isLoading && (
-            <ThreeDots
-              height="30"
-              width="30"
-              radius="9"
-              color="#d56a47"
-              ariaLabel="three-dots-loading"
-              wrapperStyle={{}}
-              visible={true}
-            />
-          )}
-        </li> */}
-      </ul>
+      <div className="mobile-menu">
+        <img className="mobile-menu-logo" src="/logo.png" alt="Trilha Info" />
+        {isAuthenticated && (
+          <div className="mobile-menu-user">
+            <img src={user?.picture} alt="" />
+            <span>{user?.name}</span>
+          </div>
+        )}
+        <nav aria-label="Menu principal">
+          <ul className="mobile-menu-links">
+            {links.map((link) => (
+              <li key={link.label}>
+                <DrawerClose asChild>
+                  {link.to ? (
+                    <Link to={link.to}>{link.label}</Link>
+                  ) : (
+                    <a href={link.href}>{link.label}</a>
+                  )}
+                </DrawerClose>
+              </li>
+            ))}
+          </ul>
+        </nav>
+        <ul className="mobile-menu-social">
+          <li>
+            <a target="_blank" href="https://github.com/flaviojmendes/trilhainfo" rel="noreferrer">
+              <FaGithub aria-hidden="true" /> Github
+            </a>
+          </li>
+          <li>
+            <a target="_blank" href="https://instagram.com/trilhainfo" rel="noreferrer">
+              <FaInstagram aria-hidden="true" /> Instagram
+            </a>
+          </li>
+        </ul>
+      </div>
     </Drawer>
   );
-
-  // async function handleAuth() {
-  //   (async () => {
-  //     await loginWithPopup();
-
-  //     const token = await getAccessTokenSilently({
-  //       audience: 'TrilhaInfoApi',
-  //     });
-  //     cookies.set('api_token', `Bearer ${token}`);
-
-  //     try {
-  //       await axios.get(import.meta.env.VITE_API_URL + '/user/' + user?.nickname, {
-  //         headers: {
-  //           'Content-Type': 'application/json',
-  //           Authorization: cookies.get('api_token'),
-  //         },
-  //       });
-  //     } catch (e) {
-  //       await axios.post(
-  //         import.meta.env.VITE_API_URL + '/user' || '',
-  //         {
-  //           user_login: user?.nickname,
-  //         },
-  //         {
-  //           headers: {
-  //             'Content-Type': 'application/json',
-  //             Authorization: cookies.get('api_token'),
-  //           },
-  //         },
-  //       );
-  //     }
-  //     document.location.href = '/';
-  //   })();
-  // }
 };

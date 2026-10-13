@@ -2,20 +2,13 @@ import { Link } from 'react-router-dom';
 
 export default function E404Page() {
   return (
-    <div className="container mx-auto flex flex-col items-center justify-center py-8">
-      <h1 className="text-2xl text-light-brown">
-        Infelizmente não encontramos nenhum Roadmap com esse nome
-      </h1>
-      <p className="text-light-brown">
-        Clique{' '}
-        <Link
-          to="/#mainRoadmaps"
-          className="text-blue transition-colors hover:text-dark-blue hover:underline"
-        >
-          aqui
-        </Link>{' '}
-        para ver os nossos principais Roadmaps.
-      </p>
-    </div>
+    <section className="site-empty">
+      <p className="home-eyebrow">Página não encontrada</p>
+      <h1>Esta trilha não existe, ou mudou de lugar</h1>
+      <p>Veja as trilhas disponíveis e escolha por onde continuar.</p>
+      <Link className="home-button home-button-primary" to="/#trilhas">
+        Ver todas as trilhas
+      </Link>
+    </section>
   );
 }

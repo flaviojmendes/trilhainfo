@@ -28,6 +28,8 @@ export interface Level {
   id?: string;
   label?: string;
   optional?: boolean;
+  /** Editorial classification; independent from whether the stage is optional. */
+  kind?: 'study' | 'project' | 'ai';
   description?: string;
   items: RoadmapItem[];
 }
@@ -37,6 +39,8 @@ export interface RoadmapItem {
   label: string;
   description?: string;
   prompt?: string;
+  /** Dedicated AI learning or an explicitly AI-assisted exercise. */
+  ai?: 'focused' | 'assisted';
   children?: RoadmapItem[];
   links?: Link[];
   url?: string;

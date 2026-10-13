@@ -6,6 +6,7 @@ module.exports = {
       fontFamily: {
         handwritten: '"Schoolbell", cursive',
         title: "'Hanken Grotesk', sans-serif",
+        display: "'Bricolage Grotesque', 'Hanken Grotesk', sans-serif",
         content: "'Hanken Grotesk', sans-serif'",
         monospace: '"Roboto Mono", monospace',
       },

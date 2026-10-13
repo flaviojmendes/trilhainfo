@@ -1,16 +1,49 @@
-import { useCallback, useEffect, useMemo, useRef, useState, useTransition } from 'react';
+import {
+  CSSProperties,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  useTransition,
+} from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { motion, useReducedMotion } from 'framer-motion';
 import { projectBranch } from '../../learning/catalog';
 import { nextGroup, progressSummary } from '../../learning/progress';
 import { Depth, LearningView, RoadmapCatalog, StudyPreferences } from '../../learning/types';
 import { resolveGroup, useStudyState } from '../../learning/useStudyState';
 import { GroupContent, depthNames } from './GroupContent';
 import { StudyTools } from './StudyTools';
+import { JourneyMap } from './JourneyMap';
+import { BookIcon, CheckIcon, ListIcon, MapIcon } from './icons';
+import { groupMatches } from '../../learning/journey';
 import { downloadVisualization } from '../../learning/downloads';
+import { saveProgressSnapshot } from '../../learning/progressSnapshot';
+import { curriculumReviewLabel } from '../../roadmaps/guides';
 import './workspace.css';
 
 const viewLabels: Record<LearningView, string> = { study: 'Estudar', map: 'Mapa', list: 'Lista' };
-const views: LearningView[] = ['study', 'map', 'list'];
+const viewIcons = { map: MapIcon, study: BookIcon, list: ListIcon };
+const views: LearningView[] = ['map', 'study', 'list'];
+
+function ProgressRing({ percent }: { percent: number }) {
+  const radius = 34;
+  const length = 2 * Math.PI * radius;
+  return (
+    <svg className="progress-ring" viewBox="0 0 80 80" aria-hidden="true">
+      <circle className="progress-ring-track" cx="40" cy="40" r={radius} />
+      <circle
+        className="progress-ring-value"
+        cx="40"
+        cy="40"
+        r={radius}
+        strokeDasharray={length}
+        strokeDashoffset={length * (1 - percent / 100)}
+      />
+    </svg>
+  );
+}
 
 export default function LearningWorkspace({
   catalog,
@@ -22,12 +55,16 @@ export default function LearningWorkspace({
   const { prefs, update, storageIssue, plan, planIssue, setPlan } = useStudyState(catalog);
   const [pending, startTransition] = useTransition();
   const [query, setQuery] = useState('');
-  const [showOptional, setShowOptional] = useState(false);
+  const [showOptional, setShowOptional] = useState(() =>
+    catalog.stages.some((stage) => stage.optional && stage.groupIds.includes(prefs.activeGroupId)),
+  );
   const [period, setPeriod] = useState<'day' | 'night'>('night');
   const [announcement, setAnnouncement] = useState('');
   const [exporting, setExporting] = useState(false);
   const [undo, setUndo] = useState<{ id: string; previous: Depth }>();
-  const focusAfterRender = useRef<string>();
+  const focusAfterRender = useRef<{ groupId: string; nodeId?: string }>();
+  const mapOrigin = useRef<string>();
+  const mapFocusAfterRender = useRef<string>();
   const location = useLocation();
   const navigate = useNavigate();
   const active = catalog.groups[prefs.activeGroupId] || Object.values(catalog.groups)[0];
@@ -35,6 +72,11 @@ export default function LearningWorkspace({
     catalog.stages.find((stage) => stage.id === active.stageId) || catalog.stages[0];
   const summary = progressSummary(catalog, prefs);
   const upcoming = nextGroup(catalog, prefs);
+  const reduced = useReducedMotion();
+
+  useEffect(() => {
+    saveProgressSnapshot(catalog.id, summary);
+  }, [catalog.id, summary.done, summary.total, summary.percent]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     function refresh() {
@@ -67,6 +109,7 @@ export default function LearningWorkspace({
       update((previous) => ({
         ...previous,
         activeGroupId: id,
+        view: 'study',
         depthByGroup:
           catalog.nodes[incomingNode] &&
           !catalog.groups[id].variants.standard.stepIds.includes(incomingNode)
@@ -80,10 +123,12 @@ export default function LearningWorkspace({
 
   useEffect(() => {
     if (!focusAfterRender.current) return;
-    const id = focusAfterRender.current;
+    const target = focusAfterRender.current;
     focusAfterRender.current = undefined;
     const frame = requestAnimationFrame(() => {
-      const heading = document.getElementById(`title-${id}`);
+      const heading = document.getElementById(
+        target.nodeId ? `node-title-${target.nodeId}` : `title-${target.groupId}`,
+      );
       if (heading) {
         heading.focus({ preventScroll: true });
         heading.scrollIntoView({
@@ -97,38 +142,53 @@ export default function LearningWorkspace({
     return () => cancelAnimationFrame(frame);
   }, [prefs.activeGroupId, prefs.view]);
 
+  useEffect(() => {
+    if (prefs.view !== 'map' || !mapFocusAfterRender.current) return;
+    const id = mapFocusAfterRender.current;
+    mapFocusAfterRender.current = undefined;
+    const frame = requestAnimationFrame(() => {
+      const control = document.getElementById(id) || document.getElementById('journey-title');
+      control?.focus({ preventScroll: true });
+      control?.scrollIntoView({ block: 'nearest', behavior: 'auto' });
+    });
+    return () => cancelAnimationFrame(frame);
+  }, [prefs.view]);
+
   const filteredStages = useMemo(
     () =>
       catalog.stages
         .filter((stage) => showOptional || !stage.optional)
         .map((stage) => ({
           ...stage,
-          groupIds: stage.groupIds.filter((id) => {
-            const group = catalog.groups[id];
-            return `${group.title} ${group.description} ${group.variants.deep.stepIds
-              .map((id) => catalog.nodes[id].title)
-              .join(' ')}`
-              .toLocaleLowerCase('pt-BR')
-              .includes(query.toLocaleLowerCase('pt-BR').trim());
-          }),
+          groupIds: stage.groupIds.filter((id) => groupMatches(catalog, catalog.groups[id], query)),
         }))
         .filter((stage) => stage.groupIds.length),
     [catalog, query, showOptional],
   );
 
   const chooseGroup = useCallback(
-    (id: string) => {
+    (id: string, nodeId?: string) => {
       if (!catalog.groups[id]) return;
-      focusAfterRender.current = id;
-      update({ activeGroupId: id, view: 'study' });
-      setQuery('');
+      if (prefs.view === 'map')
+        mapOrigin.current = nodeId ? `journey-ai-practice-${id}` : `journey-topic-${id}`;
+      focusAfterRender.current = { groupId: id, nodeId };
+      update((previous) => ({
+        ...previous,
+        activeGroupId: id,
+        view: 'study',
+        depthByGroup:
+          nodeId && !catalog.groups[id].variants.standard.stepIds.includes(nodeId)
+            ? { ...previous.depthByGroup, [id]: 'deep' }
+            : previous.depthByGroup,
+      }));
+      if (prefs.view !== 'map') setQuery('');
       if (catalog.stages.find((stage) => stage.id === catalog.groups[id].stageId)?.optional)
         setShowOptional(true);
-      navigate(`${location.pathname}${location.search}#${encodeURIComponent(id)}`, {
+      navigate(`${location.pathname}${location.search}#${encodeURIComponent(nodeId || id)}`, {
         replace: true,
       });
     },
-    [catalog, update, navigate, location.pathname, location.search],
+    [catalog, update, navigate, location.pathname, location.search, prefs.view],
   );
 
   const onDepth = useCallback(
@@ -177,8 +237,16 @@ export default function LearningWorkspace({
   );
 
   function switchView(view: LearningView) {
+    if (view === 'map' && prefs.view !== 'map')
+      mapFocusAfterRender.current = mapOrigin.current || `journey-topic-${prefs.activeGroupId}`;
+    if (view === 'map' && location.hash)
+      navigate(`${location.pathname}${location.search}`, { replace: true });
     update({ view });
-    setAnnouncement(`Visualização ${viewLabels[view]} selecionada.`);
+    setAnnouncement(
+      view === 'map' && query.trim()
+        ? `Mapa exibido com a busca por ${query.trim()} preservada.`
+        : `Visualização ${viewLabels[view]} selecionada.`,
+    );
   }
 
   const groupProps = { catalog, prefs, onDepth, onNode, onResource };
@@ -187,56 +255,87 @@ export default function LearningWorkspace({
       className="learning-workspace"
       data-period={period}
       data-effects={prefs.effects ? 'on' : 'off'}
+      data-view={prefs.view}
     >
       <div className="learning-shell">
         <header className="learning-intro">
           <Link className="learning-back" to="/">
-            ← Todas as trilhas
+            <span aria-hidden="true">←</span> Todas as trilhas
           </Link>
           <div className="learning-intro-row">
-            <div>
+            <div className="learning-intro-copy">
+              <p className="learning-kicker">
+                Trilha gratuita · revisada em {curriculumReviewLabel}
+              </p>
               <h1>{catalog.title}</h1>
               <p className="learning-audience">{catalog.audience}</p>
+              <p className="learning-outcome">
+                <span className="learning-outcome-icon" aria-hidden="true">
+                  <CheckIcon />
+                </span>
+                <span>
+                  <strong>Ao final:</strong> {catalog.outcome}
+                </span>
+              </p>
+              {catalog.prerequisite && (
+                <Link className="related-roadmap" to={catalog.prerequisite.path}>
+                  {catalog.prerequisite.label} →
+                </Link>
+              )}
             </div>
             <div className="learning-progress">
-              <span>Seu percurso essencial</span>
-              <strong>
-                {summary.percent}
-                <span>%</span>
-              </strong>
-              <progress
-                max={summary.total || 1}
-                value={summary.done}
-                aria-label="Progresso nos objetivos essenciais"
-              />
-              <span>
-                {summary.done} de {summary.total} passos concluídos
-              </span>
+              <div className="learning-progress-ring">
+                <ProgressRing percent={summary.percent} />
+                <strong>
+                  {summary.percent}
+                  <span>%</span>
+                </strong>
+              </div>
+              <div className="learning-progress-text">
+                <span className="learning-progress-label">Seu percurso essencial</span>
+                <span>
+                  {summary.done} de {summary.total} passos concluídos
+                </span>
+                <progress
+                  className="sr-only"
+                  max={summary.total || 1}
+                  value={summary.done}
+                  aria-label="Progresso nos objetivos essenciais"
+                />
+              </div>
             </div>
           </div>
-          <p className="learning-outcome">
-            <span>Resultado esperado</span> {catalog.outcome}
-          </p>
-          {catalog.prerequisite && (
-            <Link className="related-roadmap" to={catalog.prerequisite.path}>
-              {catalog.prerequisite.label} →
-            </Link>
-          )}
         </header>
 
         <div className="learning-toolbar">
           <div className="view-controls" role="group" aria-label="Visualização da trilha">
-            {views.map((view) => (
-              <button
-                type="button"
-                key={view}
-                aria-pressed={prefs.view === view}
-                aria-controls="learning-view"
-                onClick={() => switchView(view)}
-              >
-                {viewLabels[view]}
-              </button>
-            ))}
+            {views.map((view) => {
+              const Icon = viewIcons[view];
+              return (
+                <button
+                  type="button"
+                  key={view}
+                  aria-pressed={prefs.view === view}
+                  aria-controls="learning-view"
+                  onClick={() => switchView(view)}
+                >
+                  {prefs.view === view && (
+                    <motion.span
+                      className="view-indicator"
+                      layoutId="view-indicator"
+                      transition={
+                        reduced || !prefs.effects
+                          ? { duration: 0 }
+                          : { type: 'spring', stiffness: 420, damping: 34 }
+                      }
+                      aria-hidden="true"
+                    />
+                  )}
+                  <Icon />
+                  <span>{viewLabels[view]}</span>
+                </button>
+              );
+            })}
           </div>
           <label className="learning-search">
             <span className="sr-only">Buscar assunto na trilha</span>
@@ -252,7 +351,14 @@ export default function LearningWorkspace({
             />
           </label>
           <details className="display-options">
-            <summary>Preferências visuais</summary>
+            <summary>
+              <svg viewBox="0 0 20 20" aria-hidden="true">
+                <path d="M3 6h8m4 0h2M3 14h2m4 0h8" />
+                <circle cx="13" cy="6" r="2" />
+                <circle cx="7" cy="14" r="2" />
+              </svg>
+              <span className="display-options-label">Preferências visuais</span>
+            </summary>
             <div>
               <label>
                 Luz ambiente
@@ -315,6 +421,18 @@ export default function LearningWorkspace({
           </p>
         )}
 
+        {prefs.view === 'study' && (
+          <div className="journey-return">
+            <button type="button" onClick={() => switchView('map')}>
+              <span aria-hidden="true">← </span>
+              {mapOrigin.current ? 'Voltar ao mapa' : 'Ver todo o trajeto'}
+            </button>
+            <span>
+              {activeStage.optional ? 'Assunto opcional' : 'Percurso obrigatório'}
+              {active.ai ? ' · Desenvolvimento com IA' : ''}
+            </span>
+          </div>
+        )}
         <div id="learning-view" className={`learning-view learning-view-${prefs.view}`}>
           {prefs.view === 'study' ? (
             <>
@@ -342,9 +460,10 @@ export default function LearningWorkspace({
                       <ol>
                         {stage.groupIds.map((id) => {
                           const group = catalog.groups[id];
-                          const done = group.requiredIds.every((id) =>
+                          const completed = group.requiredIds.filter((id) =>
                             prefs.completedNodeIds.includes(id),
-                          );
+                          ).length;
+                          const done = completed === group.requiredIds.length;
                           return (
                             <li key={id}>
                               <a
@@ -357,9 +476,16 @@ export default function LearningWorkspace({
                               >
                                 <span
                                   className={`topic-marker ${done ? 'topic-done' : ''}`}
+                                  style={
+                                    {
+                                      '--p': group.requiredIds.length
+                                        ? completed / group.requiredIds.length
+                                        : 0,
+                                    } as CSSProperties
+                                  }
                                   aria-hidden="true"
                                 >
-                                  {done ? '✓' : ''}
+                                  {done && <CheckIcon />}
                                 </span>
                                 <span>{group.title}</span>
                                 {done && <span className="sr-only">, concluído</span>}
@@ -450,15 +576,19 @@ export default function LearningWorkspace({
                 </div>
               </section>
             </>
+          ) : prefs.view === 'map' ? (
+            <JourneyMap
+              catalog={catalog}
+              prefs={prefs}
+              query={query}
+              onSelect={chooseGroup}
+              onClearQuery={() => setQuery('')}
+            />
           ) : (
             <section className="learning-overview" aria-labelledby="overview-title">
               <div className="overview-heading">
                 <div>
-                  <h2 id="overview-title">
-                    {prefs.view === 'map'
-                      ? 'Veja onde cada etapa leva'
-                      : 'Seu conteúdo, em sequência'}
-                  </h2>
+                  <h2 id="overview-title">Seu conteúdo, em sequência</h2>
                   <p>As conclusões são compartilhadas entre as três visualizações.</p>
                 </div>
                 <label className="option-check">
@@ -475,7 +605,7 @@ export default function LearningWorkspace({
                   Nenhum assunto encontrado. Tente outro termo ou inclua as etapas opcionais.
                 </p>
               )}
-              <ol className={prefs.view === 'map' ? 'path-map' : 'path-list'}>
+              <ol className="path-list">
                 {filteredStages.map((stage) => (
                   <li
                     key={stage.id}
@@ -495,49 +625,14 @@ export default function LearningWorkspace({
                         )}
                       </div>
                     </header>
-                    {prefs.view === 'map' ? (
-                      <ul className="map-topics">
-                        {stage.groupIds.map((id) => {
-                          const group = catalog.groups[id];
-                          const done = group.requiredIds.every((id) =>
-                            prefs.completedNodeIds.includes(id),
-                          );
-                          const prerequisites = [
-                            ...new Set(
-                              group.requiredIds.flatMap((id) => catalog.nodes[id].requires),
-                            ),
-                          ].filter((id) => !group.requiredIds.includes(id));
-                          return (
-                            <li key={id}>
-                              <button type="button" onClick={() => chooseGroup(id)}>
-                                <span>{group.title}</span>
-                                <span className="map-topic-state">
-                                  {done
-                                    ? '✓ Concluído'
-                                    : `${group.requiredIds.length} passos essenciais`}{' '}
-                                  ↗
-                                </span>
-                              </button>
-                              {prerequisites.length > 0 && (
-                                <p className="map-requires">
-                                  Antes:{' '}
-                                  {prerequisites.map((id) => catalog.nodes[id].title).join(', ')}
-                                </p>
-                              )}
-                            </li>
-                          );
-                        })}
-                      </ul>
-                    ) : (
-                      stage.groupIds.map((id) => (
-                        <GroupContent
-                          key={id}
-                          {...groupProps}
-                          group={catalog.groups[id]}
-                          animated={false}
-                        />
-                      ))
-                    )}
+                    {stage.groupIds.map((id) => (
+                      <GroupContent
+                        key={id}
+                        {...groupProps}
+                        group={catalog.groups[id]}
+                        animated={false}
+                      />
+                    ))}
                   </li>
                 ))}
               </ol>

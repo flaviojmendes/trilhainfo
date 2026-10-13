@@ -10,7 +10,7 @@ export function initialPreferences(catalog: RoadmapCatalog): StudyPreferences {
     studiedResourceIds: [],
     goal: catalog.outcome,
     weeklyMinutes: 240,
-    view: 'study',
+    view: 'map',
     activeGroupId: catalog.stages[0]?.groupIds[0] || '',
     lighting: 'auto',
     effects: true,

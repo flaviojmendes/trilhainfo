@@ -1,4 +1,4 @@
-import { RoadmapCatalog } from '../src/learning/types';
+import { LearningGroup, LearningNode, LearningStage, RoadmapCatalog } from '../src/learning/types';
 import { learningMetadata } from '../src/learning/metadata';
 
 export const escapeHTML = (value: string): string =>
@@ -8,6 +8,35 @@ export const escapeHTML = (value: string): string =>
       ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char] || char),
   );
 const jsonScript = (value: unknown) => JSON.stringify(value).replace(/</g, '\\u003c');
+
+const stageClassification = (stage: LearningStage): string =>
+  [
+    stage.optional ? 'Opcional' : 'Obrigatório',
+    stage.kind === 'project'
+      ? 'Projeto: entrega prática'
+      : stage.kind === 'ai'
+      ? 'Desenvolvimento com IA'
+      : 'Fundamentos e prática',
+  ].join(' · ');
+
+const aiClassification = (ai: LearningGroup['ai']): string =>
+  ai === 'focused' ? 'Desenvolvimento com IA' : ai === 'assisted' ? 'IA aplicada' : '';
+
+const nodeClassification = (
+  stage: LearningStage,
+  group: LearningGroup,
+  node: LearningNode,
+): string =>
+  [
+    stage.optional
+      ? 'Opcional'
+      : group.requiredIds.includes(node.id)
+      ? 'Obrigatório'
+      : 'Aprofundamento opcional',
+    aiClassification(node.ai),
+  ]
+    .filter(Boolean)
+    .join(' · ');
 
 export function roadmapMarkdown(catalog: RoadmapCatalog): string {
   const lines = [
@@ -34,6 +63,7 @@ export function roadmapMarkdown(catalog: RoadmapCatalog): string {
       `## ${stage.title}${stage.optional ? ' (opcional)' : ''}`,
       '',
       `ID da etapa: ${stage.id}`,
+      `Percurso: ${stageClassification(stage)}`,
       '',
       stage.description,
       '',
@@ -54,6 +84,7 @@ export function roadmapMarkdown(catalog: RoadmapCatalog): string {
         ),
         '',
       );
+      if (group.ai) lines.push(`IA: ${aiClassification(group.ai)}`, '');
       if (group.href) lines.push(`Trilha relacionada: https://trilha.info${group.href}`, '');
       for (const nodeId of group.variants.deep.stepIds) {
         const node = catalog.nodes[nodeId];
@@ -62,6 +93,7 @@ export function roadmapMarkdown(catalog: RoadmapCatalog): string {
           '',
           `ID: ${node.id}`,
           `Tipo: ${node.kind}`,
+          `Percurso: ${nodeClassification(stage, group, node)}`,
           `Pré-requisitos: ${node.requires.length ? node.requires.join(', ') : 'nenhum'}`,
           '',
           node.description,
@@ -118,19 +150,21 @@ export function staticCatalogBody(catalog: RoadmapCatalog): string {
         (stage) =>
           `<section aria-labelledby="${e(stage.id)}"><h2 id="${e(stage.id)}">${e(stage.title)}${
             stage.optional ? ' (opcional)' : ''
-          }</h2><p>${e(stage.description)}</p>${stage.groupIds
+          }</h2><p><strong>${e(stageClassification(stage))}</strong></p><p>${e(
+            stage.description,
+          )}</p>${stage.groupIds
             .map((id) => {
               const group = catalog.groups[id];
-              return `<article aria-labelledby="${e(id)}"><h3 id="${e(id)}">${e(
-                group.title,
-              )}</h3><p>${e(group.description)}</p>${
+              return `<article aria-labelledby="${e(id)}"><h3 id="${e(id)}">${e(group.title)}</h3>${
+                group.ai ? `<p><strong>${e(aiClassification(group.ai))}</strong></p>` : ''
+              }<p>${e(group.description)}</p>${
                 group.href ? `<p><a href="${e(group.href)}">Abrir ${e(group.title)}</a></p>` : ''
               }<ol>${group.variants.deep.stepIds
                 .map((nodeId) => {
                   const node = catalog.nodes[nodeId];
                   return `<li><h4 id="${e(node.id)}">${e(node.title)}</h4><p>${e(
-                    node.description,
-                  )}</p>${
+                    nodeClassification(stage, group, node),
+                  )}</p><p>${e(node.description)}</p>${
                     node.requires.length
                       ? `<p>Pré-requisitos: ${node.requires
                           .map((id) => `<a href="#${e(id)}">${e(catalog.nodes[id].title)}</a>`)

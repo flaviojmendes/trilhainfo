@@ -98,6 +98,7 @@ export function createCatalog(
         : /Pratique|Prática|Registre|Treine/.test(section.label)
         ? 'practice'
         : 'concept',
+      ...(section.ai || parent.ai === 'focused' ? { ai: section.ai || parent.ai } : {}),
       ...(section.prompt ? { prompt: section.prompt } : {}),
       legacyIds: [`${parent.label}-${section.label}`, `${section.label}-${parent.label}`],
     };
@@ -111,6 +112,7 @@ export function createCatalog(
       title: level.label || title,
       description: level.description || '',
       optional: level.optional === true,
+      kind: level.kind || 'study',
       groupIds: [] as string[],
     };
     level.items.forEach((item) => {
@@ -144,6 +146,7 @@ export function createCatalog(
           groupId,
           title: 'Desafio de aprofundamento',
           kind: 'challenge',
+          ...(item.ai === 'focused' ? { ai: item.ai } : {}),
           description:
             challenges[groupId] ||
             `Escolha uma decisão de ${item.label} no seu projeto. Construa uma segunda solução, compare os resultados com um caso de teste e explique os limites de cada abordagem. Use as referências para verificar sua conclusão.`,
@@ -158,6 +161,7 @@ export function createCatalog(
         title: item.label,
         description: item.description || '',
         stageId,
+        ...(item.ai ? { ai: item.ai } : {}),
         ...(item.url ? { href: item.url } : {}),
         requiredIds,
         variants: {

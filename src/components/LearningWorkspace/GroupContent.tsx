@@ -4,6 +4,7 @@ import { projectBranch } from '../../learning/catalog';
 import { Depth, LearningGroup, RoadmapCatalog, StudyPreferences } from '../../learning/types';
 import { ResourceList } from './ResourceList';
 import LearningPrompt from '../LearningPrompt';
+import { AISymbol } from './icons';
 
 export const depthLabels: Record<Depth, string> = {
   simple: 'Simplificar',
@@ -46,6 +47,14 @@ export const GroupContent = memo(function GroupContent({
           <p className="group-state">
             {complete ? 'Prática essencial concluída' : 'Em estudo'} · Modo {depthNames[depth]}
           </p>
+          {group.ai && (
+            <p className="group-ai-label">
+              <AISymbol />{' '}
+              {group.ai === 'focused'
+                ? 'Aprender desenvolvimento com IA'
+                : 'Projeto com prática de IA'}
+            </p>
+          )}
           <h3 id={`title-${group.id}`} tabIndex={-1}>
             {group.title}
           </h3>
@@ -80,7 +89,13 @@ export const GroupContent = memo(function GroupContent({
           const content = (
             <>
               <div className="node-heading">
-                <h4>
+                <h4 id={`node-title-${node.id}`} tabIndex={-1}>
+                  {node.ai && (
+                    <span className="node-ai-label">
+                      <AISymbol />{' '}
+                      {node.ai === 'focused' ? 'Desenvolvimento com IA' : 'Prática com IA'}
+                    </span>
+                  )}
                   {prerequisite && (
                     <span className="prerequisite-tag">
                       Pré-requisito · {catalog.groups[node.groupId].title}:{' '}
@@ -138,6 +153,7 @@ export const GroupContent = memo(function GroupContent({
               layout={animated && prefs.effects && !reduced ? 'position' : false}
               transition={{ type: 'tween', duration: 0.18, ease: 'easeOut' }}
               className={`learning-step ${node.kind === 'challenge' ? 'learning-challenge' : ''}`}
+              data-ai={node.ai}
             >
               {prerequisite && prefs.completedNodeIds.includes(node.id) ? (
                 <details className="completed-prerequisite">
