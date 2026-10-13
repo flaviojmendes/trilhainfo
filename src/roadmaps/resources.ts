@@ -592,4 +592,64 @@ export const resources = {
     'https://www.youtube.com/c/tiagomatosweb',
     'resource.youtubeTiagoMatos',
   ),
+  youtubeSionekCareer: watch(
+    'André Sionek: carreira em engenharia de dados (português; vídeos gratuitos no YouTube)',
+    'https://www.youtube.com/c/AndreSionek',
+    'resource.youtubeSionekCareer',
+  ),
+  youtubeComunidadeDsCareer: watch(
+    'Comunidade DS: jornada e profissões em dados (português; vídeos gratuitos no YouTube)',
+    'https://www.youtube.com/@ComunidadeDS',
+    'resource.youtubeComunidadeDsCareer',
+  ),
+  youtubeLetsData: watch(
+    "Let's Data: Python para dados (português; vídeos gratuitos no YouTube)",
+    'https://www.youtube.com/@letsdataAI',
+    'resource.youtubeLetsData',
+  ),
+  youtubeHashtagSql: watch(
+    'Hashtag Treinamentos: SQL para análise de dados (português; vídeos gratuitos no YouTube)',
+    'https://www.youtube.com/c/HashtagTreinamentos',
+    'resource.youtubeHashtagSql',
+  ),
+  youtubeComunidadeDsWarehouse: watch(
+    'Comunidade DS: data warehouse e data lake (português; vídeos gratuitos no YouTube)',
+    'https://www.youtube.com/@ComunidadeDS',
+    'resource.youtubeComunidadeDsWarehouse',
+  ),
+  youtubeDataHackers: watch(
+    'Data Hackers: arquitetura de dados modernas (português; vídeos gratuitos no YouTube)',
+    'https://www.youtube.com/c/DataHackers',
+    'resource.youtubeDataHackers',
+  ),
+  youtubeSionekSpark: watch(
+    'André Sionek: Apache Spark e Databricks (português; vídeos gratuitos no YouTube)',
+    'https://www.youtube.com/c/AndreSionek',
+    'resource.youtubeSionekSpark',
+  ),
+  youtubeLuanMorenoSpark: watch(
+    'Luan Moreno: engenharia de dados na prática (português; vídeos gratuitos no YouTube)',
+    'https://www.youtube.com/@LuanMorenoMMaciel',
+    'resource.youtubeLuanMorenoSpark',
+  ),
+  youtubeSionekAirflow: watch(
+    'André Sionek: Apache Airflow (português; vídeos gratuitos no YouTube)',
+    'https://www.youtube.com/c/AndreSionek',
+    'resource.youtubeSionekAirflow',
+  ),
+  youtubeComunidadeDsCloud: watch(
+    'Comunidade DS: cloud AWS para dados (português; vídeos gratuitos no YouTube)',
+    'https://www.youtube.com/@ComunidadeDS',
+    'resource.youtubeComunidadeDsCloud',
+  ),
+  youtubeLinuxtipsAzure: watch(
+    'LINUXtips: certificações de nuvem e Azure (português; vídeos gratuitos no YouTube)',
+    'https://www.youtube.com/c/linuxtips',
+    'resource.youtubeLinuxtipsAzure',
+  ),
+  youtubeFullCycleKafka: watch(
+    'Full Cycle: Apache Kafka descomplicado (português; vídeos gratuitos no YouTube)',
+    'https://www.youtube.com/c/FullCycle',
+    'resource.youtubeFullCycleKafka',
+  ),
 };

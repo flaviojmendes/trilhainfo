@@ -14,11 +14,25 @@ export const dataEngineeringData: Level[] = withAILearning(
         topic(
           'Python para dados',
           'Aprenda funções, coleções, arquivos, ambientes virtuais, dependências, erros e testes. Use pandas depois de conseguir ler CSV e JSON com Python.',
-          [r.pythonCourse, r.python, r.pandas],
+          [
+            r.pythonCourse,
+            r.python,
+            r.pandas,
+            r.youtubePythonCourse,
+            r.youtubeDunossauro,
+            r.youtubeLetsData,
+          ],
           'Leia um CSV, valide tipos e valores faltantes e produza uma saída com um relatório de rejeições.',
           'dataEngineering.python-para-dados',
         ),
         git,
+        topic(
+          'Carreira em dados',
+          'Entenda o que faz um engenheiro de dados, quais habilidades as vagas de entrada pedem e como projetos de dados se conectam ao trabalho real.',
+          [r.youtubeSionekCareer, r.youtubeComunidadeDsCareer],
+          'Escreva o que faz um engenheiro de dados, compare três vagas de entrada e marque as habilidades que ainda faltam.',
+          'dataEngineering.carreira-em-dados',
+        ),
       ],
     },
     {
@@ -29,7 +43,7 @@ export const dataEngineeringData: Level[] = withAILearning(
         topic(
           'SQL analítico',
           'Pratique agregações, CTEs, window functions, deduplicação e análise de plano. Diferencie granularidade e chaves ao combinar tabelas.',
-          [r.postgres, r.sql],
+          [r.postgres, r.sql, r.youtubeMysqlCourse, r.youtubeHashtagSql],
           'Calcule totais por período e ranking, evitando dupla contagem em JOINs. Explique a granularidade do resultado.',
           'dataEngineering.sql-analitico',
         ),
@@ -49,7 +63,7 @@ export const dataEngineeringData: Level[] = withAILearning(
         topic(
           'Modelagem analítica e formatos',
           'Entenda tabelas fato/dimensão, esquema estrela, granularidade, histórico e particionamento. Compare CSV, JSON e Parquet; diferencie OLTP de OLAP.',
-          [r.dbt, r.duckdb],
+          [r.dbt, r.duckdb, r.youtubeComunidadeDsWarehouse, r.youtubeDataHackers],
           'Modele vendas com fato e dimensões e compare tamanho e leitura do mesmo conjunto em CSV e Parquet.',
           'dataEngineering.modelagem-analitica-e-formatos',
         ),
@@ -89,7 +103,7 @@ export const dataEngineeringData: Level[] = withAILearning(
         topic(
           'Orquestração com Airflow',
           'Aprenda tarefas, dependências, agendamento, retries, backfill e logs. Use Airflow ou uma alternativa depois de ter um pipeline que funciona sem o orquestrador.',
-          [r.airflow],
+          [r.airflow, r.youtubeSionekAirflow],
           'Agende o pipeline, simule uma falha e recupere apenas a etapa necessária; execute um backfill sem duplicar dados.',
           'dataEngineering.orquestracao-com-airflow',
         ),
@@ -111,7 +125,7 @@ export const dataEngineeringData: Level[] = withAILearning(
         topic(
           'Containers, CI e nuvem',
           'Empacote o pipeline, rode testes em CI e entenda object storage, IAM, custos e warehouse. Escolha um provedor conforme o contexto.',
-          [r.compose, r.actions, r.cloud],
+          [r.compose, r.actions, r.cloud, r.youtubeComunidadeDsCloud, r.youtubeLinuxtipsAzure],
           'Reproduza o ambiente local por Compose e faça um teste de qualidade falhar na CI. Estime custos antes de criar recursos externos.',
           'dataEngineering.containers-ci-e-nuvem',
         ),
@@ -135,7 +149,14 @@ export const dataEngineeringData: Level[] = withAILearning(
         topic(
           'Spark e streaming',
           'Compare batch e streaming, particionamento, checkpoints, eventos atrasados e semântica de entrega. Meça o problema antes de distribuir.',
-          [r.spark, r.kafka],
+          [
+            r.spark,
+            r.kafka,
+            r.youtubeSionekSpark,
+            r.youtubeLuanMorenoSpark,
+            r.youtubeMichelliMessaging,
+            r.youtubeFullCycleKafka,
+          ],
           'Compare uma transformação local com a versão distribuída e documente quando o custo adicional se justifica.',
           'dataEngineering.spark-e-streaming',
         ),
