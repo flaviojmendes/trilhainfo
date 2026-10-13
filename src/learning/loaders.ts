@@ -2,6 +2,7 @@ import { roadmapTitles } from '../roadmaps/titles';
 import { createCatalog } from './catalog';
 import { roadmapGuides } from '../roadmaps/guides';
 import { Level } from '../entity/RoadmapModel';
+import { approvedContributions } from '../contributions/approved';
 
 const loaders: Record<string, () => Promise<{ data: Level[] }>> = {
   frontend: () => import('../roadmaps/frontend'),
@@ -27,5 +28,6 @@ export async function loadCatalog(id: string) {
     roadmapTitles[id],
     data,
     roadmapGuides[id as keyof typeof roadmapGuides],
+    approvedContributions,
   );
 }

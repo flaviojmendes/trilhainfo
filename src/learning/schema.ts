@@ -16,6 +16,7 @@ const map = (value: unknown) => ({
   additionalProperties: value,
 });
 const variant = object({ summary: text, stepIds: ids });
+const credit = object({ id: text, author: text, github: text }, ['id']);
 
 export const roadmapSchema = {
   $schema: 'https://json-schema.org/draft/2020-12/schema',
@@ -75,21 +76,26 @@ export const roadmapSchema = {
             ai: aiFocus,
             prompt: text,
             legacyIds: { type: 'array', items: text },
+            contribution: credit,
           },
           ['id', 'groupId', 'title', 'description', 'requires', 'resourceIds', 'kind', 'legacyIds'],
         ),
       ),
       resources: map(
-        object({
-          id: identity,
-          title: text,
-          url: { type: 'string', pattern: '^https://', format: 'uri' },
-          language: nullableText,
-          kind: text,
-          free: { type: ['boolean', 'null'] },
-          estimatedMinutes: { type: ['integer', 'null'], minimum: 1 },
-          lastReviewedAt: { type: ['string', 'null'], format: 'date' },
-        }),
+        object(
+          {
+            id: identity,
+            title: text,
+            url: { type: 'string', pattern: '^https://', format: 'uri' },
+            language: nullableText,
+            kind: text,
+            free: { type: ['boolean', 'null'] },
+            estimatedMinutes: { type: ['integer', 'null'], minimum: 1 },
+            lastReviewedAt: { type: ['string', 'null'], format: 'date' },
+            contribution: credit,
+          },
+          ['id', 'title', 'url', 'language', 'kind', 'free', 'estimatedMinutes', 'lastReviewedAt'],
+        ),
       ),
     },
     [

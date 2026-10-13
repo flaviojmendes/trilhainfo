@@ -1,4 +1,9 @@
-import { LearningResource } from '../../learning/types';
+import { LearningCredit, LearningResource } from '../../learning/types';
+
+export function creditLabel(credit: LearningCredit): string {
+  const who = [credit.author, credit.github ? `@${credit.github}` : ''].filter(Boolean).join(' ');
+  return who ? `Sugestão de ${who}` : 'Sugestão da comunidade';
+}
 
 export function ResourceList({
   resources,
@@ -34,6 +39,9 @@ export function ResourceList({
               {resource.free === true ? ' · Gratuito' : resource.free === false ? ' · Pago' : ''}
               {resource.estimatedMinutes !== null ? ` · ${resource.estimatedMinutes} min` : ''}
             </p>
+            {resource.contribution && (
+              <p className="community-credit">{creditLabel(resource.contribution)}</p>
+            )}
           </div>
           <label className="resource-check">
             <input

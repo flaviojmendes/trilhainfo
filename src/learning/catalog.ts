@@ -1,6 +1,8 @@
 import { Level, Link, LinkType, RoadmapItem } from '../entity/RoadmapModel';
 import { RoadmapGuide, curriculumReviewedAt } from '../roadmaps/guides';
 import { LearningNode, RoadmapCatalog } from './types';
+import { applyContributions } from '../contributions/apply';
+import { Contribution } from '../contributions/types';
 
 export function contentHash(value: string): string {
   let hash = 2166136261;
@@ -46,6 +48,7 @@ export function createCatalog(
   title: string,
   levels: Level[],
   guide?: RoadmapGuide,
+  contributions: Contribution[] = [],
 ): RoadmapCatalog {
   const catalog: RoadmapCatalog = {
     schemaVersion: 1,
@@ -193,6 +196,7 @@ export function createCatalog(
       (required) => catalog.groups[required]?.requiredIds.slice(0, 1) || [],
     );
   });
+  applyContributions(catalog, contributions);
   validateCatalog(catalog);
   catalog.version = `${curriculumReviewedAt}.${contentHash(
     JSON.stringify({ ...catalog, version: '' }),

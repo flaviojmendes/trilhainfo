@@ -2,13 +2,21 @@ import { Plugin } from 'vite';
 import { roadmaps } from '../src/roadmaps/roadmaps';
 import { roadmapGuides } from '../src/roadmaps/guides';
 import { guides } from '../src/guides';
+import { readContributions } from './contributions';
 import { createCatalog } from '../src/learning/catalog';
 import { roadmapSchema, studyContextSchema, studyPlanSchema } from '../src/learning/schema';
 import { enrichAppHTML, roadmapMarkdown, staticCatalogHTML } from './roadmapArtifacts';
 
 export function roadmapCatalogs() {
+  const contributions = readContributions();
   return Object.entries(roadmaps).map(([id, roadmap]) =>
-    createCatalog(id, roadmap.title, roadmap.file, roadmapGuides[id as keyof typeof roadmapGuides]),
+    createCatalog(
+      id,
+      roadmap.title,
+      roadmap.file,
+      roadmapGuides[id as keyof typeof roadmapGuides],
+      contributions,
+    ),
   );
 }
 

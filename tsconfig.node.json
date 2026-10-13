@@ -12,6 +12,8 @@
   "include": [
     "vite.config.ts",
     "scripts/**/*.ts",
+    "api/**/*.ts",
+    "server/**/*.ts",
     "src/roadmaps/**/*.ts",
     "src/entity/RoadmapModel.tsx",
     "src/entity/RoadmapFileModel.tsx",

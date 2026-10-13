@@ -2,11 +2,12 @@ import { memo, useMemo } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { projectBranch } from '../../learning/catalog';
 import { Depth, LearningGroup, RoadmapCatalog, StudyPreferences } from '../../learning/types';
-import { ResourceList } from './ResourceList';
+import { creditLabel, ResourceList } from './ResourceList';
 import LearningPrompt from '../LearningPrompt';
 import { Link } from 'react-router-dom';
 import { guidesForTopic } from '../../guides';
 import { AISymbol, BookIcon } from './icons';
+import { ContributeDialog } from '../Contribute/ContributeDialog';
 
 export const depthLabels: Record<Depth, string> = {
   simple: 'Simplificar',
@@ -135,6 +136,9 @@ export const GroupContent = memo(function GroupContent({
                   </span>
                 </label>
               </div>
+              {node.contribution && (
+                <p className="community-credit">{creditLabel(node.contribution)}</p>
+              )}
               {node.description && <p className="node-description">{node.description}</p>}
               {node.requires.length > 0 && !prerequisite && (
                 <p className="node-prerequisites">
@@ -184,6 +188,7 @@ export const GroupContent = memo(function GroupContent({
           );
         })}
       </ol>
+      <ContributeDialog catalog={catalog} group={group} />
       <p className="learning-footnote">
         Marque a prática depois de cumprir seus critérios. Uma referência lida continua separada da
         habilidade demonstrada.

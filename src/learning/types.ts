@@ -2,6 +2,12 @@ export type Depth = 'simple' | 'standard' | 'deep';
 export type LearningView = 'study' | 'map' | 'list';
 export type Knowledge = 'unknown' | 'familiar' | 'demonstrated';
 
+export interface LearningCredit {
+  id: string;
+  author?: string;
+  github?: string;
+}
+
 export interface LearningResource {
   id: string;
   title: string;
@@ -11,6 +17,7 @@ export interface LearningResource {
   free: boolean | null;
   estimatedMinutes: number | null;
   lastReviewedAt: string | null;
+  contribution?: LearningCredit;
 }
 
 export interface LearningNode {
@@ -24,6 +31,7 @@ export interface LearningNode {
   ai?: 'focused' | 'assisted';
   prompt?: string;
   legacyIds: string[];
+  contribution?: LearningCredit;
 }
 
 export interface LearningGroup {
