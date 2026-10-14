@@ -3,7 +3,7 @@ import MainLayout from '../components/layouts/MainLayout';
 import Markdown from 'markdown-to-jsx';
 import { useParams } from 'react-router';
 import useDocumentTitle from '../components/useDocumentTitle';
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import SyntaxHighlighter from 'react-syntax-highlighter/dist/esm/prism';
 import { dracula } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 type TitleProps = {
