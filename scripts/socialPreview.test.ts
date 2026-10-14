@@ -2,6 +2,7 @@
 import { readFileSync } from 'fs';
 import { resolve } from 'path';
 import { guides } from '../src/guides';
+import { courses, lessons } from '../src/lessons';
 import { roadmapCatalogs } from './catalogPlugin';
 import { applySocialMeta, pageForPath, renderCard, siteUrl, socialPages } from './socialPreview';
 
@@ -17,7 +18,7 @@ const tagValues = (html: string, attribute: 'name' | 'property', key: string) =>
   );
 
 describe('Prévia de links', () => {
-  it('cobre a home, os guias, as trilhas e os posts com endereços e imagens únicos', () => {
+  it('cobre a home, os guias, as aulas, as trilhas e os posts com endereços e imagens únicos', () => {
     const paths = pages.map((page) => page.path);
     expect(new Set(paths).size).toBe(paths.length);
     expect(new Set(pages.map((page) => page.image)).size).toBe(pages.length);
@@ -26,6 +27,9 @@ describe('Prévia de links', () => {
         '/',
         '/guias',
         ...guides.map((guide) => `/guide/${guide.id}`),
+        '/aulas',
+        ...courses.map((course) => `/aulas/${course.id}`),
+        ...lessons.map((lesson) => `/aula/${lesson.id}`),
         ...catalogs.map((catalog) => `/roadmap/${catalog.id}`),
         ...posts.map((post: { url: string }) => `/blog/${post.url}`),
       ]),
@@ -56,7 +60,9 @@ describe('Prévia de links', () => {
     expect(tagValues(html, 'name', 'description')).toHaveLength(1);
     expect(tagValues(html, 'property', 'og:title')).toEqual(['Sessões, JWT e OAuth 2.0']);
     expect(tagValues(html, 'property', 'og:url')).toEqual([`${siteUrl}/guide/sessionsTokens`]);
-    expect(tagValues(html, 'property', 'og:image')).toEqual([`${siteUrl}/og/guide-sessionsTokens.png`]);
+    expect(tagValues(html, 'property', 'og:image')).toEqual([
+      `${siteUrl}/og/guide-sessionsTokens.png`,
+    ]);
     expect(tagValues(html, 'property', 'og:type')).toEqual(['article']);
     expect(tagValues(html, 'name', 'twitter:card')).toEqual(['summary_large_image']);
     expect(tagValues(html, 'name', 'twitter:data1')).toEqual(['10 min']);

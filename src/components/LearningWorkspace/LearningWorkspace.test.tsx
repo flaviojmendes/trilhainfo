@@ -320,3 +320,23 @@ it('mostra opcionais e IA como informações independentes e abre a prática exa
     ).toHaveFocus(),
   );
 });
+
+it('coloca as aulas no centro e recolhe as referências externas como extras', () => {
+  const withLessons = createCatalog('com-aulas', 'Trilha', [
+    { ...data[0], items: [{ ...data[0].items[0], id: 'curriculum.html' }] },
+  ]);
+  render(
+    <MemoryRouter>
+      <LearningWorkspace catalog={withLessons} />
+    </MemoryRouter>,
+  );
+  fireEvent.click(screen.getByRole('button', { name: 'Estudar', exact: true }));
+  expect(screen.getByRole('heading', { name: 'Suas 2 aulas' })).toBeVisible();
+  expect(screen.getByRole('link', { name: /HTML: sua primeira página/ })).toHaveAttribute(
+    'href',
+    '/aula/html-primeira-pagina',
+  );
+  const reference = screen.getByRole('link', { name: /Documentação/ });
+  expect(reference.closest('details.node-extras')).not.toHaveAttribute('open');
+  expect(screen.getByText('As aulas acima cobrem este passo.')).toBeInTheDocument();
+});

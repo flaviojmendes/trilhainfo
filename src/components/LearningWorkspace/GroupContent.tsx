@@ -6,7 +6,9 @@ import { creditLabel, ResourceList } from './ResourceList';
 import LearningPrompt from '../LearningPrompt';
 import { Link } from 'react-router-dom';
 import { guidesForTopic } from '../../guides';
-import { AISymbol, BookIcon } from './icons';
+import { lessonPlace, lessonsForGroup, lessonUrl } from '../../lessons';
+import { useLessonStore } from '../../lessons/progress';
+import { AISymbol, BookIcon, CheckIcon } from './icons';
 import { ContributeDialog } from '../Contribute/ContributeDialog';
 import { DevFlip } from '../../devmode/DevFlip';
 
@@ -45,6 +47,10 @@ export const GroupContent = memo(function GroupContent({
   const ownIds = group.variants.deep.stepIds;
   const complete = group.requiredIds.every((id) => prefs.completedNodeIds.includes(id));
   const topicGuides = guidesForTopic(group.id);
+  const topicLessons = lessonsForGroup(group.id);
+  const hasLessons = topicLessons.length > 0;
+  const lessonStore = useLessonStore();
+  const nextLesson = topicLessons.find((lesson) => !lessonStore.lessons[lesson.id]?.done);
   return (
     <DevFlip id="learning-group" label={group.title} data={{ group, depth, nodes }}>
       <article className="learning-group" aria-labelledby={`title-${group.id}`}>
@@ -93,6 +99,57 @@ export const GroupContent = memo(function GroupContent({
             Abrir a trilha de {group.title} ↗
           </a>
         )}
+        {hasLessons && (
+          <section className="group-lessons" aria-labelledby={`lessons-${group.id}`}>
+            <div className="group-lessons-head">
+              <h4 id={`lessons-${group.id}`}>
+                {topicLessons.length === 1 ? 'Sua aula' : `Suas ${topicLessons.length} aulas`}
+              </h4>
+              <p>Explicação, exemplos animados, exercícios e revisão, tudo aqui dentro.</p>
+            </div>
+            <ol>
+              {topicLessons.map((lesson) => {
+                const record = lessonStore.lessons[lesson.id];
+                const status = record?.done ? 'Concluída' : record ? 'Em andamento' : '';
+                const place = lessonPlace(lesson.id, catalog.id);
+                return (
+                  <li
+                    key={lesson.id}
+                    data-done={record?.done ? true : undefined}
+                    data-next={lesson.id === nextLesson?.id ? true : undefined}
+                  >
+                    <Link to={lessonUrl(lesson.id, catalog.id)}>
+                      <span className="group-lesson-top">
+                        <span className="group-lessons-mark" aria-hidden="true">
+                          {record?.done ? <CheckIcon /> : <BookIcon />}
+                        </span>
+                        <span className="group-lesson-number">
+                          {place?.course.id === catalog.id
+                            ? `Aula ${String(place.number).padStart(2, '0')}`
+                            : 'Aula'}
+                        </span>
+                        <span className="group-lesson-minutes">{lesson.minutes} min</span>
+                      </span>
+                      <strong>{lesson.title}</strong>
+                      <span className="group-lesson-summary">{lesson.summary}</span>
+                      <span className="group-lesson-foot">
+                        {status && <span className="group-lesson-status">{status}</span>}
+                        <span className="group-lesson-cta">
+                          {record?.done ? 'Rever' : record ? 'Continuar' : 'Começar'}
+                          <span aria-hidden="true"> →</span>
+                        </span>
+                      </span>
+                    </Link>
+                  </li>
+                );
+              })}
+            </ol>
+            <p className="group-lessons-note">
+              Concluir as aulas registra “{catalog.nodes[group.requiredIds[0]]?.title}” como
+              estudado.
+            </p>
+          </section>
+        )}
         {topicGuides.length > 0 && (
           <aside className="group-guides" aria-label={`Guias rápidos sobre ${group.title}`}>
             <BookIcon />
@@ -107,10 +164,38 @@ export const GroupContent = memo(function GroupContent({
             </ul>
           </aside>
         )}
-        <ol className="learning-steps" id={`steps-${group.id}`}>
+        {hasLessons && (
+          <div className="learning-steps-head">
+            <h4>Depois da aula, confira o que você já consegue</h4>
+            <p>
+              Marque cada passo quando conseguir fazer sem consultar. Vídeos e documentação ficam
+              recolhidos como extras, para quando quiser ir além.
+            </p>
+          </div>
+        )}
+        <ol
+          className={`learning-steps ${hasLessons ? 'learning-steps-after-lessons' : ''}`}
+          id={`steps-${group.id}`}
+        >
           {nodes.map((node) => {
             const prerequisite = !ownIds.includes(node.id);
             const resources = node.resourceIds.map((id) => catalog.resources[id]);
+            const references = resources.length > 0 && (
+              <DevFlip id="resources" label={node.title} data={resources}>
+                <ResourceList
+                  resources={resources}
+                  studied={prefs.studiedResourceIds}
+                  onStudy={onResource}
+                  simple={depth === 'simple' && !hasLessons}
+                />
+              </DevFlip>
+            );
+            const prompt = node.prompt && (
+              <details className="node-prompt">
+                <summary>Usar um prompt de estudo</summary>
+                <LearningPrompt prompt={node.prompt} label={`${group.title}: ${node.title}`} />
+              </details>
+            );
             const content = (
               <>
                 <div className="node-heading">
@@ -161,21 +246,32 @@ export const GroupContent = memo(function GroupContent({
                     .
                   </p>
                 )}
-                {resources.length > 0 && (
-                  <DevFlip id="resources" label={node.title} data={resources}>
-                    <ResourceList
-                      resources={resources}
-                      studied={prefs.studiedResourceIds}
-                      onStudy={onResource}
-                      simple={depth === 'simple'}
-                    />
-                  </DevFlip>
+                {hasLessons && node.id === group.requiredIds[0] && (
+                  <p className="node-lesson-cover">
+                    <BookIcon /> As aulas acima cobrem este passo.
+                  </p>
                 )}
-                {node.prompt && (
-                  <details className="node-prompt">
-                    <summary>Usar um prompt de estudo</summary>
-                    <LearningPrompt prompt={node.prompt} label={`${group.title}: ${node.title}`} />
-                  </details>
+                {hasLessons ? (
+                  (references || prompt) && (
+                    <details className="node-extras">
+                      <summary>
+                        Materiais extras
+                        {resources.length > 0 && (
+                          <span className="node-extras-count">
+                            {resources.length}{' '}
+                            {resources.length === 1 ? 'referência' : 'referências'}
+                          </span>
+                        )}
+                      </summary>
+                      {references}
+                      {prompt}
+                    </details>
+                  )
+                ) : (
+                  <>
+                    {references}
+                    {prompt}
+                  </>
                 )}
               </>
             );

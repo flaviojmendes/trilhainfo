@@ -79,7 +79,7 @@ export default function Hero() {
             na tecnologia
           </h1>
           <p className="home-lead">
-            Trilhas com referências abertas, prática com IA e projetos para o portfólio. Você sempre
+            Aulas próprias e interativas, prática com IA e projetos para o portfólio. Você sempre
             sabe onde está, o que vem depois e o que vai conseguir entregar.
           </p>
           <div className="home-actions">
@@ -92,6 +92,9 @@ export default function Hero() {
             <a className={`home-button ${resume ? '' : 'home-button-primary'}`} href="#trilhas">
               Escolher uma trilha <PiArrowRight aria-hidden="true" />
             </a>
+            <Link className="home-button" to="/aulas">
+              Aulas de Frontend do zero
+            </Link>
           </div>
           <dl className="home-facts">
             <div>

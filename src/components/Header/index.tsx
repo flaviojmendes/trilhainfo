@@ -14,6 +14,7 @@ const cookies = new Cookies();
 
 export const siteLinks = [
   { label: 'Trilhas', href: '/#trilhas' },
+  { label: 'Aulas', to: '/aulas' },
   { label: 'Guias', to: '/guias' },
 ];
 

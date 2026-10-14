@@ -4,6 +4,7 @@ import type { ReactNode } from 'react';
 import satori from 'satori';
 import { Resvg } from '@resvg/resvg-js';
 import { categoryOf, guideCategories, guides } from '../src/guides';
+import { courseLessons, courses, lessonPlace, lessons } from '../src/lessons';
 import { RoadmapCatalog } from '../src/learning/types';
 
 export const siteUrl = 'https://trilha.info';
@@ -66,7 +67,11 @@ export function socialPages(catalogs: RoadmapCatalog[], posts: BlogPost[]): Soci
       kicker: 'Gratuito, em português e open source',
       title: 'Explore o seu caminho na tecnologia',
       summary: siteDescription,
-      facts: [plural(catalogs.length, 'trilha', 'trilhas'), plural(guides.length, 'guia', 'guias')],
+      facts: [
+        plural(catalogs.length, 'trilha', 'trilhas'),
+        plural(lessons.length, 'aula', 'aulas'),
+        plural(guides.length, 'guia', 'guias'),
+      ],
     },
   };
 
@@ -113,6 +118,74 @@ export function socialPages(catalogs: RoadmapCatalog[], posts: BlogPost[]): Soci
     };
   });
 
+  const lessonsIndex: SocialPage = {
+    path: '/aulas',
+    documentTitle: 'Aulas · Trilha Info',
+    title: 'Aulas que você faz, para cada trilha',
+    description:
+      'Cursos gratuitos para quem está começando do zero: explicações animadas, código ao vivo, exercícios que explicam o erro e revisão espaçada.',
+    image: '/og/aulas.png',
+    imageAlt: 'Aulas da Trilha Info',
+    type: 'website',
+    card: {
+      kicker: 'Cursos gratuitos',
+      title: 'Aulas que você faz, para cada trilha',
+      summary: 'Explicações animadas, código ao vivo, exercícios e revisão espaçada.',
+      facts: [plural(courses.length, 'curso', 'cursos'), plural(lessons.length, 'aula', 'aulas')],
+    },
+  };
+
+  const coursePages = courses.map<SocialPage>((course) => {
+    const count = courseLessons(course).length;
+    return {
+      path: `/aulas/${course.id}`,
+      documentTitle: `Aulas de ${course.title} · Trilha Info`,
+      title: `${course.title} do zero, com aulas que você faz`,
+      description: clip(
+        `Curso gratuito de ${course.title} com ${count} aulas: explicações animadas, prática ao vivo, exercícios que explicam o erro e revisão espaçada.`,
+        220,
+      ),
+      image: `/og/aulas-${course.id}.png`,
+      imageAlt: `Aulas de ${course.title} da Trilha Info`,
+      type: 'website',
+      card: {
+        kicker: 'Curso gratuito',
+        title: `${course.title} do zero`,
+        summary: 'Explicações animadas, prática ao vivo, exercícios e revisão espaçada.',
+        facts: [plural(count, 'aula', 'aulas'), 'Sem cadastro'],
+      },
+    };
+  });
+
+  const lessonPages = lessons.flatMap<SocialPage>((lesson) => {
+    const place = lessonPlace(lesson.id);
+    if (!place) return [];
+    const where = `${place.course.title} · ${place.module.title}`;
+    return [
+      {
+        path: `/aula/${lesson.id}`,
+        documentTitle: `${lesson.title} · Aulas · Trilha Info`,
+        title: lesson.title,
+        description: clip(lesson.summary, 220),
+        image: `/og/aula-${lesson.id}.png`,
+        imageAlt: `Aula ${place.number} de ${place.course.title}: ${lesson.title}`,
+        type: 'article',
+        section: where,
+        modified: lesson.updatedAt,
+        labels: [
+          ['Duração', `${lesson.minutes} min`],
+          ['Curso', place.course.title],
+        ],
+        card: {
+          kicker: `Aula ${place.number} · ${where}`,
+          title: lesson.title,
+          summary: lesson.summary,
+          facts: [`${lesson.minutes} min`, 'Exercícios interativos'],
+        },
+      },
+    ];
+  });
+
   const trailPages = catalogs.map<SocialPage>((catalog) => {
     const topics = Object.keys(catalog.groups).length;
     return {
@@ -150,7 +223,16 @@ export function socialPages(catalogs: RoadmapCatalog[], posts: BlogPost[]): Soci
     card: { kicker: 'Publicação', title: post.title, summary: post.summary, facts: ['Blog'] },
   }));
 
-  return [home, guidesIndex, ...guidePages, ...trailPages, ...postPages];
+  return [
+    home,
+    guidesIndex,
+    ...guidePages,
+    lessonsIndex,
+    ...coursePages,
+    ...lessonPages,
+    ...trailPages,
+    ...postPages,
+  ];
 }
 
 export function pageForPath(pages: SocialPage[], pathname: string): SocialPage | undefined {

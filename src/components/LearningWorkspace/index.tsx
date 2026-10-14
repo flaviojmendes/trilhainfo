@@ -21,6 +21,8 @@ import { groupMatches } from '../../learning/journey';
 import { downloadVisualization } from '../../learning/downloads';
 import { saveProgressSnapshot } from '../../learning/progressSnapshot';
 import { curriculumReviewLabel } from '../../roadmaps/guides';
+import { lessonsByGroup } from '../../lessons';
+import { groupsToCredit, markCredited, readLessons } from '../../lessons/progress';
 import './workspace.css';
 
 const viewLabels: Record<LearningView, string> = { study: 'Estudar', map: 'Mapa', list: 'Lista' };
@@ -73,6 +75,29 @@ export default function LearningWorkspace({
   const summary = progressSummary(catalog, prefs);
   const upcoming = nextGroup(catalog, prefs);
   const reduced = useReducedMotion();
+  const lessonCounts = useMemo(
+    () =>
+      Object.fromEntries(
+        Object.entries(lessonsByGroup()).map(([groupId, ids]) => [groupId, ids.length]),
+      ) as Record<string, number | undefined>,
+    [],
+  );
+
+  useEffect(() => {
+    const groupIds = groupsToCredit(readLessons(), lessonsByGroup(), catalog.id).filter(
+      (id) => catalog.groups[id],
+    );
+    if (!groupIds.length) return;
+    const nodeIds = groupIds.map((id) => catalog.groups[id].requiredIds[0]);
+    update((previous) => ({
+      ...previous,
+      completedNodeIds: [...new Set([...previous.completedNodeIds, ...nodeIds])],
+    }));
+    markCredited(catalog.id, groupIds);
+    setAnnouncement(
+      `Aulas concluídas registradas: ${groupIds.map((id) => catalog.groups[id].title).join(', ')}.`,
+    );
+  }, [catalog, update]);
 
   useEffect(() => {
     saveProgressSnapshot(catalog.id, summary);
@@ -489,6 +514,20 @@ export default function LearningWorkspace({
                                 </span>
                                 <span>{group.title}</span>
                                 {done && <span className="sr-only">, concluído</span>}
+                                {lessonCounts[id] && (
+                                  <span
+                                    className="topic-lessons"
+                                    title={`${lessonCounts[id]} ${
+                                      lessonCounts[id] === 1 ? 'aula' : 'aulas'
+                                    }`}
+                                  >
+                                    <BookIcon />
+                                    {lessonCounts[id]}
+                                    <span className="sr-only">
+                                      {lessonCounts[id] === 1 ? ' aula' : ' aulas'}
+                                    </span>
+                                  </span>
+                                )}
                               </a>
                             </li>
                           );

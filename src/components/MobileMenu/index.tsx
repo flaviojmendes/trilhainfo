@@ -12,6 +12,7 @@ import {
 
 const links = [
   { label: 'Trilhas', href: '/#trilhas' },
+  { label: 'Aulas', to: '/aulas' },
   { label: 'Guias', to: '/guias' },
 ];
 

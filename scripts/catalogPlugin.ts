@@ -2,6 +2,7 @@ import { Plugin } from 'vite';
 import { roadmaps } from '../src/roadmaps/roadmaps';
 import { roadmapGuides } from '../src/roadmaps/guides';
 import { guides } from '../src/guides';
+import { courses, lessons } from '../src/lessons';
 import { readContributions } from './contributions';
 import { createCatalog } from '../src/learning/catalog';
 import { roadmapSchema, studyContextSchema, studyPlanSchema } from '../src/learning/schema';
@@ -71,6 +72,13 @@ export function catalogPlugin(): Plugin {
         .map(
           (guide) =>
             `<url><loc>https://trilha.info/guide/${guide.id}</loc><lastmod>${guide.updatedAt}</lastmod></url>`,
+        )
+        .join('')}<url><loc>https://trilha.info/aulas</loc></url>${courses
+        .map((course) => `<url><loc>https://trilha.info/aulas/${course.id}</loc></url>`)
+        .join('')}${lessons
+        .map(
+          (lesson) =>
+            `<url><loc>https://trilha.info/aula/${lesson.id}</loc><lastmod>${lesson.updatedAt}</lastmod></url>`,
         )
         .join('')}</urlset>`,
     });

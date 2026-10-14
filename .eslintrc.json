@@ -51,7 +51,7 @@
   },
   "overrides": [
     {
-      "files": ["src/guides/content/**/*.ts"],
+      "files": ["src/guides/content/**/*.ts", "src/lessons/content/**/*.ts"],
       "rules": { "no-template-curly-in-string": "off" }
     }
   ]
