@@ -384,9 +384,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(<App />);`,
             {
               label: 'api.js',
               language: 'js',
-              code: `const base = import.meta.env.VITE_API_URL;
+              code: `const base = ${'import.meta'}.env.VITE_API_URL;
 
-if (import.meta.env.DEV) {
+if (${'import.meta'}.env.DEV) {
   console.log('Modo desenvolvimento, API em', base);
 }
 
@@ -424,7 +424,9 @@ export function buscarProdutos() {
         {
           type: 'quiz',
           question:
-            'No `.env` está `API_URL=https://api.loja.com.br`, mas `import.meta.env.API_URL` aparece como `undefined` no app. Por quê?',
+            'No `.env` está `API_URL=https://api.loja.com.br`, mas `' +
+            ['import', 'meta'].join('.') +
+            '.env.API_URL` aparece como `undefined` no app. Por quê?',
           options: [
             {
               text: 'Falta o prefixo `VITE_`, então o Vite não expõe a variável ao código',

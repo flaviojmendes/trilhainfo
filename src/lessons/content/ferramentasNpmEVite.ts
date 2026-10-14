@@ -410,7 +410,7 @@ SENHA_BANCO=nunca_deveria_estar_aqui`,
           type: 'code',
           language: 'ts',
           caption: 'Lendo a variável no código do frontend.',
-          code: `const urlApi = import.meta.env.VITE_API_URL;
+          code: `const urlApi = ${'import.meta'}.env.VITE_API_URL;
 const resposta = await fetch(urlApi + '/produtos');`,
         },
         {

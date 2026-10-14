@@ -301,7 +301,10 @@ app.use(express.json());`,
         },
         {
           type: 'text',
-          text: 'Mas o endereço da API muda de lugar para lugar: `/api` no seu computador, `https://api.minhasdespesas.com.br` em produção. Na aula de npm e Vite você viu as variáveis de ambiente com prefixo `VITE_`. Elas resolvem isso: o código lê `import.meta.env.VITE_API_URL`, e cada arquivo `.env` dá o valor do seu ambiente.',
+          text:
+            'Mas o endereço da API muda de lugar para lugar: `/api` no seu computador, `https://api.minhasdespesas.com.br` em produção. Na aula de npm e Vite você viu as variáveis de ambiente com prefixo `VITE_`. Elas resolvem isso: o código lê `' +
+            ['import', 'meta'].join('.') +
+            '.env.VITE_API_URL`, e cada arquivo `.env` dá o valor do seu ambiente.',
         },
         {
           type: 'codeTabs',
@@ -339,7 +342,7 @@ export default defineConfig({
             {
               label: 'src/api.js',
               language: 'js',
-              code: `export const API_URL = import.meta.env.VITE_API_URL;
+              code: `export const API_URL = ${'import.meta'}.env.VITE_API_URL;
 
 export async function listarDespesas() {
   const resposta = await fetch(API_URL + '/despesas');
@@ -824,7 +827,10 @@ ReactDOM.createRoot(document.getElementById('root')).render(<App />);`,
     {
       id: 'vite-env-api',
       front: 'Como mudar o endereço da API entre desenvolvimento e produção?',
-      back: 'Com `import.meta.env.VITE_API_URL` e um valor em cada arquivo `.env.development` e `.env.production`.',
+      back:
+        'Com `' +
+        ['import', 'meta'].join('.') +
+        '.env.VITE_API_URL` e um valor em cada arquivo `.env.development` e `.env.production`.',
     },
     {
       id: 'tipos-em-runtime',
