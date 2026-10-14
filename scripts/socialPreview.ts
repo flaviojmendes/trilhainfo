@@ -221,7 +221,12 @@ interface Node {
   props: { style?: Style; children?: Array<Node | string> | Node | string; [key: string]: unknown };
 }
 
-const el = (type: string, style: Style, children?: Node['props']['children'], extra = {}): Node => ({
+const el = (
+  type: string,
+  style: Style,
+  children?: Node['props']['children'],
+  extra = {},
+): Node => ({
   type,
   props: { style, children, ...extra },
 });
@@ -238,9 +243,21 @@ function loadAssets(root: string) {
   );
   assets = {
     fonts: [
-      { name: 'Display', data: font('bricolage-grotesque', 'bricolage-grotesque-latin-800-normal.woff'), weight: 800 },
-      { name: 'Text', data: font('hanken-grotesk', 'hanken-grotesk-latin-400-normal.woff'), weight: 400 },
-      { name: 'Text', data: font('hanken-grotesk', 'hanken-grotesk-latin-600-normal.woff'), weight: 600 },
+      {
+        name: 'Display',
+        data: font('bricolage-grotesque', 'bricolage-grotesque-latin-800-normal.woff'),
+        weight: 800,
+      },
+      {
+        name: 'Text',
+        data: font('hanken-grotesk', 'hanken-grotesk-latin-400-normal.woff'),
+        weight: 400,
+      },
+      {
+        name: 'Text',
+        data: font('hanken-grotesk', 'hanken-grotesk-latin-600-normal.woff'),
+        weight: 600,
+      },
     ],
     logo: `data:image/svg+xml;base64,${Buffer.from(logo).toString('base64')}`,
   };
@@ -262,10 +279,10 @@ export async function renderCard(card: PreviewCard, root: string): Promise<Buffe
       width: cardSize.width,
       height: cardSize.height,
       display: 'flex',
-      backgroundColor: '#171316',
+      backgroundColor: '#101218',
       backgroundImage:
-        'radial-gradient(circle at 8% 0%, rgba(225, 4, 123, 0.42), rgba(23, 19, 22, 0) 58%), radial-gradient(circle at 100% 100%, rgba(145, 228, 198, 0.16), rgba(23, 19, 22, 0) 46%)',
-      color: '#fdfdfd',
+        'radial-gradient(circle at 8% 0%, rgba(242, 61, 127, 0.42), rgba(16, 18, 24, 0) 58%), radial-gradient(circle at 100% 100%, rgba(110, 231, 200, 0.16), rgba(16, 18, 24, 0) 46%)',
+      color: '#f2f4f8',
       fontFamily: 'Text',
     },
     [
@@ -289,7 +306,7 @@ export async function renderCard(card: PreviewCard, root: string): Promise<Buffe
         right: 0,
         bottom: 0,
         height: 12,
-        backgroundImage: 'linear-gradient(90deg, #E1047B, #ff83c5 55%, #91E4C6)',
+        backgroundImage: 'linear-gradient(90deg, #F23D7F, #ff8ab5 55%, #6EE7C8)',
       }),
     ],
   );
@@ -299,64 +316,64 @@ export async function renderCard(card: PreviewCard, root: string): Promise<Buffe
 
 function cardContent(card: PreviewCard, logo: string): Node[] {
   return [
-      el('div', { display: 'flex', alignItems: 'center', justifyContent: 'space-between' }, [
-        el('img', { width: 282, height: 47 }, undefined, { src: logo, width: 282, height: 47 }),
-        el('div', { fontSize: 26, fontWeight: 600, color: '#bfb3ba' }, 'trilha.info'),
-      ]),
-      el('div', { display: 'flex', flexDirection: 'column' }, [
-        el(
-          'div',
-          { display: 'flex', alignItems: 'center', fontSize: 28, fontWeight: 600, color: '#ff83c5' },
-          [
-            el('div', {
-              width: 14,
-              height: 14,
-              marginRight: 14,
-              borderRadius: 7,
-              backgroundColor: '#E1047B',
-            }),
-            card.kicker,
-          ],
-        ),
+    el('div', { display: 'flex', alignItems: 'center', justifyContent: 'space-between' }, [
+      el('img', { width: 282, height: 47 }, undefined, { src: logo, width: 282, height: 47 }),
+      el('div', { fontSize: 26, fontWeight: 600, color: '#a6b0c3' }, 'trilha.info'),
+    ]),
+    el('div', { display: 'flex', flexDirection: 'column' }, [
+      el(
+        'div',
+        { display: 'flex', alignItems: 'center', fontSize: 28, fontWeight: 600, color: '#ff8ab5' },
+        [
+          el('div', {
+            width: 14,
+            height: 14,
+            marginRight: 14,
+            borderRadius: 7,
+            backgroundColor: '#F23D7F',
+          }),
+          card.kicker,
+        ],
+      ),
+      el(
+        'div',
+        {
+          marginTop: 22,
+          maxWidth: 1040,
+          fontFamily: 'Display',
+          fontWeight: 800,
+          fontSize: titleSize(card.title),
+          lineHeight: 1.02,
+          letterSpacing: '-0.035em',
+        },
+        card.title,
+      ),
+      el(
+        'div',
+        { marginTop: 26, maxWidth: 980, fontSize: 30, lineHeight: 1.42, color: '#dce2ee' },
+        clip(card.summary, 150),
+      ),
+    ]),
+    el(
+      'div',
+      { display: 'flex', alignItems: 'center' },
+      card.facts.map((fact, index) =>
         el(
           'div',
           {
-            marginTop: 22,
-            maxWidth: 1040,
-            fontFamily: 'Display',
-            fontWeight: 800,
-            fontSize: titleSize(card.title),
-            lineHeight: 1.02,
-            letterSpacing: '-0.035em',
+            display: 'flex',
+            marginLeft: index ? 14 : 0,
+            padding: '10px 24px',
+            borderRadius: 999,
+            border: '2px solid rgba(255, 255, 255, 0.16)',
+            backgroundColor: 'rgba(255, 255, 255, 0.04)',
+            fontSize: 25,
+            fontWeight: 600,
+            color: '#ece4e9',
           },
-          card.title,
-        ),
-        el(
-          'div',
-          { marginTop: 26, maxWidth: 980, fontSize: 30, lineHeight: 1.42, color: '#d6ccd2' },
-          clip(card.summary, 150),
-        ),
-      ]),
-      el(
-        'div',
-        { display: 'flex', alignItems: 'center' },
-        card.facts.map((fact, index) =>
-          el(
-            'div',
-            {
-              display: 'flex',
-              marginLeft: index ? 14 : 0,
-              padding: '10px 24px',
-              borderRadius: 999,
-              border: '2px solid rgba(255, 255, 255, 0.16)',
-              backgroundColor: 'rgba(255, 255, 255, 0.04)',
-              fontSize: 25,
-              fontWeight: 600,
-              color: '#ece4e9',
-            },
-            fact,
-          ),
+          fact,
         ),
       ),
+    ),
   ];
 }

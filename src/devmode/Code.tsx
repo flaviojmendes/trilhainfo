@@ -14,24 +14,24 @@ export type CodeLanguage = 'tsx' | 'typescript' | 'css' | 'json' | 'text';
 
 const mono = "ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace";
 
-// Every token color keeps at least 4.5:1 against the panel background (#0d0a0c).
+// Every token color keeps at least 4.5:1 against the panel background (#0b0d13).
 const theme: Record<string, CSSProperties> = {
-  'code[class*="language-"]': { color: '#f4eef2', fontFamily: mono, direction: 'ltr' },
-  'pre[class*="language-"]': { color: '#f4eef2', fontFamily: mono, direction: 'ltr' },
-  comment: { color: '#a99aa3', fontStyle: 'italic' },
-  prolog: { color: '#a99aa3' },
-  doctype: { color: '#a99aa3' },
-  punctuation: { color: '#cdbfc8' },
-  keyword: { color: '#ff83c5' },
-  tag: { color: '#ff83c5' },
-  atrule: { color: '#ff83c5' },
-  important: { color: '#ff83c5', fontWeight: 'bold' },
-  string: { color: '#91e4c6' },
-  char: { color: '#91e4c6' },
-  'attr-value': { color: '#91e4c6' },
-  'template-string': { color: '#91e4c6' },
-  url: { color: '#91e4c6' },
-  inserted: { color: '#91e4c6' },
+  'code[class*="language-"]': { color: '#f2f4f8', fontFamily: mono, direction: 'ltr' },
+  'pre[class*="language-"]': { color: '#f2f4f8', fontFamily: mono, direction: 'ltr' },
+  comment: { color: '#9aa5b8', fontStyle: 'italic' },
+  prolog: { color: '#9aa5b8' },
+  doctype: { color: '#9aa5b8' },
+  punctuation: { color: '#c4cddb' },
+  keyword: { color: '#ff8ab5' },
+  tag: { color: '#ff8ab5' },
+  atrule: { color: '#ff8ab5' },
+  important: { color: '#ff8ab5', fontWeight: 'bold' },
+  string: { color: '#6ee7c8' },
+  char: { color: '#6ee7c8' },
+  'attr-value': { color: '#6ee7c8' },
+  'template-string': { color: '#6ee7c8' },
+  url: { color: '#6ee7c8' },
+  inserted: { color: '#6ee7c8' },
   function: { color: '#ffd28a' },
   'class-name': { color: '#ffd28a' },
   selector: { color: '#ffd28a' },
@@ -43,12 +43,12 @@ const theme: Record<string, CSSProperties> = {
   'attr-name': { color: '#9fd3ff' },
   variable: { color: '#9fd3ff' },
   builtin: { color: '#9fd3ff' },
-  operator: { color: '#e8dde4' },
-  entity: { color: '#e8dde4' },
+  operator: { color: '#e2e8f0' },
+  entity: { color: '#e2e8f0' },
   regex: { color: '#ffb3a1' },
   deleted: { color: '#ff9b9b' },
   // Line numbers also carry the `comment` class, and class styles win over lineNumberStyle.
-  linenumber: { color: '#8f7f89', fontStyle: 'normal' },
+  linenumber: { color: '#7e899c', fontStyle: 'normal' },
 };
 
 const lineNumberStyle = (code: string): CSSProperties => ({

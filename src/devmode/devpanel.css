@@ -3,7 +3,7 @@
   flex-direction: column;
   height: 100%;
   min-height: 0;
-  color: #f4eef2;
+  color: #f2f4f8;
   font-size: 0.875rem;
   line-height: 1.55;
   text-align: left;
@@ -27,7 +27,7 @@
   border-bottom: 1px solid rgb(255 255 255 / 0.07);
 }
 .dev-panel-eyebrow {
-  color: #91e4c6;
+  color: #6ee7c8;
   font: 600 0.75rem/1.2 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }
 .dev-panel-title {
@@ -44,7 +44,7 @@
 .dev-panel-label {
   display: block;
   margin-top: 2px;
-  color: #c5b9c1;
+  color: #a6b0c3;
   font-family: system-ui, sans-serif;
   font-size: 0.8125rem;
   font-weight: 500;
@@ -77,7 +77,7 @@
   border: 0;
   border-radius: 0;
   background: none;
-  color: #c5b9c1;
+  color: #a6b0c3;
   font-size: 0.8125rem;
   font-weight: 600;
   white-space: nowrap;
@@ -95,10 +95,10 @@
   bottom: -1px;
   height: 3px;
   border-radius: 3px 3px 0 0;
-  background: #91e4c6;
+  background: #6ee7c8;
 }
 .dev-tabs [role='tab']:focus-visible {
-  outline: 2px solid #91e4c6;
+  outline: 2px solid #6ee7c8;
   outline-offset: -4px;
   border-radius: 8px;
 }
@@ -106,8 +106,8 @@
   min-width: 18px;
   padding: 0 5px;
   border-radius: 999px;
-  background: rgb(145 228 198 / 0.16);
-  color: #91e4c6;
+  background: rgb(110 231 200 / 0.16);
+  color: #6ee7c8;
   font-size: 0.6875rem;
   line-height: 18px;
   text-align: center;
@@ -120,7 +120,7 @@
   padding: 14px 16px 18px;
 }
 .dev-tabpanel:focus-visible {
-  outline: 2px solid #91e4c6;
+  outline: 2px solid #6ee7c8;
   outline-offset: -2px;
 }
 .dev-panel-wide .dev-tabpanel {
@@ -136,14 +136,14 @@
   gap: 10px;
   padding-left: 18px;
   list-style: disc;
-  color: #e7dee3;
+  color: #dce2ee;
 }
 .dev-notes li::marker {
-  color: #91e4c6;
+  color: #6ee7c8;
 }
 .dev-subhead {
   margin: 18px 0 8px;
-  color: #c5b9c1;
+  color: #a6b0c3;
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.06em;
@@ -155,7 +155,7 @@
 }
 .dev-hint,
 .dev-muted {
-  color: #c5b9c1;
+  color: #a6b0c3;
   font-size: 0.8125rem;
 }
 .dev-hint {
@@ -177,13 +177,13 @@
   border: 1px solid rgb(255 255 255 / 0.12);
   border-radius: 8px;
   background: none;
-  color: #e7dee3;
+  color: #dce2ee;
   font: 500 0.75rem/1 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }
 .dev-panel .dev-files button[aria-pressed='true'] {
-  border-color: #91e4c6;
-  background: rgb(145 228 198 / 0.12);
-  box-shadow: inset 0 -2px 0 #91e4c6;
+  border-color: #6ee7c8;
+  background: rgb(110 231 200 / 0.12);
+  box-shadow: inset 0 -2px 0 #6ee7c8;
   color: #fff;
   font-weight: 700;
 }
@@ -192,7 +192,7 @@
 .dev-action:focus-visible,
 .dev-request summary:focus-visible,
 .dev-code:focus-visible {
-  outline: 2px solid #91e4c6;
+  outline: 2px solid #6ee7c8;
   outline-offset: 2px;
 }
 
@@ -232,11 +232,11 @@
 .dev-panel .dev-toolbar-actions button:hover,
 .dev-panel .dev-toolbar-actions a:hover,
 .dev-panel .dev-action:hover {
-  border-color: rgb(145 228 198 / 0.6);
+  border-color: rgb(110 231 200 / 0.6);
   background: rgb(255 255 255 / 0.04);
 }
 .dev-toolbar-status {
-  color: #91e4c6;
+  color: #6ee7c8;
   font-size: 0.75rem;
 }
 
@@ -245,7 +245,7 @@
   overflow: auto;
   border: 1px solid rgb(255 255 255 / 0.07);
   border-radius: 10px;
-  background: #0d0a0c;
+  background: #0b0d13;
   font-size: 0.8125rem;
   line-height: 1.6;
 }
@@ -255,7 +255,7 @@
 .dev-code pre {
   margin: 0;
   padding: 14px 16px;
-  color: #f4eef2;
+  color: #f2f4f8;
   white-space: pre;
 }
 
@@ -283,8 +283,8 @@
   display: inline-block;
   padding: 1px 6px;
   border-radius: 5px;
-  background: rgb(255 131 197 / 0.14);
-  color: #ff9fd1;
+  background: rgb(255 138 181 / 0.14);
+  color: #ff9ec2;
   font: 700 0.6875rem/1.4 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   letter-spacing: 0.04em;
 }
@@ -318,7 +318,7 @@
   font-weight: 700;
 }
 .dev-request[data-tone='ok'] .dev-request-status {
-  color: #91e4c6;
+  color: #6ee7c8;
 }
 .dev-request[data-tone='error'] .dev-request-status {
   color: #ffb3a1;
@@ -329,7 +329,7 @@
 .dev-request h5 {
   margin-top: 8px;
   margin-bottom: 4px;
-  color: #c5b9c1;
+  color: #a6b0c3;
   font-size: 0.75rem;
   font-weight: 700;
 }

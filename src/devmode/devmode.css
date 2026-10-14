@@ -17,23 +17,23 @@
   min-height: 28px;
   margin: 0 8px 6px;
   padding: 3px 11px;
-  border: 1px solid rgb(145 228 198 / 0.45);
+  border: 1px solid rgb(110 231 200 / 0.45);
   border-radius: 999px;
-  background: rgb(145 228 198 / 0.1);
-  color: #91e4c6;
+  background: rgb(110 231 200 / 0.1);
+  color: #6ee7c8;
   font: 600 0.75rem/1.2 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   cursor: pointer;
   transition: background-color 160ms ease;
 }
 .dev-flip > .dev-flip-toggle:hover {
-  border-color: rgb(145 228 198 / 0.7);
-  background: rgb(145 228 198 / 0.2);
+  border-color: rgb(110 231 200 / 0.7);
+  background: rgb(110 231 200 / 0.2);
 }
 .dev-flip-toggle:focus-visible,
 .site-dev-toggle:focus-visible,
 .dev-bar button:focus-visible,
 .dev-dialog-close:focus-visible {
-  outline: 2px solid #91e4c6;
+  outline: 2px solid #6ee7c8;
   outline-offset: 2px;
 }
 .dev-flip-inner {
@@ -54,7 +54,7 @@
   display: flex;
   flex-direction: column;
   border-radius: 16px;
-  outline: 1px dashed rgb(145 228 198 / 0.4);
+  outline: 1px dashed rgb(110 231 200 / 0.4);
   outline-offset: 4px;
   transition: visibility 0s;
 }
@@ -69,10 +69,10 @@
   min-height: 0;
   overflow: hidden;
   transform: rotateY(180deg);
-  border: 1px solid rgb(145 228 198 / 0.45);
+  border: 1px solid rgb(110 231 200 / 0.45);
   border-radius: 16px;
-  background: #141013;
-  color: #f4eef2;
+  background: #131720;
+  color: #f2f4f8;
   visibility: hidden;
   transition: visibility 0s linear var(--dev-turn);
 }
@@ -93,7 +93,7 @@
 .dev-loading {
   margin: auto;
   padding: 24px;
-  color: #c5b9c1;
+  color: #a6b0c3;
   font-size: 0.875rem;
 }
 
@@ -108,13 +108,13 @@
   top: calc(100% + 8px);
   right: 16px;
   margin: 0;
-  background: #141013;
+  background: #131720;
 }
 .dev-dialog-overlay {
   position: fixed;
   inset: 0;
   z-index: 80;
-  background: rgb(8 6 7 / 0.76);
+  background: rgb(6 8 12 / 0.78);
 }
 .dev-dialog {
   position: fixed;
@@ -123,10 +123,10 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  border: 1px solid rgb(145 228 198 / 0.45);
+  border: 1px solid rgb(110 231 200 / 0.45);
   border-radius: 18px;
-  background: #141013;
-  color: #f4eef2;
+  background: #131720;
+  color: #f2f4f8;
   box-shadow: 0 40px 120px -40px rgb(0 0 0 / 0.9);
   animation: dev-turn-in 560ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
@@ -145,13 +145,13 @@
   padding: 0 14px;
   border: 1px solid rgb(255 255 255 / 0.16);
   border-radius: 999px;
-  background: #1f191d;
-  color: #f4eef2;
+  background: #1b202c;
+  color: #f2f4f8;
   font-size: 0.8125rem;
   font-weight: 600;
 }
 .dev-dialog-close:hover {
-  border-color: rgb(145 228 198 / 0.6);
+  border-color: rgb(110 231 200 / 0.6);
 }
 
 /* Footer switch and the bar that shows the mode is on */
@@ -165,19 +165,19 @@
   padding: 0 8px;
   border: 1px solid transparent;
   border-radius: 8px;
-  color: var(--site-muted, #c5b9c1);
+  color: var(--site-muted, #a6b0c3);
   font: 600 0.75rem/1 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   vertical-align: middle;
   transition: color 160ms ease, border-color 160ms ease;
 }
 .site-dev-toggle:hover {
-  color: #91e4c6;
-  border-color: rgb(145 228 198 / 0.35);
+  color: #6ee7c8;
+  border-color: rgb(110 231 200 / 0.35);
 }
 .site-dev-toggle[aria-pressed='true'] {
-  color: #91e4c6;
-  border-color: rgb(145 228 198 / 0.45);
-  background: rgb(145 228 198 / 0.1);
+  color: #6ee7c8;
+  border-color: rgb(110 231 200 / 0.45);
+  background: rgb(110 231 200 / 0.1);
 }
 .dev-bar {
   position: fixed;
@@ -189,10 +189,10 @@
   gap: 12px;
   max-width: calc(100vw - 32px);
   padding: 6px 6px 6px 14px;
-  border: 1px solid rgb(145 228 198 / 0.45);
+  border: 1px solid rgb(110 231 200 / 0.45);
   border-radius: 999px;
-  background: #141013;
-  color: #f4eef2;
+  background: #131720;
+  color: #f2f4f8;
   font-size: 0.8125rem;
   box-shadow: 0 18px 40px -18px rgb(0 0 0 / 0.8);
 }
@@ -202,7 +202,7 @@
   gap: 8px;
 }
 .dev-bar-mark {
-  color: #91e4c6;
+  color: #6ee7c8;
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   font-weight: 700;
 }
@@ -210,8 +210,8 @@
   min-height: 32px;
   padding: 0 14px;
   border-radius: 999px;
-  background: #91e4c6;
-  color: #0d0a0c;
+  background: #6ee7c8;
+  color: #0b0d13;
   font-weight: 700;
 }
 .dev-bar button:hover {

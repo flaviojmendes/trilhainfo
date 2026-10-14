@@ -99,13 +99,10 @@ module.exports = {
         'primary-white': '-4px 4px 0px 0px #FDFDFD;',
         'secondary-white': '-4px 4px 0px 0px rgba(255, 255, 255, 0.80);',
       },
-      
 
-      
       backgroundImage: {
         'footer-pattern': "url('/footerpattern.svg')",
       },
-      
     },
     colors: {
       'light-orange': '#F6BCA8',
@@ -124,11 +121,11 @@ module.exports = {
       'dark-red': '#d56a47',
       green: '#22c55e',
       black: '#000002',
-      primary: '#E1047B',
-      'primary-hover': '#FC52AE',
-      'primary-shadow': '#FDFDFD',
-      'text-primary': '#FDFDFD',
-      'title-primary': '#D7BECB',
+      primary: '#F23D7F',
+      'primary-hover': '#FF8AB5',
+      'primary-shadow': '#F2F4F8',
+      'text-primary': '#F2F4F8',
+      'title-primary': '#A6B0C3',
       'box-primary': 'rgba(56, 1, 31, 0.80)',
       'box-primary-shadow':
         'linear-gradient(0deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.08) 100%), rgba(56, 1, 31, 0.80);',
@@ -136,8 +133,5 @@ module.exports = {
       'menu-background': 'rgba(255, 255, 255)',
     },
   },
-  plugins: [
-    'tailwind-gradient-mask-image',
-    require('tailwind-gradient-mask-image'),
-  ],
+  plugins: ['tailwind-gradient-mask-image', require('tailwind-gradient-mask-image')],
 };

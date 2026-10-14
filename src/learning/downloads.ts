@@ -18,7 +18,7 @@ export async function downloadVisualization(filename: string): Promise<void> {
     );
   }
   const { default: domtoimage } = await import('dom-to-image');
-  const data = await domtoimage.toPng(node, { bgcolor: '#171316' });
+  const data = await domtoimage.toPng(node, { bgcolor: '#101218' });
   const link = document.createElement('a');
   link.href = data;
   link.download = filename;

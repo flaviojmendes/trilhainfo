@@ -59,14 +59,14 @@
   }
 
   body {
-    background: #171316 !important;
-    color: #fdfdfd;
+    background: #101218 !important;
+    color: #f2f4f8;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
   ::selection {
-    background: rgb(225 4 123 / 0.45);
+    background: rgb(242 61 127 / 0.45);
     color: #fff;
   }
 

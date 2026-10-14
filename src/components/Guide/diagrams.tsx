@@ -149,12 +149,12 @@ const growth: Record<ComplexityId, (n: number) => number> = {
   '2ⁿ': (n) => 2 ** n,
 };
 const curveColor: Record<ComplexityId, string> = {
-  '1': '#91e4c6',
-  'log n': '#b9e2cf',
-  n: '#e9d6df',
-  'n log n': '#ffb3d9',
-  'n²': '#ff83c5',
-  '2ⁿ': '#f0479d',
+  '1': '#6ee7c8',
+  'log n': '#9deed9',
+  n: '#dce2ee',
+  'n log n': '#ffb8d2',
+  'n²': '#ff8ab5',
+  '2ⁿ': '#f23d7f',
 };
 const chart = { width: 600, height: 300, left: 40, right: 72, top: 30, bottom: 34, n: 20, y: 40 };
 

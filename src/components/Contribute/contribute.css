@@ -1,16 +1,16 @@
 .group-contribute,
 .contribute-dialog {
-  --contribute-canvas: #171316;
-  --contribute-panel: #1b161a;
-  --contribute-surface: #211b20;
-  --contribute-raised: #2a2229;
-  --contribute-ink: #fdfdfd;
-  --contribute-muted: #c5b9c1;
-  --contribute-line: #493b44;
+  --contribute-canvas: #101218;
+  --contribute-panel: #151821;
+  --contribute-surface: #1b202c;
+  --contribute-raised: #232a3a;
+  --contribute-ink: #f2f4f8;
+  --contribute-muted: #a6b0c3;
+  --contribute-line: #323b4f;
   --contribute-hairline: rgb(255 255 255 / 0.08);
-  --contribute-accent: #ff83c5;
-  --contribute-brand: #e1047b;
-  --contribute-ai: #91e4c6;
+  --contribute-accent: #ff8ab5;
+  --contribute-brand: #f23d7f;
+  --contribute-ai: #6ee7c8;
   --contribute-danger: #ff9b9b;
 }
 
@@ -42,19 +42,19 @@
   cursor: pointer;
 }
 .group-contribute-button {
-  border: 1px solid rgb(255 131 197 / 0.45);
-  background: rgb(225 4 123 / 0.1);
+  border: 1px solid rgb(255 138 181 / 0.45);
+  background: rgb(242 61 127 / 0.1);
   color: var(--contribute-accent);
 }
 .group-contribute-button:hover {
-  background: rgb(225 4 123 / 0.18);
+  background: rgb(242 61 127 / 0.18);
 }
 
 .contribute-overlay {
   position: fixed;
   inset: 0;
   z-index: 60;
-  background: rgb(12 9 11 / 0.78);
+  background: rgb(8 10 14 / 0.78);
   backdrop-filter: blur(4px);
 }
 .contribute-dialog {
@@ -184,7 +184,7 @@
 .contribute-choice:has(input:checked) {
   border: 2px solid var(--contribute-accent);
   padding: 13px;
-  background: rgb(225 4 123 / 0.1);
+  background: rgb(242 61 127 / 0.1);
 }
 .contribute-choice:has(input:focus-visible) {
   outline: 2px solid var(--contribute-accent);
@@ -376,7 +376,7 @@
   font-weight: 700;
   color: var(--contribute-accent);
   text-decoration: underline;
-  text-decoration-color: rgb(255 131 197 / 0.4);
+  text-decoration-color: rgb(255 138 181 / 0.4);
   text-underline-offset: 3px;
   overflow-wrap: anywhere;
 }
@@ -419,7 +419,7 @@
   text-decoration: none;
 }
 .contribute-submit:hover {
-  background: #c8036d;
+  background: #d92b6b;
 }
 .contribute-submit:disabled {
   opacity: 0.6;

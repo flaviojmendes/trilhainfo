@@ -45,7 +45,7 @@ export const Drawer = ({
     <DrawerPortal>
       <DrawerOverlay className="fixed inset-0 z-40 h-screen w-screen bg-[#0c090b]/80 backdrop-blur-sm data-[state='closed']:animate-fadeOut data-[state='open']:animate-fadeIn" />
       <DrawerContent
-        className={`fixed bottom-0 top-0 z-40 h-screen w-full overflow-y-auto bg-[#1b161a] px-6 py-4 text-text-primary duration-1000 sm:w-3/5 lg:w-2/5 ${open} ${close} ${
+        className={`fixed bottom-0 top-0 z-40 h-screen w-full overflow-y-auto bg-[#151821] px-6 py-4 text-text-primary duration-1000 sm:w-3/5 lg:w-2/5 ${open} ${close} ${
           isRight ? 'right-0' : 'left-0'
         }`}
         onCloseAutoFocus={(e) => {

@@ -83,7 +83,7 @@ export default function Header() {
                 height="24"
                 width="24"
                 radius="9"
-                color="#FF83C5"
+                color="#FF8AB5"
                 ariaLabel="Carregando sessão"
                 wrapperStyle={{}}
                 visible={true}

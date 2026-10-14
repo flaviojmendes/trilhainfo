@@ -291,8 +291,8 @@ export function JourneyMap({
                 >
                   <defs>
                     <linearGradient id="trail-done-gradient" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0" stopColor="#ff83c5" />
-                      <stop offset="1" stopColor="#e1047b" />
+                      <stop offset="0" stopColor="#ff8ab5" />
+                      <stop offset="1" stopColor="#f23d7f" />
                     </linearGradient>
                   </defs>
                   <path className="trail-road-bed" d={road.base} />
