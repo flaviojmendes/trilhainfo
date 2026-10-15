@@ -118,7 +118,7 @@ export default function ProjectInfo() {
                 </a>
                 <a
                   className="open-secondary"
-                  href={`${repository}/stargazers`}
+                  href={`${repository}`}
                   target="_blank"
                   rel="noreferrer"
                 >
