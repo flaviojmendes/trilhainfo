@@ -3,5 +3,14 @@
     { "source": "/roadmap/community", "destination": "/", "permanent": true },
     { "source": "/hroadmap/community", "destination": "/", "permanent": true }
   ],
-  "rewrites": [{ "source": "/((?!api/).*)", "destination": "/" }]
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/profile", "destination": "/private" },
+    { "source": "/login", "destination": "/private" },
+    { "source": "/new-roadmap", "destination": "/private" },
+    { "source": "/edit-roadmap/:roadmapId", "destination": "/private" },
+    { "source": "/roadmap/view/:roadmapId", "destination": "/private" },
+    { "source": "/roadmap/v/:roadmapId", "destination": "/private" },
+    { "source": "/course/:name", "destination": "/private" }
+  ]
 }

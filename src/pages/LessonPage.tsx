@@ -1,6 +1,5 @@
 import { Link, useParams, useSearchParams } from 'react-router-dom';
 import MainLayout from '../components/layouts/MainLayout';
-import useDocumentTitle from '../components/useDocumentTitle';
 import { LessonView } from '../components/Lesson/LessonView';
 import { findLesson, lessonPlace } from '../lessons';
 
@@ -9,9 +8,6 @@ export default function LessonPage() {
   const [params] = useSearchParams();
   const lesson = findLesson(id);
   const place = lesson ? lessonPlace(lesson.id, params.get('trilha')) : undefined;
-  useDocumentTitle(
-    lesson ? `${lesson.title} · Aulas · Trilha Info` : 'Aula não encontrada · Trilha Info',
-  );
 
   return (
     <MainLayout>

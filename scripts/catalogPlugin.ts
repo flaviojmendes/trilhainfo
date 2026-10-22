@@ -1,8 +1,6 @@
 import { Plugin } from 'vite';
 import { roadmaps } from '../src/roadmaps/roadmaps';
 import { roadmapGuides } from '../src/roadmaps/guides';
-import { guides } from '../src/guides';
-import { courses, lessons } from '../src/lessons';
 import { readContributions } from './contributions';
 import { createCatalog } from '../src/learning/catalog';
 import { roadmapSchema, studyContextSchema, studyPlanSchema } from '../src/learning/schema';
@@ -62,25 +60,7 @@ export function catalogPlugin(): Plugin {
         .map((c) => `- [${c.title}](https://trilha.info/data/${c.id}.md): versão ${c.version}`)
         .join(
           '\n',
-        )}\n\n## Dados estruturados\n- [Índice JSON](https://trilha.info/data/index.json)\n- [Contrato do catálogo](https://trilha.info/schemas/roadmap.v1.schema.json)\n- [Contrato do contexto de estudo](https://trilha.info/schemas/study-context.v1.schema.json)\n- [Contrato de plano](https://trilha.info/schemas/study-plan.v1.schema.json)\n\nO progresso pessoal é exportado pelo estudante; não está nestes arquivos públicos. Durações desconhecidas são null. A licença MIT refere-se ao catálogo, não aos materiais externos.\n`,
-    });
-    files.set('sitemap.xml', {
-      type: 'application/xml; charset=utf-8',
-      body: `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>https://trilha.info/</loc></url>${all
-        .map((c) => `<url><loc>https://trilha.info/roadmap/${c.id}</loc></url>`)
-        .join('')}<url><loc>https://trilha.info/guias</loc></url>${guides
-        .map(
-          (guide) =>
-            `<url><loc>https://trilha.info/guide/${guide.id}</loc><lastmod>${guide.updatedAt}</lastmod></url>`,
-        )
-        .join('')}<url><loc>https://trilha.info/aulas</loc></url>${courses
-        .map((course) => `<url><loc>https://trilha.info/aulas/${course.id}</loc></url>`)
-        .join('')}${lessons
-        .map(
-          (lesson) =>
-            `<url><loc>https://trilha.info/aula/${lesson.id}</loc><lastmod>${lesson.updatedAt}</lastmod></url>`,
-        )
-        .join('')}</urlset>`,
+        )}\n\n## Aulas e guias\n- [Aulas interativas](https://trilha.info/aulas): cursos e aulas gratuitas em português.\n- [Guias rápidos](https://trilha.info/guias): explicações, exemplos e fontes para consultar.\n- [Blog](https://trilha.info/blog): publicações sobre tecnologia e carreira.\n- [Mapa do site](https://trilha.info/sitemap.xml): todas as páginas públicas canônicas.\n\n## Dados estruturados\n- [Índice JSON](https://trilha.info/data/index.json)\n- [Contrato do catálogo](https://trilha.info/schemas/roadmap.v1.schema.json)\n- [Contrato do contexto de estudo](https://trilha.info/schemas/study-context.v1.schema.json)\n- [Contrato de plano](https://trilha.info/schemas/study-plan.v1.schema.json)\n\nO progresso pessoal é exportado pelo estudante; não está nestes arquivos públicos. Durações desconhecidas são null. A licença MIT refere-se ao catálogo, não aos materiais externos.\n`,
     });
     return { all, files };
   }
@@ -90,7 +70,7 @@ export function catalogPlugin(): Plugin {
     configureServer(server) {
       server.middlewares.use((req, res, next) => {
         const pathname = (req.url || '/').split('?')[0];
-        if (!/^\/(data\/|schemas\/|read\/|llms\.txt$|sitemap\.xml$)/.test(pathname)) return next();
+        if (!/^\/(data\/|schemas\/|read\/|llms\.txt$)/.test(pathname)) return next();
         const { files } = artifacts();
         const key = pathname.slice(1).replace(/\/$/, '/index.html');
         const file = files.get(key) || files.get(`${key}/index.html`);

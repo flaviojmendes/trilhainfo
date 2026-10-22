@@ -4,6 +4,9 @@ import './App.css';
 import { DevModeBar } from './devmode/DevModeControls';
 import HomePage from './pages/HomePage';
 import ReactGA from 'react-ga4';
+import { RouteMetadata } from './seo/RouteMetadata';
+import E404Page from './pages/E404Page';
+import MainLayout from './components/layouts/MainLayout';
 
 const RoadmapPage = lazy(() => import('./pages/RoadmapPage'));
 const LoginPage = lazy(() => import('./pages/LoginPage'));
@@ -29,6 +32,7 @@ function App() {
   });
   return (
     <>
+      <RouteMetadata />
       <Suspense
         fallback={
           <p role="status" className="roadmap-loading">
@@ -55,6 +59,14 @@ function App() {
           <Route path="/aula/:lesson" element={<LessonPage />} />
           <Route path="/blog/:title" element={<BlogPostPage />} />
           <Route path="/blog" element={<BlogPage />} />
+          <Route
+            path="*"
+            element={
+              <MainLayout>
+                <E404Page />
+              </MainLayout>
+            }
+          />
         </Routes>
       </Suspense>
       <DevModeBar />

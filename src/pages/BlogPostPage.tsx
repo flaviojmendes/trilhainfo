@@ -2,9 +2,8 @@ import { useEffect, useState } from 'react';
 import MainLayout from '../components/layouts/MainLayout';
 import Markdown from 'markdown-to-jsx';
 import { useParams } from 'react-router';
-import useDocumentTitle from '../components/useDocumentTitle';
-import SyntaxHighlighter from 'react-syntax-highlighter/dist/esm/prism';
-import { dracula } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import posts from '../../public/posts/posts.json';
+import E404Page from './E404Page';
 
 type TitleProps = {
   children: React.ReactNode;
@@ -35,9 +34,9 @@ const H3Title = ({ children, ...props }: TitleProps) => (
   <div {...props} className="mt-8 flex h-fit w-full">
     <div className="flex">
       {/* <div className="mx-auto h-full w-4 bg-gradient-to-r from-text-secondary via-text-secondary to-black"></div> */}
-      <h2 className="mx-auto grow text-center font-title text-xl font-semibold text-text-primary">
+      <h3 className="mx-auto grow text-center font-title text-xl font-semibold text-text-primary">
         {children}
-      </h2>
+      </h3>
     </div>
   </div>
 );
@@ -46,9 +45,9 @@ const H4Title = ({ children, ...props }: TitleProps) => (
   <div {...props} className="mt-8 flex h-fit w-full">
     <div className="flex">
       {/* <div className="mx-auto h-full w-4 bg-gradient-to-r from-text-secondary via-text-secondary to-black"></div> */}
-      <h2 className="mx-auto grow text-center font-title text-lg font-semibold text-text-primary">
+      <h4 className="mx-auto grow text-center font-title text-lg font-semibold text-text-primary">
         {children}
-      </h2>
+      </h4>
     </div>
   </div>
 );
@@ -63,107 +62,105 @@ const hr = ({ children, ...props }: TitleProps) => (
   </div>
 );
 
-const code = ({ children, ...props }: TitleProps) => (
-  <div {...props} className="flex h-fit w-full">
-    <div className="mx-auto flex w-fit overflow-x-scroll text-xs">
-      <SyntaxHighlighter
-        language="javascript"
-        style={dracula}
-        showInlineLineNumbers={true}
-        showLineNumbers={true}
-        breakpoint={40}
-        wrapLines={true}
-        wrapLongLines={true}
-      >
-        {(children as string[]) || ''}
-      </SyntaxHighlighter>
-    </div>
-  </div>
-);
-
 export default function BlogPostPage() {
   const { title } = useParams<string>();
-
-  const [post, setPost] = useState('');
+  const exists = posts.some((post) => post.url === title);
+  const [state, setState] = useState<{ title?: string; text?: string; error?: boolean }>({});
 
   useEffect(() => {
-    fetch(`/posts/${title}.md`)
+    if (!exists) return;
+    const controller = new AbortController();
+    fetch(`/posts/${title}.md`, { signal: controller.signal })
       .then((res) => {
-        console.log(res);
+        if (!res.ok) throw new Error('Não foi possível carregar a publicação');
         return res.text();
       })
-      .then((res) => {
-        console.log(res);
-        return setPost(res);
+      .then((text) => {
+        if (!controller.signal.aborted) setState({ title, text });
       })
-      .catch((err) => console.log(err));
-  });
+      .catch(() => {
+        if (!controller.signal.aborted) setState({ title, error: true });
+      });
+    return () => controller.abort();
+  }, [title, exists]);
 
-  useDocumentTitle(
-    `${
-      title
-        ? title.split('-')[0].charAt(0).toUpperCase() +
-          title.split('-')[0].slice(1) +
-          ' #' +
-          title.split('-')[1]
-        : ''
-    }`,
-  );
+  if (!exists)
+    return (
+      <MainLayout>
+        <E404Page />
+      </MainLayout>
+    );
 
   return (
     <MainLayout>
       <div className="my-32 px-4 text-justify text-text-primary lg:mx-80 ">
-        <Markdown
-          options={{
-            forceWrapper: false,
-            overrides: {
-              article: {
-                component: 'article',
-                props: {
-                  className: 'flex',
+        {state.title !== title || (!state.text && !state.error) ? (
+          <p role="status">Carregando publicação…</p>
+        ) : state.error ? (
+          <p role="alert">
+            Não foi possível carregar a publicação. Recarregue a página para tentar novamente.
+          </p>
+        ) : (
+          <Markdown
+            options={{
+              disableParsingRawHTML: true,
+              forceWrapper: false,
+              overrides: {
+                article: {
+                  component: 'article',
+                  props: {
+                    className: 'flex',
+                  },
+                },
+                p: {
+                  component: 'p',
+                  props: {
+                    className: 'my-4',
+                  },
+                },
+                h1: {
+                  component: Title,
+                },
+                h2: {
+                  component: SecondaryTitle,
+                },
+                h3: {
+                  component: H3Title,
+                },
+                h4: {
+                  component: H4Title,
+                },
+                img: {
+                  component: 'img',
+                  props: {
+                    className: 'mx-auto',
+                  },
+                },
+                hr: {
+                  component: hr,
+                },
+                a: {
+                  component: 'a',
+                  props: {
+                    className: 'text-primary hover:text-primary-shadow',
+                  },
+                },
+                pre: {
+                  component: 'pre',
+                  props: {
+                    className: 'my-6 overflow-x-auto rounded-lg bg-[#1b202c] p-4 text-left text-sm',
+                  },
+                },
+                code: {
+                  component: 'code',
+                  props: { className: 'font-mono text-sm' },
                 },
               },
-              p: {
-                component: 'p',
-                props: {
-                  className: 'my-4',
-                },
-              },
-              h1: {
-                component: Title,
-              },
-              h2: {
-                component: SecondaryTitle,
-              },
-              h3: {
-                component: H3Title,
-              },
-              h4: {
-                component: H4Title,
-              },
-              img: {
-                component: 'img',
-                props: {
-                  className: 'mx-auto',
-                },
-              },
-              hr: {
-                component: hr,
-              },
-              a: {
-                component: 'a',
-                props: {
-                  className: 'text-primary hover:text-primary-shadow',
-                },
-              },
-              code: {
-                component: code,
-              },
-            },
-          }}
-        >
-          {post}
-        </Markdown>
+            }}
+          >
+            {state.text || ''}
+          </Markdown>
+        )}
       </div>
     </MainLayout>
   );

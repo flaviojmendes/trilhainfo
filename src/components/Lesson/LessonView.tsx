@@ -116,6 +116,14 @@ export function LessonView({ lesson, place }: { lesson: LessonMeta; place: Lesso
             </li>
             <li>Para quem está começando</li>
             <li>Progresso salvo neste navegador</li>
+            <li>
+              Revisado em{' '}
+              <time dateTime={lesson.updatedAt}>
+                {new Intl.DateTimeFormat('pt-BR', { dateStyle: 'long' }).format(
+                  new Date(`${lesson.updatedAt}T12:00:00`),
+                )}
+              </time>
+            </li>
           </ul>
           <div className="lesson-objectives">
             <p>

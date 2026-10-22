@@ -1339,3 +1339,23 @@
     transition: none !important;
   }
 }
+
+.home-questions dl {
+  max-width: 72ch;
+}
+
+.home-questions dl > div {
+  padding-block: 1.5rem;
+  border-bottom: 1px solid var(--site-line, #493b44);
+}
+
+.home-questions dt {
+  font-weight: 700;
+  font-size: 1.125rem;
+}
+
+.home-questions dd {
+  margin: 0.75rem 0 0;
+  color: var(--site-muted, #c5b9c1);
+  line-height: 1.7;
+}

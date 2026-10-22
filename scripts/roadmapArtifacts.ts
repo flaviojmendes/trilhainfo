@@ -242,5 +242,8 @@ export function enrichAppHTML(html: string, catalog: RoadmapCatalog): string {
       `$1${escapeHTML(catalog.outcome)}`,
     )
     .replace('</head>', `${metadataHead(catalog)}</head>`)
-    .replace('<div id="root"></div>', `<div id="root">${staticCatalogBody(catalog)}</div>`);
+    .replace(
+      /<div id="root">[\s\S]*?<\/div>\s*(?=<script|<\/body)/,
+      () => `<div id="root">${staticCatalogBody(catalog)}</div>\n`,
+    );
 }

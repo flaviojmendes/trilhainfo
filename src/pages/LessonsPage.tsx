@@ -2,7 +2,6 @@ import { CSSProperties } from 'react';
 import { PiArrowRight } from 'react-icons/pi';
 import { Link } from 'react-router-dom';
 import MainLayout from '../components/layouts/MainLayout';
-import useDocumentTitle from '../components/useDocumentTitle';
 import { Review } from '../components/Lesson/Review';
 import { mainRoadmapsData } from '../components/MainRoadmaps/mainRoadmapsData';
 import { courseLessons, courses, lessons } from '../lessons';
@@ -32,7 +31,6 @@ const method = [
 const order = mainRoadmapsData.map((roadmap) => roadmap.id as string);
 
 export default function LessonsPage() {
-  useDocumentTitle('Aulas · Trilha Info');
   const store = useLessonStore();
   const sorted = [...courses].sort((a, b) => order.indexOf(a.id) - order.indexOf(b.id));
 

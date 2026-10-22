@@ -1,7 +1,6 @@
 import { PiArrowRight, PiCheckBold, PiClock } from 'react-icons/pi';
 import { Link, useParams } from 'react-router-dom';
 import MainLayout from '../components/layouts/MainLayout';
-import useDocumentTitle from '../components/useDocumentTitle';
 import { Review } from '../components/Lesson/Review';
 import { mainRoadmapsData } from '../components/MainRoadmaps/mainRoadmapsData';
 import { courseLessons, findCourse, findLesson, lessonUrl } from '../lessons';
@@ -12,9 +11,6 @@ import '../components/Lesson/lesson.css';
 export default function LessonCoursePage() {
   const { trilha } = useParams();
   const course = findCourse(trilha);
-  useDocumentTitle(
-    course ? `Aulas de ${course.title} · Trilha Info` : 'Curso não encontrado · Trilha Info',
-  );
   const store = useLessonStore();
 
   if (!course) {

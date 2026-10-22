@@ -143,18 +143,30 @@ As principais rotas são `/`, `/roadmap/:name`, `/aulas`, `/aulas/:trilha`, `/au
 
 O conteúdo editorial é mantido em `src/roadmaps/`. O build gera os formatos abaixo a partir dessa fonte; eles também estão disponíveis durante `yarn dev`:
 
-| Caminho público                         | Conteúdo                                                  |
-| --------------------------------------- | --------------------------------------------------------- |
-| `/data/index.json`                      | Índice dos catálogos.                                     |
-| `/data/<trilha>.json`                   | Catálogo estruturado, com IDs e dependências.             |
-| `/data/<trilha>.md`                     | Conteúdo em Markdown com práticas, prompts e referências. |
-| `/read/<trilha>/`                       | Leitura completa da trilha sem JavaScript.                |
-| `/schemas/roadmap.v1.schema.json`       | Contrato do catálogo.                                     |
-| `/schemas/study-context.v1.schema.json` | Contrato do contexto de estudo exportado.                 |
-| `/schemas/study-plan.v1.schema.json`    | Contrato dos planos que podem ser importados.             |
-| `/llms.txt`, `/sitemap.xml`             | Descoberta por agentes e mecanismos de busca.             |
+| Caminho público                            | Conteúdo                                                  |
+| ------------------------------------------ | --------------------------------------------------------- |
+| `/data/index.json`                         | Índice dos catálogos.                                     |
+| `/data/<trilha>.json`                      | Catálogo estruturado, com IDs e dependências.             |
+| `/data/<trilha>.md`                        | Conteúdo em Markdown com práticas, prompts e referências. |
+| `/read/<trilha>/`                          | Leitura completa da trilha sem JavaScript.                |
+| `/schemas/roadmap.v1.schema.json`          | Contrato do catálogo.                                     |
+| `/schemas/study-context.v1.schema.json`    | Contrato do contexto de estudo exportado.                 |
+| `/schemas/study-plan.v1.schema.json`       | Contrato dos planos que podem ser importados.             |
+| `/llms.txt`, `/robots.txt`, `/sitemap.xml` | Descoberta por agentes e mecanismos de busca.             |
 
-Na hospedagem, sirva arquivos existentes antes do fallback da SPA e mantenha os handlers de `/api/` quando usar sugestões. `yarn preview` serve o build estático; o plugin dos endpoints locais roda apenas em desenvolvimento.
+### SEO, respostas e descoberta por IA
+
+O build gera HTML legível sem JavaScript para a página inicial, trilhas, guias, cursos de aulas, aulas e blog. As seções, exemplos e referências vêm das mesmas fontes editoriais usadas pelo aplicativo. `src/seo/` mantém títulos, descrições, URLs canônicas, prévias sociais e JSON-LD de organização, site, navegação e conteúdo educativo. O FAQ visível da página inicial e seus dados estruturados compartilham as mesmas perguntas e respostas.
+
+O sitemap lista apenas páginas públicas canônicas, incluindo o blog. As variantes `/hroadmap/`, os parâmetros de filtros e de contexto das aulas e as versões `/read/` apontam para a página principal. Datas de revisão vêm dos metadados editoriais, sem usar a data do build como atualização de conteúdo.
+
+Na Vercel, `vercel.json` mantém os arquivos estáticos e os handlers de `/api/`, limita os rewrites às telas pessoais e aos cursos externos antigos e deixa URLs desconhecidas responderem com HTTP 404 usando `404.html`. As telas pessoais recebem uma shell com `noindex`; elas continuam acessíveis ao crawler para que ele possa ler essa instrução. O `robots.txt` permite o conteúdo público e os assets, bloqueia `/api/` e indica o sitemap. Isso não substitui autenticação nas APIs e nos dados pessoais.
+
+Ao publicar em outra hospedagem, preserve esse comportamento: arquivos existentes primeiro, fallback com `noindex` somente para as rotas pessoais conhecidas e HTTP 404 para o restante. `yarn preview` serve os arquivos do build, mas seu fallback de desenvolvimento não reproduz as regras da Vercel.
+
+Depois do deploy, envie `https://trilha.info/sitemap.xml` ao Google Search Console e ao Bing Webmaster Tools. Inspecione a home, um guia, uma aula e uma URL inexistente; confira status HTTP, HTML inicial, canonical e dados estruturados. Acompanhe indexação, consultas e cliques antes de avaliar resultados. O `llms.txt` é um índice auxiliar; não garante inclusão ou citações em respostas de IA.
+
+Referências: [SEO para recursos de IA do Google](https://developers.google.com/search/docs/appearance/ai-features), [SEO para JavaScript](https://developers.google.com/search/docs/crawling-indexing/javascript/javascript-seo-basics) e [configuração de rotas da Vercel](https://vercel.com/docs/project-configuration/vercel-json).
 
 ## Contribuir
 

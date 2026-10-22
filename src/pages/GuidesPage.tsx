@@ -1,13 +1,11 @@
 import { PiMagnifyingGlass } from 'react-icons/pi';
 import { useSearchParams } from 'react-router-dom';
 import MainLayout from '../components/layouts/MainLayout';
-import useDocumentTitle from '../components/useDocumentTitle';
 import { categoryIcons, GuideCard } from '../components/Guide/GuideCard';
 import { guideCategories, GuideCategoryId, guideMatches, guides } from '../guides';
 import '../components/Guide/guide.css';
 
 export default function GuidesPage() {
-  useDocumentTitle('Guias rápidos · Trilha Info');
   const [params, setParams] = useSearchParams();
   const query = params.get('busca') || '';
   const requested = params.get('tema');

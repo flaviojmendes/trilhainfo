@@ -1,15 +1,11 @@
 import { Link, useParams } from 'react-router-dom';
 import MainLayout from '../components/layouts/MainLayout';
-import useDocumentTitle from '../components/useDocumentTitle';
 import { GuideView } from '../components/Guide/GuideView';
 import { findGuide } from '../guides';
 
 export default function GuidePage() {
   const { guide: id } = useParams();
   const guide = findGuide(id);
-  useDocumentTitle(
-    guide ? `${guide.title} · Guias · Trilha Info` : 'Guia não encontrado · Trilha Info',
-  );
 
   return (
     <MainLayout>
